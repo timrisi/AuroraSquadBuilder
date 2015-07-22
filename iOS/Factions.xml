@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Factions Version="1.0">
+	<Faction id="rebel">Rebel</Faction>
+	<Faction id="imperial">Imperial</Faction>
+	<Faction id="scum">Scum &amp; Villainy</Faction>
+</Factions>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{A6E42A64-E9D2-409E-9024-2414EBAEE7BA}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SquadBuilder</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)SquadBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Pilot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Squadron.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SquadronViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\SquadronView.xaml.cs">
+      <DependentUpon>SquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\PilotView.xaml.cs">
+      <DependentUpon>PilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotsListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\PilotsListView.xaml.cs">
+      <DependentUpon>PilotsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateSquadronViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CreateSquadronView.xaml.cs">
+      <DependentUpon>CreateSquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ISaveAndLoad.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ship.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PilotGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Upgrade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UpgradesListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\UpgradesListView.xaml.cs">
+      <DependentUpon>UpgradesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\EditSquadronView.xaml.cs">
+      <DependentUpon>EditSquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditSquadronViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateSquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\UpgradesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditSquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

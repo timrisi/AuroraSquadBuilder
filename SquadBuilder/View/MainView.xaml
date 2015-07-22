@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.MainView" 
+				Title="{Binding PageName}">
+	<mvvm:BaseView.ToolbarItems>
+		<ToolbarItem Text="{Binding AddSquadronText}" Command="{Binding AddSquadron}" />
+	</mvvm:BaseView.ToolbarItems>
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+			<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+					  ItemsSource="{Binding Squadrons}"  
+					  SelectedItem="{Binding SelectedSquadron, Mode=TwoWay}">
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<TextCell Text="{Binding Name}" Detail="{Binding Faction}">
+							<TextCell.ContextActions>
+								<MenuItem Command="{Binding EditDetails}"
+										  Text="Edit" />
+								<MenuItem Command="{Binding CopySquadron}"
+										  Text="Copy" />
+								<MenuItem Command="{Binding DeleteSquadron}"
+					               		  Text="Delete" 
+					               		  IsDestructive="True" />
+					        </TextCell.ContextActions>
+						</TextCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

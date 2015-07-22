@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Ships Version="1.0">
+	<Ship id="starviper">
+		<Name>StarViper</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+			<Action>Boost</Action>
+		</Actions>
+	</Ship>
+	<Ship id="hwk290">
+		<Name>HWK-290</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="ywing">
+		<Name>Y-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="z95">
+		<Name>Z-95 Headhunter</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="scyk">
+		<Name>M3-A "Scyk" Interceptor</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Evade</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="kihraxz">
+		<Name>Kihraxz</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="firespray">
+		<Name>Firespray-31</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Evade</Action>
+		</Actions>
+	</Ship>
+	<Ship id="aggressor">
+		<Name>Aggressor</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Evade</Action>
+			<Action>Boost</Action>
+		</Actions>
+	</Ship>
+	<Ship id="yv666">
+		<Name>YV-666</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="awing">
+		<Name>A-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Boost</Action>
+			<Action>Evade</Action>
+		</Actions>
+	</Ship>
+	<Ship id="bwing">
+		<Name>B-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="ewing">
+		<Name>E-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+			<Action>Evade</Action>
+		</Actions>
+	</Ship>
+	<Ship id="kwing">
+		<Name>K-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="xwing">
+		<Name>X-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="yt1300">
+		<Name>YT-1300</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="yt2400">
+		<Name>YT-2400</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="gr75">
+		<Name>GR-75 Medium Transport</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Recover</Action>
+			<Action>Reinforce</Action>
+			<Action>Jam</Action>
+			<Action>Coordinate</Action>
+		</Actions>
+	</Ship>
+	<Ship id="cr90f">
+		<Name>CR90 Corvette (Fore)</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Target Lock</Action>
+			<Action>Coordinate</Action>
+		</Actions>
+	</Ship>
+	<Ship id="cr90a">
+		<Name>CR90 Corvette (Aft)</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Recover</Action>
+			<Action>Reinforce</Action>
+		</Actions>
+	</Ship>
+	<Ship id="advanced">
+		<Name>TIE Advanced</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Evade</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="bomber">
+		<Name>TIE Bomber</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="defender">
+		<Name>TIE Defender</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="fighter">
+		<Name>TIE Fighter</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Evade</Action>
+			<Action>Barrel Roll</Action>
+		</Actions>
+	</Ship>
+	<Ship id="interceptor">
+		<Name>TIE Interceptor</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Evade</Action>
+			<Action>Barrel Roll</Action>
+			<Action>Boost</Action>
+		</Actions>
+	</Ship>
+	<Ship id="phantom">
+		<Name>TIE Phantom</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Evade</Action>
+			<Action>Barrel Roll</Action>
+			<Action>Cloak</Action>
+		</Actions>
+	</Ship>
+	<Ship id="punisher">
+		<Name>TIE Punisher</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Boost</Action>
+		</Actions>
+	</Ship>
+	<Ship id="lambda">
+		<Name>Lambda-Class Shuttle</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="decimator">
+		<Name>VT-49 Decimator</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+	</Ship>
+	<Ship id="raiderf">
+		<Name>Raider-class Corvette (Fore)</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Recover</Action>
+			<Action>Reinforce</Action>
+		</Actions>
+	</Ship>
+	<Ship id="raidera">
+		<Name>Raider-class Corvette (Aft)</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Target Lock</Action>
+			<Action>Coordinate</Action>
+		</Actions>
+	</Ship>
+</Ships>

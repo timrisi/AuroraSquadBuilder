@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.SquadronView" 
+				Title="{Binding Squadron.Name}">
+	<mvvm:BaseView.ToolbarItems>
+		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" />
+	</mvvm:BaseView.ToolbarItems>
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+	    	<Label HorizontalOptions="FillAndExpand" 
+	    		   XAlign="Center" 
+	    		   Text="{Binding PointsDescription}" />
+			<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+					  ItemsSource="{Binding Pilots}" 
+					  HasUnevenRows="true" 
+					  SelectedItem="{Binding SelectedPilot, Mode=TwoWay}">
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.ContextActions>
+								<MenuItem Command="{Binding CopyPilot}"
+										  Text="Copy" />
+								<MenuItem Command="{Binding DeletePilot}"
+					               		  Text="Delete" 
+					               		  IsDestructive="True" />
+					        </ViewCell.ContextActions>
+							<ViewCell.View>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" 
+												 Spacing="15">
+										<Label Text="{Binding PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
+										<Label Text="{Binding Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+										<Label Text="{Binding Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
+										<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
+										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
+									</StackLayout>
+									<Label Text="{Binding Ability}" FontSize="Small" TextColor="Navy" />
+									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

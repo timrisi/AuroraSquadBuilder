@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="SquadBuilder.PilotView" 
+			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+			 Title = "{Binding Pilot.Name}">
+	<mvvm:BaseView.Content>
+		<StackLayout VerticalOptions="FillAndExpand"
+					 HorizontalOptions="FillAndExpand"
+					 Padding="15,10,15,10"
+					 Spacing="15">
+			<Label Text="{Binding Pilot.Cost, StringFormat='Cost: {0}'}" />
+			<StackLayout Orientation="Horizontal" 
+						 Spacing="15">
+				<Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
+				<Label Text="{Binding Pilot.Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+				<Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
+				<Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
+				<Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
+			</StackLayout>
+			<Label Text="{Binding Pilot.Ship.Name}" FontAttributes="Italic" />
+			<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
+			<StackLayout Orientation="Horizontal" Spacing="10">
+				<Label Text="Actions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+				<Label Text="{Binding Pilot.Ship.ActionsString}" />
+			</StackLayout>
+			<Label Text="{Binding Pilot.Ability}" />
+			<ListView ItemsSource="{Binding Pilot.Upgrades}"
+					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}"> 
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding .}" />
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>
