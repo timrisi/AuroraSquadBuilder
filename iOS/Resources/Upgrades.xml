@@ -462,6 +462,13 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>scum</Faction>
 			<Limited>true</Limited>
 		</Upgrade>
+		<Upgrade id="bossk">
+			<Name>Bossk</Name>
+			<Cost>2</Cost>
+			<Text>After you perform an attack that does not hit, if you are not stressed, you must receive 1 stress token.  Then assign 1 focus token to your ship and acquire a target lock on the defender.</Text>
+			<Faction>scum</Faction>
+			<Unique>true</Unique>
+		</Upgrade>
 	</Category>
 	<Category type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -588,6 +595,12 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Calculation</Name>
 			<Cost>1</Cost>
 			<Text>At the start of the Combat phase, you may spend a focus token to choose a friendly ship at Range 1 with a higher pilot skill than you.  Increase its agility value by 1 until the end of the round.</Text>
+		</Upgrade>
+		<Upgrade id="lightningreflexes">
+			<Name>Lightning Reflexes</Name>
+			<Cost>1</Cost>
+			<Text>After you execute a white or green maneuver on your dial, you may discard this card to rotate your ship 180 degrees.  Then receive 1 stress token after the &quot;Check Pilot Stress&quot; step.</Text>
+			<SmallOnly>true</SmallOnly>
 		</Upgrade>
 	</Category>
 	<Category type="Illicit">
@@ -838,6 +851,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>1</Cost>
 			<Text>Your action bar gains the Evade action icon.</Text>
 			<Ship>yt1300</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="slavei">
 			<Name>Slave I</Name>
@@ -847,18 +861,21 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<AdditionalUpgrades>
 				<Upgrade>Torpedo</Upgrade>
 			</AdditionalUpgrades>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="moldycrow">
 			<Name>Moldy Crow</Name>
 			<Cost>3</Cost>
 			<Text>During the End phase, do not remove unused focus tokens from your ship.</Text>
 			<Ship>hwk290</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="st321">
 			<Name>ST 321</Name>
 			<Cost>3</Cost>
 			<Text>When acquiring a target lock, you may lock onto any enemy ship in the play area.During the End phase, do not remove unused focus tokens from your ship.</Text>
 			<Ship>lambda</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="royalguardtie">
 			<Name>Royal Guard TIE</Name>
@@ -874,36 +891,42 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>5</Cost>
 			<Text></Text>
 			<Ship>gr75</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="dutyfree">
 			<Name>Dutyfree</Name>
 			<Cost>2</Cost>
 			<Text></Text>
 			<Ship>gr75</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="quantomstorm">
 			<Name>Quantum Storm</Name>
 			<Cost>4</Cost>
 			<Text></Text>
 			<Ship>gr75</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="dodonnaspride">
 			<Name>Dodonna's Pride</Name>
 			<Cost>4</Cost>
 			<Text></Text>
 			<Ship>cr90f</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="jainaslight">
 			<Name>Jaina's Light</Name>
 			<Cost>2</Cost>
 			<Text></Text>
 			<Ship>cr90f</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="tantiveiv">
 			<Name>Tantive IV</Name>
 			<Cost>4</Cost>
 			<Text></Text>
 			<Ship>cr90f</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="awingtestpilot">
 			<Name>A-Wing Test Pilot</Name>
@@ -919,18 +942,21 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>5</Cost>
 			<Text>While you have a {cannon} Upgrade card equipped, you cannot perform primary weapon attacks and you may perform {cannon} secondary weapons attacks against ships outside your firing arc.</Text>
 			<Ship>yt2400</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="dauntless">
 			<Name>Dauntless</Name>
 			<Cost>2</Cost>
 			<Text>After you execute a maneuver that causes you to overlap another ship, you may perform one free action. Then receive 1 stress token.</Text>
 			<Ship>decimator</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="virago">
 			<Name>Virago</Name>
 			<Cost>1</Cost>
 			<Text>Your upgrade bar gains the {system} and {illicit} upgrade icons.  You cannot equip this card if your pilot skill value is "3" or lower.</Text>
 			<Ship>starviper</Ship>
+			<Unique>True</Unique>
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
 				<Upgrade>Illicit</Upgrade>
@@ -959,6 +985,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains two additional {bomb} upgrade icons.</Text>
 			<Ship>firespray</Ship>
+			<Unique>True</Unique>
 			<AdditionalUpgrades>
 				<Upgrade>Bomb</Upgrade>
 				<Upgrade>Bomb</Upgrade>
@@ -972,6 +999,13 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
 			</AdditionalUpgrades>
+		</Upgrade>
+		<Upgrade id="houndstooth">
+			<Name>Hound's Tooth</Name>
+			<Cost>6</Cost>
+			<Text>After you are destroyed, before you are removed from the play area, you may deploy the Nashtah Pup Pilot.  It cannot attack this round.</Text>
+			<Ship>yv666</Ship>
+			<Unique>True</Unique>
 		</Upgrade>
 	</Category>
 	<Category type="Torpedo">

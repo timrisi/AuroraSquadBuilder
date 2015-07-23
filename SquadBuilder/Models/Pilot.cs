@@ -135,6 +135,12 @@ namespace SquadBuilder
 			}
 		}
 
+		public Color AbilityColor {
+			get {
+				return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
+			}
+		}
+
 		RelayCommand deletePilot;
 		public RelayCommand DeletePilot {
 			get {

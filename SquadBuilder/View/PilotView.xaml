@@ -24,7 +24,7 @@
 				<Label Text="Actions:" FontAttributes="Bold" MinimumWidthRequest="100" />
 				<Label Text="{Binding Pilot.Ship.ActionsString}" />
 			</StackLayout>
-			<Label Text="{Binding Pilot.Ability}" />
+			<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" />
 			<ListView ItemsSource="{Binding Pilot.Upgrades}"
 					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}"> 
 				<ListView.ItemTemplate>

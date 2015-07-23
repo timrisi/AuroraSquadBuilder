@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System;
 using System.IO;
+using Android.App;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SquadBuilder.Droid.SaveAndLoad))]
 namespace SquadBuilder.Droid {

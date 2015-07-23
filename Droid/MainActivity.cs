@@ -14,7 +14,7 @@ using System.Xml.Linq;
 
 namespace SquadBuilder.Droid
 {
-	[Activity (Label = "SquadBuilder.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Squad Builder", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : XFormsApplicationDroid
 	{
 		SaveAndLoad saveAndLoad;

@@ -50,9 +50,9 @@ namespace SquadBuilder
 
 		ObservableCollection <Upgrade> GetUpgrades (string type)
 		{
-			XElement upgradesXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Upgrades.xml"));
-			XElement factionsXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Factions.xml"));
-			XElement shipsXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Ships.xml"));
+			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
+			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
+			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 
 			var category = upgradesXml.Elements ("Category").FirstOrDefault (c => c.Attribute ("type").Value == upgradeType);
 
@@ -85,7 +85,7 @@ namespace SquadBuilder
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 						select upgr.Value).ToList ())
 				}).OrderBy (u => u.Name).OrderBy (u => u.Cost);
-
+						
 			if (Pilot.Ship.LargeBase)
 				return new ObservableCollection<Upgrade> (upgrades.Where (u => !u.HugeOnly && !u.SmallOnly));
 			else if (Pilot.Ship.Huge)

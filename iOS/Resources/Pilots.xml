@@ -1558,7 +1558,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>16</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1572,7 +1572,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>16</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1586,7 +1586,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>15</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1600,21 +1600,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
-		<Upgrades>
-			<Upgrade>Modification</Upgrade>
-		</Upgrades>
-		<Ability>After executing a green manoeuvre, you may perform a free focus action.</Ability>
-	</Pilot>
-	<Pilot id="nightbeast" faction="imperial" ship="fighter">
-		<Name>Night Beast</Name>
-		<Unique>true</Unique>
-		<PilotSkill>5</PilotSkill>
-		<Attack>2</Attack>
-		<Agility>3</Agility>
-		<Hull>3</Hull>
-		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>15</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1628,7 +1614,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>14</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Modification</Upgrade>
@@ -1642,7 +1628,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>13</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1655,7 +1641,7 @@
 		<Agility>3</Agility>
 		<Hull>3</Hull>
 		<Shields>0</Shields>
-		<Cost>17</Cost>
+		<Cost>12</Cost>
 		<Upgrades>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2152,7 +2138,7 @@
 		<Agility>2</Agility>
 		<Hull>2</Hull>
 		<Shields>2</Shields>
-		<Cost>27</Cost>
+		<Cost>25</Cost>
 		<Upgrades>
 			<Upgrade>System</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -2206,7 +2192,7 @@
 	<Pilot id="cutlasssquadronpilot" faction="imperial" ship="punisher">
 		<Name>Cutlass Squadron Pilot</Name>
 		<Unique>false</Unique>
-		<PilotSkill>6</PilotSkill>
+		<PilotSkill>2</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>1</Agility>
 		<Hull>6</Hull>

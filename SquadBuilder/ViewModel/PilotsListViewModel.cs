@@ -58,9 +58,9 @@ namespace SquadBuilder
 		{
 			var allPilotGroups = new ObservableCollection <PilotGroup>();
 
-			XElement pilotsXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Pilots.xml"));
-			XElement factionsXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Factions.xml"));
-			XElement shipsXml = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Ships.xml"));
+			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
+			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
+			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 
 			var allPilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 				select new Pilot {

@@ -37,7 +37,7 @@
 										<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
 										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
 									</StackLayout>
-									<Label Text="{Binding Ability}" FontSize="Small" TextColor="Navy" />
+									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
 								</StackLayout>
 							</ViewCell.View>

@@ -16,7 +16,7 @@ namespace SquadBuilder
 	{
 		public CreateSquadronViewModel ()
 		{
-			XElement element = XElement.Load (Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), "Factions.xml"));
+			XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
 			Factions = new ObservableCollection <string> (from faction in element.Elements ()
 			                                              select faction.Value);
 		}
