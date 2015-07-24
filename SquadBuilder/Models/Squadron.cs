@@ -85,6 +85,22 @@ namespace SquadBuilder
 			}
 		}
 
+		public Color FactionColor {
+			get {
+				switch (Faction) {
+				case "Scum & Villainy":
+					return Color.FromHex ("#CC9900");
+				case "Rebel":
+					return Color.Red;
+				case "Imperial":
+					return Color.Green;
+				default:
+					return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
+				}
+
+			}
+		}
+
 		public Squadron Copy ()
 		{
 			return new Squadron {

@@ -70,11 +70,23 @@ namespace SquadBuilder
 					Pilot.UpgradeTypes.RemoveAt (oldIndex);
 					Pilot.UpgradesEquipped.RemoveAt (oldIndex);
 				}
+
+				for (int i = 1; i < oldUpgrade.Slots.Count (); i++) {
+					var extraIndex = Pilot.UpgradesEquipped.IndexOf (oldUpgrade);
+					if (index >= 0)
+						Pilot.UpgradesEquipped [extraIndex] = null;
+				}
 			}
 			if (upgrade != null) {
 				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
 					Pilot.UpgradeTypes.Add (newUpgrade);
 					Pilot.UpgradesEquipped.Add (null);
+				}
+
+				for (int i = 1; i < upgrade.Slots.Count (); i++) {
+					var extraIndex = Pilot.Upgrades.IndexOf (upgrade.Slots [i]);
+					if (index >= 0)
+						Pilot.UpgradesEquipped [extraIndex] = upgrade;
 				}
 			}
 

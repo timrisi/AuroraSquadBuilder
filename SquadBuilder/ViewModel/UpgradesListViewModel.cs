@@ -83,15 +83,32 @@ namespace SquadBuilder
 					LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool) upgrade.Element ("LargeOnly") : false,
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool) upgrade.Element ("HugeOnly") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
-						select upgr.Value).ToList ())
+																			select upgr.Value).ToList ()),
+					Slots = new ObservableCollection<string> ((new List <string> { upgradeType }).Concat ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
+						select upgr.Value).ToList ()))
 				}).OrderBy (u => u.Name).OrderBy (u => u.Cost);
-						
+				
+			ObservableCollection <Upgrade> valid = new ObservableCollection<Upgrade> ();
+			foreach (var upgrade in upgrades) {
+				if (upgrade.Slots.Count () == 1) {
+					valid.Add (upgrade);	
+					continue;
+				}
+
+				foreach (var slot in upgrade.Slots.Distinct ()) {
+					if (Pilot.Upgrades.Count (u => u == slot) < upgrade.Slots.Count (u => u == slot))
+						continue;
+
+					valid.Add (upgrade);
+				}
+			}
+
 			if (Pilot.Ship.LargeBase)
-				return new ObservableCollection<Upgrade> (upgrades.Where (u => !u.HugeOnly && !u.SmallOnly));
+				return new ObservableCollection<Upgrade> (valid.Where (u => !u.HugeOnly && !u.SmallOnly));
 			else if (Pilot.Ship.Huge)
-				return new ObservableCollection<Upgrade> (upgrades.Where (u => !u.SmallOnly && !u.LargeOnly));
+				return new ObservableCollection<Upgrade> (valid.Where (u => !u.SmallOnly && !u.LargeOnly));
 					
-			return new ObservableCollection <Upgrade> (upgrades.Where (u => !u.LargeOnly && !u.HugeOnly));		
+			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
 		}
 
 		RelayCommand noUpgrade;

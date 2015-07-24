@@ -14,11 +14,12 @@
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"
 					  ItemsSource="{Binding Squadrons}"  
-					  SelectedItem="{Binding SelectedSquadron, Mode=TwoWay}">
+					  SelectedItem="{Binding SelectedSquadron, Mode=TwoWay}"
+					  HasUnevenRows="true">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<TextCell Text="{Binding Name}" Detail="{Binding Faction}">
-							<TextCell.ContextActions>
+						<ViewCell>
+							<ViewCell.ContextActions>
 								<MenuItem Command="{Binding EditDetails}"
 										  Text="Edit" />
 								<MenuItem Command="{Binding CopySquadron}"
@@ -26,8 +27,17 @@
 								<MenuItem Command="{Binding DeleteSquadron}"
 					               		  Text="Delete" 
 					               		  IsDestructive="True" />
-					        </TextCell.ContextActions>
-						</TextCell>
+					        </ViewCell.ContextActions>
+							<ViewCell.View>
+								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
+									<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
+										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
+										<Label Text="{Binding Faction}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding FactionColor}" />
+									</StackLayout>
+									<Label Text="{Binding MaxPoints}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

@@ -23,6 +23,7 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 
+		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
 	}
 }

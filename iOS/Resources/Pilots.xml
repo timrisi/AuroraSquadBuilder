@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.01">
+<Pilots Version="1.03">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -120,9 +120,9 @@
 		<Ability>At the end of the Activation phase, choose 1 enemy ship at Range 1-2. Until the end of the Combat phase, treat that ship's pilot skill value as "0".</Ability>
 	</Pilot>
 	<Pilot id="spicerunner" faction="scum" ship="hwk290">
-		<Name>Spice Runer</Name>
+		<Name>Spice Runner</Name>
 		<Unique>false</Unique>
-		<PilotSkill>7</PilotSkill>
+		<PilotSkill>1</PilotSkill>
 		<Attack>1</Attack>
 		<Agility>2</Agility>
 		<Hull>4</Hull>

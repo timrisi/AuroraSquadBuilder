@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.01">
+<Upgrades Version="1.03">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -106,7 +106,7 @@ Detonation: Deal 1 faceup Damage card to each ship at Range 1 of the token. Then
 
 When a ship's base or maneuver template overlaps a cluster mine token, that token detonates.
 
-Detonation:</Text>
+Detonation:  The ship that moved through or overlapped the token rolls 2 attack dice and suffers all damage {hit} rolled.</Text>
 		</Upgrade>
 		<Upgrade id="connernet">
 			<Name>Conner Net</Name>
@@ -468,6 +468,16 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you perform an attack that does not hit, if you are not stressed, you must receive 1 stress token.  Then assign 1 focus token to your ship and acquire a target lock on the defender.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
+		</Upgrade>
+		<Upgrade id="emperorpalpatine">
+			<Name>Emperor Palpatine</Name>
+			<Cost>8</Cost>
+			<Text>Once per round, you may change a friendly ship's die result to any other die result.  That die result cannot be modified again.</Text>
+			<Faction>imperial</Faction>
+			<Unique>true</Unique>
+			<ExtraSlots>
+				<Upgrade>Crew</Upgrade>
+			</ExtraSlots>
 		</Upgrade>
 	</Category>
 	<Category type="Elite Pilot Talent">

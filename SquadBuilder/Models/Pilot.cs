@@ -131,7 +131,14 @@ namespace SquadBuilder
 
 		public int Cost {
 			get {
-				return BaseCost + UpgradesEquipped.Sum (u => u?.Cost ?? 0);
+				float cost = BaseCost;
+
+				foreach (var upgrade in UpgradesEquipped) {
+					if (upgrade != null)
+						cost += upgrade.Cost / upgrade.Slots.Count;
+				}
+
+				return (int)cost;
 			}
 		}
 
