@@ -47,6 +47,7 @@ namespace SquadBuilder
 				if (value != null) {
 					Navigation.PushAsync <PilotViewModel> ((vm,p) => {
 						vm.Pilot = selectedPilot;
+						SelectedPilot = null;
 					});
 				}
 			}
@@ -87,7 +88,6 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("Pilots");
 			NotifyPropertyChanged ("SelectedPilot");
 			NotifyPropertyChanged ("PointsDescription");
-			selectedPilot = null;
 		}
 
 		public override void OnViewDisappearing ()

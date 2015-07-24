@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.0">
+<Pilots Version="1.01">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -378,6 +378,7 @@
 		<Shields>1</Shields>
 		<Cost>23</Cost>
 		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
 			<Upgrade>Modification</Upgrade>
@@ -2092,7 +2093,7 @@
 		<Cost>32</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2109,7 +2110,7 @@
 		<Cost>30</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2125,7 +2126,7 @@
 		<Shields>2</Shields>
 		<Cost>27</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2140,7 +2141,7 @@
 		<Shields>2</Shields>
 		<Cost>25</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2155,7 +2156,7 @@
 		<Shields>3</Shields>
 		<Cost>27</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Missile</Upgrade>
@@ -2177,7 +2178,7 @@
 		<Shields>3</Shields>
 		<Cost>26</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Missile</Upgrade>
@@ -2199,7 +2200,7 @@
 		<Shields>3</Shields>
 		<Cost>21</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Missile</Upgrade>
@@ -2297,7 +2298,7 @@
 		<Shields>5</Shields>
 		<Cost>27</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -2316,7 +2317,7 @@
 		<Shields>5</Shields>
 		<Cost>26</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -2335,7 +2336,7 @@
 		<Shields>5</Shields>
 		<Cost>24</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -2354,7 +2355,7 @@
 		<Shields>5</Shields>
 		<Cost>21</Cost>
 		<Upgrades>
-			<Upgrade>System</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
