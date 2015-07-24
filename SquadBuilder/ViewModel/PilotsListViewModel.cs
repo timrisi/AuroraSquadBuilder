@@ -117,7 +117,7 @@ namespace SquadBuilder
 		{
 			PilotGroups.Clear ();
 
-			var filteredPilotGroups = allPilots.Where (p => p.Faction == Faction).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => Faction != "Mixed" ? p.Faction == Faction : p != null).ToList ();
 
 			foreach (var pilotGroup in filteredPilotGroups)
 				PilotGroups.Add (pilotGroup);
@@ -125,7 +125,7 @@ namespace SquadBuilder
 
 		public void SearchPilots (string text)
 		{
-			var filteredPilotGroups = allPilots.Where (p => p.Faction == Faction).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => Faction != "Mixed" ? p.Faction == Faction : p != null).ToList ();
 			var searchPilots = new ObservableCollection <PilotGroup> ();
 
 			foreach (var grp in filteredPilotGroups) {
