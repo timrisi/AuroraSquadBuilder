@@ -11,9 +11,12 @@ namespace SquadBuilder
 {
 	public class Pilot  : ObservableObject
 	{
+		public Pilot ()
+		{
+		}
 
 		public string Name { get; set; }
-		public string Faction { get; set; }
+		public Faction Faction { get; set; }
 		public Ship Ship { get; set; }
 		public bool Unique { get; set; }
 		public int BasePilotSkill { get; set; }
@@ -23,6 +26,7 @@ namespace SquadBuilder
 		public int BaseShields { get; set; }
 		public int BaseCost { get; set; }
 		public string Ability { get; set; }
+		public bool IsCustom { get; set; }
 
 		ObservableCollection <string> upgradeTypes;
 		public ObservableCollection <string> UpgradeTypes { 

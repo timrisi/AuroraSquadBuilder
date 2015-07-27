@@ -7,6 +7,7 @@ using UIKit;
 using XLabs.Ioc;
 using System.IO;
 using System.Xml.Linq;
+using Xamarin;
 
 namespace SquadBuilder.iOS
 {
@@ -17,6 +18,8 @@ namespace SquadBuilder.iOS
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
+			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
+
 			saveAndLoad = new SaveAndLoad ();
 			global::Xamarin.Forms.Forms.Init ();
 
@@ -27,6 +30,11 @@ namespace SquadBuilder.iOS
 			var version = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < version)
 				saveAndLoad.SaveText ("Factions.xml", factionsXml);
+
+			var customFactionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions_Custom", "xml")).ReadToEnd ();
+			version = (float)XElement.Load (new StringReader (customFactionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Factions_Custom.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions_Custom.xml")))?.Attribute ("Version") < version)
+				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 
 			var shipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships", "xml")).ReadToEnd ();
 			version = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");

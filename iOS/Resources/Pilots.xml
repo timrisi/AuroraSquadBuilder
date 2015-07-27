@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.05">
+<Pilots Version="1.06">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -585,6 +585,27 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you perform an attack that hits, before dealing damage, you may cancel 1 of your {crit} results to add 2 {hit} results.</Ability>
+	</Pilot>
+	<Pilot id="moraloeval" faction="scum" ship="yv666">
+		<Name>Moralo Eval</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>6</Shields>
+		<Cost>34</Cost>
+		<Upgrades>
+			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>You can perform {cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
 	</Pilot>
 	<Pilot id="latts" faction="scum" ship="yv666">
 		<Name>Latts Razzi</Name>
@@ -1980,7 +2001,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability>When you reveal a {straight} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
+		<Ability>When you reveal a {k-turn} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
 	</Pilot>
 	<Pilot id="kirkanos" faction="imperial" ship="interceptor">
 		<Name>Kir Kanos</Name>

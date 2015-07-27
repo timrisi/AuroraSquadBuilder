@@ -32,7 +32,7 @@
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
 									<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
 										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
-										<Label Text="{Binding Faction}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding FactionColor}" />
+										<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
 									</StackLayout>
 									<Label Text="{Binding MaxPoints}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
 								</StackLayout>

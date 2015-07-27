@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Factions Version="1.04">
-	<Faction id="rebel">Rebel</Faction>
-	<Faction id="imperial">Imperial</Faction>
-	<Faction id="scum">Scum &amp; Villainy</Faction>
-	<Faction id="mixed">Mixed</Faction>
+<Factions Version="1.07">
+	<Faction id="rebel">Rebel<Color r="255" g="0" b="0" />
+	</Faction>
+	<Faction id="imperial">Imperial<Color r="0" g="128" b="0" />
+	</Faction>
+	<Faction id="scum">Scum &amp; Villainy<Color r="204" g="153" b="0" />
+	</Faction>
+	<Faction id="mixed">Mixed<Color r="0" g="0" b="128" />
+	</Faction>
 </Factions>

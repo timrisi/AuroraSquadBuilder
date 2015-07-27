@@ -60,7 +60,7 @@ namespace SquadBuilder
 				return new ObservableCollection <Upgrade> ();
 			
 			var upgrades = (from upgrade in category.Elements ()
-							where (upgrade.Element ("Faction")?.Value == null || factionsXml.Descendants ().FirstOrDefault (e => (string)e.Attribute ("id") == (string)upgrade.Element ("Faction"))?.Value == Pilot.Faction)
+							where (upgrade.Element ("Faction")?.Value == null || factionsXml.Descendants ().FirstOrDefault (e => (string)e.Attribute ("id") == (string)upgrade.Element ("Faction"))?.Value == Pilot.Faction.Name)
 							where (upgrade.Element ("Ship")?.Value == null || shipsXml.Descendants ().FirstOrDefault (e => (string)e.Attribute("id") == upgrade.Element ("Ship")?.Value)?.Element ("Name")?.Value == Pilot.Ship.Name)
 							where (upgrade.Element ("Name")?.Value != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
 							where (upgrade.Element ("Name")?.Value != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
@@ -68,7 +68,16 @@ namespace SquadBuilder
 					Name = upgrade.Element ("Name")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
-					Faction = factionsXml.Descendants ().FirstOrDefault (e => (string)e.Attribute ("id") == (string)upgrade.Element ("Faction"))?.Value,
+					Faction =  (from faction in factionsXml.Elements ()
+								select new Faction {
+									Id = faction.Attribute ("id").Value,
+									Name = faction.Value,
+									Color = Color.FromRgb (
+										(int)faction.Element ("Color").Attribute ("r"),
+										(int)faction.Element ("Color").Attribute ("g"),
+										(int)faction.Element ("Color").Attribute ("b")
+									)
+						}).FirstOrDefault (f => f.Id == upgrade.Attribute ("faction")?.Value),
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int) upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int) upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int) upgrade.Element ("Agility") : 0,

@@ -5,6 +5,10 @@ namespace SquadBuilder
 {
 	public class Ship
 	{
+		public Ship ()
+		{
+		}
+
 		public string Name { get; set; }
 		public bool LargeBase { get; set; }
 		public bool Huge { get; set; }

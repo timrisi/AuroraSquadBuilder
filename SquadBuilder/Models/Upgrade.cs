@@ -5,9 +5,13 @@ namespace SquadBuilder
 {
 	public class Upgrade
 	{
+		public Upgrade ()
+		{
+		}
+
 		public string Name { get; set; }
 		public int Cost { get; set; }
-		public string Faction { get; set; }
+		public Faction Faction { get; set; }
 		public bool SmallOnly { get; set; }
 		public bool LargeOnly { get; set; }
 		public bool HugeOnly { get; set; }

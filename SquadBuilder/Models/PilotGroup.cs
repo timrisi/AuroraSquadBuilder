@@ -7,8 +7,12 @@ namespace SquadBuilder
 {
 	public class PilotGroup : ObservableCollection <Pilot>
 	{
+		public PilotGroup ()
+		{
+		}
+
 		public Ship Ship { get; set; }
-		public string Faction { get; set; }
+		public Faction Faction { get; set; }
 
 		public PilotGroup (Ship ship)
 		{

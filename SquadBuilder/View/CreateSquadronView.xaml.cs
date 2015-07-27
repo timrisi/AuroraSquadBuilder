@@ -22,7 +22,7 @@ namespace SquadBuilder
 				factionPicker.Items.Clear();
 				foreach (var faction in vm.Factions)
 				{
-					factionPicker.Items.Add(faction);
+					factionPicker.Items.Add(faction.Name);
 				}
 				factionPicker.SelectedIndex = 0;
 			}

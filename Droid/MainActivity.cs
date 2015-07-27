@@ -11,6 +11,7 @@ using XLabs.Forms;
 using XLabs.Ioc;
 using System.IO;
 using System.Xml.Linq;
+using Xamarin;
 
 namespace SquadBuilder.Droid
 {
@@ -22,6 +23,9 @@ namespace SquadBuilder.Droid
 		protected override async void OnCreate (Bundle bundle)
 		{
 			base.OnCreate(bundle);
+
+			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6", BaseContext);
+
 			saveAndLoad = new SaveAndLoad ();
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);

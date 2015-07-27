@@ -16,7 +16,6 @@ namespace SquadBuilder
 		public Squadron ()
 		{
 			Name = "";
-			Faction = "";
 			Pilots = new ObservableCollection <Pilot> ();
 			Pilots.CollectionChanged += (sender, e) => NotifyPropertyChanged ("Points");
 		}
@@ -27,8 +26,8 @@ namespace SquadBuilder
 			set { SetProperty (ref name, value); }
 		}
 
-		string faction;
-		public string Faction { 
+		Faction faction;
+		public Faction Faction { 
 			get { return faction; }
 			set { SetProperty (ref faction, value); }
 		}
@@ -85,21 +84,21 @@ namespace SquadBuilder
 			}
 		}
 
-		public Color FactionColor {
-			get {
-				switch (Faction) {
-				case "Scum & Villainy":
-					return Color.FromHex ("#CC9900");
-				case "Rebel":
-					return Color.Red;
-				case "Imperial":
-					return Color.Green;
-				default:
-					return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
-				}
-
-			}
-		}
+//		public Color FactionColor {
+//			get {
+//				switch (Faction) {
+//				case "Scum & Villainy":
+//					return Color.FromHex ("#CC9900");
+//				case "Rebel":
+//					return Color.Red;
+//				case "Imperial":
+//					return Color.Green;
+//				default:
+//					return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
+//				}
+//
+//			}
+//		}
 
 		public Squadron Copy ()
 		{

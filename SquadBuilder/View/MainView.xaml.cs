@@ -11,6 +11,7 @@ namespace SquadBuilder
 		public MainView ()
 		{
 			InitializeComponent ();
+			BindingContext = new MainViewModel ();
 		}
 	}
 }

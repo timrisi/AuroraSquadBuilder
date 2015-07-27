@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.MenuView"
+				Title="Menu" >
+	<mvvm:BaseView.Content>
+		<StackLayout Orientation="Vertical"
+					 Padding="5,25" 
+					 BackgroundColor="Silver"
+					 Spacing="5" >
+			<StackLayout Orientation="Horizontal" Spacing="5">
+				<Label Text="Allow Custom" YAlign="Center" FontSize="Small" />
+				<Switch IsToggled="{Binding IsToggled, Mode=TwoWay}" />
+			</StackLayout>
+			<Button Text="Squadrons" HorizontalOptions="StartAndExpand" Command="{Binding ShowSquadrons}" />
+			<Button Text="Custom Factions" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomFactions}" />
+			<Button Text="Custom Ships" HorizontalOptions="StartAndExpand" />
+			<Button Text="Custom Pilots" HorizontalOptions="StartAndExpand" />
+			<Button Text="Custom Upgrades" HorizontalOptions="StartAndExpand" />
+			<Button Text="Feedback" HorizontalOptions="StartAndExpand" />
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

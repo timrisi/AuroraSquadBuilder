@@ -46,6 +46,10 @@ namespace SquadBuilder
 					Squadrons.Add (squadron.Copy ());
 				}
 			);
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Create Faction", vm => {
+				Navigation.PushAsync <CreateFactionViewModel> ();
+			});
 		}
 
 		public string PageName { get { return "Squadrons"; } }

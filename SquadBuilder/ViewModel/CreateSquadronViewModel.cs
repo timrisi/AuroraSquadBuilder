@@ -17,8 +17,33 @@ namespace SquadBuilder
 		public CreateSquadronViewModel ()
 		{
 			XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
-			Factions = new ObservableCollection <string> (from faction in element.Elements ()
-			                                              select faction.Value);
+			var factions = (from faction in element.Elements ()
+				select new Faction {
+					Id = faction.Attribute ("id").Value,
+					Name = faction.Value,
+					Color = Color.FromRgb (
+						(int)faction.Element ("Color").Attribute ("r"),
+						(int)faction.Element ("Color").Attribute ("g"),
+						(int)faction.Element ("Color").Attribute ("b")
+					)
+				}).ToList ();
+
+			if ((bool)Application.Current.Properties ["AllowCustom"]) {
+				XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
+				var customFactions = (from faction in customFactionsXml.Elements ()
+					select new Faction {
+						Id = faction.Attribute ("id").Value,
+						Name = faction.Value,
+						Color = Color.FromRgb (
+							(int)faction.Element ("Color").Attribute ("r"),
+							(int)faction.Element ("Color").Attribute ("g"),
+							(int)faction.Element ("Color").Attribute ("b")
+						)
+					});
+				factions.AddRange (customFactions);
+			}
+
+			Factions = new ObservableCollection<Faction> (factions);
 		}
 
 		public string PlaceholderText { get { return "Enter Squadron Name"; } }
@@ -29,8 +54,8 @@ namespace SquadBuilder
 			set { SetProperty (ref squadName, value); }
 		}
 
-		ObservableCollection <string> factions = new ObservableCollection<string> ();
-		public ObservableCollection <string> Factions {
+		ObservableCollection <Faction> factions = new ObservableCollection<Faction> ();
+		public ObservableCollection <Faction> Factions {
 			get {
 				return factions;
 			}

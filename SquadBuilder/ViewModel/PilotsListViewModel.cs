@@ -23,12 +23,12 @@ namespace SquadBuilder
 
 		public string PageName { get { return "Pilots"; } }
 
-		string faction = "";
-		public string Faction {
+		Faction faction;
+		public Faction Faction {
 			get { return faction; }
 			set { 
 				SetProperty (ref faction, value); 
-				if (!string.IsNullOrEmpty (value))
+				if (value != null)
 					filterPilots ();
 			}
 		}
@@ -65,7 +65,16 @@ namespace SquadBuilder
 			var allPilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 				select new Pilot {
 					Name = pilot.Element ("Name").Value,
-					Faction = factionsXml.Descendants ().FirstOrDefault (e => (string)e.Attribute ("id") == (string)pilot.Attribute ("faction"))?.Value,
+					Faction = (from faction in factionsXml.Elements ()
+						select new Faction {
+							Id = faction.Attribute ("id").Value,
+							Name = faction.Value,
+							Color = Color.FromRgb (
+								(int)faction.Element ("Color").Attribute ("r"),
+								(int)faction.Element ("Color").Attribute ("g"),
+								(int)faction.Element ("Color").Attribute ("b")
+							)
+						}).FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 					Ship = (from ship in shipsXml.Elements ()
 						where ship.Attribute ("id").Value == pilot.Attribute ("ship")?.Value
 						select new Ship {
@@ -84,13 +93,14 @@ namespace SquadBuilder
 					Ability = pilot.Element ("Ability")?.Value,
 					UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 					UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
+					IsCustom = false
 				});
 			
 			foreach (var pilot in allPilots) {
 				while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 					pilot.UpgradesEquipped.Add (null);
 				
-				var pilotGroup = allPilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction == pilot.Faction);
+				var pilotGroup = allPilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction.Id == pilot.Faction.Id);
 
 				if (pilotGroup == null) {
 					pilotGroup = new PilotGroup (pilot.Ship) { Faction = pilot.Faction };
@@ -117,7 +127,7 @@ namespace SquadBuilder
 		{
 			PilotGroups.Clear ();
 
-			var filteredPilotGroups = allPilots.Where (p => Faction != "Mixed" ? p.Faction == Faction : p != null).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => Faction.Name != "Mixed" ? p.Faction.Name == Faction.Name : p != null).ToList ();
 
 			foreach (var pilotGroup in filteredPilotGroups)
 				PilotGroups.Add (pilotGroup);
@@ -125,7 +135,7 @@ namespace SquadBuilder
 
 		public void SearchPilots (string text)
 		{
-			var filteredPilotGroups = allPilots.Where (p => Faction != "Mixed" ? p.Faction == Faction : p != null).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => Faction.Name != "Mixed" ? p.Faction.Name == Faction.Name : p != null).ToList ();
 			var searchPilots = new ObservableCollection <PilotGroup> ();
 
 			foreach (var grp in filteredPilotGroups) {

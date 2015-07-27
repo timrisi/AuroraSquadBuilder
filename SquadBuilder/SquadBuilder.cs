@@ -10,7 +10,7 @@ namespace SquadBuilder
 		public App ()
 		{
 			RegisterViews();
-			MainPage = new NavigationPage((Page)ViewFactory.CreatePage<MainViewModel, MainView>());
+			MainPage = new RootPage ();
 		}
 
 		protected override void OnStart ()
@@ -36,6 +36,9 @@ namespace SquadBuilder
 			ViewFactory.Register <PilotsListView, PilotsListViewModel> ();
 			ViewFactory.Register <UpgradesListView, UpgradesListViewModel> ();
 			ViewFactory.Register <EditSquadronView, EditSquadronViewModel> ();
+			ViewFactory.Register <MenuView, MenuViewModel> ();
+			ViewFactory.Register <RootPage, RootPageViewModel> ();
+			ViewFactory.Register <CreateFactionView, CreateFactionViewModel> ();
 		}
 	}
 }
