@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.06">
+<Pilots Version="1.08">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -820,7 +820,7 @@
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability></Ability>You can perform {torpedo} secondary weapon attacks at ships outside your firing arc.
+		<Ability>You can perform {torpedo} secondary weapon attacks at ships outside your firing arc.</Ability>
 	</Pilot>
 	<Pilot id="dagger" faction="rebel" ship="bwing">
 		<Name>Dagger Squadron Pilot</Name>
@@ -1034,6 +1034,26 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1-2 is attacking, it may treat your focus tokens as its own.</Ability>
+	</Pilot>
+	<Pilot id="guardian" faction="rebel" ship="kwing">
+		<Name>Guardian Squadron Pilot</Name>
+		<Unique>false</Unique>
+		<PilotSkill>4</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>5</Hull>
+		<Shields>4</Shields>
+		<Cost>25</Cost>
+		<Upgrades>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
 	</Pilot>
 	<Pilot id="warden" faction="rebel" ship="kwing">
 		<Name>Warden Squadron Pilot</Name>
@@ -2368,7 +2388,7 @@
 		<Ability>At the start of the Combat Phase, you may assign 1 of your blue target lock tokens to a friendly ship at Range 1 if it does not have a blue target lock token.</Ability>
 	</Pilot>
 	<Pilot id="captainyorr" faction="imperial" ship="lambda">
-		<Name>Colonel Jendon</Name>
+		<Name>Captain Yorr</Name>
 		<Unique>true</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>3</Attack>

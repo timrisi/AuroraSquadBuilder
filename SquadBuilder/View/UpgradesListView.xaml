@@ -26,12 +26,13 @@
 										<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
 										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
 									</StackLayout>
-									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
 										<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />
 										<Label Text="Limited" IsVisible="{Binding Limited}" FontAttributes="Italic" />
 										<Label Text="Small Ship Only" IsVisible="{Binding SmallOnly}" FontAttributes="Italic" />
 										<Label Text="Large Ship Only" IsVisible="{Binding LargeOnly}" FontAttributes="Italic" />
 										<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
+										<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
 										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />

@@ -1,5 +1,62 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SquadBuilder.CustomUpgradesView">
-	<ContentPage.Content>
-	</ContentPage.Content>
-</ContentPage>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.CustomUpgradesView" 
+				Title="{Binding PageName}">
+	<mvvm:BaseView.ToolbarItems>
+		<ToolbarItem Text="+" Command="{Binding CreateUpgrade}" />
+	</mvvm:BaseView.ToolbarItems>
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+	    	<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+         			  HasUnevenRows="true"
+					  ItemsSource="{Binding Upgrades}"
+					  IsGroupingEnabled="true"
+					  GroupDisplayBinding="{Binding Category}">
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.ContextActions>
+								<MenuItem Command="{Binding DeleteUpgrade}"
+					               		  Text="Delete" 
+					               		  IsDestructive="True" />
+							</ViewCell.ContextActions>
+							<ViewCell.View>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+										<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />
+										<Label Text="Limited" IsVisible="{Binding Limited}" FontAttributes="Italic" />
+										<Label Text="Small Ship Only" IsVisible="{Binding SmallOnly}" FontAttributes="Italic" />
+										<Label Text="Large Ship Only" IsVisible="{Binding LargeOnly}" FontAttributes="Italic" />
+										<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
+										<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
+										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
+										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
+									</StackLayout>
+									<Label Text="{Binding Text}" FontSize="Small">
+										<Label.TextColor>
+										    <OnPlatform x:TypeArguments="Color"
+										      			iOS="Navy"
+										      			Android="Aqua"
+										      			WinPhone="Navy" />
+										</Label.TextColor>
+									</Label>
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

@@ -53,6 +53,41 @@ namespace SquadBuilder
 				return showCustomFactions;
 			}
 		}
+
+		RelayCommand showCustomShips;
+		public RelayCommand ShowCustomShips {
+			get {
+				if (showCustomShips == null)
+					showCustomShips = new RelayCommand (() => {
+						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Ships");
+					});
+
+				return showCustomShips;
+			}
+		}
+
+		RelayCommand showCustomPilots;
+		public RelayCommand ShowCustomPilots {
+			get {
+				if (showCustomPilots == null)
+					showCustomPilots = new RelayCommand (() => {
+						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Pilots");
+					});
+
+				return showCustomPilots;
+			}
+		}
+
+		RelayCommand showCustomUpgrades;
+		public RelayCommand ShowCustomUpgrades {
+			get {
+				if (showCustomUpgrades == null)
+					showCustomUpgrades = new RelayCommand (() => {
+						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Upgrades");
+					});
+
+				return showCustomUpgrades;
+			}
+		}
 	}
 }
-

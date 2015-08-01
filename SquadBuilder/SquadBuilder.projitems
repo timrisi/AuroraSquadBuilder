@@ -70,6 +70,22 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomFactionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Faction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomShipsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateShipViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CreateShipView.xaml.cs">
+      <DependentUpon>CreateShipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomPilotsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomUpgradesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreatePilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateUpgradeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CreateUpgradeView.xaml.cs">
+      <DependentUpon>CreateUpgradeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\CreatePilotView.xaml.cs">
+      <DependentUpon>CreatePilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\UpgradeGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -117,6 +133,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomShipsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateShipView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateUpgradeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreatePilotView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -139,7 +139,7 @@ namespace SquadBuilder
 
 				foreach (var upgrade in UpgradesEquipped) {
 					if (upgrade != null)
-						cost += upgrade.Cost / upgrade.Slots.Count;
+						cost += upgrade.Cost / (upgrade.Slots.Count + 1);
 				}
 
 				return (int)cost;

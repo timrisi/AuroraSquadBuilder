@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace SquadBuilder
 {
-	public partial class CustomShipsView : ContentPage
+	public partial class CustomShipsView : BaseView
 	{
 		public CustomShipsView ()
 		{
 			InitializeComponent ();
+			BindingContext = new CustomShipsViewModel ();
 		}
 	}
 }

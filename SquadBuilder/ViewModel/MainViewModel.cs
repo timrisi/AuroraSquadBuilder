@@ -21,8 +21,41 @@ namespace SquadBuilder
 			if (service.FileExists (squadronsFilename)) {
 				var serializedXml = service.LoadText (squadronsFilename);
 				var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
-				using (TextReader reader = new StringReader (serializedXml))
-					Squadrons = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
+				using (TextReader reader = new StringReader (serializedXml)) {
+					var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
+					XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
+
+					var factions = (from faction in element.Elements ()
+						select new Faction {
+							Id = faction.Attribute ("id").Value,
+							Name = faction.Value,
+							Color = Color.FromRgb (
+								(int)faction.Element ("Color").Attribute ("r"),
+								(int)faction.Element ("Color").Attribute ("g"),
+								(int)faction.Element ("Color").Attribute ("b")
+							)
+						}).ToList ();
+
+					if ((bool)Application.Current.Properties ["AllowCustom"]) {
+						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
+						var customFactions = (from faction in customFactionsXml.Elements ()
+							select new Faction {
+								Id = faction.Attribute ("id").Value,
+								Name = faction.Value,
+								Color = Color.FromRgb (
+									(int)faction.Element ("Color").Attribute ("r"),
+									(int)faction.Element ("Color").Attribute ("g"),
+									(int)faction.Element ("Color").Attribute ("b")
+								)
+							});
+						factions.AddRange (customFactions);
+					}
+
+					foreach (var squad in squads)
+						squad.Faction = factions.FirstOrDefault (f => f.Id == squad.Faction.Id);
+
+					Squadrons = squads;
+				}
 			}
 
 			MessagingCenter.Subscribe <App> (this, "Save Squadrons", (app) => {

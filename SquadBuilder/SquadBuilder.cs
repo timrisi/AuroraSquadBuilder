@@ -39,6 +39,9 @@ namespace SquadBuilder
 			ViewFactory.Register <MenuView, MenuViewModel> ();
 			ViewFactory.Register <RootPage, RootPageViewModel> ();
 			ViewFactory.Register <CreateFactionView, CreateFactionViewModel> ();
+			ViewFactory.Register <CreateShipView, CreateShipViewModel> ();
+			ViewFactory.Register <CreatePilotView, CreatePilotViewModel> ();
+			ViewFactory.Register <CreateUpgradeView, CreateUpgradeViewModel> ();
 		}
 	}
 }

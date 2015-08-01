@@ -17,22 +17,26 @@ namespace SquadBuilder
 		public string Name { get; set; }
 		public Color Color { get; set; }
 
+		RelayCommand deleteFaction;
 		public RelayCommand DeleteFaction {
 			get {
-				return new RelayCommand (() => {
-					XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
+				if (deleteFaction == null)
+					deleteFaction = new RelayCommand (() => {
+						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
 
-					var factionElement = customFactionsXml.Descendants ().FirstOrDefault (e => e?.Value == Name);
+						var factionElement = customFactionsXml.Descendants ().FirstOrDefault (e => e?.Value == Name);
 
-					if (factionElement == null)
-						return;
+						if (factionElement == null)
+							return;
 
-					factionElement.Remove ();
+						factionElement.Remove ();
 
-					DependencyService.Get <ISaveAndLoad> ().SaveText ("Factions_Custom.xml", customFactionsXml.ToString ());
+						DependencyService.Get <ISaveAndLoad> ().SaveText ("Factions_Custom.xml", customFactionsXml.ToString ());
 
-					MessagingCenter.Send <Faction> (this, "Remove Faction");
-				});
+						MessagingCenter.Send <Faction> (this, "Remove Faction");
+					});
+
+				return deleteFaction;
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.04">
+<Upgrades Version="1.06">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -613,6 +613,11 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you execute a white or green maneuver on your dial, you may discard this card to rotate your ship 180 degrees.  Then receive 1 stress token after the &quot;Check Pilot Stress&quot; step.</Text>
 			<SmallOnly>true</SmallOnly>
 		</Upgrade>
+		<Upgrade id="crackshot">
+			<Name>Crack Shot</Name>
+			<Cost>1</Cost>
+			<Text>When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's {evade} results.</Text>
+		</Upgrade>
 	</Category>
 	<Category type="Illicit">
 		<Upgrade id="hotshotblaster">
@@ -698,6 +703,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>2</Dice>
 			<Range>1</Range>
+		</Upgrade>
+		<Upgrade id="advhomingmissiles">
+			<Name>Adv. Homing Missiles</Name>
+			<Cost>3</Cost>
+			<Text>Attack (target lock): Discard this card to perform this attack.  If this attack hits, deal 1 faceup Damage card to the defender.  Then cancel all dice results.</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Dice>3</Dice>
+			<Range>2</Range>
 		</Upgrade>
 	</Category>
 	<Category type="Modification">
@@ -792,6 +805,18 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>2</Cost>
 			<Text>When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to an {evade} result. You can equip this card only if you have the {boost} action icon.</Text>
 		</Upgrade>
+		<Upgrade id="ionprojector">
+			<Name>Ion Projector</Name>
+			<Cost>2</Cost>
+			<Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship receives one ion token.</Text>
+			<LargeOnly>true</LargeOnly>
+		</Upgrade>
+		<Upgrade id="maneuveringfins">
+			<Name>Maneuvering Fins</Name>
+			<Cost>1</Cost>
+			<Text>When you reveal a turn maneuver ({left turn} or {right turn}) you may rotate your dial to the corresponding bank maneuver ({left bank} or {right bank}) of the same speed.</Text>
+			<Ship>yv666</Ship>
+		</Upgrade>
 	</Category>
 	<Category type="Salvaged Astromech">
 		<Upgrade id="r4agromech">
@@ -882,9 +907,9 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="st321">
-			<Name>ST 321</Name>
+			<Name>ST-321</Name>
 			<Cost>3</Cost>
-			<Text>When acquiring a target lock, you may lock onto any enemy ship in the play area.During the End phase, do not remove unused focus tokens from your ship.</Text>
+			<Text>When acquiring a target lock, you may lock onto any enemy ship in the play area.</Text>
 			<Ship>lambda</Ship>
 			<Unique>True</Unique>
 		</Upgrade>

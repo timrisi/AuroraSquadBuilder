@@ -177,6 +177,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\Factions_Custom.xml" />
+    <BundleResource Include="Resources\Pilots_Custom.xml" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

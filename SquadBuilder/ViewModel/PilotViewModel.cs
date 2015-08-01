@@ -71,7 +71,7 @@ namespace SquadBuilder
 					Pilot.UpgradesEquipped.RemoveAt (oldIndex);
 				}
 
-				for (int i = 1; i < oldUpgrade.Slots.Count (); i++) {
+				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
 					var extraIndex = Pilot.UpgradesEquipped.IndexOf (oldUpgrade);
 					if (index >= 0)
 						Pilot.UpgradesEquipped [extraIndex] = null;
@@ -83,7 +83,7 @@ namespace SquadBuilder
 					Pilot.UpgradesEquipped.Add (null);
 				}
 
-				for (int i = 1; i < upgrade.Slots.Count (); i++) {
+				for (int i = 0; i < upgrade.Slots.Count (); i++) {
 					var extraIndex = Pilot.Upgrades.IndexOf (upgrade.Slots [i]);
 					if (index >= 0)
 						Pilot.UpgradesEquipped [extraIndex] = upgrade;

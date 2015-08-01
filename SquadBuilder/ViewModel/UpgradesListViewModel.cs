@@ -66,6 +66,7 @@ namespace SquadBuilder
 							where (upgrade.Element ("Name")?.Value != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
 							select new Upgrade {
 					Name = upgrade.Element ("Name")?.Value,
+					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
 					Faction =  (from faction in factionsXml.Elements ()
@@ -77,7 +78,7 @@ namespace SquadBuilder
 										(int)faction.Element ("Color").Attribute ("g"),
 										(int)faction.Element ("Color").Attribute ("b")
 									)
-						}).FirstOrDefault (f => f.Id == upgrade.Attribute ("faction")?.Value),
+						}).FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int) upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int) upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int) upgrade.Element ("Agility") : 0,
@@ -93,23 +94,31 @@ namespace SquadBuilder
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool) upgrade.Element ("HugeOnly") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 																			select upgr.Value).ToList ()),
-					Slots = new ObservableCollection<string> ((new List <string> { upgradeType }).Concat ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
-						select upgr.Value).ToList ()))
+					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
+						select upgr.Value).ToList ())
 				}).OrderBy (u => u.Name).OrderBy (u => u.Cost);
 				
 			ObservableCollection <Upgrade> valid = new ObservableCollection<Upgrade> ();
 			foreach (var upgrade in upgrades) {
-				if (upgrade.Slots.Count () == 1) {
+				if (upgrade.Slots.Count () == 0) {
 					valid.Add (upgrade);	
 					continue;
 				}
 
-				foreach (var slot in upgrade.Slots.Distinct ()) {
-					if (Pilot.Upgrades.Count (u => u == slot) < upgrade.Slots.Count (u => u == slot))
-						continue;
+				var pilotUpgrades = new List <string> (Pilot.Upgrades);
+				pilotUpgrades.Remove (upgrade.Category);
 
-					valid.Add (upgrade);
+				bool isValid = true;
+				foreach (var slot in upgrade.Slots) {
+					if (pilotUpgrades.Contains (slot))
+						pilotUpgrades.Remove (slot);
+					else {
+						isValid = false;
+						break;
+					}
 				}
+				if (isValid)
+					valid.Add (upgrade);
 			}
 
 			if (Pilot.Ship.LargeBase)

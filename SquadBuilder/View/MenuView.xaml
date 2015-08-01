@@ -14,10 +14,10 @@
 				<Switch IsToggled="{Binding IsToggled, Mode=TwoWay}" />
 			</StackLayout>
 			<Button Text="Squadrons" HorizontalOptions="StartAndExpand" Command="{Binding ShowSquadrons}" />
-			<Button Text="Custom Factions" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomFactions}" />
-			<Button Text="Custom Ships" HorizontalOptions="StartAndExpand" />
-			<Button Text="Custom Pilots" HorizontalOptions="StartAndExpand" />
-			<Button Text="Custom Upgrades" HorizontalOptions="StartAndExpand" />
+			<Button Text="Custom Factions" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomFactions}" IsVisible="{Binding IsToggled}" />
+			<Button Text="Custom Ships" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomShips}" IsVisible="{Binding IsToggled}" />
+			<Button Text="Custom Pilots" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomPilots}" IsVisible="{Binding IsToggled}" />
+			<Button Text="Custom Upgrades" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomUpgrades}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Feedback" HorizontalOptions="StartAndExpand" />
 		</StackLayout>
 	</mvvm:BaseView.Content>

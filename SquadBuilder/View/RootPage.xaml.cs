@@ -12,36 +12,81 @@ namespace SquadBuilder
 		{
 			InitializeComponent ();
 			Master = new MenuView ();
-			Detail = new NavigationPage (MainView);
-
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
-				IsPresented = false;
-				Detail = new NavigationPage (CustomFactionsView);
-			});
+			Detail = MainView;
 
 			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Squadrons", vm => {
 				IsPresented = false;
-				Detail = new NavigationPage (MainView);
+				Detail = MainView;
+			});
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
+				IsPresented = false;
+				Detail = CustomFactionsView;
+			});
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Ships", vm => {
+				IsPresented = false;
+				Detail = CustomShipsView;
+			});
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Pilots", vm => {
+				IsPresented = false;
+				Detail = CustomPilotsView;
+			});
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Upgrades", vm => {
+				IsPresented = false;
+				Detail = CustomUpgradesView;
 			});
 		}
 
-		MainView mainView;
-		public MainView MainView {
+		NavigationPage mainView;
+		public NavigationPage MainView {
 			get { 
 				if (mainView == null)
-					mainView = new MainView ();
+					mainView = new NavigationPage (new MainView ());
 
 				return mainView;
 			}
 		}
 
-		CustomFactionsView customFactionsView;
-		public CustomFactionsView CustomFactionsView {
+		NavigationPage customFactionsView;
+		public NavigationPage CustomFactionsView {
 			get { 
 				if (customFactionsView == null)
-					customFactionsView = new CustomFactionsView ();
+					customFactionsView = new NavigationPage (new CustomFactionsView ());
 
 				return customFactionsView;
+			}
+		}
+
+		NavigationPage customShipsView;
+		public NavigationPage CustomShipsView {
+			get {
+				if (customShipsView == null)
+					customShipsView = new NavigationPage (new CustomShipsView ());
+
+				return customShipsView;
+			}
+		}
+
+		NavigationPage customPilotsView;
+		public NavigationPage CustomPilotsView {
+			get {
+				if (customPilotsView == null)
+					customPilotsView = new NavigationPage (new CustomPilotsView ());
+
+				return customPilotsView;
+			}
+		}
+
+		NavigationPage customUpgradesView;
+		public NavigationPage CustomUpgradesView {
+			get {
+				if (customUpgradesView == null)
+					customUpgradesView = new NavigationPage (new CustomUpgradesView ());
+
+				return customUpgradesView;
 			}
 		}
 	}
