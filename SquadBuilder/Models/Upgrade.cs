@@ -6,6 +6,7 @@ using System.IO;
 using Xamarin.Forms;
 using XLabs;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -34,6 +35,7 @@ namespace SquadBuilder
 		public string Range { get; set; }
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
+		public bool Preview { get; set; }
 
 		Faction faction;
 		public Faction Faction {
@@ -53,7 +55,9 @@ namespace SquadBuilder
 		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
 
+		[XmlIgnore]
 		public RelayCommand deleteUpgrade;
+		[XmlIgnore]
 		public RelayCommand DeleteUpgrade {
 			get {
 				if (deleteUpgrade == null)

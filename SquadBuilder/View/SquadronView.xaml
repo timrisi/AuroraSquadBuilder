@@ -44,7 +44,10 @@
 										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
 									</StackLayout>
 									<Label Text="{Binding Ship.Name}" FontAttributes="Italic" />
-									<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+									<StackLayout Orientation="Horizontal" Spacing="10">
+										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
+									</StackLayout>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
 								</StackLayout>

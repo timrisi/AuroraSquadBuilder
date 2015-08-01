@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Linq;
 using Xamarin.Forms;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -21,7 +22,9 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		RelayCommand deleteShip;
+		[XmlIgnore]
 		public RelayCommand DeleteShip {
 			get {
 				if (deleteShip == null)

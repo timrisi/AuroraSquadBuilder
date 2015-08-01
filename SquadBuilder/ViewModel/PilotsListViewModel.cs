@@ -93,7 +93,8 @@ namespace SquadBuilder
 					Ability = pilot.Element ("Ability")?.Value,
 					UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 					UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
-					IsCustom = false
+					IsCustom = false,
+					Preview = pilot.Element ("Preview") != null ? (bool) pilot.Element ("Preview") : false,
 				});
 			
 			foreach (var pilot in allPilots) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.08">
+<Pilots Version="1.09">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -384,7 +384,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="Cartel Marauder" faction="scum" ship="kihraxz">
+	<Pilot id="cartelmarauder" faction="scum" ship="kihraxz">
 		<Name>Cartel Marauder</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -398,6 +398,26 @@
 			<Upgrade>Illicit</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="zuckuss" faction="scum" ship="g1astarfighter">
+		<Name>Zuckuss</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>7</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>28</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking you may roll 1 additional attack die. If you do, the defender rolls 1 additional defense die.</Ability>
 	</Pilot>
 	<Pilot id="fett" faction="scum" ship="firespray">
 		<Name>Boba Fett</Name>
@@ -420,7 +440,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, you may reroll 1 of your dice for each enemy at Range 1.</Ability>
 	</Pilot>
-	<Pilot id="Kath Scarlet" faction="scum" ship="firespray">
+	<Pilot id="kathscarlet" faction="scum" ship="firespray">
 		<Name>Kath Scarlet</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -647,6 +667,28 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="dengar" faction="scum" ship="jumpmaster5000">
+		<Name>Dengar</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>9</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>5</Hull>
+		<Shields>4</Shields>
+		<Cost>33</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Salvaged Astromech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Once per round after defending, if the attacker is inside your firing arc, you may perform an attack against that ship.</Ability>
 	</Pilot>
 
 	<!--- Rebel Pilots -->
@@ -1501,6 +1543,28 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
+	<Pilot id="hera" faction="rebel" ship="vcx100">
+		<Name>Hera</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>7</PilotSkill>
+		<Attack>4</Attack>
+		<Agility>0</Agility>
+		<Hull>10</Hull>
+		<Shields>6</Shields>
+		<Cost>40</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you reveal a green or red maneuver, you may change your dial to another manuever of the same difficulty</Ability>
+	</Pilot>
 	<Pilot id="gr75" faction="rebel" ship="gr75">
 		<Name>GR-75 Medium Transport</Name>
 		<Unique>false</Unique>
@@ -2271,6 +2335,24 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="theinquisitor" faction="imperial" ship="tieadvprototype">
+		<Name>The Inquisitor</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>8</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>25</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.</Ability>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray">
 		<Name>Boba Fett</Name>

@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using XLabs;
 using System.Linq;
 using XLabs.Data;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -53,8 +54,10 @@ namespace SquadBuilder
 				SetProperty (ref pilots, value);
 			}
 		}
-			
+
+		[XmlIgnore]
 		RelayCommand deleteSquadron;
+		[XmlIgnore]
 		public RelayCommand DeleteSquadron {
 			get {
 				if (deleteSquadron == null)
@@ -64,7 +67,9 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		RelayCommand editDetails;
+		[XmlIgnore]
 		public RelayCommand EditDetails {
 			get {
 				if (editDetails == null)
@@ -74,7 +79,9 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		RelayCommand copySquadron;
+		[XmlIgnore]
 		public RelayCommand CopySquadron {
 			get {
 				if (copySquadron == null)
@@ -83,22 +90,6 @@ namespace SquadBuilder
 				return copySquadron;
 			}
 		}
-
-//		public Color FactionColor {
-//			get {
-//				switch (Faction) {
-//				case "Scum & Villainy":
-//					return Color.FromHex ("#CC9900");
-//				case "Rebel":
-//					return Color.Red;
-//				case "Imperial":
-//					return Color.Green;
-//				default:
-//					return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
-//				}
-//
-//			}
-//		}
 
 		public Squadron Copy ()
 		{

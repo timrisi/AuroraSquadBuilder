@@ -33,6 +33,7 @@
 										<Label Text="Large Ship Only" IsVisible="{Binding LargeOnly}" FontAttributes="Italic" />
 										<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
 										<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
+										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" />
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
 										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />

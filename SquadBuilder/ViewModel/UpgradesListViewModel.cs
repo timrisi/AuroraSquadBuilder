@@ -92,6 +92,7 @@ namespace SquadBuilder
 					SmallOnly = upgrade.Element ("SmallOnly") != null ? (bool) upgrade.Element ("SmallOnly") : false,
 					LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool) upgrade.Element ("LargeOnly") : false,
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool) upgrade.Element ("HugeOnly") : false,
+					Preview = upgrade.Element ("Preview") != null ? (bool) upgrade.Element ("Preview") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 																			select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()

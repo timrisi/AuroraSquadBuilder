@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using System.IO;
 using Xamarin.Forms;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -17,7 +18,9 @@ namespace SquadBuilder
 		public string Name { get; set; }
 		public Color Color { get; set; }
 
+		[XmlIgnore]
 		RelayCommand deleteFaction;
+		[XmlIgnore]
 		public RelayCommand DeleteFaction {
 			get {
 				if (deleteFaction == null)

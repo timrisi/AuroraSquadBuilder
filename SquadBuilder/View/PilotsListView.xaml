@@ -37,6 +37,10 @@
 										<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
 										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
 									</StackLayout>
+									<StackLayout Orientation="Horizontal" Spacing="10">
+										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
+									</StackLayout>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
 								</StackLayout>

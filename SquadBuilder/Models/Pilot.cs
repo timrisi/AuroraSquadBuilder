@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using XLabs.Data;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -27,6 +28,7 @@ namespace SquadBuilder
 		public int BaseCost { get; set; }
 		public string Ability { get; set; }
 		public bool IsCustom { get; set; }
+		public bool Preview { get; set; }
 
 		ObservableCollection <string> upgradeTypes;
 		public ObservableCollection <string> UpgradeTypes { 
@@ -67,18 +69,21 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		public string UpgradesEquippedString {
 			get {
 				return string.Join (", ", UpgradesEquipped.Where (u => u != null).Select (u => u.Name));
 			}
 		}
 
+		[XmlIgnore]
 		public string UpgradeTypesString { 
 			get {
 				return string.Join (", ", UpgradeTypes);
 			}
 		}
 
+		[XmlIgnore]
 		public ObservableCollection <string> Upgrades {
 			get {
 				var u = new ObservableCollection <string> ();
@@ -97,42 +102,51 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		public string UpgradesString {
 			get {
 				return string.Join (", ", Upgrades);
 			}
 		}
 
+		[XmlIgnore]
 		public int PilotSkill { 
 			get {
 				return BasePilotSkill + UpgradesEquipped.Sum (u => u?.PilotSkill ?? 0);
 			}
 		
 		}
+
+		[XmlIgnore]
 		public int Attack { 
 			get {
 				return BaseAttack + UpgradesEquipped.Sum (u => u?.Attack ?? 0);
 			}
 		
 		}
+		[XmlIgnore]
+
 		public int Agility {
 			get {
 				return BaseAgility + UpgradesEquipped.Sum (u => u?.Agility ?? 0);
 			}
 		}
 
+		[XmlIgnore]
 		public int Hull { 
 			get {
 				return BaseHull + UpgradesEquipped.Sum (u => u?.Hull ?? 0);
 			}
 		}
 
+		[XmlIgnore]
 		public int Shields {
 			get {
 				return BaseShields + UpgradesEquipped.Sum (u => u?.Shields ?? 0);
 			}
 		}
 
+		[XmlIgnore]
 		public int Cost {
 			get {
 				float cost = BaseCost;
@@ -146,13 +160,16 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		public Color AbilityColor {
 			get {
 				return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
 			}
 		}
 
+		[XmlIgnore]
 		RelayCommand deletePilot;
+		[XmlIgnore]
 		public RelayCommand DeletePilot {
 			get {
 				if (deletePilot == null)
@@ -162,7 +179,9 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		RelayCommand copyPilot;
+		[XmlIgnore]
 		public RelayCommand CopyPilot {
 			get {
 				if (copyPilot == null)
