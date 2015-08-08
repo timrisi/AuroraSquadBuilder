@@ -19,8 +19,8 @@ namespace SquadBuilder
 			set { SetProperty (ref pilot, value); }
 		}
 
-		string selectedUpgrade;
-		public string SelectedUpgrade {
+		object selectedUpgrade;
+		public object SelectedUpgrade {
 			get { return selectedUpgrade; }
 			set {
 				SetProperty (ref selectedUpgrade, value);
@@ -28,7 +28,7 @@ namespace SquadBuilder
 					var index = Pilot.Upgrades.IndexOf (value);
 
 					if (index < 0) {
-						var upgrade = Pilot.UpgradesEquipped.FirstOrDefault (u => u.Name == value);
+						var upgrade = Pilot.UpgradesEquipped.FirstOrDefault (u => u.Name == (selectedUpgrade));
 						index = Pilot.UpgradesEquipped.IndexOf (upgrade);
 					}
 

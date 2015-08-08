@@ -18,6 +18,10 @@ namespace SquadBuilder
 		{
 			Ship = ship;
 		}
+
+		public string Header {
+			get { return Ship.Name + " - " + Faction.Name; }
+		}
 	}
 }
 

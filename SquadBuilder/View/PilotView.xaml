@@ -5,6 +5,7 @@
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
 			 Title = "{Binding Pilot.Name}">
 	<mvvm:BaseView.Content>
+	<ScrollView>
 		<StackLayout VerticalOptions="FillAndExpand"
 					 HorizontalOptions="FillAndExpand"
 					 Padding="15,10,15,10"
@@ -30,13 +31,38 @@
 									</StackLayout>
 			<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" />
 			<ListView ItemsSource="{Binding Pilot.Upgrades}"
-					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}"> 
+					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}"
+					  HasUnevenRows="true"> 
 				<ListView.ItemTemplate>
-					<DataTemplate>
-						<TextCell Text="{Binding .}" />
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" IsVisible="{Binding IsUpgrade}">
+										<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />
+										<Label Text="Limited" IsVisible="{Binding Limited}" FontAttributes="Italic" />
+										<Label Text="Small Ship Only" IsVisible="{Binding SmallOnly}" FontAttributes="Italic" />
+										<Label Text="Large Ship Only" IsVisible="{Binding LargeOnly}" FontAttributes="Italic" />
+										<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
+										<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
+										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
+										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
+										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
+									</StackLayout>
+									<Label Text="{Binding Text}" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
 		</StackLayout>
+		</ScrollView>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

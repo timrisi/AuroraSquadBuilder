@@ -19,6 +19,8 @@
 					<DataTemplate> 
 						<TextCell Text="{Binding Name}" Detail="{Binding ActionsString}">
 							<TextCell.ContextActions>
+								<MenuItem Command="{Binding EditShip}"
+										  Text="Edit" />
 								<MenuItem Command="{Binding DeleteShip}"
 					               		  Text="Delete" 
 					               		  IsDestructive="True" />

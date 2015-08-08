@@ -89,5 +89,17 @@ namespace SquadBuilder
 				return showCustomUpgrades;
 			}
 		}
+
+		RelayCommand sendFeedback;
+		public RelayCommand SendFeedback {
+			get {
+				if (sendFeedback == null)
+					sendFeedback = new RelayCommand (() => {
+						DependencyService.Get <ISendMail> ().SendFeedback ();
+					});
+
+				return sendFeedback;
+			}
+		}
 	}
 }

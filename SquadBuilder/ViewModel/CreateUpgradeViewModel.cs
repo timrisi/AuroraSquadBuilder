@@ -49,9 +49,9 @@ namespace SquadBuilder
 					Name = ship.Element ("Name").Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = (
+					Actions = new ObservableCollection <string> (
 					    from action in ship.Element ("Actions").Elements ()
-					  select action.Value).ToList (),
+					  select action.Value),
 			}).ToList ();
 
 			XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
@@ -62,9 +62,9 @@ namespace SquadBuilder
 					Name = ship.Element ("Name").Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = (
+					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
-						select action.Value).ToList (),
+						select action.Value),
 
 				}
         	);
@@ -81,115 +81,131 @@ namespace SquadBuilder
 			UpgradeTypes = new ObservableCollection<string> (upgrades);
 		}
 
-		string name;
+		Upgrade upgrade;
+		public Upgrade Upgrade {
+			get { 
+				if (upgrade == null)
+					upgrade = new Upgrade ();
+
+				return upgrade;
+			}
+			set {
+				SetProperty (ref upgrade, value);
+			}
+		}
+
 		public string Name {
-			get { return name; }
+			get { return Upgrade.Name; }
 			set {
-				SetProperty (ref name, value);
+				Upgrade.Name = value;
+
+				char[] arr = Name.ToCharArray();
+
+				arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));
+				Upgrade.Id = new string(arr).ToLower ();
+				NotifyPropertyChanged ("Name");
 			}
 		}
 
-		int cost;
 		public int Cost {
-			get { return cost; }
+			get { return Upgrade.Cost; }
 			set {
-				SetProperty (ref cost, value);
+				Upgrade.Cost = value;
 			}
 		}
 
-		string text;
 		public string Text {
-			get { return text; }
+			get { return Upgrade.Text; }
 			set {
-				SetProperty (ref text, value);
+				Upgrade.Text = value;
 			}
 		}
 
-		bool isLimited;
 		public bool IsLimited {
-			get { return isLimited; }
+			get { return Upgrade.Limited; }
 			set {
-				SetProperty (ref isLimited, value);
+				Upgrade.Limited = value;
 				if (value)
 					IsUnique = false;
+				NotifyPropertyChanged ("IsUnique");
 			}
 		}
 
-		bool isUnique;
 		public bool IsUnique {
-			get { return isUnique; }
+			get { return Upgrade.Unique; }
 			set {
-				SetProperty (ref isUnique, value);
+				Upgrade.Unique = value;
 				if (value)
 					IsLimited = false;
+				NotifyPropertyChanged ("IsLimited");
 			}
 		}
 
-		bool smallOnly;
 		public bool SmallOnly {
-			get { return smallOnly; }
+			get { return Upgrade.SmallOnly; }
 			set {
-				SetProperty (ref smallOnly, value);
+				Upgrade.SmallOnly = value;
 				if (value) {
-					LargeOnly = false;
 					HugeOnly = false;
+					LargeOnly = false;
+					NotifyPropertyChanged ("HugeOnly");
+					NotifyPropertyChanged ("LargeOnly");
 				}
 			}
 		}
 
-		bool largeOnly;
 		public bool LargeOnly {
-			get { return largeOnly; }
+			get { return Upgrade.LargeOnly; }
 			set { 
-				SetProperty (ref largeOnly, value); 
+				Upgrade.LargeOnly = value;
 				if (value) {
 					SmallOnly = false;
 					HugeOnly = false;
+					NotifyPropertyChanged ("SmallOnly");
+					NotifyPropertyChanged ("HugeOnly");
 				}
 			}
 		}
 
-		bool hugeOnly;
 		public bool HugeOnly {
-			get { return hugeOnly; }
+			get { return Upgrade.HugeOnly; }
 			set {
-				SetProperty (ref hugeOnly, value);
+				Upgrade.HugeOnly = value;
 				if (value) {
 					SmallOnly = false;
 					LargeOnly = false;
+					NotifyPropertyChanged ("SmallOnly");
+					NotifyPropertyChanged ("LargeOnly");
 				}
 			}
 		}
 
-		bool secondaryWeapon;
 		public bool SecondaryWeapon {
-			get { return secondaryWeapon; }
+			get { return Upgrade.SecondaryWeapon; }
 			set {
-				SetProperty (ref secondaryWeapon, value);
+				Upgrade.SecondaryWeapon = value;
+				NotifyPropertyChanged ("SecondaryWeapon");
 			}
 		}
 
-		int dice;
 		public int Dice {
-			get { return dice; }
+			get { return Upgrade.Dice; }
 			set {
-				SetProperty (ref dice, value);
+				Upgrade.Dice = value;
 			}
 		}
 
-		string range;
 		public string Range {
-			get { return range; }
+			get { return Upgrade.Range; }
 			set {
-				SetProperty (ref range, value);
+				Upgrade.Range = value;
 			}
 		}
 
-		int pilotSkill;
 		public int PilotSkill {
-			get { return pilotSkill; }
+			get { return Upgrade.PilotSkill; }
 			set {
-				SetProperty (ref pilotSkill, value);
+				Upgrade.PilotSkill = value;
 			}
 		}
 
@@ -201,27 +217,24 @@ namespace SquadBuilder
 			}
 		}
 
-		int agility;
 		public int Agility {
-			get { return agility; }
+			get { return Upgrade.Agility; }
 			set {
-				SetProperty (ref agility, value);
+				Upgrade.Agility = value;
 			}
 		}
 
-		int hull;
 		public int Hull {
-			get { return hull; }
+			get { return Upgrade.Hull; }
 			set {
-				SetProperty (ref hull, value);
+				Upgrade.Hull = value;
 			}
 		}
 
-		int shields;
 		public int Shields {
-			get { return shields; }
+			get { return Upgrade.Shields; }
 			set {
-				SetProperty (ref shields, value);
+				Upgrade.Shields = value;
 			}
 		}
 
@@ -230,6 +243,10 @@ namespace SquadBuilder
 			get { return factionIndex; }
 			set {
 				SetProperty (ref factionIndex, value);
+				if (factionIndex > 0)
+					Upgrade.Faction = Factions [factionIndex - 1];
+				else
+					Upgrade.Faction = null;
 			}
 		}
 
@@ -238,6 +255,10 @@ namespace SquadBuilder
 			get { return shipIndex; }
 			set {
 				SetProperty (ref shipIndex, value);
+				if (shipIndex > 0)
+					Upgrade.Ship = Ships [shipIndex - 1];
+				else
+					Upgrade.Ship = null;
 			}
 		}
 
@@ -246,6 +267,8 @@ namespace SquadBuilder
 			get { return upgradeTypeIndex; }
 			set {
 				SetProperty (ref upgradeTypeIndex, value);
+				if (upgradeTypeIndex >= 0)
+					Upgrade.Category = UpgradeTypes [upgradeTypeIndex];
 			}
 		}
 
@@ -289,21 +312,16 @@ namespace SquadBuilder
 
 						if (customUpgradesXml.Descendants ().FirstOrDefault (e => e.Value == Name) != null)
 							return;
-//
-						char[] arr = Name.ToCharArray();
-//
-						arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));
-						var id = new string(arr);
 
 						var element = new XElement ("Upgrade",
-							new XAttribute ("id", id),
+							new XAttribute ("id", Upgrade.Id),
 							new XElement ("Name", Name),
 							new XElement ("Cost", Cost),
 							new XElement ("Text", Text),
 							new XElement ("Unique", IsUnique),
 							new XElement ("Limited", IsLimited),
-							new XElement ("Ship", ShipIndex > 0 ? Ships [ShipIndex - 1].Id : null),
-							new XElement ("Faction", FactionIndex > 0 ? Factions [FactionIndex - 1].Id : null),
+							new XElement ("Ship", Upgrade.Ship?.Id),
+							new XElement ("Faction", Upgrade.Faction?.Id),
 							new XElement ("SmallOnly", SmallOnly),
 							new XElement ("LargeOnly", LargeOnly),
 							new XElement ("HugeOnly", HugeOnly),
@@ -326,33 +344,8 @@ namespace SquadBuilder
 						customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == UpgradeTypes [UpgradeTypeIndex])?.Add (element);
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customUpgradesXml.ToString ());
 //
-						MessagingCenter.Send <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", 
-							new Upgrade {
-								Id = id,
-								Name = Name,
-								Cost = Cost,
-								Text = Text,
-								Unique = IsUnique,
-								Limited = IsLimited,
-								Ship = ShipIndex > 0 ? Ships [ShipIndex - 1] : null,
-								Faction = FactionIndex > 0 ? Factions [FactionIndex - 1] : null,
-								SmallOnly = SmallOnly,
-								LargeOnly = LargeOnly,
-								HugeOnly = HugeOnly,
-								PilotSkill = PilotSkill,
-								Attack = Attack,
-								Agility = Agility,
-								Hull = Hull,
-								Shields = Shields,
-								SecondaryWeapon = SecondaryWeapon,
-								Dice = Dice,
-								Range = Range,
-//								AdditionalUpgrades = 
-//								Slots = 
-							}
-						);
+						MessagingCenter.Send <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", Upgrade);
 					});
-
 				return saveUpgrade;
 			}
 		}

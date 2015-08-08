@@ -42,8 +42,6 @@ namespace SquadBuilder
 			get { return faction; }
 			set { 
 				SetProperty (ref faction, value);
-				if (value != null)
-					Console.WriteLine ("Faction limited: " + Name + " : " + Faction.Name);
 				NotifyPropertyChanged ("FactionRestricted");
 			}
 		}

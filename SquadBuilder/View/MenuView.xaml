@@ -18,7 +18,7 @@
 			<Button Text="Custom Ships" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomShips}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Custom Pilots" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomPilots}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Custom Upgrades" HorizontalOptions="StartAndExpand" Command="{Binding ShowCustomUpgrades}" IsVisible="{Binding IsToggled}" />
-			<Button Text="Feedback" HorizontalOptions="StartAndExpand" />
+			<Button Text="Feedback" HorizontalOptions="StartAndExpand" Command="{Binding SendFeedback}" />
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

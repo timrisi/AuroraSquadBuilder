@@ -19,11 +19,31 @@ namespace SquadBuilder
 					Id = ship.Attribute ("id").Value,
 					Name = ship.Element("Name").Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false
+					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
+					Actions = new ObservableCollection <string> 
+						(from action in ship.Element ("Actions").Elements ()
+						 select action.Value)
 				});
 
 			MessagingCenter.Subscribe <Ship> (this, "Remove Ship", ship => {
 				Ships.Remove (ship);
+			});
+
+			MessagingCenter.Subscribe <Ship> (this, "Edit Ship", ship => {
+				string shipName = ship.Name;
+				MessagingCenter.Subscribe <CreateShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
+					if (shipName == updatedShip.Name)
+						ship = updatedShip;
+					else 
+						Ships.Add (updatedShip);
+					Navigation.PopAsync ();
+					NotifyPropertyChanged ("Ships");
+					MessagingCenter.Unsubscribe <CreateShipViewModel, Ship> (this, "Finished Editing");
+				});
+
+				Navigation.PushAsync<CreateShipViewModel> ((vm, p) => {
+					vm.Ship = ship.Copy ();
+				});
 			});
 		}
 
@@ -55,6 +75,13 @@ namespace SquadBuilder
 
 				return createShip;
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			NotifyPropertyChanged ("Ships");
 		}
 	}
 }

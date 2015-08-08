@@ -12,89 +12,128 @@ namespace SquadBuilder
 {
 	public class CreateShipViewModel : ViewModel
 	{
-		string name;
-		public string Name {
-			get {
-				return name;
+		Ship ship;
+		public Ship Ship {
+			get { 
+				if (ship == null)
+					ship = new Ship ();
+			
+				return ship;
 			}
 			set {
-				SetProperty (ref name, value);
+				SetProperty (ref ship, value);
+			}
+		}
+
+		public string Name {
+			get {
+				return Ship.Name;
+			}
+			set {
+				Ship.Name = value;
+
+				char[] arr = Ship.Name.ToCharArray();
+
+				arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));
+				Ship.Id = new string(arr).ToLower ();
+				NotifyPropertyChanged ("Name");
 			}
 		}
 			
-		bool largeBase;
 		public bool LargeBase {
-			get { return largeBase; }
+			get { return Ship.LargeBase; }
 			set { 
-				SetProperty (ref largeBase, value);
-				if (largeBase && Huge)
-					Huge = false;
+				Ship.LargeBase = value;
+				if (Ship.LargeBase && Ship.Huge)
+					Ship.Huge = false;
+				NotifyPropertyChanged ("Huge");
 			}
 		}
 
-		bool huge;
 		public bool Huge {
-			get { return huge; }
+			get { return Ship.Huge; }
 			set {
-				SetProperty (ref huge, value);
-				if (huge && LargeBase)
-					LargeBase = false;
+				Ship.Huge = value;
+				if (Ship.Huge && Ship.LargeBase)
+					Ship.LargeBase = false;
+				NotifyPropertyChanged ("LargeBase");
 			}
 		}
 
-		bool focusAvailable;
 		public bool FocusAvailable {
-			get { return focusAvailable; }
+			get { return Ship.Actions.Contains ("Focus"); }
 			set {
-				SetProperty (ref focusAvailable, value);
+				if (value && !Ship.Actions.Contains ("Focus"))
+					Ship.Actions.Add ("Focus");
+
+				if (!value && Ship.Actions.Contains ("Focus"))
+					Ship.Actions.Remove ("Focus");
 			}
 		}
 
-		bool evadeAvailable;
 		public bool EvadeAvailable {
-			get { return evadeAvailable; }
+			get { return Ship.Actions.Contains ("Evade"); }
 			set {
-				SetProperty (ref evadeAvailable, value);
+				if (value && !Ship.Actions.Contains ("Evade"))
+					Ship.Actions.Add ("Evade");
+
+				if (!value && Ship.Actions.Contains ("Evade"))
+					Ship.Actions.Remove ("Evade");
 			}
 		}
 
-		bool targetLockAvailable;
 		public bool TargetLockAvailable {
-			get { return targetLockAvailable; }
+			get { return Ship.Actions.Contains ("Target Lock"); }
 			set {
-				SetProperty (ref targetLockAvailable, value);
+				if (value && !Ship.Actions.Contains ("Target Lock"))
+					Ship.Actions.Add ("Target Lock");
+
+				if (!value && Ship.Actions.Contains ("Target Lock"))
+					Ship.Actions.Remove ("Target Lock");
 			}
 		}
 
-		bool barrelRollAvailable;
 		public bool BarrelRollAvailable {
-			get { return barrelRollAvailable; }
+			get { return Ship.Actions.Contains ("Barrel Roll"); }
 			set {
-				SetProperty (ref barrelRollAvailable, value);
+				if (value && !Ship.Actions.Contains ("Barrel Roll"))
+					Ship.Actions.Add ("Barrel Roll");
+
+				if (!value && Ship.Actions.Contains ("Barrel Roll"))
+					Ship.Actions.Remove ("Barrel Roll");
 			}
 		}
 
-		bool boostAvailable;
 		public bool BoostAvailable {
-			get { return boostAvailable; }
+			get { return Ship.Actions.Contains ("Boost"); }
 			set {
-				SetProperty (ref boostAvailable, value);
+				if (value && !Ship.Actions.Contains ("Boost"))
+					Ship.Actions.Add ("Boost");
+
+				if (!value && Ship.Actions.Contains ("Boost"))
+					Ship.Actions.Remove ("Boost");
 			}
 		}
 
-		bool cloakAvailable;
 		public bool CloakAvailable {
-			get { return cloakAvailable; }
+			get { return Ship.Actions.Contains ("Cloak"); }
 			set {
-				SetProperty (ref cloakAvailable, value);
+				if (value && !Ship.Actions.Contains ("Cloak"))
+					Ship.Actions.Add ("Cloak");
+
+				if (!value && Ship.Actions.Contains ("Cloak"))
+					Ship.Actions.Remove ("Cloak");
 			}
 		}
 
-		bool slamAvailable;
 		public bool SlamAvailable {
-			get { return slamAvailable; }
+			get { return Ship.Actions.Contains ("SLAM"); }
 			set {
-				SetProperty (ref slamAvailable, value);
+				if (value && !Ship.Actions.Contains ("SLAM"))
+					Ship.Actions.Add ("SLAM");
+
+				if (!value && Ship.Actions.Contains ("SLAM"))
+					Ship.Actions.Remove ("SLAM");
 			}
 		}
 
@@ -103,64 +142,42 @@ namespace SquadBuilder
 			get {
 				if (saveShip == null)
 					saveShip = new RelayCommand (() => {
-						if (string.IsNullOrWhiteSpace (name))
+						if (string.IsNullOrWhiteSpace (Name))
 							return;
 						
 						XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-						if (shipsXml.Descendants ().FirstOrDefault (e => e?.Value == name) != null)
-							return;
-
-						if (customShipsXml.Descendants ().FirstOrDefault (e => e?.Value == name) != null)
+						if (shipsXml.Elements ().FirstOrDefault (e => e.Element ("Name")?.Value == Name) != null)
 							return;
 						
-						char[] arr = name.ToCharArray();
+						if (customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id) != null) {
+							var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id);
+							element.Element ("LargeBase").SetValue (LargeBase);
+							element.Element ("Huge").SetValue (Huge);
+							element.Element ("Actions").SetValue (
+									from action in Ship.Actions
+									select new XElement ("Action", action)
+							);
 
-						arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));
-						var str = new string(arr);
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
+							MessagingCenter.Send <CreateShipViewModel, Ship> (this, "Finished Editing", Ship);
+						} else {
+							var element = new XElement ("Ship");
+							element.Add (new XAttribute ("id", Ship.Id));
+							element.Add (new XElement ("Name", Name));
+							element.Add (new XElement ("LargeBase", LargeBase));
+							element.Add (new XElement ("Huge", Huge));
+							element.Add (new XElement ("Actions",
+								from action in Ship.Actions
+								select new XElement ("Action", action)));
 
-						var actions = new List <string> ();
+							customShipsXml.Add (element);
+						
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
 
-						if (FocusAvailable) 
-							actions.Add ("Focus");
-						if (TargetLockAvailable) 
-							actions.Add ("Target Lock");
-						if (EvadeAvailable) 
-							actions.Add ("Evade");
-						if (BarrelRollAvailable)
-							actions.Add ("Barrel Roll");
-						if (BoostAvailable)
-							actions.Add ("Boost");
-						if (CloakAvailable)
-							actions.Add ("Cloak");
-						if (SlamAvailable)
-							actions.Add ("SLAM");
-
-						var element = new XElement ("Ship");
-						element.Add (new XAttribute ("id", str.ToLower ()));
-						element.Add (new XElement ("Name", name));
-						if (LargeBase)
-							element.Add (new XElement ("LargeBase", true));
-						if (Huge)
-							element.Add (new XElement ("Huge", true));
-						element.Add (new XElement ("Actions",
-							from action in actions
-							select new XElement ("Action", action)));
-
-						customShipsXml.Add (element);
-
-						DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
-
-						MessagingCenter.Send <CreateShipViewModel, Ship> (this, "Ship Created", 
-							new Ship { 
-								Id = str.ToLower (), 
-								Name = Name, 
-								LargeBase = LargeBase, 
-								Huge = Huge,
-								Actions = actions
-							}
-						);
+							MessagingCenter.Send <CreateShipViewModel, Ship> (this, "Ship Created", Ship);
+						}
 					});
 
 				return saveShip;

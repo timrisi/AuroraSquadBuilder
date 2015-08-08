@@ -86,6 +86,7 @@
       <DependentUpon>CreatePilotView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\UpgradeGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISendMail.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

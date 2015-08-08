@@ -96,7 +96,13 @@ namespace SquadBuilder
 			Upgrades = allUpgradeGroups;
 
 			MessagingCenter.Subscribe <Upgrade> (this, "Remove Upgrade", upgrade => {
-				Upgrades.FirstOrDefault (g => g.Contains (upgrade))?.Remove (upgrade);
+				var upgradeGroup = Upgrades.FirstOrDefault (g => g.Contains (upgrade));
+
+				if (upgradeGroup != null) {
+					upgradeGroup.Remove (upgrade);
+					if (upgradeGroup.Count == 0)
+						Upgrades.Remove (upgradeGroup);
+				}
 			});
 		}
 
