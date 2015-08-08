@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.10">
+<Upgrades Version="1.11">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -631,6 +631,35 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's {evade} results.</Text>
 		</Upgrade>
 	</Category>
+	<Category type="Hardpoint">
+		<Upgrade id="quadlasercannons">
+			<Name>Quad Laser Cannons</Name>
+			<Cost>6</Cost>
+			<Text>Attack (energy): Spend 1 energy from this card to perform this attack. If this attack does not hit, you may immediately spend 1 energy from this card to perform this attack again.</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Energy>2</Energy>
+			<Dice>3</Dice>
+			<Range>1-2</Range>
+		</Upgrade>
+		<Upgrade id="singleturbolasers">
+			<Name>Single Turbolasers</Name>
+			<Cost>8</Cost>
+			<Text>Attack (energy): Spend 2 energy from this card to perform this attack. The defender doubles his agility value against this attack. You may change 1 of your {focus} results to a {hit} result.</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Energy>2</Energy>
+			<Dice>4</Dice>
+			<Range>3-5</Range>
+		</Upgrade>
+		<Upgrade id="ioncannonbattery">
+			<Name>Ion Cannon Battery</Name>
+			<Cost>6</Cost>
+			<Text>Attack (Energy): Spend 2 energy from this card to perform this attack. If this attack hits, the defender suffers 1 critical damage and receives 1 ion token. Then cancel all dice results.</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Energy>2</Energy>
+			<Dice>4</Dice>
+			<Range>2-4</Range>
+		</Upgrade>
+	</Category>
 	<Category type="Illicit">
 		<Upgrade id="hotshotblaster">
 			<Name>&quot;Hot Shot&quot; Blaster</Name>
@@ -913,7 +942,23 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		</Upgrade>
 	</Category>
 	<Category type="Team">
-
+		<Upgrade id="gunneryteam">
+			<Name>Gunnery Team</Name>
+			<Cost>4</Cost>
+			<Text>Once per round, when attacking with a secondary weapon, you may spend 1 energy to change 1 of your blank results to a {hit} result.</Text>
+			<Limited>true</Limited>
+		</Upgrade>
+		<Upgrade id="engineeringteam">
+			<Name>Engineering Team</Name>
+			<Cost>4</Cost>
+			<Text>During the Activation phase, when you reveal a {straight} maneuver, gain 1 additional energy during the "Gain Energy" step.</Text>
+			<Limited>true</Limited>
+		</Upgrade>
+		<Upgrade id="sensorteam">
+			<Name>Sensor Team</Name>
+			<Cost>4</Cost>
+			<Text>When acquiring a target lock, you may lock onto an enemy ship at Range 1-5 (instead of Range 1-3).</Text>
+		</Upgrade>
 	</Category>
 	<Category type="Title">
 		<Upgrade id="milleniumfalcon">
