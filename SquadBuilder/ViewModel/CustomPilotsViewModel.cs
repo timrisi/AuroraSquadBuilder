@@ -116,6 +116,39 @@ namespace SquadBuilder
 						PilotGroups.Remove (pilotGroup);
 				}
 			});
+
+			MessagingCenter.Subscribe <Pilot> (this, "Edit Pilot", pilot => {
+				string pilotName = pilot.Name;
+				MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Finished Editing", (vm, updatedPilot) => {
+					if (pilotName == updatedPilot.Id)
+						pilot = updatedPilot;
+					else  {
+						var originalGroup = PilotGroups.FirstOrDefault (g => g.Contains (pilot));
+						if (originalGroup != null) {
+							originalGroup.Remove (pilot);
+
+							if (originalGroup.Count == 0)
+								PilotGroups.Remove (originalGroup);
+						}
+
+						var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
+
+						if (pilotGroup == null) {
+							pilotGroup = new PilotGroup (updatedPilot.Ship) { Faction = updatedPilot.Faction };
+							PilotGroups.Add (pilotGroup);
+						}
+
+						pilotGroup.Add (updatedPilot);
+					}
+					Navigation.PopAsync ();
+					NotifyPropertyChanged ("Pilots");
+					MessagingCenter.Unsubscribe <EditPilotViewModel, Ship> (this, "Finished Editing");
+				});
+
+				Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
+					vm.Pilot = pilot.Copy ();
+				});
+			});
 		}
 
 		ObservableCollection <PilotGroup> pilotGroups = new ObservableCollection <PilotGroup> ();

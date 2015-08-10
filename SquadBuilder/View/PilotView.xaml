@@ -20,15 +20,14 @@
 				<Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
 			</StackLayout>
 			<Label Text="{Binding Pilot.Ship.Name}" FontAttributes="Italic" />
-			<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
 			<StackLayout Orientation="Horizontal" Spacing="10">
 				<Label Text="Actions:" FontAttributes="Bold" MinimumWidthRequest="100" />
 				<Label Text="{Binding Pilot.Ship.ActionsString}" />
 			</StackLayout>
 			<StackLayout Orientation="Horizontal" Spacing="10">
-										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
-										<Label Text="Preview" IsVisible="{Binding PilotPreview}" TextColor="Blue" FontAttributes="Italic" />
-									</StackLayout>
+				<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+				<Label Text="Preview" IsVisible="{Binding PilotPreview}" TextColor="Blue" FontAttributes="Italic" />
+			</StackLayout>
 			<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" />
 			<ListView ItemsSource="{Binding Pilot.Upgrades}"
 					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}"

@@ -9,8 +9,8 @@
 						 Spacing="10"
 						 Padding="15,10">
 				<Entry Text="{Binding Name}" Placeholder="Enter Pilot Name" />
-				<Picker x:Name="factionPicker" SelectedIndex="{Binding FactionIndex}" Title="Faction" />
-				<Picker x:Name="shipPicker" SelectedIndex="{Binding ShipIndex}" Title="Ship" />
+				<Picker x:Name="factionPicker" SelectedIndex="{Binding FactionIndex, Mode=TwoWay}" Title="Faction" />
+				<Picker x:Name="shipPicker" SelectedIndex="{Binding ShipIndex, Mode=TwoWay}" Title="Ship" />
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
 					<Label Text="Cost" XAlign="End" YAlign="Center" />
 					<Entry Placeholder="Enter Cost" Text="{Binding Pilot.BaseCost}" />
@@ -18,7 +18,7 @@
 					<Switch IsToggled="{Binding Pilot.Unique}" HorizontalOptions="End" />
 				</StackLayout>
 				<Label Text="Text" />
-				<Editor Text="{Binding Ability}" BackgroundColor="Silver" HeightRequest="75" />
+				<Editor Text="{Binding Pilot.Ability}" BackgroundColor="Silver" HeightRequest="75" />
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 					<Label Text="Pilot Skill" XAlign="End" YAlign="Center" TextColor="#F60" WidthRequest="175" />
 					<Entry Text="{Binding Pilot.BasePilotSkill}" HorizontalOptions="FillAndExpand" />

@@ -18,7 +18,10 @@ namespace SquadBuilder
 		{
 			Name = "";
 			Pilots = new ObservableCollection <Pilot> ();
-			Pilots.CollectionChanged += (sender, e) => NotifyPropertyChanged ("Points");
+			Pilots.CollectionChanged += (sender, e) => {
+				NotifyPropertyChanged ("Points");
+				NotifyPropertyChanged ("PointDetails");
+			};
 		}
 
 		string name;
@@ -42,7 +45,10 @@ namespace SquadBuilder
 		int maxPoints;
 		public int MaxPoints { 
 			get { return maxPoints; }
-			set { SetProperty (ref maxPoints, value); }
+			set { 
+				SetProperty (ref maxPoints, value);
+				NotifyPropertyChanged ("PointDetails");
+			}
 		}
 
 		ObservableCollection <Pilot> pilots = new ObservableCollection <Pilot> ();
@@ -52,7 +58,13 @@ namespace SquadBuilder
 			}
 			set {
 				SetProperty (ref pilots, value);
+				NotifyPropertyChanged ("PointDetails");
 			}
+		}
+
+		string pointDetails;
+		public string PointDetails {
+			get { return Points + " / " + MaxPoints; }
 		}
 
 		[XmlIgnore]

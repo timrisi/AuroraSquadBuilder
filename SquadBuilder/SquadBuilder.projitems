@@ -87,6 +87,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\UpgradeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ISendMail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\EditPilotView.xaml.cs">
+      <DependentUpon>EditPilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditPilotViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -143,6 +147,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreatePilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditPilotView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

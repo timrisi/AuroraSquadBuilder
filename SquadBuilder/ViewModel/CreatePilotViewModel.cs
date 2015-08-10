@@ -107,6 +107,10 @@ namespace SquadBuilder
 				TeamSlots = pilot.UpgradeTypes.Count (u => u == "Team");
 				TorpedoSlots = pilot.UpgradeTypes.Count (u => u == "Torpedo");
 				TurretWeaponSlots = pilot.UpgradeTypes.Count (u => u == "Turret Weapon");
+				ShipIndex = Ships.IndexOf (Ships.FirstOrDefault (s => s.Id == Pilot.Ship.Id));
+				NotifyPropertyChanged ("ShipIndex");
+				FactionIndex = Factions.IndexOf (Factions.FirstOrDefault (f => f.Id == Pilot.Faction.Id));
+				NotifyPropertyChanged ("FactionIndex");
 			}
 		}
 
@@ -115,7 +119,8 @@ namespace SquadBuilder
 			get { return shipIndex; }
 			set { 
 				SetProperty (ref shipIndex, value); 
-				Pilot.Ship = Ships [ShipIndex];
+				if (value > -1)
+					Pilot.Ship = Ships [value];
 			}
 		}
 
@@ -130,8 +135,8 @@ namespace SquadBuilder
 			get { return factionIndex; }
 			set { 
 				SetProperty (ref factionIndex, value); 
-
-				Pilot.Faction = Factions [FactionIndex];
+				if (value > -1)
+					Pilot.Faction = Factions [value];
 			}
 		}
 
@@ -244,45 +249,61 @@ namespace SquadBuilder
 							e.Element ("Ship").Value == Pilot.Ship.Id) != null)
 							return;
 
-						if (customPilotsXml.Elements ().FirstOrDefault (e => 
-							e.Element ("Name").Value == Pilot.Name &&
-							e.Element ("Faction").Value == Pilot.Faction.Id &&
-							e.Element ("Ship").Value == Pilot.Ship.Id) != null) {
+						List <string> upgrades = new List<string> ();
 
+						for (int i = 0; i < EPTSlots; i++)
+							upgrades.Add ("Elite Pilot Talent");
+						for (int i = 0; i < AstromechDroidSlots; i++)
+							upgrades.Add ("Astromech Droid");
+						for (int i = 0; i < BombSlots; i++)
+							upgrades.Add ("Bomb");
+						for (int i = 0; i < CannonSlots; i++)
+							upgrades.Add ("Cannon");
+						for (int i = 0; i < CargoSlots; i++)
+							upgrades.Add ("Cargo");
+						for (int i = 0; i < CrewSlots; i++)
+							upgrades.Add ("Crew");
+						for (int i = 0; i < HardpointSlots; i++)
+							upgrades.Add ("Hardpoint");
+						for (int i = 0; i < IllicitSlots; i++)
+							upgrades.Add ("Illicit");
+						for (int i = 0; i < MissileSlots; i++)
+							upgrades.Add ("Missile");
+						for (int i = 0; i < SalvagedAstromechSlots; i++)
+							upgrades.Add ("Salvaged Astromech");
+						for (int i = 0; i < SystemUpgradeSlots; i++)
+							upgrades.Add ("System Upgrade");
+						for (int i = 0; i < TeamSlots; i++)
+							upgrades.Add ("Team");
+						for (int i = 0; i < TorpedoSlots; i++)
+							upgrades.Add ("Torpedo");
+						for (int i = 0; i < TurretWeaponSlots; i++)
+							upgrades.Add ("Turret Weapon");
+						upgrades.Add ("Title");
+						upgrades.Add ("Modification");
+
+						var customElement = customPilotsXml.Elements ().FirstOrDefault (e => 
+							e.Element ("Name")?.Value == Pilot.Name &&
+							e.Attribute ("faction")?.Value == Pilot.Faction.Id &&
+							e.Attribute ("ship")?.Value == Pilot.Ship.Id);
+						
+						if (customElement != null) {
+							customElement.SetElementValue ("Unique", Pilot.Unique);
+							customElement.SetElementValue ("PilotSkill", Pilot.BasePilotSkill);
+							customElement.SetElementValue ("Attack", Pilot.BaseAttack);
+							customElement.SetElementValue ("Agility", Pilot.BaseAgility);
+							customElement.SetElementValue ("Hull", Pilot.Hull);
+							customElement.SetElementValue ("Shields", Pilot.BaseShields);
+							customElement.SetElementValue ("Cost", Pilot.BaseCost);
+							customElement.SetElementValue ("Ability", Pilot.Ability);
+							customElement.SetElementValue ("Upgrades",
+								from upgrade in upgrades
+								select new XElement ("Upgrade", upgrade));
+
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
+
+							MessagingCenter.Send <CreatePilotViewModel, Pilot> (this, "Finished Editing", Pilot);
 						} else {
-							List <string> upgrades = new List<string> ();
-
-							for (int i = 0; i < EPTSlots; i++)
-								upgrades.Add ("Elite Pilot Talent");
-							for (int i = 0; i < AstromechDroidSlots; i++)
-								upgrades.Add ("Astromech Droid");
-							for (int i = 0; i < BombSlots; i++)
-								upgrades.Add ("Bomb");
-							for (int i = 0; i < CannonSlots; i++)
-								upgrades.Add ("Cannon");
-							for (int i = 0; i < CargoSlots; i++)
-								upgrades.Add ("Cargo");
-							for (int i = 0; i < CrewSlots; i++)
-								upgrades.Add ("Crew");
-							for (int i = 0; i < HardpointSlots; i++)
-								upgrades.Add ("Hardpoint");
-							for (int i = 0; i < IllicitSlots; i++)
-								upgrades.Add ("Illicit");
-							for (int i = 0; i < MissileSlots; i++)
-								upgrades.Add ("Missile");
-							for (int i = 0; i < SalvagedAstromechSlots; i++)
-								upgrades.Add ("Salvaged Astromech");
-							for (int i = 0; i < SystemUpgradeSlots; i++)
-								upgrades.Add ("System Upgrade");
-							for (int i = 0; i < TeamSlots; i++)
-								upgrades.Add ("Team");
-							for (int i = 0; i < TorpedoSlots; i++)
-								upgrades.Add ("Torpedo");
-							for (int i = 0; i < TurretWeaponSlots; i++)
-								upgrades.Add ("Turret Weapon");
-							upgrades.Add ("Title");
-							upgrades.Add ("Modification");
-
 							var element = new XElement ("Pilot", 
 								new XAttribute ("id", Pilot.Id),
 								new XAttribute ("faction", Pilot.Faction.Id),

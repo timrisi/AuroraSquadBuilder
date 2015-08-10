@@ -212,6 +212,34 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
+		RelayCommand editPilot;
+		[XmlIgnore]
+		public RelayCommand EditPilot {
+			get {
+				if (editPilot == null)
+					editPilot = new RelayCommand (() => {
+						MessagingCenter.Send <Pilot> (this, "Edit Pilot");
+					});
+
+				return editPilot;
+			}
+		}
+
+		[XmlIgnore]
+		RelayCommand removePilot;
+		[XmlIgnore]
+		public RelayCommand RemovePilot {
+			get {
+				if (removePilot == null)
+					removePilot = new RelayCommand (() => {
+						MessagingCenter.Send <Pilot> (this, "Remove Pilot");
+					});
+
+				return removePilot;
+			}
+		}
+
+		[XmlIgnore]
 		RelayCommand copyPilot;
 		[XmlIgnore]
 		public RelayCommand CopyPilot {

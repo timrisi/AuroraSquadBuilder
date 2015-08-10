@@ -79,7 +79,7 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			MessagingCenter.Subscribe <Pilot> (this, "DeletePilot", 
+			MessagingCenter.Subscribe <Pilot> (this, "Remove Pilot", 
 				(pilot) => Pilots.Remove (pilot));
 			MessagingCenter.Subscribe <Pilot> (this, "Copy Pilot",
 				(pilot) => Pilots.Add (pilot.Copy ()));
@@ -94,7 +94,7 @@ namespace SquadBuilder
 		{
 			base.OnViewDisappearing ();
 
-			MessagingCenter.Unsubscribe <Pilot> (this, "DeletePilot");
+			MessagingCenter.Unsubscribe <Pilot> (this, "Remove Pilot");
 			MessagingCenter.Unsubscribe <Pilot> (this, "Copy Pilot");
 		}
 	}

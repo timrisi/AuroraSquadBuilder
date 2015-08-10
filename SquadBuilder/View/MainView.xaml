@@ -34,7 +34,7 @@
 										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
 										<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
 									</StackLayout>
-									<Label Text="{Binding MaxPoints}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
+									<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>

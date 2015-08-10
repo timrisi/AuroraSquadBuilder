@@ -25,7 +25,7 @@
 							<ViewCell.ContextActions>
 								<MenuItem Command="{Binding CopyPilot}"
 										  Text="Copy" />
-								<MenuItem Command="{Binding DeletePilot}"
+								<MenuItem Command="{Binding RemovePilot}"
 					               		  Text="Delete" 
 					               		  IsDestructive="True" />
 					        </ViewCell.ContextActions>

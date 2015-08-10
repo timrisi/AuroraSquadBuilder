@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="SquadBuilder.EditPilotView" 
+			 Title="{Binding Name}">
+	<ContentPage.Content>
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+			<StackLayout Orientation="Vertical"
+						 Spacing="10"
+						 Padding="15,10">
+				<Entry Text="{Binding Name}" Placeholder="Enter Pilot Name" />
+				<Picker x:Name="factionPicker" SelectedIndex="{Binding FactionIndex, Mode=TwoWay}" Title="Faction" />
+				<Picker x:Name="shipPicker" SelectedIndex="{Binding ShipIndex, Mode=TwoWay}" Title="Ship" />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
+					<Label Text="Cost" XAlign="End" YAlign="Center" />
+					<Entry Placeholder="Enter Cost" Text="{Binding Pilot.BaseCost}" />
+					<Label Text="Unique" YAlign="Center" HorizontalOptions="EndAndExpand"/>
+					<Switch IsToggled="{Binding Pilot.Unique}" HorizontalOptions="End" />
+				</StackLayout>
+				<Label Text="Text" />
+				<Editor Text="{Binding Pilot.Ability}" BackgroundColor="Silver" HeightRequest="75" />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<Label Text="Pilot Skill" XAlign="End" YAlign="Center" TextColor="#F60" WidthRequest="175" />
+					<Entry Text="{Binding Pilot.BasePilotSkill}" HorizontalOptions="FillAndExpand" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<Label Text="Attack" XAlign="End" YAlign="Center" TextColor="Red" WidthRequest="175" />
+					<Entry Text="{Binding Pilot.BaseAttack}" HorizontalOptions="FillAndExpand" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<Label Text="Agility" XAlign="End" YAlign="Center" TextColor="Green" WidthRequest="175" />
+					<Entry Text="{Binding Pilot.BaseAgility}" HorizontalOptions="FillAndExpand" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<Label Text="Hull" XAlign="End" YAlign="Center" TextColor="#FC0" WidthRequest="175" />
+					<Entry Text="{Binding Pilot.BaseHull}" HorizontalOptions="FillAndExpand" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<Label Text="Shields" XAlign="End" YAlign="Center" TextColor="Blue" WidthRequest="175" />
+					<Entry Text="{Binding Pilot.BaseShields}" HorizontalOptions="FillAndExpand" />
+				</StackLayout>
+				<Label Text="Upgrade Slots" FontAttributes="Bold" />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Astromech Droid" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding AstromechDroidSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Bomb" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding BombSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Cannon" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding CannonSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Cargo" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding CargoSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Crew" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding CrewSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Elite Pilot Talent" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding EPTSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Hardpoint" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding HardpointSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Illicit" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding IllicitSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Missile" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding MissileSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Salvaged Astromech" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding SalvagedAstromechSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="System Upgrade" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding SystemUpgradeSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Team" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding TeamSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Torpedo" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding TorpedoSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Turret Weapon" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding TurretWeaponSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<Button Text="Save" Command="{Binding SavePilot}" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

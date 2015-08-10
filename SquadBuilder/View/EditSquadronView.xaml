@@ -8,6 +8,11 @@
 		<StackLayout Padding="15,10,15,10">
 			<Entry Text="{Binding Squadron.Name, Mode=TwoWay}" />
 			<Entry Text="{Binding Squadron.MaxPoints, Mode=TwoWay}" />
+			<Label Text="WARNING: Changing the Faction of an existing squadron will remove all pilots that are not in the new faction"
+				   TextColor="Red"
+				   FontSize="Small"
+				   FontAttributes="Italic" />
+			<Picker x:Name="factionPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" />
 			<Label Text="{Binding Squadron.Faction}" />
 		</StackLayout>
 	</mvvm:BaseView.Content>
