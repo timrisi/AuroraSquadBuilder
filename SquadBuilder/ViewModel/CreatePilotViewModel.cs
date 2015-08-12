@@ -239,7 +239,9 @@ namespace SquadBuilder
 					savePilot = new RelayCommand (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
-
+						if (Pilot.Ship == null || Pilot.Faction == null)
+							return;
+						
 						XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
@@ -281,6 +283,8 @@ namespace SquadBuilder
 							upgrades.Add ("Turret Weapon");
 						upgrades.Add ("Title");
 						upgrades.Add ("Modification");
+
+						Pilot.UpgradeTypes = new ObservableCollection<string> (upgrades);
 
 						var customElement = customPilotsXml.Elements ().FirstOrDefault (e => 
 							e.Element ("Name")?.Value == Pilot.Name &&

@@ -119,30 +119,30 @@ namespace SquadBuilder
 
 			MessagingCenter.Subscribe <Pilot> (this, "Edit Pilot", pilot => {
 				string pilotName = pilot.Name;
+				string shipName = pilot.Ship.Name;
+				string factionName = pilot.Faction.Name;
+
 				MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Finished Editing", (vm, updatedPilot) => {
-					if (pilotName == updatedPilot.Id)
-						pilot = updatedPilot;
-					else  {
-						var originalGroup = PilotGroups.FirstOrDefault (g => g.Contains (pilot));
-						if (originalGroup != null) {
-							originalGroup.Remove (pilot);
+				var originalGroup = PilotGroups.FirstOrDefault (g => g.ToList ().Exists (p => p.Name == pilot.Name && p.Ship.Name == pilot.Ship.Name && p.Faction.Name == pilot.Faction.Name));
+					if (originalGroup != null) {
+						originalGroup.Remove (pilot);
 
-							if (originalGroup.Count == 0)
-								PilotGroups.Remove (originalGroup);
-						}
-
-						var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
-
-						if (pilotGroup == null) {
-							pilotGroup = new PilotGroup (updatedPilot.Ship) { Faction = updatedPilot.Faction };
-							PilotGroups.Add (pilotGroup);
-						}
-
-						pilotGroup.Add (updatedPilot);
+						if (originalGroup.Count == 0)
+							PilotGroups.Remove (originalGroup);
 					}
+
+					var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
+
+					if (pilotGroup == null) {
+						pilotGroup = new PilotGroup (updatedPilot.Ship) { Faction = updatedPilot.Faction }; 
+						PilotGroups.Add (pilotGroup);
+					}
+
+					pilotGroup.Add (updatedPilot);
+
 					Navigation.PopAsync ();
-					NotifyPropertyChanged ("Pilots");
-					MessagingCenter.Unsubscribe <EditPilotViewModel, Ship> (this, "Finished Editing");
+					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
+					MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Finished Editing");
 				});
 
 				Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
@@ -156,7 +156,6 @@ namespace SquadBuilder
 			get { return pilotGroups; }
 			set {
 				SetProperty (ref pilotGroups, value);
-				PilotGroups.CollectionChanged += (sender, e) => NotifyPropertyChanged ("PilotGroups");
 			}
 		}
 
@@ -191,6 +190,13 @@ namespace SquadBuilder
 
 				return createPilot;
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			NotifyPropertyChanged ("PilotGroups");
 		}
 	}
 }

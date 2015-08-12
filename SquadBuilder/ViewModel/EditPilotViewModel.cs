@@ -120,7 +120,6 @@ namespace SquadBuilder
 				FactionIndex = Factions.IndexOf (Factions.FirstOrDefault (f => f.Id == Pilot.Faction.Id));
 				NotifyPropertyChanged ("FactionIndex");
 
-				XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
 				XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
 				OriginalElement = customPilotsXml.Elements ().FirstOrDefault (e => 
@@ -298,6 +297,8 @@ namespace SquadBuilder
 							upgrades.Add ("Turret Weapon");
 						upgrades.Add ("Title");
 						upgrades.Add ("Modification");
+
+						Pilot.UpgradeTypes = new ObservableCollection <string> (upgrades);
 
 						var customElement = customPilotsXml.Elements ().FirstOrDefault (e => 
 							e.Element ("Name").Value == OriginalElement.Element ("Name").Value &&

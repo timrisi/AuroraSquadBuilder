@@ -31,17 +31,21 @@ namespace SquadBuilder
 
 			MessagingCenter.Subscribe <Ship> (this, "Edit Ship", ship => {
 				string shipName = ship.Name;
-				MessagingCenter.Subscribe <CreateShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
+				MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
 					if (shipName == updatedShip.Name)
-						ship = updatedShip;
-					else 
+						Ships [Ships.IndexOf (ship)] = updatedShip;
+//						ship = updatedShip;
+					else {
+						Ships.Remove (ship);
 						Ships.Add (updatedShip);
+					}
+
 					Navigation.PopAsync ();
 					NotifyPropertyChanged ("Ships");
-					MessagingCenter.Unsubscribe <CreateShipViewModel, Ship> (this, "Finished Editing");
+					MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Finished Editing");
 				});
 
-				Navigation.PushAsync<CreateShipViewModel> ((vm, p) => {
+				Navigation.PushAsync<EditShipViewModel> ((vm, p) => {
 					vm.Ship = ship.Copy ();
 				});
 			});
@@ -56,6 +60,7 @@ namespace SquadBuilder
 			}
 			set {
 				SetProperty (ref ships, value);
+				ships.CollectionChanged += (sender, e) => NotifyPropertyChanged ("Ships");
 			}
 		}
 

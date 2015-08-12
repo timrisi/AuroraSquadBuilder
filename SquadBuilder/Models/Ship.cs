@@ -50,7 +50,9 @@ namespace SquadBuilder
 			get { return actions; }
 			set { 
 				SetProperty (ref actions, value);
+				NotifyPropertyChanged ("ActionsString");
 				actions.CollectionChanged += (sender, e) => NotifyPropertyChanged ("ActionsString");
+				Actions.CollectionChanged += (sender, e) => NotifyPropertyChanged ("ActionsString");
 			}
 		}
 
