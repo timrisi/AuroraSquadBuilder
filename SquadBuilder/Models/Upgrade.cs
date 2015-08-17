@@ -82,6 +82,49 @@ namespace SquadBuilder
 				return deleteUpgrade;
 			}
 		}
+
+		[XmlIgnore]
+		RelayCommand editUpgrade;
+		[XmlIgnore]
+		public RelayCommand EditUpgrade {
+			get {
+				if (editUpgrade == null)
+					editUpgrade = new RelayCommand (() => {
+						MessagingCenter.Send <Upgrade> (this, "Edit Upgrade");
+					});
+
+				return editUpgrade;
+			}
+		}
+
+		public Upgrade Copy ()
+		{
+			return new Upgrade {
+				Id = Id,
+				Name = Name,
+				Category = Category,
+				Cost = Cost,
+				Ship = Ship,
+				Faction = Faction,
+				SmallOnly = SmallOnly,
+				LargeOnly = LargeOnly,
+				HugeOnly = HugeOnly,
+				Text = Text,
+				PilotSkill = PilotSkill,
+				Attack = Attack,
+				Agility = Agility,
+				Hull = Hull,
+				Shields = Shields,
+				SecondaryWeapon = SecondaryWeapon,
+				Dice = Dice,
+				Range = Range,
+				Limited = Limited,
+				Unique = Unique, 
+				Preview = Preview,
+				Slots = new ObservableCollection <string> (Slots),
+				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades)
+			};
+		}
 	}
 }
 

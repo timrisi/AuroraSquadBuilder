@@ -98,6 +98,7 @@
       <DependentUpon>EditUpgradeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditShipViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditUpgradeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

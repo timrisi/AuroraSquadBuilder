@@ -84,7 +84,7 @@ namespace SquadBuilder
 				}
 
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {
-					var extraIndex = Pilot.Upgrades.IndexOf (upgrade.Slots [i]);
+					var extraIndex = Pilot.Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
 					if (index >= 0)
 						Pilot.UpgradesEquipped [extraIndex] = upgrade;
 				}

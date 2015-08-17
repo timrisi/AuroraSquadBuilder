@@ -21,6 +21,8 @@
 					<DataTemplate> 
 						<ViewCell>
 							<ViewCell.ContextActions>
+								<MenuItem Command="{Binding EditUpgrade}"
+										  Text="Edit" />
 								<MenuItem Command="{Binding DeleteUpgrade}"
 					               		  Text="Delete" 
 					               		  IsDestructive="True" />

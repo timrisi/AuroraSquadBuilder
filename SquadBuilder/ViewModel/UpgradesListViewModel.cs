@@ -192,12 +192,13 @@ namespace SquadBuilder
 				}
 
 				var pilotUpgrades = new List <object> (Pilot.Upgrades);
-				pilotUpgrades.Remove (upgrade.Category);
+				pilotUpgrades.Remove (new { Name = upgrade.Category, IsUpgrade = false });
 
 				bool isValid = true;
 				foreach (var slot in upgrade.Slots) {
-					if (pilotUpgrades.Contains (slot))
-						pilotUpgrades.Remove (slot);
+					var slotObject = new { Name = slot, IsUpgrade = false };
+					if (pilotUpgrades.Contains (slotObject))
+						pilotUpgrades.Remove (slotObject);
 					else {
 						isValid = false;
 						break;
