@@ -137,6 +137,7 @@ namespace SquadBuilder
 				LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool)upgrade.Element ("LargeOnly") : false,
 				HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool)upgrade.Element ("HugeOnly") : false,
 				Preview = upgrade.Element ("Preview") != null ? (bool)upgrade.Element ("Preview") : false,
+				TIEOnly = upgrade.Element ("TIEOnly") != null ? (bool)upgrade.Element ("TIEOnly") : false,
 				AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 				                                                         select upgr.Value).ToList ()),
 				Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
@@ -173,6 +174,7 @@ namespace SquadBuilder
 					LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool)upgrade.Element ("LargeOnly") : false,
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool)upgrade.Element ("HugeOnly") : false,
 					Preview = upgrade.Element ("Preview") != null ? (bool)upgrade.Element ("Preview") : false,
+					TIEOnly = upgrade.Element ("TIEOnly") != null ? (bool)upgrade.Element ("TIEOnly") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 					                                                         select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
@@ -186,6 +188,9 @@ namespace SquadBuilder
 
 			ObservableCollection <Upgrade> valid = new ObservableCollection<Upgrade> ();
 			foreach (var upgrade in upgrades) {
+				if (upgrade.TIEOnly && !Pilot.Ship.Name.Contains ("TIE"))
+					continue;
+				
 				if (upgrade.Slots.Count () == 0) {
 					valid.Add (upgrade);	
 					continue;

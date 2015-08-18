@@ -36,6 +36,7 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
+		public bool TIEOnly { get; set; }
 
 		Faction faction;
 		public Faction Faction {
@@ -122,7 +123,8 @@ namespace SquadBuilder
 				Unique = Unique, 
 				Preview = Preview,
 				Slots = new ObservableCollection <string> (Slots),
-				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades)
+				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
+				TIEOnly = TIEOnly
 			};
 		}
 	}
