@@ -191,6 +191,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="SaveAndLoad.cs" />
+    <Compile Include="ClipboardService.cs" />
     <Compile Include="SendMail.cs" />
   </ItemGroup>
   <ItemGroup>

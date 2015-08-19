@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 using System.IO;
+using System.Text;
+using System.Linq;
 
 namespace SquadBuilder
 {
@@ -72,6 +74,28 @@ namespace SquadBuilder
 					});
 
 				return navigateToPilotsList;
+			}
+		}
+
+		RelayCommand exportToClipboard;
+		public RelayCommand ExportToClipboard {
+			get {
+				if (exportToClipboard == null)
+					exportToClipboard = new RelayCommand (() => {
+						var builder = new StringBuilder ();
+						builder.AppendLine (Squadron.Name + " (" + Squadron.Points + ")");
+						builder.AppendLine ();
+
+						foreach (var pilot in Squadron.Pilots) {
+							builder.AppendLine (pilot.Name + " (" + pilot.Cost + ")");
+							builder.AppendLine (string.Join (", ", pilot.UpgradesEquipped.Where (u => u != null).Select (u => u.Name + " (" + u.Cost + ")")));
+							builder.AppendLine ();
+						}
+
+						DependencyService.Get <IClipboardService> ().CopyToClipboard (builder.ToString ());
+					});
+
+				return exportToClipboard;
 			}
 		}
 
