@@ -55,6 +55,22 @@ namespace SquadBuilder.Droid
 
 			if (!saveAndLoad.FileExists ("Upgrades.xml") || (float)XElement.Load (Path.Combine (System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal), "Upgrades.xml"))?.Attribute ("Version") < version)
 				saveAndLoad.SaveText ("Upgrades.xml", upgradesXml);
+
+			var customFactionsXml = await new StreamReader (Application.Context.Assets.Open ("Factions_Custom.xml")).ReadToEndAsync ();
+			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
+				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
+
+			var customShipsXml = await new StreamReader (Application.Context.Assets.Open ("Ships_Custom.xml")).ReadToEndAsync ();
+			if (!saveAndLoad.FileExists ("Ships_Custom.xml"))
+				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
+
+			var customPilotsXml = await new StreamReader (Application.Context.Assets.Open ("Pilots_Custom.xml")).ReadToEndAsync ();
+			if (!saveAndLoad.FileExists ("Pilots_Custom.xml"))
+				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
+
+			var customUpgradesXml = await new StreamReader (Application.Context.Assets.Open ("Upgrades_Custom.xml")).ReadToEndAsync ();
+			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
+				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 			
 			LoadApplication(new App());
 		}

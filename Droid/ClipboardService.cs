@@ -2,6 +2,7 @@
 
 using Android.App;
 using Android.Content;
+using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SquadBuilder.Droid.ClipboardService))]
 namespace SquadBuilder.Droid
@@ -10,7 +11,8 @@ namespace SquadBuilder.Droid
 	{
 		public void CopyToClipboard(String text)
 		{
-			LaunchActivity.AndroidClipboardManager.Text = text;
+			var clipboardmanager = (ClipboardManager)Forms.Context.GetSystemService (Context.ClipboardService);
+			clipboardmanager.Text = text;
 		}
 	}
 }

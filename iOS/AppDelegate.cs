@@ -32,7 +32,6 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Factions.xml", factionsXml);
 
 			var customFactionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions_Custom", "xml")).ReadToEnd ();
-			version = (float)XElement.Load (new StringReader (customFactionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 

@@ -93,6 +93,7 @@ namespace SquadBuilder
 						}
 
 						DependencyService.Get <IClipboardService> ().CopyToClipboard (builder.ToString ());
+						MessagingCenter.Send <SquadronViewModel> (this, "Squadron Copied");
 					});
 
 				return exportToClipboard;

@@ -135,5 +135,17 @@
     <AndroidAsset Include="..\iOS\Resources\Upgrades.xml">
       <Link>Assets\Upgrades.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Factions_Custom.xml">
+      <Link>Assets\Factions_Custom.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Pilots_Custom.xml">
+      <Link>Assets\Pilots_Custom.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Ships_Custom.xml">
+      <Link>Assets\Ships_Custom.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Upgrades_Custom.xml">
+      <Link>Assets\Upgrades_Custom.xml</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>

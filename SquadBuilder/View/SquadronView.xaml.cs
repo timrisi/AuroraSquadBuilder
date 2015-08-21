@@ -11,6 +11,10 @@ namespace SquadBuilder
 		public SquadronView ()
 		{
 			InitializeComponent ();
+
+			MessagingCenter.Subscribe <SquadronViewModel> (this, "Squadron Copied", async vm => {
+				await DisplayAlert ("", "Copied to Clipboard", "OK");
+			});
 		}
 	}
 }
