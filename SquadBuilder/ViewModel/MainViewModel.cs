@@ -130,6 +130,8 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
+			Squadrons = new ObservableCollection <Squadron> (Squadrons);
+
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");
 		}

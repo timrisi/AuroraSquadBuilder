@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.12">
+<Upgrades Version="1.13">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -121,7 +121,7 @@ Detonation: Deal one damage and two ion tokens to the affected ship. The affecte
 		<Upgrade id="ionbombs">
 			<Name>Ion Bombs</Name>
 			<Cost>2</Cost>
-			<Text>Action: When you reveal you maneuver dial, you may discard this card to drop 1 ion bomb token.
+			<Text>When you reveal you maneuver dial, you may discard this card to drop 1 ion bomb token.
 
 This card detonates at the end of the Activation phase.
 

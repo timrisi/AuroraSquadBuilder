@@ -109,6 +109,8 @@ namespace SquadBuilder
 			MessagingCenter.Subscribe <Pilot> (this, "Copy Pilot",
 				(pilot) => Pilots.Add (pilot.Copy ()));
 
+			Pilots = new ObservableCollection <Pilot> (Pilots);
+
 			NotifyPropertyChanged ("Squadron");
 			NotifyPropertyChanged ("Pilots");
 			NotifyPropertyChanged ("SelectedPilot");
