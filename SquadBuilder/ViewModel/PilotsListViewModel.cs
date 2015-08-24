@@ -207,8 +207,8 @@ namespace SquadBuilder
 					continue;
 				}
 
-				var filteredPilots = grp.Where (p => p.Name.ToLower ().Contains (text.ToLower ()) || p.Id.ToLower ().Contains (text.ToLower ()));
-				if (filteredPilots.Count () > 0) {
+				var filteredPilots = grp.Where (p => p.Name.ToLower ().Contains (text.ToLower ()));
+				if (filteredPilots?.Count () > 0) {
 					var newGroup = new PilotGroup (grp.Ship) { Faction = grp.Faction };
 					foreach (var pilot in filteredPilots)
 						newGroup.Add (pilot);
