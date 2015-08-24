@@ -38,6 +38,8 @@ namespace SquadBuilder
 			get { return Squadron.Pilots; }
 			set { 
 				Squadron.Pilots = value;
+				Pilots.CollectionChanged += (sender, e) => 
+					NotifyPropertyChanged ("PointsDescription");
 			}
 		}
 
