@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.13">
+<Upgrades Version="2.00">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -15,7 +15,7 @@
 		</Upgrade>
 		<Upgrade id="r5k6">
 			<Name>R5-K6</Name>
-			<Cost>3</Cost>
+			<Cost>2</Cost>
 			<Text>After spending your target lock, roll 1 defense die.  On an {evade} result, immediately acquire a target lock on that same ship.  You cannot spend this target lock during this attack.</Text>
 			<Unique>true</Unique>
 		</Upgrade>
@@ -265,7 +265,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>3</Cost>
 			<Text>You may maintain 2 target locks (only 1 per enemy ship).  When you acquire a target lock, you may lock onto 2 different ships.</Text>
 		</Upgrade>
-		<Upgrade id="Gunner">
+		<Upgrade id="gunner">
 			<Name>Gunner</Name>
 			<Cost>5</Cost>
 			<Text>After you perform an attack that does not hit you may immediately perform a primary weapon attack. You cannot perform another attack this round.</Text>
@@ -504,22 +504,22 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>3</Cost>
 			<Text>Action: When attacking this round, you may change 1 of your {focus} results to a {crit} result and all your other {focus} results to {hit} results.</Text>
 		</Upgrade>
-		<Upgrade id="eh">
+		<Upgrade id="experthandling">
 			<Name>Expert Handling</Name>
 			<Cost>2</Cost>
 			<Text>Action: Perform a free barrel roll action.  If you do not have the {barrel roll} action icon, receive 1 stress token.  You may then remove 1 enemy target lock from your ship.</Text>
 		</Upgrade>
-		<Upgrade id="st">
+		<Upgrade id="swarmtactics">
 			<Name>Swarm Tactics</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the Combat phase, choose 1 friendly ship at Range 1.  Until the end of this phase, treat the chosen ship as if its pilot skill were equal to your pilot skill.</Text>
 		</Upgrade>
-		<Upgrade id="sl">
+		<Upgrade id="squadleader">
 			<Name>Squad Leader</Name>
 			<Cost>2</Cost>
 			<Text>Action: Choose 1 ship at Range 1-2 that has a lower pilot skill than you.  The chosen ship may immediately perform 1 free action.</Text>
 		</Upgrade>
-		<Upgrade id="dtf">
+		<Upgrade id="drawtheirfire">
 			<Name>Draw Their Fire</Name>
 			<Cost>1</Cost>
 			<Text>When a friendly ship at Range 1 is hit by an attack, you may suffer one of the uncancelled {crit} results instead of the target ship.</Text>
@@ -529,7 +529,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>2</Cost>
 			<Text>When defending, you may receive 1 stress token to choose 1 attack die.  The attacker must reroll that die.  If you have at least 1 stress token, you cannot use this ability.</Text>
 		</Upgrade>
-		<Upgrade id="vi">
+		<Upgrade id="veteraninstincts">
 			<Name>Veteran Instincts</Name>
 			<Cost>1</Cost>
 			<PilotSkill>2</PilotSkill>
@@ -545,7 +545,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>1</Cost>
 			<Text>You may treat the 'Attack (target lock):' header as 'Attack (focus):'.  When an attack instructs you to spend a target lock, you may spend a focus token instead.</Text>
 		</Upgrade>
-		<Upgrade id="ptl">
+		<Upgrade id="pushthelimit">
 			<Name>Push The Limit</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, after you perform an action, you may perform 1 free action shown in your action bar.  Then receive 1 stress token.</Text>
@@ -555,7 +555,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>3</Cost>
 			<Text>Action: Execute a white {left turn 1} or {right turn 1} maneuver.  Then receive 1 stress token.  Then, if you do not hvae the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
 		</Upgrade>
-		<Upgrade id="ar">
+		<Upgrade id="adrenalinerush">
 			<Name>Adrenaline Rush</Name>
 			<Cost>1</Cost>
 			<Text>When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver until the end of the Activation phase.</Text>
@@ -585,13 +585,13 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>3</Cost>
 			<Text>When attacking a ship inside your firing arc, if you are not inside that ship's firing arc, reduce its agility value by 1 (to a minimum of 0).</Text>
 		</Upgrade>
-		<Upgrade id="lw">
+		<Upgrade id="lonewolf">
 			<Name>Lone Wolf</Name>
 			<Cost>2</Cost>
 			<Text>When attacking or defending, if there are no other friendly ships at Range 1-2, you may reroll 1 of your blank results.</Text>
 			<Unique>true</Unique>
 		</Upgrade>
-		<Upgrade id="sot">
+		<Upgrade id="stayontarget">
 			<Name>Stay On Target</Name>
 			<Cost>2</Cost>
 			<Text>When you reveal a maneuver, you may rotate your dial to another maneuver with the same speed.  Treat that maneuver as a red maneuver.</Text>
@@ -753,7 +753,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Dice>2</Dice>
 			<Range>1</Range>
 		</Upgrade>
-		<Upgrade id="advhomingmissiles">
+		<Upgrade id="advancedhomingmissiles">
 			<Name>Adv. Homing Missiles</Name>
 			<Cost>3</Cost>
 			<Text>Attack (target lock): Discard this card to perform this attack.  If this attack hits, deal 1 faceup Damage card to the defender.  Then cancel all dice results.</Text>
@@ -789,8 +789,8 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Increase your agility value by 1. If you are hit by an attack, discard this card.</Text>
 			<Agility>1</Agility>
 		</Upgrade>
-		<Upgrade id="antipursuitlaser">
-			<Name>Anti Pursuit Laser</Name>
+		<Upgrade id="antipursuitlasers">
+			<Name>Anti-Pursuit Lasers</Name>
 			<Cost>2</Cost>
 			<Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship suffers 1 damage.</Text>
 			<LargeOnly>true</LargeOnly>

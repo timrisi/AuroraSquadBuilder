@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.10">
+<Pilots Version="2.00">
 	<!--- Scum Pilots -->
-	<Pilot id="xizor" faction="scum" ship="starviper">
+	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -63,7 +63,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="dace" faction="scum" ship="hwk290">
+	<Pilot id="dacebonearm" faction="scum" ship="hwk290">
 		<Name>Dace Bonearm</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -82,7 +82,7 @@
 		</Upgrades>
 		<Ability>When an enemy ship at Range 1-3 receives at least 1 ion token, if you are not stressed, you may receive 1 stress token to cause that ship to suffer 1 damage.</Ability>
 	</Pilot>
-	<Pilot id="palob" faction="scum" ship="hwk290">
+	<Pilot id="palobgodalhi" faction="scum" ship="hwk290">
 		<Name>Palob Godalhi</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -101,7 +101,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat phase, you may remove 1 focus or evade token from an enemy ship at Range 1-2 and assign it to yourself.</Ability>
 	</Pilot>
-	<Pilot id="torkhil" faction="scum" ship="hwk290">
+	<Pilot id="torkhilmux" faction="scum" ship="hwk290">
 		<Name>Torkhil Mux</Name>
 		<Unique>true</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -156,7 +156,7 @@
 		</Upgrades>
 		<Ability>When attacking a ship outside your firing arc, roll 1 additional attack die.</Ability>
 	</Pilot>
-	<Pilot id="drea" faction="scum" ship="ywing">
+	<Pilot id="drearenthal" faction="scum" ship="ywing">
 		<Name>Drea Renthal</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -193,7 +193,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="thug" faction="scum" ship="ywing">
+	<Pilot id="syndicatethug" faction="scum" ship="ywing">
 		<Name>Syndicate Thug</Name>
 		<Unique>true</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -211,7 +211,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="ndru" faction="scum" ship="z95">
+	<Pilot id="ndrusuhlak" faction="scum" ship="z95headhunter">
 		<Name>N'Dru Suhlak</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -228,7 +228,7 @@
 		</Upgrades>
 		<Ability>When attacking, if there are no other friendly ships at Range 1-2, roll 1 additional attack die.</Ability>
 	</Pilot>
-	<Pilot id="kaato" faction="scum" ship="z95">
+	<Pilot id="kaatoleeachos" faction="scum" ship="z95headhunter">
 		<Name>Kaa'to Leeachos</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -245,7 +245,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat phase, you may remove 1 focus or evade token from another friendly ship at Range 1-2 and assign it to yourself.</Ability>
 	</Pilot>
-	<Pilot id="blacksunsoldier" faction="scum" ship="z95">
+	<Pilot id="blacksunsoldier" faction="scum" ship="z95headhunter">
 		<Name>Black Sun Soldier</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -260,7 +260,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="binayrepirate" faction="scum" ship="z95">
+	<Pilot id="binayrepirate" faction="scum" ship="z95headhunter">
 		<Name>Binayre Pirate</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -275,7 +275,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="serissu" faction="scum" ship="scyk">
+	<Pilot id="serissu" faction="scum" ship="m3ainterceptor">
 		<Name>Serissu</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -291,7 +291,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 is defending, he may reroll 1 defense dice.</Ability>
 	</Pilot>
-	<Pilot id="laetin" faction="scum" ship="scyk">
+	<Pilot id="laetinashera" faction="scum" ship="m3ainterceptor">
 		<Name>Laetin A'shera</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -306,7 +306,7 @@
 		</Upgrades>
 		<Ability>After you defend against an attack, if the attack did not hit, you may assign 1 evade token to your ship.</Ability>
 	</Pilot>
-	<Pilot id="tansariipointveteran" faction="scum" ship="scyk">
+	<Pilot id="tansariipointveteran" faction="scum" ship="m3ainterceptor">
 		<Name>Tansarii Point Veteran</Name>
 		<Unique>false</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -321,7 +321,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="cartelspacer" faction="scum" ship="scyk">
+	<Pilot id="cartelspacer" faction="scum" ship="m3ainterceptor">
 		<Name>Cartel Spacer</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -335,7 +335,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="talonbane" faction="scum" ship="kihraxz">
+	<Pilot id="talonbanecobra" faction="scum" ship="kihraxzfighter">
 		<Name>Talonbane Cobra</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -352,7 +352,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
 	</Pilot>
-	<Pilot name="graz" faction="scum" ship="kihraxz">
+	<Pilot name="grazthehunter" faction="scum" ship="kihraxzfighter">
 		<Name>Graz the Hunter</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -368,7 +368,7 @@
 		</Upgrades>
 		<Ability>When defending, if the attacker is inside your firing arc, roll 1 additional defense die.</Ability>
 	</Pilot>
-	<Pilot id="blacksunace" faction="scum" ship="kihraxz">
+	<Pilot id="blacksunace" faction="scum" ship="kihraxzfighter">
 		<Name>Black Sun Ace</Name>
 		<Unique>false</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -384,7 +384,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="cartelmarauder" faction="scum" ship="kihraxz">
+	<Pilot id="cartelmarauder" faction="scum" ship="kihraxzfighter">
 		<Name>Cartel Marauder</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -419,7 +419,7 @@
 		</Upgrades>
 		<Ability>When attacking you may roll 1 additional attack die. If you do, the defender rolls 1 additional defense die.</Ability>
 	</Pilot>
-	<Pilot id="fett" faction="scum" ship="firespray">
+	<Pilot id="bobafett" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -440,7 +440,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, you may reroll 1 of your dice for each enemy at Range 1.</Ability>
 	</Pilot>
-	<Pilot id="kathscarlet" faction="scum" ship="firespray">
+	<Pilot id="kathscarlet" faction="scum" ship="firespray31">
 		<Name>Kath Scarlet</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -461,7 +461,7 @@
 		</Upgrades>
 		<Ability>When attacking a ship inside your auxiliary firing arc, roll 1 additional die.</Ability>
 	</Pilot>
-	<Pilot id="emon" faction="scum" ship="firespray">
+	<Pilot id="emonazzameen" faction="scum" ship="firespray31">
 		<Name>Emon Azzameen</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -481,7 +481,7 @@
 		</Upgrades>
 		<Ability>When dropping a bomb, you may use the [3{Left Bank}], [3{Straight}] or [3{Right Bank}] template instead of the [1{Straight}] template.</Ability>
 	</Pilot>
-	<Pilot id="mandalorianmercenary" faction="scum" ship="firespray">
+	<Pilot id="mandalorianmercenary" faction="scum" ship="firespray31">
 		<Name>Mandalorian Mercenary</Name>
 		<Unique>false</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -627,7 +627,7 @@
 		</Upgrades>
 		<Ability>You can perform {cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
 	</Pilot>
-	<Pilot id="latts" faction="scum" ship="yv666">
+	<Pilot id="lattsrazzi" faction="scum" ship="yv666">
 		<Name>Latts Razzi</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -692,7 +692,7 @@
 	</Pilot>
 
 	<!--- Rebel Pilots -->
-	<Pilot id="tycho" faction="rebel" ship="awing">
+	<Pilot id="tychocelchu" faction="rebels" ship="awing">
 		<Name>Tycho Celchu</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -709,7 +709,7 @@
 		</Upgrades>
 		<Ability>You may perform actions while you have a stress token.</Ability>
 	</Pilot>
-	<Pilot id="jake" faction="rebel" ship="awing">
+	<Pilot id="jakefarrell" faction="rebels" ship="awing">
 		<Name>Jake Farrell</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -726,7 +726,7 @@
 		</Upgrades>
 		<Ability>After you perform focus action or are assigned a focus token, you may perform a free boost or barrel roll action.</Ability>
 	</Pilot>
-	<Pilot id="arvel" faction="rebel" ship="awing">
+	<Pilot id="arvelcrynyd" faction="rebels" ship="awing">
 		<Name>Arvel Crynyd</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -742,7 +742,7 @@
 		</Upgrades>
 		<Ability>You may declare an enemy ship inside your firing arc that you are touching as the target of your attaack.</Ability>
 	</Pilot>
-	<Pilot id="gemmer" faction="rebel" ship="awing">
+	<Pilot id="gemmersojan" faction="rebels" ship="awing">
 		<Name>Gemmer Sojan</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -758,7 +758,7 @@
 		</Upgrades>
 		<Ability>While you are at Range 1 of at least 1 enemy ship, increase your agility value by 1.</Ability>
 	</Pilot>
-	<Pilot id="green" faction="rebel" ship="awing">
+	<Pilot id="greensquadronpilot" faction="rebels" ship="awing">
 		<Name>Green Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -774,7 +774,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="prototypepilot" faction="rebel" ship="awing">
+	<Pilot id="prototypepilot" faction="rebels" ship="awing">
 		<Name>Prototype Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -788,7 +788,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="tennumb" faction="rebel" ship="bwing">
+	<Pilot id="tennumb" faction="rebels" ship="bwing">
 		<Name>Ten Numb</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -807,7 +807,7 @@
 		</Upgrades>
 		<Ability>When attacking, 1 of your {crit} results cannot be cancelled by defense dice.</Ability>
 	</Pilot>
-	<Pilot id="keyan" faction="rebel" ship="bwing">
+	<Pilot id="keyanfarlander" faction="rebels" ship="bwing">
 		<Name>Keyan Farlander</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -826,7 +826,7 @@
 		</Upgrades>
 		<Ability>When attacking, you may remove 1 stress token to change all of your {focus} results to {hit} results.</Ability>
 	</Pilot>
-	<Pilot id="ibtisam" faction="rebel" ship="bwing">
+	<Pilot id="ibtisam" faction="rebels" ship="bwing">
 		<Name>Ibtisam</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -845,7 +845,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, if you have at least one stress token, you may reroll 1 of your dice.</Ability>
 	</Pilot>
-	<Pilot id="nera" faction="rebel" ship="bwing">
+	<Pilot id="neradantels" faction="rebels" ship="bwing">
 		<Name>Nera Dantels</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -864,7 +864,7 @@
 		</Upgrades>
 		<Ability>You can perform {torpedo} secondary weapon attacks at ships outside your firing arc.</Ability>
 	</Pilot>
-	<Pilot id="dagger" faction="rebel" ship="bwing">
+	<Pilot id="daggersquadronpilot" faction="rebels" ship="bwing">
 		<Name>Dagger Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -881,7 +881,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="blue" faction="rebel" ship="bwing">
+	<Pilot id="bluesquadronpilot" faction="rebels" ship="bwing">
 		<Name>Blue Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -898,7 +898,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="corran" faction="rebel" ship="ewing">
+	<Pilot id="corranhorn" faction="rebels" ship="ewing">
 		<Name>Corran Horn</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -916,7 +916,7 @@
 		</Upgrades>
 		<Ability>At the start of the End phase, you may perform 1 attack.  You may not attack next round.</Ability>
 	</Pilot>
-	<Pilot id="etahn" faction="rebel" ship="ewing">
+	<Pilot id="etahnabaht" faction="rebels" ship="ewing">
 		<Name>Etahn A'baht</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -934,7 +934,7 @@
 		</Upgrades>
 		<Ability>When an enemy ship inside your firing arc at Range 1-3 is defending, the attacker may change 1 of its {hit} results to a {crit}.</Ability>
 	</Pilot>
-	<Pilot id="blackmoon" faction="rebel" ship="ewing">
+	<Pilot id="blackmoonsquadronpilot" faction="rebels" ship="ewing">
 		<Name>Blackmoon Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -950,7 +950,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="knave" faction="rebel" ship="ewing">
+	<Pilot id="knavesquadronpilot" faction="rebels" ship="ewing">
 		<Name>Knave Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -966,7 +966,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="jan" faction="rebel" ship="hwk290">
+	<Pilot id="janors" faction="rebels" ship="hwk290">
 		<Name>Jan Ors</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -984,7 +984,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at range 1-3 is attacking, if you have no stress tokens, you may receive 1 stress token to allow that ship to roll 1 additional attack die.</Ability>
 	</Pilot>
-	<Pilot id="kyle" faction="rebel" ship="hwk290">
+	<Pilot id="kylekatarn" faction="rebels" ship="hwk290">
 		<Name>Kyle Katarn</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1002,7 +1002,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat Phase, you may assign 1 of your focus tokens to another friendly ship at Range 1-3.</Ability>
 	</Pilot>
-	<Pilot id="roark" faction="rebel" ship="hwk290">
+	<Pilot id="roarkgarnet" faction="rebels" ship="hwk290">
 		<Name>Roark Garnet</Name>
 		<Unique>true</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1019,7 +1019,7 @@
 		</Upgrades>
 		<Ability>At the start of the combat phase choose 1 other friendly ship at Range 1-3.  Until the end of the phase, treat that pilot's pilot skill value as 12.</Ability>
 	</Pilot>
-	<Pilot id="rebeloperative" faction="rebel" ship="hwk290">
+	<Pilot id="rebeloperative" faction="rebels" ship="hwk290">
 		<Name>Rebel Operative</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1035,7 +1035,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="miranda" faction="rebel" ship="kwing">
+	<Pilot id="mirandadoni" faction="rebels" ship="kwing">
 		<Name>Miranda Doni</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1056,7 +1056,7 @@
 		</Upgrades>
 		<Ability>Once per round when attacking, you may either spend 1 shield to roll 1 additional attack die or roll 1 fewer attack die to recover 1 shield.</Ability>
 	</Pilot>
-	<Pilot id="esege" faction="rebel" ship="kwing">
+	<Pilot id="esegetuketu" faction="rebels" ship="kwing">
 		<Name>Esege Tuketu</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1077,7 +1077,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1-2 is attacking, it may treat your focus tokens as its own.</Ability>
 	</Pilot>
-	<Pilot id="guardian" faction="rebel" ship="kwing">
+	<Pilot id="guardiansquadronpilot" faction="rebels" ship="kwing">
 		<Name>Guardian Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1097,7 +1097,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="warden" faction="rebel" ship="kwing">
+	<Pilot id="wardensquadronpilot" faction="rebels" ship="kwing">
 		<Name>Warden Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1117,7 +1117,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="wedge" faction="rebel" ship="xwing">
+	<Pilot id="wedgeantilles" faction="rebels" ship="xwing">
 		<Name>Wedge Antilles</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -1134,7 +1134,7 @@
 		</Upgrades>
 		<Ability>When attacking, reduce the defender's agility value by 1 (to a minimum of 0).</Ability>
 	</Pilot>
-	<Pilot id="wes" faction="rebel" ship="xwing">
+	<Pilot id="wesjanson" faction="rebels" ship="xwing">
 		<Name>Wes Janson</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1151,7 +1151,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack, you may remove 1 focus, evade or blue target lock token from the defender.</Ability>
 	</Pilot>
-	<Pilot id="luke" faction="rebel" ship="xwing">
+	<Pilot id="lukeskywalker" faction="rebels" ship="xwing">
 		<Name>Luke Skywalker</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1168,7 +1168,7 @@
 		</Upgrades>
 		<Ability>When defending, you may change 1 of your {focus} results to an {evade} result.</Ability>
 	</Pilot>
-	<Pilot id="jek" faction="rebel" ship="xwing">
+	<Pilot id="jekporkins" faction="rebels" ship="xwing">
 		<Name>Jek Porkins</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1185,7 +1185,7 @@
 		</Upgrades>
 		<Ability>When you receive a stress token, you may remove it and roll 1 attack die.  On a {hit} result, deal 1 facedown damage card to this ship.</Ability>
 	</Pilot>
-	<Pilot id="garven" faction="rebel" ship="xwing">
+	<Pilot id="garvendreis" faction="rebels" ship="xwing">
 		<Name>Garven Dreis</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1201,7 +1201,7 @@
 		</Upgrades>
 		<Ability>After spending a focus token, you may place that token on any other friendly ship at Range 1-2 (instead of discarding it).</Ability>
 	</Pilot>
-	<Pilot id="biggs" faction="rebel" ship="xwing">
+	<Pilot id="biggsdarklighter" faction="rebels" ship="xwing">
 		<Name>Biggs Darklighter</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1217,7 +1217,7 @@
 		</Upgrades>
 		<Ability>Other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead.</Ability>
 	</Pilot>
-	<Pilot id="hobbie" faction="rebel" ship="xwing">
+	<Pilot id="hobbieklivian" faction="rebels" ship="xwing">
 		<Name>&quot;Hobbie&quot; Klivian</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1233,7 +1233,7 @@
 		</Upgrades>
 		<Ability>When you aquire or spend a target lock you may remove 1 stress token from your ship.</Ability>
 	</Pilot>
-	<Pilot id="red" faction="rebel" ship="xwing">
+	<Pilot id="redsquadronpilot" faction="rebels" ship="xwing">
 		<Name>Red Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1248,7 +1248,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="rookiepilot" faction="rebel" ship="xwing">
+	<Pilot id="rookiepilot" faction="rebels" ship="xwing">
 		<Name>Rookie Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1263,7 +1263,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="horton" faction="rebel" ship="ywing">
+	<Pilot id="hortonsalm" faction="rebels" ship="ywing">
 		<Name>Horton Salm</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1282,7 +1282,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 2-3 you may reroll any of your blank results.</Ability>
 	</Pilot>
-	<Pilot id="dutch" faction="rebel" ship="ywing">
+	<Pilot id="dutchvander" faction="rebels" ship="ywing">
 		<Name>&quot;Dutch&quot; Vander</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1301,8 +1301,8 @@
 		</Upgrades>
 		<Ability>After aquiring a target lock, choose another friendly ship at Range 1-2.  The ship may immediately aquire a target lock.</Ability>
 	</Pilot>
-	<Pilot id="grey" faction="rebel" ship="ywing">
-		<Name>Grey Squadron Pilot</Name>
+	<Pilot id="graysquadronpilot" faction="rebels" ship="ywing">
+		<Name>Gray Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>2</Attack>
@@ -1319,7 +1319,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="gold" faction="rebel" ship="ywing">
+	<Pilot id="goldsquadronpilot" faction="rebels" ship="ywing">
 		<Name>Gold Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1337,7 +1337,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="airen" faction="rebel" ship="z95">
+	<Pilot id="airencracken" faction="rebels" ship="z95headhunter">
 		<Name>Airen Cracken</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1353,7 +1353,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack, you may choose another friendly ship at Range 1.  That ship may perform 1 free action.</Ability>
 	</Pilot>
-	<Pilot id="blount" faction="rebel" ship="z95">
+	<Pilot id="lieutenantblount" faction="rebels" ship="z95headhunter">
 		<Name>Lieutenant Blount</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1369,7 +1369,7 @@
 		</Upgrades>
 		<Ability>When attacking, the defender is hit by your attack, even if he does not suffer any damage.</Ability>
 	</Pilot>
-	<Pilot id="tala" faction="rebel" ship="z95">
+	<Pilot id="talasquadronpilot" faction="rebels" ship="z95headhunter">
 		<Name>Tala Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1383,7 +1383,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="bandit" faction="rebel" ship="z95">
+	<Pilot id="banditsquadronpilot" faction="rebels" ship="z95headhunter">
 		<Name>Bandit Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1397,7 +1397,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="han" faction="rebel" ship="yt1300">
+	<Pilot id="hansolo" faction="rebels" ship="yt1300">
 		<Name>Han Solo</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -1416,7 +1416,7 @@
 		</Upgrades>
 		<Ability>When attacking, you may reroll all of your dice.  If you choose to do so, you must reroll as many of your dice as possible.</Ability>
 	</Pilot>
-	<Pilot id="lando" faction="rebel" ship="yt1300">
+	<Pilot id="landocalrissian" faction="rebels" ship="yt1300">
 		<Name>Lando Calrissian</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1435,7 +1435,7 @@
 		</Upgrades>
 		<Ability>After you execute a green maneuver, choose one other friendly ship at Range 1.  That ship may perform 1 free action on its action bar.</Ability>
 	</Pilot>
-	<Pilot id="chewbacca" faction="rebel" ship="yt1300">
+	<Pilot id="chewbacca" faction="rebels" ship="yt1300">
 		<Name>Chewbacca</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1454,7 +1454,7 @@
 		</Upgrades>
 		<Ability>When you are dealt a faceup damage card, immediately flip it facedown (without resolving its ability).</Ability>
 	</Pilot>
-	<Pilot id="outerrimsmuggler" faction="rebel" ship="yt1300">
+	<Pilot id="outerrimsmuggler" faction="rebels" ship="yt1300">
 		<Name>Outer Rim Smuggler</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -1470,7 +1470,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="dash" faction="rebel" ship="yt2400">
+	<Pilot id="dashrendar" faction="rebels" ship="yt2400">
 		<Name>Dash Rendar</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1489,7 +1489,7 @@
 		</Upgrades>
 		<Ability>You may ignore obstacles during the Activation phase and when performing actions.</Ability>
 	</Pilot>
-	<Pilot id="leebo" faction="rebel" ship="yt2400">
+	<Pilot id="leebo" faction="rebels" ship="yt2400">
 		<Name>&quot;Leebo&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1508,7 +1508,7 @@
 		</Upgrades>
 		<Ability>When you are dealth a faceup Damage card, draw 1 additional Damage card, choose 1 to resolve and discard the other.</Ability>
 	</Pilot>
-	<Pilot id="eaden" faction="rebel" ship="yt2400">
+	<Pilot id="eadenvrill" faction="rebels" ship="yt2400">
 		<Name>Eaden Vrill</Name>
 		<Unique>true</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -1526,7 +1526,7 @@
 		</Upgrades>
 		<Ability>When performing a primary weapon attack against a stressed ship, roll 1 additional attack dice.</Ability>
 	</Pilot>
-	<Pilot id="fringer" faction="rebel" ship="yt2400">
+	<Pilot id="wildspacefringer" faction="rebels" ship="yt2400">
 		<Name>Wild Space Fringer</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1543,8 +1543,8 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="hera" faction="rebel" ship="vcx100">
-		<Name>Hera</Name>
+	<Pilot id="herasyndulla" faction="rebels" ship="vcx100">
+		<Name>Hera Syndulla</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
 		<PilotSkill>7</PilotSkill>
@@ -1565,7 +1565,7 @@
 		</Upgrades>
 		<Ability>When you reveal a green or red maneuver, you may change your dial to another manuever of the same difficulty</Ability>
 	</Pilot>
-	<Pilot id="gr75" faction="rebel" ship="gr75">
+	<Pilot id="gr75mediumtransport" faction="rebels" ship="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -1585,7 +1585,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="cr90f" faction="rebel" ship="cr90f">
+	<Pilot id="cr90f" faction="rebels" ship="cr90f">
 		<Name>CR90 Corvette (Fore)</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1606,7 +1606,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="cr90a" faction="rebel" ship="cr90a">
+	<Pilot id="cr90a" faction="rebels" ship="cr90a">
 		<Name>CR90 Corvette (Aft)</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1626,7 +1626,7 @@
 	</Pilot>
 
 	<!-- Imperial Pilots -->
-	<Pilot id="howlrunner" faction="imperial" ship="fighter">
+	<Pilot id="howlrunner" faction="empire" ship="tiefighter">
 		<Name>&quot;Howlrunner&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1641,7 +1641,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 is attacking with its primary weapon, it may reroll 1 attack die.</Ability>
 	</Pilot>
-	<Pilot id="maulermithel" faction="imperial" ship="fighter">
+	<Pilot id="maulermithel" faction="empire" ship="tiefighter">
 		<Name>Mauler Mithel</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1656,7 +1656,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 1, roll 1 additional attack die.</Ability>
 	</Pilot>
-	<Pilot id="darkcurse" faction="imperial" ship="fighter">
+	<Pilot id="darkcurse" faction="empire" ship="tiefighter">
 		<Name>Dark Curse</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1670,7 +1670,7 @@
 		</Upgrades>
 		<Ability>When defending, ships attacking you cannot spend focus tokens or reroll attack dice.</Ability>
 	</Pilot>
-	<Pilot id="Backstabber" faction="imperial" ship="fighter">
+	<Pilot id="backstabber" faction="empire" ship="tiefighter">
 		<Name>Backstabber</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1684,7 +1684,7 @@
 		</Upgrades>
 		<Ability>When attacking from outside the defender's firing arc, roll 1 additional attack die.</Ability>
 	</Pilot>
-	<Pilot id="wingedgundark" faction="imperial" ship="fighter">
+	<Pilot id="wingedgundark" faction="empire" ship="tiefighter">
 		<Name>Winged Gundark</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1698,7 +1698,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 1, you may change 1 of your {hit} results to a {crit} result.</Ability>
 	</Pilot>
-	<Pilot id="nightbeast" faction="imperial" ship="fighter">
+	<Pilot id="nightbeast" faction="empire" ship="tiefighter">
 		<Name>Night Beast</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1712,7 +1712,7 @@
 		</Upgrades>
 		<Ability>After executing a green manoeuvre, you may perform a free focus action.</Ability>
 	</Pilot>
-	<Pilot id="blacksquadronpilot" faction="imperial" ship="fighter">
+	<Pilot id="blacksquadronpilot" faction="empire" ship="tiefighter">
 		<Name>Black Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1726,7 +1726,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="obsidiansquadronpilot" faction="imperial" ship="fighter">
+	<Pilot id="obsidiansquadronpilot" faction="empire" ship="tiefighter">
 		<Name>Obsidian Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -1739,7 +1739,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="academypilot" faction="imperial" ship="fighter">
+	<Pilot id="academypilot" faction="empire" ship="tiefighter">
 		<Name>Academy Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -1752,7 +1752,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="darthvader" faction="imperial" ship="advanced">
+	<Pilot id="darthvader" faction="empire" ship="tieadvanced">
 		<Name>Darth Vader</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -1769,7 +1769,7 @@
 		</Upgrades>
 		<Ability>During your &quot;Perform Action&quot; step, you may perform 2 actions.</Ability>
 	</Pilot>
-	<Pilot id="junoeclipse" faction="imperial" ship="advanced">
+	<Pilot id="junoeclipse" faction="empire" ship="tieadvanced">
 		<Name>Juno Eclipse</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1786,7 +1786,7 @@
 		</Upgrades>
 		<Ability>When you reveal your maneuver, you may increase or decrease its speed by 1 (to a minimum of 1).</Ability>
 	</Pilot>
-	<Pilot id="maarekstele" faction="imperial" ship="advanced">
+	<Pilot id="maarekstele" faction="empire" ship="tieadvanced">
 		<Name>Maarek Stele</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1803,7 +1803,7 @@
 		</Upgrades>
 		<Ability>When your attack deals a faceup Damage card to the defender, instead draw 3 Damage cards, choose 1 to deal, and discard the others.</Ability>
 	</Pilot>
-	<Pilot id="zertikstrom" faction="imperial" ship="advanced">
+	<Pilot id="zertikstrom" faction="empire" ship="tieadvanced">
 		<Name>Zertik Strom</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1820,7 +1820,7 @@
 		</Upgrades>
 		<Ability>Enemy ships at Range 1 cannot add their range combat bonus when attacking.</Ability>
 	</Pilot>
-	<Pilot id="commanderalozen" faction="imperial" ship="advanced">
+	<Pilot id="commanderalozen" faction="empire" ship="tieadvanced">
 		<Name>Commander Alozen</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -1837,7 +1837,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat phase, you may acquire a target lock on an enemy ship at Range 1.</Ability>
 	</Pilot>
-	<Pilot id="stormsquadronpilot" faction="imperial" ship="advanced">
+	<Pilot id="stormsquadronpilot" faction="empire" ship="tieadvanced">
 		<Name>Storm Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1852,7 +1852,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="Lieutenant Colzet" faction="imperial" ship="advanced">
+	<Pilot id="lieutenantcolzet" faction="empire" ship="tieadvanced">
 		<Name>Lieutenant Colzet</Name>
 		<Unique>true</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -1868,7 +1868,7 @@
 		</Upgrades>
 		<Ability>At the start of the End phase, you may spend a target lock you have on an enemy ship to flip 1 random facedown Damage card assigned to it faceup.</Ability>
 	</Pilot>
-	<Pilot id="tempestsquadronpilot" faction="imperial" ship="advanced">
+	<Pilot id="tempestsquadronpilot" faction="empire" ship="tieadvanced">
 		<Name>Tempest Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1883,7 +1883,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="majorrhymer" faction="imperial" ship="bomber">
+	<Pilot id="majorrhymer" faction="empire" ship="tiebomber">
 		<Name>Major Rhymer</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -1903,7 +1903,7 @@
 		</Upgrades>
 		<Ability>When attacking with a secondary weapon, you may increase or decrease the weapon range by 1 to a limit of Range 1-3.</Ability>
 	</Pilot>
-	<Pilot id="captainjonus" faction="imperial" ship="bomber">
+	<Pilot id="captainjonus" faction="empire" ship="tiebomber">
 		<Name>Captain Jonus</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1923,7 +1923,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 attacks with a secondary weapon, it may reroll up to 2 attack dice.</Ability>
 	</Pilot>
-	<Pilot id="gammasquadronpilot" faction="imperial" ship="bomber">
+	<Pilot id="gammasquadronpilot" faction="empire" ship="tiebomber">
 		<Name>Gamma Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -1941,7 +1941,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="scimitarsquadronpilot" faction="imperial" ship="bomber">
+	<Pilot id="scimitarsquadronpilot" faction="empire" ship="tiebomber">
 		<Name>Scimitar Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -1959,7 +1959,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="rexlerbrath" faction="imperial" ship="defender">
+	<Pilot id="rexlerbrath" faction="empire" ship="tiedefender">
 		<Name>Rexler Brath</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -1976,7 +1976,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack that deals at least 1 Damage card to the defender, you may spend a focus token to flip those cards faceup.</Ability>
 	</Pilot>
-	<Pilot id="rexlerbrath" faction="imperial" ship="defender">
+	<Pilot id="colonelvessery" faction="empire" ship="tiedefender">
 		<Name>Colonel Vessery</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1993,7 +1993,7 @@
 		</Upgrades>
 		<Ability>When attacking, immediately after you roll attack dice, you may acquire a target lock on the defender if it already has a red target lock token.</Ability>
 	</Pilot>
-	<Pilot id="onyxsquadronpilot" faction="imperial" ship="defender">
+	<Pilot id="onyxsquadronpilot" faction="empire" ship="tiedefender">
 		<Name>Onyx Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2008,7 +2008,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="deltasquadronpilot" faction="imperial" ship="defender">
+	<Pilot id="deltasquadronpilot" faction="empire" ship="tiedefender">
 		<Name>Delta Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -2023,7 +2023,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="soontirfel" faction="imperial" ship="interceptor">
+	<Pilot id="soontirfel" faction="empire" ship="tieinterceptor">
 		<Name>Soontir Fel</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -2039,7 +2039,7 @@
 		</Upgrades>
 		<Ability>When you receive a stress token, you may assign 1 focus token to your ship.</Ability>
 	</Pilot>
-	<Pilot id="carnorjax" faction="imperial" ship="interceptor">
+	<Pilot id="carnorjax" faction="empire" ship="tieinterceptor">
 		<Name>Carnor Jax</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -2055,7 +2055,7 @@
 		</Upgrades>
 		<Ability>Enemy ships at Range 1 cannot perform focus or evade actions and cannot spend focus or evade tokens.</Ability>
 	</Pilot>
-	<Pilot id="turrphennir" faction="imperial" ship="interceptor">
+	<Pilot id="turrphennir" faction="empire" ship="tieinterceptor">
 		<Name>Turr Phennir</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -2071,7 +2071,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack, you may perform a free boost or barrel roll action.</Ability>
 	</Pilot>
-	<Pilot id="tetrancowell" faction="imperial" ship="interceptor">
+	<Pilot id="tetrancowell" faction="empire" ship="tieinterceptor">
 		<Name>Tetran Cowell</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -2087,7 +2087,7 @@
 		</Upgrades>
 		<Ability>When you reveal a {k-turn} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
 	</Pilot>
-	<Pilot id="kirkanos" faction="imperial" ship="interceptor">
+	<Pilot id="kirkanos" faction="empire" ship="tieinterceptor">
 		<Name>Kir Kanos</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2102,7 +2102,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 2-3, you may spend 1 evade token to add one {hit} result to you roll.</Ability>
 	</Pilot>
-	<Pilot id="lieutenantlorrir" faction="imperial" ship="interceptor">
+	<Pilot id="lieutenantlorrir" faction="empire" ship="tieinterceptor">
 		<Name>Lieutenant Lorrir</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -2117,7 +2117,7 @@
 		</Upgrades>
 		<Ability>When performing a barrel roll action, you may receive 1 stress token to use the 1 {left bank} or {right bank} template instead of the 1 {straight} template.</Ability>
 	</Pilot>
-	<Pilot id="felswrath" faction="imperial" ship="interceptor">
+	<Pilot id="felswrath" faction="empire" ship="tieinterceptor">
 		<Name>&quot;Fel's Wrath&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -2132,7 +2132,7 @@
 		</Upgrades>
 		<Ability>When the number of damage cards assigned to you equals or exceeds your hull value, you are not destroyed unti the end of the round.</Ability>
 	</Pilot>
-	<Pilot id="royalguardpilot" faction="imperial" ship="interceptor">
+	<Pilot id="royalguardpilot" faction="empire" ship="tieinterceptor">
 		<Name>Royal Guard Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2147,7 +2147,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="sabersquadronpilot" faction="imperial" ship="interceptor">
+	<Pilot id="sabersquadronpilot" faction="empire" ship="tieinterceptor">
 		<Name>Saber Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -2161,7 +2161,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="avengersquadronpilot" faction="imperial" ship="interceptor">
+	<Pilot id="avengersquadronpilot" faction="empire" ship="tieinterceptor">
 		<Name>Avenger Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2174,7 +2174,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="alphasquadronpilot" faction="imperial" ship="interceptor">
+	<Pilot id="alphasquadronpilot" faction="empire" ship="tieinterceptor">
 		<Name>Alpha Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>1</PilotSkill>
@@ -2187,7 +2187,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="whisper" faction="imperial" ship="phantom">
+	<Pilot id="whisper" faction="empire" ship="tiephantom">
 		<Name>&quot;Whisper&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -2204,7 +2204,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack that hits, you may assign 1 focus token to your ship.</Ability>
 	</Pilot>
-	<Pilot id="echo" faction="imperial" ship="phantom">
+	<Pilot id="echo" faction="empire" ship="tiephantom">
 		<Name>&quot;Echo&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2221,7 +2221,7 @@
 		</Upgrades>
 		<Ability>When you decloak, you must use the 2 {left bank} or 2 {right bank} template instead of the 2 {straight} template.</Ability>
 	</Pilot>
-	<Pilot id="shadowsquadronpilot" faction="imperial" ship="phantom">
+	<Pilot id="shadowsquadronpilot" faction="empire" ship="tiephantom">
 		<Name>Shadow Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -2236,7 +2236,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="sigmasquadronpilot" faction="imperial" ship="phantom">
+	<Pilot id="sigmasquadronpilot" faction="empire" ship="tiephantom">
 		<Name>Sigma Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2251,7 +2251,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="redline" faction="imperial" ship="punisher">
+	<Pilot id="redline" faction="empire" ship="tiepunisher">
 		<Name>&quot;Redline&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -2273,7 +2273,7 @@
 		</Upgrades>
 		<Ability>You may maintain 2 target locks on the same ship. When you acquire a target lock, you may acquire a second lock on that ship.</Ability>
 	</Pilot>
-	<Pilot id="deathrain" faction="imperial" ship="punisher">
+	<Pilot id="deathrain" faction="empire" ship="tiepunisher">
 		<Name>&quot;Deathrain&quot;</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2295,7 +2295,7 @@
 		</Upgrades>
 		<Ability>When dropping a bomb, you may use the front guides of your ship. After dropping a bomb you may perform a free barrel roll action.</Ability>
 	</Pilot>
-	<Pilot id="blackeightsqpilot" faction="imperial" ship="punisher">
+	<Pilot id="blackeightsquadronpilot" faction="empire" ship="tiepunisher">
 		<Name>Black Eight Sq. Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill><Attack>2</Attack>
@@ -2315,7 +2315,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="cutlasssquadronpilot" faction="imperial" ship="punisher">
+	<Pilot id="cutlasssquadronpilot" faction="empire" ship="tiepunisher">
 		<Name>Cutlass Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -2336,7 +2336,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="theinquisitor" faction="imperial" ship="tieadvprototype">
+	<Pilot id="theinquisitor" faction="empire" ship="tieadvancedprototype">
 		<Name>The Inquisitor</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -2354,7 +2354,7 @@
 		</Upgrades>
 		<Ability>When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.</Ability>
 	</Pilot>
-	<Pilot id="bobafett" faction="imperial" ship="firespray">
+	<Pilot id="bobafett" faction="empire" ship="firespray31">
 		<Name>Boba Fett</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -2374,7 +2374,7 @@
 		</Upgrades>
 		<Ability>When you reveal a bank maneuver ({bank left} or {bank right}), you may rotate your dial to the other bank maneuver of the same speed.</Ability>
 	</Pilot>
-	<Pilot id="kathscarlet" faction="imperial" ship="firespray">
+	<Pilot id="kathscarlet" faction="empire" ship="firespray31">
 		<Name>Kath Scarlett</Name>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
@@ -2394,7 +2394,7 @@
 		</Upgrades>
 		<Ability>When attacking, the defender receives 1 stress token if he cancels at least 1 {crit} result.</Ability>
 	</Pilot>
-	<Pilot id="krassistrelix" faction="imperial" ship="firespray">
+	<Pilot id="krassistrelix" faction="empire" ship="firespray31">
 		<Name>Krassis Trelix</Name>
 		<Unique>true</Unique>
 		<PilotSkill>5</PilotSkill>
@@ -2413,7 +2413,7 @@
 		</Upgrades>
 		<Ability>When attacking with a secondary weapon, you may reroll 1 attack die.</Ability>
 	</Pilot>
-	<Pilot id="bountyhunter" faction="imperial" ship="firespray">
+	<Pilot id="bountyhunter" faction="empire" ship="firespray31">
 		<Name>Bounty Hunter</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2431,7 +2431,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="captainkagi" faction="imperial" ship="lambda">
+	<Pilot id="captainkagi" faction="empire" ship="lambdaclassshuttle">
 		<Name>Captain Kagi</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -2450,7 +2450,7 @@
 		</Upgrades>
 		<Ability>When an enemy ship acquires a target lock, it must lock onto your ship if able.</Ability>
 	</Pilot>
-	<Pilot id="coloneljendon" faction="imperial" ship="lambda">
+	<Pilot id="coloneljendon" faction="empire" ship="lambdaclassshuttle">
 		<Name>Colonel Jendon</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2469,7 +2469,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat Phase, you may assign 1 of your blue target lock tokens to a friendly ship at Range 1 if it does not have a blue target lock token.</Ability>
 	</Pilot>
-	<Pilot id="captainyorr" faction="imperial" ship="lambda">
+	<Pilot id="captainyorr" faction="empire" ship="lambdaclassshuttle">
 		<Name>Captain Yorr</Name>
 		<Unique>true</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -2488,7 +2488,7 @@
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1-2 would receive a stress token, if you have 2 or fewer stress tokens, you may receive that token instead.</Ability>
 	</Pilot>
-	<Pilot id="omicrongrouppilot" faction="imperial" ship="lambda">
+	<Pilot id="omicrongrouppilot" faction="empire" ship="lambdaclassshuttle">
 		<Name>Omnicron Group Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
@@ -2506,7 +2506,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="chiraneau" faction="imperial" ship="decimator">
+	<Pilot id="rearadmiralchiraneau" faction="empire" ship="decimator">
 		<Name>Rear Admiral Chiraneau</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -2527,7 +2527,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 1-2, you may change 1 of your {focus} results to a {crit} result.</Ability>
 	</Pilot>
-	<Pilot id="kenkirk" faction="imperial" ship="decimator">
+	<Pilot id="commanderkenkirk" faction="empire" ship="decimator">
 		<Name>Commander Kenkirk</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2548,7 +2548,7 @@
 		</Upgrades>
 		<Ability>If you have no shields and at least 1 Damage card assigned to you, increase your agility value by 1.</Ability>
 	</Pilot>
-	<Pilot id="oicunn" faction="imperial" ship="decimator">
+	<Pilot id="captainoicunn" faction="empire" ship="decimator">
 		<Name>Captain Oicunn</Name>
 		<Unique>true</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -2569,7 +2569,7 @@
 		</Upgrades>
 		<Ability>After executing a maneuver, each enemy ship you are touching suffers 1 Damage.</Ability>
 	</Pilot>
-	<Pilot id="patrolleader" faction="imperial" ship="decimator">
+	<Pilot id="patrolleader" faction="empire" ship="decimator">
 		<Name>Patrol Leader</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2588,7 +2588,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="raiderfore" faction="imperial" ship="raiderf">
+	<Pilot id="raiderfore" faction="empire" ship="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -2606,7 +2606,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="radieraft" faction="imperial" ship="raidera">
+	<Pilot id="radieraft" faction="empire" ship="raidera">
 		<Name>Raider-class Corvette (Aft)</Name>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>

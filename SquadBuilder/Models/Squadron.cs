@@ -112,6 +112,11 @@ namespace SquadBuilder
 				Pilots = new ObservableCollection<Pilot> (Pilots),
 			};
 		}
+
+		public string CreateXws ()
+		{
+			return "";
+		}
 	}
 }
 
