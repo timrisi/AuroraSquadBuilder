@@ -64,12 +64,12 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 
-			if (NSUserDefaults.StandardUserDefaults [HasMigrated] == null) {
-				if (factionsVersion < 2.0 || shipsVersion < 2.0 || upgradesVersion < 2.0 || pilotsVersion < 2.0)
+//			if (NSUserDefaults.StandardUserDefaults [HasMigrated] == null) {
+//				if (factionsVersion < 2.0 || shipsVersion < 2.0 || upgradesVersion < 2.0 || pilotsVersion < 2.0)
 					UpdateIds ();
-				else
-					NSUserDefaults.StandardUserDefaults.SetBool (true, HasMigrated);
-			}
+//				else
+//					NSUserDefaults.StandardUserDefaults.SetBool (true, HasMigrated);
+//			}
 
 			LoadApplication (new App ());
 
@@ -104,6 +104,7 @@ namespace SquadBuilder.iOS
 				{ "punisher", 			"tiepunisher" },
 				{ "tieadvprototype", 	"tieadvancedprototype" },
 				{ "lambda", 			"lambdaclassshuttle" },
+				{ "decimator",			"vt49decimator" }
 			};
 				
 			var deprecatedPilots = new Dictionary <string, string> {
@@ -188,6 +189,8 @@ namespace SquadBuilder.iOS
 				{ "twinionenginemki", "twinionenginemkii" },
 				{ "quantomstorm", "quantumstorm" }
 			};
+
+			var squadronElements = XElement.Load (new StringReader (saveAndLoad.LoadText ("squadrons.xml"))).Elements();
 		}
 	}
 }
