@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="1.13">
+<Upgrades Version="1.14">
 	<Category type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -72,6 +72,18 @@
 			<Name>R7 Astromech</Name>
 			<Cost>2</Cost>
 			<Text>Once per round when defending, if you have a target lock on the attacker, you may spend the target lock to choose any or all attack dice.  The attacker must reroll the chosen dice.</Text>
+		</Upgrade>
+		<Upgrade id="r5x3">
+			<Name>R5-X3</Name>
+			<Cost>1</Cost>
+			<Text>Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round.</Text>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="bb8">
+			<Name>BB-8</Name>
+			<Cost>2</Cost>
+			<Text>When you reveal a green maneuver, you may perform a free barrel roll action.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category type="Bomb">
@@ -629,6 +641,12 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Crack Shot</Name>
 			<Cost>1</Cost>
 			<Text>When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's {evade} results.</Text>
+		</Upgrade>
+		<Upgrade id="wired">
+			<Name>Wired</Name>
+			<Cost>1</Cost>
+			<Text>When attacking or defending, if you are stressed, you may reroll 1 or more of your {focus} results.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category type="Hardpoint">
@@ -1255,6 +1273,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2-3</Range>
+		</Upgrade>
+	</Category>
+	<Category type="Tech">
+		<Upgrade id="weaponsguidance">
+			<Name>Weapons Guidance</Name>
+			<Cost>2</Cost>
+			<Text>When attacking, you may spend a focus token to change one of your blank results to a {hit} result.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 </Upgrades>
