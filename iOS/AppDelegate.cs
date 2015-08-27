@@ -30,8 +30,9 @@ namespace SquadBuilder.iOS
 
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions", "xml")).ReadToEnd ();
 			var factionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < factionsVersion)
+			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < factionsVersion) {
 				saveAndLoad.SaveText ("Factions.xml", factionsXml);
+			}
 
 			var customFactionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions_Custom", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
@@ -63,13 +64,11 @@ namespace SquadBuilder.iOS
 			var customUpgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades_Custom", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
-
-//			if (NSUserDefaults.StandardUserDefaults [HasMigrated] == null) {
-//				if (factionsVersion < 2.0 || shipsVersion < 2.0 || upgradesVersion < 2.0 || pilotsVersion < 2.0)
+			
+			if (NSUserDefaults.StandardUserDefaults [HasMigrated] == null) {
 					UpdateIds ();
-//				else
-//					NSUserDefaults.StandardUserDefaults.SetBool (true, HasMigrated);
-//			}
+					NSUserDefaults.StandardUserDefaults.SetBool (true, HasMigrated);
+			}
 
 			LoadApplication (new App ());
 
@@ -190,7 +189,127 @@ namespace SquadBuilder.iOS
 				{ "quantomstorm", "quantumstorm" }
 			};
 
-			var squadronElements = XElement.Load (new StringReader (saveAndLoad.LoadText ("squadrons.xml"))).Elements();
+			if (saveAndLoad.FileExists ("squadrons.xml")) {
+				var squadronXml = XElement.Load (new StringReader (saveAndLoad.LoadText ("squadrons.xml")));
+				var squadronElements = squadronXml.Elements ();
+				foreach (var squadron in squadronElements) {
+					foreach (var faction in squadron.Descendants ("Faction")) {
+						string key = faction.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+					
+						if (deprecatedFactions.ContainsKey (key))
+							faction.SetElementValue ("Id", deprecatedFactions [key]);
+					}
+
+					foreach (var ship in squadron.Descendants ("Ship")) {
+						string key = ship.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+					
+						if (deprecatedShips.ContainsKey (key))
+							ship.SetElementValue ("Id", deprecatedShips [key]);
+					}
+
+					foreach (var upgrade in squadron.Descendants ("Upgrade")) {
+						string key = upgrade.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+					
+						if (deprecatedShips.ContainsKey (key))
+							upgrade.SetElementValue ("Id", deprecatedUpgrades [key]);
+					}
+				}
+
+				saveAndLoad.SaveText ("squadrons.xml", squadronXml.ToString ());
+			}
+
+			if (saveAndLoad.FileExists ("Pilots_Custom.xml")) {
+				var pilotXml = XElement.Load (new StringReader (saveAndLoad.LoadText ("Pilots_Custom.xml")));
+				var pilotElements = pilotXml.Elements ();
+				foreach (var pilot in pilotElements) {
+					foreach (var faction in pilot.Descendants ("Faction")) {
+						string key = faction.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedFactions.ContainsKey (key))
+							faction.SetElementValue ("Id", deprecatedFactions [key]);
+					}
+
+					foreach (var ship in pilot.Descendants ("Ship")) {
+						string key = ship.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedShips.ContainsKey (key))
+							ship.SetElementValue ("Id", deprecatedShips [key]);
+					}
+
+					foreach (var upgrade in pilot.Descendants ("Upgrade")) {
+						string key = upgrade.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedShips.ContainsKey (key))
+							upgrade.SetElementValue ("Id", deprecatedUpgrades [key]);
+					}
+				}
+
+				saveAndLoad.SaveText ("Pilots_Custom.xml", pilotXml.ToString ());
+			}
+
+			if (saveAndLoad.FileExists ("Upgrades_Custom.xml")) {
+				var upgradeXml = XElement.Load (new StringReader (saveAndLoad.LoadText ("Upgrades_Custom.xml")));
+				var upgradeElements = upgradeXml.Elements ();
+				foreach (var upgrade in upgradeElements) {
+					foreach (var faction in upgrade.Descendants ("Faction")) {
+						string key = faction.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedFactions.ContainsKey (key))
+							faction.SetElementValue ("Id", deprecatedFactions [key]);
+					}
+
+					foreach (var ship in upgrade.Descendants ("Ship")) {
+						string key = ship.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedShips.ContainsKey (key))
+							ship.SetElementValue ("Id", deprecatedShips [key]);
+					}
+				}
+
+				saveAndLoad.SaveText ("Upgrades_Custom.xml", upgradeXml.ToString ());
+			}
+
+			if (saveAndLoad.FileExists ("Ships_Custom.xml")) {
+				var shipXml = XElement.Load (new StringReader (saveAndLoad.LoadText ("Ships_Custom.xml")));
+				var shipElements = shipXml.Elements ();
+				foreach (var ship in shipElements) {
+					foreach (var faction in ship.Descendants ("Faction")) {
+						string key = faction.Element ("Id")?.Value;
+
+						if (string.IsNullOrEmpty (key))
+							continue;
+
+						if (deprecatedFactions.ContainsKey (key))
+							faction.SetElementValue ("Id", deprecatedFactions [key]);
+					}
+				}
+
+				saveAndLoad.SaveText ("Ships_Custom.xml", shipXml.ToString ());
+			}
 		}
 	}
 }

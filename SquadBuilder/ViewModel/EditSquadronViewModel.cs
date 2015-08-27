@@ -73,7 +73,7 @@ namespace SquadBuilder
 				if (SelectedIndex >= 0) {
 					var newFaction = Factions [SelectedIndex];
 
-					if (newFaction.Name != "Mixed" && Squadron.Faction.Name != newFaction.Name) {
+					if (newFaction.Name != "Mixed" && Squadron.Faction?.Name != newFaction.Name) {
 						var pilots = new List <Pilot> (Squadron.Pilots);
 						foreach (var pilot in pilots) {
 							if (pilot.Faction.Name != newFaction.Name)
