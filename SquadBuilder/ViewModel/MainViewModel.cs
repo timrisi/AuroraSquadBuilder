@@ -20,7 +20,6 @@ namespace SquadBuilder
 			var service = DependencyService.Get <ISaveAndLoad> ();
 			if (service.FileExists (squadronsFilename)) {
 				var serializedXml = service.LoadText (squadronsFilename);
-				Console.WriteLine (serializedXml);
 				var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
 				using (TextReader reader = new StringReader (serializedXml)) {
 					var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
