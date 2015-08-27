@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="1.15">
+<Pilots Version="1.16">
 	<!--- Scum Pilots -->
 	<Pilot id="xizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1411,6 +1411,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1429,6 +1430,7 @@
 		<Upgrades>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1448,6 +1450,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -1465,6 +1468,7 @@
 		<Upgrades>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2438,6 +2442,7 @@
 		<Cost>20</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2454,6 +2459,7 @@
 		<Shields>1</Shields>
 		<Cost>19</Cost>
 		<Upgrades>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2471,6 +2477,7 @@
 		<Cost>18</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2488,6 +2495,7 @@
 		<Cost>17</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2503,6 +2511,7 @@
 		<Shields>1</Shields>
 		<Cost>16</Cost>
 		<Upgrades>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2518,6 +2527,7 @@
 		<Shields>1</Shields>
 		<Cost>15</Cost>
 		<Upgrades>
+			<Upgrade>Tech</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
