@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="1.07">
+<?xml version="1.0" encoding="UTF-8" ?>
+<Ships Version="2.00">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -23,14 +23,14 @@
 			<Action>Target Lock</Action>
 		</Actions>
 	</Ship>
-	<Ship id="z95">
+	<Ship id="z95headhunter">
 		<Name>Z-95 Headhunter</Name>
 		<Actions>
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
 	</Ship>
-	<Ship id="scyk">
+	<Ship id="m3ainterceptor">
 		<Name>M3-A "Scyk" Interceptor</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -39,14 +39,14 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 	</Ship>
-	<Ship id="kihraxz">
+	<Ship id="kihraxzfighter">
 		<Name>Kihraxz</Name>
 		<Actions>
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
 	</Ship>
-	<Ship id="firespray">
+	<Ship id="firespray31">
 		<Name>Firespray-31</Name>
 		<LargeBase>true</LargeBase>
 		<Actions>
@@ -164,7 +164,7 @@
 			<Action>Evade</Action>
 		</Actions>
 	</Ship>
-	<Ship id="gr75">
+	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
 		<Huge>true</Huge>
 		<Actions>
@@ -190,7 +190,7 @@
 			<Action>Reinforce</Action>
 		</Actions>
 	</Ship>
-	<Ship id="advanced">
+	<Ship id="tieadvanced">
 		<Name>TIE Advanced</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -199,7 +199,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 	</Ship>
-	<Ship id="bomber">
+	<Ship id="tiebomber">
 		<Name>TIE Bomber</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -207,7 +207,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 	</Ship>
-	<Ship id="defender">
+	<Ship id="tiedefender">
 		<Name>TIE Defender</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -215,7 +215,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 	</Ship>
-	<Ship id="fighter">
+	<Ship id="tiefighter">
 		<Name>TIE Fighter</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -223,7 +223,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 	</Ship>
-	<Ship id="interceptor">
+	<Ship id="tieinterceptor">
 		<Name>TIE Interceptor</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -232,7 +232,7 @@
 			<Action>Boost</Action>
 		</Actions>
 	</Ship>
-	<Ship id="phantom">
+	<Ship id="tiephantom">
 		<Name>TIE Phantom</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -241,7 +241,7 @@
 			<Action>Cloak</Action>
 		</Actions>
 	</Ship>
-	<Ship id="punisher">
+	<Ship id="tiepunisher">
 		<Name>TIE Punisher</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -249,7 +249,7 @@
 			<Action>Boost</Action>
 		</Actions>
 	</Ship>
-	<Ship id="tieadvprototype">
+	<Ship id="tieadvancedprototype">
 		<Name>TIE Adv. Prototype</Name>
 		<Actions>
 			<Action>Focus</Action>
@@ -258,7 +258,7 @@
 			<Action>Boost</Action>
 		</Actions>
 	</Ship>
-	<Ship id="lambda">
+	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>
 		<LargeBase>true</LargeBase>
 		<Actions>
@@ -266,7 +266,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
 	</Ship>
-	<Ship id="decimator">
+	<Ship id="vt49decimator">
 		<Name>VT-49 Decimator</Name>
 		<LargeBase>true</LargeBase>
 		<Actions>

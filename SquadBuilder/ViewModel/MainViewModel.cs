@@ -52,7 +52,7 @@ namespace SquadBuilder
 					}
 
 					foreach (var squad in squads)
-						squad.Faction = factions.FirstOrDefault (f => f.Id == squad.Faction.Id);
+						squad.Faction = factions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 					Squadrons = squads;
 				}

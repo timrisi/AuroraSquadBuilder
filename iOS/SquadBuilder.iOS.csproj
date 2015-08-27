@@ -193,6 +193,8 @@
     <Compile Include="SaveAndLoad.cs" />
     <Compile Include="ClipboardService.cs" />
     <Compile Include="SendMail.cs" />
+    <Compile Include="SQLite.cs" />
+    <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
