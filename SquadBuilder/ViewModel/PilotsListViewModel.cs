@@ -162,6 +162,9 @@ namespace SquadBuilder
 			foreach (var pilot in allPilots) {
 				while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 					pilot.UpgradesEquipped.Add (null);
+
+				if (pilot.Ship == null || pilot.Faction == null)
+					Console.WriteLine ("Foo");
 				
 				var pilotGroup = allPilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction.Id == pilot.Faction.Id);
 

@@ -1397,7 +1397,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="poedameron" faction="rebel" ship="t70xwing">
+	<Pilot id="poedameron" faction="rebels" ship="t70xwing">
 		<Name>Poe Dameron</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -1417,7 +1417,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
 	</Pilot>
-	<Pilot id="blueace" faction="rebel" ship="t70xwing">
+	<Pilot id="blueace" faction="rebels" ship="t70xwing">
 		<Name>&quot;Blue Ace&quot;</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -1436,7 +1436,7 @@
 		</Upgrades>
 		<Ability>When performing a boost action, you may use the [{left turn} 1] or [{right turn} 1] template.</Ability>
 	</Pilot>
-	<Pilot id="redsquadronveteran" faction="rebel" ship="t70xwing">
+	<Pilot id="redsquadronveteran" faction="rebels" ship="t70xwing">
 		<Name>Red Squadron Veteran</Name>
 		<Unique>false</Unique>
 		<Preview>true</Preview>
@@ -1455,7 +1455,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="bluesquadronnovice" faction="rebel" ship="t70xwing">
+	<Pilot id="bluesquadronnovice" faction="rebels" ship="t70xwing">
 		<Name>Blue Squadron Novice</Name>
 		<Unique>false</Unique>
 		<Preview>true</Preview>
@@ -1473,7 +1473,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="hansolo" faction="rebel" ship="yt1300">
+	<Pilot id="hansolo" faction="rebels" ship="yt1300">
 		<Name>Han Solo</Name>
 		<Unique>true</Unique>
 		<PilotSkill>9</PilotSkill>
@@ -2430,7 +2430,7 @@
 		</Upgrades>
 		<Ability>When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.</Ability>
 	</Pilot>
-	<Pilot id="omegaace" faction="imperial" ship="tiefofighter">
+	<Pilot id="omegaace" faction="empire" ship="tiefofighter">
 		<Name>&quot;Omega Ace&quot;</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -2448,7 +2448,7 @@
 		</Upgrades>
 		<Ability>When attacking, you may spend a focus token and a target lock you have on the defender to change all of your dice results to {crit} results.</Ability>
 	</Pilot>
-	<Pilot id="epsilonleader" faction="imperial" ship="tiefofighter">
+	<Pilot id="epsilonleader" faction="empire" ship="tiefofighter">
 		<Name>&quot;Epsilon Leader&quot;</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -2465,7 +2465,7 @@
 		</Upgrades>
 		<Ability>At the start of the Combat phase, remove 1 stress token from each friendly ship at range 1.</Ability>
 	</Pilot>
-	<Pilot id="zetaace" faction="imperial" ship="tiefofighter">
+	<Pilot id="zetaace" faction="empire" ship="tiefofighter">
 		<Name>&quot;Zeta Ace&quot;</Name>
 		<Unique>true</Unique>
 		<Preview>true</Preview>
@@ -2483,7 +2483,7 @@
 		</Upgrades>
 		<Ability>When performing a barrel roll, you may use the {straight} 2 template instead of the {straight} 1 template.</Ability>
 	</Pilot>
-	<Pilot id="omegasquadronpilot" faction="imperial" ship="tiefofighter">
+	<Pilot id="omegasquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Omega Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<Preview>true</Preview>
@@ -2500,7 +2500,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="zetasquadronpilot" faction="imperial" ship="tiefofighter">
+	<Pilot id="zetasquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Zeta Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<Preview>true</Preview>
@@ -2516,7 +2516,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="epsilonsquadronpilot" faction="imperial" ship="tiefofighter">
+	<Pilot id="epsilonsquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Epsilon Squadron Pilot</Name>
 		<Unique>false</Unique>
 		<Preview>true</Preview>
@@ -2684,7 +2684,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
-	<Pilot id="rearadmiralchiraneau" faction="empire" ship="decimator">
+	<Pilot id="rearadmiralchiraneau" faction="empire" ship="vt49decimator">
 		<Name>Rear Admiral Chiraneau</Name>
 		<Unique>true</Unique>
 		<PilotSkill>8</PilotSkill>
@@ -2705,7 +2705,7 @@
 		</Upgrades>
 		<Ability>When attacking at Range 1-2, you may change 1 of your {focus} results to a {crit} result.</Ability>
 	</Pilot>
-	<Pilot id="commanderkenkirk" faction="empire" ship="decimator">
+	<Pilot id="commanderkenkirk" faction="empire" ship="vt49decimator">
 		<Name>Commander Kenkirk</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -2726,7 +2726,7 @@
 		</Upgrades>
 		<Ability>If you have no shields and at least 1 Damage card assigned to you, increase your agility value by 1.</Ability>
 	</Pilot>
-	<Pilot id="captainoicunn" faction="empire" ship="decimator">
+	<Pilot id="captainoicunn" faction="empire" ship="vt49decimator">
 		<Name>Captain Oicunn</Name>
 		<Unique>true</Unique>
 		<PilotSkill>4</PilotSkill>
@@ -2747,7 +2747,7 @@
 		</Upgrades>
 		<Ability>After executing a maneuver, each enemy ship you are touching suffers 1 Damage.</Ability>
 	</Pilot>
-	<Pilot id="patrolleader" faction="empire" ship="decimator">
+	<Pilot id="patrolleader" faction="empire" ship="vt49decimator">
 		<Name>Patrol Leader</Name>
 		<Unique>false</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2780,7 +2780,6 @@
 			<Upgrade>Hardpoint</Upgrade>
 			<Upgrade>Team</Upgrade>
 			<Upgrade>Cargo</Upgrade>
-			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
@@ -2802,6 +2801,7 @@
 			<Upgrade>Team</Upgrade>
 			<Upgrade>Team</Upgrade>
 			<Upgrade>Cargo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>

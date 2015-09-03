@@ -9,6 +9,10 @@ using XLabs;
 using System.Linq;
 using XLabs.Data;
 using System.Xml.Serialization;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using Android.Runtime;
+using Org.Json;
 
 namespace SquadBuilder
 {
@@ -115,7 +119,23 @@ namespace SquadBuilder
 
 		public string CreateXws ()
 		{
-			return "";
+			var json = new JObject (
+				new JProperty ("faction", Faction.Id),
+				new JProperty ("pilots",
+					new JArray (
+						from p in Pilots
+						select new JObject (
+							new JProperty ("name", p.Id),
+							new JProperty ("ship", p.Ship.Id),
+							new JObject ("upgrades",
+
+							)
+						)
+					)
+				),
+				new JProperty ("name", Name),
+				new JProperty ("points", Points)
+			);
 		}
 	}
 }
