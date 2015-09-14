@@ -18,6 +18,7 @@ namespace SquadBuilder
 
 		public string Id { get; set; }
 		public string Name { get; set; }
+		public string CategoryId { get; set; }
 		public string Category { get; set; }
 		public int Cost { get; set; }
 		public Ship Ship { get; set; }

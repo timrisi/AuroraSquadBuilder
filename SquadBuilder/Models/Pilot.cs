@@ -265,6 +265,8 @@ namespace SquadBuilder
 				BaseShields = BaseShields,
 				BaseCost = BaseCost,
 				Ability = Ability,
+				Preview = Preview,
+				IsCustom = IsCustom,
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (UpgradesEquipped.ToList ())
 			};

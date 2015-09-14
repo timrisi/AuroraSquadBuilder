@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.00">
-	<Category type="Astromech Droid">
+<Upgrades Version="2.04">
+	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
 			<Cost>4</Cost>
@@ -77,16 +77,16 @@
 			<Name>R5-X3</Name>
 			<Cost>1</Cost>
 			<Text>Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round.</Text>
-			<Preview>true</Preview>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="bb8">
 			<Name>BB-8</Name>
 			<Cost>2</Cost>
 			<Text>When you reveal a green maneuver, you may perform a free barrel roll action.</Text>
-			<Preview>true</Preview>
+			<Unique>true</Unique>
 		</Upgrade>
 	</Category>
-	<Category type="Bomb">
+	<Category id="bomb" type="Bomb">
 		<Upgrade id="proximitymines">
 			<Name>Proximity Mines</Name>
 			<Cost>3</Cost>
@@ -140,7 +140,7 @@ This card detonates at the end of the Activation phase.
 Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		</Upgrade>
 	</Category>
-	<Category type="Cannon">
+	<Category id="cannon" type="Cannon">
 		<Upgrade id="heavylasercannon">
 			<Name>Heavy Laser Cannon</Name>
 			<Cost>7</Cost>
@@ -191,7 +191,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
-	<Category type="Cargo">
+	<Category id="cargo" type="Cargo">
 		<Upgrade id="backupshieldgenerator">
 			<Name>Backup Shield Generator</Name>
 			<Cost>3</Cost>
@@ -250,7 +250,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Limited>true</Limited>
 		</Upgrade>
 	</Category>
-	<Category type="Crew">
+	<Category id="crew" type="Crew">
 		<Upgrade id="chewbacca">
 			<Name>Chewbacca</Name>
 			<Cost>4</Cost>
@@ -535,7 +535,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<HugeOnly>true</HugeOnly>
 		</Upgrade>
 	</Category>
-	<Category type="Elite Pilot Talent">
+	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
 			<Name>Determination</Name>
 			<Cost>1</Cost>
@@ -676,10 +676,22 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Wired</Name>
 			<Cost>1</Cost>
 			<Text>When attacking or defending, if you are stressed, you may reroll 1 or more of your {focus} results.</Text>
+		</Upgrade>
+		<Upgrade id="coolhand">
+			<Name>Cool Hand</Name>
+			<Cost>1</Cost>
+			<Text>When you receive a stress token, you may discard this card to assign 1 focus or evade token to your ship.</Text>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="juke">
+			<Name>Juke</Name>
+			<Cost>2</Cost>
+			<Text>When attacking, if you have an evade token, you may change 1 of the defender’s {evade} results to a {focus} result.</Text>
+			<SmallOnly>true</SmallOnly>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
-	<Category type="Hardpoint">
+	<Category id="hardpoint" type="Hardpoint">
 		<Upgrade id="quadlasercannons">
 			<Name>Quad Laser Cannons</Name>
 			<Cost>6</Cost>
@@ -708,7 +720,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Range>2-4</Range>
 		</Upgrade>
 	</Category>
-	<Category type="Illicit">
+	<Category id="illicit" type="Illicit">
 		<Upgrade id="hotshotblaster">
 			<Name>&quot;Hot Shot&quot; Blaster</Name>
 			<Cost>3</Cost>
@@ -746,7 +758,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SmallOnly>true</SmallOnly>
 		</Upgrade>
 	</Category>
-	<Category type="Missile">
+	<Category id="missile" type="Missile">
 		<Upgrade id="clustermissiles">
 			<Name>Cluster Missiles</Name>
 			<Cost>4</Cost>
@@ -819,7 +831,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
-	<Category type="Modification">
+	<Category id="mod" type="Modification">
 		<Upgrade id="engineupgrade">
 			<Name>Engine Upgrade</Name>
 			<Cost>4</Cost>
@@ -934,8 +946,15 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>You may treat all bank maneuvers ({bank left} or {bank right}) as green maneuvers.</Text>
 			<TIEOnly>true</TIEOnly>
 		</Upgrade>
+		<Upgrade id="integratedastromech">
+			<Name>Integrated Astromech</Name>
+			<Cost>0</Cost>
+			<Text>When you are dealt a Damage card you may discard one of your {astromech droid} Upgrade cards to discard that Damage card (without resolving its effect).</Text>
+			<Ship>xwing</Ship>
+			<Preview>true</Preview>
+		</Upgrade>
 	</Category>
-	<Category type="Salvaged Astromech">
+	<Category id="samd" type="Salvaged Astromech">
 		<Upgrade id="r4agromech">
 			<Name>R4 Agromech</Name>
 			<Cost>2</Cost>
@@ -962,7 +981,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When you are dealt a Damage card with the Ship trait, you may immediately discard that card (before resolving its effect). Then discard this Upgrade card.</Text>
 		</Upgrade>
 	</Category>
-	<Category type="System Upgrade">
+	<Category id="system" type="System Upgrade">
 		<Upgrade id="advancedsensors">
 			<Name>Advanced Sensors</Name>
 			<Cost>3</Cost>
@@ -995,7 +1014,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Ship>tieadvanced</Ship>
 		</Upgrade>
 	</Category>
-	<Category type="Team">
+	<Category id="team" type="Team">
 		<Upgrade id="gunneryteam">
 			<Name>Gunnery Team</Name>
 			<Cost>4</Cost>
@@ -1014,7 +1033,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When acquiring a target lock, you may lock onto an enemy ship at Range 1-5 (instead of Range 1-3).</Text>
 		</Upgrade>
 	</Category>
-	<Category type="Title">
+	<Category id="title" type="Title">
 		<Upgrade id="milleniumfalcon">
 			<Name>Millenium Falcon</Name>
 			<Cost>1</Cost>
@@ -1234,7 +1253,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Attack>1</Attack>
 		</Upgrade>
 	</Category>
-	<Category type="Torpedo">
+	<Category id="torpedo" type="Torpedo">
 		<Upgrade id="protontorpedoes">
 			<Name>Proton Torpedoes</Name>
 			<Cost>4</Cost>
@@ -1292,7 +1311,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Range>2-3</Range>
 		</Upgrade>
 	</Category>
-	<Category type="Turret Weapon">
+	<Category id="turret" type="Turret Weapon">
 		<Upgrade id="ioncannonturret">
 			<Name>Ion Cannon Turret</Name>
 			<Cost>5</Cost>
@@ -1326,11 +1345,16 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Range>2-3</Range>
 		</Upgrade>
 	</Category>
-	<Category type="Tech">
+	<Category id="tech" type="Tech">
 		<Upgrade id="weaponsguidance">
 			<Name>Weapons Guidance</Name>
 			<Cost>2</Cost>
 			<Text>When attacking, you may spend a focus token to change one of your blank results to a {hit} result.</Text>
+		</Upgrade>
+		<Upgrade id="commsrelay">
+			<Name>Comms Relay</Name>
+			<Cost>3</Cost>
+			<Text>You cannot have more than 1 evade token.  During the End phase, do not remove an unused evade token from your ship.</Text>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>

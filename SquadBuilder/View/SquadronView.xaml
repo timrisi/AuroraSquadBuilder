@@ -56,7 +56,10 @@
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
-			<Button Text="Export to Clipboard" Command="{Binding ExportToClipboard}" />
+			<!---<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30" >-->
+				<Button Text="Export to Clipboard" Command="{Binding ExportToClipboard}" HorizontalOptions="CenterAndExpand" />
+				<!---<Button Text="Export as XWS" Command="{Binding ExportXws}" HorizontalOptions="CenterAndExpand" />
+			</StackLayout>-->
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

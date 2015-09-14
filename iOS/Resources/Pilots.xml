@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.00">
+<Pilots Version="2.03">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -352,7 +352,7 @@
 		</Upgrades>
 		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
 	</Pilot>
-	<Pilot name="grazthehunter" faction="scum" ship="kihraxzfighter">
+	<Pilot id="grazthehunter" faction="scum" ship="kihraxzfighter">
 		<Name>Graz the Hunter</Name>
 		<Unique>true</Unique>
 		<PilotSkill>6</PilotSkill>
@@ -1400,7 +1400,6 @@
 	<Pilot id="poedameron" faction="rebels" ship="t70xwing">
 		<Name>Poe Dameron</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>8</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>2</Agility>
@@ -1417,10 +1416,28 @@
 		</Upgrades>
 		<Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
 	</Pilot>
+	<Pilot id="redace" faction="rebels" ship="t70xwing">
+		<Name>&quot;Red Ace&quot;</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>3</Shields>
+		<Cost>29</Cost>
+		<Upgrades>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>The first time you remove a shield token from your ship each round, assign 1 evade token to your ship.</Ability>
+	</Pilot>
 	<Pilot id="blueace" faction="rebels" ship="t70xwing">
 		<Name>&quot;Blue Ace&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>5</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>2</Agility>
@@ -1439,7 +1456,6 @@
 	<Pilot id="redsquadronveteran" faction="rebels" ship="t70xwing">
 		<Name>Red Squadron Veteran</Name>
 		<Unique>false</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>4</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>2</Agility>
@@ -1458,7 +1474,6 @@
 	<Pilot id="bluesquadronnovice" faction="rebels" ship="t70xwing">
 		<Name>Blue Squadron Novice</Name>
 		<Unique>false</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>2</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>2</Agility>
@@ -2430,10 +2445,27 @@
 		</Upgrades>
 		<Ability>When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.</Ability>
 	</Pilot>
+	<Pilot id="omegaleader" faction="empire" ship="tiefofighter">
+		<Name>&quot;Omega Leader&quot;</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>8</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>1</Shields>
+		<Cost>21</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Enemy ships that you have locked cannot modify any dice when attacking you or defending against your attacks.</Ability>
+	</Pilot>
 	<Pilot id="omegaace" faction="empire" ship="tiefofighter">
 		<Name>&quot;Omega Ace&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>7</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2451,7 +2483,6 @@
 	<Pilot id="epsilonleader" faction="empire" ship="tiefofighter">
 		<Name>&quot;Epsilon Leader&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>6</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2468,7 +2499,6 @@
 	<Pilot id="zetaace" faction="empire" ship="tiefofighter">
 		<Name>&quot;Zeta Ace&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>5</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2486,7 +2516,6 @@
 	<Pilot id="omegasquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Omega Squadron Pilot</Name>
 		<Unique>false</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>4</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2503,7 +2532,6 @@
 	<Pilot id="zetasquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Zeta Squadron Pilot</Name>
 		<Unique>false</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>3</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2519,7 +2547,6 @@
 	<Pilot id="epsilonsquadronpilot" faction="empire" ship="tiefofighter">
 		<Name>Epsilon Squadron Pilot</Name>
 		<Unique>false</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>1</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>

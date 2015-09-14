@@ -11,8 +11,6 @@ using XLabs.Data;
 using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using Android.Runtime;
-using Org.Json;
 
 namespace SquadBuilder
 {
@@ -120,6 +118,8 @@ namespace SquadBuilder
 		public string CreateXws ()
 		{
 			var json = new JObject (
+				new JProperty ("name", Name),
+				new JProperty ("points", Points),
 				new JProperty ("faction", Faction.Id),
 				new JProperty ("pilots",
 					new JArray (
@@ -127,15 +127,25 @@ namespace SquadBuilder
 						select new JObject (
 							new JProperty ("name", p.Id),
 							new JProperty ("ship", p.Ship.Id),
-							new JObject ("upgrades",
-
+							new JProperty ("upgrades", new JObject (
+								from category in 
+									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
+									select upgrade.CategoryId).Distinct ()
+								select new JProperty (category, 
+									new JArray (
+										from upgrade in p.UpgradesEquipped.Where (u => u != null)
+										where upgrade.CategoryId == category
+										select upgrade.Id
+									)
+									)
+								)
 							)
 						)
 					)
-				),
-				new JProperty ("name", Name),
-				new JProperty ("points", Points)
+				)
 			);
+
+			return json.ToString ();
 		}
 	}
 }

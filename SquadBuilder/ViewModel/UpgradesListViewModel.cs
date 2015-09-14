@@ -117,7 +117,9 @@ namespace SquadBuilder
 			                where (upgrade.Element ("Name")?.Value != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
 			                where (upgrade.Element ("Name")?.Value != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
 			                select new Upgrade {
+				Id = upgrade.Attribute ("id").Value,
 				Name = upgrade.Element ("Name")?.Value,
+				CategoryId = upgrade.Parent.Attribute ("id").Value,
 				Category = upgrade.Parent.Attribute ("type")?.Value,
 				Cost = (int)upgrade.Element ("Cost"),
 				Text = upgrade.Element ("Text")?.Value,

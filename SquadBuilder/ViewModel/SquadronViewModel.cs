@@ -102,6 +102,21 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand exportXws;
+		public RelayCommand ExportXws {
+			get {
+				if (exportXws == null)
+					exportXws = new RelayCommand (() => {
+						var json = Squadron.CreateXws ();
+
+						DependencyService.Get <IClipboardService> ().CopyToClipboard (json.ToString ());
+						MessagingCenter.Send <SquadronViewModel> (this, "Squadron Copied as XWS data");
+					});
+
+				return exportXws;
+			}
+		}
+
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();

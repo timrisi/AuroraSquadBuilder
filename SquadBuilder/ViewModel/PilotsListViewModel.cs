@@ -116,6 +116,7 @@ namespace SquadBuilder
 
 			var allPilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 			                                                  select new Pilot {
+				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
 				Faction = factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
