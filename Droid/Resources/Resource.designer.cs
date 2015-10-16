@@ -243,26 +243,26 @@ namespace SquadBuilder.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060006
-			public const int ApplicationName = 2131099654;
-			
-			// aapt resource value: 0x7f060005
-			public const int Hello = 2131099653;
-			
 			// aapt resource value: 0x7f060001
-			public const int day_name_format = 2131099649;
-			
-			// aapt resource value: 0x7f060004
-			public const int full_date_format = 2131099652;
-			
-			// aapt resource value: 0x7f060002
-			public const int invalid_date = 2131099650;
+			public const int ApplicationName = 2131099649;
 			
 			// aapt resource value: 0x7f060000
-			public const int library_name = 2131099648;
+			public const int Hello = 2131099648;
 			
 			// aapt resource value: 0x7f060003
-			public const int month_name_format = 2131099651;
+			public const int day_name_format = 2131099651;
+			
+			// aapt resource value: 0x7f060006
+			public const int full_date_format = 2131099654;
+			
+			// aapt resource value: 0x7f060004
+			public const int invalid_date = 2131099652;
+			
+			// aapt resource value: 0x7f060002
+			public const int library_name = 2131099650;
+			
+			// aapt resource value: 0x7f060005
+			public const int month_name_format = 2131099653;
 			
 			static String()
 			{

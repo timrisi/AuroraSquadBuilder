@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.03">
+<Pilots Version="2.05">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -195,7 +195,7 @@
 	</Pilot>
 	<Pilot id="syndicatethug" faction="scum" ship="ywing">
 		<Name>Syndicate Thug</Name>
-		<Unique>true</Unique>
+		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>1</Agility>
@@ -491,6 +491,7 @@
 		<Shields>4</Shields>
 		<Cost>35</Cost>
 		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -1247,6 +1248,22 @@
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="tarnmison" faction="rebels" ship="xwing">
+		<Name>Tarn Mison</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>2</Shields>
+		<Cost>23</Cost>
+		<Upgrades>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When an enemy ship declares you as the target of an attack, you may acquire a target lock on that ship.</Ability>
 	</Pilot>
 	<Pilot id="rookiepilot" faction="rebels" ship="xwing">
 		<Name>Rookie Pilot</Name>

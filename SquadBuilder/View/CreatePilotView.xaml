@@ -77,6 +77,10 @@
 					<Entry Text="{Binding MissileSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
 				</StackLayout>
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Modification" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding ModificationSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
 					<Label Text="Salvaged Astromech" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
 					<Entry Text="{Binding SalvagedAstromechSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
 				</StackLayout>
@@ -87,6 +91,10 @@
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
 					<Label Text="Team" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
 					<Entry Text="{Binding TeamSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+					<Label Text="Tech" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />
+					<Entry Text="{Binding TechSlots}" HorizontalOptions="EndAndExpand" WidthRequest="50" />
 				</StackLayout>
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
 					<Label Text="Torpedo" XAlign="End" YAlign="Center" HorizontalOptions="StartAndExpand" />

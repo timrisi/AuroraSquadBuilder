@@ -202,6 +202,12 @@ namespace SquadBuilder
 			set { SetProperty (ref missileSlots, value); }
 		}
 
+		int modificationSlots = 1;
+		public int ModificationSlots {
+			get { return modificationSlots; }
+			set { SetProperty (ref modificationSlots, value); }
+		}
+
 		int salvagedAstromechSlots;
 		public int SalvagedAstromechSlots {
 			get { return salvagedAstromechSlots; }
@@ -218,6 +224,12 @@ namespace SquadBuilder
 		public int TeamSlots {
 			get { return teamSlots; }
 			set { SetProperty (ref teamSlots, value); }
+		}
+
+		int techSlots;
+		public int TechSlots {
+			get { return techSlots; }
+			set { SetProperty (ref techSlots, value); }
 		}
 
 		int torpedoSlots;
@@ -271,18 +283,21 @@ namespace SquadBuilder
 							upgrades.Add ("Illicit");
 						for (int i = 0; i < MissileSlots; i++)
 							upgrades.Add ("Missile");
+						for (int i = 0; i < ModificationSlots; i++)
+							upgrades.Add ("Modification");
 						for (int i = 0; i < SalvagedAstromechSlots; i++)
 							upgrades.Add ("Salvaged Astromech");
 						for (int i = 0; i < SystemUpgradeSlots; i++)
 							upgrades.Add ("System Upgrade");
 						for (int i = 0; i < TeamSlots; i++)
 							upgrades.Add ("Team");
+						for (int i = 0; i < techSlots; i++)
+							upgrades.Add ("Tech");
 						for (int i = 0; i < TorpedoSlots; i++)
 							upgrades.Add ("Torpedo");
 						for (int i = 0; i < TurretWeaponSlots; i++)
 							upgrades.Add ("Turret Weapon");
 						upgrades.Add ("Title");
-						upgrades.Add ("Modification");
 
 						Pilot.UpgradeTypes = new ObservableCollection<string> (upgrades);
 

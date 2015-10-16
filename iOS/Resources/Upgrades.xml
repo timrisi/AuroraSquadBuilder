@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.04">
+<Upgrades Version="2.07">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -487,6 +487,11 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>scum</Faction>
 			<Limited>true</Limited>
 		</Upgrade>
+		<Upgrade id="bombardier">
+			<Name>Bombardier</Name>
+			<Cost>1</Cost>
+			<Text>When dropping a bomb, you may use the [{straight} 2] template instead of the [{straight} 1] template.</Text>
+		</Upgrade>
 		<Upgrade id="bossk">
 			<Name>Bossk</Name>
 			<Cost>2</Cost>
@@ -595,7 +600,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		<Upgrade id="daredevil">
 			<Name>Daredevil</Name>
 			<Cost>3</Cost>
-			<Text>Action: Execute a white {left turn 1} or {right turn 1} maneuver.  Then receive 1 stress token.  Then, if you do not hvae the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
+			<Text>Action: Execute a white {left turn 1} or {right turn 1} maneuver.  Then receive 1 stress token.  Then, if you do not have the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
 		</Upgrade>
 		<Upgrade id="adrenalinerush">
 			<Name>Adrenaline Rush</Name>
@@ -1077,42 +1082,50 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		<Upgrade id="brighthope">
 			<Name>Bright Hope</Name>
 			<Cost>5</Cost>
-			<Text></Text>
+			<Text>+2 Energy
+
+A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="dutyfree">
 			<Name>Dutyfree</Name>
 			<Cost>2</Cost>
-			<Text></Text>
+			<Text>When performing a jam action, you may choose an enemy ship at Range 1-3 (instead of at Range 1-2).</Text>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="quantumstorm">
 			<Name>Quantum Storm</Name>
 			<Cost>4</Cost>
-			<Text></Text>
+			<Text>+1 Energy
+
+At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 energy token.</Text>
+			<Energy>1</Energy>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="dodonnaspride">
 			<Name>Dodonna's Pride</Name>
 			<Cost>4</Cost>
-			<Text></Text>
+			<Text>+2 Energy
+
+A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
+			<Energy>2</Energy>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="jainaslight">
 			<Name>Jaina's Light</Name>
 			<Cost>2</Cost>
-			<Text></Text>
+			<Text>When defending, once per attack, if you are dealt a faceup Damage card, you may discard it and draw another faceup Damage card.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
 		<Upgrade id="tantiveiv">
 			<Name>Tantive IV</Name>
 			<Cost>4</Cost>
-			<Text></Text>
+			<Text>Your fore section upgrade bar gains 1 additional {crew} and 1 additional {team} upgrade icon.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
 		</Upgrade>
