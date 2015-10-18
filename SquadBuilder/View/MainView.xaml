@@ -29,12 +29,15 @@
 					               		  IsDestructive="True" />
 					        </ViewCell.ContextActions>
 							<ViewCell.View>
-								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
-									<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
-										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
-										<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
+								<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
+											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
+											<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
+										</StackLayout>
+										<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
 									</StackLayout>
-									<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
+									<Label Text="{Binding PilotsString}" FontSize="Micro" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>

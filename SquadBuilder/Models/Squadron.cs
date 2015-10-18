@@ -64,9 +64,12 @@ namespace SquadBuilder
 			}
 		}
 
-		string pointDetails;
 		public string PointDetails {
 			get { return Points + " / " + MaxPoints; }
+		}
+
+		public string PilotsString {
+			get { return string.Join (", ", Pilots.Select (p => p.Name)); }
 		}
 
 		[XmlIgnore]
