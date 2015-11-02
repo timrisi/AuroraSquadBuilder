@@ -145,10 +145,9 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 						
-						XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-						if (shipsXml.Elements ().FirstOrDefault (e => e.Element ("Name")?.Value == Name) != null)
+						if (Cards.SharedInstance.Ships.Count (s => s.Name == Name) > 0)
 							return;
 						
 						if (customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id) != null) {

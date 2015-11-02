@@ -12,75 +12,6 @@ namespace SquadBuilder
 {
 	public class EditUpgradeViewModel : ViewModel
 	{
-		public EditUpgradeViewModel ()
-		{
-			XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
-			var factions = (from faction in element.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				}).ToList ();
-
-			XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
-			var customFactions = (from faction in customFactionsXml.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				});
-			factions.AddRange (customFactions);
-
-			Factions = new ObservableCollection<Faction> (factions);
-
-			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
-			var ships = (
-				from ship in shipsElement.Elements ()
-				select new Ship {
-					Id = ship.Attribute ("id").Value,
-					Name = ship.Element ("Name").Value,
-					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> (
-						from action in ship.Element ("Actions").Elements ()
-						select action.Value),
-				}).ToList ();
-
-			XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
-			var customShips = (
-				from ship in customShipsXml.Elements ()
-				select new Ship {
-					Id = ship.Attribute ("id").Value,
-					Name = ship.Element ("Name").Value,
-					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> (
-						from action in ship.Element ("Actions").Elements ()
-						select action.Value),
-
-				}
-			);
-			ships.AddRange (customShips);
-
-			Ships = new ObservableCollection <Ship> (ships);
-
-			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
-			var upgrades = (
-				from upgrade in upgradesXml.Elements ()
-				select upgrade.Attribute ("type").Value
-			);
-
-			UpgradeTypes = new ObservableCollection<string> (upgrades);
-		}
-
 		Upgrade upgrade;
 		public Upgrade Upgrade {
 			get { 
@@ -353,6 +284,20 @@ namespace SquadBuilder
 					});
 				return saveUpgrade;
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+
+			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+
+			var upgrades = Cards.SharedInstance.AllUpgrades;
+			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
+
+			UpgradeTypes =  new ObservableCollection<string> (upgradeTypes);
 		}
 	}
 }

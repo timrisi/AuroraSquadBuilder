@@ -58,15 +58,14 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (name))
 							return;
 
-						XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
 						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
 
-						if (factionsXml.Descendants ().FirstOrDefault (e => e?.Value == name) != null)
+						if (Cards.SharedInstance.Factions.Count (f => f.Name == Name) > 0)
 							return;
 
-						if (customFactionsXml.Descendants ().FirstOrDefault (e => e?.Value == name) != null)
+						if (Cards.SharedInstance.CustomFactions.Count (f => f.Name == Name) > 0)
 							return;
-
+						
 						char[] arr = name.ToCharArray();
 
 						arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));

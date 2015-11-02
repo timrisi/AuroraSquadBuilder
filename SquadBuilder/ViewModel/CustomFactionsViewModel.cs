@@ -13,20 +13,9 @@ namespace SquadBuilder
 	{
 		public CustomFactionsViewModel ()
 		{
-			XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
-			Factions = new ObservableCollection <Faction> (from faction in customFactionsXml.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				});
-
 			MessagingCenter.Subscribe <Faction> (this, "Remove Faction", faction => {
 				Factions.Remove (faction);
+				Cards.SharedInstance.CustomFactions.Remove (faction);
 			});
 		}
 
@@ -49,7 +38,8 @@ namespace SquadBuilder
 					createFaction = new RelayCommand (() => {
 						MessagingCenter.Subscribe <CreateFactionViewModel, Faction> (this, "Faction Created", (vm, faction) => {
 							Factions.Add (faction);
-							Navigation.PopAsync ();
+							Cards.SharedInstance.CustomFactions.Add (faction);
+							Navigation.RemoveAsync <CreateFactionViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateFactionViewModel, Faction> (this, "Faction Created");
 						});
 							
@@ -58,6 +48,13 @@ namespace SquadBuilder
 
 				return createFaction;
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			Factions = new ObservableCollection <Faction> (Cards.SharedInstance.CustomFactions);
 		}
 	}
 }

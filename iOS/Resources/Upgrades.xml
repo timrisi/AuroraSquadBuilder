@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.07">
+<Upgrades Version="2.08">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1128,6 +1128,10 @@ A reinforce token assigned to your fore section adds 2 {evade} results (instead 
 			<Text>Your fore section upgrade bar gains 1 additional {crew} and 1 additional {team} upgrade icon.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
+			<AdditionalUpgrades>
+				<Upgrade>Crew</Upgrade>
+				<Upgrade>Team</Upgrade>
+			</AdditionalUpgrades>
 		</Upgrade>
 		<Upgrade id="awingtestpilot">
 			<Name>A-Wing Test Pilot</Name>

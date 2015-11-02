@@ -38,13 +38,13 @@ namespace SquadBuilder
 							MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
 								if (upgradeType != "Cancel") {
 									upgr.AdditionalUpgrades.Add (upgradeType);
-									updateUpgrade (index, upgr);
+									updateUpgrade (index, upgr, vm);
 								}
 								MessagingCenter.Unsubscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected"); 
 							});
 							MessagingCenter.Send <PilotViewModel> (this, "Select Scyk Upgrade");
 						} else
-							updateUpgrade (index, upgrade);
+							updateUpgrade (index, upgrade, vm);
 
 						MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 					});
@@ -58,7 +58,7 @@ namespace SquadBuilder
 			}
 		}
 
-		void updateUpgrade (int index, Upgrade upgrade) 
+		void updateUpgrade (int index, Upgrade upgrade, UpgradesListViewModel vm) 
 		{
 			var oldUpgrade = Pilot.UpgradesEquipped [index];
 
@@ -91,7 +91,7 @@ namespace SquadBuilder
 			}
 
 			NotifyPropertyChanged ("Pilot");
-			Navigation.PopAsync ();
+			Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 		}
 
 		RelayCommand selectUpgrade;
@@ -102,7 +102,7 @@ namespace SquadBuilder
 						
 						MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
 							
-							Navigation.PopAsync ();
+							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
 						Navigation.PushAsync <CreateSquadronViewModel> ();

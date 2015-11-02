@@ -100,6 +100,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditShipViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditUpgradeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IClipboardService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Cards.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

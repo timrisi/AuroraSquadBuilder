@@ -14,38 +14,6 @@ namespace SquadBuilder
 {
 	public class EditSquadronViewModel : ViewModel
 	{
-		public EditSquadronViewModel ()
-		{
-			XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
-			var factions = (from faction in element.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				}).ToList ();
-
-			if ((bool)Application.Current.Properties ["AllowCustom"]) {
-				XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
-				var customFactions = (from faction in customFactionsXml.Elements ()
-					select new Faction {
-						Id = faction.Attribute ("id").Value,
-						Name = faction.Value,
-						Color = Color.FromRgb (
-							(int)faction.Element ("Color").Attribute ("r"),
-							(int)faction.Element ("Color").Attribute ("g"),
-							(int)faction.Element ("Color").Attribute ("b")
-						)
-					});
-				factions.AddRange (customFactions);
-			}
-
-			Factions = new ObservableCollection<Faction> (factions);
-		}
-			
 		Squadron squadron;
 		public Squadron Squadron {
 			get { return squadron; }
@@ -84,6 +52,13 @@ namespace SquadBuilder
 					Squadron.Faction = newFaction;
 				}
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
 		}
 	}
 }

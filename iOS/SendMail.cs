@@ -30,9 +30,9 @@ namespace SquadBuilder.iOS
 				} else {
 					var alert = UIAlertController.Create ("Error", "No e-mail account setup on device.  You can e-mail feedback to support@risiapps.com", UIAlertControllerStyle.Alert);
 					alert.AddAction(UIAlertAction.Create ("Okay" ,UIAlertActionStyle.Default,(action) => {}));
-					rootController.PresentViewControllerAsync (alert, true);
+					await rootController.PresentViewControllerAsync (alert, true);
 				}
-			} catch (Exception e) {
+			} catch {
 				new UIAlertView ("Error", "No e-mail account setup on device.  You can e-mail feedback to support@risiapps.com", null, "Okay", null).Show ();
 			}
 		}

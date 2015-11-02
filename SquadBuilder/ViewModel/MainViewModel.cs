@@ -23,33 +23,8 @@ namespace SquadBuilder
 				var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
 				using (TextReader reader = new StringReader (serializedXml)) {
 					var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
-					XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
 
-					var factions = (from faction in element.Elements ()
-						select new Faction {
-							Id = faction.Attribute ("id").Value,
-							Name = faction.Value,
-							Color = Color.FromRgb (
-								(int)faction.Element ("Color").Attribute ("r"),
-								(int)faction.Element ("Color").Attribute ("g"),
-								(int)faction.Element ("Color").Attribute ("b")
-							)
-						}).ToList ();
-
-					if ((bool)Application.Current.Properties ["AllowCustom"]) {
-						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
-						var customFactions = (from faction in customFactionsXml.Elements ()
-							select new Faction {
-								Id = faction.Attribute ("id").Value,
-								Name = faction.Value,
-								Color = Color.FromRgb (
-									(int)faction.Element ("Color").Attribute ("r"),
-									(int)faction.Element ("Color").Attribute ("g"),
-									(int)faction.Element ("Color").Attribute ("b")
-								)
-							});
-						factions.AddRange (customFactions);
-					}
+					var factions = Cards.SharedInstance.AllFactions;
 
 					foreach (var squad in squads)
 						squad.Faction = factions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
@@ -58,31 +33,21 @@ namespace SquadBuilder
 				}
 			}
 
-			MessagingCenter.Subscribe <App> (this, "Save Squadrons", (app) => {
-				SaveSquadrons ();
-			});
+			MessagingCenter.Subscribe <App> (this, "Save Squadrons", app => SaveSquadrons ());
 
 			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", 
-				squadron => {
-					Squadrons.Remove (squadron);
-				}
+				squadron => Squadrons.Remove (squadron)
 			);
 
 			MessagingCenter.Subscribe <Squadron> (this, "EditDetails", 
-				squadron => {
-					Navigation.PushAsync <EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron);
-				}
+				squadron => Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron)
 			);
 
 			MessagingCenter.Subscribe <Squadron> (this, "CopySquadron", 
-				squadron => {
-					Squadrons.Add (squadron.Copy ());
-				}
+				squadron => Squadrons.Add (squadron.Copy ())
 			);
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Create Faction", vm => {
-				Navigation.PushAsync <CreateFactionViewModel> ();
-			});
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Create Faction", vm => Navigation.PushAsync<CreateFactionViewModel> ());
 		}
 
 		public string PageName { get { return "Squadrons"; } }
@@ -116,8 +81,10 @@ namespace SquadBuilder
 					addSquadron = new RelayCommand (() => {
 						MessagingCenter.Subscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created", (vm, Squadron) => {
 							Squadrons.Add (Squadron);
-							Navigation.PopAsync ();
+							Navigation.RemoveAsync <CreateSquadronViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+							SaveSquadrons ();
+							SelectedSquadron = Squadron;
 						});
 						Navigation.PushAsync <CreateSquadronViewModel> ();
 					});
@@ -131,6 +98,7 @@ namespace SquadBuilder
 			base.OnViewAppearing ();
 
 			Squadrons = new ObservableCollection <Squadron> (Squadrons);
+			SaveSquadrons ();
 
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");

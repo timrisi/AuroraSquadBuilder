@@ -20,7 +20,7 @@ namespace SquadBuilder
 		}
 
 		public string Header {
-			get { return Ship.Name + " - " + Faction.Name; }
+			get { return Ship?.Name + " - " + Faction?.Name; }
 		}
 	}
 }

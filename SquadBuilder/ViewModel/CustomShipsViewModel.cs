@@ -13,34 +13,26 @@ namespace SquadBuilder
 	{
 		public CustomShipsViewModel ()
 		{
-			XElement customShipsXML = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
-			Ships = new ObservableCollection <Ship> (from ship in customShipsXML.Elements ()
-				select new Ship {
-					Id = ship.Attribute ("id").Value,
-					Name = ship.Element("Name").Value,
-					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> 
-						(from action in ship.Element ("Actions").Elements ()
-						 select action.Value)
-				});
-
 			MessagingCenter.Subscribe <Ship> (this, "Remove Ship", ship => {
 				Ships.Remove (ship);
+				Cards.SharedInstance.CustomShips.Remove (ship);
 			});
 
 			MessagingCenter.Subscribe <Ship> (this, "Edit Ship", ship => {
 				string shipName = ship.Name;
 				MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
-					if (shipName == updatedShip.Name)
+					if (shipName == updatedShip.Name) {
 						Ships [Ships.IndexOf (ship)] = updatedShip;
-//						ship = updatedShip;
+						Cards.SharedInstance.CustomShips [Cards.SharedInstance.CustomShips.IndexOf (ship)] = updatedShip;
+					}
 					else {
 						Ships.Remove (ship);
+						Cards.SharedInstance.CustomShips.Remove (ship);
 						Ships.Add (updatedShip);
+						Cards.SharedInstance.CustomShips.Add (updatedShip);
 					}
 
-					Navigation.PopAsync ();
+					Navigation.RemoveAsync <EditShipViewModel> (vm);
 					NotifyPropertyChanged ("Ships");
 					MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Finished Editing");
 				});
@@ -71,7 +63,8 @@ namespace SquadBuilder
 					createShip = new RelayCommand (() => {
 						MessagingCenter.Subscribe <CreateShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
 							Ships.Add (ship);
-							Navigation.PopAsync ();
+							Cards.SharedInstance.CustomShips.Add (ship);
+							Navigation.RemoveAsync <CreateShipViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateShipViewModel, Ship> (this, "Ship Created");
 						});
 
@@ -85,6 +78,8 @@ namespace SquadBuilder
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
+
+			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.CustomShips);
 
 			NotifyPropertyChanged ("Ships");
 		}

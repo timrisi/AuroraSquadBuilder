@@ -12,12 +12,7 @@ using System.Linq;
 namespace SquadBuilder
 {
 	public class SquadronViewModel : ViewModel
-	{
-		public SquadronViewModel ()
-		{				
-			
-		}
-			
+	{	
 		Squadron squadron;
 		public Squadron Squadron {
 			get { return squadron; }
@@ -66,7 +61,7 @@ namespace SquadBuilder
 					navigateToPilotsList = new RelayCommand (() => {
 						MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
 							Pilots.Add (pilot);
-							Navigation.PopAsync ();
+							Navigation.RemoveAsync <PilotsListViewModel> (vm);
 							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 						});
 
@@ -132,6 +127,8 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("Pilots");
 			NotifyPropertyChanged ("SelectedPilot");
 			NotifyPropertyChanged ("PointsDescription");
+
+			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 		}
 
 		public override void OnViewDisappearing ()

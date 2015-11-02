@@ -194,8 +194,8 @@ namespace SquadBuilder
 
 						var pilotElement = customPilotsXml.Elements ().FirstOrDefault (e => 
 							e.Element ("Name")?.Value == Name &&
-							e.Attribute ("faction")?.Value == Faction.Id &&
-							e.Attribute ("ship")?.Value == Ship.Id);
+							(Faction == null || e.Attribute ("faction")?.Value == Faction?.Id) &&
+							(Ship == null || e.Attribute ("ship")?.Value == Ship?.Id));
 
 						if (pilotElement == null)
 							return;

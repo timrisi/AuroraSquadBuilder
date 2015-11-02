@@ -14,67 +14,13 @@ namespace SquadBuilder
 	{
 		public CreatePilotViewModel ()
 		{
-			XElement element = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
-			var factions = (from faction in element.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				}).ToList ();
-
-			XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
-			var customFactions = (from faction in customFactionsXml.Elements ()
-				select new Faction {
-					Id = faction.Attribute ("id").Value,
-					Name = faction.Value,
-					Color = Color.FromRgb (
-						(int)faction.Element ("Color").Attribute ("r"),
-						(int)faction.Element ("Color").Attribute ("g"),
-						(int)faction.Element ("Color").Attribute ("b")
-					)
-				});
-			factions.AddRange (customFactions);
+			var factions = Cards.SharedInstance.AllFactions.ToList ();
 			factions.RemoveAll (f => f.Name == "Mixed");
-
 			Factions = new ObservableCollection<Faction> (factions);
 
-			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
-			var ships = (
-				from ship in shipsElement.Elements ()
-				select new Ship {
-					Id = ship.Attribute ("id").Value,
-					Name = ship.Element ("Name").Value,
-					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> (
-						from action in ship.Element ("Actions").Elements ()
-						select action.Value),
-				}).ToList ();
-
-			XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
-			var customShips = (
-				from ship in customShipsXml.Elements ()
-				select new Ship {
-					Id = ship.Attribute ("id").Value,
-					Name = ship.Element ("Name").Value,
-					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
-					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> (
-						from action in ship.Element ("Actions").Elements ()
-						select action.Value),
-
-				}
-			);
-			ships.AddRange (customShips);
-
-			Ships = new ObservableCollection <Ship> (ships);
+			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
 		}
 
-		string name;
 		public string Name {
 			get { return Pilot.Name; }
 			set {
@@ -251,16 +197,13 @@ namespace SquadBuilder
 					savePilot = new RelayCommand (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
+		
 						if (Pilot.Ship == null || Pilot.Faction == null)
 							return;
 						
-						XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
-						if (pilotsXml.Elements ().FirstOrDefault (e => 
-							e.Element ("Name").Value == Pilot.Name &&
-							e.Element ("Faction").Value == Pilot.Faction.Id &&
-							e.Element ("Ship").Value == Pilot.Ship.Id) != null)
+						if (Cards.SharedInstance.Pilots.Count (p => p.Name == Pilot.Name && p.Faction.Id == Pilot.Faction.Id && p.Ship.Id == Pilot.Ship.Id) > 0)
 							return;
 
 						List <string> upgrades = new List<string> ();
@@ -387,6 +330,17 @@ namespace SquadBuilder
 
 				return savePilot;
 			}
+		}
+
+		public override void OnViewAppearing ()
+		{
+			base.OnViewAppearing ();
+
+			var factions = Cards.SharedInstance.AllFactions.ToList ();
+			factions.RemoveAll (f => f.Name == "Mixed");
+			Factions = new ObservableCollection<Faction> (factions);
+
+			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
 		}
 	}
 }
