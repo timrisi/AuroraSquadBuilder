@@ -151,16 +151,7 @@ namespace SquadBuilder
 							return;
 						
 						if (customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id) != null) {
-							var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id);
-							element.Element ("LargeBase").SetValue (LargeBase);
-							element.Element ("Huge").SetValue (Huge);
-							element.Element ("Actions").SetValue (
-									from action in Ship.Actions
-									select new XElement ("Action", action)
-							);
-
-							DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
-							MessagingCenter.Send <CreateShipViewModel, Ship> (this, "Finished Editing", Ship);
+							return;
 						} else {
 							var element = new XElement ("Ship");
 							element.Add (new XAttribute ("id", Ship.Id));

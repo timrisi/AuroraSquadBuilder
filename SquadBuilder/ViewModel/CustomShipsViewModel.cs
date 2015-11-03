@@ -26,10 +26,12 @@ namespace SquadBuilder
 						Cards.SharedInstance.CustomShips [Cards.SharedInstance.CustomShips.IndexOf (ship)] = updatedShip;
 					}
 					else {
+						var index = Ships.IndexOf (ship);
 						Ships.Remove (ship);
+						var customIndex = Cards.SharedInstance.CustomShips.IndexOf (ship);
 						Cards.SharedInstance.CustomShips.Remove (ship);
-						Ships.Add (updatedShip);
-						Cards.SharedInstance.CustomShips.Add (updatedShip);
+						Ships.Insert (index, updatedShip);
+						Cards.SharedInstance.CustomShips.Insert (customIndex, updatedShip);
 					}
 
 					Navigation.RemoveAsync <EditShipViewModel> (vm);

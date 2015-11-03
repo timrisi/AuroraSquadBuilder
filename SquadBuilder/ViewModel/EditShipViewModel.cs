@@ -155,21 +155,28 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
-						XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-						if (shipsXml.Elements ().FirstOrDefault (e => e.Element ("Name")?.Value == Name) != null)
+						if (Cards.SharedInstance.Ships.FirstOrDefault (e => e.Name == Name) != null)
 							return;
+
+						foreach (var action in Ship.Actions)
+							Console.WriteLine (action);
 
 						var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == OriginalXml.Attribute ("id").Value);
 						element.SetAttributeValue ("id", Ship.Id);
 						element.SetElementValue ("Name", Ship.Name);
 						element.Element ("LargeBase").SetValue (LargeBase);
 						element.Element ("Huge").SetValue (Huge);
-						element.Element ("Actions").SetValue (
+
+						element.Element ("Actions").Remove ();
+//						element.Add (new XElement ("Actions",
+//							from action in Ship.Actions
+//							select new XElement ("Action", action)));
+						element.Add (new XElement ("Actions",
 							from action in Ship.Actions
 							select new XElement ("Action", action)
-						);
+						));
 
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
 						MessagingCenter.Send <EditShipViewModel, Ship> (this, "Finished Editing", Ship);
