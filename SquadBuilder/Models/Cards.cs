@@ -342,6 +342,7 @@ namespace SquadBuilder
 					Name = upgrade.Element ("Name")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
+//					Cost = upgrade.Element ("Cost") != null ? (int)upgrade.Element ("Cost") : 0,
 					Text = upgrade.Element ("Text")?.Value,
 					Faction = allFactions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
 					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),

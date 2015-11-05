@@ -170,9 +170,6 @@ namespace SquadBuilder
 						element.Element ("Huge").SetValue (Huge);
 
 						element.Element ("Actions").Remove ();
-//						element.Add (new XElement ("Actions",
-//							from action in Ship.Actions
-//							select new XElement ("Action", action)));
 						element.Add (new XElement ("Actions",
 							from action in Ship.Actions
 							select new XElement ("Action", action)

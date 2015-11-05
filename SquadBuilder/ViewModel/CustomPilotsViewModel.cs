@@ -25,23 +25,29 @@ namespace SquadBuilder
 
 			MessagingCenter.Subscribe <Pilot> (this, "Edit Pilot", pilot => {
 				MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Finished Editing", (vm, updatedPilot) => {
-				var originalGroup = PilotGroups.FirstOrDefault (g => g.ToList ().Exists (p => p.Name == pilot.Name && p.Ship.Name == pilot.Ship.Name && p.Faction.Name == pilot.Faction.Name));
-					if (originalGroup != null) {
+					Cards.SharedInstance.CustomPilots [Cards.SharedInstance.CustomPilots.IndexOf (pilot)] = updatedPilot;
+
+					var originalGroup = PilotGroups.FirstOrDefault (g => g.ToList ().Exists (p => p.Name == pilot.Name && p.Ship.Name == pilot.Ship.Name && p.Faction.Name == pilot.Faction.Name));
+					var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
+
+					if (originalGroup != null && pilotGroup == originalGroup) {
+						pilotGroup [pilotGroup.IndexOf (pilot)] = updatedPilot;
+					} else if (originalGroup != null) {
 						originalGroup.Remove (pilot);
 
 						if (originalGroup.Count == 0)
 							PilotGroups.Remove (originalGroup);
-					}
 
-					var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
+						if (pilotGroup != null)
+							pilotGroup.Add (updatedPilot);
+					}
 
 					if (pilotGroup == null) {
 						pilotGroup = new PilotGroup (updatedPilot.Ship) { Faction = updatedPilot.Faction }; 
 						PilotGroups.Add (pilotGroup);
+						pilotGroup.Add (updatedPilot);
 					}
-
-					pilotGroup.Add (updatedPilot);
-
+						
 					Navigation.RemoveAsync <EditPilotViewModel> (vm);
 					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
 					MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Finished Editing");

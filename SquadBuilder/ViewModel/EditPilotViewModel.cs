@@ -57,9 +57,11 @@ namespace SquadBuilder
 				HardpointSlots = pilot.UpgradeTypes.Count (u => u == "Hardpoint");
 				IllicitSlots = pilot.UpgradeTypes.Count (u => u == "Illicit");
 				MissileSlots = pilot.UpgradeTypes.Count (u => u == "Missile");
+				ModificationSlots = pilot.UpgradeTypes.Count (u => u == "Modification");
 				SalvagedAstromechSlots = pilot.UpgradeTypes.Count (u => u == "Salvaged Astromech");
 				SystemUpgradeSlots = pilot.UpgradeTypes.Count (u => u == "System Upgrade");
 				TeamSlots = pilot.UpgradeTypes.Count (u => u == "Team");
+				TechSlots = pilot.UpgradeTypes.Count (u => u == "Tech");
 				TorpedoSlots = pilot.UpgradeTypes.Count (u => u == "Torpedo");
 				TurretWeaponSlots = pilot.UpgradeTypes.Count (u => u == "Turret Weapon");
 				ShipIndex = Ships.IndexOf (Ships.FirstOrDefault (s => s.Id == Pilot.Ship?.Id));
@@ -165,6 +167,12 @@ namespace SquadBuilder
 			set { SetProperty (ref missileSlots, value); }
 		}
 
+		int modificationSlots = 1;
+		public int ModificationSlots {
+			get { return modificationSlots; }
+			set { SetProperty (ref modificationSlots, value); }
+		}
+
 		int salvagedAstromechSlots;
 		public int SalvagedAstromechSlots {
 			get { return salvagedAstromechSlots; }
@@ -181,6 +189,12 @@ namespace SquadBuilder
 		public int TeamSlots {
 			get { return teamSlots; }
 			set { SetProperty (ref teamSlots, value); }
+		}
+
+		int techSlots;
+		public int TechSlots {
+			get { return techSlots; }
+			set { SetProperty (ref techSlots, value); }
 		}
 
 		int torpedoSlots;
@@ -228,18 +242,21 @@ namespace SquadBuilder
 							upgrades.Add ("Illicit");
 						for (int i = 0; i < MissileSlots; i++)
 							upgrades.Add ("Missile");
+						for (int i = 0; i < ModificationSlots; i++)
+							upgrades.Add ("Modification");
 						for (int i = 0; i < SalvagedAstromechSlots; i++)
 							upgrades.Add ("Salvaged Astromech");
 						for (int i = 0; i < SystemUpgradeSlots; i++)
 							upgrades.Add ("System Upgrade");
 						for (int i = 0; i < TeamSlots; i++)
 							upgrades.Add ("Team");
+						for (int i = 0; i < TechSlots; i++)
+							upgrades.Add ("Tech");
 						for (int i = 0; i < TorpedoSlots; i++)
 							upgrades.Add ("Torpedo");
 						for (int i = 0; i < TurretWeaponSlots; i++)
 							upgrades.Add ("Turret Weapon");
 						upgrades.Add ("Title");
-						upgrades.Add ("Modification");
 
 						Pilot.UpgradeTypes = new ObservableCollection <string> (upgrades);
 
@@ -263,9 +280,11 @@ namespace SquadBuilder
 						customElement.SetElementValue ("Shields", Pilot.BaseShields);
 						customElement.SetElementValue ("Cost", Pilot.BaseCost);
 						customElement.SetElementValue ("Ability", Pilot.Ability);
-						customElement.SetElementValue ("Upgrades",
+
+						customElement.Element ("Upgrades").Remove ();
+						customElement.Add (new XElement ("Upgrades",
 							from upgrade in upgrades
-							select new XElement ("Upgrade", upgrade));
+							select new XElement ("Upgrade", upgrade)));
 
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
 

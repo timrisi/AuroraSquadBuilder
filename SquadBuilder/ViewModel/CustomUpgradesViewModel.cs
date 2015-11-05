@@ -31,27 +31,28 @@ namespace SquadBuilder
 				string factionName = upgrade.Faction?.Name;
 
 				MessagingCenter.Subscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", (vm, updatedUpgrade) => {
+					Cards.SharedInstance.CustomUpgrades [Cards.SharedInstance.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;
+
 					var originalGroup = Upgrades.FirstOrDefault (g => g.ToList ().Exists (u => u.Name == upgrade.Name));
-					if (originalGroup != null) {
+					var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == updatedUpgrade.Category);
+
+					if (originalGroup != null && upgradeGroup == originalGroup)
+						upgradeGroup [upgradeGroup.IndexOf (upgrade)] = updatedUpgrade;
+					else if (upgradeGroup != null) {
 						originalGroup.Remove (upgrade);
 
 						if (originalGroup.Count == 0)
 							Upgrades.Remove (originalGroup);
+
+						if (upgradeGroup != null)
+							upgradeGroup.Add (updatedUpgrade);
 					}
-
-					if (Cards.SharedInstance.CustomUpgrades.Contains (upgrade))
-						Cards.SharedInstance.CustomUpgrades [Cards.SharedInstance.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;
-					else
-						Cards.SharedInstance.CustomUpgrades.Add (upgrade);
-
-					var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == updatedUpgrade.Category);
 
 					if (upgradeGroup == null) {
 						upgradeGroup = new UpgradeGroup (updatedUpgrade.Category);
 						Upgrades.Add (upgradeGroup);
+						upgradeGroup.Add (updatedUpgrade);
 					}
-
-					upgradeGroup.Add (updatedUpgrade);
 
 					Navigation.RemoveAsync <EditUpgradeViewModel> (vm);
 					Upgrades = new ObservableCollection <UpgradeGroup> (Upgrades);

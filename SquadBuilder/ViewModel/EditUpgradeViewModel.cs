@@ -12,6 +12,18 @@ namespace SquadBuilder
 {
 	public class EditUpgradeViewModel : ViewModel
 	{
+		public EditUpgradeViewModel ()
+		{
+			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+
+			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+
+			var upgrades = Cards.SharedInstance.AllUpgrades;
+			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
+
+			UpgradeTypes =  new ObservableCollection<string> (upgradeTypes);
+		}
+
 		Upgrade upgrade;
 		public Upgrade Upgrade {
 			get { 
