@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Settings Version="1.0">
+	<AllowCustom>false</AllowCustom>
+	<FilterPilotsByShip>true</FilterPilotsByShip>
+</Settings>

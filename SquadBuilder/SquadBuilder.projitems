@@ -101,6 +101,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditUpgradeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IClipboardService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Cards.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ShipsListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ShipsListView.xaml.cs">
+      <DependentUpon>ShipsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SettingsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -166,6 +175,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditUpgradeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ShipsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

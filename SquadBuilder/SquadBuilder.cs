@@ -45,6 +45,7 @@ namespace SquadBuilder
 			ViewFactory.Register <EditPilotView, EditPilotViewModel> ();
 			ViewFactory.Register <EditShipView, EditShipViewModel> ();
 			ViewFactory.Register <EditUpgradeView, EditUpgradeViewModel> ();
+			ViewFactory.Register <ShipsListView, ShipsListViewModel> ();
 		}
 	}
 }

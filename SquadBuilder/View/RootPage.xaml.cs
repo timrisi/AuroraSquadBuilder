@@ -38,6 +38,11 @@ namespace SquadBuilder
 				IsPresented = false;
 				Detail = CustomUpgradesView;
 			});
+
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Settings", vm => {
+				IsPresented = false;
+				Detail = SettingsView;
+			});
 		}
 
 		NavigationPage mainView;
@@ -87,6 +92,16 @@ namespace SquadBuilder
 					customUpgradesView = new NavigationPage (new CustomUpgradesView ());
 
 				return customUpgradesView;
+			}
+		}
+
+		NavigationPage settingsView;
+		public NavigationPage SettingsView {
+			get {
+				if (settingsView == null)
+					settingsView = new NavigationPage (new SettingsView ());
+
+				return settingsView;
 			}
 		}
 	}

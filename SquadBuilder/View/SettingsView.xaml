@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.SettingsView"
+				Title="Settings" >
+	<mvvm:BaseView.Content>
+		<StackLayout Orientation="Vertical"
+					 Padding="15"
+					 Spacing="10" >
+			<StackLayout Orientation="Horizontal" Spacing="5">
+				<Label Text="Allow Custom" YAlign="Center" HorizontalOptions="StartAndExpand" />
+				<Switch IsToggled="{Binding AllowCustom, Mode=TwoWay}" HorizontalOptions="End" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Spacing="5">
+				<Label Text="Filter Pilots by Ship" YAlign="Center" HorizontalOptions="StartAndExpand" />
+				<Switch IsToggled="{Binding FilterPilotsByShip, Mode=TwoWay}" HorizontalOptions="End" />
+			</StackLayout>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

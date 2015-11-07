@@ -7,7 +7,7 @@
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand">
-	    	<SearchBar Placeholder="Search..." Text="{Binding SearchText, Mode=TwoWay}" />
+	    	<SearchBar Placeholder="Search for Pilot or Ship" Text="{Binding SearchText, Mode=TwoWay}" />
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"

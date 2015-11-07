@@ -9,15 +9,12 @@
 					 Padding="5,25" 
 					 BackgroundColor="Silver"
 					 Spacing="5" >
-			<StackLayout Orientation="Horizontal" Spacing="5">
-				<Label Text="Allow Custom" YAlign="Center" FontSize="Small" />
-				<Switch IsToggled="{Binding IsToggled, Mode=TwoWay}" />
-			</StackLayout>
 			<Button Text="Squadrons" HorizontalOptions="FillAndExpand" Command="{Binding ShowSquadrons}" />
 			<Button Text="Custom Factions" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomFactions}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Custom Ships" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomShips}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Custom Pilots" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomPilots}" IsVisible="{Binding IsToggled}" />
 			<Button Text="Custom Upgrades" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomUpgrades}" IsVisible="{Binding IsToggled}" />
+			<Button Text="Settings" HorizontalOptions="FillAndExpand" Command="{Binding ShowSettings}" />
 			<Button Text="Feedback" HorizontalOptions="FillAndExpand" Command="{Binding SendFeedback}" />
 		</StackLayout>
 	</mvvm:BaseView.Content>

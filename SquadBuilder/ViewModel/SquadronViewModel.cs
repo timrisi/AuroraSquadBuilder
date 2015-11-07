@@ -54,6 +54,7 @@ namespace SquadBuilder
 
 		public string NavigateToPilotsListText { get { return "+"; } }
 
+		ShipsListViewModel shipViewModel;
 		RelayCommand navigateToPilotsList;
 		public RelayCommand NavigateToPilotsList {
 			get {
@@ -62,12 +63,23 @@ namespace SquadBuilder
 						MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
 							Pilots.Add (pilot);
 							Navigation.RemoveAsync <PilotsListViewModel> (vm);
+
+							if (Settings.FilterPilotsByShip)
+								Navigation.RemoveAsync <ShipsListViewModel> (shipViewModel, false);
+							
 							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 						});
 
-						Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
-							vm.Faction = Squadron.Faction;
-						});
+						if (Settings.FilterPilotsByShip) {
+							Navigation.PushAsync <ShipsListViewModel> ((vm, p) => {
+								shipViewModel = vm;
+								vm.Faction = Squadron.Faction;
+							});
+						} else {
+							Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
+								vm.Faction = Squadron.Faction;
+							});
+						}
 					});
 
 				return navigateToPilotsList;

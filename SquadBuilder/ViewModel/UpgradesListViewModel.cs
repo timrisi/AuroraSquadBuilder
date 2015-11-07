@@ -44,7 +44,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedUpgrade, value);
 
 				if (value != null)
-					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", value);
+					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
 			}
 		}
 
@@ -57,7 +57,7 @@ namespace SquadBuilder
 				.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
 				.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak")).ToList ();
 
-			if ((bool)Application.Current.Properties ["AllowCustom"]) {
+			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
 					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)

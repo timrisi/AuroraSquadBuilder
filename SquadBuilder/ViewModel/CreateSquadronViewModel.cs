@@ -63,7 +63,7 @@ namespace SquadBuilder
 							MaxPoints = Points,
 							Faction = Factions [SelectedIndex]
 						};
-						MessagingCenter.Send <CreateSquadronViewModel, Squadron> (this, "Squadron Created", squadron);
+						MessagingCenter.Send <CreateSquadronViewModel, Squadron> (this, "Squadron Created", squadron	);
 					});
 
 				return saveSquadron;

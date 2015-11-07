@@ -33,6 +33,15 @@ namespace SquadBuilder
 			}
 		}
 
+		Ship ship;
+		public Ship Ship {
+			get { return ship; }
+			set {
+				SetProperty (ref ship, value);
+				filterPilots ();
+			}
+		}
+
 		ObservableCollection <PilotGroup> pilotGroups = new ObservableCollection <PilotGroup> ();
 		public ObservableCollection <PilotGroup> PilotGroups {
 			get {
@@ -50,7 +59,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedPilot, value); 
 
 				if (value != null)
-					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Pilot selected", SelectedPilot);
+					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Pilot selected", SelectedPilot.Copy ());
 			}
 		}
 
@@ -60,7 +69,7 @@ namespace SquadBuilder
 
 			var allPilots = Cards.SharedInstance.Pilots.ToList ();
 
-			if ((bool)Application.Current.Properties ["AllowCustom"])
+			if (Settings.AllowCustom)
 				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
 
 			foreach (var pilot in allPilots) {
@@ -94,7 +103,8 @@ namespace SquadBuilder
 		{
 			PilotGroups.Clear ();
 
-			var filteredPilotGroups = allPilots.Where (p => Faction.Name != "Mixed" ? p.Faction.Name == Faction.Name : p != null).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => (Faction == null || Faction?.Name != "Mixed" ? p?.Faction?.Name == Faction?.Name : p != null) &&
+															(Ship == null || p?.Ship == Ship)).ToList ();
 
 			foreach (var pilotGroup in filteredPilotGroups)
 				PilotGroups.Add (pilotGroup);

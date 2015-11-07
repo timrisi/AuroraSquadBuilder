@@ -68,6 +68,11 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 
+			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
+			version = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Settings.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Settings.xml")))?.Attribute ("Version") < version)
+				saveAndLoad.SaveText ("Settings.xml", settingsXml);
+
 			LoadApplication (new App ());
 
 			return base.FinishedLaunching (app, options);

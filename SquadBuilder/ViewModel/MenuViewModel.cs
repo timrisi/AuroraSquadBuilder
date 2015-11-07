@@ -6,30 +6,7 @@ using Xamarin.Forms;
 namespace SquadBuilder
 {
 	public class MenuViewModel : ViewModel
-	{	
-		public MenuViewModel ()
-		{
-			if (Application.Current.Properties.ContainsKey ("AllowCustom"))
-				Application.Current.Properties ["AllowCustom"] = IsToggled;
-			else
-				Application.Current.Properties.Add ("AllowCustom", IsToggled);
-		}
-
-		bool isToggled;
-		public bool IsToggled {
-			get {
-				return isToggled;
-			}
-			set {
-				SetProperty (ref isToggled, value);
-
-				if (Application.Current.Properties.ContainsKey ("AllowCustom"))
-					Application.Current.Properties ["AllowCustom"] = IsToggled;
-				else
-					Application.Current.Properties.Add ("AllowCustom", IsToggled);
-			}
-		}
-
+	{
 		RelayCommand showSquadrons;
 		public RelayCommand ShowSquadrons {
 			get {
@@ -87,6 +64,18 @@ namespace SquadBuilder
 					});
 
 				return showCustomUpgrades;
+			}
+		}
+
+		RelayCommand showSettings;
+		public RelayCommand ShowSettings {
+			get {
+				if (showSettings == null)
+					showSettings = new RelayCommand (() => {
+						MessagingCenter.Send <MenuViewModel> (this, "Show Settings");
+					});
+
+				return showSettings;
 			}
 		}
 

@@ -171,6 +171,7 @@
     <BundleResource Include="Resources\Factions_Custom.xml" />
     <BundleResource Include="Resources\Pilots_Custom.xml" />
     <BundleResource Include="Resources\spacial-cosmic.png" />
+    <BundleResource Include="Resources\Settings.xml" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
