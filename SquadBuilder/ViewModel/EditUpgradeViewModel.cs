@@ -290,6 +290,13 @@ namespace SquadBuilder
 							//							new XElement ("AdditionalUpgrades", 
 							//								new XElement ("Upgrade", )
 
+						if (Upgrade.Category != element.Parent.Attribute ("type").Value) {
+							element.Remove ();
+
+							var categoryElement = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("type").Value == Upgrade.Category);
+							categoryElement.Add (element);
+						}
+
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customUpgradesXml.ToString ());
 
 						MessagingCenter.Send <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", Upgrade);

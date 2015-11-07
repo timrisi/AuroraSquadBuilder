@@ -339,6 +339,7 @@ namespace SquadBuilder
 
 				var categoryCustomUpgrades = (from upgrade in customCategory.Elements ()
 				                              select new Upgrade {
+					Id = upgrade.Attribute ("id")?.Value,
 					Name = upgrade.Element ("Name")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
