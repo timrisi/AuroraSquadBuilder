@@ -8,6 +8,9 @@ using XLabs.Ioc;
 using System.IO;
 using System.Xml.Linq;
 using Xamarin;
+using System.Net;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace SquadBuilder.iOS
 {
@@ -32,9 +35,16 @@ namespace SquadBuilder.iOS
 			if (!Resolver.IsSet)
 				SetIoc ();
 
+			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
+			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Settings.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Settings.xml")))?.Attribute ("Version") < settingsVersion)
+				saveAndLoad.SaveText ("Settings.xml", settingsXml);
+			Settings.SettingsVersion = settingsVersion;
+			
+
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions", "xml")).ReadToEnd ();
-			var version = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < version)
+				Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText ("Factions.xml", factionsXml);
 
 			var customFactionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions_Custom", "xml")).ReadToEnd ();
@@ -42,8 +52,8 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 
 			var shipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships", "xml")).ReadToEnd ();
-			version = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Ships.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Ships.xml")))?.Attribute ("Version") < version)
+			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Ships.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Ships.xml")))?.Attribute ("Version") < Settings.ShipsVersion)
 				saveAndLoad.SaveText ("Ships.xml", shipsXml);
 
 			var customShipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships_Custom", "xml")).ReadToEnd ();
@@ -51,8 +61,8 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
 
 			var pilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots", "xml")).ReadToEnd ();
-			version = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Pilots.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Pilots.xml")))?.Attribute ("Version") < version)
+			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Pilots.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Pilots.xml")))?.Attribute ("Version") < Settings.PilotsVersion)
 				saveAndLoad.SaveText ("Pilots.xml", pilotsXml);
 
 			var customPilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots_Custom", "xml")).ReadToEnd ();
@@ -60,19 +70,14 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
 
 			var upgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades", "xml")).ReadToEnd ();
-			version = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Upgrades.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Upgrades.xml")))?.Attribute ("Version") < version)
+			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Upgrades.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Upgrades.xml")))?.Attribute ("Version") < Settings.UpgradesVersion)
 				saveAndLoad.SaveText ("Upgrades.xml", upgradesXml);
 
 			var customUpgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades_Custom", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
-
-			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
-			version = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Settings.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Settings.xml")))?.Attribute ("Version") < version)
-				saveAndLoad.SaveText ("Settings.xml", settingsXml);
-
+			
 			LoadApplication (new App ());
 
 			return base.FinishedLaunching (app, options);

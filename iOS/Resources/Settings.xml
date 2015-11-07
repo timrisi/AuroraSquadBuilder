@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Settings Version="1.0">
+<Settings Version="1.02">
 	<AllowCustom>false</AllowCustom>
 	<FilterPilotsByShip>true</FilterPilotsByShip>
+	<UpdateOnLaunch>true</UpdateOnLaunch>
 </Settings>

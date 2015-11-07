@@ -16,6 +16,9 @@ namespace SquadBuilder
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
+			if (Settings.UpdateOnLaunch) {
+				Settings.CheckForUpdates ();
+			}
 		}
 
 		protected override void OnSleep ()

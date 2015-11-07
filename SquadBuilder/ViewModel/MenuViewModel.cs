@@ -7,6 +7,10 @@ namespace SquadBuilder
 {
 	public class MenuViewModel : ViewModel
 	{
+		public bool AllowCustom {
+			get { return Settings.AllowCustom; }
+		}
+
 		RelayCommand showSquadrons;
 		public RelayCommand ShowSquadrons {
 			get {

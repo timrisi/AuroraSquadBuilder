@@ -10,10 +10,10 @@
 					 BackgroundColor="Silver"
 					 Spacing="5" >
 			<Button Text="Squadrons" HorizontalOptions="FillAndExpand" Command="{Binding ShowSquadrons}" />
-			<Button Text="Custom Factions" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomFactions}" IsVisible="{Binding IsToggled}" />
-			<Button Text="Custom Ships" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomShips}" IsVisible="{Binding IsToggled}" />
-			<Button Text="Custom Pilots" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomPilots}" IsVisible="{Binding IsToggled}" />
-			<Button Text="Custom Upgrades" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomUpgrades}" IsVisible="{Binding IsToggled}" />
+			<Button Text="Custom Factions" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomFactions}" />
+			<Button Text="Custom Ships" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomShips}" />
+			<Button Text="Custom Pilots" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomPilots}" />
+			<Button Text="Custom Upgrades" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomUpgrades}" />
 			<Button Text="Settings" HorizontalOptions="FillAndExpand" Command="{Binding ShowSettings}" />
 			<Button Text="Feedback" HorizontalOptions="FillAndExpand" Command="{Binding SendFeedback}" />
 		</StackLayout>

@@ -22,5 +22,25 @@ namespace SquadBuilder
 				NotifyPropertyChanged ("FilterPilotsByShip");
 			}
 		}
+
+		public bool UpdateOnLaunch {
+			get { return Settings.UpdateOnLaunch; }
+			set {
+				Settings.UpdateOnLaunch = value;
+				NotifyPropertyChanged ("UpdateOnLaunch");
+			}
+		}
+
+		RelayCommand checkForUpdates;
+		public RelayCommand CheckForUpdates {
+			get {
+				if (checkForUpdates == null)
+					checkForUpdates = new RelayCommand (() => {
+						Settings.CheckForUpdates ();
+					});	
+
+				return checkForUpdates;
+			}
+		}
 	}
 }

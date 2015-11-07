@@ -14,10 +14,10 @@ namespace SquadBuilder
 	{
 		public Cards ()
 		{
-			getAllFactions ();
-			getAllShips ();
-			getAllPilots ();
-			getAllUpgrades ();
+			GetAllFactions ();
+			GetAllShips ();
+			GetAllPilots ();
+			GetAllUpgrades ();
 		}
 
 		static Cards sharedInstance;
@@ -178,7 +178,7 @@ namespace SquadBuilder
 			allUpgrades = new ObservableCollection <Upgrade> (temp);
 		}
 
-		void getAllFactions ()
+		public void GetAllFactions ()
 		{
 			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
 			factions = new ObservableCollection <Faction> ((from faction in factionsXml.Elements ()
@@ -209,7 +209,7 @@ namespace SquadBuilder
 			updateAllFactions ();
 		}
 
-		void getAllShips ()
+		public void GetAllShips ()
 		{
 			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 			ships = new ObservableCollection < Ship> ((
@@ -243,7 +243,7 @@ namespace SquadBuilder
 			updateAllShips ();
 		}
 
-		void getAllPilots ()
+		public void GetAllPilots ()
 		{
 			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
 			pilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
@@ -290,7 +290,7 @@ namespace SquadBuilder
 			updateAllPilots ();
 		}
 
-		void getAllUpgrades ()
+		public void GetAllUpgrades ()
 		{
 			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
 			List <Upgrade> allUpgrades = new List <Upgrade> ();
