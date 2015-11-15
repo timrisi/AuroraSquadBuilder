@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using Xamarin.Forms;
 using XLabs.Data;
 using System.Threading.Tasks;
+using Xamarin;
 
 namespace SquadBuilder
 {
@@ -87,7 +88,7 @@ namespace SquadBuilder
 					if ((float)versionsXml.Element ("Settings") > SettingsVersion)
 						updateXml ("Settings");
 				} catch (Exception e) {		
-					Application.Current.MainPage.DisplayAlert ("Error", e.Message, "Ok");
+					Insights.Report (e);
 				}
 
 				Application.Current.MainPage.IsBusy = false;

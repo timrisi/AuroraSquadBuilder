@@ -110,12 +110,17 @@ namespace SquadBuilder
 
 		public Squadron Copy ()
 		{
-			return new Squadron {
+			var squadron = new Squadron {
 				Name = Name,
 				Faction = Faction,
 				MaxPoints = MaxPoints,
-				Pilots = new ObservableCollection<Pilot> (Pilots),
+				Pilots = new ObservableCollection<Pilot> (),
 			};
+
+			foreach (var pilot in pilots)
+				squadron.Pilots.Add (pilot.Copy ());
+
+			return squadron;
 		}
 
 		public string CreateXws ()

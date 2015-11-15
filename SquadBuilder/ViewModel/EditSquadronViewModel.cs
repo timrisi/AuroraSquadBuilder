@@ -14,6 +14,11 @@ namespace SquadBuilder
 {
 	public class EditSquadronViewModel : ViewModel
 	{
+		public EditSquadronViewModel ()
+		{
+			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+		}
+
 		Squadron squadron;
 		public Squadron Squadron {
 			get { return squadron; }
