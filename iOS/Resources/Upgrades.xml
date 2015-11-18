@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.08">
+<Upgrades Version="2.09">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -26,7 +26,7 @@
 		</Upgrade>
 		<Upgrade id="r5d8">
 			<Name>R5-D8</Name>
-			<Cost>2</Cost>
+			<Cost>3</Cost>
 			<Text>Action: Roll 1 defense die.  On an {evade} or {focus} result, discard one of your facedown Damage cards.</Text>
 			<Unique>true</Unique>
 		</Upgrade>

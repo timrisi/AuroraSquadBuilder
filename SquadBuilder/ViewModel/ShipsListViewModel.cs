@@ -75,16 +75,13 @@ namespace SquadBuilder
 
 		void filterShips ()
 		{
-			if (faction == null || faction.Name == "Mixed")
-				return;
-
 			ObservableCollection <Pilot> pilots;
 			if (Settings.AllowCustom)
 				pilots = Cards.SharedInstance.AllPilots;
 			else
 				pilots = Cards.SharedInstance.Pilots;
 
-			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Count (p => p.Faction == Faction && p.Ship == s) > 0).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
+			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Count (p => (Faction.Name == "Mixed" || p.Faction == Faction) && p.Ship == s) > 0).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}
 
 		public override void OnViewAppearing ()

@@ -60,7 +60,8 @@ namespace SquadBuilder
 		public static void CheckForUpdates ()
 		{
 			Task.Run (() => {
-				Application.Current.MainPage.IsBusy = true;
+				Device.BeginInvokeOnMainThread (() => Application.Current.MainPage.IsBusy = true);
+
 
 				try {
 					var versionsXml = XElement.Load (xwingDataUrl + "Versions.xml");
@@ -91,7 +92,7 @@ namespace SquadBuilder
 					Insights.Report (e);
 				}
 
-				Application.Current.MainPage.IsBusy = false;
+				Device.BeginInvokeOnMainThread (() => Application.Current.MainPage.IsBusy = false);
 			});
 		}
 

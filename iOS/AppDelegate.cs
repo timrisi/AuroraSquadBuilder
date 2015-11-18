@@ -25,9 +25,9 @@ namespace SquadBuilder.iOS
 		{
 			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
 
-//#if DEBUG
-//			Xamarin.Calabash.Start();
-//#endif
+#if DEBUG
+			Xamarin.Calabash.Start();
+#endif
 			 
 			saveAndLoad = new SaveAndLoad ();
 			global::Xamarin.Forms.Forms.Init ();
