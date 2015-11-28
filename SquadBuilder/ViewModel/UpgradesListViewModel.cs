@@ -99,8 +99,11 @@ namespace SquadBuilder
 
 			if (Pilot.Ship.LargeBase)
 				return new ObservableCollection<Upgrade> (valid.Where (u => !u.HugeOnly && !u.SmallOnly));
-			else if (Pilot.Ship.Huge)
+			else if (Pilot.Ship.Huge) {
+				if (upgradeType == "Modification")
+					return new ObservableCollection<Upgrade> (valid.Where (u => u.HugeOnly));
 				return new ObservableCollection<Upgrade> (valid.Where (u => !u.SmallOnly && !u.LargeOnly));
+			}
 					
 			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
 		}

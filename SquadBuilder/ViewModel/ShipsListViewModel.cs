@@ -1,7 +1,6 @@
 ﻿using System;
 using XLabs.Forms.Mvvm;
 using System.Collections.ObjectModel;
-using SquadBuilder.iOS;
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
@@ -55,13 +54,19 @@ namespace SquadBuilder
 			set { 
 				SetProperty (ref selectedShip, value); 
 
-				if (value != null)
+				if (value != null) {
+					MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+						Navigation.RemoveAsync <PilotsListViewModel> (vm);
+						MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
+
+						MessagingCenter.Send <ShipsListViewModel, Pilot> (this, "Pilot selected", pilot);
+					});
+
 					Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
 						vm.Faction = Faction;
 						vm.Ship = selectedShip;
 					});
-//				if (value != null)
-//					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Ship selected", SelectedPilot);
+				}
 			}
 		}
 
@@ -90,7 +95,14 @@ namespace SquadBuilder
 
 			GetAllShips ();
 
+			SelectedShip = null;
+
 			filterShips ();
+		}
+
+		public override void OnViewDisappearing ()
+		{
+			base.OnViewDisappearing ();
 		}
 	}
 }

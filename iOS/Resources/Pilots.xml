@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.05">
+<Pilots Version="2.07">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1764,6 +1764,21 @@
 		</Upgrades>
 		<Ability>When attacking at Range 1, roll 1 additional attack die.</Ability>
 	</Pilot>
+	<Pilot id="scourge" faction="empire" ship="tiefighter">
+		<Name>&quot;Scourge&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>17</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking a defender that has 1 or more Damage cards, roll 1 additional attack die.</Ability>
+	</Pilot>
 	<Pilot id="darkcurse" faction="empire" ship="tiefighter">
 		<Name>Dark Curse</Name>
 		<Unique>true</Unique>
@@ -1791,6 +1806,21 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking from outside the defender's firing arc, roll 1 additional attack die.</Ability>
+	</Pilot>
+	<Pilot id="youngster" faction="empire" ship="tiefighter">
+		<Name>&quot;Youngster&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>15</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Friendly TIE Fighters at Range 1-3 may perform the action on your equipped {Elite Pilot Talent} Upgrade card.</Ability>
 	</Pilot>
 	<Pilot id="wingedgundark" faction="empire" ship="tiefighter">
 		<Name>Winged Gundark</Name>
@@ -1820,6 +1850,20 @@
 		</Upgrades>
 		<Ability>After executing a green manoeuvre, you may perform a free focus action.</Ability>
 	</Pilot>
+	<Pilot id="wampa" faction="empire" ship="tiefighter">
+		<Name>&quot;Wampa&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>4</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>14</Cost>
+		<Upgrades>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, you may cancel all dice results.  If you cancel a {crit} result, deal 1 facedown Damage card to the defender.</Ability>
+	</Pilot>
 	<Pilot id="blacksquadronpilot" faction="empire" ship="tiefighter">
 		<Name>Black Squadron Pilot</Name>
 		<Unique>false</Unique>
@@ -1833,6 +1877,20 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="chaser" faction="empire" ship="tiefighter">
+		<Name>&quot;Chaser&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>14</Cost>
+		<Upgrades>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When another friendly ship at Range 1 spends a focus token, assign a focus token to your ship.</Ability>
 	</Pilot>
 	<Pilot id="obsidiansquadronpilot" faction="empire" ship="tiefighter">
 		<Name>Obsidian Squadron Pilot</Name>
@@ -2848,5 +2906,27 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="gozanticlasscruiser" faction="empire" ship="gozanticlasscruiser">
+		<Name>Gozanti-class Cruiser</Name>
+		<Unique>false</Unique>
+		<PilotSkill>2</PilotSkill>
+		<Attack>0</Attack>
+		<Energy>4</Energy>
+		<Agility>0</Agility>
+		<Hull>9</Hull>
+		<Shields>5</Shields>
+		<Cost>40</Cost>
+		<Upgrades>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Hardpoint</Upgrade>
+			<Upgrade>Team</Upgrade>
+			<Upgrade>Cargo</Upgrade>
+			<Upgrade>Cargo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After executing a maneuver, you may deploy up to 2 docked ships.</Ability>
 	</Pilot>
 </Pilots>

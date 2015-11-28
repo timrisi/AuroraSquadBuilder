@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7600DC52-B026-44BD-8C4F-EC189CDB772F}</ProjectGuid>
+    <ProjectGuid>{5A70365E-60D7-4606-9D89-2C7BD3356E1D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SquadBuilder.UITests</RootNamespace>
-    <AssemblyName>SquadBuilder.UITests</AssemblyName>
+    <RootNamespace>SquadBuilder.Tests</RootNamespace>
+    <AssemblyName>SquadBuilder.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,8 +33,26 @@
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.0.7.1\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.1.2.0\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="RebelFilteredShipsTests.cs" />
+    <Compile Include="RebelAllShipsTests.cs" />
+    <Compile Include="ImperialFilteredShipsTests.cs" />
+    <Compile Include="ImperialAllShipsTests.cs" />
+    <Compile Include="ScumAllShipsTests.cs" />
+    <Compile Include="ScumFilteredShipsTests.cs" />
+    <Compile Include="MixedFilteredShipsTests.cs" />
+    <Compile Include="MixedAllShipsTests.cs" />
+    <Compile Include="BugFixTests.cs" />
+    <Compile Include="SquadronTests.cs" />
+    <Compile Include="UpgradesTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iOS\SquadBuilder.iOS.csproj">
@@ -43,13 +61,11 @@
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Tests.cs" />
-    <Compile Include="AppInitializer.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Droid\SquadBuilder.Droid.csproj">
+      <Project>{6767E203-D362-4821-997B-A64F6D94777C}</Project>
+      <Name>SquadBuilder.Droid</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
 </Project>

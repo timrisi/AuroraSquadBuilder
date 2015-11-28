@@ -3,13 +3,14 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
 			 x:Class="SquadBuilder.CreateSquadronView"
-			 Title="{Binding SquadName}">
+			 Title="{Binding SquadName}"
+			 Icon="" >
 	<mvvm:BaseView.Content>
 		<StackLayout Padding="15,10,15,10">
-			<Entry Text="{Binding SquadName, Mode=TwoWay}" Placeholder="{Binding PlaceholderText}" />
-			<Entry Text="{Binding Points}" />
-			<Picker x:Name="factionPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" />
-			<Button Text="{Binding SaveButtonText}" Command="{Binding SaveSquadron}" />
+			<Entry Text="{Binding SquadName, Mode=TwoWay}" StyleId="SquadName" Placeholder="{Binding PlaceholderText}" />
+			<Entry Text="{Binding Points}" Keyboard="Numeric" StyleId="Points" />
+			<Picker x:Name="factionPicker" StyleId="FactionPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" />
+			<Button Text="{Binding SaveButtonText}" StyleId="SaveButton" Command="{Binding SaveSquadron}" />
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

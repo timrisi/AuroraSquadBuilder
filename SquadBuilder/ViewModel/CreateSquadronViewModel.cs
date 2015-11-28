@@ -58,12 +58,18 @@ namespace SquadBuilder
 			get {
 				if (saveSquadron == null)
 					saveSquadron = new RelayCommand (() => {
+
+						if (Points < 0) {
+							MessagingCenter.Send <CreateSquadronViewModel> (this, "Negative Squad Points");
+							return;
+						}
+
 						var squadron = new Squadron {
 							Name = SquadName,
 							MaxPoints = Points,
 							Faction = Factions [SelectedIndex]
 						};
-						MessagingCenter.Send <CreateSquadronViewModel, Squadron> (this, "Squadron Created", squadron	);
+						MessagingCenter.Send <CreateSquadronViewModel, Squadron> (this, "Squadron Created", squadron);
 					});
 
 				return saveSquadron;

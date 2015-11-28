@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Threading;
 
 namespace SquadBuilder
 {
@@ -18,8 +19,9 @@ namespace SquadBuilder
 			get { return squadron; }
 			set { 
 				SetProperty (ref squadron, value);
-				Pilots.CollectionChanged += (sender, e) => 
-					NotifyPropertyChanged ("PointsDescription");
+				if (Pilots != null)
+					Pilots.CollectionChanged += (sender, e) => 
+						NotifyPropertyChanged ("PointsDescription");
 			}
 		}
 
@@ -30,7 +32,7 @@ namespace SquadBuilder
 		}
 
 		public ObservableCollection <Pilot> Pilots {
-			get { return Squadron.Pilots; }
+			get { return Squadron?.Pilots; }
 			set { 
 				Squadron.Pilots = value;
 				Pilots.CollectionChanged += (sender, e) => 
@@ -54,25 +56,29 @@ namespace SquadBuilder
 
 		public string NavigateToPilotsListText { get { return "+"; } }
 
-		ShipsListViewModel shipViewModel;
 		RelayCommand navigateToPilotsList;
 		public RelayCommand NavigateToPilotsList {
 			get {
 				if (navigateToPilotsList == null)
 					navigateToPilotsList = new RelayCommand (() => {
-						MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
-							Pilots.Add (pilot);
-							Navigation.RemoveAsync <PilotsListViewModel> (vm);
+						if (!Settings.FilterPilotsByShip) {
+							MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+								Pilots.Add (pilot);
+								Navigation.RemoveAsync <PilotsListViewModel> (vm);
 
-							if (Settings.FilterPilotsByShip)
-								Navigation.RemoveAsync <ShipsListViewModel> (shipViewModel, false);
-							
-							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
-						});
+								MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
+							});
+						} else {
+							MessagingCenter.Subscribe <ShipsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+								Pilots.Add (pilot);
+								Navigation.PopAsync ();
+
+								MessagingCenter.Unsubscribe <ShipsListViewModel, Pilot> (this, "Pilot selected");
+							});
+						}
 
 						if (Settings.FilterPilotsByShip) {
 							Navigation.PushAsync <ShipsListViewModel> ((vm, p) => {
-								shipViewModel = vm;
 								vm.Faction = Squadron.Faction;
 							});
 						} else {
@@ -141,6 +147,7 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("PointsDescription");
 
 			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
+			MessagingCenter.Unsubscribe <ShipsListViewModel, Pilot> (this, "Pilot selected");
 		}
 
 		public override void OnViewDisappearing ()

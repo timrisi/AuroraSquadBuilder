@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.09">
+<Upgrades Version="2.13">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -248,6 +248,13 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>4</Cost>
 			<Text>Energy: Spend 5 energy from this card and discard this card to cause each other ship at Range 1 to suffer 1 damage and receive 1 ion token.</Text>
 			<Limited>true</Limited>
+		</Upgrade>
+		<Upgrade id="dockingclamps">
+			<Name>Docking Clamps</Name>
+			<Cost>0</Cost>
+			<Text>You may dock up to 4 TIE Fighters, TIE Interceptors, TIE Bombers, or TIE Advanced to this ship.  All of these ships must be of the same ship type.</Text>
+			<Limited>true</Limited>
+			<Ship>gozanticlasscruiser</Ship>
 		</Upgrade>
 	</Category>
 	<Category id="crew" type="Crew">
@@ -509,14 +516,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 				<Upgrade>Crew</Upgrade>
 			</ExtraSlots>
 		</Upgrade>
-		<Upgrade id="admiralozzel">
-			<Name>Admiral Ozzel</Name>
-			<Cost>2</Cost>
-			<Text>Energy: You may remove up to 3 shields from your ship. For each shield removed, gain 1 energy.</Text>
-			<Faction>empire</Faction>
-			<Unique>true</Unique>
-			<HugeOnly>true</HugeOnly>
-		</Upgrade>
+		a
 		<Upgrade id="captainneeda">
 			<Name>Captain Needa</Name>
 			<Cost>2</Cost>
@@ -537,6 +537,21 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Shield Technician</Name>
 			<Cost>1</Cost>
 			<Text>When you perform a recover action, instead of spending all of your energy, you can choose any amount of energy to spend.</Text>
+			<HugeOnly>true</HugeOnly>
+		</Upgrade>
+		<Upgrade id="agentkallus">
+			<Name>Agent Kallus</Name>
+			<Cost>2</Cost>
+			<Text>At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change of of your {focus} results to a {hit} or {evade} result.</Text>
+			<Faction>empire</Faction>
+			<Unique>true</Unique>
+		</Upgrade>
+		<Upgrade id="rearadmiralchiraneau">
+			<Name>Rear Admiral Chiraneau</Name>
+			<Cost>3</Cost>
+			<Text>Action: Execute a white 1 {straight} maneuver.</Text>
+			<Faction>empire</Faction>
+			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
 		</Upgrade>
 	</Category>
@@ -723,6 +738,16 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Energy>2</Energy>
 			<Dice>4</Dice>
 			<Range>2-4</Range>
+		</Upgrade>
+		<Upgrade id="duallaserturret">
+			<Name>Dual Laser Turret</Name>
+			<Cost>5</Cost>
+			<Text>Attack (Energy): Spend 1 energy from this card to perform this attack against 1 ship (even a ship outside of your firing arc).</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Energy>1</Energy>
+			<Dice>3</Dice>
+			<Range>1-3</Range>
+			<Ship>gozanticlasscruiser</Ship>
 		</Upgrade>
 	</Category>
 	<Category id="illicit" type="Illicit">
@@ -958,6 +983,26 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Ship>xwing</Ship>
 			<Preview>true</Preview>
 		</Upgrade>
+		<Upgrade id="automatedprotocols">
+			<Name>Automated Protocols</Name>
+			<Cost>5</Cost>
+			<Text>Once per round, after you perform an action that is not a recover or reinforce action, you may spend 1 energy to perform a free recover or reinforce action.</Text>
+			<HugeOnly>true</HugeOnly>
+		</Upgrade>
+		<Upgrade id="optimizedgenerators">
+			<Name>Optimized Generators</Name>
+			<Cost>5</Cost>
+			<Text>Once per round, when you assign energy to an equipped Upgrade card, gain 2 energy.</Text>
+			<HugeOnly>true</HugeOnly>
+		</Upgrade>
+		<Upgrade id="ordnancetubes">
+			<Name>Ordnance Tubes</Name>
+			<Cost>5</Cost>
+			<Text>You may treat each of your {hardpoint} upgrade icons as a {torpedo} or {missile} upgrade icon.
+
+When you are instructed to discard a {torpedo} or {missile} upgrade card, do not discard it.</Text>
+			<HugeOnly>true</HugeOnly>
+		</Upgrade>
 	</Category>
 	<Category id="samd" type="Salvaged Astromech">
 		<Upgrade id="r4agromech">
@@ -1037,6 +1082,12 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>4</Cost>
 			<Text>When acquiring a target lock, you may lock onto an enemy ship at Range 1-5 (instead of Range 1-3).</Text>
 		</Upgrade>
+		<Upgrade id="ordnanceexperts">
+			<Name>Ordnance Experts</Name>
+			<Cost>5</Cost>
+			<Text>Once per round when a Friendly ship at Range 1-3 performs an attack with a {missile} or {torpedo} secondary weapon, it may change 1 of its blank results to a {hit} result.</Text>
+			<Limited>true</Limited>
+		</Upgrade>
 	</Category>
 	<Category id="title" type="Title">
 		<Upgrade id="milleniumfalcon">
@@ -1108,10 +1159,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 		<Upgrade id="dodonnaspride">
 			<Name>Dodonna's Pride</Name>
 			<Cost>4</Cost>
-			<Text>+2 Energy
-
-A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
-			<Energy>2</Energy>
+			<Text>When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
 		</Upgrade>

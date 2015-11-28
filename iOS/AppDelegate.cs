@@ -11,6 +11,7 @@ using Xamarin;
 using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
+using Xamarin.Forms;
 
 namespace SquadBuilder.iOS
 {
@@ -25,12 +26,17 @@ namespace SquadBuilder.iOS
 		{
 			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
 
-#if DEBUG
+#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
 			 
 			saveAndLoad = new SaveAndLoad ();
 			global::Xamarin.Forms.Forms.Init ();
+
+			Forms.ViewInitialized += (sender, e) => {
+				if (e.View.StyleId != null)
+					e.NativeView.AccessibilityIdentifier = e.View.StyleId;
+			};
 
 			if (!Resolver.IsSet)
 				SetIoc ();
@@ -40,10 +46,9 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Settings.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Settings.xml")))?.Attribute ("Version") < settingsVersion)
 				saveAndLoad.SaveText ("Settings.xml", settingsXml);
 			Settings.SettingsVersion = settingsVersion;
-			
 
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions", "xml")).ReadToEnd ();
-				Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
+			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText ("Factions.xml", factionsXml);
 

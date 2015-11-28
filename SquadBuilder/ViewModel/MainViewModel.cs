@@ -84,7 +84,11 @@ namespace SquadBuilder
 							Navigation.PopAsync (false);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 							SaveSquadrons ();
-							SelectedSquadron = Squadron;
+//							SelectedSquadron = Squadron;
+
+							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
+								vm2.Squadron = Squadron;
+							});
 						});
 						Navigation.PushAsync <CreateSquadronViewModel> ();
 					});
