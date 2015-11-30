@@ -102,7 +102,7 @@ namespace SquadBuilder
 						builder.AppendLine ();
 
 						foreach (var pilot in Squadron.Pilots) {
-							builder.AppendLine (pilot.Name + " (" + pilot.Cost + ")");
+							builder.AppendLine (pilot.Name + " (" + pilot.Cost + ")" + " - " + pilot.Ship.Name);
 							builder.AppendLine (string.Join (", ", pilot.UpgradesEquipped.Where (u => u != null).Select (u => u.Name + " (" + u.Cost + ")")));
 							builder.AppendLine ();
 						}
