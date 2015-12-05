@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.13">
+<Upgrades Version="2.15">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -255,6 +255,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>You may dock up to 4 TIE Fighters, TIE Interceptors, TIE Bombers, or TIE Advanced to this ship.  All of these ships must be of the same ship type.</Text>
 			<Limited>true</Limited>
 			<Ship>gozanticlasscruiser</Ship>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="crew" type="Crew">
@@ -516,7 +517,6 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 				<Upgrade>Crew</Upgrade>
 			</ExtraSlots>
 		</Upgrade>
-		a
 		<Upgrade id="captainneeda">
 			<Name>Captain Needa</Name>
 			<Cost>2</Cost>
@@ -545,6 +545,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change of of your {focus} results to a {hit} or {evade} result.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="rearadmiralchiraneau">
 			<Name>Rear Admiral Chiraneau</Name>
@@ -553,6 +554,21 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="kananjarrus">
+			<Name>Kanan Jarrus</Name>
+			<Cost>3</Cost>
+			<Text>Once per round, after a friendly ship at Range 1-2 executes a white maneuver, you may remove 1 stress token from that ship.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="zeborrelios">
+			<Name>&quot;Zeb&quot; Orrelios</Name>
+			<Cost>1</Cost>
+			<Text>Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
@@ -748,6 +764,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
 			<Ship>gozanticlasscruiser</Ship>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="illicit" type="Illicit">
@@ -988,12 +1005,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>5</Cost>
 			<Text>Once per round, after you perform an action that is not a recover or reinforce action, you may spend 1 energy to perform a free recover or reinforce action.</Text>
 			<HugeOnly>true</HugeOnly>
+			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="optimizedgenerators">
 			<Name>Optimized Generators</Name>
 			<Cost>5</Cost>
 			<Text>Once per round, when you assign energy to an equipped Upgrade card, gain 2 energy.</Text>
 			<HugeOnly>true</HugeOnly>
+			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="ordnancetubes">
 			<Name>Ordnance Tubes</Name>
@@ -1002,6 +1021,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 
 When you are instructed to discard a {torpedo} or {missile} upgrade card, do not discard it.</Text>
 			<HugeOnly>true</HugeOnly>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="samd" type="Salvaged Astromech">
@@ -1063,6 +1083,13 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 {crit} result to your roll. If you do, you cannot spend target locks during this attack.</Text>
 			<Ship>tieadvanced</Ship>
 		</Upgrade>
+		<Upgrade id="reinforceddeflectors">
+			<Name>Reinforced Deflectors</Name>
+			<Cost>3</Cost>
+			<Text>After you suffer 3 or more damage from an attack, recover 1 shield (up to your shield value).</Text>
+			<LargeOnly>true</LargeOnly>
+			<Preview>true</Preview>
+		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
 		<Upgrade id="gunneryteam">
@@ -1087,6 +1114,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>5</Cost>
 			<Text>Once per round when a Friendly ship at Range 1-3 performs an attack with a {missile} or {torpedo} secondary weapon, it may change 1 of its blank results to a {hit} result.</Text>
 			<Limited>true</Limited>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="title" type="Title">
@@ -1408,6 +1436,17 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2-3</Range>
+		</Upgrade>
+		<Upgrade id="dorsalturret">
+			<Name>Dorsal Turret</Name>
+			<Cost>3</Cost>
+			<Text>Attack: Attack 1 ship (even a ship outside your firing arc).
+
+If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Dice>2</Dice>
+			<Range>1-2</Range>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="tech" type="Tech">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.07">
+<Pilots Version="2.08">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1673,6 +1673,25 @@
 		</Upgrades>
 		<Ability>When you reveal a green or red maneuver, you may change your dial to another manuever of the same difficulty</Ability>
 	</Pilot>
+	<Pilot id="ezrabridger" faction="rebels" ship="attackshuttle">
+		<Name>Ezra Bridger</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>4</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>20</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When defending, if you are stressed, you may change up to 2 of your {focus} results to {evade} results.</Ability>
+	</Pilot>
 	<Pilot id="gr75mediumtransport" faction="rebels" ship="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
 		<Unique>false</Unique>
@@ -1767,6 +1786,7 @@
 	<Pilot id="scourge" faction="empire" ship="tiefighter">
 		<Name>&quot;Scourge&quot;</Name>
 		<Unique>true</Unique>
+		<Preview>true</Preview>
 		<PilotSkill>7</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -1810,6 +1830,7 @@
 	<Pilot id="youngster" faction="empire" ship="tiefighter">
 		<Name>&quot;Youngster&quot;</Name>
 		<Unique>true</Unique>
+		<Preview>true</Preview>
 		<PilotSkill>6</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -1853,6 +1874,7 @@
 	<Pilot id="wampa" faction="empire" ship="tiefighter">
 		<Name>&quot;Wampa&quot;</Name>
 		<Unique>true</Unique>
+		<Preview>true</Preview>
 		<PilotSkill>4</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -1881,6 +1903,7 @@
 	<Pilot id="chaser" faction="empire" ship="tiefighter">
 		<Name>&quot;Chaser&quot;</Name>
 		<Unique>true</Unique>
+		<Preview>true</Preview>
 		<PilotSkill>3</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
