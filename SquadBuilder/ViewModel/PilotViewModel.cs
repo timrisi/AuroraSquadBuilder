@@ -33,7 +33,7 @@ namespace SquadBuilder
 					}
 
 					MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
-						if (upgrade != null && upgrade.Name == "\"Heavy Scyk\" Interceptor") {
+						if (upgrade?.Name == "\"Heavy Scyk\" Interceptor") {
 							var upgr = upgrade;
 							MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
 								if (upgradeType != "Cancel") {
@@ -88,6 +88,9 @@ namespace SquadBuilder
 					if (index >= 0)
 						Pilot.UpgradesEquipped [extraIndex] = upgrade;
 				}
+
+				if (upgrade.Name == "Mist Hunter")
+					pilot.UpgradesEquipped [pilot.UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
 			}
 
 			NotifyPropertyChanged ("Pilot");

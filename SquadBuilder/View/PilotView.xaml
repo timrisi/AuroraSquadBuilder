@@ -55,7 +55,7 @@
 										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
 										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
 									</StackLayout>
-									<Label Text="{Binding Text}" />
+									<Label Text="{Binding Text}" IsVisible="{Binding IsUpgrade}"/>
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
