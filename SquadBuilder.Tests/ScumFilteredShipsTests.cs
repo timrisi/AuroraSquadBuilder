@@ -42,73 +42,18 @@ namespace SquadBuilder.Tests
 			Assert.IsNotEmpty (app.Query ("0/100"));
 		}
 
-		[Test]
-		public void ShouldAddG1AStarfighter ()
-		{
-			addPilot ("G-1A Starfighter", "Zuckuss");
-		}
-
-//		[Test]
-//		public void ShouldAddHWK290 ()
-//		{
-//			addPilot ("HWK-290", "Dace Bonearm");
-//		}
-//
-//		[Test]
-//		public void ShouldAddKihraxz ()
-//		{
-//			addPilot ("Kihraxz", "Talonbane Cobra");
-//		}
-//
-//		[Test]
-//		public void ShouldAddM3AInterceptor ()
-//		{
-//			addPilot ("M3-A \"Scyk\" Interceptor", "Serissu");
-//		}
-//
-//		[Test]
-//		public void ShouldAddStarViper ()
-//		{
-//			addPilot ("StarViper", "Prince Xizor");
-//		}
-//
-//		[Test]
-//		public void ShouldAddYWing ()
-//		{
-//			addPilot ("Y-Wing", "Kavil");
-//		}
-//
-//		[Test]
-//		public void ShouldAddZ95 ()
-//		{
-//			addPilot ("Z-95 Headhunter", "N'Dru Suhlak");
-//		}
-//
-//		[Test]
-//		public void ShouldAddAggressor ()
-//		{
-//			addPilot ("Aggressor", "IG88-A");
-//		}
-//
-//		[Test]
-//		public void ShouldAddFirespray ()
-//		{
-//			addPilot ("Firespray-31", "Boba Fett");
-//		}
-//
-//		[Test]
-//		public void ShouldAddJumpMaster ()
-//		{
-//			addPilot ("JumpMaster 5000", "Dengar");
-//		}
-//
-//		[Test]
-//		public void ShouldAddYV666 ()
-//		{
-//			addPilot ("YV-666", "Bossk");
-//		}
-
-		void addPilot (string ship, string pilot)
+		[TestCase ("G-1A Starfighter", "Zuckuss", TestName = "G-1A Starfighter")]
+		[TestCase ("HWK-290", "Dace Bonearm", TestName = "HWK-290")]
+		[TestCase ("Kihraxz", "Talonbane Cobra", TestName = "Kihraxz")]
+		[TestCase ("M3-A \"Scyk\" Interceptor", "Serissu", TestName = "M3-A \"Scyk\" Interceptor")]
+		[TestCase ("StarViper", "Prince Xizor", TestName = "StarViper")]
+		[TestCase ("Y-Wing", "Kavil", TestName = "Y-Wing")]
+		[TestCase ("Z-95 Headhunter", "N'Dru Suhlak", TestName = "Z-95 Headhunter")]
+		[TestCase ("Aggressor", "IG88-A", TestName = "Aggressor")]
+		[TestCase ("Firespray-31", "Boba Fett", TestName = "Firespray-31")]
+		[TestCase ("JumpMaster 5000", "Dengar", TestName = "JumpMaster 5000")]
+		[TestCase ("YV-666", "Bossk", TestName = "YV-666")]
+		public void ShouldAddScumShip (string ship, string pilot)
 		{
 			app.Tap ("+");
 

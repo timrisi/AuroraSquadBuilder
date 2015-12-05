@@ -57,97 +57,22 @@ namespace SquadBuilder.Tests
 			Assert.IsNotEmpty (app.Query ( "0/100"));
 		}
 
-		[Test]
-		public void ShouldAddAWing ()
-		{
-			addPilot ("A-Wing", "Tycho Celchu");
-		}
-
-//		[Test]
-//		public void ShouldAddBWing ()
-//		{
-//			addPilot ("B-Wing", "Ten Numb");
-//		}
-//
-//		[Test]
-//		public void ShouldAddEWing ()
-//		{
-//			addPilot ("E-Wing", "Corran Horn");
-//		}
-//
-//		[Test]
-//		public void ShouldAddHWK290 ()
-//		{
-//			addPilot ("HWK-290", "Jan Ors");
-//		}
-//
-//		[Test]
-//		public void ShouldAddKWing ()
-//		{
-//			addPilot ("K-Wing", "Miranda Doni");
-//		}
-//
-//		[Test]
-//		public void ShouldAddT70XWing ()
-//		{
-//			addPilot ("T-70 X-wing", "Poe Dameron");
-//		}
-//
-//		[Test]
-//		public void ShouldAddXWing ()
-//		{
-//			addPilot ("X-Wing", "Wedge Antilles");
-//		}
-//
-//		[Test]
-//		public void ShouldAddYWing ()
-//		{
-//			addPilot ("Y-Wing", "Horton Salm");
-//		}
-//
-//		[Test]
-//		public void ShouldAddZ95 ()
-//		{
-//			addPilot ("Z-95 Headhunter", "Airen Cracken");
-//		}
-//
-//		[Test]
-//		public void ShouldAddGhost ()
-//		{
-//			addPilot ("VCX-100", "Hera Syndulla");
-//		}
-//
-//		[Test]
-//		public void ShouldAddYT1300 ()
-//		{
-//			addPilot ("YT-1300", "Han Solo");
-//		}
-//
-//		[Test]
-//		public void ShouldAddYT2400 ()
-//		{
-//			addPilot ("YT-2400", "Dash Rendar");
-//		}
-//
-//		[Test]
-//		public void ShouldAddCR90Aft ()
-//		{
-//			addPilot ("CR90 Corvette (Aft)", "CR90 Corvette (Aft)");
-//		}
-//
-//		[Test]
-//		public void ShouldAddCR90Fore ()
-//		{
-//			addPilot ("CR90 Corvette (Fore)", "CR90 Corvette (Fore)");
-//		}
-//
-//		[Test]
-//		public void ShouldAddGR75 ()
-//		{
-//			addPilot ("GR-75 Medium Transport", "GR-75 Medium Transport");
-//		}
-
-		void addPilot (string ship, string pilot)
+		[TestCase ("A-Wing", "Tycho Celchu", TestName = "A-Wing")]
+		[TestCase ("B-Wing", "Ten Numb", TestName = "B-Wing")]
+		[TestCase ("E-Wing", "Corran Horn", TestName = "E-Wing")]
+		[TestCase ("HWK-290", "Jan Ors", TestName = "HWK-290")]
+		[TestCase ("K-Wing", "Miranda Doni", TestName = "K-Wing")]
+		[TestCase ("T-70 X-wing", "Poe Dameron", TestName = "T-70 X-wing")]
+		[TestCase ("X-Wing", "Wedge Antilles", TestName = "X-Wing")]
+		[TestCase ("Y-Wing", "Horton Salm", TestName = "Y-Wing")]
+		[TestCase ("Z-95 Headhunter", "Airen Cracken", TestName = "Z-95 Headhunter")]
+		[TestCase ("VCX-100", "Hera Syndulla", TestName = "VCX-100")]
+		[TestCase ("YT-1300", "Han Solo", TestName = "YT-1300")]
+		[TestCase ("YT-2400", "Dash Rendar", TestName = "YT-2400")]
+		[TestCase ("CR90 Corvette (Aft)", "CR90 Corvette (Aft)", TestName = "CR90 Corvette (Aft)")]
+		[TestCase ("CR90 Corvette (Fore)", "CR90 Corvette (Fore)", TestName = "CR90 Corvette (Fore)")]
+		[TestCase ("GR-75 Medium Transport", "GR-75 Medium Transport", TestName = "GR-75 Medium Transport")]
+		public void ShouldAddRebelShip (string ship, string pilot)
 		{
 			app.Tap ("+");
 
@@ -156,7 +81,7 @@ namespace SquadBuilder.Tests
 
 			if (!app.Query (pilot).Any ())
 				app.ScrollDownTo (pilot, timeout: TimeSpan.FromSeconds (30));
-			
+
 			var count = app.Query (pilot).Length;
 			app.Tap (x => x.Marked (pilot).Index (count - 1));
 

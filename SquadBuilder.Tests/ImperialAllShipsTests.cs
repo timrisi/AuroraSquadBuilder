@@ -57,91 +57,21 @@ namespace SquadBuilder.Tests
 			Assert.IsNotEmpty (app.Query ("0/100"));
 		}
 
-		[Test]
-		public void ShouldAddTIEAdvPrototype ()
-		{
-			addPilot ("TIE Adv. Prototype", "The Inquisitor");
-		}
-
-//		[Test]
-//		public void ShouldAddTIEAdvanced ()
-//		{
-//			addPilot ("TIE Advanced", "Darth Vader");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEBomber ()
-//		{
-//			addPilot ("TIE Bomber", "Major Rhymer");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEDefender ()
-//		{
-//			addPilot ("TIE Defender", "Rexler Brath");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEFighter ()
-//		{
-//			addPilot ("TIE Fighter", "\"Howlrunner\"");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEInterceptor ()
-//		{
-//			addPilot ("TIE Interceptor", "Soontir Fel");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEPhantom ()
-//		{
-//			addPilot ("TIE Phantom", "\"Whisper\"");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEPunisher ()
-//		{
-//			addPilot ("TIE Punisher", "\"Redline\"");
-//		}
-//
-//		[Test]
-//		public void ShouldAddTIEFOFighter()
-//		{
-//			addPilot ("TIE/FO Fighter", "\"Omega Leader\"");
-//		}
-//
-//		[Test]
-//		public void ShouldAddFirespray()
-//		{
-//			addPilot ("Firespray-31", "Boba Fett");
-//		}
-//
-//		[Test]
-//		public void ShouldAddLambdaShuttle()
-//		{
-//			addPilot ("Lambda-Class Shuttle", "Captain Kagi");
-//		}
-//
-//		[Test]
-//		public void ShouldAddDecimator()
-//		{
-//			addPilot ("VT-49 Decimator", "Rear Admiral Chiraneau");
-//		}
-//
-//		[Test]
-//		public void ShouldAddRaiderAft()
-//		{
-//			addPilot ("Raider-class Corvette (Aft)", "Raider-class Corvette (Aft)");
-//		}
-//
-//		[Test]
-//		public void ShouldAddRaiderFore()
-//		{
-//			addPilot ("Raider-class Corvette (Fore)", "Raider-class Corvette (Fore)");
-//		}
-
-		void addPilot (string ship, string pilot)
+		[TestCase ("TIE Adv. Prototype", "The Inquisitor", TestName = "TIE Adv Prototype")]
+		[TestCase ("TIE Advanced", "Darth Vader", TestName = "TIE Advanced")]
+		[TestCase ("TIE Bomber", "Major Rhymer", TestName = "TIE Bomber")]
+		[TestCase ("TIE Defender", "Rexler Brath", TestName = "TIE Defender")]
+		[TestCase ("TIE Fighter", "\"Howlrunner\"", TestName = "TIE Fighter")]
+		[TestCase ("TIE Interceptor", "Soontir Fel", TestName = "TIE Interceptor")]
+		[TestCase ("TIE Phantom", "\"Whisper\"", TestName = "TIE Phantom")]
+		[TestCase ("TIE Punisher", "\"Redline\"", TestName = "TIE Punisher")]
+		[TestCase ("TIE/FO Fighter", "\"Omega Leader\"", TestName = "TIE/FO Fighter")]
+		[TestCase ("Firespray-31", "Boba Fett", TestName = "Firespray-31")]
+		[TestCase ("Lambda-Class Shuttle", "Captain Kagi", TestName = "Lambda-Class Shuttle")]
+		[TestCase ("VT-49 Decimator", "Rear Admiral Chiraneau", TestName = "VT-49 Decimator")]
+		[TestCase ("Raider-class Corvette (Aft)", "Raider-class Corvette (Aft)", TestName = "Raider-class Corvette (Aft)")]
+		[TestCase ("Raider-class Corvette (Fore)", "Raider-class Corvette (Fore)", TestName = "Raider-class Corvette (Fore)")]
+		public void ShouldAddImperialShip (string ship, string pilot)
 		{
 			app.Tap ("+");
 
