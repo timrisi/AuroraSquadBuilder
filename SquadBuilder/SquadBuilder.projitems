@@ -110,6 +110,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Expansion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CollectionsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

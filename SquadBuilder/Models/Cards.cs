@@ -18,6 +18,7 @@ namespace SquadBuilder
 			GetAllShips ();
 			GetAllPilots ();
 			GetAllUpgrades ();
+			GetAllExpansions ();
 		}
 
 		static Cards sharedInstance;
@@ -178,6 +179,12 @@ namespace SquadBuilder
 			allUpgrades = new ObservableCollection <Upgrade> (temp);
 		}
 
+		ObservableCollection <Expansion> expansions;
+		public ObservableCollection <Expansion> Expansions {
+			get { return expansions; }
+			set { SetProperty (ref expansions, value); }
+		}
+
 		public void GetAllFactions ()
 		{
 			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
@@ -222,6 +229,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
+					Owned = (int)ship.Element ("Owned")
 				})
 			);
 
@@ -236,7 +244,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
-
+					Owned = 0
 				})
 			);
 
@@ -264,6 +272,7 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
+				Owned = (int)pilot.Element ("Owned")
 			});
 
 			XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
@@ -285,6 +294,7 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = (bool)pilot.Element ("Custom"),
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
+				Owned = 0
 			});
 
 			updateAllPilots ();
@@ -324,7 +334,8 @@ namespace SquadBuilder
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 					                                                        select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
-					                                           select upgr.Value).ToList ())
+					                                           select upgr.Value).ToList ()),
+					Owned = (int)upgrade.Element ("Owned")
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
@@ -365,7 +376,8 @@ namespace SquadBuilder
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 					                                                         select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
-					                                            select upgr.Value).ToList ())
+					                                            select upgr.Value).ToList ()),
+					Owned = 0
 				}
 				                             );
 
@@ -375,6 +387,24 @@ namespace SquadBuilder
 			customUpgrades = new ObservableCollection <Upgrade> (allCustomUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
 
 			updateAllUpgrades ();
+		}
+
+		public void GetAllExpansions ()
+		{
+			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Expansions.xml")));
+			expansions = new ObservableCollection <Expansion> (from expansion in expansionsXml.Elements ()
+			                                                    select new Expansion {
+					Id = expansion.Attribute ("id").Value,
+					Name = expansion.Element ("Name").Value,
+					Wave = expansion.Element ("Wave").Value,
+					Ships = (from ship in expansion.Element ("Ships").Elements ()
+						select ship.Value).ToList (),
+					Pilots = (from pilot in expansion.Element ("Pilots").Elements ()
+						select pilot.Value).ToList (),
+					Upgrades = (from upgrade in expansion.Element ("Upgrades").Elements ()
+						select upgrade.Value).ToList (),
+					Owned = (int)expansion.Element ("Owned")
+			});
 		}
 	}
 }

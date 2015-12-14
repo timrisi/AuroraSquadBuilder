@@ -177,6 +177,7 @@
     <BundleResource Include="Resources\spacial-cosmic.png" />
     <BundleResource Include="Resources\Settings.xml" />
     <BundleResource Include="Resources\Versions.xml" />
+    <BundleResource Include="Resources\Expansions.xml" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

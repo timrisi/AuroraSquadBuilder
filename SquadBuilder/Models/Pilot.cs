@@ -14,10 +14,6 @@ namespace SquadBuilder
 {
 	public class Pilot  : ObservableObject
 	{
-		public Pilot ()
-		{
-		}
-
 		string id;
 		public string Id {
 			get { return id; }
@@ -42,6 +38,7 @@ namespace SquadBuilder
 		public string Ability { get; set; }
 		public bool IsCustom { get; set; }
 		public bool Preview { get; set; }
+		public int Owned { get; set; }
 
 		ObservableCollection <string> upgradeTypes = new ObservableCollection <string> ();
 		public ObservableCollection <string> UpgradeTypes { 

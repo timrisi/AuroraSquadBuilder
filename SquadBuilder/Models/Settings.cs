@@ -25,6 +25,7 @@ namespace SquadBuilder
 		public static float PilotsVersion { get; set; }
 		public static float UpgradesVersion { get; set; }
 		public static float SettingsVersion { get; set; }
+		public static float ExpansionsVersion { get; set; }
 
 		static bool allowCustom;
 		public static bool AllowCustom { 
@@ -86,6 +87,11 @@ namespace SquadBuilder
 						Cards.SharedInstance.GetAllUpgrades ();
 					}
 
+					if ((versionsXml.Element ("Expansions") != null && (float)versionsXml.Element ("Expansions") > ExpansionsVersion)) {
+						UpdateExpansions ();
+						Cards.SharedInstance.GetAllExpansions ();
+					}
+
 					if ((float)versionsXml.Element ("Settings") > SettingsVersion)
 						updateXml ("Settings");
 				} catch (Exception e) {		
@@ -100,6 +106,11 @@ namespace SquadBuilder
 		{
 			var element = XElement.Load (xwingDataUrl + file + ".xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (file + ".xml", element.ToString ());
+		}
+
+		public static void UpdateExpansions ()
+		{
+			throw new NotImplementedException ();
 		}
 	}
 }

@@ -12,10 +12,6 @@ namespace SquadBuilder
 {
 	public class Upgrade : ObservableObject
 	{
-		public Upgrade ()
-		{
-		}
-
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string CategoryId { get; set; }
@@ -38,6 +34,7 @@ namespace SquadBuilder
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
 		public bool TIEOnly { get; set; }
+		public int Owned { get; set; }
 
 		Faction faction;
 		public Faction Faction {

@@ -45,6 +45,12 @@ namespace SquadBuilder
 			}
 		}
 
+		int owned;
+		public int Owned {
+			get { return owned; }
+			set { SetProperty (ref owned, value); }
+		}
+
 		ObservableCollection <string> actions = new ObservableCollection <string> ();
 		public ObservableCollection <string> Actions { 
 			get { return actions; }

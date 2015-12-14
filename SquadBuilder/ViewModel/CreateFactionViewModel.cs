@@ -6,10 +6,11 @@ using System.Linq;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using XLabs.Forms.Mvvm;
 
 namespace SquadBuilder
 {
-	public class CreateFactionViewModel : MainViewModel
+	public class CreateFactionViewModel : ViewModel
 	{
 		string name;
 		public string Name {

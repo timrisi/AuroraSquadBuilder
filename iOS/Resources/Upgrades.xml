@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.15">
+<Upgrades Version="2.23">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
 			<Cost>4</Cost>
 			<Text>After executing a green maneuver, you may recover 1 shield (up to your shield value).</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r2f2">
 			<Name>R2-F2</Name>
 			<Cost>3</Cost>
 			<Text>Action: Increase your agility value by 1 until the end of this game round.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r5k6">
 			<Name>R5-K6</Name>
 			<Cost>2</Cost>
 			<Text>After spending your target lock, roll 1 defense die.  On an {evade} result, immediately acquire a target lock on that same ship.  You cannot spend this target lock during this attack.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r5astromech">
 			<Name>R5 Astromech</Name>
 			<Cost>1</Cost>
 			<Text>During the End phase, you may choose 1 of your faceup Damage cards with the Ship trait and flip it facedown.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r5d8">
 			<Name>R5-D8</Name>
 			<Cost>3</Cost>
 			<Text>Action: Roll 1 defense die.  On an {evade} or {focus} result, discard one of your facedown Damage cards.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r2astromech">
 			<Name>R2 Astromech</Name>
 			<Cost>1</Cost>
 			<Text>You may treat all 1- and 2-speed maneuvers as green maneuvers.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r2d6">
 			<Name>R2-D6</Name>
@@ -43,47 +49,62 @@
 			<AdditionalUpgrades>
 				<Upgrade>Elite Pilot Talent</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r3a2">
 			<Name>R3-A2</Name>
 			<Cost>2</Cost>
 			<Text>When you declare the target of your attack, if the defender is inside your firing arc, you may receive 1 stress token to cause the defender to receive 1 stress token.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r4d6">
 			<Name>R4-D6</Name>
 			<Cost>1</Cost>
 			<Text>When you are hit by an attack and there are at least 3 uncancelled {hit} results, you may choose and cancel those results until there are 2 remaining. For each result cancelled in this way, receive 1 stress token.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r5p9">
 			<Name>R5-P9</Name>
 			<Cost>3</Cost>
 			<Text>At the end of the Combat phase, you may spend 1 of your focus tokens to recover 1 shield (up to your shield value).</Text>
 			<Unique>true</Unique>c
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r7t1">
 			<Name>R7-T1</Name>
 			<Cost>3</Cost>
 			<Text>Action: Choose an enemy ship at Range 1-2. If you are inside that ship's firing arc, you may acquire a target lock on that ship. Then, you may perform a free boost action.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r7astromech">
 			<Name>R7 Astromech</Name>
 			<Cost>2</Cost>
 			<Text>Once per round when defending, if you have a target lock on the attacker, you may spend the target lock to choose any or all attack dice.  The attacker must reroll the chosen dice.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r5x3">
 			<Name>R5-X3</Name>
 			<Cost>1</Cost>
 			<Text>Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bb8">
 			<Name>BB-8</Name>
 			<Cost>2</Cost>
 			<Text>When you reveal a green maneuver, you may perform a free barrel roll action.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="targetingastromech">
+			<Name>Targeting Astromech</Name>
+			<Cost>2</Cost>
+			<Text>After you execute a red maneuver, you may acquire a target lock.</Text>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="bomb" type="Bomb">
@@ -95,6 +116,7 @@
 When a ship executes a maneuver, if its base or maneuver template overlaps this token, this token detonates.
 
 Detonation: Proximity mines roll 3 attack dice to the ship that detonates them.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="seismiccharges">
 			<Name>Seismic Charges</Name>
@@ -104,6 +126,7 @@ Detonation: Proximity mines roll 3 attack dice to the ship that detonates them.<
 This token detonates at the end of the Activation phase.
 
 Detonation: Seismic charges cause 1 damage to all ships within Range 1 when detonated (at the end of the Activation phase).</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="protonbombs">
 			<Name>Proton Bombs</Name>
@@ -113,6 +136,7 @@ Detonation: Seismic charges cause 1 damage to all ships within Range 1 when deto
 This token detonates at the end of the Activation phase.
 
 Detonation: Deal 1 faceup Damage card to each ship at Range 1 of the token. Then discard this token.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="clustermines">
 			<Name>Cluster Mines</Name>
@@ -122,6 +146,7 @@ Detonation: Deal 1 faceup Damage card to each ship at Range 1 of the token. Then
 When a ship's base or maneuver template overlaps a cluster mine token, that token detonates.
 
 Detonation:  The ship that moved through or overlapped the token rolls 2 attack dice and suffers all damage {hit} rolled.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="connernet">
 			<Name>Conner Net</Name>
@@ -129,6 +154,7 @@ Detonation:  The ship that moved through or overlapped the token rolls 2 attack 
 			<Text>Action: Discard this card to drop 1 Conner net token. When a ship's base or maneuver template overlaps this token, this token detonates.
 
 Detonation: Deal one damage and two ion tokens to the affected ship. The affected ship also cannot perform actions this turn.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ionbombs">
 			<Name>Ion Bombs</Name>
@@ -138,6 +164,7 @@ Detonation: Deal one damage and two ion tokens to the affected ship. The affecte
 This card detonates at the end of the Activation phase.
 
 Detonation: Deal two ion tokens to all ships within Range 1.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="cannon" type="Cannon">
@@ -148,6 +175,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ioncannon">
 			<Name>Ion Cannon</Name>
@@ -156,6 +184,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="autoblaster">
 			<Name>Autoblaster</Name>
@@ -164,6 +193,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="flechettecannon">
 			<Name>Flechette Cannon</Name>
@@ -172,6 +202,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="manglercannon">
 			<Name>&quot;Mangler&quot; Cannon</Name>
@@ -180,6 +211,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tractorbeam">
 			<Name>Tractor Beam</Name>
@@ -189,6 +221,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="cargo" type="Cargo">
@@ -197,57 +230,67 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>3</Cost>
 			<Text>At the end of each round, you may spend 1 energy to recover 1 shield (up to your shield value).</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="commsbooster">
 			<Name>Comms Booster</Name>
 			<Cost>4</Cost>
 			<Text>Energy: Spend 1 energy to remove all stress tokens from a friendly ship at Range 1-3. Then assign 1 focus token to that ship.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ememitter">
 			<Name>EM Emitter</Name>
 			<Cost>3</Cost>
 			<Text>When you obstruct an attack, the defender rolls 3 additional defense dice (instead of 1).</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="enginebooster">
 			<Name>Engine Booster</Name>
 			<Cost>3</Cost>
 			<Text>Immediately before you reveal your maneuver dial, you may spend 1 energy to execute a white {straight} 1 maneuver. You cannot use this ability if you would overlap another ship.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="expandedcargohold">
 			<Name>Expanded Cargo Hold</Name>
 			<Cost>1</Cost>
 			<Text>Once per round, when you would be dealt a faceup Damage card, you may draw that card from either the fore or aft Damage deck.</Text>
 			<Ship>gr75mediumtransport</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="frequencyjammer">
 			<Name>Frequency Jammer</Name>
 			<Cost>4</Cost>
 			<Text>When you perform a jam action, choose 1 enemy ship that does not have a stress token and is at Range 1 of the jammed ship. The chosen ship receives 1 stress token.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="shieldprojector">
 			<Name>Shield Projector</Name>
 			<Cost>4</Cost>
 			<Text>When an enemy ship is declaring either a small or large ship as the target of its attack, you may spend 3 energy to force that ship to target you if possible. </Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="slicertools">
 			<Name>Slicer Tools</Name>
 			<Cost>7</Cost>
 			<Text>Action: Choose 1 or more enemy ships at Range 1-3 that have a stress token. For each ship chosen, you may spend 1 energy to cause that ship to suffer 1 damage.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tibannagassupplies">
 			<Name>Tibanna Gas Supplies</Name>
 			<Cost>4</Cost>
 			<Text>Energy: You may discard this card to gain 3 energy.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ionizationreactor">
 			<Name>Ionization Reactor</Name>
 			<Cost>4</Cost>
 			<Text>Energy: Spend 5 energy from this card and discard this card to cause each other ship at Range 1 to suffer 1 damage and receive 1 ion token.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dockingclamps">
 			<Name>Docking Clamps</Name>
@@ -256,6 +299,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Limited>true</Limited>
 			<Ship>gozanticlasscruiser</Ship>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="crew" type="Crew">
@@ -265,6 +309,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When you are dealt a Damage card, you may immediately discard that card and recover 1 shield.  Then, discard this Upgrade card.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="lukeskywalker">
 			<Name>Luke Skywalker</Name>
@@ -272,6 +317,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you perform an attack that does not hit you may immediately perform a primary weapon attack. You may change 1 {focus} result to a {hit} result. You cannot perform another attack this round.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="niennunb">
 			<Name>Nien Nunb</Name>
@@ -279,36 +325,43 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>You may treat all {straight} maneuvers as green maneuvers.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="weaponsengineer">
 			<Name>Weapons Engineer</Name>
 			<Cost>3</Cost>
 			<Text>You may maintain 2 target locks (only 1 per enemy ship).  When you acquire a target lock, you may lock onto 2 different ships.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="gunner">
 			<Name>Gunner</Name>
 			<Cost>5</Cost>
 			<Text>After you perform an attack that does not hit you may immediately perform a primary weapon attack. You cannot perform another attack this round.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="mercenarycopilot">
 			<Name>Mercenary Copilot</Name>
 			<Cost>2</Cost>
 			<Text>When attacking at Range 3, you may change 1 of your {hit} results to a {crit} result.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="intelligenceagent">
 			<Name>Intelligence Agent</Name>
 			<Cost>1</Cost>
 			<Text>At the start of the Activation phase, choose 1 enemy ship at Range 1-2.  You may look at that ship's chosen maneuver.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="reconspecialist">
 			<Name>Recon Specialist</Name>
 			<Cost>3</Cost>
 			<Text>When you perform a focus action, assign 1 additional focus token to your ship.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="saboteur">
 			<Name>Saboteur</Name>
 			<Cost>2</Cost>
 			<Text>Action: choose 1 enemy ship at Range 1 and roll 1 attack die.  On a {hit} or {crit} result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="darthvader">
 			<Name>Darth Vader</Name>
@@ -316,6 +369,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you perform an attack against an enemy ship, you may suffer 2 damage to cause that ship to suffer 1 critical damage.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="rebelcaptive">
 			<Name>Rebel Captive</Name>
@@ -323,16 +377,19 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, the first ship that declares you as the target of an attack immediately receives 1 stress token</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="navigator">
 			<Name>Navigator</Name>
 			<Cost>3</Cost>
 			<Text>When you reveal a maneuver, you may rotate your dial to another maneuver with the same bearing.  You cannot rotate to a red maneuver if you have any stress tokens.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="flightinstructor">
 			<Name>Flight Instructor</Name>
 			<Cost>4</Cost>
 			<Text>When defending, you may reroll one of your {focus} results. If the attacker's pilot skill is '2' or lower you may reroll 1 of your blank results instead.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="carlistrieekan">
 			<Name>Carlist Rieekan</Name>
@@ -341,6 +398,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="jandodonna">
 			<Name>Jan Dodonna</Name>
@@ -349,6 +407,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="torynfarr">
 			<Name>Toryn Farr</Name>
@@ -357,12 +416,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="wed15repairdroid">
 			<Name>WED-15 Repair Droid</Name>
 			<Cost>2</Cost>
 			<Text>Action: Spend 1 energy to discard 1 of your facedown Damage cards, or spend 3 energy to discard 1 of your faceup Damage cards.</Text>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="c3po">
 			<Name>C-3PO</Name>
@@ -370,6 +431,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, before you roll 1 or more defense dice, you may guess aloud a number of {evade} results. If you roll that many {evade} results (before modifying dice), add 1 {evade} result.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="hansolo">
 			<Name>Han Solo</Name>
@@ -377,6 +439,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When attacking, if you have a target lock on the defender, you may spend that target lock to change all of your {focus} results to {hit} results.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="leiaorgana">
 			<Name>Leia Organa</Name>
@@ -384,6 +447,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>At the start of the Activation phase, you may discard this card to allow all friendly ships that reveal a red maneuver to treat that maneuver as a white maneuver until the end of the phase.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -391,6 +455,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a {hit} result, randomly flip 1 of your facedown Damage cards faceup and resolve it.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="raymusantilles">
 			<Name>Raymus Antilles</Name>
@@ -399,6 +464,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="targetingcoordinator">
 			<Name>Targeting Coordinator</Name>
@@ -406,12 +472,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Energy: You may spend 1 energy to choose 1 friendly ship at Range 1-2. Acquire a target lock, then assign the blue target lock token to the chosen ship.</Text>
 			<Limited>true</Limited>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tactician">
 			<Name>Tactician</Name>
 			<Cost>2</Cost>
 			<Text>After you perform an attack against a ship inside your firing arc at Range 2, that ship receives 1 stress token.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="janors">
 			<Name>Jan Ors</Name>
@@ -419,6 +487,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, when a friendly ship at Range 1-3 performs a focus action or would be assigned a focus token, you may assign that ship an evade token instead.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="kylekatarn">
 			<Name>Kyle Katarn</Name>
@@ -426,6 +495,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you remove a stress token from your ship, you may assign a focus token to your ship.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="landocalrissian">
 			<Name>Lando Calrissian</Name>
@@ -433,6 +503,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Action: Roll 2 defense dice. For each {focus} result, assign 1 focus token to your ship. For each {evade} result, assign 1 evade token to your ship.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dashrendar">
 			<Name>Dash Rendar</Name>
@@ -440,6 +511,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>You may perform attacks while overlapping an obstacle.  Your attacks cannot be obstructed.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="leebo">
 			<Name>&quot;Leebo&quot;</Name>
@@ -447,12 +519,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Action: Perform a free boost action. Then receive 1 ion token.</Text>
 			<Faction>rebels</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="fleetofficer">
 			<Name>Fleet Officer</Name>
 			<Cost>3</Cost>
 			<Text>Action: Choose up to 2 friendly ships at Range 1-2 and assign 1 focus token to each of those ships. Then receive 1 stress token.</Text>
 			<Faction>empire</Faction>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="marajade">
 			<Name>Mara Jade</Name>
@@ -460,6 +534,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>At the end of the Combat phase, each enemy ship at Range 1 that does not have a stress token receives 1 stress token.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="moffjerjerrod">
 			<Name>Moff Jerjerrod</Name>
@@ -467,6 +542,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When you are dealt a faceup Damage card, you may discard this Upgrade card or another {crew} Upgrade card to flip that Damage card facedown (without resolving its effect).</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ysanneisard">
 			<Name>Ysanne Isard</Name>
@@ -474,6 +550,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>At the start of the Combat phase, if you have no shields and at least 1 Damage card assigned to your ship, you may perform a free evade action.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="greedo">
 			<Name>Greedo</Name>
@@ -481,12 +558,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>The first time you attack each round and the first time you defend each round, the first Damage card dealt is dealt faceup.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="k4securitydroid">
 			<Name>K4 Security Droid</Name>
 			<Cost>3</Cost>
 			<Text>After executing a green maneuver, you may acquire a target lock.</Text>
 			<Faction>scum</Faction>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="outlawtech">
 			<Name>Outlaw Tech</Name>
@@ -494,11 +573,13 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you execute a red maneuver, you may assign 1 focus token to your ship.</Text>
 			<Faction>scum</Faction>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bombardier">
 			<Name>Bombardier</Name>
 			<Cost>1</Cost>
 			<Text>When dropping a bomb, you may use the [{straight} 2] template instead of the [{straight} 1] template.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bossk">
 			<Name>Bossk</Name>
@@ -506,6 +587,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>After you perform an attack that does not hit, if you are not stressed, you must receive 1 stress token.  Then assign 1 focus token to your ship and acquire a target lock on the defender.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="emperorpalpatine">
 			<Name>Emperor Palpatine</Name>
@@ -516,6 +598,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<ExtraSlots>
 				<Upgrade>Crew</Upgrade>
 			</ExtraSlots>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="captainneeda">
 			<Name>Captain Needa</Name>
@@ -524,6 +607,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="grandmofftarkin">
 			<Name>Grand Moff Tarkin</Name>
@@ -532,12 +616,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="shieldtechnician">
 			<Name>Shield Technician</Name>
 			<Cost>1</Cost>
 			<Text>When you perform a recover action, instead of spending all of your energy, you can choose any amount of energy to spend.</Text>
 			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="agentkallus">
 			<Name>Agent Kallus</Name>
@@ -546,6 +632,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="rearadmiralchiraneau">
 			<Name>Rear Admiral Chiraneau</Name>
@@ -555,6 +642,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="kananjarrus">
 			<Name>Kanan Jarrus</Name>
@@ -562,6 +650,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, after a friendly ship at Range 1-2 executes a white maneuver, you may remove 1 stress token from that ship.</Text>
 			<Faction>rebels</Faction>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="zeborrelios">
 			<Name>&quot;Zeb&quot; Orrelios</Name>
@@ -569,6 +658,44 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase.</Text>
 			<Faction>rebels</Faction>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="herasyndulla">
+			<Name>Hera Syndulla</Name>
+			<Cost>1</Cost>
+			<Text>You can reveal and execute red maneuvers even while you are stressed.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="ezrabridger">
+			<Name>Ezra Bridger</Name>
+			<Cost>3</Cost>
+			<Text>When attacking, if you are stressed, you may change 1 of your {focus} results to a {crit} result.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="sabinewren">
+			<Name>Sabine Wren</Name>
+			<Cost>2</Cost>
+			<Text>Your upgrade bar gains the {bomb} upgrade icon.  Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token.  That ship suffers 1 damage.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
+			<AdditionalUpgrades>
+				<Upgrade>Bomb</Upgrade>
+			</AdditionalUpgrades>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="chopper">
+			<Name>&quot;Chopper&quot;</Name>
+			<Cost>0</Cost>
+			<Text>You may perform actions even while you are stressed.
+
+After you perform an action while you are stressed.  Suffer 1 damage.</Text>
+			<Faction>rebels</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
@@ -576,114 +703,136 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Determination</Name>
 			<Cost>1</Cost>
 			<Text>When you are dealth a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="marksmanship">
 			<Name>Marksmanship</Name>
 			<Cost>3</Cost>
 			<Text>Action: When attacking this round, you may change 1 of your {focus} results to a {crit} result and all your other {focus} results to {hit} results.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="experthandling">
 			<Name>Expert Handling</Name>
 			<Cost>2</Cost>
 			<Text>Action: Perform a free barrel roll action.  If you do not have the {barrel roll} action icon, receive 1 stress token.  You may then remove 1 enemy target lock from your ship.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="swarmtactics">
 			<Name>Swarm Tactics</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the Combat phase, choose 1 friendly ship at Range 1.  Until the end of this phase, treat the chosen ship as if its pilot skill were equal to your pilot skill.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="squadleader">
 			<Name>Squad Leader</Name>
 			<Cost>2</Cost>
 			<Text>Action: Choose 1 ship at Range 1-2 that has a lower pilot skill than you.  The chosen ship may immediately perform 1 free action.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="drawtheirfire">
 			<Name>Draw Their Fire</Name>
 			<Cost>1</Cost>
 			<Text>When a friendly ship at Range 1 is hit by an attack, you may suffer one of the uncancelled {crit} results instead of the target ship.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="elusiveness">
 			<Name>Elusiveness</Name>
 			<Cost>2</Cost>
 			<Text>When defending, you may receive 1 stress token to choose 1 attack die.  The attacker must reroll that die.  If you have at least 1 stress token, you cannot use this ability.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="veteraninstincts">
 			<Name>Veteran Instincts</Name>
 			<Cost>1</Cost>
 			<PilotSkill>2</PilotSkill>
 			<Text>Increase your pilot skill value by 2.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="expose">
 			<Name>Expose</Name>
 			<Cost>4</Cost>
 			<Text>Action: Until the end of the round, increase your primary weapon value by 1 and decrease your agility value by 1.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="deadeye">
 			<Name>Deadeye</Name>
 			<Cost>1</Cost>
 			<Text>You may treat the 'Attack (target lock):' header as 'Attack (focus):'.  When an attack instructs you to spend a target lock, you may spend a focus token instead.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="pushthelimit">
 			<Name>Push The Limit</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, after you perform an action, you may perform 1 free action shown in your action bar.  Then receive 1 stress token.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="daredevil">
 			<Name>Daredevil</Name>
 			<Cost>3</Cost>
 			<Text>Action: Execute a white {left turn 1} or {right turn 1} maneuver.  Then receive 1 stress token.  Then, if you do not have the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="adrenalinerush">
 			<Name>Adrenaline Rush</Name>
 			<Cost>1</Cost>
 			<Text>When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver until the end of the Activation phase.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="opportunist">
 			<Name>Opportunist</Name>
 			<Cost>4</Cost>
 			<Text>When attacking, if the defender does not have any focus or evade tokens, you may receive 1 stress token to roll 1 additional attack die.  You cannot use this ability if you have any stress tokens.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="wingman">
 			<Name>Wingman</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the Combat phase, remove 1 stress token from another friendly ship at Range 1.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="decoy">
 			<Name>Decoy</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the combat phase, you may choose 1 friendly ship at Range 1-2.  Exchange your pilot skill with that ship's pilot skill until the end of the phase. </Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="predator">
 			<Name>Predator</Name>
 			<Cost>3</Cost>
 			<Text>When attacking, you may reroll 1 attack die.  If the defender's pilot skill value is "2" or lower, you may instead reroll up to 2 attack dice.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="outmaneuver">
 			<Name>Outmaneuver</Name>
 			<Cost>3</Cost>
 			<Text>When attacking a ship inside your firing arc, if you are not inside that ship's firing arc, reduce its agility value by 1 (to a minimum of 0).</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="lonewolf">
 			<Name>Lone Wolf</Name>
 			<Cost>2</Cost>
 			<Text>When attacking or defending, if there are no other friendly ships at Range 1-2, you may reroll 1 of your blank results.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="stayontarget">
 			<Name>Stay On Target</Name>
 			<Cost>2</Cost>
 			<Text>When you reveal a maneuver, you may rotate your dial to another maneuver with the same speed.  Treat that maneuver as a red maneuver.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="intimidation">
 			<Name>Intimidation</Name>
 			<Cost>2</Cost>
 			<Text>When you are touching an enemy ship, reduce that ship's agility value by 1.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ruthlessness">
 			<Name>Ruthlessness</Name>
 			<Cost>3</Cost>
 			<Faction>empire</Faction>
 			<Text>After you perform an attack that hits, you must choose 1 other ship at Range 1 of the defender (other than yourself).  That ship suffers 1 damage.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bodyguard">
 			<Name>Bodyguard</Name>
@@ -691,33 +840,39 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Faction>scum</Faction>
 			<Text>At the start of the Combat phase, you may spend a focus token to choose a friendly ship at Range 1 with a higher pilot skill than you. Increase its agility value by 1 until the end of the round.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="calculation">
 			<Name>Calculation</Name>
 			<Cost>1</Cost>
 			<Text>When attacking, you may spend a focus token to change 1 of your {focus} results to a {crit} result.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="lightningreflexes">
 			<Name>Lightning Reflexes</Name>
 			<Cost>1</Cost>
 			<Text>After you execute a white or green maneuver on your dial, you may discard this card to rotate your ship 180 degrees.  Then receive 1 stress token after the &quot;Check Pilot Stress&quot; step.</Text>
 			<SmallOnly>true</SmallOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="crackshot">
 			<Name>Crack Shot</Name>
 			<Cost>1</Cost>
 			<Text>When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's {evade} results.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="wired">
 			<Name>Wired</Name>
 			<Cost>1</Cost>
 			<Text>When attacking or defending, if you are stressed, you may reroll 1 or more of your {focus} results.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="coolhand">
 			<Name>Cool Hand</Name>
 			<Cost>1</Cost>
 			<Text>When you receive a stress token, you may discard this card to assign 1 focus or evade token to your ship.</Text>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="juke">
 			<Name>Juke</Name>
@@ -725,6 +880,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When attacking, if you have an evade token, you may change 1 of the defender’s {evade} results to a {focus} result.</Text>
 			<SmallOnly>true</SmallOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="hardpoint" type="Hardpoint">
@@ -736,6 +892,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Energy>2</Energy>
 			<Dice>3</Dice>
 			<Range>1-2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="singleturbolasers">
 			<Name>Single Turbolasers</Name>
@@ -745,6 +902,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Energy>2</Energy>
 			<Dice>4</Dice>
 			<Range>3-5</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ioncannonbattery">
 			<Name>Ion Cannon Battery</Name>
@@ -754,6 +912,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Energy>2</Energy>
 			<Dice>4</Dice>
 			<Range>2-4</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="duallaserturret">
 			<Name>Dual Laser Turret</Name>
@@ -765,6 +924,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Range>1-3</Range>
 			<Ship>gozanticlasscruiser</Ship>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="illicit" type="Illicit">
@@ -775,26 +935,31 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="inertialdampeners">
 			<Name>Inertial Dampeners</Name>
 			<Cost>1</Cost>
 			<Text>When you reveal your maneuver, you may discard this card to instead perform a white {stationary} 0 maneuver. Then receive 1 stress token.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="feedbackarray">
 			<Name>Feedback Array</Name>
 			<Cost>2</Cost>
 			<Text>During the Combat phase, instead of performing any attacks, you may receive 1 ion token and suffer 1 damage to choose 1 enemy ship at Range 1. That ship suffers 1 damage.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="deadmansswitch">
 			<Name>Dead Man's Switch</Name>
 			<Cost>2</Cost>
 			<Text>When you are destroyed, each ship at Range 1 suffers one damage.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="glitterstim">
 			<Name>Glitterstim</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the Combat phase, you may discard this card and receive 1 stress token. If you do, until the end of the round, when attacking or defending, you may change all of your {focus} results to {hit} or {evade} results.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="cloakingdevice">
 			<Name>Cloaking Device</Name>
@@ -803,6 +968,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
 			<SmallOnly>true</SmallOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="missile" type="Missile">
@@ -813,6 +979,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="concussionmissiles">
 			<Name>Concussion Missiles</Name>
@@ -821,6 +988,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="assaultmissiles">
 			<Name>Assault Missiles</Name>
@@ -829,6 +997,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="homingmissiles">
 			<Name>Homing Missiles</Name>
@@ -837,6 +1006,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ionpulsemissiles">
 			<Name>Ion Pulse Missiles</Name>
@@ -845,12 +1015,14 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="chardaanrefit">
 			<Name>Chardaan Refit</Name>
 			<Cost>-2</Cost>
 			<Text>This card has a negative squad point cost.</Text>
 			<Ship>awing</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="protonrockets">
 			<Name>Proton Rockets</Name>
@@ -859,6 +1031,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>2</Dice>
 			<Range>1</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedhomingmissiles">
 			<Name>Adv. Homing Missiles</Name>
@@ -867,6 +1040,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="xx23sthreadtracers">
 			<Name>XX-23 S-Thread Tracers</Name>
@@ -876,6 +1050,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="mod" type="Modification">
@@ -883,35 +1058,41 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Engine Upgrade</Name>
 			<Cost>4</Cost>
 			<Text>Your action bar gains the {boost} action icon.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="shieldupgrade">
 			<Name>Shield Upgrade</Name>
 			<Cost>4</Cost>
 			<Text>Increase your shield value by 1.</Text>
 			<Shields>1</Shields>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="stealthdevice">
 			<Name>Stealth Device</Name>
 			<Cost>3</Cost>
 			<Text>Increase your agility value by 1. If you are hit by an attack, discard this card.</Text>
 			<Agility>1</Agility>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="antipursuitlasers">
 			<Name>Anti-Pursuit Lasers</Name>
 			<Cost>2</Cost>
 			<Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship suffers 1 damage.</Text>
 			<LargeOnly>true</LargeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="targetingcomputer">
 			<Name>Targeting Computer</Name>
 			<Cost>2</Cost>
 			<Text>Your action bar gains the {target lock} action icon.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="hullupgrade">
 			<Name>Hull Upgrade</Name>
 			<Cost>3</Cost>
 			<Text>Increase your hull value by 1.</Text>
 			<Hull>1</Hull>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="combatretrofit">
 			<Name>Combat Retrofit</Name>
@@ -921,22 +1102,26 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<HugeOnly>true</HugeOnly>
 			<Hull>2</Hull>
 			<Shields>1</Shields>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="munitionsfailsafe">
 			<Name>Munitions Failsafe</Name>
 			<Cost>1</Cost>
 			<Text>When attacking with a secondary weapon that instructs you to discard it to perform the attack, do not discard it unless the attack hits.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedcloakingdevice">
 			<Name>Advanced Cloaking Device</Name>
 			<Cost>4</Cost>
 			<Text>After you perform an attack, you may perform a free cloak action. </Text>
 			<Ship>tiephantom</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="stygiumparticleaccelerator">
 			<Name>Stygium Particle Accelerator</Name>
 			<Cost>2</Cost>
 			<Text>When you either decloak or perform a cloak action, you may perform a free evade action.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bwinge2">
 			<Name>B-Wing/E2</Name>
@@ -946,52 +1131,61 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<AdditionalUpgrades>
 				<Upgrade>Crew</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="countermeasures">
 			<Name>Countermeasures</Name>
 			<Cost>3</Cost>
 			<Text>At the start of the Combat phase, you may discard this card to increase your agility value by 1 until the end of the round. Then you may remove 1 enemy target lock from your ship.</Text>
 			<LargeOnly>true</LargeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="experimentalinterface">
 			<Name>Experimental Interface</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, after you perform an action, you may perform 1 free action from an equipped Upgrade card with the "Action:" header. Then receive 1 stress token.</Text>
 			<Unique>true</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tacticaljammers">
 			<Name>Tactical Jammers</Name>
 			<Cost>1</Cost>
 			<Text>Your ship can obstruct enemy attacks.</Text>
 			<LargeOnly>true</LargeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="autothrusters">
 			<Name>Autothrusters</Name>
 			<Cost>2</Cost>
 			<Text>When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to an {evade} result. You can equip this card only if you have the {boost} action icon.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ionprojector">
 			<Name>Ion Projector</Name>
 			<Cost>2</Cost>
 			<Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship receives one ion token.</Text>
 			<LargeOnly>true</LargeOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="maneuveringfins">
 			<Name>Maneuvering Fins</Name>
 			<Cost>1</Cost>
 			<Text>When you reveal a turn maneuver ({left turn} or {right turn}) you may rotate your dial to the corresponding bank maneuver ({left bank} or {right bank}) of the same speed.</Text>
 			<Ship>yv666</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedslam">
 			<Name>Advanced SLAM</Name>
 			<Cost>2</Cost>
 			<Text>After performing a SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
-		<Upgrade id="twinionenginemki">
+		<Upgrade id="twinionenginemkii">
 			<Name>Twin Ion Engine Mk. II</Name>
 			<Cost>1</Cost>
 			<Text>You may treat all bank maneuvers ({bank left} or {bank right}) as green maneuvers.</Text>
 			<TIEOnly>true</TIEOnly>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="integratedastromech">
 			<Name>Integrated Astromech</Name>
@@ -999,6 +1193,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>When you are dealt a Damage card you may discard one of your {astromech droid} Upgrade cards to discard that Damage card (without resolving its effect).</Text>
 			<Ship>xwing</Ship>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="automatedprotocols">
 			<Name>Automated Protocols</Name>
@@ -1006,6 +1201,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, after you perform an action that is not a recover or reinforce action, you may spend 1 energy to perform a free recover or reinforce action.</Text>
 			<HugeOnly>true</HugeOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="optimizedgenerators">
 			<Name>Optimized Generators</Name>
@@ -1013,6 +1209,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>Once per round, when you assign energy to an equipped Upgrade card, gain 2 energy.</Text>
 			<HugeOnly>true</HugeOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ordnancetubes">
 			<Name>Ordnance Tubes</Name>
@@ -1022,6 +1219,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 When you are instructed to discard a {torpedo} or {missile} upgrade card, do not discard it.</Text>
 			<HugeOnly>true</HugeOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="samd" type="Salvaged Astromech">
@@ -1029,26 +1227,31 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>R4 Agromech</Name>
 			<Cost>2</Cost>
 			<Text>When attacking, after you spend a focus token, you may acquire a target lock on the defender.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="unhingedastromech">
 			<Name>Unhinged Astromech</Name>
 			<Cost>1</Cost>
 			<Text>You may treat all 3-speed maneuvers as green maneuvers.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="genius">
 			<Name>&quot;Genius&quot;</Name>
 			<Cost>0</Cost>
 			<Text>If you are equipped with a bomb that can be dropped before you reveal your maneuver, you may drop the bomb after you execute your maneuver instead.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="r4b11">
 			<Name>R4-B11</Name>
 			<Cost>3</Cost>
 			<Text>When attacking, if you have a target lock on the defender, you may spend the target lock to choose any or all defense dice. The defender must reroll the chosen dice.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="salvagedastromech">
 			<Name>Salvaged Astromech</Name>
 			<Cost>2</Cost>
 			<Text>When you are dealt a Damage card with the Ship trait, you may immediately discard that card (before resolving its effect). Then discard this Upgrade card.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="system" type="System Upgrade">
@@ -1056,32 +1259,38 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Advanced Sensors</Name>
 			<Cost>3</Cost>
 			<Text>Immediately before you reveal your maneuver, you may perform 1 free action.  If you use this ability, you must skip your "Perform action" step during this round.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="sensorjammer">
 			<Name>Sensor Jammer</Name>
 			<Cost>4</Cost>
 			<Text>When defending, you may change 1 of the attacker's {hit} results to a {focus} result.  The attacker cannot reroll the die with the changed result.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="firecontrolsystem">
 			<Name>Fire Control System</Name>
 			<Cost>2</Cost>
 			<Text>After you perform an attack, you may acquire a target lock on the defender.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="enhancedscopes">
 			<Name>Enhanced Scopes</Name>
 			<Cost>1</Cost>
 			<Text>During the Activation phase, treat your pilot skill value as 0.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="accuraccorrector">
 			<Name>Accuracy Corrector</Name>
 			<Cost>3</Cost>
 			<Text>When attacking, you may cancel all of your dice results. Then, you may add 2 {hit} results to your roll. Your dice cannot be modified again during this attack.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedtargetingcomputer">
 			<Name>Advanced Targeting Computer</Name>
 			<Cost>5</Cost>
 			<Text>When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 {crit} result to your roll. If you do, you cannot spend target locks during this attack.</Text>
 			<Ship>tieadvanced</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="reinforceddeflectors">
 			<Name>Reinforced Deflectors</Name>
@@ -1089,6 +1298,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>After you suffer 3 or more damage from an attack, recover 1 shield (up to your shield value).</Text>
 			<LargeOnly>true</LargeOnly>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
@@ -1097,17 +1307,20 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>4</Cost>
 			<Text>Once per round, when attacking with a secondary weapon, you may spend 1 energy to change 1 of your blank results to a {hit} result.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="engineeringteam">
 			<Name>Engineering Team</Name>
 			<Cost>4</Cost>
 			<Text>During the Activation phase, when you reveal a {straight} maneuver, gain 1 additional energy during the "Gain Energy" step.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="sensorteam">
 			<Name>Sensor Team</Name>
 			<Cost>4</Cost>
 			<Text>When acquiring a target lock, you may lock onto an enemy ship at Range 1-5 (instead of Range 1-3).</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ordnanceexperts">
 			<Name>Ordnance Experts</Name>
@@ -1115,6 +1328,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>Once per round when a Friendly ship at Range 1-3 performs an attack with a {missile} or {torpedo} secondary weapon, it may change 1 of its blank results to a {hit} result.</Text>
 			<Limited>true</Limited>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="title" type="Title">
@@ -1124,6 +1338,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>Your action bar gains the Evade action icon.</Text>
 			<Ship>yt1300</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="slavei">
 			<Name>Slave I</Name>
@@ -1134,6 +1349,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 				<Upgrade>Torpedo</Upgrade>
 			</AdditionalUpgrades>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="moldycrow">
 			<Name>Moldy Crow</Name>
@@ -1141,6 +1357,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>During the End phase, do not remove unused focus tokens from your ship.</Text>
 			<Ship>hwk290</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="st321">
 			<Name>ST-321</Name>
@@ -1148,6 +1365,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>When acquiring a target lock, you may lock onto any enemy ship in the play area.</Text>
 			<Ship>lambdaclassshuttle</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="royalguardtie">
 			<Name>Royal Guard TIE</Name>
@@ -1157,6 +1375,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<AdditionalUpgrades>
 				<Upgrade>Modification</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="brighthope">
 			<Name>Bright Hope</Name>
@@ -1166,6 +1385,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dutyfree">
 			<Name>Dutyfree</Name>
@@ -1173,6 +1393,7 @@ A reinforce token assigned to your fore section adds 2 {evade} results (instead 
 			<Text>When performing a jam action, you may choose an enemy ship at Range 1-3 (instead of at Range 1-2).</Text>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="quantumstorm">
 			<Name>Quantum Storm</Name>
@@ -1183,6 +1404,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Energy>1</Energy>
 			<Ship>gr75mediumtransport</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dodonnaspride">
 			<Name>Dodonna's Pride</Name>
@@ -1190,6 +1412,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="jainaslight">
 			<Name>Jaina's Light</Name>
@@ -1197,6 +1420,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>When defending, once per attack, if you are dealt a faceup Damage card, you may discard it and draw another faceup Damage card.</Text>
 			<Ship>cr90f</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tantiveiv">
 			<Name>Tantive IV</Name>
@@ -1208,6 +1432,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 				<Upgrade>Crew</Upgrade>
 				<Upgrade>Team</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="awingtestpilot">
 			<Name>A-Wing Test Pilot</Name>
@@ -1217,6 +1442,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<AdditionalUpgrades>
 				<Upgrade>Elite Pilot Talent</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="outrider">
 			<Name>Outrider</Name>
@@ -1224,6 +1450,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>While you have a {cannon} Upgrade card equipped, you cannot perform primary weapon attacks and you may perform {cannon} secondary weapons attacks against ships outside your firing arc.</Text>
 			<Ship>yt2400</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dauntless">
 			<Name>Dauntless</Name>
@@ -1231,6 +1458,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you execute a maneuver that causes you to overlap another ship, you may perform one free action. Then receive 1 stress token.</Text>
 			<Ship>vt49decimator</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="virago">
 			<Name>Virago</Name>
@@ -1242,24 +1470,28 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 				<Upgrade>System Upgrade</Upgrade>
 				<Upgrade>Illicit</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="heavyscykinterceptor">
 			<Name>&quot;Heavy Scyk&quot; Interceptor</Name>
 			<Cost>2</Cost>
 			<Text>Your upgrade bar gains the {cannon}, {torpedo} or {missile} upgrade icon.</Text>
 			<Ship>m3ainterceptor</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ig2000">
 			<Name>IG-2000</Name>
 			<Cost>0</Cost>
 			<Text>You have the pilot ability of each other friendly ship with the IG-2000 Upgrade card (in addition to your own pilot ability).</Text>
 			<Ship>aggressor</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="btla4ywing">
 			<Name>BTL-A4 Y-wing</Name>
 			<Cost>0</Cost>
 			<Text>You cannot attack ships outside your firing arc. After you perform a primary weapon attack, you may immediately perform an attack with a {turret} secondary weapon.</Text>
 			<Ship>ywing</Ship>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="andrasta">
 			<Name>Andrasta</Name>
@@ -1271,6 +1503,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 				<Upgrade>Bomb</Upgrade>
 				<Upgrade>Bomb</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tiex1">
 			<Name>TIE/x1</Name>
@@ -1280,6 +1513,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="houndstooth">
 			<Name>Hound's Tooth</Name>
@@ -1287,6 +1521,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you are destroyed, before you are removed from the play area, you may deploy the Nashtah Pup Pilot.  It cannot attack this round.</Text>
 			<Ship>yv666</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="assailer">
 			<Name>Assailer</Name>
@@ -1294,6 +1529,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>When defending, if the target section has a reinforce token you may change 1 {focus} result to an {evade} result.</Text>
 			<Ship>raidera</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="impetuous">
 			<Name>Impetuous</Name>
@@ -1301,6 +1537,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you perform an attack that destroys an enemy ship you may acquire a target lock.</Text>
 			<Ship>raidera</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="instigator">
 			<Name>Instigator</Name>
@@ -1308,6 +1545,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you perform a recover action, recover 1 additional shield.</Text>
 			<Ship>raidera</Ship>
 			<Unique>True</Unique>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ghost">
 			<Name>Ghost</Name>
@@ -1316,6 +1554,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Ship>vcx100</Ship>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="phantom">
 			<Name>Phantom</Name>
@@ -1324,6 +1563,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Ship>attackshuttle</Ship>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="misthunter">
 			<Name>Mist Hunter</Name>
@@ -1335,6 +1575,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<AdditionalUpgrades>
 				<Upgrade>Cannon</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="punishingone">
 			<Name>Punishing One</Name>
@@ -1344,6 +1585,15 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Ship>jumpmaster5000</Ship>
 			<Preview>true</Preview>
 			<Attack>1</Attack>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="tiev1">
+			<Name>TIE/v1</Name>
+			<Cost>1</Cost>
+			<Text>After you acquire a target lock, you may perform a free evade action.</Text>
+			<Ship>tieadvancedprototype</Ship>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="torpedo" type="Torpedo">
@@ -1354,6 +1604,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedprotontorpedoes">
 			<Name>Advanced Proton Torpedoes</Name>
@@ -1362,6 +1613,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>5</Dice>
 			<Range>1</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="flechettetorpedoes">
 			<Name>Flechette Torpedoes</Name>
@@ -1370,6 +1622,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="iontorpedoes">
 			<Name>Ion Torpedoes</Name>
@@ -1378,6 +1631,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bombloadout">
 			<Name>Bomb Loadout</Name>
@@ -1388,12 +1642,14 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<AdditionalUpgrades>
 				<Upgrade>Bomb</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="extramunitions">
 			<Name>Extra Munitions</Name>
 			<Cost>2</Cost>
 			<Text>When you equip this card, place 1 ordnance token on each equipped {torpedo}, {missile}, and {bomb} Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.</Text>
 			<Limited>true</Limited>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="plasmatorpedoes">
 			<Name>Plasma Torpedoes</Name>
@@ -1402,6 +1658,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="turret" type="Turret Weapon">
@@ -1412,6 +1669,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="blasterturret">
 			<Name>Blaster Turret</Name>
@@ -1420,6 +1678,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-2</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="autoblasterturret">
 			<Name>Autoblaster Turret</Name>
@@ -1428,6 +1687,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>2</Dice>
 			<Range>1</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="twinlaserturret">
 			<Name>Twin Laser Turret</Name>
@@ -1436,6 +1696,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2-3</Range>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dorsalturret">
 			<Name>Dorsal Turret</Name>
@@ -1447,6 +1708,7 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<Dice>2</Dice>
 			<Range>1-2</Range>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 	<Category id="tech" type="Tech">
@@ -1454,12 +1716,14 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<Name>Weapons Guidance</Name>
 			<Cost>2</Cost>
 			<Text>When attacking, you may spend a focus token to change one of your blank results to a {hit} result.</Text>
+			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="commsrelay">
 			<Name>Comms Relay</Name>
 			<Cost>3</Cost>
 			<Text>You cannot have more than 1 evade token.  During the End phase, do not remove an unused evade token from your ship.</Text>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
 </Upgrades>

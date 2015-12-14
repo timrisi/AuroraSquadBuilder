@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="2.01">
+<Ships Version="2.02">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -8,6 +8,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="hwk290">
 		<Name>HWK-290</Name>
@@ -15,6 +16,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="ywing">
 		<Name>Y-Wing</Name>
@@ -22,6 +24,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="z95headhunter">
 		<Name>Z-95 Headhunter</Name>
@@ -29,6 +32,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="m3ainterceptor">
 		<Name>M3-A "Scyk" Interceptor</Name>
@@ -38,6 +42,7 @@
 			<Action>Evade</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="kihraxzfighter">
 		<Name>Kihraxz</Name>
@@ -45,6 +50,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="firespray31">
 		<Name>Firespray-31</Name>
@@ -54,6 +60,7 @@
 			<Action>Target Lock</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="aggressor">
 		<Name>Aggressor</Name>
@@ -64,6 +71,7 @@
 			<Action>Evade</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="yv666">
 		<Name>YV-666</Name>
@@ -72,6 +80,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="g1astarfighter">
 		<Name>G-1A Starfighter</Name>
@@ -80,6 +89,7 @@
 			<Action>Target Lock</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
@@ -89,6 +99,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="awing">
 		<Name>A-Wing</Name>
@@ -98,6 +109,7 @@
 			<Action>Boost</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="bwing">
 		<Name>B-Wing</Name>
@@ -106,6 +118,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="ewing">
 		<Name>E-Wing</Name>
@@ -115,6 +128,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="kwing">
 		<Name>K-Wing</Name>
@@ -122,6 +136,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="xwing">
 		<Name>X-Wing</Name>
@@ -129,6 +144,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
@@ -137,6 +153,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="yt2400">
 		<Name>YT-2400</Name>
@@ -146,6 +163,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="attackshuttle">
 		<Name>Attack Shuttle</Name>
@@ -154,6 +172,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="vcx100">
 		<Name>VCX-100</Name>
@@ -163,6 +182,7 @@
 			<Action>Target Lock</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
@@ -173,6 +193,7 @@
 			<Action>Jam</Action>
 			<Action>Coordinate</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="cr90f">
 		<Name>CR90 Corvette (Fore)</Name>
@@ -181,6 +202,7 @@
 			<Action>Target Lock</Action>
 			<Action>Coordinate</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="cr90a">
 		<Name>CR90 Corvette (Aft)</Name>
@@ -189,6 +211,7 @@
 			<Action>Recover</Action>
 			<Action>Reinforce</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tieadvanced">
 		<Name>TIE Advanced</Name>
@@ -198,6 +221,7 @@
 			<Action>Evade</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiebomber">
 		<Name>TIE Bomber</Name>
@@ -206,6 +230,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiedefender">
 		<Name>TIE Defender</Name>
@@ -214,6 +239,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiefighter">
 		<Name>TIE Fighter</Name>
@@ -222,6 +248,7 @@
 			<Action>Evade</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tieinterceptor">
 		<Name>TIE Interceptor</Name>
@@ -231,6 +258,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiephantom">
 		<Name>TIE Phantom</Name>
@@ -240,6 +268,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Cloak</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiepunisher">
 		<Name>TIE Punisher</Name>
@@ -248,6 +277,7 @@
 			<Action>Target Lock</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tieadvancedprototype">
 		<Name>TIE Adv. Prototype</Name>
@@ -257,6 +287,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>
@@ -265,6 +296,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="vt49decimator">
 		<Name>VT-49 Decimator</Name>
@@ -273,6 +305,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>
@@ -281,6 +314,7 @@
 			<Action>Recover</Action>
 			<Action>Reinforce</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="raidera">
 		<Name>Raider-class Corvette (Aft)</Name>
@@ -289,6 +323,7 @@
 			<Action>Target Lock</Action>
 			<Action>Coordinate</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="t70xwing">
 		<Name>T-70 X-wing</Name>
@@ -297,6 +332,7 @@
 			<Action>Target Lock</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="tiefofighter">
 		<Name>TIE/FO Fighter</Name>
@@ -306,6 +342,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Evade</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 	<Ship id="gozanticlasscruiser">
 		<Name>Gozanti-class Cruiser</Name>
@@ -316,5 +353,6 @@
 			<Action>Coordinate</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Owned>0</Owned>
 	</Ship>
 </Ships>

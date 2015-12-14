@@ -81,6 +81,11 @@ namespace SquadBuilder.Droid
 			var customUpgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades_Custom.xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
+
+			var expansionsXml = new StreamReader (Application.Context.Assets.Open ("Expansions.xml")).ReadToEnd ();
+			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Expansions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Expansions.xml")))?.Attribute ("Version") < Settings.ExpansionsVersion)
+				saveAndLoad.SaveText ("Expansions.xml", upgradesXml);
 			
 			LoadApplication(new App());
 		}
