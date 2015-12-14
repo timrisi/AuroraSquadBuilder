@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.10">
+<Pilots Version="2.13">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2297,6 +2297,29 @@
 		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="tomaxbren" faction="empire" ship="tiebomber">
+		<Name>Tomax Bren</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>8</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>6</Hull>
+		<Shields>0</Shields>
+		<Cost>24</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Once per round, after you discard an {elite pilot talent} Upgrade card, flip that card faceup.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
 	<Pilot id="majorrhymer" faction="empire" ship="tiebomber">
 		<Name>Major Rhymer</Name>
 		<Unique>true</Unique>
@@ -2313,6 +2336,7 @@
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking with a secondary weapon, you may increase or decrease the weapon range by 1 to a limit of Range 1-3.</Ability>
@@ -2334,9 +2358,31 @@
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 attacks with a secondary weapon, it may reroll up to 2 attack dice.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="gammasquadronpilot" faction="empire" ship="tiebomber">
+		<Name>Gamma Squadron Veteran</Name>
+		<Unique>false</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>6</Hull>
+		<Shields>0</Shields>
+		<Cost>19</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="gammasquadronpilot" faction="empire" ship="tiebomber">
@@ -2354,6 +2400,7 @@
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -2373,6 +2420,7 @@
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -2390,6 +2438,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you perform an attack that deals at least 1 Damage card to the defender, you may spend a focus token to flip those cards faceup.</Ability>
@@ -2408,6 +2457,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, immediately after you roll attack dice, you may acquire a target lock on the defender if it already has a red target lock token.</Ability>
@@ -2425,6 +2475,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -2441,6 +2492,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>

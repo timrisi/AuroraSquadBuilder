@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.23">
+<Upgrades Version="2.27">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1221,6 +1221,17 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
+		<Upgrade id="longrangescanners">
+			<Name>Long-Range Scanners</Name>
+			<Cost>0</Cost>
+			<Text>You can acquire target locks on ships at Range 3 and beyond.  You cannot acquire target locks on ships at range 1-2.  You can equip this card only if you have {torpedo} and {missile} in your upgrade bar.</Text>
+			<RequiredSlots>
+				<Upgrade>Torpedo</Upgrade>
+				<Upgrade>Missile</Upgrade>
+			</RequiredSlots>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
 	</Category>
 	<Category id="samd" type="Salvaged Astromech">
 		<Upgrade id="r4agromech">
@@ -1593,6 +1604,51 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you acquire a target lock, you may perform a free evade action.</Text>
 			<Ship>tieadvancedprototype</Ship>
 			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="tiex7">
+			<Name>TIE/x7</Name>
+			<Cost>-2</Cost>
+			<Text>Your upgrade bar loses the {cannon} and {missile} upgrade icons.  
+
+After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to your ship.</Text>
+			<Ship>tiedefender</Ship>
+			<Preview>true</Preview>
+			<RemovedUpgrades>
+				<Upgrade>Cannon</Upgrade>
+				<Upgrade>Missile</Upgrade>
+			</RemovedUpgrades>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="tied">
+			<Name>TIE/D</Name>
+			<Cost>0</Cost>
+			<Text>Once per round, after you perform an attack with a {cannon} secondary weapon that costs 3 or fewer squad points, you may perform a primary weapon attack.</Text>
+			<Ship>tiedefender</Ship>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="tieshuttle">
+			<Name>TIE Shuttle</Name>
+			<Cost>0</Cost>
+			<Text>Your upgrade bar loses all {torpedo}, {missile}, and {bomb} upgrade icons and gains 2 {crew} upgrade icons.  You cannot equip a {crew} Upgrade card that costs more than 4 squad points.</Text>
+			<Ship>tiebomber</Ship>
+			<Preview>true</Preview>
+			<RemovedUpgrades>
+				<Upgrade>Torpedo</Upgrade>
+				<Upgrade>Torpedo</Upgrade>
+				<Upgrade>Torpedo</Upgrade>
+				<Upgrade>Missile</Upgrade>
+				<Upgrade>Missile</Upgrade>
+				<Upgrade>Missile</Upgrade>
+				<Upgrade>Bomb</Upgrade>
+				<Upgrade>Bomb</Upgrade>
+				<Upgrade>Bomb</Upgrade>
+			</RemovedUpgrades>
+			<AdditionalUpgrades>
+				<Upgrade>Crew</Upgrade>
+				<Upgrade>Crew</Upgrade>
+			</AdditionalUpgrades>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
