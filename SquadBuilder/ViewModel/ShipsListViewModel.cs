@@ -76,6 +76,9 @@ namespace SquadBuilder
 				allShips = Cards.SharedInstance.AllShips;
 			else
 				allShips = Cards.SharedInstance.Ships;
+
+			if (Settings.HideUnavailable)
+				allShips = new ObservableCollection<Ship> (allShips.Where (s => s.IsAvailable));
 		}
 
 		void filterShips ()

@@ -68,6 +68,14 @@ namespace SquadBuilder
 			}
 		}
 
+		public Color TextColor {
+			get { return IsAvailable ? Color.Black : Color.Gray; }
+		}
+
+		public bool IsAvailable {
+			get { return Owned > Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id); }
+		}
+
 		[XmlIgnore]
 		RelayCommand deleteShip;
 		[XmlIgnore]

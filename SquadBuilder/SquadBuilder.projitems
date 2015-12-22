@@ -111,7 +111,11 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Expansion.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CollectionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ExpansionGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml.cs">
+      <DependentUpon>CollectionView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -183,6 +187,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

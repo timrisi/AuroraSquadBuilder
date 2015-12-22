@@ -18,6 +18,7 @@ namespace SquadBuilder
 			allowCustom = (bool)settingsXml.Element ("AllowCustom");
 			filterPilotsByShip = (bool)settingsXml.Element ("FilterPilotsByShip");
 			updateOnLaunch = (bool)settingsXml.Element ("UpdateOnLaunch");
+			hideUnavailable = (bool)settingsXml.Element ("HideUnavailable");
 		}
 
 		public static float FactionsVersion { get; set; }
@@ -54,6 +55,16 @@ namespace SquadBuilder
 			set {
 				updateOnLaunch = value;
 				settingsXml.SetElementValue ("UpdateOnLaunch", value);
+				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+			}
+		}
+
+		static bool hideUnavailable;
+		public static bool HideUnavailable {
+			get { return hideUnavailable; }
+			set {
+				hideUnavailable = value;
+				settingsXml.SetElementValue ("HideUnavailable", value);
 				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
 			}
 		}

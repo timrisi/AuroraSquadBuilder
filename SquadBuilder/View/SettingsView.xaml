@@ -17,6 +17,10 @@
 				<Switch IsToggled="{Binding FilterPilotsByShip, Mode=TwoWay}" StyleId="FilterSwitch" HorizontalOptions="End" />
 			</StackLayout>
 			<StackLayout Orientation="Horizontal" Spacing="5">
+				<Label Text="Hide Unavailable Ships/Cards" YAlign="Center" HorizontalOptions="StartAndExpand" />
+				<Switch IsToggled="{Binding HideUnavailable, Mode=TwoWay}" StyleId="FilterSwitch" HorizontalOptions="End" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Spacing="5">
 				<Label Text="Check for updates on launch" YAlign="Center" HorizontalOptions="StartAndExpand" />
 				<Switch IsToggled="{Binding UpdateOnLaunch, Mode=TwoWay}" HorizontalOptions="End" />
 			</StackLayout>

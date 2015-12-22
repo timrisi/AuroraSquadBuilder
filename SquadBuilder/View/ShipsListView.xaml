@@ -15,7 +15,7 @@
 					  SelectedItem="{Binding SelectedShip, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<TextCell Text="{Binding Name}" Detail="{Binding ActionsString}" />
+						<TextCell Text="{Binding Name}" TextColor="{Binding TextColor}" Detail="{Binding ActionsString}" />
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

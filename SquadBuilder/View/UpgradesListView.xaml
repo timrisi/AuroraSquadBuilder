@@ -23,8 +23,8 @@
 							<ViewCell.View>
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
-										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
+										<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" TextColor="{Binding TextColor}" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" TextColor="{Binding TextColor}" />
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
 										<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />

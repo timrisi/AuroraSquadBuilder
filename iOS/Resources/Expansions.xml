@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.00">
+<Expansions Version="1.14">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -172,7 +172,7 @@
 			<Upgrade>concussionmissiles</Upgrade>
 			<Upgrade>chewbacca</Upgrade>
 			<Upgrade>lukeskywalker</Upgrade>
-			<Upgrade>niennumb</Upgrade>
+			<Upgrade>niennunb</Upgrade>
 			<Upgrade>weaponsengineer</Upgrade>
 			<Upgrade>milleniumfalcon</Upgrade>
 			<Upgrade>engineupgrade</Upgrade>
@@ -286,7 +286,7 @@
 			<Pilot>captainkagi</Pilot>
 			<Pilot>captainyorr</Pilot>
 			<Pilot>coloneljendon</Pilot>
-			<Pilot>omnicrongrouppilot</Pilot>
+			<Pilot>omicrongrouppilot</Pilot>
 		</Pilots>
 		<Upgrades>
 			<Upgrade>heavylasercannon</Upgrade>
@@ -295,8 +295,8 @@
 			<Upgrade>navigator</Upgrade>
 			<Upgrade>rebelcaptive</Upgrade>
 			<Upgrade>weaponsengineer</Upgrade>
-			<Upgrade>antipursuitlaser</Upgrade>
-			<Upgrade>antipursuitlaser</Upgrade>
+			<Upgrade>antipursuitlasers</Upgrade>
+			<Upgrade>antipursuitlasers</Upgrade>
 			<Upgrade>st321</Upgrade>
 			<Upgrade>advancedsensors</Upgrade>
 			<Upgrade>sensorjammer</Upgrade>
@@ -470,7 +470,7 @@
 		</Ships>
 		<Pilots>
 			<Pilot>rearadmiralchiraneau</Pilot>
-			<Pilot>captainkenkirk</Pilot>
+			<Pilot>commanderkenkirk</Pilot>
 			<Pilot>captainoicunn</Pilot>
 			<Pilot>patrolleader</Pilot>
 		</Pilots>
@@ -486,8 +486,8 @@
 			<Upgrade>moffjerjerrod</Upgrade>
 			<Upgrade>ysanneisard</Upgrade>
 			<Upgrade>dauntless</Upgrade>
-			<Upgrade>tacticaljammer</Upgrade>
-			<Upgrade>tacticaljammer</Upgrade>
+			<Upgrade>tacticaljammers</Upgrade>
+			<Upgrade>tacticaljammers</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
@@ -506,8 +506,8 @@
 			<Pilot>kaatoleeachos</Pilot>
 			<Pilot>blacksunsoldier</Pilot>
 			<Pilot>blacksunsoldier</Pilot>
-			<Pilot>binayrepilot</Pilot>
-			<Pilot>binayrepilot</Pilot>
+			<Pilot>binayrepirate</Pilot>
+			<Pilot>binayrepirate</Pilot>
 			<Pilot>kavil</Pilot>
 			<Pilot>drearenthal</Pilot>
 			<Pilot>hiredgun</Pilot>
@@ -515,14 +515,13 @@
 			<Pilot>syndicatethug</Pilot>
 			<Pilot>syndicatethug</Pilot>
 			<Pilot>bobafett</Pilot>
-			<Pilot>kathscarlett</Pilot>
+			<Pilot>kathscarlet</Pilot>
 			<Pilot>emonazzameen</Pilot>
 			<Pilot>mandalorianmercenary</Pilot>
 			<Pilot>dacebonearm</Pilot>
 			<Pilot>palobgodalhi</Pilot>
 			<Pilot>torkhilmux</Pilot>
 			<Pilot>spicerunner</Pilot>
-			<Pilot>syndicatethug</Pilot>
 		</Pilots>
 		<Upgrades>
 			<Upgrade>autoblasterturret</Upgrade>
@@ -584,7 +583,7 @@
 			<Upgrade>bodyguard</Upgrade>
 			<Upgrade>calculation</Upgrade>
 			<Upgrade>iontorpedoes</Upgrade>
-			<Upgrade>accuracycorrector</Upgrade>
+			<Upgrade>accuraccorrector</Upgrade>
 			<Upgrade>virago</Upgrade>
 			<Upgrade>autothrusters</Upgrade>
 			<Upgrade>autothrusters</Upgrade>
@@ -610,7 +609,7 @@
 			<Upgrade>autoblaster</Upgrade>
 			<Upgrade>seismiccharges</Upgrade>
 			<Upgrade>proximitymines</Upgrade>
-			<Upgrade>accuracycorrector</Upgrade>
+			<Upgrade>accuraccorrector</Upgrade>
 			<Upgrade>ig2000</Upgrade>
 			<Upgrade>hotshotblaster</Upgrade>
 			<Upgrade>deadmansswitch</Upgrade>
@@ -638,7 +637,7 @@
 		<Upgrades>
 			<Upgrade>extramunitions</Upgrade>
 			<Upgrade>plasmatorpedoes</Upgrade>
-			<Upgrade>advhomingmissiles</Upgrade>
+			<Upgrade>advancedhomingmissiles</Upgrade>
 			<Upgrade>twinlaserturret</Upgrade>
 			<Upgrade>twinlaserturret</Upgrade>
 			<Upgrade>connernet</Upgrade>
@@ -657,14 +656,14 @@
 		<Pilots>
 			<Pilot>redline</Pilot>
 			<Pilot>deathrain</Pilot>
-			<Pilot>blackeightsqpilot</Pilot>
+			<Pilot>blackeightsquadronpilot</Pilot>
 			<Pilot>cutlasssquadronpilot</Pilot>
 		</Pilots>
 		<Upgrades>
 			<Upgrade>extramunitions</Upgrade>
 			<Upgrade>flechettetorpedoes</Upgrade>
 			<Upgrade>plasmatorpedoes</Upgrade>
-			<Upgrade>advhomingmissiles</Upgrade>
+			<Upgrade>advancedhomingmissiles</Upgrade>
 			<Upgrade>clustermines</Upgrade>
 			<Upgrade>ionbombs</Upgrade>
 			<Upgrade>enhancedscopes</Upgrade>
@@ -677,7 +676,7 @@
 		<Name>Kihraxz Fighter</Name>
 		<Wave>Wave 7</Wave>
 		<Ships>
-			<Ship>kihraxz</Ship>
+			<Ship>kihraxzfighter</Ship>
 		</Ships>
 		<Pilots>
 			<Pilot>talonbanecobra</Pilot>
@@ -733,7 +732,7 @@
 		</Ships>
 		<Pilots>
 			<Pilot>carnorjax</Pilot>
-			<Pilot>tetrancowall</Pilot>
+			<Pilot>tetrancowell</Pilot>
 			<Pilot>kirkanos</Pilot>
 			<Pilot>lieutenantlorrir</Pilot>
 			<Pilot>royalguardpilot</Pilot>
@@ -775,9 +774,9 @@
 			<Pilot>prototypepilot</Pilot>
 		</Pilots>
 		<Upgrades>
-			<Upgrade>chaardanrefit</Upgrade>
-			<Upgrade>chaardanrefit</Upgrade>
-			<Upgrade>chaardanrefit</Upgrade>
+			<Upgrade>chardaanrefit</Upgrade>
+			<Upgrade>chardaanrefit</Upgrade>
+			<Upgrade>chardaanrefit</Upgrade>
 			<Upgrade>protonrockets</Upgrade>
 			<Upgrade>protonrockets</Upgrade>
 			<Upgrade>janors</Upgrade>
@@ -815,7 +814,7 @@
 			<Upgrade>r4d6</Upgrade>
 			<Upgrade>r5p9</Upgrade>
 			<Upgrade>carlistrieekan</Upgrade>
-			<Upgrade>jandodanna</Upgrade>
+			<Upgrade>jandodonna</Upgrade>
 			<Upgrade>torynfarr</Upgrade>
 			<Upgrade>wed15repairdroid</Upgrade>
 			<Upgrade>flechettetorpedoes</Upgrade>
@@ -890,7 +889,7 @@
 			<Pilot>commanderalozen</Pilot>
 			<Pilot>lieutenantcolzet</Pilot>
 			<Pilot>stormsquadronpilot</Pilot>
-			<Pilot>temptestsquadronpilot</Pilot>
+			<Pilot>tempestsquadronpilot</Pilot>
 		</Pilots>
 		<Upgrades>
 			<Upgrade>clustermissiles</Upgrade>

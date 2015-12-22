@@ -31,6 +31,14 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool HideUnavailable {
+			get { return Settings.HideUnavailable; }
+			set {
+				Settings.HideUnavailable = value;
+				NotifyPropertyChanged ("HideUnavailable");
+			}
+		}
+
 		RelayCommand checkForUpdates;
 		public RelayCommand CheckForUpdates {
 			get {

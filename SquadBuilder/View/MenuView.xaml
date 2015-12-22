@@ -11,6 +11,7 @@
 					 BackgroundColor="Silver"
 					 Spacing="5" >
 			<Button Text="Squadrons" HorizontalOptions="FillAndExpand" Command="{Binding ShowSquadrons}" />
+			<Button Text="Collection" HorizontalOptions="FillAndExpand" Command="{Binding ShowCollection}" />
 			<Button Text="Custom Factions" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomFactions}" />
 			<Button Text="Custom Ships" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomShips}" />
 			<Button Text="Custom Pilots" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomPilots}" />

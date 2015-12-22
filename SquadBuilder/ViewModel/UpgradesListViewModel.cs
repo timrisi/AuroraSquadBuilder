@@ -97,6 +97,9 @@ namespace SquadBuilder
 					valid.Add (upgrade);
 			}
 
+			if (Settings.HideUnavailable)
+				valid = new ObservableCollection<Upgrade> (valid.Where (u => u.IsAvailable));
+
 			if (Pilot.Ship.LargeBase)
 				return new ObservableCollection<Upgrade> (valid.Where (u => !u.HugeOnly && !u.SmallOnly));
 			else if (Pilot.Ship.Huge) {

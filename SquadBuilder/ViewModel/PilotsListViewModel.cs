@@ -16,7 +16,7 @@ namespace SquadBuilder
 
 		public PilotsListViewModel ()
 		{
-			allPilots = GetAllPilots ();
+			allPilots = getAllPilots ();
 
 			PilotGroups = new ObservableCollection <PilotGroup> (allPilots);
 		}
@@ -63,7 +63,7 @@ namespace SquadBuilder
 			}
 		}
 
-		ObservableCollection <PilotGroup> GetAllPilots ()
+		ObservableCollection <PilotGroup> getAllPilots ()
 		{
 			var allPilotGroups = new ObservableCollection <PilotGroup>();
 
@@ -71,6 +71,9 @@ namespace SquadBuilder
 
 			if (Settings.AllowCustom)
 				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
+
+			if (Settings.HideUnavailable)
+				allPilots = allPilots.Where (p => p.IsAvailable).ToList ();
 
 			foreach (var pilot in allPilots) {
 				while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
@@ -113,6 +116,7 @@ namespace SquadBuilder
 		public void SearchPilots (string text)
 		{
 			var filteredPilotGroups = allPilots.Where (p => Faction.Name != "Mixed" ? p.Faction.Name == Faction.Name : p != null).ToList ();
+
 			var searchPilots = new ObservableCollection <PilotGroup> ();
 
 			foreach (var grp in filteredPilotGroups) {
@@ -137,7 +141,7 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			allPilots = GetAllPilots ();
+			allPilots = getAllPilots ();
 
 			PilotGroups = new ObservableCollection <PilotGroup> (allPilots);
 			filterPilots ();

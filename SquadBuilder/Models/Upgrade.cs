@@ -52,6 +52,23 @@ namespace SquadBuilder
 		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
 
+		public Color TextColor {
+			get { return IsAvailable ? Color.Black : Color.Gray; }
+		}
+
+		public bool IsAvailable {
+			get {
+				var count = 0;
+				foreach (var pilot in Cards.SharedInstance.CurrentSquadron.Pilots)
+					count += pilot.UpgradesEquipped.Count (u => u != null && u.Id == Id);
+
+				if (Unique && count > 0)
+					return false;
+			
+				return Owned > count;
+			}
+		}
+
 		[XmlIgnore]
 		public RelayCommand deleteUpgrade;
 		[XmlIgnore]

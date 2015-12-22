@@ -12,8 +12,8 @@ namespace SquadBuilder
 			DetailPage = new NavigationPage (new MainView ());
 		}
 
-		Page masterPage;
-		public Page MasterPage {
+		MenuView masterPage;
+		public MenuView MasterPage {
 			get { return masterPage; }
 			set { SetProperty (ref masterPage, value); }
 		}

@@ -7,11 +7,14 @@ using System.IO;
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
 	public class Cards : ObservableObject
 	{
+		const string squadronsFilename = "squadrons.xml";
+
 		public Cards ()
 		{
 			GetAllFactions ();
@@ -19,6 +22,9 @@ namespace SquadBuilder
 			GetAllPilots ();
 			GetAllUpgrades ();
 			GetAllExpansions ();
+			GetAllSquadrons ();
+
+			MessagingCenter.Subscribe <App> (this, "Save Squadrons", app => SaveSquadrons ());
 		}
 
 		static Cards sharedInstance;
@@ -29,6 +35,12 @@ namespace SquadBuilder
 
 				return sharedInstance;
 			}
+		}
+
+		Squadron currentSquadron;
+		public Squadron CurrentSquadron {
+			get { return currentSquadron; }
+			set { SetProperty (ref currentSquadron, value); }
 		}
 
 		ObservableCollection <Faction> factions;
@@ -183,6 +195,12 @@ namespace SquadBuilder
 		public ObservableCollection <Expansion> Expansions {
 			get { return expansions; }
 			set { SetProperty (ref expansions, value); }
+		}
+
+		ObservableCollection <Squadron> squadrons;
+		public ObservableCollection <Squadron> Squadrons {
+			get { return squadrons; }
+			set { SetProperty (ref squadrons, value); }
 		}
 
 		public void GetAllFactions ()
@@ -403,9 +421,95 @@ namespace SquadBuilder
 						select pilot.Value).ToList (),
 					Upgrades = (from upgrade in expansion.Element ("Upgrades").Elements ()
 						select upgrade.Value).ToList (),
-					Owned = (int)expansion.Element ("Owned")
+					owned = (int)expansion.Element ("Owned")
 			});
+		}
+
+		public void GetAllSquadrons ()
+		{
+			var service = DependencyService.Get <ISaveAndLoad> ();
+
+			if (!service.FileExists (squadronsFilename)) {
+				Squadrons = new ObservableCollection<Squadron> ();
+				return;
+			}
+
+			var serializedXml = service.LoadText (squadronsFilename);
+			var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
+
+			using (TextReader reader = new StringReader (serializedXml)) {
+				var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
+
+				foreach (var squad in squads)
+					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
+
+				Squadrons = squads;
+			}
+		}
+
+		public void SaveSquadrons ()
+		{
+			if (Squadrons.Count == 0)
+				DependencyService.Get <ISaveAndLoad> ().DeleteFile (squadronsFilename);
+			
+			var serializer = new XmlSerializer (typeof (ObservableCollection <Squadron>));
+			using (var stringWriter = new StringWriter ()) {
+				serializer.Serialize (stringWriter, Squadrons);
+				string serializedXML = stringWriter.ToString ();
+
+				DependencyService.Get <ISaveAndLoad> ().SaveText (squadronsFilename, serializedXML);
+			}
+		}
+
+		public void SaveCollection ()
+		{
+			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Expansions.xml")));
+			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
+			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
+			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
+
+			foreach (var expansion in Expansions) {
+				var element = expansionsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == expansion.Id);
+
+				if (element == null)
+					continue;
+
+				element.SetElementValue ("Owned", expansion.Owned);
+			}
+
+			foreach (var ship in Ships) {
+				var element = shipsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == ship.Id);
+
+				if (element == null)
+					continue;
+
+				element.SetElementValue ("Owned", ship.Owned);
+			}
+
+			foreach (var pilot in Pilots) {
+				var element = pilotsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == pilot.Id);
+
+				if (element == null)
+					continue;
+
+				element.SetElementValue ("Owned", pilot.Owned);
+			}
+
+			foreach (var upgrade in Upgrades) {
+				var element = upgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == upgrade.Id);
+
+				if (element == null)
+					continue;
+
+				element.SetElementValue ("Owned", upgrade.Owned);
+			}
+
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Expansions.xml", expansionsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships.xml", shipsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots.xml", pilotsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades.xml", upgradesXml.ToString ());
+
+			Cards.SharedInstance.GetAllExpansions ();
 		}
 	}
 }
-

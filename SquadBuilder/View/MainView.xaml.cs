@@ -8,10 +8,10 @@ namespace SquadBuilder
 {
 	public partial class MainView : BaseView
 	{
-		public MainView ()
+		public MainView (string faction = null)
 		{
 			InitializeComponent ();
-			BindingContext = new MainViewModel ();
+			BindingContext = new MainViewModel (faction);
 		}
 	}
 }

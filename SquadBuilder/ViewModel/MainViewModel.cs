@@ -13,49 +13,23 @@ namespace SquadBuilder
 {
 	public class MainViewModel : ViewModel
 	{
-		const string squadronsFilename = "squadrons.xml";
-
-		public MainViewModel()
+		public MainViewModel(string faction = null)
 		{
-			var service = DependencyService.Get <ISaveAndLoad> ();
-			if (service.FileExists (squadronsFilename)) {
-				var serializedXml = service.LoadText (squadronsFilename);
-				var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
-				using (TextReader reader = new StringReader (serializedXml)) {
-					var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
-
-					var factions = Cards.SharedInstance.AllFactions;
-
-					foreach (var squad in squads)
-						squad.Faction = factions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
-
-					Squadrons = squads;
-				}
-			}
-
-			MessagingCenter.Subscribe <App> (this, "Save Squadrons", app => SaveSquadrons ());
-
-			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", 
-				squadron => Squadrons.Remove (squadron)
-			);
-
-			MessagingCenter.Subscribe <Squadron> (this, "EditDetails", 
-				squadron => Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron)
-			);
-
-			MessagingCenter.Subscribe <Squadron> (this, "CopySquadron", 
-				squadron => Squadrons.Add (squadron.Copy ())
-			);
-
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Create Faction", vm => Navigation.PushAsync<CreateFactionViewModel> ());
+			Faction = faction;
 		}
 
-		public string PageName { get { return "Squadrons"; } }
+		public string PageName { get { return Faction ?? "All"; } }
 
-		ObservableCollection <Squadron> squadrons = new ObservableCollection <Squadron> ();
-		public ObservableCollection <Squadron> Squadrons {
-			get { return squadrons; }
-			set { SetProperty (ref squadrons, value); }
+		string faction;
+		public string Faction {
+			get { return faction; }
+			set { 
+				SetProperty (ref faction, value); 
+			}
+		}
+
+		public IEnumerable <Squadron> Squadrons {
+			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s.Faction.Name == Faction); }
 		}
 
 		Squadron selectedSquadron = null;
@@ -64,6 +38,7 @@ namespace SquadBuilder
 			set { 
 				SetProperty (ref selectedSquadron, value);
 				if (value != null) {
+					Cards.SharedInstance.CurrentSquadron = selectedSquadron;
 					Navigation.PushAsync <SquadronViewModel> ((vm,p) => {
 						vm.Squadron = selectedSquadron;
 						selectedSquadron = null;
@@ -80,10 +55,10 @@ namespace SquadBuilder
 				if (addSquadron == null)
 					addSquadron = new RelayCommand (() => {
 						MessagingCenter.Subscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created", (vm, Squadron) => {
-							Squadrons.Add (Squadron);
+							Cards.SharedInstance.Squadrons.Add (Squadron);
 							Navigation.PopAsync (false);
-							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
-							SaveSquadrons ();
+
+							Cards.SharedInstance.SaveSquadrons ();
 //							SelectedSquadron = Squadron;
 
 							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
@@ -101,25 +76,43 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			Squadrons = new ObservableCollection <Squadron> (Squadrons);
-			SaveSquadrons ();
+			Cards.SharedInstance.CurrentSquadron = null;
+
+			Cards.SharedInstance.SaveSquadrons ();
 
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");
+
+			MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+
+			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", squadron => {
+				Cards.SharedInstance.Squadrons.Remove (squadron);
+				NotifyPropertyChanged ("Squadrons");
+			});
+
+			MessagingCenter.Subscribe <Squadron> (this, "EditDetails", squadron => {
+				Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron);
+				NotifyPropertyChanged ("Squadrons");
+			});
+
+			MessagingCenter.Subscribe <Squadron> (this, "CopySquadron", squadron => {
+				Cards.SharedInstance.Squadrons.Add (squadron.Copy ());
+				NotifyPropertyChanged ("Squadrons");
+			});
 		}
 
-		public void SaveSquadrons ()
+		public override void OnViewDisappearing ()
 		{
-			if (Squadrons.Count == 0)
-				DependencyService.Get <ISaveAndLoad> ().DeleteFile (squadronsFilename);
-			
-			var serializer = new XmlSerializer (typeof (ObservableCollection<Squadron>));
-			using (var stringWriter = new StringWriter ()) {
-				serializer.Serialize (stringWriter, Squadrons);
-				string serializedXML = stringWriter.ToString ();
+			base.OnViewDisappearing ();
 
-				DependencyService.Get <ISaveAndLoad> ().SaveText (squadronsFilename, serializedXML);
-			}
+			MessagingCenter.Unsubscribe <Squadron> (this, "DeleteSquadron");
+			MessagingCenter.Unsubscribe <Squadron> (this, "CopySquadron");
+			MessagingCenter.Unsubscribe <Squadron> (this, "EditDetails");
+		}
+
+		void filterSquadrons ()
+		{
+			
 		}
 	}
 }

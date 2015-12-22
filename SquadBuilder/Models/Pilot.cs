@@ -180,6 +180,23 @@ namespace SquadBuilder
 			}
 		}
 
+		public Color TextColor {
+			get {
+				if (Id == "keyanfarlander")
+					Console.WriteLine ("Keyan: Available - " + IsAvailable);
+				return IsAvailable ? Color.Black : Color.Gray; 
+			}
+		}
+
+		public bool IsAvailable {
+			get {
+				if (Unique && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
+					return false;
+				
+				return Owned > Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Id == Id);
+			}
+		}
+
 		[XmlIgnore]
 		RelayCommand deletePilot;
 		[XmlIgnore]
@@ -251,6 +268,7 @@ namespace SquadBuilder
 		public Pilot Copy ()
 		{
 			return new Pilot {
+				Id = Id,
 				Name = Name,
 				Faction = Faction,
 				Ship = Ship,

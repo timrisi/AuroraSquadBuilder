@@ -26,8 +26,8 @@
 						<ViewCell.View>
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
-										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" />
+										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" TextColor="{Binding TextColor}" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" TextColor="{Binding TextColor}" />
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" 
 												 Spacing="15">

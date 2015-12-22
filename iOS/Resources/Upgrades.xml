@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.27">
+<Upgrades Version="2.31">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -600,10 +600,19 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			</ExtraSlots>
 			<Owned>0</Owned>
 		</Upgrade>
+		<Upgrade id="admiralozzel">
+			<Name>Admiral Ozzel</Name>
+			<Cost>2</Cost>
+			<Text>If you overlap an obstacle during the Activation Phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a {hit} or {crit} result, suffer 1 damage.</Text>
+			<Faction>empire</Faction>
+			<Unique>true</Unique>
+			<HugeOnly>true</HugeOnly>
+			<Owned>0</Owned>
+		</Upgrade>
 		<Upgrade id="captainneeda">
 			<Name>Captain Needa</Name>
 			<Cost>2</Cost>
-			<Text>If you overlap an obstacle during the Activation Phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a {hit} or {crit} result, suffer 1 damage.</Text>
+			<Text>Energy: You may remove up to 3 shields from your ship.  For each shield removed, gain 1 energy.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
@@ -628,7 +637,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		<Upgrade id="agentkallus">
 			<Name>Agent Kallus</Name>
 			<Cost>2</Cost>
-			<Text>At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change of of your {focus} results to a {hit} or {evade} result.</Text>
+			<Text>At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change one of your {focus} results to a {hit} or {evade} result.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<Preview>true</Preview>

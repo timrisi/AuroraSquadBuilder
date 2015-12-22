@@ -19,6 +19,11 @@ namespace SquadBuilder
 				Detail = MainView;
 			});
 
+			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Collection", vm => {
+				IsPresented = false;
+				Detail = CollectionView;
+			});
+
 			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
 				IsPresented = false;
 				Detail = CustomFactionsView;
@@ -48,10 +53,29 @@ namespace SquadBuilder
 		NavigationPage mainView;
 		public NavigationPage MainView {
 			get { 
-				if (mainView == null)
-					mainView = new NavigationPage (new MainView ());
+				if (mainView == null) {
+					var tb = new TabbedPage ();
+					tb.Title = "Squadrons";
+					tb.Children.Add (new MainView ());
+					var factions = Settings.AllowCustom ? Cards.SharedInstance.AllFactions : Cards.SharedInstance.Factions;
+					foreach (var faction in factions)
+						tb.Children.Add (new MainView (faction.Name));
+
+					mainView = new NavigationPage (tb);
+//					mainView = new NavigationPage (new MainView ());
+				}
 
 				return mainView;
+			}
+		}
+
+		NavigationPage collectionView;
+		public NavigationPage CollectionView {
+			get {
+				if (collectionView == null)
+					collectionView = new NavigationPage (new CollectionView ());
+
+				return collectionView;
 			}
 		}
 

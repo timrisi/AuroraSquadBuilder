@@ -2,6 +2,7 @@
 using XLabs.Data;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SquadBuilder
 {
@@ -13,6 +14,36 @@ namespace SquadBuilder
 		public List <string> Ships { get; set; }
 		public List <string> Pilots { get; set; }
 		public List <string> Upgrades { get; set; }
-		public int Owned { get; set; }
+
+		public int owned;
+		public int Owned { 
+			get { return owned; }
+			set {
+				if (value == owned)
+					return;
+				
+				var previousNumber = owned;
+				owned = value;
+
+				foreach (var ship in Ships)
+					Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == ship).Owned += (owned - previousNumber);
+
+				foreach (var pilot in Pilots)
+					Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot).Owned += (owned - previousNumber);
+
+				foreach (var upgrade in Upgrades) {
+						if (upgrade == "r2d2") {
+						if (Id == "coreset")
+							Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade && u.CategoryId == "amd").Owned += (owned - previousNumber);
+						else if (Id == "tantiveiv")
+							Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade && u.CategoryId == "crew").Owned += (owned - previousNumber);
+						continue;
+					}
+
+					var card = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade);
+					card.Owned += (owned - previousNumber);
+				}
+			}
+		}
 	}
 }

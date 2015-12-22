@@ -5,11 +5,12 @@ using XLabs.Forms.Mvvm;
 
 namespace SquadBuilder
 {
-	public partial class PilotsListView : BaseView
+	public partial class CollectionView : BaseView
 	{
-		public PilotsListView ()
+		public CollectionView ()
 		{
 			InitializeComponent ();
+			BindingContext = new CollectionViewModel ();
 		}
 	}
 }

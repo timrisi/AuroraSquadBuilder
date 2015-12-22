@@ -23,6 +23,18 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand showCollection;
+		public RelayCommand ShowCollection {
+			get {
+				if (showCollection == null)
+					showCollection = new RelayCommand (() => {
+						MessagingCenter.Send <MenuViewModel> (this, "Show Collection");
+					});
+
+				return showCollection;
+			}
+		}
+
 		RelayCommand showCustomFactions;
 		public RelayCommand ShowCustomFactions {
 			get {
