@@ -55,11 +55,13 @@ namespace SquadBuilder
 				if (addSquadron == null)
 					addSquadron = new RelayCommand (() => {
 						MessagingCenter.Subscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created", (vm, Squadron) => {
+							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+
 							Cards.SharedInstance.Squadrons.Add (Squadron);
 							Navigation.PopAsync (false);
 
 							Cards.SharedInstance.SaveSquadrons ();
-//							SelectedSquadron = Squadron;
+							NotifyPropertyChanged ("Squadrons");
 
 							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
 								vm2.Squadron = Squadron;

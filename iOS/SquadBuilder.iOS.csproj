@@ -38,14 +38,12 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: Timothy Risi (GF4DUJBW65)</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <IpaPackageName>
     </IpaPackageName>
-    <MtouchI18n>
-    </MtouchI18n>
-    <CodesignProvision>63890e0c-7baf-4e47-b647-b605a9058154</CodesignProvision>
     <BuildIpa>true</BuildIpa>
+    <CodesignProvision>f394dd55-e9f9-498c-9ceb-e4df3e5fad83</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
