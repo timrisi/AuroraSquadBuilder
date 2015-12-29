@@ -90,6 +90,8 @@ namespace SquadBuilder
 
 				foreach (var removedUpgrade in upgrade.RemovedUpgrades) {
 					var removedIndex = Pilot.UpgradeTypes.IndexOf (removedUpgrade);
+					if (removedIndex < 0)
+						continue;
 					Pilot.UpgradeTypes.RemoveAt (removedIndex);
 					Pilot.UpgradesEquipped.RemoveAt (removedIndex);
 				}
