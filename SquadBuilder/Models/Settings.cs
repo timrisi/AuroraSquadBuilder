@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using XLabs.Data;
 using System.Threading.Tasks;
 using Xamarin;
+using System.Linq;
 
 namespace SquadBuilder
 {
@@ -83,28 +84,22 @@ namespace SquadBuilder
 						Cards.SharedInstance.GetAllFactions ();
 					}
 
-					if ((float)versionsXml.Element ("Ships") > ShipsVersion) {
-						updateXml ("Ships");
-						Cards.SharedInstance.GetAllShips ();
-					}
+					if ((float)versionsXml.Element ("Ships") > ShipsVersion)
+						UpdateShips ();
 
-					if ((float)versionsXml.Element ("Pilots") > PilotsVersion) {
-						updateXml ("Pilots");
-						Cards.SharedInstance.GetAllPilots ();
-					}
+					if ((float)versionsXml.Element ("Pilots") > PilotsVersion)
+						UpdatePilots ();
 
-					if ((float)versionsXml.Element ("Upgrades") > UpgradesVersion) {
-						updateXml ("Upgrades");
-						Cards.SharedInstance.GetAllUpgrades ();
-					}
+					if ((float)versionsXml.Element ("Upgrades") > UpgradesVersion)
+						UpdateUpgrades ();
 
-					if ((versionsXml.Element ("Expansions") != null && (float)versionsXml.Element ("Expansions") > ExpansionsVersion)) {
+					if ((versionsXml.Element ("Expansions") != null && (float)versionsXml.Element ("Expansions") > ExpansionsVersion))
 						UpdateExpansions ();
-						Cards.SharedInstance.GetAllExpansions ();
-					}
 
 					if ((float)versionsXml.Element ("Settings") > SettingsVersion)
 						updateXml ("Settings");
+
+					Cards.SharedInstance.SaveCollection ();
 				} catch (Exception e) {		
 					Insights.Report (e);
 				}
@@ -119,9 +114,64 @@ namespace SquadBuilder
 			DependencyService.Get <ISaveAndLoad> ().SaveText (file + ".xml", element.ToString ());
 		}
 
+		public static void UpdateShips ()
+		{
+			var element = XElement.Load (xwingDataUrl + "Ships.xml");
+
+			var oldShips = Cards.SharedInstance.Ships;
+
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships.xml", element.ToString ());
+			Cards.SharedInstance.GetAllShips ();
+
+			foreach (var ship in oldShips) {
+				if (Cards.SharedInstance.Ships.Any (s => s.Id == ship.Id))
+					Cards.SharedInstance.Ships.First (s => s.Id == ship.Id).Owned = ship.Owned;
+			}
+		}
+
+		public static void UpdatePilots ()
+		{
+			var element = XElement.Load (xwingDataUrl + "Pilots.xml");
+
+			var oldPilots = Cards.SharedInstance.Pilots;
+
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots.xml", element.ToString ());
+			Cards.SharedInstance.GetAllPilots ();
+
+			foreach (var pilot in oldPilots) {
+				if (Cards.SharedInstance.Pilots.Any (p => p.Id == pilot.Id))
+					Cards.SharedInstance.Pilots.First (p => p.Id == pilot.Id).Owned = pilot.Owned;
+			}
+		}
+
+		public static void UpdateUpgrades ()
+		{
+			var element = XElement.Load (xwingDataUrl + "Upgrades.xml");
+
+			var oldUpgrades = Cards.SharedInstance.Upgrades;
+
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades.xml", element.ToString ());
+			Cards.SharedInstance.GetAllUpgrades ();
+
+			foreach (var upgrade in oldUpgrades) {
+				if (Cards.SharedInstance.Upgrades.Any (u => u.Id == upgrade.Id))
+					Cards.SharedInstance.Upgrades.First (u => u.Id == upgrade.Id).Owned = upgrade.Owned;
+			}
+		}
+
 		public static void UpdateExpansions ()
 		{
-			throw new NotImplementedException ();
+			var element = XElement.Load (xwingDataUrl + "Expansions.xml");
+
+			var oldExpansions = Cards.SharedInstance.Expansions;
+
+			DependencyService.Get <ISaveAndLoad> ().SaveText ("Expansions.xml", element.ToString ());
+			Cards.SharedInstance.GetAllExpansions ();
+
+			foreach (var expansion in oldExpansions) {
+				if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
+					Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).Owned = expansion.Owned;
+			}
 		}
 	}
 }

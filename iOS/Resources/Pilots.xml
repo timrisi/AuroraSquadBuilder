@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.15">
+<Pilots Version="2.16">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1904,7 +1904,6 @@
 		<Shields>2</Shields>
 		<Cost>18</Cost>
 		<Upgrades>
-			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Turret Weapon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Title</Upgrade>

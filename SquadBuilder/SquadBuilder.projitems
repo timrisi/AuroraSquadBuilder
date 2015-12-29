@@ -112,9 +112,25 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Expansion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ExpansionGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExpansionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExpansionsView.xaml.cs">
+      <DependentUpon>ExpansionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CollectionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml.cs">
       <DependentUpon>CollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ShipsCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ShipsCollectionView.xaml.cs">
+      <DependentUpon>ShipsCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotsCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UpgradesCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\PilotsCollectionView.xaml.cs">
+      <DependentUpon>PilotsCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\UpgradesCollectionView.xaml.cs">
+      <DependentUpon>UpgradesCollectionView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +205,19 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExpansionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ShipsCollectionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotsCollectionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\UpgradesCollectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

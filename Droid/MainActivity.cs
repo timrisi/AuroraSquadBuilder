@@ -131,6 +131,8 @@ namespace SquadBuilder.Droid
 						Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).owned = expansion.owned;
 				}
 			}
+
+			Cards.SharedInstance.SaveCollection ();
 			
 			LoadApplication(new App());
 		}

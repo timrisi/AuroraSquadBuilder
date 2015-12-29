@@ -1,38 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
-				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
-				x:Class="SquadBuilder.CollectionView" 
-				Title="{Binding PageName}">
+				x:Class="SquadBuilder.CollectionView"
+				Title="Collection">
 	<mvvm:BaseView.Content>
-	    <StackLayout VerticalOptions="FillAndExpand" 
-	    			 HorizontalOptions="FillAndExpand">
-			<ListView VerticalOptions="FillAndExpand" 
-					  HorizontalOptions="FillAndExpand" 
-					  BackgroundColor="Transparent"
-					  IsGroupingEnabled="true"
-         			  HasUnevenRows="true"
-					  ItemsSource="{Binding Expansions}"  >
-				<ListView.GroupHeaderTemplate>
-					<DataTemplate>
-						<TextCell Text="{Binding Wave}" />
-					</DataTemplate>
-				</ListView.GroupHeaderTemplate>
-				<ListView.ItemTemplate>
-					<DataTemplate> 
-						<ViewCell>
-						<ViewCell.View>
-								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
-									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" />
-										<Entry Keyboard="Numeric" Text="{Binding Owned}" HorizontalOptions="End" />
-									</StackLayout>
-								</StackLayout>
-							</ViewCell.View>
-						</ViewCell>
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
+		<StackLayout Orientation="Vertical">
+			<TableView VerticalOptions="FillAndExpand">
+				<TableRoot>
+					<TableSection>
+						<TextCell Text="Expansions" Command="{Binding EditExpansions}" />
+						<TextCell Text="Ships" Command="{Binding EditShips}" />
+						<TextCell Text="Pilots" Command="{Binding EditPilots}" />
+						<TextCell Text="Upgrades" Command="{Binding EditUpgrades}" />
+					</TableSection>
+				</TableRoot>
+			</TableView>
+			<Button Text="Clear all" Command="{Binding ClearCollection}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

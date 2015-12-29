@@ -1,61 +1,88 @@
 ﻿using System;
 using XLabs.Forms.Mvvm;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Xml.Linq;
-using System.IO;
+using XLabs.Forms;
+using XLabs;
 using Xamarin.Forms;
 
 namespace SquadBuilder
 {
 	public class CollectionViewModel : ViewModel
 	{
-		public CollectionViewModel ()
-		{
-			expansions = getAllExpansions ();
+		ObservableCollection <string> collectionTypes = new ObservableCollection <string> (new [] {
+			"Expansions",
+			"Ships",
+			"Pilots",
+			"Upgrades"
+		});
+		public ObservableCollection <string> CollectionTypes {
+			get { return collectionTypes; }
+			set { SetProperty (ref collectionTypes, value); }
 		}
-
-		public string PageName { get { return "Collection"; } }
-
-		ObservableCollection <ExpansionGroup> expansions;
-		public ObservableCollection <ExpansionGroup> Expansions {
-			get { return expansions; }
-			set { SetProperty (ref expansions, value); }
-		}
-
-		ObservableCollection <ExpansionGroup> getAllExpansions ()
-		{
-			var allExpansionGroups = new ObservableCollection <ExpansionGroup> ();
-
-			var allExpansions = Cards.SharedInstance.Expansions.ToList ();
-
-			foreach (var expansion in allExpansions) {
-				var expansionGroup = allExpansionGroups.FirstOrDefault (g => g.Wave == expansion.Wave);
-
-				if (expansionGroup == null) {
-					expansionGroup = new ExpansionGroup (expansion.Wave);
-					allExpansionGroups.Add (expansionGroup);
+	
+		RelayCommand editExpansions;
+		public RelayCommand EditExpansions {
+			get {
+				if (editExpansions == null) {
+					editExpansions = new RelayCommand (() => {
+						Navigation.PushAsync <ExpansionsViewModel> ();
+					});
 				}
 
-				expansionGroup.Add (expansion);
+				return editExpansions;
 			}
-
-			return allExpansionGroups;
 		}
 
-		public override void OnViewAppearing ()
-		{
-			base.OnViewAppearing ();
+		RelayCommand editShips;
+		public RelayCommand EditShips {
+			get {
+				if (editShips == null) {
+					editShips = new RelayCommand (() => {
+						Navigation.PushAsync <ShipsCollectionViewModel> ();
+					});
+				}
 
-			expansions = getAllExpansions ();
+				return editShips;
+			}
 		}
 
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
+		RelayCommand editPilots;
+		public RelayCommand EditPilots {
+			get {
+				if (editPilots == null) {
+					editPilots = new RelayCommand (() => {
+						Navigation.PushAsync <PilotsCollectionViewModel> ();
+					});
+				}
 
-			Cards.SharedInstance.SaveCollection ();
+				return editPilots;
+			}
+		}
+
+		RelayCommand editUpgrades;
+		public RelayCommand EditUpgrades {
+			get {
+				if (editUpgrades == null) {
+					editUpgrades = new RelayCommand (() => {
+						Navigation.PushAsync <UpgradesCollectionViewModel> ();
+					});
+				}
+
+				return editUpgrades;
+			}
+		}
+
+		RelayCommand clearCollection;
+		public RelayCommand ClearCollection {
+			get {
+				if (clearCollection == null) {
+					clearCollection = new RelayCommand (() => {
+						MessagingCenter.Send <CollectionViewModel> (this, "Clear Collection");
+					});
+				}
+
+				return clearCollection;
+			}
 		}
 	}
 }

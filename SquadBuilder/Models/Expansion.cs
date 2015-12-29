@@ -32,7 +32,7 @@ namespace SquadBuilder
 					Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot).Owned += (owned - previousNumber);
 
 				foreach (var upgrade in Upgrades) {
-						if (upgrade == "r2d2") {
+					if (upgrade == "r2d2") {
 						if (Id == "coreset")
 							Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade && u.CategoryId == "amd").Owned += (owned - previousNumber);
 						else if (Id == "tantiveiv")
@@ -40,8 +40,7 @@ namespace SquadBuilder
 						continue;
 					}
 
-					var card = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade);
-					card.Owned += (owned - previousNumber);
+					Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade).Owned += (owned - previousNumber);
 				}
 			}
 		}

@@ -237,7 +237,7 @@ namespace SquadBuilder
 		public void GetAllShips ()
 		{
 			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
-			ships = new ObservableCollection < Ship> ((
+			ships = new ObservableCollection <Ship> ((
 				from ship in shipsElement.Elements ()
 				select new Ship {
 					Id = ship.Attribute ("id").Value,
@@ -248,7 +248,7 @@ namespace SquadBuilder
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
 					Owned = (int)ship.Element ("Owned")
-				})
+				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
 			);
 
 			XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
@@ -487,7 +487,7 @@ namespace SquadBuilder
 			}
 
 			foreach (var pilot in Pilots) {
-				var element = pilotsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == pilot.Id);
+				var element = pilotsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == pilot.Id && e.Attribute ("ship").Value == pilot.Ship.Id && e.Attribute ("faction").Value == pilot.Faction.Id);
 
 				if (element == null)
 					continue;
@@ -496,7 +496,7 @@ namespace SquadBuilder
 			}
 
 			foreach (var upgrade in Upgrades) {
-				var element = upgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == upgrade.Id);
+				var element = upgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == upgrade.Id && e.Parent.Attribute ("id").Value == upgrade.CategoryId);
 
 				if (element == null)
 					continue;
