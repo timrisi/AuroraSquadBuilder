@@ -353,6 +353,10 @@ namespace SquadBuilder
 					                                                        select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
 					                                           select upgr.Value).ToList ()),
+					RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List <XElement> ()
+																		 select upgr.Value).ToList ()),
+					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
+																	   select upgr.Value).ToList ()),
 					Owned = (int)upgrade.Element ("Owned")
 				});
 
@@ -372,7 +376,6 @@ namespace SquadBuilder
 					Name = upgrade.Element ("Name")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
-//					Cost = upgrade.Element ("Cost") != null ? (int)upgrade.Element ("Cost") : 0,
 					Text = upgrade.Element ("Text")?.Value,
 					Faction = allFactions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
 					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
@@ -395,9 +398,12 @@ namespace SquadBuilder
 					                                                         select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
 					                                            select upgr.Value).ToList ()),
+					RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List <XElement> ()
+																		 select upgr.Value).ToList ()),
+					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
+																	   select upgr.Value).ToList ()),
 					Owned = 0
-				}
-				                             );
+				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);
 			}

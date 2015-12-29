@@ -51,6 +51,8 @@ namespace SquadBuilder
 
 		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
+		public ObservableCollection <string> RemovedUpgrades { get; set; }
+		public ObservableCollection <string> RequiredSlots { get; set; }
 
 		public Color TextColor {
 			get { return IsAvailable ? Color.Black : Color.Gray; }
@@ -139,6 +141,8 @@ namespace SquadBuilder
 				Preview = Preview,
 				Slots = new ObservableCollection <string> (Slots),
 				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
+				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),
+				RequiredSlots = new ObservableCollection <string> (RequiredSlots),
 				TIEOnly = TIEOnly
 			};
 		}

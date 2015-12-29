@@ -71,6 +71,11 @@ namespace SquadBuilder
 					Pilot.UpgradesEquipped.RemoveAt (oldIndex);
 				}
 
+				foreach (var removedUpgrade in oldUpgrade.RemovedUpgrades) {
+					Pilot.UpgradeTypes.Add (removedUpgrade);
+					Pilot.UpgradesEquipped.Add (null);
+				}
+
 				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
 					var extraIndex = Pilot.UpgradesEquipped.IndexOf (oldUpgrade);
 					if (index >= 0)
@@ -81,6 +86,12 @@ namespace SquadBuilder
 				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
 					Pilot.UpgradeTypes.Add (newUpgrade);
 					Pilot.UpgradesEquipped.Add (null);
+				}
+
+				foreach (var removedUpgrade in upgrade.RemovedUpgrades) {
+					var removedIndex = Pilot.UpgradeTypes.IndexOf (removedUpgrade);
+					Pilot.UpgradeTypes.RemoveAt (removedIndex);
+					Pilot.UpgradesEquipped.RemoveAt (removedIndex);
 				}
 
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {

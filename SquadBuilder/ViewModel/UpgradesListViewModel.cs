@@ -75,7 +75,7 @@ namespace SquadBuilder
 				if (upgrade.TIEOnly && !Pilot.Ship.Name.Contains ("TIE"))
 					continue;
 				
-				if (upgrade.Slots.Count () == 0) {
+				if (!upgrade.Slots.Any () && !upgrade.RequiredSlots.Any ()) {
 					valid.Add (upgrade);	
 					continue;
 				}
@@ -93,6 +93,20 @@ namespace SquadBuilder
 						break;
 					}
 				}
+
+				if (isValid) {
+					pilotUpgrades = new List <object> (Pilot.Upgrades);
+					foreach (var slot in upgrade.RequiredSlots) {
+						var slotObject = new { Name = slot, IsUpgrade = false };
+						if (pilotUpgrades.Contains (slotObject))
+							pilotUpgrades.Remove (slotObject);
+						else {
+							isValid = false;
+							break;
+						}
+					}
+				}
+
 				if (isValid)
 					valid.Add (upgrade);
 			}
