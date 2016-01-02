@@ -51,7 +51,7 @@ namespace SquadBuilder
 			get {
 				if (editPilots == null) {
 					editPilots = new RelayCommand (() => {
-						Navigation.PushAsync <PilotsCollectionViewModel> ();
+						Navigation.PushAsync <PilotsCollectionShipsListViewModel> ();
 					});
 				}
 
@@ -64,7 +64,7 @@ namespace SquadBuilder
 			get {
 				if (editUpgrades == null) {
 					editUpgrades = new RelayCommand (() => {
-						Navigation.PushAsync <UpgradesCollectionViewModel> ();
+						Navigation.PushAsync <UpgradesCollectionCategoryListViewModel> ();
 					});
 				}
 

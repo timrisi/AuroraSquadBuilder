@@ -38,16 +38,6 @@ namespace SquadBuilder
 			}
 		}
 
-		ObservableCollection <PilotGroup> pilotGroups = new ObservableCollection <PilotGroup> ();
-		public ObservableCollection <PilotGroup> PilotGroups {
-			get {
-				return pilotGroups;
-			}
-			set {
-				SetProperty (ref pilotGroups, value);
-			}
-		}
-
 		Ship selectedShip = null;
 		public Ship SelectedShip {
 			get { return selectedShip; }
@@ -101,11 +91,6 @@ namespace SquadBuilder
 			SelectedShip = null;
 
 			filterShips ();
-		}
-
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
 		}
 	}
 }

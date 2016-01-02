@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.16">
+<Pilots Version="2.21">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1537,7 +1537,6 @@
 	<Pilot id="redace" faction="rebels" ship="t70xwing">
 		<Name>&quot;Red Ace&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>6</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>2</Agility>
@@ -2011,7 +2010,6 @@
 	<Pilot id="scourge" faction="empire" ship="tiefighter">
 		<Name>&quot;Scourge&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>7</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2058,7 +2056,6 @@
 	<Pilot id="youngster" faction="empire" ship="tiefighter">
 		<Name>&quot;Youngster&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>6</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2105,7 +2102,6 @@
 	<Pilot id="wampa" faction="empire" ship="tiefighter">
 		<Name>&quot;Wampa&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>4</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2136,7 +2132,6 @@
 	<Pilot id="chaser" faction="empire" ship="tiefighter">
 		<Name>&quot;Chaser&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>3</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2867,10 +2862,45 @@
 		<Ability>When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="valenrudor" faction="empire" ship="tieadvancedprototype">
+		<Name>Valen Rudor</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>22</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After defending, you may perform a free action.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="sienartestpilot" faction="empire" ship="tieadvancedprototype">
+		<Name>Sienar Test Pilot</Name>
+		<Unique>false</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>2</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>16</Cost>
+		<Upgrades>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
 	<Pilot id="omegaleader" faction="empire" ship="tiefofighter">
 		<Name>&quot;Omega Leader&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>8</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2907,7 +2937,6 @@
 	<Pilot id="zetaleader" faction="empire" ship="tiefofighter">
 		<Name>&quot;Zeta Leader&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>7</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>
@@ -2961,7 +2990,6 @@
 	<Pilot id="epsilonace" faction="empire" ship="tiefofighter">
 		<Name>&quot;Epsilon Ace&quot;</Name>
 		<Unique>true</Unique>
-		<Preview>true</Preview>
 		<PilotSkill>4</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>3</Agility>

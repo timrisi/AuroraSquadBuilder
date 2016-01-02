@@ -33,6 +33,15 @@ namespace SquadBuilder
 			}
 		}
 
+		string category;
+		public string Category {
+			get { return category; }
+			set { 
+				SetProperty (ref category, value); 
+				filterUpgrades ();
+			}
+		}
+
 		ObservableCollection <UpgradeGroup> getAllUpgrades ()
 		{
 			var allUpgradeGroups = new List <UpgradeGroup>();
@@ -53,6 +62,16 @@ namespace SquadBuilder
 			return new ObservableCollection <UpgradeGroup> (allUpgradeGroups.OrderBy (g => g.Category));
 		}
 
+		void filterUpgrades ()
+		{
+			UpgradeGroups.Clear ();
+
+			var filteredUpgradeGroups = allUpgrades.Where (u => Category == null || u.Category == Category).ToList ();
+
+			foreach (var upgradeGroup in filteredUpgradeGroups)
+				UpgradeGroups.Add (upgradeGroup);
+		}
+
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
@@ -60,6 +79,7 @@ namespace SquadBuilder
 			allUpgrades = getAllUpgrades ();
 
 			UpgradeGroups = new ObservableCollection <UpgradeGroup> (allUpgrades);
+			filterUpgrades ();
 		}
 
 		public override void OnViewDisappearing ()

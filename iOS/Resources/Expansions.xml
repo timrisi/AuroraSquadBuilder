@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.14">
+<Expansions Version="1.15">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -722,6 +722,49 @@
 		<Owned>0</Owned>
 	</Expansion>
 
+<!-- Wave 8 -->
+	<Expansion id="t70xwing">
+		<Name>T-70 X-Wing</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>t70xwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>Ello Asty</Pilot>
+			<Pilot>redace</Pilot>
+			<Pilot>redsquadronveteran</Pilot>
+			<Pilot>bluesquadronnovice</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>coolhand</Upgrade>
+			<Upgrade>targetingastromech</Upgrade>
+			<Upgrade>advancedprotontorpedoes</Upgrade>
+			<Upgrade>integratedastromech</Upgrade>
+			<Upgrade>weaponsguidance</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiefofighter">
+		<Name>TIE/FO Fighter</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>tiefofighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>omegaleader</Pilot>
+			<Pilot>zetaleader</Pilot>
+			<Pilot>epsilonace</Pilot>
+			<Pilot>omegasquadronpilot</Pilot>
+			<Pilot>zetasquadronpilot</Pilot>
+			<Pilot>epsilonsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>juke</Upgrade>
+			<Upgrade>commsrelay</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
 <!-- Aces Packs-->
 	<Expansion id="imperialaces">
 		<Name>Imperial Aces</Name>
@@ -884,6 +927,8 @@
 			<Ship>tieadvanced</Ship>
 		</Ships>
 		<Pilots>
+			<Pilot>raiderfore</Pilot>
+			<Pilot>raideraft</Pilot>
 			<Pilot>junoeclipse</Pilot>
 			<Pilot>zertikstrom</Pilot>
 			<Pilot>commanderalozen</Pilot>
@@ -926,6 +971,54 @@
 			<Upgrade>engineeringteam</Upgrade>
 			<Upgrade>gunneryteam</Upgrade>
 			<Upgrade>sensorteam</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="imperialassaultcarrier">
+		<Name>Imperial Assault Carrier</Name>
+		<Wave>Huge Ships</Wave>
+		<Ships>
+			<Ship>gozanticlasscruiser</Ship>
+			<Ship>tiefighter</Ship>
+			<Ship>tiefighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>gozanticlasscruiser</Pilot>
+			<Pilot>scourge</Pilot>
+			<Pilot>wampa</Pilot>
+			<Pilot>youngster</Pilot>
+			<Pilot>chaser</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>academypilot</Pilot>
+			<Pilot>academypilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>expose</Upgrade>
+			<Upgrade>marksmanship</Upgrade>
+			<Upgrade>experthandling</Upgrade>
+			<Upgrade>agentkallus</Upgrade>
+			<Upgrade>rearadmiralchiraneau</Upgrade>
+			<Upgrade>constructiondroid</Upgrade>
+			<Upgrade>constructiondroid</Upgrade>
+			<Upgrade>requiem</Upgrade>
+			<Upgrade>vector</Upgrade>
+			<Upgrade>suppressor</Upgrade>
+			<Upgrade>ordnanceexperts</Upgrade>
+			<Upgrade>ordnanceexperts</Upgrade>
+			<Upgrade>automatedprotocols</Upgrade>
+			<Upgrade>automatedprotocols</Upgrade>
+			<Upgrade>optimizedgenerators</Upgrade>
+			<Upgrade>optimizedgenerators</Upgrade>
+			<Upgrade>ordnancetubes</Upgrade>
+			<Upgrade>ordnancetubes</Upgrade>
+			<Upgrade>duallaserturret</Upgrade>
+			<Upgrade>broadcastarray</Upgrade>
+			<Upgrade>dockingclamps</Upgrade>
+			<Upgrade>clusterbombs</Upgrade>
+			<Upgrade>clusterbombs</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>

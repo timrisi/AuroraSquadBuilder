@@ -6,9 +6,9 @@ using XLabs.Forms.Mvvm;
 
 namespace SquadBuilder
 {
-	public partial class PilotView : BaseView
+	public partial class PilotsCollectionShipsListView : BaseView
 	{
-		public PilotView ()
+		public PilotsCollectionShipsListView ()
 		{
 			InitializeComponent ();
 		}

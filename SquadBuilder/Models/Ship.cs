@@ -73,7 +73,12 @@ namespace SquadBuilder
 		}
 
 		public bool IsAvailable {
-			get { return Owned > Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id); }
+			get { 
+				if (Cards.SharedInstance.Ships.Sum (s => s.Owned) == 0)
+					return true;
+				
+				return Owned > Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id); 
+			}
 		}
 
 		[XmlIgnore]

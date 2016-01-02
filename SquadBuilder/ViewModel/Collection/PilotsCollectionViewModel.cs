@@ -19,6 +19,7 @@ namespace SquadBuilder
 			allPilots = getAllPilots ();
 
 			PilotGroups = new ObservableCollection <PilotGroup> (allPilots);
+			filterPilots ();
 		}
 
 		public string PageName { get { return "Pilots Owned"; } }
@@ -30,6 +31,15 @@ namespace SquadBuilder
 			}
 			set {
 				SetProperty (ref pilotGroups, value);
+			}
+		}
+
+		Ship ship;
+		public Ship Ship {
+			get { return ship; }
+			set {
+				SetProperty (ref ship, value);
+				filterPilots ();
 			}
 		}
 
@@ -60,6 +70,7 @@ namespace SquadBuilder
 			allPilots = getAllPilots ();
 
 			PilotGroups = new ObservableCollection <PilotGroup> (allPilots);
+			filterPilots ();
 		}
 
 		public override void OnViewDisappearing ()
@@ -67,6 +78,16 @@ namespace SquadBuilder
 			base.OnViewDisappearing ();
 
 			Cards.SharedInstance.SaveCollection ();
+		}
+
+		void filterPilots ()
+		{
+			PilotGroups.Clear ();
+
+			var filteredPilotGroups = allPilots.Where (p => (Ship == null || p?.Ship == Ship)).ToList ();
+
+			foreach (var pilotGroup in filteredPilotGroups)
+				PilotGroups.Add (pilotGroup);
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace SquadBuilder
 {
 	public class Cards : ObservableObject
 	{
-		const string squadronsFilename = "squadrons.xml";
+		public const string SquadronsFilename = "squadrons.xml";
 
 		public Cards ()
 		{
@@ -435,12 +435,12 @@ namespace SquadBuilder
 		{
 			var service = DependencyService.Get <ISaveAndLoad> ();
 
-			if (!service.FileExists (squadronsFilename)) {
+			if (!service.FileExists (SquadronsFilename)) {
 				Squadrons = new ObservableCollection<Squadron> ();
 				return;
 			}
 
-			var serializedXml = service.LoadText (squadronsFilename);
+			var serializedXml = service.LoadText (SquadronsFilename);
 			var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
 
 			using (TextReader reader = new StringReader (serializedXml)) {
@@ -456,14 +456,14 @@ namespace SquadBuilder
 		public void SaveSquadrons ()
 		{
 			if (Squadrons.Count == 0)
-				DependencyService.Get <ISaveAndLoad> ().DeleteFile (squadronsFilename);
+				DependencyService.Get <ISaveAndLoad> ().DeleteFile (SquadronsFilename);
 			
 			var serializer = new XmlSerializer (typeof (ObservableCollection <Squadron>));
 			using (var stringWriter = new StringWriter ()) {
 				serializer.Serialize (stringWriter, Squadrons);
 				string serializedXML = stringWriter.ToString ();
 
-				DependencyService.Get <ISaveAndLoad> ().SaveText (squadronsFilename, serializedXML);
+				DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
 			}
 		}
 

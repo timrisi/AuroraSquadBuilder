@@ -16,34 +16,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Squadron.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SquadronViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\SquadronView.xaml.cs">
-      <DependentUpon>SquadronView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\PilotView.xaml.cs">
-      <DependentUpon>PilotView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotsListViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\PilotsListView.xaml.cs">
-      <DependentUpon>PilotsListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateSquadronViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\CreateSquadronView.xaml.cs">
-      <DependentUpon>CreateSquadronView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ISaveAndLoad.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Ship.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PilotGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Upgrade.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UpgradesListViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\UpgradesListView.xaml.cs">
-      <DependentUpon>UpgradesListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\EditSquadronView.xaml.cs">
-      <DependentUpon>EditSquadronView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditSquadronViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\RootPage.xaml.cs">
       <DependentUpon>RootPage.xaml</DependentUpon>
     </Compile>
@@ -52,59 +28,11 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MenuViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\RootPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateFactionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\CustomFactionsView.xaml.cs">
-      <DependentUpon>CustomFactionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\CustomPilotsView.xaml.cs">
-      <DependentUpon>CustomPilotsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\CustomUpgradesView.xaml.cs">
-      <DependentUpon>CustomUpgradesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\CreateFactionView.xaml.cs">
-      <DependentUpon>CreateFactionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\CustomShipsView.xaml.cs">
-      <DependentUpon>CustomShipsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomFactionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Faction.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomShipsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateShipViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\CreateShipView.xaml.cs">
-      <DependentUpon>CreateShipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomPilotsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CustomUpgradesViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreatePilotViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CreateUpgradeViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\CreateUpgradeView.xaml.cs">
-      <DependentUpon>CreateUpgradeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\CreatePilotView.xaml.cs">
-      <DependentUpon>CreatePilotView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\UpgradeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ISendMail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\EditPilotView.xaml.cs">
-      <DependentUpon>EditPilotView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditPilotViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\EditShipView.xaml.cs">
-      <DependentUpon>EditShipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\EditUpgradeView.xaml.cs">
-      <DependentUpon>EditUpgradeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditShipViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\EditUpgradeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IClipboardService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Cards.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ShipsListViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\ShipsListView.xaml.cs">
-      <DependentUpon>ShipsListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml.cs">
@@ -112,52 +40,120 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Expansion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ExpansionGroup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExpansionsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\ExpansionsView.xaml.cs">
-      <DependentUpon>ExpansionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CollectionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\CollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\ExpansionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\PilotsCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\ShipsCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\UpgradesCollectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateFactionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreatePilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateShipViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateUpgradeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomFactionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomPilotsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomShipsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomUpgradesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\EditPilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\EditShipViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\EditUpgradeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\CreateSquadronViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\EditSquadronViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\PilotsListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\PilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\ShipsListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\SquadronViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\UpgradesListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\CollectionView.xaml.cs">
       <DependentUpon>CollectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ShipsCollectionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\ShipsCollectionView.xaml.cs">
-      <DependentUpon>ShipsCollectionView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\ExpansionsView.xaml.cs">
+      <DependentUpon>ExpansionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PilotsCollectionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UpgradesCollectionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\PilotsCollectionView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\PilotsCollectionView.xaml.cs">
       <DependentUpon>PilotsCollectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\UpgradesCollectionView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\ShipsCollectionView.xaml.cs">
+      <DependentUpon>ShipsCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionView.xaml.cs">
       <DependentUpon>UpgradesCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateFactionView.xaml.cs">
+      <DependentUpon>CreateFactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreatePilotView.xaml.cs">
+      <DependentUpon>CreatePilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml.cs">
+      <DependentUpon>CreateShipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateUpgradeView.xaml.cs">
+      <DependentUpon>CreateUpgradeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml.cs">
+      <DependentUpon>CustomFactionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomPilotsView.xaml.cs">
+      <DependentUpon>CustomPilotsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomShipsView.xaml.cs">
+      <DependentUpon>CustomShipsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomUpgradesView.xaml.cs">
+      <DependentUpon>CustomUpgradesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\EditPilotView.xaml.cs">
+      <DependentUpon>EditPilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\EditShipView.xaml.cs">
+      <DependentUpon>EditShipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\EditUpgradeView.xaml.cs">
+      <DependentUpon>EditUpgradeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\CreateSquadronView.xaml.cs">
+      <DependentUpon>CreateSquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\EditSquadronView.xaml.cs">
+      <DependentUpon>EditSquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\PilotsListView.xaml.cs">
+      <DependentUpon>PilotsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\PilotView.xaml.cs">
+      <DependentUpon>PilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\ShipsListView.xaml.cs">
+      <DependentUpon>ShipsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\SquadronView.xaml.cs">
+      <DependentUpon>SquadronView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\UpgradesListView.xaml.cs">
+      <DependentUpon>UpgradesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\PilotsCollectionShipsListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\PilotsCollectionShipsListView.xaml.cs">
+      <DependentUpon>PilotsCollectionShipsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\UpgradesCollectionCategoryListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionCategoryListView.xaml.cs">
+      <DependentUpon>UpgradesCollectionCategoryListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Collection\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Custom\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Collection\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Custom\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Squadron\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SquadronView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotsListView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateSquadronView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\UpgradesListView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditSquadronView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\RootPage.xaml">
@@ -166,58 +162,82 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MenuView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomFactionsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomPilotsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomUpgradesView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateFactionView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomShipsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateShipView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreateUpgradeView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CreatePilotView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditPilotView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditShipView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditUpgradeView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ShipsListView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExpansionsView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\CollectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CollectionView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\ExpansionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ShipsCollectionView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\PilotsCollectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PilotsCollectionView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\ShipsCollectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\UpgradesCollectionView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateFactionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreatePilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateUpgradeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomPilotsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomShipsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomUpgradesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\EditPilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\EditShipView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\EditUpgradeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\CreateSquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\EditSquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\PilotsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\PilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\ShipsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\SquadronView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\UpgradesListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\PilotsCollectionShipsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionCategoryListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

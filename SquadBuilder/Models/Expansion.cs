@@ -28,8 +28,23 @@ namespace SquadBuilder
 				foreach (var ship in Ships)
 					Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == ship).Owned += (owned - previousNumber);
 
-				foreach (var pilot in Pilots)
+				foreach (var pilot in Pilots) {
+					if (pilot == "bobafett") {
+						if (Id == "firespray31")
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "empire").Owned += (owned - previousNumber);
+						else if (Id == "mostwanted")
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
+						continue;
+					} else if (pilot == "kathscarlet") {
+						if (Id == "firespray31")
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "empire").Owned += (owned - previousNumber);
+						else if (Id == "mostwanted")
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
+						continue;
+					}
+
 					Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot).Owned += (owned - previousNumber);
+				}
 
 				foreach (var upgrade in Upgrades) {
 					if (upgrade == "r2d2") {

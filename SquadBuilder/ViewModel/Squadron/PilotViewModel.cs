@@ -4,15 +4,12 @@ using System.Collections.ObjectModel;
 using XLabs;
 using Xamarin.Forms;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SquadBuilder
 {
 	public class PilotViewModel : ViewModel
 	{
-		public PilotViewModel ()
-		{
-		}
-
 		Pilot pilot;
 		public Pilot Pilot {
 			get { return pilot; }
@@ -32,30 +29,55 @@ namespace SquadBuilder
 						index = Pilot.UpgradesEquipped.IndexOf (upgrade);
 					}
 
-					MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
-						if (upgrade?.Name == "\"Heavy Scyk\" Interceptor") {
-							var upgr = upgrade;
-							MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
-								if (upgradeType != "Cancel") {
-									upgr.AdditionalUpgrades.Add (upgradeType);
-									updateUpgrade (index, upgr, vm);
-								}
-								MessagingCenter.Unsubscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected"); 
-							});
-							MessagingCenter.Send <PilotViewModel> (this, "Select Scyk Upgrade");
-						} else
-							updateUpgrade (index, upgrade, vm);
+					if (Pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") &&
+					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
+					     Pilot.UpgradeTypes [index] == "Torpedo" ||
+						 Pilot.UpgradeTypes [index] == "Missile") &&
+						 Pilot.UpgradesEquipped [index] == null) {
+						MessagingCenter.Subscribe <PilotView, string> (this, "Ordnance Type Selected", (vm, ordnanceType) => {
+							if (ordnanceType != "Cancel") {
+								Pilot.UpgradeTypes [index] = ordnanceType;
+								pushUpgradeList (index);
+							} else
+								SelectedUpgrade = null;
+							MessagingCenter.Unsubscribe <PilotView, string> (this, "Ordnance Type Selected");
+						});
 
-						MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
-					});
-
-					Navigation.PushAsync <UpgradesListViewModel> ((vm,p) => {
-						vm.Pilot = Pilot;
-						vm.UpgradeType = Pilot.UpgradeTypes [index];
-						selectedUpgrade = null;
-					});
+						MessagingCenter.Send <PilotViewModel, string[]> (this, "Select Ordnance Tubes Type", new [] {
+							"Hardpoint",
+							"Torpedo",
+							"Missile"
+						});
+					} else
+						pushUpgradeList (index);
 				}
 			}
+		}
+
+		void pushUpgradeList (int index)
+		{
+			MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
+				if (upgrade?.Name == "\"Heavy Scyk\" Interceptor") {
+					var upgr = upgrade;
+					MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
+						if (upgradeType != "Cancel") {
+							upgr.AdditionalUpgrades.Add (upgradeType);
+							updateUpgrade (index, upgr, vm);
+						}
+						MessagingCenter.Unsubscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected"); 
+					});
+					MessagingCenter.Send <PilotViewModel> (this, "Select Scyk Upgrade");
+				} else
+					updateUpgrade (index, upgrade, vm);
+
+				MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
+			});
+
+			Navigation.PushAsync <UpgradesListViewModel> ((vm,p) => {
+				vm.Pilot = Pilot;
+				vm.UpgradeType = Pilot.UpgradeTypes [index];
+				selectedUpgrade = null;
+			});
 		}
 
 		void updateUpgrade (int index, Upgrade upgrade, UpgradesListViewModel vm) 
@@ -81,6 +103,16 @@ namespace SquadBuilder
 					if (index >= 0)
 						Pilot.UpgradesEquipped [extraIndex] = null;
 				}
+
+				if (oldUpgrade.Id == "ordnancetubes") {
+					for (int i = 0; i < pilot.UpgradeTypes.Count; i++) {
+						var type = pilot.UpgradeTypes [i];
+						if (type == "Missile" || type == "Torpedo") {
+							pilot.UpgradeTypes [i] = "Hardpoint";
+							pilot.UpgradesEquipped [i] = null;
+						}
+					}
+				}
 			}
 			if (upgrade != null) {
 				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
@@ -102,7 +134,7 @@ namespace SquadBuilder
 						Pilot.UpgradesEquipped [extraIndex] = upgrade;
 				}
 
-				if (upgrade.Name == "Mist Hunter")
+				if (upgrade.Id == "misthunter")
 					pilot.UpgradesEquipped [pilot.UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
 			}
 

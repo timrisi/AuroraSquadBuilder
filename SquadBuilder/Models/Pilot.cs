@@ -190,6 +190,9 @@ namespace SquadBuilder
 
 		public bool IsAvailable {
 			get {
+				if (Cards.SharedInstance.Pilots.Sum (p => p.Owned) == 0)
+					return true;
+				
 				if (Unique && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
 					return false;
 				

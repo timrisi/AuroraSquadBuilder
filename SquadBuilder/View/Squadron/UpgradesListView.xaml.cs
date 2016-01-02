@@ -18,6 +18,12 @@ namespace SquadBuilder
 				MessagingCenter.Unsubscribe <PilotViewModel> (this, "Select Scyk Upgrade");
 			});
 		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+			MessagingCenter.Unsubscribe <PilotViewModel> (this, "Select Scyk Upgrade");
+		}
 	}
 }
 
