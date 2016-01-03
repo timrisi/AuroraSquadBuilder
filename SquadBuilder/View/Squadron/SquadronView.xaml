@@ -12,7 +12,7 @@
 	    			 HorizontalOptions="FillAndExpand">
 	    	<Label HorizontalOptions="FillAndExpand" 
 	    		   XAlign="Center" 
-	    		   Text="{Binding PointsDescription}" />
+	    		   Text="{Binding Squadron.PointsDescription}" />
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"

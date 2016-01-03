@@ -134,6 +134,10 @@ namespace SquadBuilder
 			return true;
 		}
 
+		public string PointsDescription {
+			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+		}
+
 		RelayCommand noUpgrade;
 		public RelayCommand NoUpgrade {
 			get {

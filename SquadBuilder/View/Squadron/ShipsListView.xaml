@@ -7,6 +7,9 @@
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand">
+	    	<Label HorizontalOptions="FillAndExpand" 
+	    		   XAlign="Center" 
+	    		   Text="{Binding PointsDescription}" />
 	    	<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"

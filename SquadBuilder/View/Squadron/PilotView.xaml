@@ -8,8 +8,11 @@
 	<ScrollView>
 		<StackLayout VerticalOptions="FillAndExpand"
 					 HorizontalOptions="FillAndExpand"
-					 Padding="15,10,15,10"
+					 Padding="15,0,15,10"
 					 Spacing="15">
+			<Label HorizontalOptions="FillAndExpand" 
+	    		   XAlign="Center" 
+	    		   Text="{Binding PointsDescription}" />
 			<Label Text="{Binding Pilot.Cost, StringFormat='Cost: {0}'}" />
 			<StackLayout Orientation="Horizontal" 
 						 Spacing="15">

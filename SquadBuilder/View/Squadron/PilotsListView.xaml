@@ -7,6 +7,9 @@
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand">
+	    	<Label HorizontalOptions="FillAndExpand" 
+	    		   XAlign="Center" 
+	    		   Text="{Binding PointsDescription}" />
 	    	<SearchBar Placeholder="Search for Pilot or Ship" StyleId="SearchBar" Text="{Binding SearchText, Mode=TwoWay}" />
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 

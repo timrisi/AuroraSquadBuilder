@@ -19,15 +19,6 @@ namespace SquadBuilder
 			get { return squadron; }
 			set { 
 				SetProperty (ref squadron, value);
-				if (Pilots != null)
-					Pilots.CollectionChanged += (sender, e) => 
-						NotifyPropertyChanged ("PointsDescription");
-			}
-		}
-
-		public string PointsDescription {
-			get {
-				return Squadron.Points + "/" + Squadron.MaxPoints;
 			}
 		}
 
@@ -35,8 +26,6 @@ namespace SquadBuilder
 			get { return Squadron?.Pilots; }
 			set { 
 				Squadron.Pilots = value;
-				Pilots.CollectionChanged += (sender, e) => 
-					NotifyPropertyChanged ("PointsDescription");
 			}
 		}
 
@@ -144,7 +133,6 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("Squadron");
 			NotifyPropertyChanged ("Pilots");
 			NotifyPropertyChanged ("SelectedPilot");
-			NotifyPropertyChanged ("PointsDescription");
 
 			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 			MessagingCenter.Unsubscribe <ShipsListViewModel, Pilot> (this, "Pilot selected");

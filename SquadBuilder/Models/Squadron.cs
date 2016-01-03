@@ -61,6 +61,8 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref pilots, value);
 				NotifyPropertyChanged ("PointDetails");
+				Pilots.CollectionChanged += (sender, e) => 
+					NotifyPropertyChanged ("PointsDescription");
 			}
 		}
 
@@ -70,6 +72,12 @@ namespace SquadBuilder
 
 		public string PilotsString {
 			get { return string.Join (", ", Pilots.Select (p => p.Name)); }
+		}
+
+		public string PointsDescription {
+			get {
+				return Points + "/" + MaxPoints;
+			}
 		}
 
 		[XmlIgnore]

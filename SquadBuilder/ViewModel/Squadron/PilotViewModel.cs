@@ -54,6 +54,10 @@ namespace SquadBuilder
 			}
 		}
 
+		public string PointsDescription {
+			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+		}
+
 		void pushUpgradeList (int index)
 		{
 			MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {

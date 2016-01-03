@@ -63,6 +63,10 @@ namespace SquadBuilder
 			}
 		}
 
+		public string PointsDescription {
+			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+		}
+
 		ObservableCollection <PilotGroup> getAllPilots ()
 		{
 			var allPilotGroups = new ObservableCollection <PilotGroup>();

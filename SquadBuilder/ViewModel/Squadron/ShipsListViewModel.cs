@@ -60,6 +60,10 @@ namespace SquadBuilder
 			}
 		}
 
+		public string PointsDescription {
+			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+		}
+
 		void GetAllShips ()
 		{
 			if (Settings.AllowCustom)
