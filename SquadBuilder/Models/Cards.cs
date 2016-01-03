@@ -334,6 +334,7 @@ namespace SquadBuilder
 					Text = upgrade.Element ("Text")?.Value,
 					Faction = factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
 					Ship = ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
+					ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int)upgrade.Element ("Agility") : 0,
@@ -348,7 +349,6 @@ namespace SquadBuilder
 					LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool)upgrade.Element ("LargeOnly") : false,
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool)upgrade.Element ("HugeOnly") : false,
 					Preview = upgrade.Element ("Preview") != null ? (bool)upgrade.Element ("Preview") : false,
-					TIEOnly = upgrade.Element ("TIEOnly") != null ? (bool)upgrade.Element ("TIEOnly") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 					                                                        select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()
@@ -393,7 +393,6 @@ namespace SquadBuilder
 					LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool)upgrade.Element ("LargeOnly") : false,
 					HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool)upgrade.Element ("HugeOnly") : false,
 					Preview = upgrade.Element ("Preview") != null ? (bool)upgrade.Element ("Preview") : false,
-					TIEOnly = upgrade.Element ("TIEOnly") != null ? (bool)upgrade.Element ("TIEOnly") : false,
 					AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List <XElement> ()
 					                                                         select upgr.Value).ToList ()),
 					Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List <XElement> ()

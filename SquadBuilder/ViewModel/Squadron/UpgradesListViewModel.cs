@@ -53,15 +53,15 @@ namespace SquadBuilder
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
 				.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
-				.Where (u => u.Ship == null || u.Ship.Id == Pilot.Ship.Id)
 				.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
-				.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak")).ToList ();
+				.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
+				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement)).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
 					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
-					.Where (u => u.Ship == null || u.Ship.Id == Pilot.Ship.Id)
+					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
 					.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
 					.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"));
 				
@@ -72,9 +72,6 @@ namespace SquadBuilder
 
 			ObservableCollection <Upgrade> valid = new ObservableCollection<Upgrade> ();
 			foreach (var upgrade in upgrades) {
-				if (upgrade.TIEOnly && !Pilot.Ship.Name.Contains ("TIE"))
-					continue;
-				
 				if (!upgrade.Slots.Any () && !upgrade.RequiredSlots.Any ()) {
 					valid.Add (upgrade);	
 					continue;
@@ -123,6 +120,18 @@ namespace SquadBuilder
 			}
 					
 			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
+		}
+
+		bool meetsRequirement (string shipRequirement)
+		{
+			var requirements = shipRequirement.Split (' ');
+
+			foreach (var requirement in requirements) {
+				if (!Pilot.Ship.Name.ToLower ().Contains (requirement.ToLower ()))
+					return false;
+			}
+
+			return true;
 		}
 
 		RelayCommand noUpgrade;

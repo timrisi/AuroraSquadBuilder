@@ -33,8 +33,22 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
-		public bool TIEOnly { get; set; }
 		public int Owned { get; set; }
+
+		string shipRequirement;
+		public string ShipRequirement { 
+			get { return shipRequirement; }
+			set {
+				SetProperty (ref shipRequirement, value);
+				NotifyPropertyChanged ("ShowShipRequirement");
+			}
+		}
+
+		public bool ShowShipRequirement { 
+			get { 
+				return !string.IsNullOrEmpty (ShipRequirement); 
+			} 
+		}
 
 		Faction faction;
 		public Faction Faction {
@@ -125,7 +139,7 @@ namespace SquadBuilder
 				Name = Name,
 				Category = Category,
 				Cost = Cost,
-				Ship = Ship,
+				ShipRequirement = ShipRequirement,
 				Faction = Faction,
 				SmallOnly = SmallOnly,
 				LargeOnly = LargeOnly,
@@ -145,8 +159,7 @@ namespace SquadBuilder
 				Slots = new ObservableCollection <string> (Slots),
 				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),
-				RequiredSlots = new ObservableCollection <string> (RequiredSlots),
-				TIEOnly = TIEOnly
+				RequiredSlots = new ObservableCollection <string> (RequiredSlots)
 			};
 		}
 	}

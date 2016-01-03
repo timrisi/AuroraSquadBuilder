@@ -39,7 +39,7 @@ namespace SquadBuilder
 								Pilot.UpgradeTypes [index] = ordnanceType;
 								pushUpgradeList (index);
 							} else
-								SelectedUpgrade = null;
+								SelectedUpgrade = null;	
 							MessagingCenter.Unsubscribe <PilotView, string> (this, "Ordnance Type Selected");
 						});
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.35">
+<Upgrades Version="2.36">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -256,6 +256,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>1</Cost>
 			<Text>Once per round, when you would be dealt a faceup Damage card, you may draw that card from either the fore or aft Damage deck.</Text>
 			<Ship>gr75mediumtransport</Ship>
+			<ShipRequirement>GR-75</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="frequencyjammer">
@@ -297,6 +298,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Text>You may dock up to 4 TIE Fighters, TIE Interceptors, TIE Bombers, or TIE Advanced to this ship.  All of these ships must be of the same ship type.</Text>
 			<Limited>true</Limited>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="broadcastarray">
@@ -304,6 +306,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>2</Cost>
 			<Text>Your action bar gains the {jam} action icon.</Text>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="clusterbombs">
@@ -311,6 +314,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Cost>4</Cost>
 			<Text>After defending, you may discard this card.  If you do, each other ship at Range 1 of the defending section rolls 2 attack dice, suffering all damage {hit} and critical damage {crit} rolled.</Text>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -949,6 +953,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1047,6 +1052,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>-2</Cost>
 			<Text>This card has a negative squad point cost.</Text>
 			<Ship>awing</Ship>
+			<ShipRequirement>A-Wing</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="protonrockets">
@@ -1124,6 +1130,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>10</Cost>
 			<Text>Increase your hull value by 2 and your shield value by 1.</Text>
 			<Ship>gr75mediumtransport</Ship>
+			<ShipRequirement>GR-75</ShipRequirement>
 			<HugeOnly>true</HugeOnly>
 			<Hull>2</Hull>
 			<Shields>1</Shields>
@@ -1140,6 +1147,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>4</Cost>
 			<Text>After you perform an attack, you may perform a free cloak action. </Text>
 			<Ship>tiephantom</Ship>
+			<ShipRequirement>TIE Phantom</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="stygiumparticleaccelerator">
@@ -1153,6 +1161,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>1</Cost>
 			<Text>Your upgrade bar gains the {crew} upgrade icon.</Text>
 			<Ship>bwing</Ship>
+			<ShipRequirement>B-Wing</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>Crew</Upgrade>
 			</AdditionalUpgrades>
@@ -1197,6 +1206,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>1</Cost>
 			<Text>When you reveal a turn maneuver ({left turn} or {right turn}) you may rotate your dial to the corresponding bank maneuver ({left bank} or {right bank}) of the same speed.</Text>
 			<Ship>yv666</Ship>
+			<ShipRequirement>YV-666</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="advancedslam">
@@ -1209,6 +1219,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Name>Twin Ion Engine Mk. II</Name>
 			<Cost>1</Cost>
 			<Text>You may treat all bank maneuvers ({bank left} or {bank right}) as green maneuvers.</Text>
+			<ShipRequirement>TIE</ShipRequirement>
 			<TIEOnly>true</TIEOnly>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1217,6 +1228,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>0</Cost>
 			<Text>When you are dealt a Damage card you may discard one of your {astromech droid} Upgrade cards to discard that Damage card (without resolving its effect).</Text>
 			<Ship>xwing</Ship>
+			<ShipRequirement>X-Wing</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="automatedprotocols">
@@ -1329,6 +1341,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>5</Cost>
 			<Text>When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 {crit} result to your roll. If you do, you cannot spend target locks during this attack.</Text>
 			<Ship>tieadvanced</Ship>
+			<ShipRequirement>TIE Advanced</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="reinforceddeflectors">
@@ -1375,6 +1388,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>1</Cost>
 			<Text>Your action bar gains the Evade action icon.</Text>
 			<Ship>yt1300</Ship>
+			<ShipRequirement>YT-1300</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1383,6 +1397,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains the {torpedo} upgrade icon.</Text>
 			<Ship>firespray31</Ship>
+			<ShipRequirement>Firespray-31</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>Torpedo</Upgrade>
 			</AdditionalUpgrades>
@@ -1394,6 +1409,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>3</Cost>
 			<Text>During the End phase, do not remove unused focus tokens from your ship.</Text>
 			<Ship>hwk290</Ship>
+			<ShipRequirement>HWK-290</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1402,6 +1418,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>3</Cost>
 			<Text>When acquiring a target lock, you may lock onto any enemy ship in the play area.</Text>
 			<Ship>lambdaclassshuttle</Ship>
+			<ShipRequirement>Lambda-class Shuttle</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1410,6 +1427,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>0</Cost>
 			<Text>You may equip up to 2 different Modifications. You cannot equip this card if your Pilot skill is 4 or less.</Text>
 			<Ship>tieinterceptor</Ship>
+			<ShipRequirement>TIE Interceptor</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>Modification</Upgrade>
 			</AdditionalUpgrades>
@@ -1422,6 +1440,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 
 A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
 			<Ship>gr75mediumtransport</Ship>
+			<ShipRequirement>GR-75</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1430,6 +1449,7 @@ A reinforce token assigned to your fore section adds 2 {evade} results (instead 
 			<Cost>2</Cost>
 			<Text>When performing a jam action, you may choose an enemy ship at Range 1-3 (instead of at Range 1-2).</Text>
 			<Ship>gr75mediumtransport</Ship>
+			<ShipRequirement>GR-75</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1441,6 +1461,7 @@ A reinforce token assigned to your fore section adds 2 {evade} results (instead 
 At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 energy token.</Text>
 			<Energy>1</Energy>
 			<Ship>gr75mediumtransport</Ship>
+			<ShipRequirement>GR-75</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1449,6 +1470,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>4</Cost>
 			<Text>When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action.</Text>
 			<Ship>cr90f</Ship>
+			<ShipRequirement>CR90 Fore</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1457,6 +1479,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>2</Cost>
 			<Text>When defending, once per attack, if you are dealt a faceup Damage card, you may discard it and draw another faceup Damage card.</Text>
 			<Ship>cr90f</Ship>
+			<ShipRequirement>CR90 Fore</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1465,6 +1488,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>4</Cost>
 			<Text>Your fore section upgrade bar gains 1 additional {crew} and 1 additional {team} upgrade icon.</Text>
 			<Ship>cr90f</Ship>
+			<ShipRequirement>CR90 Fore</ShipRequirement>
 			<Unique>True</Unique>
 			<AdditionalUpgrades>
 				<Upgrade>Crew</Upgrade>
@@ -1477,6 +1501,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains 1 Elite Upgrade icon. You cannot equip 2 of the same Elite Upgrade cards. You cannot equip this card if your pilot skill value is "1" or lower.</Text>
 			<Ship>awing</Ship>
+			<ShipRequirement>A-Wing</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>Elite Pilot Talent</Upgrade>
 			</AdditionalUpgrades>
@@ -1487,6 +1512,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>5</Cost>
 			<Text>While you have a {cannon} Upgrade card equipped, you cannot perform primary weapon attacks and you may perform {cannon} secondary weapons attacks against ships outside your firing arc.</Text>
 			<Ship>yt2400</Ship>
+			<ShipRequirement>YT-2400</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1495,6 +1521,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>2</Cost>
 			<Text>After you execute a maneuver that causes you to overlap another ship, you may perform one free action. Then receive 1 stress token.</Text>
 			<Ship>vt49decimator</Ship>
+			<ShipRequirement>VT-49 Decimator</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1503,6 +1530,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>1</Cost>
 			<Text>Your upgrade bar gains the {system} and {illicit} upgrade icons.  You cannot equip this card if your pilot skill value is "3" or lower.</Text>
 			<Ship>starviper</Ship>
+			<ShipRequirement>StarViper</ShipRequirement>
 			<Unique>True</Unique>
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
@@ -1515,6 +1543,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>2</Cost>
 			<Text>Your upgrade bar gains the {cannon}, {torpedo} or {missile} upgrade icon.</Text>
 			<Ship>m3ainterceptor</Ship>
+			<ShipRequirement>M3-A Interceptor</ShipRequirement>
 			<UpgradeOptions>
 				<Upgrade>Cannon</Upgrade>
 				<Upgrade>Torpedo</Upgrade>
@@ -1527,6 +1556,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>You have the pilot ability of each other friendly ship with the IG-2000 Upgrade card (in addition to your own pilot ability).</Text>
 			<Ship>aggressor</Ship>
+			<ShipRequirement>Aggressor</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="btla4ywing">
@@ -1534,6 +1564,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>You cannot attack ships outside your firing arc. After you perform a primary weapon attack, you may immediately perform an attack with a {turret} secondary weapon.</Text>
 			<Ship>ywing</Ship>
+			<ShipRequirement>Y-Wing</ShipRequirement>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="andrasta">
@@ -1541,6 +1572,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains two additional {bomb} upgrade icons.</Text>
 			<Ship>firespray31</Ship>
+			<ShipRequirement>Firespray-31</ShipRequirement>
 			<Unique>True</Unique>
 			<AdditionalUpgrades>
 				<Upgrade>Bomb</Upgrade>
@@ -1553,6 +1585,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains the {system} upgrade icon.  If you equip a {system} upgrade, its squad point cost is reduced by 4 (to a minimum of 0).</Text>
 			<Ship>tieadvanced</Ship>
+			<ShipRequirement>TIE Advanced</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
 			</AdditionalUpgrades>
@@ -1563,6 +1596,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>6</Cost>
 			<Text>After you are destroyed, before you are removed from the play area, you may deploy the Nashtah Pup Pilot.  It cannot attack this round.</Text>
 			<Ship>yv666</Ship>
+			<ShipRequirement>YV-666</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1571,6 +1605,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>2</Cost>
 			<Text>When defending, if the target section has a reinforce token you may change 1 {focus} result to an {evade} result.</Text>
 			<Ship>raidera</Ship>
+			<ShipRequirement>Raider-class Corv. Aft</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1579,6 +1614,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>3</Cost>
 			<Text>After you perform an attack that destroys an enemy ship you may acquire a target lock.</Text>
 			<Ship>raidera</Ship>
+			<ShipRequirement>Raider-class Corv. Aft</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1587,6 +1623,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>4</Cost>
 			<Text>After you perform a recover action, recover 1 additional shield.</Text>
 			<Ship>raidera</Ship>
+			<ShipRequirement>Raider-class Corv. Aft</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1595,6 +1632,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>4</Cost>
 			<Text>When you deploy a ship, treat it's pilot skill value as &quot;8&quot; until the end of the round.</Text>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1603,6 +1641,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>6</Cost>
 			<Text>Once per round, after you acquire a target lock on an enemy ship, you may remove 1 focus, evade or blue target lock token from that ship.</Text>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Unique>True</Unique>
 			<Energy>2</Energy>
 			<Owned>0</Owned>
@@ -1612,6 +1651,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>2</Cost>
 			<Text>After you execute a maneuver, you may deploy up to 4 undocked ships (instead of 2).</Text>
 			<Ship>gozanticlasscruiser</Ship>
+			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Unique>True</Unique>
 			<Energy>1</Energy>
 			<Owned>0</Owned>
@@ -1621,6 +1661,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>Equip the Phantom title card to a friendly Attack Shuttle and dock it to this ship.  After you execute a maneuver you may deploy it from your rear guides.</Text>
 			<Ship>vcx100</Ship>
+			<ShipRequirement>VCX-100</ShipRequirement>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
 			<Owned>0</Owned>
@@ -1630,6 +1671,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>0</Cost>
 			<Text>While you are docked, the Ghost can perform primary weapon attacks from its special firing arc and at the end of the Combat Phase, it may perform an additional attack with an equipped {turret}.  If it performs this attack, it cannot attack again this round.</Text>
 			<Ship>attackshuttle</Ship>
+			<ShipRequirement>Attack Shuttle</ShipRequirement>
 			<Unique>true</Unique>
 			<Preview>true</Preview>
 			<Owned>0</Owned>
@@ -1640,6 +1682,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>Your action bar gains the {barrel roll} action icon.  You must equip 1 "Tractor Beam" Upgrade Card (paying the squad cost as normal).</Text>
 			<Unique>true</Unique>
 			<Ship>g1astarfighter</Ship>
+			<ShipRequirement>G-1A Starfighter</ShipRequirement>
 			<Preview>true</Preview>
 			<AdditionalUpgrades>
 				<Upgrade>Cannon</Upgrade>
@@ -1652,6 +1695,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>Increase your primary weapon value by 1.</Text>
 			<Unique>true</Unique>
 			<Ship>jumpmaster5000</Ship>
+			<ShipRequirement>JumpMaster 5000</ShipRequirement>
 			<Preview>true</Preview>
 			<Attack>1</Attack>
 			<Owned>0</Owned>
@@ -1661,6 +1705,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Cost>1</Cost>
 			<Text>After you acquire a target lock, you may perform a free evade action.</Text>
 			<Ship>tieadvancedprototype</Ship>
+			<ShipRequirement>TIE Adv. Prototype</ShipRequirement>
 			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1671,6 +1716,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 
 After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to your ship.</Text>
 			<Ship>tiedefender</Ship>
+			<ShipRequirement>TIE Defender</ShipRequirement>
 			<Preview>true</Preview>
 			<RemovedUpgrades>
 				<Upgrade>Cannon</Upgrade>
@@ -1683,6 +1729,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>0</Cost>
 			<Text>Once per round, after you perform an attack with a {cannon} secondary weapon that costs 3 or fewer squad points, you may perform a primary weapon attack.</Text>
 			<Ship>tiedefender</Ship>
+			<ShipRequirement>TIE Defender</ShipRequirement>
 			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1691,6 +1738,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>0</Cost>
 			<Text>Your upgrade bar loses all {torpedo}, {missile}, and {bomb} upgrade icons and gains 2 {crew} upgrade icons.  You cannot equip a {crew} Upgrade card that costs more than 4 squad points.</Text>
 			<Ship>tiebomber</Ship>
+			<ShipRequirement>TIE Bomber</ShipRequirement>
 			<Preview>true</Preview>
 			<RemovedUpgrades>
 				<Upgrade>Missile</Upgrade>
@@ -1749,6 +1797,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Text>Your upgrade bar gains the {bomb} icon.</Text>
 			<Limited>true</Limited>
 			<Ship>ywing</Ship>
+			<ShipRequirement>Y-Wing</ShipRequirement>
 			<AdditionalUpgrades>
 				<Upgrade>Bomb</Upgrade>
 			</AdditionalUpgrades>
