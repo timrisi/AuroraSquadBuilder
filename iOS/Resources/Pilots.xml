@@ -2378,7 +2378,7 @@
 		<Ability>When another friendly ship at Range 1 attacks with a secondary weapon, it may reroll up to 2 attack dice.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
-	<Pilot id="gammasquadronpilot" faction="empire" ship="tiebomber">
+	<Pilot id="gammasquadronveteran" faction="empire" ship="tiebomber">
 		<Name>Gamma Squadron Veteran</Name>
 		<Unique>false</Unique>
 		<PilotSkill>5</PilotSkill>

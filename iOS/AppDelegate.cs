@@ -118,8 +118,10 @@ namespace SquadBuilder.iOS
 
 			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions", "xml")).ReadToEnd ();
 			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Expansions.xml"))
+			if (!saveAndLoad.FileExists ("Expansions.xml")) {
 				saveAndLoad.SaveText ("Expansions.xml", expansionsXml);
+				Cards.SharedInstance.GetAllExpansions ();
+			}
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Expansions.xml")))?.Attribute ("Version") < Settings.ExpansionsVersion) {
 				var oldExpansions = Cards.SharedInstance.Expansions;			
 

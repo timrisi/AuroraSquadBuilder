@@ -414,6 +414,9 @@ namespace SquadBuilder
 
 		public void GetAllExpansions ()
 		{
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Expansions.xml"))
+				return;
+			
 			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Expansions.xml")));
 			expansions = new ObservableCollection <Expansion> (from expansion in expansionsXml.Elements ()
 			                                                    select new Expansion {
