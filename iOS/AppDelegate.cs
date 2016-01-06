@@ -47,6 +47,24 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Settings.xml", settingsXml);
 			Settings.SettingsVersion = settingsVersion;
 
+			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions", "xml")).ReadToEnd ();
+			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists ("Expansions.xml")) {
+				saveAndLoad.SaveText ("Expansions.xml", expansionsXml);
+				Cards.SharedInstance.GetAllExpansions ();
+			}
+			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Expansions.xml")))?.Attribute ("Version") < Settings.ExpansionsVersion) {
+				var oldExpansions = Cards.SharedInstance.Expansions;			
+
+				saveAndLoad.SaveText ("Expansions.xml", expansionsXml);
+				Cards.SharedInstance.GetAllExpansions ();
+
+				foreach (var expansion in oldExpansions) {
+					if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
+						Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).owned = expansion.owned;
+				}
+			}
+
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions", "xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists ("Factions.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Factions.xml")))?.Attribute ("Version") < Settings.FactionsVersion)
@@ -115,26 +133,13 @@ namespace SquadBuilder.iOS
 			var customUpgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades_Custom", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
-
-			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions", "xml")).ReadToEnd ();
-			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists ("Expansions.xml")) {
-				saveAndLoad.SaveText ("Expansions.xml", expansionsXml);
-				Cards.SharedInstance.GetAllExpansions ();
-			}
-			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Expansions.xml")))?.Attribute ("Version") < Settings.ExpansionsVersion) {
-				var oldExpansions = Cards.SharedInstance.Expansions;			
-
-				saveAndLoad.SaveText ("Expansions.xml", expansionsXml);
-				Cards.SharedInstance.GetAllExpansions ();
-
-				foreach (var expansion in oldExpansions) {
-					if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
-						Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).owned = expansion.owned;
-				}
-			}
+			
 
 			Cards.SharedInstance.SaveCollection ();
+			Cards.SharedInstance.GetAllFactions ();
+			Cards.SharedInstance.GetAllShips ();
+			Cards.SharedInstance.GetAllPilots ();
+			Cards.SharedInstance.GetAllUpgrades ();
 
 			LoadApplication (new App ());
 
