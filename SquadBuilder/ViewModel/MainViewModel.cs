@@ -68,7 +68,10 @@ namespace SquadBuilder
 								vm2.Squadron = Squadron;
 							});
 						});
-						Navigation.PushAsync <CreateSquadronViewModel> ();
+						Navigation.PushAsync <CreateSquadronViewModel> ((vm, page) => {
+							if (!string.IsNullOrEmpty (Faction))
+								vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == Faction));
+						});
 					});
 
 				return addSquadron;

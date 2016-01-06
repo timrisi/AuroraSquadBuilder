@@ -74,6 +74,7 @@ namespace SquadBuilder
 				} else
 					updateUpgrade (index, upgrade, vm);
 
+				NotifyPropertyChanged ("PointsDescription");
 				MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 			});
 
@@ -167,6 +168,7 @@ namespace SquadBuilder
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
+			SelectedUpgrade = null;
 
 			MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 		}

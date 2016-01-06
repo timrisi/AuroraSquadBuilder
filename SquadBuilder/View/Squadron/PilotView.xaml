@@ -33,7 +33,7 @@
 							<Label Text="{Binding Pilot.Ship.ActionsString}" />
 						</StackLayout>
 						<StackLayout Orientation="Horizontal" Spacing="10">
-							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
 							<Label Text="Preview" IsVisible="{Binding Pilot.Preview}" TextColor="Blue" FontAttributes="Italic" />
 						</StackLayout>
 						<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" />

@@ -12,6 +12,7 @@ namespace SquadBuilder
 			set {
 				Settings.AllowCustom = value;
 				NotifyPropertyChanged ("AllowCustom");
+				MessagingCenter.Send <SettingsViewModel> (this, "AllowCustom changed");
 			}
 		}
 				

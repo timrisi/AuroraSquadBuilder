@@ -671,7 +671,6 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 			<Name>Construction Droid</Name>
 			<Cost>3</Cost>
 			<Text>When you perform a recover action, you may spend 1 energy to discard 1 facedown damage card.</Text>
-			<Faction>empire</Faction>
 			<Limited>true</Limited>
 			<HugeOnly>true</HugeOnly>
 			<Owned>0</Owned>

@@ -2,6 +2,7 @@
 using UIKit;
 using MessageUI;
 using System.Runtime.CompilerServices;
+using Foundation;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SquadBuilder.iOS.SendMail))]
 namespace SquadBuilder.iOS
@@ -23,8 +24,9 @@ namespace SquadBuilder.iOS
 								null, "Okay", null).Show ();
 					};
 
+					var majorVersion = NSBundle.MainBundle.InfoDictionary.ObjectForKey ((NSString)"CFBundleShortVersionString").ToString ();
 					mail.SetToRecipients (new string [] { "support@risiapps.com" });
-					mail.SetSubject ("Squad Builder Feedback");
+					mail.SetSubject ("Squad Builder Feedback - iOS " + majorVersion);
 					mail.SetMessageBody ("", false);
 					await rootController.PresentViewControllerAsync (mail, true);
 				} else {

@@ -3,10 +3,11 @@ using XLabs.Data;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using XLabs;
 
 namespace SquadBuilder
 {
-	public class Expansion
+	public class Expansion : ObservableObject
 	{
 		public string Id { get; set; }
 		public string Name { get; set; }
@@ -23,7 +24,7 @@ namespace SquadBuilder
 					return;
 				
 				var previousNumber = owned;
-				owned = value;
+				SetProperty (ref owned, value);
 
 				foreach (var ship in Ships)
 					Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == ship).Owned += (owned - previousNumber);
@@ -57,6 +58,26 @@ namespace SquadBuilder
 
 					Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade).Owned += (owned - previousNumber);
 				}
+			}
+		}
+
+		RelayCommand increment;
+		public RelayCommand Increment {
+			get {
+				if (increment == null)
+					increment = new RelayCommand (() => Owned++);
+
+				return increment;
+			}
+		}
+
+		RelayCommand decrement;
+		public RelayCommand Decrement {
+			get {
+				if (decrement == null)
+					decrement = new RelayCommand (() => Owned--);
+
+				return decrement;
 			}
 		}
 	}

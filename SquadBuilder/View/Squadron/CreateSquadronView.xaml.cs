@@ -28,7 +28,7 @@ namespace SquadBuilder
 				{
 					factionPicker.Items.Add(faction.Name);
 				}
-				factionPicker.SelectedIndex = 0;
+				factionPicker.SelectedIndex = vm.SelectedIndex;
 			}
 		}
 	}

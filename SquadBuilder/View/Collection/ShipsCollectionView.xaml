@@ -19,7 +19,9 @@
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" />
+										<Button Text="-" Command="{Binding Decrement}" />
 										<Entry Keyboard="Numeric" Text="{Binding Owned}" HorizontalOptions="End" />
+										<Button Text="+" Command="{Binding Increment}" />
 									</StackLayout>
 								</StackLayout>
 							</ViewCell.View>

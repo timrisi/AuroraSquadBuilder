@@ -7,7 +7,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>7.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -58,6 +58,6 @@
 	<key>CFBundleDisplayName</key>
 	<string>Aurora SB</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 </dict>
 </plist>

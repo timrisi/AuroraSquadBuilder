@@ -33,7 +33,12 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
-		public int Owned { get; set; }
+
+		int owned;
+		public int Owned { 
+			get { return owned; }
+			set { SetProperty (ref owned, value); }
+		}
 
 		string shipRequirement;
 		public string ShipRequirement { 
@@ -161,6 +166,26 @@ namespace SquadBuilder
 				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),
 				RequiredSlots = new ObservableCollection <string> (RequiredSlots)
 			};
+		}
+
+		RelayCommand increment;
+		public RelayCommand Increment {
+			get {
+				if (increment == null)
+					increment = new RelayCommand (() => Owned++);
+
+				return increment;
+			}
+		}
+
+		RelayCommand decrement;
+		public RelayCommand Decrement {
+			get {
+				if (decrement == null)
+					decrement = new RelayCommand (() => Owned--);
+
+				return decrement;
+			}
 		}
 	}
 }

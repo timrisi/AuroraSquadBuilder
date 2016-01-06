@@ -7,6 +7,11 @@ namespace SquadBuilder
 {
 	public class MenuViewModel : ViewModel
 	{
+		public MenuViewModel ()
+		{
+			MessagingCenter.Subscribe <SettingsViewModel> (this, "AllowCustom changed", vm => NotifyPropertyChanged ("AllowCustom"));
+		}
+
 		public bool AllowCustom {
 			get { return Settings.AllowCustom; }
 		}

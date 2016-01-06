@@ -38,7 +38,12 @@ namespace SquadBuilder
 		public string Ability { get; set; }
 		public bool IsCustom { get; set; }
 		public bool Preview { get; set; }
-		public int Owned { get; set; }
+
+		int owned;
+		public int Owned { 
+			get { return owned; }
+			set { SetProperty (ref owned, value); }
+		}
 
 		ObservableCollection <string> upgradeTypes = new ObservableCollection <string> ();
 		public ObservableCollection <string> UpgradeTypes { 
@@ -288,6 +293,26 @@ namespace SquadBuilder
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (UpgradesEquipped.ToList ())
 			};
+		}
+
+		RelayCommand increment;
+		public RelayCommand Increment {
+			get {
+				if (increment == null)
+					increment = new RelayCommand (() => Owned++);
+
+				return increment;
+			}
+		}
+
+		RelayCommand decrement;
+		public RelayCommand Decrement {
+			get {
+				if (decrement == null)
+					decrement = new RelayCommand (() => Owned--);
+
+				return decrement;
+			}
 		}
 	}
 }

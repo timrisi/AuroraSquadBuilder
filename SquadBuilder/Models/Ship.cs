@@ -130,6 +130,26 @@ namespace SquadBuilder
 				Actions = new ObservableCollection <string> (Actions)
 			};
 		}
+
+		RelayCommand increment;
+		public RelayCommand Increment {
+			get {
+				if (increment == null)
+					increment = new RelayCommand (() => Owned++);
+
+				return increment;
+			}
+		}
+
+		RelayCommand decrement;
+		public RelayCommand Decrement {
+			get {
+				if (decrement == null)
+					decrement = new RelayCommand (() => Owned--);
+
+				return decrement;
+			}
+		}
 	}
 }
 
