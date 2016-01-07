@@ -25,8 +25,10 @@ namespace SquadBuilder.iOS
 					};
 
 					var majorVersion = NSBundle.MainBundle.InfoDictionary.ObjectForKey ((NSString)"CFBundleShortVersionString").ToString ();
+					var minorVersion = NSBundle.MainBundle.InfoDictionary.ObjectForKey ((NSString)"CFBundleVersion").ToString ();
 					mail.SetToRecipients (new string [] { "support@risiapps.com" });
-					mail.SetSubject ("Squad Builder Feedback - iOS " + majorVersion);
+					mail.SetSubject ("Squad Builder Feedback - iOS " + majorVersion + " (" + minorVersion + ")");
+
 					mail.SetMessageBody ("", false);
 					await rootController.PresentViewControllerAsync (mail, true);
 				} else {

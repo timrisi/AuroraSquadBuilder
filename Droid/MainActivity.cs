@@ -132,6 +132,11 @@ namespace SquadBuilder.Droid
 				}
 			}
 
+
+			Cards.SharedInstance.GetAllFactions ();
+			Cards.SharedInstance.GetAllShips ();
+			Cards.SharedInstance.GetAllPilots ();
+			Cards.SharedInstance.GetAllUpgrades ();
 			Cards.SharedInstance.SaveCollection ();
 			
 			LoadApplication(new App());

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.36">
+<Upgrades Version="2.37">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1031,7 +1031,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 		<Upgrade id="homingmissiles">
 			<Name>Homing Missiles</Name>
 			<Cost>5</Cost>
-			<Text>Attack (target lock): Discard this card to peform this attack.  The defender cannot spend evade tokens during this attack.</Text>
+			<Text>Attack (target lock): Discard this card to perform this attack.  The defender cannot spend evade tokens during this attack.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>4</Dice>
 			<Range>2-3</Range>

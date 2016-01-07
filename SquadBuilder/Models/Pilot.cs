@@ -38,6 +38,7 @@ namespace SquadBuilder
 		public string Ability { get; set; }
 		public bool IsCustom { get; set; }
 		public bool Preview { get; set; }
+		public Pilot OtherHalf { get; set; }
 
 		int owned;
 		public int Owned { 

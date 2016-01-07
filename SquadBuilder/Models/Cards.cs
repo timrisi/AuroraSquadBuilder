@@ -205,6 +205,9 @@ namespace SquadBuilder
 
 		public void GetAllFactions ()
 		{
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Factions.xml"))
+				return;
+			
 			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
 			factions = new ObservableCollection <Faction> ((from faction in factionsXml.Elements ()
 				select new Faction {
@@ -236,6 +239,9 @@ namespace SquadBuilder
 
 		public void GetAllShips ()
 		{
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Ships.xml"))
+				return;
+			
 			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
 			ships = new ObservableCollection <Ship> ((
 				from ship in shipsElement.Elements ()
@@ -271,6 +277,9 @@ namespace SquadBuilder
 
 		public void GetAllPilots ()
 		{
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Pilots.xml"))
+				return;
+			
 			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
 			pilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 			                                           select new Pilot {
@@ -320,6 +329,9 @@ namespace SquadBuilder
 
 		public void GetAllUpgrades ()
 		{
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Upgrades.xml"))
+				return;
+			
 			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
 			List <Upgrade> allUpgrades = new List <Upgrade> ();
 

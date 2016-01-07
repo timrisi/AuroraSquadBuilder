@@ -16,7 +16,8 @@ namespace SquadBuilder.Droid
 			emailIntent.PutExtra (Intent.ExtraEmail, new [] { "support@risiapps.com" });
 			
 			var versionNumber = Forms.Context.PackageManager.GetPackageInfo (Forms.Context.PackageName, 0).VersionName;
-			emailIntent.PutExtra (Intent.ExtraSubject, "Squad Builder Feedback - Android " + versionNumber);
+			var minorVersion = Forms.Context.PackageManager.GetPackageInfo (Forms.Context.PackageName, 0).VersionCode;
+			emailIntent.PutExtra (Intent.ExtraSubject, "Squad Builder Feedback - Android " + versionNumber + " (" + minorVersion + ")");
 			emailIntent.PutExtra (Intent.ExtraText, "");
 			Forms.Context.StartActivity (Intent.CreateChooser (emailIntent, "Send Feedback"));
 		}

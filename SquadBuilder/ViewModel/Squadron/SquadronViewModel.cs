@@ -9,6 +9,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Threading;
+using System.Security.AccessControl;
 
 namespace SquadBuilder
 {
@@ -52,14 +53,76 @@ namespace SquadBuilder
 					navigateToPilotsList = new RelayCommand (() => {
 						if (!Settings.FilterPilotsByShip) {
 							MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+								if (pilot.Id.Contains ("cr90")) {
+									if (pilot.Name.Contains ("Aft")) {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Fore")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+									else {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Aft")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+								}
+
 								Pilots.Add (pilot);
+
+								if (pilot.Id.Contains ("raider")) {
+									if (pilot.Name.Contains ("Aft")) {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Fore")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+									else{
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Aft")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+								}
+
 								Navigation.RemoveAsync <PilotsListViewModel> (vm);
 
 								MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 							});
 						} else {
 							MessagingCenter.Subscribe <ShipsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+								if (pilot.Id.Contains ("cr90")) {
+									if (pilot.Name.Contains ("Aft")) {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Fore")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+									else {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Aft")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+								}
+
 								Pilots.Add (pilot);
+
+								if (pilot.Id.Contains ("raider")) {
+									if (pilot.Name.Contains ("Aft")) {
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Fore")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+									else{
+										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Aft")).Copy ();
+										pilot.OtherHalf = otherPilot;
+										otherPilot.OtherHalf = pilot;
+										Pilots.Add (otherPilot);
+									}
+								}
+								
 								Navigation.PopAsync ();
 
 								MessagingCenter.Unsubscribe <ShipsListViewModel, Pilot> (this, "Pilot selected");
@@ -124,9 +187,33 @@ namespace SquadBuilder
 			base.OnViewAppearing ();
 
 			MessagingCenter.Subscribe <Pilot> (this, "Remove Pilot", 
-				(pilot) => Pilots.Remove (pilot));
+				(pilot) => {
+					Pilots.Remove (pilot);
+					if (pilot.OtherHalf != null)
+						Pilots.Remove (pilot.OtherHalf);
+				}
+			);
 			MessagingCenter.Subscribe <Pilot> (this, "Copy Pilot",
-				(pilot) => Pilots.Add (pilot.Copy ()));
+				(pilot) => {
+					var pilotCopy = pilot.Copy ();
+
+					if (pilot.OtherHalf != null && pilotCopy.Name.Contains ("Aft")) {
+						var otherPilot = pilot.OtherHalf.Copy ();
+						otherPilot.OtherHalf = pilotCopy;
+						pilotCopy.OtherHalf = otherPilot;
+						Pilots.Add (otherPilot);
+					}
+							
+					Pilots.Add (pilotCopy);
+
+					if (pilot.OtherHalf != null && pilotCopy.Name.Contains ("Fore")) {
+						var otherPilot = pilot.OtherHalf.Copy ();
+						otherPilot.OtherHalf = pilotCopy;
+						pilotCopy.OtherHalf = otherPilot;
+						Pilots.Add (otherPilot);
+					}
+				}
+			);
 
 			Pilots = new ObservableCollection <Pilot> (Pilots);
 

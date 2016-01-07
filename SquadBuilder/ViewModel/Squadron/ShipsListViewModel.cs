@@ -83,7 +83,7 @@ namespace SquadBuilder
 			else
 				pilots = Cards.SharedInstance.Pilots;
 
-			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Count (p => (Faction.Name == "Mixed" || p.Faction == Faction) && p.Ship == s) > 0).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
+			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Count (p => (Faction.Name == "Mixed" || p.Faction.Id == Faction.Id) && p.Ship == s) > 0).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}
 
 		public override void OnViewAppearing ()
@@ -91,8 +91,6 @@ namespace SquadBuilder
 			base.OnViewAppearing ();
 
 			GetAllShips ();
-
-			SelectedShip = null;
 
 			filterShips ();
 		}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.21">
+<Pilots Version="2.22">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1969,7 +1969,6 @@
 			<Upgrade>Hardpoint</Upgrade>
 			<Upgrade>Team</Upgrade>
 			<Upgrade>Cargo</Upgrade>
-			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
@@ -3313,7 +3312,6 @@
 			<Upgrade>Hardpoint</Upgrade>
 			<Upgrade>Team</Upgrade>
 			<Upgrade>Cargo</Upgrade>
-			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
