@@ -29,7 +29,8 @@ namespace SquadBuilder
 						index = Pilot.UpgradesEquipped.IndexOf (upgrade);
 					}
 
-					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || (pilot.OtherHalf != null && pilot.OtherHalf.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
+					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || 
+						(pilot.LinkedPilotCardGuid != Guid.Empty && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
 					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
 					     Pilot.UpgradeTypes [index] == "Torpedo" ||
 						 Pilot.UpgradeTypes [index] == "Missile") &&
@@ -118,12 +119,13 @@ namespace SquadBuilder
 						}
 					}
 
-					if (pilot.OtherHalf != null) {
-						for (int i = 0; i < pilot.OtherHalf.UpgradeTypes.Count; i++) {
-							var type = pilot.OtherHalf.UpgradeTypes [i];
+					if (pilot.LinkedPilotCardGuid != Guid.Empty) {
+						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != pilot.Name && p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid);
+						for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
+							var type = otherPilot.UpgradeTypes [i];
 							if (type == "Missile" || type == "Torpedo") {
-								pilot.OtherHalf.UpgradeTypes [i] = "Hardpoint";
-								pilot.OtherHalf.UpgradesEquipped [i] = null;
+								otherPilot.UpgradeTypes [i] = "Hardpoint";
+								otherPilot.UpgradesEquipped [i] = null;
 							}
 						}
 					}
