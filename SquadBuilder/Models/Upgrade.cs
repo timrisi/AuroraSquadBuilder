@@ -37,7 +37,12 @@ namespace SquadBuilder
 		int owned;
 		public int Owned { 
 			get { return owned; }
-			set { SetProperty (ref owned, value); }
+			set {
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref owned, value);
+			}
 		}
 
 		string shipRequirement;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.22">
+<Pilots Version="2.23">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -442,6 +442,27 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking you may roll 1 additional attack die. If you do, the defender rolls 1 additional defense die.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="4lom" faction="scum" ship="g1astarfighter">
+		<Name>4-LOM</Name>
+		<Unique>true</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>27</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the start of the End phase, you may assign 1 of your stress tokens to another ship at Range 1.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="bobafett" faction="scum" ship="firespray31">

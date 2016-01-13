@@ -93,6 +93,8 @@ namespace SquadBuilder
 			GetAllShips ();
 
 			filterShips ();
+
+			SelectedShip = null;
 		}
 	}
 }
