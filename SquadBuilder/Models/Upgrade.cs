@@ -33,6 +33,7 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
+		public string RequiredAction { get; set; }
 
 		int owned;
 		public int Owned { 

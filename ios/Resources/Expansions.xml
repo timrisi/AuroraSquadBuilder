@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.15">
+<Expansions Version="1.16">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -292,6 +292,7 @@
 			<Upgrade>heavylasercannon</Upgrade>
 			<Upgrade>darthvader</Upgrade>
 			<Upgrade>flightinstructor</Upgrade>
+			<Upgrade>intelligenceagent</Upgrade>>
 			<Upgrade>navigator</Upgrade>
 			<Upgrade>rebelcaptive</Upgrade>
 			<Upgrade>weaponsengineer</Upgrade>

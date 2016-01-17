@@ -66,6 +66,39 @@ namespace SquadBuilder
 			}
 		}
 
+		int wins = 0;
+		public int Wins {
+			get { return wins; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref wins, value); 
+			}
+		}
+
+		int losses = 0;
+		public int Losses {
+			get { return losses; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref losses, value); 
+			}
+		}
+
+		int draws = 0;
+		public int Draws {
+			get { return draws; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref draws, value); 
+			}
+		}
+
 		public string PointDetails {
 			get { return Points + " / " + MaxPoints; }
 		}

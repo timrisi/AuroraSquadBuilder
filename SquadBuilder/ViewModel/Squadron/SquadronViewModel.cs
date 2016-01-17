@@ -44,6 +44,21 @@ namespace SquadBuilder
 			}
 		}
 
+		public int Wins {
+			get { return Squadron.Wins; }
+			set { Squadron.Wins = value; }
+		}
+
+		public int Losses {
+			get { return Squadron.Losses; }
+			set { Squadron.Losses = value; }
+		}
+
+		public int Draws { 
+			get { return Squadron.Draws; }
+			set { Squadron.Draws = value; }
+		}
+
 		public string NavigateToPilotsListText { get { return "+"; } }
 
 		RelayCommand navigateToPilotsList;
@@ -179,6 +194,90 @@ namespace SquadBuilder
 					});
 
 				return exportXws;
+			}
+		}
+
+		RelayCommand decrementWins;
+		public RelayCommand DecrementWins {
+			get {
+				if (decrementWins == null) {
+					decrementWins = new RelayCommand (() => {
+						Squadron.Wins --;
+						NotifyPropertyChanged ("Wins");
+					});
+				}
+
+				return decrementWins;
+			}
+		}
+
+		RelayCommand incrementWins;
+		public RelayCommand IncrementWins {
+			get {
+				if (incrementWins == null) {
+					incrementWins = new RelayCommand (() => {
+						Squadron.Wins ++;
+						NotifyPropertyChanged ("Wins");
+					});
+				}
+
+				return incrementWins;
+			}
+		}
+
+		RelayCommand decrementLosses;
+		public RelayCommand DecrementLosses {
+			get {
+				if (decrementLosses == null) {
+					decrementLosses = new RelayCommand (() => {
+						Squadron.Losses --;
+						NotifyPropertyChanged ("Losses");
+					});
+				}
+
+				return decrementLosses;
+			}
+		}
+
+		RelayCommand incrementLosses;
+		public RelayCommand IncrementLosses {
+			get {
+				if (incrementLosses == null) {
+					incrementLosses = new RelayCommand (() => {
+						Squadron.Losses ++;
+						NotifyPropertyChanged ("Losses");
+					});
+				}
+
+				return incrementLosses;
+			}
+		}
+
+		RelayCommand decrementDraws;
+		public RelayCommand DecrementDraws {
+			get {
+				if (decrementDraws == null) {
+					decrementDraws = new RelayCommand (() => {
+						Squadron.Draws --;
+						NotifyPropertyChanged ("Draws");
+					});
+				}
+
+				return decrementDraws;
+			}
+		}
+
+		RelayCommand incrementDraws;
+		public RelayCommand IncrementDraws {
+			get {
+				if (incrementDraws == null) {
+					incrementDraws = new RelayCommand (() => {
+						Squadron.Draws ++;
+						NotifyPropertyChanged ("Draws");
+					});
+				}
+
+				return incrementDraws;
 			}
 		}
 

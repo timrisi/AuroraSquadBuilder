@@ -53,8 +53,7 @@ namespace SquadBuilder
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
 				.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
-				.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
-				.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
+				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement)).ToList ();
 
 			if (Settings.AllowCustom) {
@@ -62,8 +61,7 @@ namespace SquadBuilder
 					.Where (u => u.Category == type)
 					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
-					.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
-					.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"));
+					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction));
 				
 				upgrades.AddRange (customUpgrades);
 			}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.40">
+<Upgrades Version="2.42">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -619,7 +619,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		<Upgrade id="admiralozzel">
 			<Name>Admiral Ozzel</Name>
 			<Cost>2</Cost>
-			<Text>If you overlap an obstacle during the Activation Phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a {hit} or {crit} result, suffer 1 damage.</Text>
+			<Text>Energy: You may remove up to 3 shields from your ship.  For each shield removed, gain 1 energy.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
@@ -628,7 +628,7 @@ Detonation: Deal two ion tokens to all ships within Range 1.</Text>
 		<Upgrade id="captainneeda">
 			<Name>Captain Needa</Name>
 			<Cost>2</Cost>
-			<Text>Energy: You may remove up to 3 shields from your ship.  For each shield removed, gain 1 energy.</Text>
+			<Text>If you overlap an obstacle during the Activation Phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a {hit} or {crit} result, suffer 1 damage.</Text>
 			<Faction>empire</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
@@ -1225,6 +1225,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Name>Autothrusters</Name>
 			<Cost>2</Cost>
 			<Text>When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to an {evade} result. You can equip this card only if you have the {boost} action icon.</Text>
+			<RequiredAction>Boost</RequiredAction>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ionprojector">

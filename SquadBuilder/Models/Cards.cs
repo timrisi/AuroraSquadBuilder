@@ -369,6 +369,7 @@ namespace SquadBuilder
 																		 select upgr.Value).ToList ()),
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
+					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
 					Owned = (int)upgrade.Element ("Owned")
 				});
 
@@ -412,7 +413,8 @@ namespace SquadBuilder
 					RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List <XElement> ()
 																		 select upgr.Value).ToList ()),
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
-																	   select upgr.Value).ToList ()),
+							select upgr.Value).ToList ()),
+					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
 					Owned = 0
 				});
 
