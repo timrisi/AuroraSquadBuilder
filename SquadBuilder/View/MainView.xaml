@@ -35,18 +35,18 @@
 											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
 											<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
 										</StackLayout>
-										<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
-									</StackLayout>
-									<StackLayout Orientation="Horizontal">
-										<Label Text="{Binding PilotsString}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
-										<StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
-											<Label Text="{Binding Wins}" TextColor="Green" FontSize="Micro" HorizontalOptions="End" />
-											<Label Text="/" FontSize="Micro" />
-											<Label Text="{Binding Losses}" TextColor="Red" FontSize="Micro" />
-											<Label Text="/" FontSize="Micro" />
-											<Label Text="{Binding Draws}" TextColor="Navy" FontSize="Micro" HorizontalOptions="End" />
+										<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">
+											<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
+											<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+												<Label Text="{Binding Wins}" TextColor="Green" FontSize="Micro" HorizontalOptions="End" />
+												<Label Text="/" FontSize="Micro" />
+												<Label Text="{Binding Losses}" TextColor="Red" FontSize="Micro" />
+												<Label Text="/" FontSize="Micro" />
+												<Label Text="{Binding Draws}" TextColor="Navy" FontSize="Micro" HorizontalOptions="End" />
+											</StackLayout>
 										</StackLayout>
 									</StackLayout>
+									<Label Text="{Binding PilotsString}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
