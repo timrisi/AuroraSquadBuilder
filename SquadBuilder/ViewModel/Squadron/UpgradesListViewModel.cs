@@ -43,8 +43,10 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedUpgrade, value);
 
-				if (value != null)
+				if (value != null) {
 					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
+					Navigation.RemoveAsync <UpgradesListViewModel> (this);
+				}
 			}
 		}
 
@@ -140,7 +142,10 @@ namespace SquadBuilder
 		public RelayCommand NoUpgrade {
 			get {
 				if (noUpgrade == null)
-					noUpgrade = new RelayCommand (() => MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null));
+					noUpgrade = new RelayCommand (() => {
+						MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null);
+						Navigation.RemoveAsync <UpgradesListViewModel> (this);
+					});
 
 				return noUpgrade;
 			}

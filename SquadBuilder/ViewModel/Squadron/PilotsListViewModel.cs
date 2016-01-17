@@ -58,8 +58,10 @@ namespace SquadBuilder
 			set { 
 				SetProperty (ref selectedPilot, value); 
 
-				if (value != null)
+				if (value != null) {
 					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Pilot selected", SelectedPilot.Copy ());
+					Navigation.RemoveAsync <PilotsListViewModel> (this);
+				}
 			}
 		}
 

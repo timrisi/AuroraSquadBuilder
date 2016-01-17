@@ -100,7 +100,7 @@ namespace SquadBuilder
 									}
 								}
 
-								Navigation.RemoveAsync <PilotsListViewModel> (vm);
+//								Navigation.RemoveAsync <PilotsListViewModel> (vm);
 
 								MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 							});
@@ -138,7 +138,7 @@ namespace SquadBuilder
 									}
 								}
 								
-								Navigation.PopAsync ();
+//								Navigation.PopAsync ();
 
 								MessagingCenter.Unsubscribe <ShipsListViewModel, Pilot> (this, "Pilot selected");
 							});

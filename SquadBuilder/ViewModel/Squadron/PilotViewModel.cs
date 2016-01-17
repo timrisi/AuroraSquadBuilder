@@ -156,7 +156,7 @@ namespace SquadBuilder
 			}
 
 			NotifyPropertyChanged ("Pilot");
-			Navigation.RemoveAsync <UpgradesListViewModel> (vm);
+//			Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 		}
 
 		RelayCommand selectUpgrade;
@@ -167,7 +167,7 @@ namespace SquadBuilder
 						
 						MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
 							
-							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
+//							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
 						Navigation.PushAsync <CreateSquadronViewModel> ();
