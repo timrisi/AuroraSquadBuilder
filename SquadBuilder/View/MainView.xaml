@@ -5,6 +5,7 @@
 				x:Class="SquadBuilder.MainView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
+<!--		<ToolbarItem Text="Edit" />-->
 		<ToolbarItem Text="+" Command="{Binding AddSquadron}" />
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
@@ -32,11 +33,11 @@
 								<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
-											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
-											<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" TextColor="{Binding Faction.Color}" />
+											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+											<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" VerticalOptions="End" TextColor="{Binding Faction.Color}" />
 										</StackLayout>
 										<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">
-											<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" XAlign="End" YAlign="Center" />
+											<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" XAlign="End" YAlign="Center" />
 											<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
 												<Label Text="{Binding Wins}" TextColor="Green" FontSize="Micro" HorizontalOptions="End" />
 												<Label Text="/" FontSize="Micro" />

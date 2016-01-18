@@ -241,4 +241,8 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="$(MSBuildThisFileDirectory)down.png" />
+    <BundleResource Include="$(MSBuildThisFileDirectory)up.png" />
+  </ItemGroup>
 </Project>
