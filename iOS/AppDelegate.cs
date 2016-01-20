@@ -12,12 +12,16 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
 using Xamarin.Forms;
+using Dropbox.CoreApi.iOS;
 
 namespace SquadBuilder.iOS
 {
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : XLabs.Forms.XFormsApplicationDelegate
 	{
+		string appKey = "qms26ynz79cou3i";
+		string appSecret = "sa9emnj6m74ofbm";
+
 		SaveAndLoad saveAndLoad;
 
 		const string HasMigrated = "HasMigrated";
@@ -25,6 +29,10 @@ namespace SquadBuilder.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
+
+			var session = new Session (appKey, appSecret, Session.RootAppFolder);
+			// The session that you have just created, will live through all the app
+			Session.SharedSession = session;
 
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
@@ -149,5 +157,16 @@ namespace SquadBuilder.iOS
 			var resolverContainer = new SimpleContainer();
 			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
+
+		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		{
+			if (Session.SharedSession.HandleOpenUrl (url) && Session.SharedSession.IsLinked) {
+				Console.WriteLine ("Foo");
+				// Do your magic after the app gets linked
+			}
+
+			return true;
+		}
+
 	}
 }

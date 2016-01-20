@@ -129,6 +129,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Dropbox.CoreApi.iOS">
+      <HintPath>..\Components\dropboxcoreapiios-1.3.13\lib\ios-unified\Dropbox.CoreApi.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
@@ -204,6 +207,10 @@
   <ItemGroup>
     <XamarinComponentReference Include="calabash">
       <Version>16.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="dropboxcoreapiios">
+      <Version>1.3.13</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

@@ -25,6 +25,7 @@
 				<Switch IsToggled="{Binding UpdateOnLaunch, Mode=TwoWay}" HorizontalOptions="End" />
 			</StackLayout>
 			<Button Text="Check for updates" Command="{Binding CheckForUpdates}" />
+			<Button Text="Dropbox Login" Command="{Binding DropboxLogin}" />
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>
