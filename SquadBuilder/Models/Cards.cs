@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using XLabs.Data;
 using System.Collections.ObjectModel;
 using System.Runtime.Remoting.Messaging;
@@ -253,7 +253,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
-					Owned = (int)ship.Element ("Owned")
+					Owned = ship.Element ("Owned") != null ? (int)ship.Element ("Owned") : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
 			);
 
@@ -299,7 +299,7 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
-				Owned = (int)pilot.Element ("Owned")
+				Owned = pilot.Element ("Owned") != null ? (int)pilot.Element ("Owned") : 0
 			});
 
 			XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
@@ -369,7 +369,7 @@ namespace SquadBuilder
 																		 select upgr.Value).ToList ()),
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
-					Owned = (int)upgrade.Element ("Owned")
+					Owned = upgrade.Element ("Owned") != null ? (int)upgrade.Element ("Owned") : 0
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
@@ -412,7 +412,7 @@ namespace SquadBuilder
 					RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List <XElement> ()
 																		 select upgr.Value).ToList ()),
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
-																	   select upgr.Value).ToList ()),
+							select upgr.Value).ToList ()),
 					Owned = 0
 				});
 
