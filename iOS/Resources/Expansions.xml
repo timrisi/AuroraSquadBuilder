@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Expansions Version="1.17">
+<!-- Core Sets -->
+	<Expansion id="coreset">
+		<Name>Core Set</Name>
+		<Wave>Core Sets</Wave>
+		<Ships>
+			<Ship>xwing</Ship>
+			<Ship>tiefighter</Ship>
+			<Ship>tiefighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>lukeskywalker</Pilot>
+			<Pilot>biggsdarklighter</Pilot>
+			<Pilot>redsquadronpilot</Pilot>
+			<Pilot>rookiepilot</Pilot>
+			<Pilot>maulermithel</Pilot>
+			<Pilot>darkcurse</Pilot>
+			<Pilot>nightbeast</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>academypilot</Pilot>
+			<Pilot>academypilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>determination</Upgrade>
+			<Upgrade>marksmanship</Upgrade>
+			<Upgrade>r2d2</Upgrade>
+			<Upgrade>r2f2</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tfacore">
+		<Name>The Force Awakens Core Set</Name>
+		<Wave>Core Sets</Wave>
+		<Ships>
+			<Ship>t70xwing</Ship>
+			<Ship>tiefofighter</Ship>
+			<Ship>tiefofighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>poedameron</Pilot>
+			<Pilot>blueace</Pilot>
+			<Pilot>redsquadronveteran</Pilot>
+			<Pilot>bluesquadronnovice</Pilot>
+			<Pilot>omegaace</Pilot>
+			<Pilot>epsilonleader</Pilot>
+			<Pilot>zetaace</Pilot>
+			<Pilot>omegasquadronpilot</Pilot>
+			<Pilot>omegasquadronpilot</Pilot>
+			<Pilot>zetasquadronpilot</Pilot>
+			<Pilot>zetasquadronpilot</Pilot>
+			<Pilot>epsilonsquadronpilot</Pilot>
+			<Pilot>epsilonsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>bb8</Upgrade>
+			<Upgrade>r5x3</Upgrade>
+			<Upgrade>wired</Upgrade>
+			<Upgrade>weaponsguidance</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 1 -->
+	<Expansion id="xwing">
+		<Name>X-Wing</Name>
+		<Wave>Wave 1</Wave>
+		<Ships>
+			<Ship>xwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>wedgeantilles</Pilot>
+			<Pilot>garvendreis</Pilot>
+			<Pilot>redsquadronpilot</Pilot>
+			<Pilot>rookiepilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>experthandling</Upgrade>
+			<Upgrade>marksmanship</Upgrade>
+			<Upgrade>r5astromech</Upgrade>
+			<Upgrade>r5k6</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiefighter">
+		<Name>TIE Fighter</Name>
+		<Wave>Wave 1</Wave>
+		<Ships>
+			<Ship>tiefighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>howlrunner</Pilot>
+			<Pilot>backstabber</Pilot>
+			<Pilot>wingedgundark</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>academypilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>determination</Upgrade>
+			<Upgrade>swarmtactics</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="ywing">
+		<Name>Y-Wing</Name>
+		<Wave>Wave 1</Wave>
+		<Ships>
+			<Ship>ywing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>hortonsalm</Pilot>
+			<Pilot>dutchvander</Pilot>
+			<Pilot>graysquadronpilot</Pilot>
+			<Pilot>goldsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>r2astromech</Upgrade>
+			<Upgrade>r5d8</Upgrade>
+			<Upgrade>ioncannonturret</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tieadvanced">
+		<Name>TIE Advanced</Name>
+		<Wave>Wave 1</Wave>
+		<Ships>
+			<Ship>tieadvanced</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>darthvader</Pilot>
+			<Pilot>maarekstele</Pilot>
+			<Pilot>stormsquadronpilot</Pilot>
+			<Pilot>tempestsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>squadleader</Upgrade>
+			<Upgrade>experthandling</Upgrade>
+			<Upgrade>swarmtactics</Upgrade>
+			<Upgrade>clustermissiles</Upgrade>
+			<Upgrade>concussionmissiles</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 2 -->
+	<Expansion id="yt1300">
+		<Name>Millennium Falcon</Name>
+		<Wave>Wave 2</Wave>
+		<Ships>
+			<Ship>yt1300</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>hansolo</Pilot>
+			<Pilot>chewbacca</Pilot>
+			<Pilot>landocalrissian</Pilot>
+			<Pilot>outerrimsmuggler</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>drawtheirfire</Upgrade>
+			<Upgrade>elusiveness</Upgrade>
+			<Upgrade>veteraninstincts</Upgrade>
+			<Upgrade>assaultmissiles</Upgrade>
+			<Upgrade>concussionmissiles</Upgrade>
+			<Upgrade>chewbacca</Upgrade>
+			<Upgrade>lukeskywalker</Upgrade>
+			<Upgrade>niennunb</Upgrade>
+			<Upgrade>weaponsengineer</Upgrade>
+			<Upgrade>millenniumfalcon</Upgrade>
+			<Upgrade>engineupgrade</Upgrade>
+			<Upgrade>engineupgrade</Upgrade>
+			<Upgrade>shieldupgrade</Upgrade>
+			<Upgrade>shieldupgrade</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="firespray31">
+		<Name>Slave I</Name>
+		<Wave>Wave 2</Wave>
+		<Ships>
+			<Ship>firespray31</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>bobafett</Pilot>
+			<Pilot>kathscarlet</Pilot>
+			<Pilot>krassistrelix</Pilot>
+			<Pilot>bountyhunter</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>expose</Upgrade>
+			<Upgrade>veteraninstincts</Upgrade>
+			<Upgrade>assaultmissiles</Upgrade>
+			<Upgrade>homingmissiles</Upgrade>
+			<Upgrade>heavylasercannon</Upgrade>
+			<Upgrade>ioncannon</Upgrade>
+			<Upgrade>proximitymines</Upgrade>
+			<Upgrade>seismiccharges</Upgrade>
+			<Upgrade>gunner</Upgrade>
+			<Upgrade>mercenarycopilot</Upgrade>
+			<Upgrade>slavei</Upgrade>
+			<Upgrade>stealthdevice</Upgrade>
+			<Upgrade>stealthdevice</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="awing">
+		<Name>A-Wing</Name>
+		<Wave>Wave 2</Wave>
+		<Ships>
+			<Ship>awing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>tychocelchu</Pilot>
+			<Pilot>arvelcrynyd</Pilot>
+			<Pilot>greensquadronpilot</Pilot>
+			<Pilot>prototypepilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>deadeye</Upgrade>
+			<Upgrade>pushthelimit</Upgrade>
+			<Upgrade>clustermissiles</Upgrade>
+			<Upgrade>concussionmissiles</Upgrade>
+			<Upgrade>homingmissiles</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tieinterceptor">
+		<Name>TIE Interceptor</Name>
+		<Wave>Wave 2</Wave>
+		<Ships>
+			<Ship>tieinterceptor</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>soontirfel</Pilot>
+			<Pilot>turrphennir</Pilot>
+			<Pilot>felswrath</Pilot>
+			<Pilot>sabersquadronpilot</Pilot>
+			<Pilot>avengersquadronpilot</Pilot>
+			<Pilot>alphasquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>daredevil</Upgrade>
+			<Upgrade>elusiveness</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 3 -->
+	<Expansion id="hwk290">
+		<Name>HWK-290</Name>
+		<Wave>Wave 3</Wave>
+		<Ships>
+			<Ship>hwk290</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>janors</Pilot>
+			<Pilot>kylekatarn</Pilot>
+			<Pilot>roarkgarnet</Pilot>
+			<Pilot>rebeloperative</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>blasterturret</Upgrade>
+			<Upgrade>ioncannonturret</Upgrade>
+			<Upgrade>intelligenceagent</Upgrade>
+			<Upgrade>reconspecialist</Upgrade>
+			<Upgrade>saboteur</Upgrade>
+			<Upgrade>moldycrow</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="lambdaclassshuttle">
+		<Name>Lambda-class Shuttle</Name>
+		<Wave>Wave 3</Wave>
+		<Ships>
+			<Ship>lambdaclassshuttle</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>captainkagi</Pilot>
+			<Pilot>captainyorr</Pilot>
+			<Pilot>coloneljendon</Pilot>
+			<Pilot>omicrongrouppilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>heavylasercannon</Upgrade>
+			<Upgrade>darthvader</Upgrade>
+			<Upgrade>flightinstructor</Upgrade>
+			<Upgrade>intelligenceagent</Upgrade>>
+			<Upgrade>navigator</Upgrade>
+			<Upgrade>rebelcaptive</Upgrade>
+			<Upgrade>weaponsengineer</Upgrade>
+			<Upgrade>antipursuitlasers</Upgrade>
+			<Upgrade>antipursuitlasers</Upgrade>
+			<Upgrade>st321</Upgrade>
+			<Upgrade>advancedsensors</Upgrade>
+			<Upgrade>sensorjammer</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="bwing">
+		<Name>B-Wing</Name>
+		<Wave>Wave 3</Wave>
+		<Ships>
+			<Ship>bwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>tennumb</Pilot>
+			<Pilot>ibtisam</Pilot>
+			<Pilot>daggersquadronpilot</Pilot>
+			<Pilot>bluesquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>advancedprotontorpedoes</Upgrade>
+			<Upgrade>protontorpedoes</Upgrade>
+			<Upgrade>autoblaster</Upgrade>
+			<Upgrade>ioncannon</Upgrade>
+			<Upgrade>firecontrolsystem</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiebomber">
+		<Name>TIE Bomber</Name>
+		<Wave>Wave 3</Wave>
+		<Ships>
+			<Ship>tiebomber</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>majorrhymer</Pilot>
+			<Pilot>captainjonus</Pilot>
+			<Pilot>gammasquadronpilot</Pilot>
+			<Pilot>scimitarsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>adrenalinerush</Upgrade>
+			<Upgrade>advancedprotontorpedoes</Upgrade>
+			<Upgrade>assaultmissiles</Upgrade>
+			<Upgrade>protonbombs</Upgrade>
+			<Upgrade>seismiccharges</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 4 -->
+	<Expansion id="z95headhunter">
+		<Name>Z95 Headhunter</Name>
+		<Wave>Wave 4</Wave>
+		<Ships>
+			<Ship>z95headhunter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>airencracken</Pilot>
+			<Pilot>lieutenantblount</Pilot>
+			<Pilot>talasquadronpilot</Pilot>
+			<Pilot>banditsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>decoy</Upgrade>
+			<Upgrade>wingman</Upgrade>
+			<Upgrade>ionpulsemissiles</Upgrade>
+			<Upgrade>assaultmissiles</Upgrade>
+			<Upgrade>munitionsfailsafe</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiedefender">
+		<Name>TIE Defender</Name>
+		<Wave>Wave 4</Wave>
+		<Ships>
+			<Ship>tiedefender</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>rexlerbrath</Pilot>
+			<Pilot>colonelvessery</Pilot>
+			<Pilot>onyxsquadronpilot</Pilot>
+			<Pilot>deltasquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>outmaneuver</Upgrade>
+			<Upgrade>predator</Upgrade>
+			<Upgrade>ioncannon</Upgrade>
+			<Upgrade>ionpulsemissiles</Upgrade>
+			<Upgrade>munitionsfailsafe</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="ewing">
+		<Name>E-Wing</Name>
+		<Wave>Wave 4</Wave>
+		<Ships>
+			<Ship>ewing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>corranhorn</Pilot>
+			<Pilot>etahnabaht</Pilot>
+			<Pilot>knavesquadronpilot</Pilot>
+			<Pilot>blackmoonsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>outmaneuver</Upgrade>
+			<Upgrade>r7astromech</Upgrade>
+			<Upgrade>r7t1</Upgrade>
+			<Upgrade>flechettetorpedoes</Upgrade>
+			<Upgrade>advancedsensors</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiephantom">
+		<Name>TIE Phantom</Name>
+		<Wave>Wave 4</Wave>
+		<Ships>
+			<Ship>tiephantom</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>whisper</Pilot>
+			<Pilot>echo</Pilot>
+			<Pilot>shadowsquadronpilot</Pilot>
+			<Pilot>sigmasquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>reconspecialist</Upgrade>
+			<Upgrade>tactician</Upgrade>
+			<Upgrade>firecontrolsystem</Upgrade>
+			<Upgrade>advancedcloakingdevice</Upgrade>
+			<Upgrade>stygiumparticleaccelerator</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 5 -->
+	<Expansion id="yt2400">
+		<Name>YT-2400 Freighter</Name>
+		<Wave>Wave 5</Wave>
+		<Ships>
+			<Ship>yt2400</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>dashrendar</Pilot>
+			<Pilot>leebo</Pilot>
+			<Pilot>eadenvrill</Pilot>
+			<Pilot>wildspacefringer</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>lonewolf</Upgrade>
+			<Upgrade>stayontarget</Upgrade>
+			<Upgrade>protonrockets</Upgrade>
+			<Upgrade>heavylasercannon</Upgrade>
+			<Upgrade>leebo</Upgrade>
+			<Upgrade>dashrendar</Upgrade>
+			<Upgrade>gunner</Upgrade>
+			<Upgrade>landocalrissian</Upgrade>
+			<Upgrade>mercenarycopilot</Upgrade>
+			<Upgrade>outrider</Upgrade>
+			<Upgrade>countermeasures</Upgrade>
+			<Upgrade>countermeasures</Upgrade>
+			<Upgrade>experimentalinterface</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="vt49decimator">
+		<Name>VT-49 Decimator</Name>
+		<Wave>Wave 5</Wave>
+		<Ships>
+			<Ship>vt49decimator</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>rearadmiralchiraneau</Pilot>
+			<Pilot>commanderkenkirk</Pilot>
+			<Pilot>captainoicunn</Pilot>
+			<Pilot>patrolleader</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>intimidation</Upgrade>
+			<Upgrade>ruthlessness</Upgrade>
+			<Upgrade>ruthlessness</Upgrade>
+			<Upgrade>iontorpedoes</Upgrade>
+			<Upgrade>iontorpedoes</Upgrade>
+			<Upgrade>protonbombs</Upgrade>
+			<Upgrade>fleetofficer</Upgrade>
+			<Upgrade>marajade</Upgrade>
+			<Upgrade>moffjerjerrod</Upgrade>
+			<Upgrade>ysanneisard</Upgrade>
+			<Upgrade>dauntless</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 6 -->
+	<Expansion id="mostwanted">
+		<Name>Most Wanted</Name>
+		<Wave>Wave 6</Wave>
+		<Ships>
+			<Ship>ywing</Ship>
+			<Ship>z95headhunter</Ship>
+			<Ship>z95headhunter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>ndrusuhlak</Pilot>
+			<Pilot>kaatoleeachos</Pilot>
+			<Pilot>blacksunsoldier</Pilot>
+			<Pilot>blacksunsoldier</Pilot>
+			<Pilot>binayrepirate</Pilot>
+			<Pilot>binayrepirate</Pilot>
+			<Pilot>kavil</Pilot>
+			<Pilot>drearenthal</Pilot>
+			<Pilot>hiredgun</Pilot>
+			<Pilot>hiredgun</Pilot>
+			<Pilot>syndicatethug</Pilot>
+			<Pilot>syndicatethug</Pilot>
+			<Pilot>bobafett</Pilot>
+			<Pilot>kathscarlet</Pilot>
+			<Pilot>emonazzameen</Pilot>
+			<Pilot>mandalorianmercenary</Pilot>
+			<Pilot>dacebonearm</Pilot>
+			<Pilot>palobgodalhi</Pilot>
+			<Pilot>torkilmux</Pilot>
+			<Pilot>spicerunner</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>autoblasterturret</Upgrade>
+			<Upgrade>autoblasterturret</Upgrade>
+			<Upgrade>bombloadout</Upgrade>
+			<Upgrade>bombloadout</Upgrade>
+			<Upgrade>greedo</Upgrade>
+			<Upgrade>k4securitydroid</Upgrade>
+			<Upgrade>outlawtech</Upgrade>
+			<Upgrade>genius</Upgrade>
+			<Upgrade>r4agromech</Upgrade>
+			<Upgrade>r4agromech</Upgrade>
+			<Upgrade>r4b11</Upgrade>
+			<Upgrade>salvagedastromech</Upgrade>
+			<Upgrade>salvagedastromech</Upgrade>
+			<Upgrade>unhingedastromech</Upgrade>
+			<Upgrade>unhingedastromech</Upgrade>
+			<Upgrade>btla4ywing</Upgrade>
+			<Upgrade>btla4ywing</Upgrade>
+			<Upgrade>andrasta</Upgrade>
+			<Upgrade>hotshotblaster</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="m3ainterceptor">
+		<Name>M3-A Interceptor</Name>
+		<Wave>Wave 6</Wave>
+		<Ships>
+			<Ship>m3ainterceptor</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>serissu</Pilot>
+			<Pilot>laetinashera</Pilot>
+			<Pilot>tansariipointveteran</Pilot>
+			<Pilot>cartelspacer</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>manglercannon</Upgrade>
+			<Upgrade>flechettecannon</Upgrade>
+			<Upgrade>ioncannon</Upgrade>
+			<Upgrade>heavyscykinterceptor</Upgrade>
+			<Upgrade>stealthdevice</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="starviper">
+		<Name>StarViper</Name>
+		<Wave>Wave 6</Wave>
+		<Ships>
+			<Ship>starviper</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>princexizor</Pilot>
+			<Pilot>guri</Pilot>
+			<Pilot>blacksunvigo</Pilot>
+			<Pilot>blacksunenforcer</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>bodyguard</Upgrade>
+			<Upgrade>calculation</Upgrade>
+			<Upgrade>iontorpedoes</Upgrade>
+			<Upgrade>accuracycorrector</Upgrade>
+			<Upgrade>virago</Upgrade>
+			<Upgrade>autothrusters</Upgrade>
+			<Upgrade>autothrusters</Upgrade>
+			<Upgrade>hullupgrade</Upgrade>
+			<Upgrade>inertialdampeners</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="aggressor">
+		<Name>IG-2000</Name>
+		<Wave>Wave 6</Wave>
+		<Ships>
+			<Ship>aggressor</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>ig88a</Pilot>
+			<Pilot>ig88b</Pilot>
+			<Pilot>ig88c</Pilot>
+			<Pilot>ig88d</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>manglercannon</Upgrade>
+			<Upgrade>autoblaster</Upgrade>
+			<Upgrade>seismiccharges</Upgrade>
+			<Upgrade>proximitymines</Upgrade>
+			<Upgrade>accuracycorrector</Upgrade>
+			<Upgrade>ig2000</Upgrade>
+			<Upgrade>hotshotblaster</Upgrade>
+			<Upgrade>deadmansswitch</Upgrade>
+			<Upgrade>deadmansswitch</Upgrade>
+			<Upgrade>feedbackarray</Upgrade>
+			<Upgrade>feedbackarray</Upgrade>
+			<Upgrade>inertialdampeners</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 7 -->
+	<Expansion id="kwing">
+		<Name>K-Wing</Name>
+		<Wave>Wave 7</Wave>
+		<Ships>
+			<Ship>kwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>mirandadoni</Pilot>
+			<Pilot>esegetuketu</Pilot>
+			<Pilot>guardiansquadronpilot</Pilot>
+			<Pilot>wardensquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>extramunitions</Upgrade>
+			<Upgrade>plasmatorpedoes</Upgrade>
+			<Upgrade>advancedhomingmissiles</Upgrade>
+			<Upgrade>twinlaserturret</Upgrade>
+			<Upgrade>twinlaserturret</Upgrade>
+			<Upgrade>connernet</Upgrade>
+			<Upgrade>ionbombs</Upgrade>
+			<Upgrade>bombardier</Upgrade>
+			<Upgrade>advancedslam</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiepunisher">
+		<Name>TIE Punisher</Name>
+		<Wave>Wave 7</Wave>
+		<Ships>
+			<Ship>tiepunisher</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>redline</Pilot>
+			<Pilot>deathrain</Pilot>
+			<Pilot>blackeightsquadronpilot</Pilot>
+			<Pilot>cutlasssquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>extramunitions</Upgrade>
+			<Upgrade>flechettetorpedoes</Upgrade>
+			<Upgrade>plasmatorpedoes</Upgrade>
+			<Upgrade>advancedhomingmissiles</Upgrade>
+			<Upgrade>clustermines</Upgrade>
+			<Upgrade>ionbombs</Upgrade>
+			<Upgrade>enhancedscopes</Upgrade>
+			<Upgrade>twinionenginemkii</Upgrade>
+			<Upgrade>twinionenginemkii</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="kihraxz">
+		<Name>Kihraxz Fighter</Name>
+		<Wave>Wave 7</Wave>
+		<Ships>
+			<Ship>kihraxzfighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>talonbanecobra</Pilot>
+			<Pilot>grazthehunter</Pilot>
+			<Pilot>blacksunace</Pilot>
+			<Pilot>cartelmarauder</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>crackshot</Upgrade>
+			<Upgrade>lightningreflexes</Upgrade>
+			<Upgrade>predator</Upgrade>
+			<Upgrade>homingmissiles</Upgrade>
+			<Upgrade>glitterstim</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="yv666">
+		<Name>Hound's Tooth</Name>
+		<Wave>Wave 7</Wave>
+		<Ships>
+			<Ship>yv666</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>bossk</Pilot>
+			<Pilot>moraloeval</Pilot>
+			<Pilot>lattsrazzi</Pilot>
+			<Pilot>trandoshanslaver</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>crackshot</Upgrade>
+			<Upgrade>lonewolf</Upgrade>
+			<Upgrade>stayontarget</Upgrade>
+			<Upgrade>heavylasercannon</Upgrade>
+			<Upgrade>bossk</Upgrade>
+			<Upgrade>k4securitydroid</Upgrade>
+			<Upgrade>outlawtech</Upgrade>
+			<Upgrade>houndstooth</Upgrade>
+			<Upgrade>engineupgrade</Upgrade>
+			<Upgrade>ionprojector</Upgrade>
+			<Upgrade>maneuveringfins</Upgrade>
+			<Upgrade>glitterstim</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 8 -->
+	<Expansion id="t70xwing">
+		<Name>T-70 X-Wing</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>t70xwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>Ello Asty</Pilot>
+			<Pilot>redace</Pilot>
+			<Pilot>redsquadronveteran</Pilot>
+			<Pilot>bluesquadronnovice</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>coolhand</Upgrade>
+			<Upgrade>targetingastromech</Upgrade>
+			<Upgrade>advancedprotontorpedoes</Upgrade>
+			<Upgrade>integratedastromech</Upgrade>
+			<Upgrade>weaponsguidance</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tiefofighter">
+		<Name>TIE/FO Fighter</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>tiefofighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>omegaleader</Pilot>
+			<Pilot>zetaleader</Pilot>
+			<Pilot>epsilonace</Pilot>
+			<Pilot>omegasquadronpilot</Pilot>
+			<Pilot>zetasquadronpilot</Pilot>
+			<Pilot>epsilonsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>juke</Upgrade>
+			<Upgrade>commrelay</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Aces Packs-->
+	<Expansion id="imperialaces">
+		<Name>Imperial Aces</Name>
+		<Wave>Aces Packs</Wave>
+		<Ships>
+			<Ship>tieinterceptor</Ship>
+			<Ship>tieinterceptor</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>carnorjax</Pilot>
+			<Pilot>tetrancowell</Pilot>
+			<Pilot>kirkanos</Pilot>
+			<Pilot>lieutenantlorrir</Pilot>
+			<Pilot>royalguardpilot</Pilot>
+			<Pilot>royalguardpilot</Pilot>
+			<Pilot>sabersquadronpilot</Pilot>
+			<Pilot>sabersquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>opportunist</Upgrade>
+			<Upgrade>opportunist</Upgrade>
+			<Upgrade>pushthelimit</Upgrade>
+			<Upgrade>pushthelimit</Upgrade>
+			<Upgrade>royalguardtie</Upgrade>
+			<Upgrade>royalguardtie</Upgrade>
+			<Upgrade>hullupgrade</Upgrade>
+			<Upgrade>hullupgrade</Upgrade>
+			<Upgrade>shieldupgrade</Upgrade>
+			<Upgrade>shieldupgrade</Upgrade>
+			<Upgrade>targetingcomputer</Upgrade>
+			<Upgrade>targetingcomputer</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="rebelaces">
+		<Name>Rebel Aces</Name>
+		<Wave>Aces Packs</Wave>
+		<Ships>
+			<Ship>awing</Ship>
+			<Ship>bwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>keyanfarlander</Pilot>
+			<Pilot>neradantels</Pilot>
+			<Pilot>daggersquadronpilot</Pilot>
+			<Pilot>bluesquadronpilot</Pilot>
+			<Pilot>jakefarrell</Pilot>
+			<Pilot>gemmersojan</Pilot>
+			<Pilot>greensquadronpilot</Pilot>
+			<Pilot>prototypepilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>chardaanrefit</Upgrade>
+			<Upgrade>chardaanrefit</Upgrade>
+			<Upgrade>chardaanrefit</Upgrade>
+			<Upgrade>protonrockets</Upgrade>
+			<Upgrade>protonrockets</Upgrade>
+			<Upgrade>janors</Upgrade>
+			<Upgrade>kylekatarn</Upgrade>
+			<Upgrade>enhancedscopes</Upgrade>
+			<Upgrade>enhancedscopes</Upgrade>
+			<Upgrade>awingtestpilot</Upgrade>
+			<Upgrade>awingtestpilot</Upgrade>
+			<Upgrade>bwinge2</Upgrade>
+			<Upgrade>bwinge2</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Huge Ships -->
+	<Expansion id="gr75mediumtransport">
+		<Name>Rebel Transport</Name>
+		<Wave>Huge Ships</Wave>
+		<Ships>
+			<Ship>gr75mediumtransport</Ship>
+			<Ship>xwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>gr75mediumtransport</Pilot>
+			<Pilot>wesjanson</Pilot>
+			<Pilot>hobbieklivian</Pilot>
+			<Pilot>jekporkins</Pilot>
+			<Pilot>tarnmison</Pilot>
+			<Pilot>redsquadronpilot</Pilot>
+			<Pilot>rookiepilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>r2d6</Upgrade>
+			<Upgrade>r3a2</Upgrade>
+			<Upgrade>r4d6</Upgrade>
+			<Upgrade>r5p9</Upgrade>
+			<Upgrade>carlistrieekan</Upgrade>
+			<Upgrade>jandodonna</Upgrade>
+			<Upgrade>torynfarr</Upgrade>
+			<Upgrade>wed15repairdroid</Upgrade>
+			<Upgrade>flechettetorpedoes</Upgrade>
+			<Upgrade>flechettetorpedoes</Upgrade>
+			<Upgrade>flechettetorpedoes</Upgrade>
+			<Upgrade>combatretrofit</Upgrade>
+			<Upgrade>brighthope</Upgrade>
+			<Upgrade>dutyfree</Upgrade>
+			<Upgrade>quantumstorm</Upgrade>
+			<Upgrade>backupshieldgenerator</Upgrade>
+			<Upgrade>commsbooster</Upgrade>
+			<Upgrade>ememitter</Upgrade>
+			<Upgrade>enginebooster</Upgrade>
+			<Upgrade>expandedcargohold</Upgrade>
+			<Upgrade>frequencyjammer</Upgrade>
+			<Upgrade>shieldprojector</Upgrade>
+			<Upgrade>slicertools</Upgrade>
+			<Upgrade>tibannagassupplies</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="tantiveiv">
+		<Name>Tantive IV</Name>
+		<Wave>Huge Ships</Wave>
+		<Ships>
+			<Ship>cr90f</Ship>
+			<Ship>cr90a</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>cr90f</Pilot>
+			<Pilot>cr90a</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>backupshieldgenerator</Upgrade>
+			<Upgrade>commsbooster</Upgrade>
+			<Upgrade>commsbooster</Upgrade>
+			<Upgrade>enginebooster</Upgrade>
+			<Upgrade>ionizationreactor</Upgrade>
+			<Upgrade>tibannagassupplies</Upgrade>
+			<Upgrade>c3po</Upgrade>
+			<Upgrade>hansolo</Upgrade>
+			<Upgrade>leiaorgana</Upgrade>
+			<Upgrade>r2d2</Upgrade>
+			<Upgrade>raymusantilles</Upgrade>
+			<Upgrade>targetingcoordinator</Upgrade>
+			<Upgrade>quadlasercannons</Upgrade>
+			<Upgrade>quadlasercannons</Upgrade>
+			<Upgrade>quadlasercannons</Upgrade>
+			<Upgrade>singleturbolasers</Upgrade>
+			<Upgrade>singleturbolasers</Upgrade>
+			<Upgrade>singleturbolasers</Upgrade>
+			<Upgrade>engineeringteam</Upgrade>
+			<Upgrade>gunneryteam</Upgrade>
+			<Upgrade>sensorteam</Upgrade>
+			<Upgrade>dodonnaspride</Upgrade>
+			<Upgrade>jainaslight</Upgrade>
+			<Upgrade>tantiveiv</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="imperialraider">
+		<Name>Imperial Raider</Name>
+		<Wave>Huge Ships</Wave>
+		<Ships>
+			<Ship>raiderf</Ship>
+			<Ship>raidera</Ship>
+			<Ship>tieadvanced</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>raiderfore</Pilot>
+			<Pilot>raideraft</Pilot>
+			<Pilot>junoeclipse</Pilot>
+			<Pilot>zertikstrom</Pilot>
+			<Pilot>commanderalozen</Pilot>
+			<Pilot>lieutenantcolzet</Pilot>
+			<Pilot>stormsquadronpilot</Pilot>
+			<Pilot>tempestsquadronpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>clustermissiles</Upgrade>
+			<Upgrade>protonrockets</Upgrade>
+			<Upgrade>admiralozzel</Upgrade>
+			<Upgrade>captainneeda</Upgrade>
+			<Upgrade>emperorpalpatine</Upgrade>
+			<Upgrade>grandmofftarkin</Upgrade>
+			<Upgrade>shieldtechnician</Upgrade>
+			<Upgrade>shieldtechnician</Upgrade>
+			<Upgrade>advancedtargetingcomputer</Upgrade>
+			<Upgrade>advancedtargetingcomputer</Upgrade>
+			<Upgrade>advancedtargetingcomputer</Upgrade>
+			<Upgrade>advancedtargetingcomputer</Upgrade>
+			<Upgrade>assailer</Upgrade>
+			<Upgrade>impetuous</Upgrade>
+			<Upgrade>instigator</Upgrade>
+			<Upgrade>tiex1</Upgrade>
+			<Upgrade>tiex1</Upgrade>
+			<Upgrade>tiex1</Upgrade>
+			<Upgrade>tiex1</Upgrade>
+			<Upgrade>backupshieldgenerator</Upgrade>
+			<Upgrade>commsbooster</Upgrade>
+			<Upgrade>enginebooster</Upgrade>
+			<Upgrade>tibannagassupplies</Upgrade>
+			<Upgrade>ioncannonbattery</Upgrade>
+			<Upgrade>ioncannonbattery</Upgrade>
+			<Upgrade>ioncannonbattery</Upgrade>
+			<Upgrade>ioncannonbattery</Upgrade>
+			<Upgrade>quadlasercannons</Upgrade>
+			<Upgrade>quadlasercannons</Upgrade>
+			<Upgrade>singleturbolasers</Upgrade>
+			<Upgrade>singleturbolasers</Upgrade>
+			<Upgrade>engineeringteam</Upgrade>
+			<Upgrade>gunneryteam</Upgrade>
+			<Upgrade>sensorteam</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="imperialassaultcarrier">
+		<Name>Imperial Assault Carrier</Name>
+		<Wave>Huge Ships</Wave>
+		<Ships>
+			<Ship>gozanticlasscruiser</Ship>
+			<Ship>tiefighter</Ship>
+			<Ship>tiefighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>gozanticlasscruiser</Pilot>
+			<Pilot>scourge</Pilot>
+			<Pilot>wampa</Pilot>
+			<Pilot>youngster</Pilot>
+			<Pilot>chaser</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>blacksquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>obsidiansquadronpilot</Pilot>
+			<Pilot>academypilot</Pilot>
+			<Pilot>academypilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>expose</Upgrade>
+			<Upgrade>marksmanship</Upgrade>
+			<Upgrade>experthandling</Upgrade>
+			<Upgrade>agentkallus</Upgrade>
+			<Upgrade>rearadmiralchiraneau</Upgrade>
+			<Upgrade>constructiondroid</Upgrade>
+			<Upgrade>constructiondroid</Upgrade>
+			<Upgrade>requiem</Upgrade>
+			<Upgrade>vector</Upgrade>
+			<Upgrade>suppressor</Upgrade>
+			<Upgrade>ordnanceexperts</Upgrade>
+			<Upgrade>ordnanceexperts</Upgrade>
+			<Upgrade>automatedprotocols</Upgrade>
+			<Upgrade>automatedprotocols</Upgrade>
+			<Upgrade>optimizedgenerators</Upgrade>
+			<Upgrade>optimizedgenerators</Upgrade>
+			<Upgrade>ordnancetubes</Upgrade>
+			<Upgrade>ordnancetubes</Upgrade>
+			<Upgrade>duallaserturret</Upgrade>
+			<Upgrade>broadcastarray</Upgrade>
+			<Upgrade>dockingclamps</Upgrade>
+			<Upgrade>clusterbombs</Upgrade>
+			<Upgrade>clusterbombs</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+</Expansions>
