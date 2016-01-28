@@ -67,10 +67,10 @@
 				<Label Text="{Binding Draws, StringFormat='D: {0}'}" VerticalOptions="Center" TextColor="Navy"  />
 				<Button Text="+" Command="{Binding IncrementDraws}" VerticalOptions="Center"  />
 			</StackLayout>
-			<!---<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30" >-->
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30" >
 				<Button Text="Export to Clipboard" Command="{Binding ExportToClipboard}" HorizontalOptions="CenterAndExpand" />
-				<!---<Button Text="Export as XWS" Command="{Binding ExportXws}" HorizontalOptions="CenterAndExpand" />
-			</StackLayout>-->
+				<Button Text="Export as XWS" Command="{Binding ExportXws}" HorizontalOptions="CenterAndExpand" />
+			</StackLayout>
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

@@ -25,6 +25,16 @@ namespace SquadBuilder.Droid
 	{
 		SaveAndLoad saveAndLoad;
 
+		Dictionary <string, string> deprecatedIds = new Dictionary <string, string> {
+			{ "rebels",	"rebel" },
+			{ "empire",	"imperial" },
+			{ "tacticaljammers", "tacticaljammer" },
+			{ "accuraccorrector", "accuracycorrector" },
+			{ "commsrelay", "commrelay" },
+			{ "milleniumfalcon", "millenniumfalcon" },
+			{ "torkhilmux", "torkilmux" }
+		};
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate(bundle);
@@ -40,7 +50,14 @@ namespace SquadBuilder.Droid
 					e.NativeView.ContentDescription = e.View.StyleId;
 			};
 
-			if(!Resolver.IsSet) SetIoc();
+			if(!Resolver.IsSet) 
+				SetIoc();
+
+			UpdateIds ();
+
+			var schemaJson = new StreamReader (Application.Context.Assets.Open ("schema.json")).ReadToEnd ();
+			saveAndLoad.SaveText ("schema.json", schemaJson);
+
 			var settingsXml = new StreamReader (Application.Context.Assets.Open ("Settings.xml")).ReadToEnd ();
 			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists ("Settings.xml") || (float)XElement.Load (new StringReader (saveAndLoad.LoadText ("Settings.xml")))?.Attribute ("Version") < settingsVersion)
@@ -146,6 +163,58 @@ namespace SquadBuilder.Droid
 		{
 			var resolverContainer = new SimpleContainer();
 			Resolver.SetResolver(resolverContainer.GetResolver());
+		}
+
+		void UpdateIds ()
+		{
+			if (!saveAndLoad.FileExists (Cards.SquadronsFilename))
+				return; 
+
+			if (saveAndLoad.FileExists ("Factions.xml")) {
+				var factionXml = saveAndLoad.LoadText ("Factions.xml");
+				foreach (var key in deprecatedIds.Keys)
+					factionXml = factionXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Factions.xml", factionXml);
+				Console.WriteLine (factionXml);
+			}
+
+			if (saveAndLoad.FileExists ("Ships.xml")) {
+				var shipXml = saveAndLoad.LoadText ("Ships.xml");
+				foreach (var key in deprecatedIds.Keys)
+					shipXml = shipXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Ships.xml", shipXml);
+			}
+
+			if (saveAndLoad.FileExists ("Pilots.xml")) {
+				var pilotXml = saveAndLoad.LoadText ("Pilots.xml");
+				foreach (var key in deprecatedIds.Keys)
+					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Pilots.xml", pilotXml);
+			}
+
+			if (saveAndLoad.FileExists ("Upgrades.xml")) {
+				var upgradeXml = saveAndLoad.LoadText ("Upgrades.xml");
+				foreach (var key in deprecatedIds.Keys)
+					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Upgrades.xml", upgradeXml);
+			}
+
+			if (saveAndLoad.FileExists ("Expansions.xml")) {
+				var expansionXml = saveAndLoad.LoadText ("Expansions.xml");
+				foreach (var key in deprecatedIds.Keys)
+					expansionXml = expansionXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Expansions.xml", expansionXml);
+			}
+
+			if (saveAndLoad.FileExists (Cards.SquadronsFilename)) {
+				var squadronXml = saveAndLoad.LoadText (Cards.SquadronsFilename);
+				foreach (var key in deprecatedIds.Keys)
+					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
+				Console.WriteLine (squadronXml);
+			}
+
+			Cards.SharedInstance.GetAllSquadrons ();
 		}
 	}
 }

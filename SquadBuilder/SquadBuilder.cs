@@ -55,6 +55,7 @@ namespace SquadBuilder
 			ViewFactory.Register <UpgradesCollectionView, UpgradesCollectionViewModel> ();
 			ViewFactory.Register <PilotsCollectionShipsListView, PilotsCollectionShipsListViewModel> ();
 			ViewFactory.Register <UpgradesCollectionCategoryListView, UpgradesCollectionCategoryListViewModel> ();
+			ViewFactory.Register <ImportView, ImportViewModel> ();
 		}
 	}
 }

@@ -11,11 +11,17 @@ using XLabs.Data;
 using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Schema;
+//using Dropbox.CoreApi.iOS;
+using Newtonsoft.Json;
+using XLabs.Platform.Device;
 
 namespace SquadBuilder
 {
 	public class Squadron : ObservableObject
 	{
+		const string XwsVersion = "0.3.0";
+
 		public Squadron ()
 		{
 			Name = "";
@@ -166,16 +172,24 @@ namespace SquadBuilder
 
 		public string CreateXws ()
 		{
+			var multiSections = new Dictionary <string, string> {
+				{ "cr90f", "cr90corvette" },
+				{ "cr90a", "cr90corvette" },
+				{ "raiderf", "raiderclasscorvette" },
+				{ "raidera", "raiderclasscorvette" }
+			};
+
 			var json = new JObject (
 				new JProperty ("name", Name),
 				new JProperty ("points", Points),
 				new JProperty ("faction", Faction.Id),
+				new JProperty ("version", XwsVersion),
 				new JProperty ("pilots",
 					new JArray (
 						from p in Pilots
 						select new JObject (
 							new JProperty ("name", p.Id),
-							new JProperty ("ship", p.Ship.Id),
+							new JProperty ("ship", multiSections.ContainsKey (p.Ship.Id) ? multiSections [p.Ship.Id] : p.Ship.Id),
 							new JProperty ("upgrades", new JObject (
 								from category in 
 									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
@@ -194,7 +208,75 @@ namespace SquadBuilder
 				)
 			);
 
-			return json.ToString ();
+			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schema = JSchema.Parse (schemaText);
+
+			IList<string> errors;
+			var valid = json.IsValid (schema, out errors);
+
+			var jsonString = json.ToString ();
+
+			return jsonString;
+		}
+
+		public static Squadron FromXws (string xws)
+		{
+			var json = JObject.Parse (xws);
+
+			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schema = JSchema.Parse (schemaText);
+
+			try {
+				var squadron = new Squadron () {
+					Name = json ["name"].ToString (),
+					Faction = Cards.SharedInstance.Factions.FirstOrDefault (f => f.Id == json ["faction"].ToString ()),
+					MaxPoints = (int)json ["points"],
+					Pilots = new ObservableCollection<Pilot> ()
+				};
+
+				foreach (var pilotObject in json ["pilots"]) {
+					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
+
+					if (pilot == null)
+						continue;
+
+					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
+						pilot.UpgradesEquipped.Add (null);
+
+					foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
+						var upgradeType = (upgradeTypeArray as JProperty).Name;
+
+						foreach (var value in upgradeTypeArray.Values ()) {
+							var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
+
+							if (upgrade == null)
+								continue;
+
+							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+
+							if (index < 0)
+								continue;
+
+							pilot.UpgradesEquipped [index] = upgrade;
+						}
+					}
+
+					squadron.pilots.Add (pilot);
+				}
+
+				return squadron;
+			} catch (Exception e) {
+				IList<string> errors;
+				var valid = json.IsValid (schema, out errors);
+
+				if (!valid) {
+					MessagingCenter.Send <Squadron, IList<string>> (null, "Invalid xws info", errors);
+					return null;
+				}
+				Console.WriteLine (e.Message);
+			}
+
+			return null;
 		}
 	}
 }

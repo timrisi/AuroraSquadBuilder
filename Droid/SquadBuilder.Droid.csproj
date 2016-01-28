@@ -52,9 +52,6 @@
     </Reference>
     <Reference Include="Mono.Android.Export" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Insights">
       <HintPath>..\packages\Xamarin.Insights.1.10.4.112\lib\MonoAndroid10\Xamarin.Insights.dll</HintPath>
     </Reference>
@@ -108,6 +105,12 @@
     </Reference>
     <Reference Include="XLabs.Forms">
       <HintPath>..\packages\XLabs.Forms.2.0.5782\lib\MonoAndroid\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.2.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.Schema.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +181,9 @@
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Resources\Expansions.xml">
       <Link>Assets\Expansions.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\schema.json">
+      <Link>Assets\schema.json</Link>
     </AndroidAsset>
   </ItemGroup>
 </Project>

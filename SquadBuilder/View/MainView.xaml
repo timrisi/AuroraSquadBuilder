@@ -5,7 +5,7 @@
 				x:Class="SquadBuilder.MainView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
-<!--		<ToolbarItem Text="Edit" />-->
+		<ToolbarItem Text="Import" Command="{Binding ImportSquadron}" />
 		<ToolbarItem Text="+" Command="{Binding AddSquadron}" />
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>

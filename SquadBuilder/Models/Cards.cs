@@ -18,13 +18,6 @@ namespace SquadBuilder
 
 		public Cards ()
 		{
-			GetAllFactions ();
-			GetAllShips ();
-			GetAllPilots ();
-			GetAllUpgrades ();
-			GetAllExpansions ();
-			GetAllSquadrons ();
-
 			MessagingCenter.Subscribe <App> (this, "Save Squadrons", app => SaveSquadrons ());
 		}
 
@@ -46,7 +39,11 @@ namespace SquadBuilder
 
 		ObservableCollection <Faction> factions;
 		public ObservableCollection <Faction> Factions {
-			get { return factions; }
+			get { 
+				if (factions == null)
+					GetAllFactions ();
+				
+				return factions; }
 			set { 
 				SetProperty (ref factions, value); 
 				factions.CollectionChanged += (sender, e) => updateAllFactions ();
@@ -56,7 +53,11 @@ namespace SquadBuilder
 
 		ObservableCollection <Faction> customFactions;
 		public ObservableCollection <Faction> CustomFactions {
-			get { return customFactions; }
+			get { 
+				if (customFactions == null)
+					GetAllFactions ();
+				
+				return customFactions; }
 			set { 
 				SetProperty (ref customFactions, value); 
 				customFactions.CollectionChanged += (sender, e) => updateAllFactions ();
@@ -76,14 +77,17 @@ namespace SquadBuilder
 
 		void updateAllFactions ()
 		{
-			var temp = factions.ToList ();
+			var temp = Factions.ToList ();
 			temp.AddRange (customFactions);
 			allFactions = new ObservableCollection <Faction> (temp);
 		}
 
 		ObservableCollection <Ship> ships;
 		public ObservableCollection <Ship> Ships {
-			get { return ships; }
+			get { 
+				if (ships == null)
+					GetAllShips ();
+				return ships; }
 			set { 
 				SetProperty (ref ships, value);
 				ships.CollectionChanged += (sender, e) => updateAllShips ();
@@ -93,7 +97,11 @@ namespace SquadBuilder
 
 		ObservableCollection <Ship> customShips;
 		public ObservableCollection <Ship> CustomShips {
-			get { return customShips; }
+			get {
+				if (customShips == null)
+					GetAllShips ();
+				
+				return customShips; }
 			set { 
 				SetProperty (ref customShips, value);
 				customShips.CollectionChanged += (sender, e) => updateAllShips ();
@@ -113,14 +121,18 @@ namespace SquadBuilder
 
 		void updateAllShips ()
 		{
-			var temp = ships.ToList ();
+			var temp = Ships.ToList ();
 			temp.AddRange (customShips);
 			allShips = new ObservableCollection <Ship> (temp);
 		}
 
 		ObservableCollection <Pilot> pilots;
 		public ObservableCollection <Pilot> Pilots {
-			get { return pilots; }
+			get {
+				if (pilots == null)
+					GetAllPilots ();
+				
+				return pilots; }
 			set { 
 				SetProperty (ref pilots, value); 
 				pilots.CollectionChanged += (sender, e) => updateAllPilots ();
@@ -130,7 +142,11 @@ namespace SquadBuilder
 
 		ObservableCollection <Pilot> customPilots;
 		public ObservableCollection <Pilot> CustomPilots {
-			get { return customPilots; }
+			get { 
+				if (customPilots == null)
+					GetAllPilots ();
+				
+				return customPilots; }
 			set {
 				SetProperty (ref customPilots, value);
 				customPilots.CollectionChanged += (sender, e) => updateAllPilots ();
@@ -150,14 +166,18 @@ namespace SquadBuilder
 
 		void updateAllPilots ()
 		{
-			var temp = pilots.ToList ();
+			var temp = Pilots.ToList ();
 			temp.AddRange (customPilots);
 			allPilots = new ObservableCollection <Pilot> (temp);
 		}
 
 		ObservableCollection <Upgrade> upgrades;
 		public ObservableCollection <Upgrade> Upgrades {
-			get { return upgrades; }
+			get {
+				if (upgrades == null)
+					GetAllUpgrades ();
+				
+				return upgrades; }
 			set { 
 				SetProperty (ref upgrades, value);
 				upgrades.CollectionChanged += (sender, e) => updateAllUpgrades ();
@@ -167,7 +187,11 @@ namespace SquadBuilder
 
 		ObservableCollection <Upgrade> customUpgrades;
 		public ObservableCollection <Upgrade> CustomUpgrades {
-			get { return customUpgrades; }
+			get {
+				if (customUpgrades == null)
+					GetAllUpgrades ();
+				
+				return customUpgrades; }
 			set { 
 				SetProperty (ref customUpgrades, value);
 				customUpgrades.CollectionChanged += (sender, e) => updateAllUpgrades ();
@@ -187,20 +211,28 @@ namespace SquadBuilder
 
 		void updateAllUpgrades ()
 		{
-			var temp = upgrades.ToList ();
+			var temp = Upgrades.ToList ();
 			temp.AddRange (customUpgrades);
 			allUpgrades = new ObservableCollection <Upgrade> (temp);
 		}
 
 		ObservableCollection <Expansion> expansions;
 		public ObservableCollection <Expansion> Expansions {
-			get { return expansions; }
+			get { 
+				if (expansions == null)
+					GetAllExpansions ();
+				
+				return expansions; }
 			set { SetProperty (ref expansions, value); }
 		}
 
 		ObservableCollection <Squadron> squadrons;
 		public ObservableCollection <Squadron> Squadrons {
-			get { return squadrons; }
+			get {
+				if (squadrons == null)
+					GetAllSquadrons ();
+				
+				return squadrons; }
 			set { SetProperty (ref squadrons, value); }
 		}
 
@@ -286,8 +318,8 @@ namespace SquadBuilder
 			                                           select new Pilot {
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
-				Faction = factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
-				Ship = ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
+				Faction = Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
+				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
 				Unique = (bool)pilot.Element ("Unique"),
 				BasePilotSkill = (int)pilot.Element ("PilotSkill"),
 				BaseAttack = (int)pilot.Element ("Attack"),
@@ -345,8 +377,8 @@ namespace SquadBuilder
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
-					Faction = factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
-					Ship = ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
+					Faction = Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
+					Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
 					ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
@@ -463,8 +495,19 @@ namespace SquadBuilder
 			using (TextReader reader = new StringReader (serializedXml)) {
 				var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
 
-				foreach (var squad in squads)
+				foreach (var squad in squads) {
 					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
+
+					foreach (var pilot in squad.Pilots) {
+						foreach (var upgrade in pilot.UpgradesEquipped) {
+							if (upgrade == null)
+								continue;
+
+							if (upgrade.CategoryId == null)
+								upgrade.CategoryId = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
+						}
+					}
+				}
 
 				Squadrons = squads;
 			}

@@ -149,6 +149,7 @@ namespace SquadBuilder
 				Id = Id,
 				Name = Name,
 				Category = Category,
+				CategoryId = CategoryId,
 				Cost = Cost,
 				ShipRequirement = ShipRequirement,
 				Faction = Faction,

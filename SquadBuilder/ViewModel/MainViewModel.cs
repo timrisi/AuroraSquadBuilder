@@ -78,6 +78,32 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand importSquadron;
+		public RelayCommand ImportSquadron {
+			get {
+				if (importSquadron == null)
+					importSquadron = new RelayCommand (() => {
+						MessagingCenter.Subscribe <ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
+							MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
+
+							Cards.SharedInstance.Squadrons.Add (squadron);
+
+							Cards.SharedInstance.SaveSquadrons ();
+							NotifyPropertyChanged ("Squadrons");
+
+							Cards.SharedInstance.CurrentSquadron = squadron;
+							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
+								vm2.Squadron = squadron;
+							});
+						});
+
+						Navigation.PushAsync <ImportViewModel> ();
+					});
+
+				return importSquadron;
+			}
+		}
+
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
@@ -90,6 +116,7 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("SelectedSquadron");
 
 			MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+			MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
 
 			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", squadron => {
 				Cards.SharedInstance.Squadrons.Remove (squadron);
