@@ -57,7 +57,7 @@
 				</ListView.ItemTemplate>
 			</ListView>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-				<Button Text="-" Command="{Binding DecrementWins}" VerticalOptions="Center"/>
+				<Button Text="-" Command="{Binding DecrementWins}" VerticalOptions="Center" />
 				<Label Text="{Binding Wins, StringFormat='W: {0}'}" VerticalOptions="Center" TextColor="Green"   />
 				<Button Text="+" Command="{Binding IncrementWins}" VerticalOptions="Center"  />
 				<Button Text="-" Command="{Binding DecrementLosses}" VerticalOptions="Center"  />

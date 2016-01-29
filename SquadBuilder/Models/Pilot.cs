@@ -211,6 +211,78 @@ namespace SquadBuilder
 			}
 		}
 
+		public void EquipUpgrade (int index, Upgrade upgrade)
+		{
+			var oldUpgrade = UpgradesEquipped [index];
+
+			UpgradesEquipped [index] = upgrade;
+
+			if (oldUpgrade != null) {
+				foreach (var additionalUpgrade in oldUpgrade.AdditionalUpgrades) {
+					var oldIndex = UpgradeTypes.ToList ().LastIndexOf (additionalUpgrade);
+					UpgradeTypes.RemoveAt (oldIndex);
+					UpgradesEquipped.RemoveAt (oldIndex);
+				}
+
+				foreach (var removedUpgrade in oldUpgrade.RemovedUpgrades) {
+					UpgradeTypes.Add (removedUpgrade);
+					UpgradesEquipped.Add (null);
+				}
+
+				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
+					var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
+					if (index >= 0)
+						UpgradesEquipped [extraIndex] = null;
+				}
+
+				if (oldUpgrade.Id == "ordnancetubes") {
+					for (int i = 0; i < UpgradeTypes.Count; i++) {
+						var type = UpgradeTypes [i];
+						if (type == "Missile" || type == "Torpedo") {
+							UpgradeTypes [i] = "Hardpoint";
+							UpgradesEquipped [i] = null;
+						}
+					}
+
+					if (LinkedPilotCardGuid != Guid.Empty) {
+						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != Name && p.LinkedPilotCardGuid == LinkedPilotCardGuid);
+						for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
+							var type = otherPilot.UpgradeTypes [i];
+							if (type == "Missile" || type == "Torpedo") {
+								otherPilot.UpgradeTypes [i] = "Hardpoint";
+								otherPilot.UpgradesEquipped [i] = null;
+							}
+						}
+					}
+				}
+			}
+			if (upgrade != null) {
+				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
+					UpgradeTypes.Add (newUpgrade);
+					UpgradesEquipped.Add (null);
+				}
+
+				foreach (var removedUpgrade in upgrade.RemovedUpgrades) {
+					var removedIndex = UpgradeTypes.IndexOf (removedUpgrade);
+					if (removedIndex < 0)
+						continue;
+					UpgradeTypes.RemoveAt (removedIndex);
+					UpgradesEquipped.RemoveAt (removedIndex);
+				}
+
+				for (int i = 0; i < upgrade.Slots.Count (); i++) {
+					var extraIndex = Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
+					if (index >= 0)
+						UpgradesEquipped [extraIndex] = upgrade;
+				}
+
+				if (upgrade.Id == "misthunter")
+					UpgradesEquipped [UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
+			}
+
+//			NotifyPropertyChanged ("Pilot");
+		}
+
 		[XmlIgnore]
 		RelayCommand deletePilot;
 		[XmlIgnore]

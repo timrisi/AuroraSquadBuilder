@@ -257,7 +257,8 @@ namespace SquadBuilder
 							if (index < 0)
 								continue;
 
-							pilot.UpgradesEquipped [index] = upgrade;
+							pilot.EquipUpgrade (index, upgrade);
+//							pilot.UpgradesEquipped [index] = upgrade;
 						}
 					}
 

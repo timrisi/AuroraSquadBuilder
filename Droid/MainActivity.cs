@@ -13,6 +13,7 @@ using System.IO;
 using System.Xml.Linq;
 using Xamarin;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SquadBuilder.Droid
 {
