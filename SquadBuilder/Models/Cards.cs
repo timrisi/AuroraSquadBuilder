@@ -403,7 +403,8 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
-					Owned = upgrade.Element ("Owned") != null ? (int)upgrade.Element ("Owned") : 0
+					Owned = upgrade.Element ("Owned") != null ? (int)upgrade.Element ("Owned") : 0,
+					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
@@ -448,7 +449,8 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 							select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
-					Owned = 0
+					Owned = 0,
+					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
 				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);

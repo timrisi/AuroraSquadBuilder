@@ -34,6 +34,7 @@ namespace SquadBuilder
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
 		public string RequiredAction { get; set; }
+		public int MinPilotSkill { get; set; }
 
 		int owned;
 		public int Owned { 
@@ -168,6 +169,7 @@ namespace SquadBuilder
 				Limited = Limited,
 				Unique = Unique, 
 				Preview = Preview,
+				MinPilotSkill = MinPilotSkill,
 				Slots = new ObservableCollection <string> (Slots),
 				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),

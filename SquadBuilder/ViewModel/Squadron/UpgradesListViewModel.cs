@@ -56,14 +56,16 @@ namespace SquadBuilder
 				.Where (u => u.Category == type)
 				.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
-				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement)).ToList ();
+				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
+				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
 					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
-					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction));
+					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
+					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
 				
 				upgrades.AddRange (customUpgrades);
 			}

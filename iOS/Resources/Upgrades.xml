@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.44">
+<Upgrades Version="2.45">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -46,6 +46,7 @@
 			<Cost>1</Cost>
 			<Text>Your upgrade bar gains the {elite pilot talent} upgrade icon.  You cannot equip this upgrade if you already have an {elite pilot talent} upgrade icon or if your pilot skill value is "2" or lower.</Text>
 			<Unique>true</Unique>
+			<MinPilotSkill>3</MinPilotSkill>
 			<AdditionalUpgrades>
 				<Upgrade>Elite Pilot Talent</Upgrade>
 			</AdditionalUpgrades>
@@ -1467,6 +1468,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Royal Guard TIE</Name>
 			<Cost>0</Cost>
 			<Text>You may equip up to 2 different Modifications. You cannot equip this card if your Pilot skill is 4 or less.</Text>
+			<MinPilotSkill>5</MinPilotSkill>
 			<Ship>tieinterceptor</Ship>
 			<ShipRequirement>TIE Interceptor</ShipRequirement>
 			<AdditionalUpgrades>
@@ -1541,6 +1543,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Name>A-Wing Test Pilot</Name>
 			<Cost>0</Cost>
 			<Text>Your upgrade bar gains 1 Elite Upgrade icon. You cannot equip 2 of the same Elite Upgrade cards. You cannot equip this card if your pilot skill value is "1" or lower.</Text>
+			<MinPilotSkill>2</MinPilotSkill>
 			<Ship>awing</Ship>
 			<ShipRequirement>A-Wing</ShipRequirement>
 			<AdditionalUpgrades>
@@ -1570,6 +1573,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Name>Virago</Name>
 			<Cost>1</Cost>
 			<Text>Your upgrade bar gains the {system} and {illicit} upgrade icons.  You cannot equip this card if your pilot skill value is "3" or lower.</Text>
+			<MinPilotSkill>4</MinPilotSkill>
 			<Ship>starviper</Ship>
 			<ShipRequirement>StarViper</ShipRequirement>
 			<Unique>True</Unique>
