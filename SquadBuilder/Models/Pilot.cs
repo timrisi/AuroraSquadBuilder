@@ -83,6 +83,23 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool AbilityVisible {
+			get {
+				return !string.IsNullOrEmpty (Ability);
+			}
+		}
+
+		[XmlIgnore]
+		string expansions;
+		public string Expansions {
+			get {
+				if (string.IsNullOrEmpty (expansions))
+					expansions = string.Join (", ", Cards.SharedInstance.Expansions.Where (e => e.Pilots.Any (p => p == Id)).Select (e => e.Name));
+
+				return expansions;
+			}
+		}
+
 		[XmlIgnore]
 		public string UpgradesEquippedString {
 			get {

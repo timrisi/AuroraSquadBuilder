@@ -101,6 +101,17 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
+		string expansions;
+		public string Expansions {
+			get {
+				if (string.IsNullOrEmpty (expansions))
+					expansions = string.Join (", ", Cards.SharedInstance.Expansions.Where (e => e.Upgrades.Any (u => u == Id)).Select (e => e.Name));
+
+				return expansions;
+			}
+		}
+
+		[XmlIgnore]
 		public RelayCommand deleteUpgrade;
 		[XmlIgnore]
 		public RelayCommand DeleteUpgrade {
