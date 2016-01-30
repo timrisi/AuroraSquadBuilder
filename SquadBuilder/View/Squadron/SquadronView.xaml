@@ -13,6 +13,9 @@
 	    	<Label HorizontalOptions="FillAndExpand" 
 	    		   XAlign="Center" 
 	    		   Text="{Binding Squadron.PointsDescription}" />
+	    	<ContentView Padding="15, 0, 15, 0">
+	    		<Label Text="{Binding Squadron.Description}" IsVisible="{Binding Squadron.DescriptionVisible}" />
+	    	</ContentView>
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"

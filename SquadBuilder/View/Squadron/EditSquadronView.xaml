@@ -14,6 +14,10 @@
 				   FontAttributes="Italic" />
 			<Picker x:Name="factionPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" StyleId="FactionPicker" />
 			<Label Text="{Binding Squadron.Faction}" />
+			<StackLayout VerticalOptions="FillAndExpand" >
+				<Label Text="Description:" />
+				<Editor Text="{Binding Squadron.Description}" BackgroundColor="Silver" VerticalOptions="FillAndExpand" />
+			</StackLayout>
 		</StackLayout>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

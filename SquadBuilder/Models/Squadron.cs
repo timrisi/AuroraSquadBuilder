@@ -59,6 +59,16 @@ namespace SquadBuilder
 			}
 		}
 
+		string description;
+		public string Description {
+			get { return description; }
+			set { SetProperty (ref description, value); }
+		}
+
+		public bool DescriptionVisible {
+			get { return !string.IsNullOrEmpty (description); }
+		}
+
 		ObservableCollection <Pilot> pilots = new ObservableCollection <Pilot> ();
 		public ObservableCollection <Pilot> Pilots { 
 			get { 

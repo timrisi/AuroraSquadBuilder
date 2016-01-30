@@ -51,6 +51,12 @@ namespace SquadBuilder
 			set { SetProperty (ref selectedIndex, value); }
 		}
 
+		string description;
+		public string Description {
+			get { return description; }
+			set { SetProperty (ref description, value); }
+		}
+
 		public string SaveButtonText { get { return "Save"; } }
 
 		RelayCommand saveSquadron;
@@ -67,7 +73,8 @@ namespace SquadBuilder
 						var squadron = new Squadron {
 							Name = SquadName,
 							MaxPoints = Points,
-							Faction = Factions [SelectedIndex]
+							Faction = Factions [SelectedIndex],
+							Description = Description
 						};
 						MessagingCenter.Send <CreateSquadronViewModel, Squadron> (this, "Squadron Created", squadron);
 					});
