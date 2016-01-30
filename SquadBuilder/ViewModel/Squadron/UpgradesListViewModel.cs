@@ -156,6 +156,9 @@ namespace SquadBuilder
 		public string SearchText {
 			get { return searchText; }
 			set {
+				if (value == null)
+					value = "";
+				
 				SetProperty (ref searchText, value);
 
 				SearchUpgrades (value);

@@ -192,7 +192,6 @@ namespace SquadBuilder.iOS
 				foreach (var key in deprecatedIds.Keys)
 					factionXml = factionXml.Replace (key, deprecatedIds [key]);
 				saveAndLoad.SaveText ("Factions.xml", factionXml);
-				Console.WriteLine (factionXml);
 			}
 
 			if (saveAndLoad.FileExists ("Ships.xml")) {
@@ -228,7 +227,6 @@ namespace SquadBuilder.iOS
 				foreach (var key in deprecatedIds.Keys)
 					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
 				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
-				Console.WriteLine (squadronXml);
 			}
 
 			Cards.SharedInstance.GetAllSquadrons ();

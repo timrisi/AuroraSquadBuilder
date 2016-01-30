@@ -193,8 +193,6 @@ namespace SquadBuilder
 
 		public Color TextColor {
 			get {
-				if (Id == "keyanfarlander")
-					Console.WriteLine ("Keyan: Available - " + IsAvailable);
 				return IsAvailable ? Color.Black : Color.Gray; 
 			}
 		}

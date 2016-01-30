@@ -160,9 +160,6 @@ namespace SquadBuilder
 						if (Cards.SharedInstance.Ships.FirstOrDefault (e => e.Name == Name) != null)
 							return;
 
-						foreach (var action in Ship.Actions)
-							Console.WriteLine (action);
-
 						var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == OriginalXml.Attribute ("id").Value);
 						element.SetAttributeValue ("id", Ship.Id);
 						element.SetElementValue ("Name", Ship.Name);

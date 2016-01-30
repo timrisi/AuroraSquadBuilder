@@ -527,17 +527,6 @@ namespace SquadBuilder
 
 				DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
 			}
-//
-//			if (Session.SharedSession.IsLinked) {
-//				var restClient = new RestClient (Session.SharedSession);
-//				restClient.FileUploaded += (sender, e) => {
-//					Console.WriteLine (e.DestPath);
-//				};
-//				restClient.UploadFileFailed += (sender, e) => {
-//					Console.WriteLine (e.Error);
-//				};
-//				restClient.UploadFile (SquadronsFilename, "/", null, "/" + SquadronsFilename);
-//			}
 		}
 
 		public void SaveCollection ()
