@@ -1,0 +1,188 @@
+commit 06da4f40a96bd741dbd14197c49f63953581c3f4
+Author: Timothy Risi <timothy.risi@xamarin.com>
+Date:   Wed Feb 10 10:09:38 2016 -0900
+
+    Punishing One preview cards
+
+diff --git a/ios/Resources/Pilots.xml b/ios/Resources/Pilots.xml
+index 86bfdd7..7972bb8 100644
+--- a/ios/Resources/Pilots.xml
++++ b/ios/Resources/Pilots.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Pilots Version="2.23">
++<Pilots Version="2.26">
+ 	<!--- Scum Pilots -->
+ 	<Pilot id="princexizor" faction="scum" ship="starviper">
+ 		<Name>Prince Xizor</Name>
+@@ -750,6 +750,74 @@
+ 		<Ability>Once per round after defending, if the attacker is inside your firing arc, you may perform an attack against that ship.</Ability>
+ 		<Owned>0</Owned>
+ 	</Pilot>
++	<Pilot id="teltrevura" faction="scum" ship="jumpmaster5000">
++		<Name>Tel Trevura</Name>
++		<Unique>true</Unique>
++		<Preview>true</Preview>
++		<PilotSkill>7</PilotSkill>
++		<Attack>2</Attack>
++		<Agility>2</Agility>
++		<Hull>5</Hull>
++		<Shields>4</Shields>
++		<Cost>30</Cost>
++		<Upgrades>
++			<Upgrade>Elite Pilot Talent</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Crew</Upgrade>
++			<Upgrade>Salvaged Astromech</Upgrade>
++			<Upgrade>Illicit</Upgrade>
++			<Upgrade>Title</Upgrade>
++			<Upgrade>Modification</Upgrade>
++		</Upgrades>
++		<Ability>The first time you would be destroyed, instead cancel any remaining damage, discard all Damage cards, and deal 4 facedown Damage cards to this ship.</Ability>
++		<Owned>0</Owned>
++	</Pilot>
++	<Pilot id="manaroo" faction="scum" ship="jumpmaster5000">
++		<Name>Manaroo</Name>
++		<Unique>true</Unique>
++		<Preview>true</Preview>
++		<PilotSkill>4</PilotSkill>
++		<Attack>2</Attack>
++		<Agility>2</Agility>
++		<Hull>5</Hull>
++		<Shields>4</Shields>
++		<Cost>27</Cost>
++		<Upgrades>
++			<Upgrade>Elite Pilot Talent</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Crew</Upgrade>
++			<Upgrade>Salvaged Astromech</Upgrade>
++			<Upgrade>Illicit</Upgrade>
++			<Upgrade>Title</Upgrade>
++			<Upgrade>Modification</Upgrade>
++		</Upgrades>
++		<Ability>At the start of the Combat phase, you may assign all focus, evade, and target lock tokens assigned to you to another friendly ship.</Ability>
++		<Owned>0</Owned>
++	</Pilot>
++	<Pilot id="contractedscout" faction="scum" ship="jumpmaster5000">
++		<Name>Contracted Scout</Name>
++		<Preview>true</Preview>
++		<Unique>false</Unique>
++		<PilotSkill>3</PilotSkill>
++		<Attack>2</Attack>
++		<Agility>2</Agility>
++		<Hull>5</Hull>
++		<Shields>4</Shields>
++		<Cost>25</Cost>
++		<Upgrades>
++			<Upgrade>Elite Pilot Talent</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Torpedo</Upgrade>
++			<Upgrade>Crew</Upgrade>
++			<Upgrade>Salvaged Astromech</Upgrade>
++			<Upgrade>Illicit</Upgrade>
++			<Upgrade>Title</Upgrade>
++			<Upgrade>Modification</Upgrade>
++		</Upgrades>
++		<Owned>0</Owned>
++	</Pilot>
+ 
+ 	<!--- Rebel Pilots -->
+ 	<Pilot id="tychocelchu" faction="rebels" ship="awing">
+diff --git a/ios/Resources/Upgrades.xml b/ios/Resources/Upgrades.xml
+index 955d189..c72391d 100644
+--- a/ios/Resources/Upgrades.xml
++++ b/ios/Resources/Upgrades.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Upgrades Version="2.40">
++<Upgrades Version="2.41">
+ 	<Category id="amd" type="Astromech Droid">
+ 		<Upgrade id="r2d2">
+ 			<Name>R2-D2</Name>
+@@ -746,6 +746,32 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
+ 			<Unique>true</Unique>
+ 			<Owned>0</Owned>
+ 		</Upgrade>
++		<Upgrade id="gonk">
++			<Name>&quot;Gonk&quot;</Name>
++			<Cost>2</Cost>
++			<Text>Action: Place 1 shield token on this card.
++
++Action: Remove 1 shield token from this card to recover 1 shield (up to your shield value).</Text>
++			<Faction>scum</Faction>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
++		<Upgrade id="bobafett">
++			<Name>Boba Fett</Name>
++			<Cost>1</Cost>
++			<Text>After performing an attack, if the defender was dealt a faceup Damage card, you may discard this card to choose and discard 1 f the defender's Upgrade cards.</Text>
++			<Faction>scum</Faction>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
++		<Upgrade id="dengar">
++			<Name>Dengar</Name>
++			<Cost>3</Cost>
++			<Text>When attacking, you may reroll 1 attack die.  If the defender is a unique pilot, you may instead reroll up to 2 attack dice.</Text>
++			<Faction>scum</Faction>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
+ 	</Category>
+ 	<Category id="ept" type="Elite Pilot Talent">
+ 		<Upgrade id="determination">
+@@ -945,6 +971,21 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
+ 			<Preview>true</Preview>
+ 			<Owned>0</Owned>
+ 		</Upgrade>
++		<Upgrade id="rage">
++			<Name>Rage</Name>
++			<Cost>1</Cost>
++			<Text>Action: Assign 1 focus token to your ship and receive 2 stress tokens.  Until the end of the round, when attacking, you may reroll up to 3 attack dice.</Text>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
++		<Upgrade id="attannimindlink">
++			<Name>Attanni Mindlink</Name>
++			<Cost>1</Cost>
++			<Text>Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one.</Text>
++			<Faction>scum</Faction>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
+ 	</Category>
+ 	<Category id="hardpoint" type="Hardpoint">
+ 		<Upgrade id="quadlasercannons">
+@@ -1337,6 +1378,13 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
+ 			<Text>When you are dealt a Damage card with the Ship trait, you may immediately discard that card (before resolving its effect). Then discard this Upgrade card.</Text>
+ 			<Owned>0</Owned>
+ 		</Upgrade>
++		<Upgrade id="r5p8">
++			<Name>R5-P8</Name>
++			<Cost>3</Cost>
++			<Text>Once per round, after defending, you may roll 1 attack die.  On a {hit} result, the attacker suffers 1 damage.  On a {crit} result, you and the attacker each suffer 1 damage.</Text>
++			<Preview>true</Preview>
++			<Owned>0</Owned>
++		</Upgrade>
+ 	</Category>
+ 	<Category id="system" type="System Upgrade">
+ 		<Upgrade id="advancedsensors">
+diff --git a/ios/Resources/Versions.xml b/ios/Resources/Versions.xml
+index 7d6ef0d..fd0971a 100644
+--- a/ios/Resources/Versions.xml
++++ b/ios/Resources/Versions.xml
+@@ -2,8 +2,8 @@
+ <Versions>
+ 	<Factions>2.00</Factions>
+ 	<Ships>2.04</Ships>
+-	<Pilots>2.23</Pilots>
+-	<Upgrades>2.40</Upgrades>
++	<Pilots>2.26</Pilots>
++	<Upgrades>2.41</Upgrades>
+ 	<Settings>1.03</Settings>
+ 	<Expansions>1.15</Expansions>
+ </Versions>
+\ No newline at end of file
