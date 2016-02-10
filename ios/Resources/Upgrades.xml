@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.40">
+<Upgrades Version="2.41">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -746,6 +746,32 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
+		<Upgrade id="gonk">
+			<Name>&quot;Gonk&quot;</Name>
+			<Cost>2</Cost>
+			<Text>Action: Place 1 shield token on this card.
+
+Action: Remove 1 shield token from this card to recover 1 shield (up to your shield value).</Text>
+			<Faction>scum</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="bobafett">
+			<Name>Boba Fett</Name>
+			<Cost>1</Cost>
+			<Text>After performing an attack, if the defender was dealt a faceup Damage card, you may discard this card to choose and discard 1 f the defender's Upgrade cards.</Text>
+			<Faction>scum</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="dengar">
+			<Name>Dengar</Name>
+			<Cost>3</Cost>
+			<Text>When attacking, you may reroll 1 attack die.  If the defender is a unique pilot, you may instead reroll up to 2 attack dice.</Text>
+			<Faction>scum</Faction>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -942,6 +968,21 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>0</Cost>
 			<Text>Decrease your pilot skill value by 1.</Text>
 			<PilotSkill>-1</PilotSkill>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="rage">
+			<Name>Rage</Name>
+			<Cost>1</Cost>
+			<Text>Action: Assign 1 focus token to your ship and receive 2 stress tokens.  Until the end of the round, when attacking, you may reroll up to 3 attack dice.</Text>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="attannimindlink">
+			<Name>Attanni Mindlink</Name>
+			<Cost>1</Cost>
+			<Text>Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one.</Text>
+			<Faction>scum</Faction>
 			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1335,6 +1376,13 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Salvaged Astromech</Name>
 			<Cost>2</Cost>
 			<Text>When you are dealt a Damage card with the Ship trait, you may immediately discard that card (before resolving its effect). Then discard this Upgrade card.</Text>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="r5p8">
+			<Name>R5-P8</Name>
+			<Cost>3</Cost>
+			<Text>Once per round, after defending, you may roll 1 attack die.  On a {hit} result, the attacker suffers 1 damage.  On a {crit} result, you and the attacker each suffer 1 damage.</Text>
+			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
