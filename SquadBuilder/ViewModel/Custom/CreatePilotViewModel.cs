@@ -291,41 +291,6 @@ namespace SquadBuilder
 
 							MessagingCenter.Send <CreatePilotViewModel, Pilot> (this, "Pilot Created", Pilot);
 						}
-
-
-
-//						var element = new XElement ("Upgrade",
-//							new XAttribute ("id", Upgrade.Id),
-//							new XElement ("Name", Name),
-//							new XElement ("Cost", Cost),
-//							new XElement ("Text", Text),
-//							new XElement ("Unique", IsUnique),
-//							new XElement ("Limited", IsLimited),
-//							new XElement ("Ship", Upgrade.Ship),
-//							new XElement ("Faction", Upgrade.Faction.Id),
-//							new XElement ("SmallOnly", SmallOnly),
-//							new XElement ("LargeOnly", LargeOnly),
-//							new XElement ("HugeOnly", HugeOnly),
-//							//							new XElement ("ExtraSlots", 
-//							//								new XElement ("Upgrade", )
-//							//							),
-//							//							new XElement ("AdditionalUpgrades", 
-//							//								new XElement ("Upgrade", )
-//							//							),
-//							new XElement ("PilotSkill", PilotSkill),
-//							new XElement ("Attack", Attack),
-//							new XElement ("Agility", Agility),
-//							new XElement ("Hull", Hull),
-//							new XElement ("Shields", Shields),
-//							new XElement ("SecondaryWeapon", SecondaryWeapon),
-//							new XElement ("Dice", Dice),
-//							new XElement ("Range", Range)
-//						);
-//
-//						customPilotsXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == PilotUpgradeTypes [UpgradeTypeIndex])?.Add (element);
-//						DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customPilotsXml.ToString ());
-//						//
-//						MessagingCenter.Send <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", Upgrade);
 					});
 
 				return savePilot;

@@ -12,7 +12,9 @@ using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Schema;
-//using Dropbox.CoreApi.iOS;
+#if __IOS__
+using Dropbox.CoreApi.iOS;
+#endif
 using Newtonsoft.Json;
 using XLabs.Platform.Device;
 
@@ -268,7 +270,6 @@ namespace SquadBuilder
 								continue;
 
 							pilot.EquipUpgrade (index, upgrade);
-//							pilot.UpgradesEquipped [index] = upgrade;
 						}
 					}
 

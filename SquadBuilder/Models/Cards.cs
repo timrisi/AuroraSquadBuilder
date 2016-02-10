@@ -8,7 +8,6 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-//using Dropbox.CoreApi.iOS;
 
 namespace SquadBuilder
 {

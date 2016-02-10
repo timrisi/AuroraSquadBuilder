@@ -57,21 +57,21 @@ namespace SquadBuilder
 			}
 		}
 
-//		RelayCommand dropboxLogin;
-//		public RelayCommand DropboxLogin {
-//			get {
-//				if (dropboxLogin == null)
-//					dropboxLogin = new RelayCommand (() => {
-//						if (!Session.SharedSession.IsLinked) {
-//							// Ask for linking the app
-//#if __IOS__
-//							Session.SharedSession.LinkFromController (UIApplication.SharedApplication.KeyWindow.RootViewController);
-//#endif
-//						}
-//					});	
-//
-//				return dropboxLogin;
-//			}
-//		}
+		RelayCommand dropboxLogin;
+		public RelayCommand DropboxLogin {
+			get {
+				if (dropboxLogin == null)
+					dropboxLogin = new RelayCommand (() => {
+						if (!Session.SharedSession.IsLinked) {
+							// Ask for linking the app
+#if __IOS__
+							Session.SharedSession.LinkFromController (UIApplication.SharedApplication.KeyWindow.RootViewController);
+#endif
+						}
+					});	
+
+				return dropboxLogin;
+			}
+		}
 	}
 }

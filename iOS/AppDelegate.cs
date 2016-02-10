@@ -194,11 +194,25 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Factions.xml", factionXml);
 			}
 
+			if (saveAndLoad.FileExists ("Factions_Custom.xml")) {
+				var factionXml = saveAndLoad.LoadText ("Factions_Custom.xml");
+				foreach (var key in deprecatedIds.Keys)
+					factionXml = factionXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Factions_Custom.xml", factionXml);
+			}
+
 			if (saveAndLoad.FileExists ("Ships.xml")) {
 				var shipXml = saveAndLoad.LoadText ("Ships.xml");
 				foreach (var key in deprecatedIds.Keys)
 					shipXml = shipXml.Replace (key, deprecatedIds [key]);
 				saveAndLoad.SaveText ("Ships.xml", shipXml);
+			}
+
+			if (saveAndLoad.FileExists ("Ships_Custom.xml")) {
+				var shipXml = saveAndLoad.LoadText ("Ships_Custom.xml");
+				foreach (var key in deprecatedIds.Keys)
+					shipXml = shipXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Ships_Custom.xml", shipXml);
 			}
 
 			if (saveAndLoad.FileExists ("Pilots.xml")) {
@@ -208,11 +222,25 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText ("Pilots.xml", pilotXml);
 			}
 
+			if (saveAndLoad.FileExists ("Pilots_Custom.xml")) {
+				var pilotXml = saveAndLoad.LoadText ("Pilots_Custom.xml");
+				foreach (var key in deprecatedIds.Keys)
+					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Pilots_Custom.xml", pilotXml);
+			}
+
 			if (saveAndLoad.FileExists ("Upgrades.xml")) {
 				var upgradeXml = saveAndLoad.LoadText ("Upgrades.xml");
 				foreach (var key in deprecatedIds.Keys)
 					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
 				saveAndLoad.SaveText ("Upgrades.xml", upgradeXml);
+			}
+
+			if (saveAndLoad.FileExists ("Upgrades_Custom.xml")) {
+				var upgradeXml = saveAndLoad.LoadText ("Upgrades_Custom.xml");
+				foreach (var key in deprecatedIds.Keys)
+					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
+				saveAndLoad.SaveText ("Upgrades_Custom.xml", upgradeXml);
 			}
 
 			if (saveAndLoad.FileExists ("Expansions.xml")) {
