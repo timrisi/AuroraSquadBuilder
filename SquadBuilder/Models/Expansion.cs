@@ -35,13 +35,13 @@ namespace SquadBuilder
 				foreach (var pilot in Pilots) {
 					if (pilot == "bobafett") {
 						if (Id == "firespray31")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "empire").Owned += (owned - previousNumber);
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "imperial").Owned += (owned - previousNumber);
 						else if (Id == "mostwanted")
 							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
 						continue;
 					} else if (pilot == "kathscarlet") {
 						if (Id == "firespray31")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "empire").Owned += (owned - previousNumber);
+							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "imperial").Owned += (owned - previousNumber);
 						else if (Id == "mostwanted")
 							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
 						continue;
