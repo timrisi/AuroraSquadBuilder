@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.41">
+<Upgrades Version="2.42">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -754,6 +754,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 Action: Remove 1 shield token from this card to recover 1 shield (up to your shield value).</Text>
 			<Faction>scum</Faction>
 			<Preview>true</Preview>
+			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="bobafett">
@@ -762,6 +763,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>After performing an attack, if the defender was dealt a faceup Damage card, you may discard this card to choose and discard 1 f the defender's Upgrade cards.</Text>
 			<Faction>scum</Faction>
 			<Preview>true</Preview>
+			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="dengar">
@@ -770,6 +772,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>When attacking, you may reroll 1 attack die.  If the defender is a unique pilot, you may instead reroll up to 2 attack dice.</Text>
 			<Faction>scum</Faction>
 			<Preview>true</Preview>
+			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -777,7 +780,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 		<Upgrade id="determination">
 			<Name>Determination</Name>
 			<Cost>1</Cost>
-			<Text>When you are dealth a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect.</Text>
+			<Text>When you are dealt a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect.</Text>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="marksmanship">
