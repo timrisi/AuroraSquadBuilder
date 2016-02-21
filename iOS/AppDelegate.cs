@@ -12,7 +12,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
 using Xamarin.Forms;
-using Dropbox.CoreApi.iOS;
+//using Dropbox.CoreApi.iOS;
+using Dropbox.Api;
 
 namespace SquadBuilder.iOS
 {
@@ -40,9 +41,12 @@ namespace SquadBuilder.iOS
 		{
 			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
 
-			var session = new Session (appKey, appSecret, Session.RootAppFolder);
-			// The session that you have just created, will live through all the app
-			Session.SharedSession = session;
+
+//			var session = new Session (appKey, appSecret, Session.RootAppFolder);
+//			// The session that you have just created, will live through all the app
+//			Session.SharedSession = session;
+//			if (Session.SharedSession.IsLinked)
+//				Console.WriteLine ("Already Linked");
 
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
@@ -175,8 +179,8 @@ namespace SquadBuilder.iOS
 
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			if (Session.SharedSession.HandleOpenUrl (url) && Session.SharedSession.IsLinked) {
-				// Do your magic after the app gets linked
+			if (url.Scheme == "aurorasquadbuilder") {
+				Console.WriteLine ("Foo");
 			}
 
 			return true;

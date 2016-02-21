@@ -407,6 +407,23 @@ namespace SquadBuilder
 				return decrement;
 			}
 		}
+
+		public override bool Equals (object obj)
+		{
+			if (obj == null || !(obj is Pilot))
+				return false;
+
+			var pilot = obj as Pilot;
+
+			return (Id == pilot.Id &&
+				Faction?.Id == pilot.Faction?.Id &&
+				Ship?.Id == pilot.Ship?.Id &&
+				UpgradesEquippedString == pilot.UpgradesEquippedString);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (Id + Faction?.Id + Ship?.Id + UpgradesEquippedString).GetHashCode ();
+		}
 	}
 }
-

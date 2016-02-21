@@ -8,7 +8,7 @@ namespace SquadBuilder.Droid {
 	public class SaveAndLoad : ISaveAndLoad {
 		public bool FileExists (string filename)
 		{
-			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
 			var filePath = Path.Combine (documentsPath, filename);
 			return File.Exists (filePath);
 		}
@@ -33,6 +33,12 @@ namespace SquadBuilder.Droid {
 			var filePath = Path.Combine (documentsPath, filename);
 			if (File.Exists (filePath))
 				File.Delete (filePath);
+		}
+
+		public string GetPath (string filename)
+		{
+			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
+			return Path.Combine (documentsPath, filename);
 		}
 	}
 }

@@ -8,6 +8,17 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Dropbox.Api.Files;
+using System.Threading.Tasks;
+using System.Text;
+using CoreLocation;
+using Dropbox.Api;
+using Xamarin.Auth;
+using System.Runtime.Remoting.Lifetime;
+
+#if __IOS__
+using UIKit;
+#endif
 
 namespace SquadBuilder
 {
@@ -486,12 +497,12 @@ namespace SquadBuilder
 			var service = DependencyService.Get <ISaveAndLoad> ();
 
 			if (!service.FileExists (SquadronsFilename)) {
-				Squadrons = new ObservableCollection<Squadron> ();
+				Squadrons = new ObservableCollection <Squadron> ();
 				return;
 			}
 
 			var serializedXml = service.LoadText (SquadronsFilename);
-			var serializer = new XmlSerializer (typeof(ObservableCollection<Squadron>));
+			var serializer = new XmlSerializer (typeof(ObservableCollection <Squadron>));
 
 			using (TextReader reader = new StringReader (serializedXml)) {
 				var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
@@ -514,7 +525,7 @@ namespace SquadBuilder
 			}
 		}
 
-		public void SaveSquadrons ()
+		public async Task SaveSquadrons ()
 		{
 			if (Squadrons.Count == 0)
 				DependencyService.Get <ISaveAndLoad> ().DeleteFile (SquadronsFilename);
@@ -524,7 +535,15 @@ namespace SquadBuilder
 				serializer.Serialize (stringWriter, Squadrons);
 				string serializedXML = stringWriter.ToString ();
 
-				DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
+				var service = DependencyService.Get <ISaveAndLoad> ();
+
+				if (!service.FileExists (SquadronsFilename) || DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename) != serializedXML) {
+					DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
+					Application.Current.Properties [SettingsViewModel.ModifiedDateKey] = DateTime.Now;
+
+					if (App.DropboxClient != null && Squadrons.Count > 0)
+						await SettingsViewModel.SaveToDropbox ();
+				}
 			}
 		}
 

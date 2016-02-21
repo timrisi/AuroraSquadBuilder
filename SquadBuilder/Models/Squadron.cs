@@ -12,11 +12,10 @@ using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Schema;
-#if __IOS__
-using Dropbox.CoreApi.iOS;
-#endif
+
 using Newtonsoft.Json;
 using XLabs.Platform.Device;
+using System.Globalization;
 
 namespace SquadBuilder
 {
@@ -289,6 +288,26 @@ namespace SquadBuilder
 			}
 
 			return null;
+		}
+
+		public override bool Equals (object obj)
+		{
+			if (obj == null || !(obj is Squadron))
+				return false;
+
+			var squadron = obj as Squadron;
+
+			return Name == squadron.Name &&
+				Faction?.Id == squadron.Faction?.Id &&
+				Points == squadron.Points &&
+				MaxPoints == squadron.MaxPoints &&
+				Description == squadron.Description &&
+				Pilots.SequenceEqual (squadron.Pilots);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (Name + Description + Points + MaxPoints + Faction.Id + Pilots).GetHashCode ();
 		}
 	}
 }

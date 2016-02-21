@@ -5,7 +5,7 @@
 				x:Class="SquadBuilder.SettingsView"
 				Title="Settings" >
 	<mvvm:BaseView.Content>
-		<StackLayout Orientation="Vertical"
+<!--		<StackLayout Orientation="Vertical"
 					 Padding="15"
 					 Spacing="10" >
 			<StackLayout Orientation="Horizontal" Spacing="5">
@@ -26,6 +26,25 @@
 			</StackLayout>
 			<Button Text="Check for updates" Command="{Binding CheckForUpdates}" />
 			<Button Text="Dropbox Login" Command="{Binding DropboxLogin}" />
-		</StackLayout>
+		</StackLayout>-->
+		<TableView Intent="Settings">
+			<TableRoot>
+				<TableSection>
+					<SwitchCell Text="Allow Custom" On="{Binding AllowCustom}" />
+					<SwitchCell Text="Filter Pilots By Ship" On="{Binding FilterPilotsByShip}" />
+					<SwitchCell Text="Hide Unavailable Ships/Cards" On="{Binding HideUnavailable}" />
+				</TableSection>
+				<TableSection Title="Updates">
+					<SwitchCell Text="Check for updates on launch" On="{Binding UpdateOnLaunch}" />
+					<ViewCell>
+						<Button Text="Check for updates" Command="{Binding CheckForUpdates}" HorizontalOptions="Center" />
+					</ViewCell>
+				</TableSection>
+				<TableSection Title="Cloud Sync">
+					<SwitchCell Text="Dropbox Sync" On="{Binding DropboxSync}" />
+					<TextCell Text="Account" Detail="{Binding Account}" />
+				</TableSection>
+			</TableRoot>
+		</TableView>
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

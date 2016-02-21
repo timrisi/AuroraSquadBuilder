@@ -2,22 +2,34 @@
 
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
+using Dropbox.Api;
+using System.Runtime.Remoting.Lifetime;
+using GameplayKit;
 
 namespace SquadBuilder
 {
 	public class App : Application
 	{
+		public static DropboxClient DropboxClient;
+
 		public App ()
 		{
 			RegisterViews();
 			MainPage = new RootPage ();
 		}
 
-		protected override void OnStart ()
+		protected override async void OnStart ()
 		{
 			// Handle when your app starts
 			if (Settings.UpdateOnLaunch) {
 				Settings.CheckForUpdates ();
+			}
+
+			if (Application.Current.Properties.ContainsKey (SettingsViewModel.AccessTokenKey)) {
+				DropboxClient = new DropboxClient (Application.Current.Properties [SettingsViewModel.AccessTokenKey].ToString ());
+				SettingsViewModel.SyncDropbox ();
+				var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
+				Application.Current.Properties [SettingsViewModel.AccountKey] = userAccount.Name.DisplayName;
 			}
 		}
 

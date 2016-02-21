@@ -20,6 +20,7 @@ namespace SquadBuilder
 			filterPilotsByShip = (bool)settingsXml.Element ("FilterPilotsByShip");
 			updateOnLaunch = (bool)settingsXml.Element ("UpdateOnLaunch");
 			hideUnavailable = (bool)settingsXml.Element ("HideUnavailable");
+			dropboxSync = (bool)settingsXml.Element ("DropboxSync");
 		}
 
 		public static float FactionsVersion { get; set; }
@@ -66,6 +67,16 @@ namespace SquadBuilder
 			set {
 				hideUnavailable = value;
 				settingsXml.SetElementValue ("HideUnavailable", value);
+				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+			}
+		}
+
+		static bool dropboxSync;
+		public static bool DropboxSync {
+			get { return dropboxSync; }
+			set {
+				dropboxSync = value;
+				settingsXml.SetElementValue ("DropboxSync", value);
 				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
 			}
 		}

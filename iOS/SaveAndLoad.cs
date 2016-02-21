@@ -33,5 +33,11 @@ namespace SquadBuilder.iOS {
 			if (File.Exists (filePath))
 				File.Delete (filePath);
 		}
+
+		public string GetPath (string filename)
+		{
+			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+			return Path.Combine (documentsPath, filename);
+		}
 	}
 }

@@ -207,6 +207,21 @@ namespace SquadBuilder
 				return decrement;
 			}
 		}
+
+		public override bool Equals (object obj)
+		{
+			if (!(obj is Upgrade))
+				return false;
+
+			var upgrade = obj as Upgrade;
+			return Id == upgrade.Id && 
+				CategoryId == upgrade.CategoryId;
+		}
+
+		public override int GetHashCode ()
+		{
+			return ((Id + CategoryId).GetHashCode ());
+		}
 	}
 }
 

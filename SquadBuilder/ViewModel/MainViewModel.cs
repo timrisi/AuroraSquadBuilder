@@ -110,7 +110,7 @@ namespace SquadBuilder
 
 			Cards.SharedInstance.CurrentSquadron = null;
 
-			Cards.SharedInstance.SaveSquadrons ();
+			Cards.SharedInstance.SaveSquadrons ().ContinueWith ((task) => NotifyPropertyChanged ("Squadrons"));
 
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");

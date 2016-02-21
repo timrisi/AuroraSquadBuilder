@@ -5,6 +5,7 @@ using System.IO;
 using Xamarin.Forms;
 using System.Linq;
 using System.Xml.Serialization;
+using System.Security.Policy;
 
 namespace SquadBuilder
 {
@@ -41,6 +42,22 @@ namespace SquadBuilder
 
 				return deleteFaction;
 			}
+		}
+
+		public override bool Equals (object obj)
+		{
+			if (!(obj is Faction))
+				return false;
+
+			var faction = obj as Faction;
+			return Id == faction.Id &&
+				Name == faction.Name &&
+				Color.ToString () == faction.Color.ToString ();
+		}
+
+		public override int GetHashCode ()
+		{
+			return (Id + Name + Color.GetHashCode ()).GetHashCode ();
 		}
 	}
 }
