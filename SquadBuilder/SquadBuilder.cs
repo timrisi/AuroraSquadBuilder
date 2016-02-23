@@ -4,7 +4,6 @@ using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 using Dropbox.Api;
 using System.Runtime.Remoting.Lifetime;
-using GameplayKit;
 
 namespace SquadBuilder
 {
@@ -40,6 +39,8 @@ namespace SquadBuilder
 
 		protected override void OnResume ()
 		{
+			if (DropboxClient != null)
+				SettingsViewModel.SyncDropbox ();
 		}
 
 		void RegisterViews ()

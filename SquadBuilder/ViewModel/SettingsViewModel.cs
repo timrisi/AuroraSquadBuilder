@@ -2,24 +2,24 @@
 using XLabs.Forms.Mvvm;
 using XLabs;
 using Xamarin.Forms;
-using CoreImage;
 using Dropbox.Api;
 using System.Linq;
 using Dropbox.Api.Files;
 using System.IO;
 using System.Text;
-using AudioUnit;
 using Dropbox.Api.Sharing;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using Xamarin.Auth;
-using SquadBuilder.iOS;
 using System.Security.Cryptography;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 
 #if __IOS__
 using UIKit;
+#elif __ANDROID__
+using Android.Content;
+using Android.App;
 #endif
 
 namespace SquadBuilder
@@ -136,16 +136,21 @@ namespace SquadBuilder
 					MessagingCenter.Send <SettingsViewModel> (this, "Logged in");
 				}
 
-				#if __IOS__
+#if __IOS__
 				UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
-				#endif
+#elif __ANDROID__
+
+#endif
 
 				await SyncDropbox ();
 			};
 
-			#if __IOS__
+#if __IOS__
 			UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController (auth.GetUI (), false, null);
-			#endif
+#elif __ANDROID__
+			var activity = Forms.Context as Activity;
+			activity.StartActivity (auth.GetUI (activity));
+#endif
 		}
 
 		public static async Task SyncDropbox ()
@@ -176,11 +181,12 @@ namespace SquadBuilder
 				}
 
 				using (var fileMetadata = await client.Files.DownloadAsync ("/" + Cards.SquadronsFilename)) {
-					var squadrons = await fileMetadata.GetContentAsStringAsync ();
-					DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SquadronsFilename, squadrons);
+					var squadronsXml = await fileMetadata.GetContentAsStringAsync ();
+					DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SquadronsFilename, squadronsXml);
 					Cards.SharedInstance.GetAllSquadrons ();
-					Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = metadata.Rev;
-					Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = metadata.ServerModified.ToLocalTime ();
+					Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
+					Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
+					Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
 					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 				}
 			} catch (Exception e) {
@@ -303,16 +309,6 @@ namespace SquadBuilder
 				}
 				break;
 			}
-		}
-
-		public override void OnViewAppearing ()
-		{
-			base.OnViewAppearing ();
-		}
-
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
 		}
 	}
 }

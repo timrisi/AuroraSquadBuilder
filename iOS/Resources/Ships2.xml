@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="2.04">
+<Ships Version="2.06">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>

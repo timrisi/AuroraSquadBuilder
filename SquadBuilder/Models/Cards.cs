@@ -11,20 +11,22 @@ using System.Xml.Serialization;
 using Dropbox.Api.Files;
 using System.Threading.Tasks;
 using System.Text;
-using CoreLocation;
 using Dropbox.Api;
 using Xamarin.Auth;
 using System.Runtime.Remoting.Lifetime;
-
-#if __IOS__
-using UIKit;
-#endif
 
 namespace SquadBuilder
 {
 	public class Cards : ObservableObject
 	{
 		public const string SquadronsFilename = "squadrons.xml";
+		public const string FactionsFilename = "Factions.xml";
+		public const string ShipsFilename = "Ships.xml";
+		public const string PilotsFilename = "Pilots.xml";
+		public const string UpgradesFilename = "Upgrades.xml";
+		public const string ExpansionsFilename = "Expansions.xml";
+		public const string SettingsFilename = "Settings.xml";
+		public const string VersionsFilename = "Versions.xml";
 
 		public Cards ()
 		{
@@ -248,10 +250,10 @@ namespace SquadBuilder
 
 		public void GetAllFactions ()
 		{
-			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Factions.xml"))
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.FactionsFilename))
 				return;
 			
-			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions.xml")));
+			XElement factionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.FactionsFilename)));
 			factions = new ObservableCollection <Faction> ((from faction in factionsXml.Elements ()
 				select new Faction {
 					Id = faction.Attribute ("id").Value,
@@ -282,10 +284,10 @@ namespace SquadBuilder
 
 		public void GetAllShips ()
 		{
-			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Ships.xml"))
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.ShipsFilename))
 				return;
 			
-			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
+			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ShipsFilename)));
 			ships = new ObservableCollection <Ship> ((
 				from ship in shipsElement.Elements ()
 				select new Ship {
@@ -320,10 +322,10 @@ namespace SquadBuilder
 
 		public void GetAllPilots ()
 		{
-			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Pilots.xml"))
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.PilotsFilename))
 				return;
 			
-			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
+			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.PilotsFilename)));
 			pilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 			                                           select new Pilot {
 				Id = pilot.Attribute ("id").Value,
@@ -372,10 +374,10 @@ namespace SquadBuilder
 
 		public void GetAllUpgrades ()
 		{
-			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Upgrades.xml"))
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.UpgradesFilename))
 				return;
 			
-			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
+			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
 			List <Upgrade> allUpgrades = new List <Upgrade> ();
 
 			foreach (var category in upgradesXml.Elements ()) {
@@ -473,10 +475,10 @@ namespace SquadBuilder
 
 		public void GetAllExpansions ()
 		{
-			if (!DependencyService.Get <ISaveAndLoad> ().FileExists ("Expansions.xml"))
+			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.ExpansionsFilename))
 				return;
 			
-			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Expansions.xml")));
+			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ExpansionsFilename)));
 			expansions = new ObservableCollection <Expansion> (from expansion in expansionsXml.Elements ()
 			                                                    select new Expansion {
 					Id = expansion.Attribute ("id").Value,
@@ -537,6 +539,7 @@ namespace SquadBuilder
 
 				var service = DependencyService.Get <ISaveAndLoad> ();
 
+				var xml = DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename);
 				if (!service.FileExists (SquadronsFilename) || DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename) != serializedXML) {
 					DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
 					Application.Current.Properties [SettingsViewModel.ModifiedDateKey] = DateTime.Now;
@@ -549,10 +552,10 @@ namespace SquadBuilder
 
 		public void SaveCollection ()
 		{
-			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Expansions.xml")));
-			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships.xml")));
-			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots.xml")));
-			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
+			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ExpansionsFilename)));
+			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ShipsFilename)));
+			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.PilotsFilename)));
+			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
 
 			foreach (var expansion in Expansions) {
 				var element = expansionsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == expansion.Id);
@@ -590,10 +593,10 @@ namespace SquadBuilder
 				element.SetElementValue ("Owned", upgrade.Owned);
 			}
 
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Expansions.xml", expansionsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships.xml", shipsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots.xml", pilotsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades.xml", upgradesXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ExpansionsFilename, expansionsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ShipsFilename, shipsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.PilotsFilename, pilotsXml.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.UpgradesFilename, upgradesXml.ToString ());
 
 			Cards.SharedInstance.GetAllExpansions ();
 		}
