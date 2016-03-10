@@ -80,9 +80,11 @@ namespace SquadBuilder
 					DropboxLogin ();
 				else {
 					App.DropboxClient = null;
-					Xamarin.Forms.Application.Current.Properties.Remove (SettingsViewModel.AccessTokenKey);
-					Xamarin.Forms.Application.Current.Properties.Remove (AccountKey);
-					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+					//Xamarin.Forms.Application.Current.Properties.Remove (SettingsViewModel.AccessTokenKey);
+					App.Storage.Delete (SettingsViewModel.AccessTokenKey);
+					//Xamarin.Forms.Application.Current.Properties.Remove (AccountKey);
+					App.Storage.Delete (AccountKey);
+					//Xamarin.Forms.Application.Current.SavePropertiesAsync ().ContinueWith (arg => { });
 					NotifyPropertyChanged ("Account");
 					NotifyPropertyChanged ("DropboxSync");
 				}
@@ -91,10 +93,11 @@ namespace SquadBuilder
 
 		public string Account {
 			get {
-				if (Xamarin.Forms.Application.Current.Properties.ContainsKey (AccountKey))
-					return Xamarin.Forms.Application.Current.Properties [AccountKey].ToString ();
+				//if (Xamarin.Forms.Application.Current.Properties.ContainsKey (AccountKey))
+				return App.Storage.Get<string> (AccountKey) ?? "";
+					//return Xamarin.Forms.Application.Current.Properties [AccountKey].ToString ();
 
-				return "";
+				//return "";
 			}
 		}
 
@@ -127,12 +130,14 @@ namespace SquadBuilder
 			auth.Completed += async (object sender, AuthenticatorCompletedEventArgs e) => {
 				if (e.IsAuthenticated) {
 					var token = e.Account.Properties ["access_token"];
-					Xamarin.Forms.Application.Current.Properties [AccessTokenKey] = token;
-					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+					//Xamarin.Forms.Application.Current.Properties [AccessTokenKey] = token;
+					App.Storage.Put<string> (AccessTokenKey, token);
+					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 					App.DropboxClient = new DropboxClient (token);
 					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
-					Xamarin.Forms.Application.Current.Properties [SettingsViewModel.AccountKey] = userAccount.Name.DisplayName;
-					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+					//Xamarin.Forms.Application.Current.Properties [AccountKey] = userAccount.Name.DisplayName;
+					App.Storage.Put <string> (AccountKey, userAccount.Name.DisplayName);
+					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 					MessagingCenter.Send <SettingsViewModel> (this, "Logged in");
 				}
 
@@ -170,13 +175,16 @@ namespace SquadBuilder
 				var metadata = (await client.Files.GetMetadataAsync ("/" + Cards.SquadronsFilename)).AsFile;
 
 				if (Cards.SharedInstance.Squadrons.Count > 0) {
-					if (!Xamarin.Forms.Application.Current.Properties.ContainsKey (ParentRevisionKey))
+					//if (!Xamarin.Forms.Application.Current.Properties.ContainsKey (ParentRevisionKey))
+					if (!App.Storage.HasKey (ParentRevisionKey))
 						throw new Exception ("Dropbox conflict");
 
-					if (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString () == metadata.Rev)
+					//if (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString () == metadata.Rev)
+					if (App.Storage.Get<string> (ParentRevisionKey) == metadata.Rev)
 						return;
 
-					if ((DateTime)Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] > (DateTime)Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey])
+					//if ((DateTime)Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] > (DateTime)Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey])
+					if (App.Storage.Get <DateTime> (ModifiedDateKey) > App.Storage.Get <DateTime> (ParentModifiedDateKey))
 						throw new Exception ("Dropbox conflict");
 				}
 
@@ -184,10 +192,13 @@ namespace SquadBuilder
 					var squadronsXml = await fileMetadata.GetContentAsStringAsync ();
 					DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SquadronsFilename, squadronsXml);
 					Cards.SharedInstance.GetAllSquadrons ();
-					Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
-					Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
-					Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
-					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+					//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
+					//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
+					//Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
+					App.Storage.Put<string> (ParentRevisionKey, fileMetadata.Response.Rev);
+					App.Storage.Put<DateTime> (ParentModifiedDateKey ,fileMetadata.Response.ServerModified.ToLocalTime ());
+					App.Storage.Put<DateTime> (ModifiedDateKey, fileMetadata.Response.ServerModified.ToLocalTime ());
+					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 				}
 			} catch (Exception e) {
 				if (e.Message != "Dropbox conflict")
@@ -214,35 +225,44 @@ namespace SquadBuilder
 					WriteMode.Add.Instance,
 					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.SquadronsFilename))));
 
-				Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
-				Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
-				Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
+				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
+				App.Storage.Put<string> (ParentRevisionKey, updated.Rev);
+				App.Storage.Put<DateTime> (ParentModifiedDateKey ,updated.ServerModified.ToLocalTime ());
+				await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 				return;
 			}
 
-			if (!Xamarin.Forms.Application.Current.Properties.ContainsKey (ParentRevisionKey) || Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] == null) {
+			//if (!Xamarin.Forms.Application.Current.Properties.ContainsKey (ParentRevisionKey) || Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] == null) {
+			if (!App.Storage.HasKey (ParentRevisionKey) || App.Storage.Get <string> (ParentRevisionKey) == null) {
 				await ResolveDropboxConflict ();
 				return;
 			}
 
 			var metadata = (await client.Files.GetMetadataAsync ("/" + Cards.SquadronsFilename)).AsFile;
 
-			if (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString () == metadata.Rev) {
-				if ((DateTime) Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] <= metadata.ServerModified.ToLocalTime ())
+			//if (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString () == metadata.Rev) {
+			if (App.Storage.Get <string> (ParentRevisionKey) == metadata.Rev) {
+				if (App.Storage.Get <DateTime> (ModifiedDateKey) < metadata.ServerModified.ToLocalTime ())
+				//if ((DateTime) Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] <= metadata.ServerModified.ToLocalTime ())
 					return;
 
 				var updated = await client.Files.UploadAsync (
 					"/" + Cards.SquadronsFilename,
-					new WriteMode.Update (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString ()),
+					//new WriteMode.Update (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString ()),
+					new WriteMode.Update (App.Storage.Get <string> (ParentRevisionKey)),
 					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.SquadronsFilename))));
 
-				Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
-				Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
-				Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+				App.Storage.Put<string> (ParentRevisionKey, updated.Rev);
+				App.Storage.Put<DateTime> (ParentModifiedDateKey ,updated.ServerModified.ToLocalTime ());
+				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
+				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
+				//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 				return;
 			}
 
-			if ((DateTime) Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] > (DateTime) Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey]) {
+			//if ((DateTime) Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] > (DateTime) Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey]) {
+			if (App.Storage.Get <DateTime> (ModifiedDateKey) > App.Storage.Get <DateTime> (ParentModifiedDateKey)) {
 				await ResolveDropboxConflict ();
 				return;
 			}
@@ -260,18 +280,23 @@ namespace SquadBuilder
 					WriteMode.Overwrite.Instance,
 					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.SquadronsFilename))));
 
-				Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
-				Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
+				App.Storage.Put<string> (ParentRevisionKey, updated.Rev);
+				App.Storage.Put<DateTime> (ParentModifiedDateKey ,updated.ServerModified.ToLocalTime ());
+				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
+				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
 				break;
 			case "Dropbox":
 				var fileMetadata = await client.Files.DownloadAsync ("/" + Cards.SquadronsFilename);
 				var serializedXml = await fileMetadata.GetContentAsStringAsync ();
 
 				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SquadronsFilename, serializedXml);
-				Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
-				Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
-				Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
-				Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+				//Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
+				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
+				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
+				App.Storage.Put<string> (ParentRevisionKey, fileMetadata.Response.Rev);
+				App.Storage.Put<DateTime> (ParentModifiedDateKey ,fileMetadata.Response.ServerModified.ToLocalTime ());
+				App.Storage.Put<DateTime> (ModifiedDateKey, fileMetadata.Response.ServerModified.ToLocalTime ());
+				//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 
 				break;
 			case "Merge":
@@ -301,9 +326,11 @@ namespace SquadBuilder
 
 					Cards.SharedInstance.Squadrons = new ObservableCollection <Squadron> (mergedSquads);
 
-					Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = squadronMetadata.Response.Rev;
-					Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = squadronMetadata.Response.ServerModified.ToLocalTime ();
-					Xamarin.Forms.Application.Current.SavePropertiesAsync ();
+					//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = squadronMetadata.Response.Rev;
+					//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = squadronMetadata.Response.ServerModified.ToLocalTime ();
+					App.Storage.Put<string> (ParentRevisionKey, squadronMetadata.Response.Rev);
+					App.Storage.Put<DateTime> (ParentModifiedDateKey, squadronMetadata.Response.ServerModified.ToLocalTime ());
+					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 
 					await Cards.SharedInstance.SaveSquadrons ();
 				}

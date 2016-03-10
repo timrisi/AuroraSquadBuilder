@@ -539,10 +539,10 @@ namespace SquadBuilder
 
 				var service = DependencyService.Get <ISaveAndLoad> ();
 
-				var xml = DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename);
 				if (!service.FileExists (SquadronsFilename) || DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename) != serializedXML) {
 					DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
-					Application.Current.Properties [SettingsViewModel.ModifiedDateKey] = DateTime.Now;
+					//Application.Current.Properties [SettingsViewModel.ModifiedDateKey] = DateTime.Now;
+					App.Storage.Put<DateTime> (SettingsViewModel.ModifiedDateKey, DateTime.Now);
 
 					if (App.DropboxClient != null && Squadrons.Count > 0)
 						await SettingsViewModel.SaveToDropbox ();

@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using Xamarin;
 using System.Linq;
 using System.Collections.Generic;
+using PerpetualEngine.Storage;
 
 namespace SquadBuilder.Droid
 {
@@ -40,6 +41,8 @@ namespace SquadBuilder.Droid
 		{
 			base.OnCreate(bundle);
 
+			SimpleStorage.SetContext (ApplicationContext);
+
 			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6", BaseContext);
 
 			saveAndLoad = new SaveAndLoad ();
@@ -65,7 +68,7 @@ namespace SquadBuilder.Droid
 				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
 			Settings.SettingsVersion = settingsVersion;
 
-			var factionsXml = new StreamReader (Application.Context.Assets.Open (Cards.FactionsFilename)).ReadToEnd ();
+			var factionsXml = new StreamReader (Application.Context.Assets.Open ("Factions2.xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText (Cards.FactionsFilename, factionsXml);
@@ -74,7 +77,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 			
-			var shipsXml = new StreamReader (Application.Context.Assets.Open (Cards.ShipsFilename)).ReadToEnd ();
+			var shipsXml = new StreamReader (Application.Context.Assets.Open ("Ships2.xml")).ReadToEnd ();
 			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
@@ -94,7 +97,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Ships_Custom.xml"))
 				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
 			
-			var pilotsXml = new StreamReader (Application.Context.Assets.Open (Cards.PilotsFilename)).ReadToEnd ();
+			var pilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots2.xml")).ReadToEnd ();
 			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
@@ -114,7 +117,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Pilots_Custom.xml"))
 				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
 
-			var upgradesXml = new StreamReader (Application.Context.Assets.Open (Cards.UpgradesFilename)).ReadToEnd ();
+			var upgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades2.xml")).ReadToEnd ();
 			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);

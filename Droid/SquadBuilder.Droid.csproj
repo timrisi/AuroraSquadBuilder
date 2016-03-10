@@ -170,18 +170,6 @@
   <Import Project="..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
-    <AndroidAsset Include="..\iOS\Resources\Factions.xml">
-      <Link>Assets\Factions.xml</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Pilots.xml">
-      <Link>Assets\Pilots.xml</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Ships.xml">
-      <Link>Assets\Ships.xml</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Upgrades.xml">
-      <Link>Assets\Upgrades.xml</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\iOS\Resources\Factions_Custom.xml">
       <Link>Assets\Factions_Custom.xml</Link>
     </AndroidAsset>
@@ -206,11 +194,29 @@
     <AndroidAsset Include="..\iOS\Resources\schema.json">
       <Link>Assets\schema.json</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Factions2.xml">
+      <Link>Assets\Factions2.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Pilots2.xml">
+      <Link>Assets\Pilots2.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Ships2.xml">
+      <Link>Assets\Ships2.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Upgrades2.xml">
+      <Link>Assets\Upgrades2.xml</Link>
+    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">
       <Version>1.2.3.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SimpleStorage\lib\SimpleStorage.Droid\SimpleStorage.Droid.csproj">
+      <Project>{56CDDEA6-940E-411C-8F63-391B3BD5D437}</Project>
+      <Name>SimpleStorage.Droid</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
