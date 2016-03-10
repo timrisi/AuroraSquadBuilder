@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.42">
+<Upgrades Version="2.43">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -163,6 +163,16 @@ Detonation: Deal one damage and two ion tokens to the affected ship. The affecte
 This card detonates at the end of the Activation phase.
 
 Detonation: Deal two ion tokens to all ships within Range 1.</Text>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="thermaldetonators">
+			<Name>Thermal Detonators</Name>
+			<Cost>3</Cost>
+			<Text>When you reveal you maneuver dial, you may discard this card to drop 1 thermal detonator token.
+
+This card detonates at the end of the Activation phase.
+
+Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 stress token.  Then discard this token.</Text>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
