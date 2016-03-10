@@ -465,6 +465,45 @@
 		<Ability>At the start of the End phase, you may assign 1 of your stress tokens to another ship at Range 1.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="gandfindsman" faction="scum" ship="g1astarfighter">
+		<Name>Gand Findsman</Name>
+		<Unique>false</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>25</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="ruthlessfreelancer" faction="scum" ship="g1astarfighter">
+		<Name>Ruthless Freelancer</Name>
+		<Unique>false</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>23</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
 	<Pilot id="bobafett" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
 		<Unique>true</Unique>
@@ -1921,6 +1960,28 @@
 		<Ability>At the start of the Combat phase, each enemy ship you are touching receives 1 stress token.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="lothalrebel" faction="rebel" ship="vcx100">
+		<Name>Lothal Rebel</Name>
+		<Unique>false</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>3</PilotSkill>
+		<Attack>4</Attack>
+		<Agility>0</Agility>
+		<Hull>10</Hull>
+		<Shields>6</Shields>
+		<Cost>35</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
 	<Pilot id="herasyndullaas" faction="rebel" ship="attackshuttle">
 		<Name>Hera Syndulla</Name>
 		<Unique>true</Unique>
@@ -2967,6 +3028,24 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After defending, you may perform a free action.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="baronoftheempire" faction="imperial" ship="tieadvancedprototype">
+		<Name>Baron of the Empire</Name>
+		<Unique>false</Unique>
+		<Preview>true</Preview>
+		<PilotSkill>4</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>19</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="sienartestpilot" faction="imperial" ship="tieadvancedprototype">
