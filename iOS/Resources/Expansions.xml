@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.15">
+<Expansions Version="1.19">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -761,6 +761,121 @@
 		<Upgrades>
 			<Upgrade>juke</Upgrade>
 			<Upgrade>commsrelay</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="ghost">
+		<Name>Ghost</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>vcx100</Ship>
+			<Ship>attackshuttle</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>herasyndulla</Pilot>
+			<Pilot>kananjarrus</Pilot>
+			<Pilot>chopper</Pilot>
+			<Pilot>lothalrebel</Pilot>
+			<Pilot>herasyndullaas</Pilot>
+			<Pilot>sabinewren</Pilot>
+			<Pilot>ezrabridger</Pilot>
+			<Pilot>zeborrelios</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>predator</Upgrade>
+			<Upgrade>advancedprotontorpedoes</Upgrade>
+			<Upgrade>dorsalturret</Upgrade>
+			<Upgrade>dorsalturret</Upgrade>
+			<Upgrade>clustermines</Upgrade>
+			<Upgrade>connernet</Upgrade>
+			<Upgrade>thermaldetonators</Upgrade>
+			<Upgrade>chopper</Upgrade>
+			<Upgrade>zeborrelios</Upgrade>
+			<Upgrade>ezrabridger</Upgrade>
+			<Upgrade>herasyndulla</Upgrade>
+			<Upgrade>kananjarrus</Upgrade>
+			<Upgrade>sabinewren</Upgrade>
+			<Upgrade>ghost</Upgrade>
+			<Upgrade>phantom</Upgrade>
+			<Upgrade>reinforceddeflectors</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="inquisitorstie">
+		<Name>Inquisitor's Tie</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>tieadvancedprototype</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>theinquisitor</Pilot>
+			<Pilot>valenrudor</Pilot>
+			<Pilot>baronoftheempire</Pilot>
+			<Pilot>sienartestpilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>deadeye</Upgrade>
+			<Upgrade>homingmissiles</Upgrade>
+			<Upgrade>xx23sthreadtracers</Upgrade>
+			<Upgrade>guidancechips</Upgrade>
+			<Upgrade>tiev1</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="misthunter">
+		<Name>Mist Hunter</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>g1astarfighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>zuckuss</Pilot>
+			<Pilot>4lom</Pilot>
+			<Pilot>gandfindsman</Pilot>
+			<Pilot>ruthlessfreelancer</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>adaptability</Upgrade>
+			<Upgrade>adaptabilitydual</Upgrade>
+			<Upgrade>adaptability</Upgrade>
+			<Upgrade>adaptabilitydual</Upgrade>
+			<Upgrade>zuckuss</Upgrade>
+			<Upgrade>4lom</Upgrade>
+			<Upgrade>tractorbeam</Upgrade>
+			<Upgrade>misthunter</Upgrade>
+			<Upgrade>electronicbaffle</Upgrade>
+			<Upgrade>electronicbaffle</Upgrade>
+			<Upgrade>cloakingdevice</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="punishingone">
+		<Name>Punishing One</Name>
+		<Wave>Wave 8</Wave>
+		<Ships>
+			<Ship>jumpmaster5000</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>dengar</Pilot>
+			<Pilot>teltrevura</Pilot>
+			<Pilot>manaroo</Pilot>
+			<Pilot>contractedscout</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>attannimindlink</Upgrade>
+			<Upgrade>attannimindlink</Upgrade>
+			<Upgrade>rage</Upgrade>
+			<Upgrade>feedbackarray</Upgrade>
+			<Upgrade>dengar</Upgrade>
+			<Upgrade>gonk</Upgrade>
+			<Upgrade>bobafett</Upgrade>
+			<Upgrade>r5p8</Upgrade>
+			<Upgrade>overclockedr4</Upgrade>
+			<Upgrade>overclockedr4</Upgrade>
+			<Upgrade>plasmatorpedoes</Upgrade>
+			<Upgrade>guidancechips</Upgrade>
+			<Upgrade>guidancechips</Upgrade>
+			<Upgrade>punishingone</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
