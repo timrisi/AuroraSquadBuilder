@@ -230,7 +230,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -691,7 +690,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>3</Cost>
 			<Text>Once per round, after a friendly ship at Range 1-2 executes a white maneuver, you may remove 1 stress token from that ship.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="zeborrelios">
@@ -699,7 +697,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>1</Cost>
 			<Text>Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="herasyndulla">
@@ -707,7 +704,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>1</Cost>
 			<Text>You can reveal and execute red maneuvers even while you are stressed.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="ezrabridger">
@@ -715,7 +711,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>3</Cost>
 			<Text>When attacking, if you are stressed, you may change 1 of your {focus} results to a {crit} result.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="sabinewren">
@@ -723,7 +718,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>2</Cost>
 			<Text>Your upgrade bar gains the {bomb} upgrade icon.  Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token.  That ship suffers 1 damage.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<AdditionalUpgrades>
 				<Upgrade>Bomb</Upgrade>
 			</AdditionalUpgrades>
@@ -736,7 +730,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 
 After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Faction>rebel</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="zuckuss">
@@ -744,7 +737,6 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>1</Cost>
 			<Text>When attacking, you may receive any number of stress tokens to choose an equal number of defense dice.  The defender must reroll those dice.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -753,7 +745,6 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Cost>1</Cost>
 			<Text>When attacking, during the &quot;Modify Attack Dice&quot; step, you may receive 1 ion token to chose 1 of the defender's focus or evade tokens.  That token cannot be spent during this attack.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -764,7 +755,6 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 
 Action: Remove 1 shield token from this card to recover 1 shield (up to your shield value).</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -773,7 +763,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>After performing an attack, if the defender was dealt a faceup Damage card, you may discard this card to choose and discard 1 f the defender's Upgrade cards.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -782,7 +771,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>3</Cost>
 			<Text>When attacking, you may reroll 1 attack die.  If the defender is a unique pilot, you may instead reroll up to 2 attack dice.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -974,7 +962,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>0</Cost>
 			<Text>Increase your pilot skill value by 1.</Text>
 			<PilotSkill>1</PilotSkill>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="adaptabilitydual">
@@ -982,14 +969,12 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>0</Cost>
 			<Text>Decrease your pilot skill value by 1.</Text>
 			<PilotSkill>-1</PilotSkill>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="rage">
 			<Name>Rage</Name>
 			<Cost>1</Cost>
 			<Text>Action: Assign 1 focus token to your ship and receive 2 stress tokens.  Until the end of the round, when attacking, you may reroll up to 3 attack dice.</Text>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="attannimindlink">
@@ -997,7 +982,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1084,7 +1068,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>2</Cost>
 			<Text>Action: Perform a free cloak action.  At the end of each round, if you are cloaked, roll 1 attack die.  On a {focus} result, discard this card, then decloak or discard your cloak token.</Text>
 			<Unique>true</Unique>
-			<Preview>true</Preview>
 			<SmallOnly>true</SmallOnly>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1168,7 +1151,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>1-3</Range>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1358,7 +1340,6 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Guidance Chips</Name>
 			<Cost>0</Cost>
 			<Text>Once per round, when attacking with a {torpedo} or {missile} secondary weapon, you may change 1 die result to a {hit} result (or a {crit} result if your primary weapon value is '3' or higher).</Text>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1397,7 +1378,12 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>R5-P8</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, after defending, you may roll 1 attack die.  On a {hit} result, the attacker suffers 1 damage.  On a {crit} result, you and the attacker each suffer 1 damage.</Text>
-			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="overclockedr4">
+			<Name>Overclocked R4</Name>
+			<Cost>1</Cost>
+			<Text>During the Combat phase, when you spend a focus token, you may receive 1 stress token to assign 1 focus token to your ship.</Text>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1445,14 +1431,12 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>3</Cost>
 			<Text>After you suffer 3 or more damage from an attack, recover 1 shield (up to your shield value).</Text>
 			<LargeOnly>true</LargeOnly>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="electronicbaffle">
 			<Name>Electronic Baffle</Name>
 			<Cost>1</Cost>
 			<Text>When you receive a stress token or an ion token, you may suffer 1 damage to discard that token.</Text>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
@@ -1769,7 +1753,6 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Ship>vcx100</Ship>
 			<ShipRequirement>VCX-100</ShipRequirement>
 			<Unique>true</Unique>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="phantom">
@@ -1779,7 +1762,6 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Ship>attackshuttle</Ship>
 			<ShipRequirement>Attack Shuttle</ShipRequirement>
 			<Unique>true</Unique>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="misthunter">
@@ -1789,7 +1771,6 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Unique>true</Unique>
 			<Ship>g1astarfighter</Ship>
 			<ShipRequirement>G-1A Starfighter</ShipRequirement>
-			<Preview>true</Preview>
 			<AdditionalUpgrades>
 				<Upgrade>Cannon</Upgrade>
 			</AdditionalUpgrades>
@@ -1802,7 +1783,6 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Unique>true</Unique>
 			<Ship>jumpmaster5000</Ship>
 			<ShipRequirement>JumpMaster 5000</ShipRequirement>
-			<Preview>true</Preview>
 			<Attack>1</Attack>
 			<Owned>0</Owned>
 		</Upgrade>
@@ -1812,7 +1792,6 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 			<Text>After you acquire a target lock, you may perform a free evade action.</Text>
 			<Ship>tieadvancedprototype</Ship>
 			<ShipRequirement>TIE Adv. Prototype</ShipRequirement>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="tiex7">
@@ -1972,7 +1951,6 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>2</Dice>
 			<Range>1-2</Range>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
