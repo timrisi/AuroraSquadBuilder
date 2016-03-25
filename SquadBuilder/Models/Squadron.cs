@@ -183,13 +183,6 @@ namespace SquadBuilder
 
 		public string CreateXws ()
 		{
-			var multiSections = new Dictionary <string, string> {
-				{ "cr90f", "cr90corvette" },
-				{ "cr90a", "cr90corvette" },
-				{ "raiderf", "raiderclasscorvette" },
-				{ "raidera", "raiderclasscorvette" }
-			};
-
 			var json = new JObject (
 				new JProperty ("name", Name),
 				new JProperty ("points", Points),
@@ -199,8 +192,8 @@ namespace SquadBuilder
 					new JArray (
 						from p in Pilots
 						select new JObject (
-							new JProperty ("name", p.Id),
-							new JProperty ("ship", multiSections.ContainsKey (p.Ship.Id) ? multiSections [p.Ship.Id] : p.Ship.Id),
+							new JProperty ("name", p.CanonicalName ?? p.Id),
+							new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
 							new JProperty ("upgrades", new JObject (
 								from category in 
 									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
@@ -209,7 +202,7 @@ namespace SquadBuilder
 									new JArray (
 										from upgrade in p.UpgradesEquipped.Where (u => u != null)
 										where upgrade.CategoryId == category
-										select upgrade.Id
+										select upgrade.CanonicalName ?? upgrade.Id
 									)
 									)
 								)

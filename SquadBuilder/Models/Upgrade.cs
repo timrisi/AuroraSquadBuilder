@@ -36,6 +36,14 @@ namespace SquadBuilder
 		public string RequiredAction { get; set; }
 		public int MinPilotSkill { get; set; }
 
+		string canonicalName;
+		public string CanonicalName {
+			get { return canonicalName; }
+			set {
+				SetProperty (ref canonicalName, value);
+			}
+		}
+
 		int owned;
 		public int Owned { 
 			get { return owned; }
@@ -160,6 +168,7 @@ namespace SquadBuilder
 			return new Upgrade {
 				Id = Id,
 				Name = Name,
+				CanonicalName = CanonicalName,
 				Category = Category,
 				CategoryId = CategoryId,
 				Cost = Cost,

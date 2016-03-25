@@ -26,6 +26,14 @@ namespace SquadBuilder
 			set { SetProperty (ref name, value); }
 		}
 
+		string canonicalName;
+		public string CanonicalName {
+			get { return canonicalName; }
+			set {
+				SetProperty (ref canonicalName, value);
+			}
+		}
+
 		public Faction Faction { get; set; }
 		public Ship Ship { get; set; }
 		public bool Unique { get; set; }
@@ -371,6 +379,7 @@ namespace SquadBuilder
 			return new Pilot {
 				Id = Id,
 				Name = Name,
+				CanonicalName = CanonicalName,
 				Faction = Faction,
 				Ship = Ship,
 				Unique = Unique,

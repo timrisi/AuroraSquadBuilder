@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.37">
+<<<<<<< HEAD:iOS/Resources/Pilots2.xml
+<Pilots Version="2.35">
+=======
+<Pilots Version="2.29">
+>>>>>>> c4afdb9... Wave 8 expansions:iOS/Resources/Pilots.xml
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1972,7 +1976,6 @@
 	</Pilot>
 	<Pilot id="herasyndullaas" faction="rebel" ship="attackshuttle">
 		<Name>Hera Syndulla</Name>
-		<CanonicalName>herasyndulla</CanonicalName>
 		<Unique>true</Unique>
 		<PilotSkill>7</PilotSkill>
 		<Attack>3</Attack>
@@ -2069,7 +2072,6 @@
 	</Pilot>
 	<Pilot id="cr90f" faction="rebel" ship="cr90f">
 		<Name>CR90 Corvette (Fore)</Name>
-		<CanonicalName>cr90corvette</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>4</Attack>
@@ -2092,7 +2094,6 @@
 	</Pilot>
 	<Pilot id="cr90a" faction="rebel" ship="cr90a">
 		<Name>CR90 Corvette (Aft)</Name>
-		<CanonicalName>cr90corvette</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>0</Attack>
@@ -3345,7 +3346,7 @@
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="omicrongrouppilot" faction="imperial" ship="lambdaclassshuttle">
-		<Name>Omicron Group Pilot</Name>
+		<Name>Omnicron Group Pilot</Name>
 		<Unique>false</Unique>
 		<PilotSkill>2</PilotSkill>
 		<Attack>3</Attack>
@@ -3451,7 +3452,6 @@
 	</Pilot>
 	<Pilot id="raiderfore" faction="imperial" ship="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>
-		<CanonicalName>raiderclasscorvette</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>4</Attack>
@@ -3469,7 +3469,6 @@
 	</Pilot>
 	<Pilot id="raideraft" faction="imperial" ship="raidera">
 		<Name>Raider-class Corvette (Aft)</Name>
-		<CanonicalName>raiderclasscorvette</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>0</Attack>

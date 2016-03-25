@@ -29,6 +29,14 @@ namespace SquadBuilder
 			}
 		}
 
+		string canonicalName;
+		public string CanonicalName {
+			get { return canonicalName; }
+			set {
+				SetProperty (ref canonicalName, value);
+			}
+		}
+
 		bool largeBase;
 		public bool LargeBase { 
 			get { return largeBase; }
@@ -130,6 +138,7 @@ namespace SquadBuilder
 			return new Ship {
 				Id = Id,
 				Name = Name,
+				CanonicalName = CanonicalName,
 				LargeBase = LargeBase,
 				Huge = Huge,
 				Actions = new ObservableCollection <string> (Actions)

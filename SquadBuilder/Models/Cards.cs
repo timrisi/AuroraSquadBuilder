@@ -14,6 +14,7 @@ using System.Text;
 using Dropbox.Api;
 using Xamarin.Auth;
 using System.Runtime.Remoting.Lifetime;
+using System.Runtime.InteropServices;
 
 namespace SquadBuilder
 {
@@ -258,6 +259,7 @@ namespace SquadBuilder
 				select new Faction {
 					Id = faction.Attribute ("id").Value,
 					Name = faction.Value,
+					CanonicalName = faction.Element ("CanonicalName")?.Value,
 					Color = Color.FromRgb (
 						(int)faction.Element ("Color").Attribute ("r"),
 						(int)faction.Element ("Color").Attribute ("g"),
@@ -271,6 +273,7 @@ namespace SquadBuilder
 				select new Faction {
 					Id = faction.Attribute ("id").Value,
 					Name = faction.Value,
+					CanonicalName = faction.Element ("CanonicalName")?.Value,
 					Color = Color.FromRgb (
 						(int)faction.Element ("Color").Attribute ("r"),
 						(int)faction.Element ("Color").Attribute ("g"),
@@ -293,6 +296,7 @@ namespace SquadBuilder
 				select new Ship {
 					Id = ship.Attribute ("id").Value,
 					Name = ship.Element ("Name").Value,
+					CanonicalName = ship.Element ("CanonicalName")?.Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
 					Actions = new ObservableCollection <string> (
@@ -308,6 +312,7 @@ namespace SquadBuilder
 				select new Ship {
 					Id = ship.Attribute ("id").Value,
 					Name = ship.Element ("Name").Value,
+					CanonicalName = ship.Element ("CanonicalName")?.Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
 					Actions = new ObservableCollection <string> (
@@ -330,6 +335,7 @@ namespace SquadBuilder
 			                                           select new Pilot {
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
+				CanonicalName = pilot.Element ("CanonicalName")?.Value,
 				Faction = Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
 				Unique = (bool)pilot.Element ("Unique"),
@@ -352,6 +358,7 @@ namespace SquadBuilder
 			                                                 select new Pilot {
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
+				CanonicalName = pilot.Element ("CanonicalName")?.Value,
 				Faction = allFactions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = allShips.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
 				Unique = (bool)pilot.Element ("Unique"),
@@ -385,6 +392,7 @@ namespace SquadBuilder
 				                        select new Upgrade {
 					Id = upgrade.Attribute ("id").Value,
 					Name = upgrade.Element ("Name")?.Value,
+					CanonicalName = upgrade.Element ("CanonicalName")?.Value,
 					CategoryId = upgrade.Parent.Attribute ("id").Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
@@ -433,6 +441,7 @@ namespace SquadBuilder
 				                              select new Upgrade {
 					Id = upgrade.Attribute ("id")?.Value,
 					Name = upgrade.Element ("Name")?.Value,
+					CanonicalName = upgrade.Element ("CanonicalName")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
