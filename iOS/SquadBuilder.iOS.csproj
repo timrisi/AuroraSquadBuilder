@@ -37,8 +37,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Timothy Risi (GF4DUJBW65)</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <IpaPackageName>
-    </IpaPackageName>
+    <IpaPackageName></IpaPackageName>
     <BuildIpa>true</BuildIpa>
     <CodesignProvision>f394dd55-e9f9-498c-9ceb-e4df3e5fad83</CodesignProvision>
   </PropertyGroup>
@@ -52,8 +51,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n>
-    </MtouchI18n>
+    <MtouchI18n></MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,8 +68,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <IpaPackageName>
-    </IpaPackageName>
+    <IpaPackageName></IpaPackageName>
     <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
@@ -136,7 +133,7 @@
       <HintPath>..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Dropbox.Api">
-      <HintPath>..\packages\Dropbox.Api.3.0.0\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Dropbox.Api.dll</HintPath>
+      <HintPath>..\packages\Dropbox.Api.3.0.5\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Dropbox.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

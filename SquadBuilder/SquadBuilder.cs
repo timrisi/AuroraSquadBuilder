@@ -5,6 +5,7 @@ using XLabs.Forms.Mvvm;
 using Dropbox.Api;
 using System.Runtime.Remoting.Lifetime;
 using PerpetualEngine.Storage;
+using Xamarin;
 
 namespace SquadBuilder
 {
@@ -29,12 +30,14 @@ namespace SquadBuilder
 
 			//if (Application.Current.Properties.ContainsKey (SettingsViewModel.AccessTokenKey)) {
 			if (App.Storage.HasKey (SettingsViewModel.AccessTokenKey)) {
-				//DropboxClient = new DropboxClient (Application.Current.Properties [SettingsViewModel.AccessTokenKey].ToString ());
-				DropboxClient = new DropboxClient (App.Storage.Get<string> (SettingsViewModel.AccessTokenKey));
-				SettingsViewModel.SyncDropbox ();
-				var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
-				//Application.Current.Properties [SettingsViewModel.AccountKey] = userAccount.Name.DisplayName;
-				App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
+				try {
+					DropboxClient = new DropboxClient (App.Storage.Get<string> (SettingsViewModel.AccessTokenKey));
+					SettingsViewModel.SyncDropbox ();
+					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
+					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
+				} catch (Exception e) {
+					Insights.Report (e, Insights.Severity.Warning);
+				}
 			}
 		}
 

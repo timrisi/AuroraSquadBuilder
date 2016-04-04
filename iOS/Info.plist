@@ -47,9 +47,9 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
-	<key>CFBundleVersion</key>
-	<string>6</string>
 	<key>CFBundleName</key>
 	<string>Aurora SB</string>
+	<key>CFBundleVersion</key>
+	<string>7</string>
 </dict>
 </plist>

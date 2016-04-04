@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.37">
+<Pilots Version="2.38">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2728,7 +2728,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability>When attacking at Range 2-3, you may spend 1 evade token to add one {hit} result to you roll.</Ability>
+		<Ability>When attacking at Range 2-3, you may spend 1 evade token to add one {hit} result to your roll.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="lieutenantlorrir" faction="imperial" ship="tieinterceptor">
