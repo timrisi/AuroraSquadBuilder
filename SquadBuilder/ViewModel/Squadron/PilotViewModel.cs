@@ -67,13 +67,13 @@ namespace SquadBuilder
 					MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
 						if (upgradeType != "Cancel") {
 							upgr.AdditionalUpgrades.Add (upgradeType);
-							updateUpgrade (index, upgr, vm);
+							updateUpgrade (index, upgr);
 						}
 						MessagingCenter.Unsubscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected"); 
 					});
 					MessagingCenter.Send <PilotViewModel> (this, "Select Scyk Upgrade");
 				} else
-					updateUpgrade (index, upgrade, vm);
+					updateUpgrade (index, upgrade);
 
 				NotifyPropertyChanged ("PointsDescription");
 				MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
@@ -86,77 +86,11 @@ namespace SquadBuilder
 			});
 		}
 
-		void updateUpgrade (int index, Upgrade upgrade, UpgradesListViewModel vm) 
+		void updateUpgrade (int index, Upgrade upgrade) 
 		{
-			var oldUpgrade = Pilot.UpgradesEquipped [index];
-
-			Pilot.UpgradesEquipped [index] = upgrade;
-
-			if (oldUpgrade != null) {
-				foreach (var additionalUpgrade in oldUpgrade.AdditionalUpgrades) {
-					var oldIndex = Pilot.UpgradeTypes.ToList ().LastIndexOf (additionalUpgrade);
-					Pilot.UpgradeTypes.RemoveAt (oldIndex);
-					Pilot.UpgradesEquipped.RemoveAt (oldIndex);
-				}
-
-				foreach (var removedUpgrade in oldUpgrade.RemovedUpgrades) {
-					Pilot.UpgradeTypes.Add (removedUpgrade);
-					Pilot.UpgradesEquipped.Add (null);
-				}
-
-				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
-					var extraIndex = Pilot.UpgradesEquipped.IndexOf (oldUpgrade);
-					if (index >= 0)
-						Pilot.UpgradesEquipped [extraIndex] = null;
-				}
-
-				if (oldUpgrade.Id == "ordnancetubes") {
-					for (int i = 0; i < pilot.UpgradeTypes.Count; i++) {
-						var type = pilot.UpgradeTypes [i];
-						if (type == "Missile" || type == "Torpedo") {
-							pilot.UpgradeTypes [i] = "Hardpoint";
-							pilot.UpgradesEquipped [i] = null;
-						}
-					}
-
-					if (pilot.LinkedPilotCardGuid != Guid.Empty) {
-						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != pilot.Name && p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid);
-						for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
-							var type = otherPilot.UpgradeTypes [i];
-							if (type == "Missile" || type == "Torpedo") {
-								otherPilot.UpgradeTypes [i] = "Hardpoint";
-								otherPilot.UpgradesEquipped [i] = null;
-							}
-						}
-					}
-				}
-			}
-			if (upgrade != null) {
-				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
-					Pilot.UpgradeTypes.Add (newUpgrade);
-					Pilot.UpgradesEquipped.Add (null);
-				}
-
-				foreach (var removedUpgrade in upgrade.RemovedUpgrades) {
-					var removedIndex = Pilot.UpgradeTypes.IndexOf (removedUpgrade);
-					if (removedIndex < 0)
-						continue;
-					Pilot.UpgradeTypes.RemoveAt (removedIndex);
-					Pilot.UpgradesEquipped.RemoveAt (removedIndex);
-				}
-
-				for (int i = 0; i < upgrade.Slots.Count (); i++) {
-					var extraIndex = Pilot.Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
-					if (index >= 0)
-						Pilot.UpgradesEquipped [extraIndex] = upgrade;
-				}
-
-				if (upgrade.Id == "misthunter")
-					pilot.UpgradesEquipped [pilot.UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
-			}
+			Pilot.EquipUpgrade (index, upgrade);
 
 			NotifyPropertyChanged ("Pilot");
-			Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 		}
 
 		RelayCommand selectUpgrade;
@@ -167,7 +101,7 @@ namespace SquadBuilder
 						
 						MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
 							
-							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
+//							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
 						Navigation.PushAsync <CreateSquadronViewModel> ();

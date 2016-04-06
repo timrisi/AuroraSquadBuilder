@@ -267,12 +267,6 @@ namespace SquadBuilder
 							new XElement ("SmallOnly", SmallOnly),
 							new XElement ("LargeOnly", LargeOnly),
 							new XElement ("HugeOnly", HugeOnly),
-//							new XElement ("ExtraSlots", 
-//								new XElement ("Upgrade", )
-//							),
-//							new XElement ("AdditionalUpgrades", 
-//								new XElement ("Upgrade", )
-//							),
 							new XElement ("PilotSkill", PilotSkill),
 							new XElement ("Attack", Attack),
 							new XElement ("Agility", Agility),

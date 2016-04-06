@@ -36,7 +36,7 @@
 							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
 							<Label Text="Preview" IsVisible="{Binding Pilot.Preview}" TextColor="Blue" FontAttributes="Italic" />
 						</StackLayout>
-						<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" />
+						<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" />
 					</StackLayout>
 				</DataTemplate>
 			</ListView.HeaderTemplate>

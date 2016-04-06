@@ -44,6 +44,10 @@
 										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
 									</StackLayout>
 									<Label Text="{Binding Text}" />
+									<StackLayout Orientation="Horizontal" Spacing="10">
+										<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+										<Label Text="{Binding Expansions}" />
+									</StackLayout>
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>

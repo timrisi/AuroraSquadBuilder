@@ -13,13 +13,14 @@ namespace SquadBuilder
 	{
 		const string xwingDataUrl = "http://www.risiapps.com/xwing_data/";
 
-		static XElement settingsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Settings.xml")));
+		static XElement settingsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.SettingsFilename)));
 		static Settings ()
 		{
 			allowCustom = (bool)settingsXml.Element ("AllowCustom");
 			filterPilotsByShip = (bool)settingsXml.Element ("FilterPilotsByShip");
 			updateOnLaunch = (bool)settingsXml.Element ("UpdateOnLaunch");
 			hideUnavailable = (bool)settingsXml.Element ("HideUnavailable");
+			dropboxSync = (bool)settingsXml.Element ("DropboxSync");
 		}
 
 		public static float FactionsVersion { get; set; }
@@ -35,7 +36,7 @@ namespace SquadBuilder
 			set {
 				allowCustom = value;
 				settingsXml.SetElementValue ("AllowCustom", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 
 			}
 		}
@@ -46,7 +47,7 @@ namespace SquadBuilder
 			set {
 				filterPilotsByShip = value;
 				settingsXml.SetElementValue ("FilterPilotsByShip", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -56,7 +57,7 @@ namespace SquadBuilder
 			set {
 				updateOnLaunch = value;
 				settingsXml.SetElementValue ("UpdateOnLaunch", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -66,7 +67,17 @@ namespace SquadBuilder
 			set {
 				hideUnavailable = value;
 				settingsXml.SetElementValue ("HideUnavailable", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText ("Settings.xml", settingsXml.ToString ());
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+			}
+		}
+
+		static bool dropboxSync;
+		public static bool DropboxSync {
+			get { return dropboxSync; }
+			set {
+				dropboxSync = value;
+				settingsXml.SetElementValue ("DropboxSync", value);
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -77,7 +88,7 @@ namespace SquadBuilder
 
 
 				try {
-					var versionsXml = XElement.Load (xwingDataUrl + "Versions.xml");
+					var versionsXml = XElement.Load (xwingDataUrl + Cards.SettingsFilename);
 
 					if ((float)versionsXml.Element ("Factions") > FactionsVersion) {
 						updateXml ("Factions");
@@ -110,17 +121,20 @@ namespace SquadBuilder
 
 		static void updateXml (string file)
 		{
+			if (file == "Factions")
+				file = file + "2";
+			
 			var element = XElement.Load (xwingDataUrl + file + ".xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (file + ".xml", element.ToString ());
 		}
 
 		public static void UpdateShips ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Ships.xml");
+			var element = XElement.Load (xwingDataUrl + "Ships2.xml");
 
 			var oldShips = Cards.SharedInstance.Ships;
 
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships.xml", element.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ShipsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllShips ();
 
 			foreach (var ship in oldShips) {
@@ -131,11 +145,11 @@ namespace SquadBuilder
 
 		public static void UpdatePilots ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Pilots.xml");
+			var element = XElement.Load (xwingDataUrl + "Pilots2.xml");
 
 			var oldPilots = Cards.SharedInstance.Pilots;
 
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots.xml", element.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.PilotsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllPilots ();
 
 			foreach (var pilot in oldPilots) {
@@ -146,11 +160,11 @@ namespace SquadBuilder
 
 		public static void UpdateUpgrades ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Upgrades.xml");
+			var element = XElement.Load (xwingDataUrl + "Upgrades2.xml");
 
 			var oldUpgrades = Cards.SharedInstance.Upgrades;
 
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades.xml", element.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.UpgradesFilename, element.ToString ());
 			Cards.SharedInstance.GetAllUpgrades ();
 
 			foreach (var upgrade in oldUpgrades) {
@@ -161,11 +175,11 @@ namespace SquadBuilder
 
 		public static void UpdateExpansions ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Expansions.xml");
+			var element = XElement.Load (xwingDataUrl + Cards.ExpansionsFilename);
 
 			var oldExpansions = Cards.SharedInstance.Expansions;
 
-			DependencyService.Get <ISaveAndLoad> ().SaveText ("Expansions.xml", element.ToString ());
+			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ExpansionsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllExpansions ();
 
 			foreach (var expansion in oldExpansions) {

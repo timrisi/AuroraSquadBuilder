@@ -7,5 +7,6 @@ namespace SquadBuilder
 		void SaveText (string filename, string text);
 		string LoadText (string filename);
 		void DeleteFile (string filename);
+		string GetPath (string filename);
 	}
 }

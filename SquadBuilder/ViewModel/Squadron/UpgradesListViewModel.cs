@@ -43,8 +43,10 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedUpgrade, value);
 
-				if (value != null)
+				if (value != null) {
 					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
+					Navigation.RemoveAsync <UpgradesListViewModel> (this);
+				}
 			}
 		}
 
@@ -52,18 +54,18 @@ namespace SquadBuilder
 		{
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
-				.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
-				.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
-				.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"))
-				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement)).ToList ();
+				.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
+				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
+				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
+				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
 					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
-					.Where (u => u.Name != "Autothrusters" || Pilot.Ship.Actions.Contains ("Boost"))
-					.Where (u => u.Name != "Stygium Particle Accelerator" || Pilot.Ship.Actions.Contains ("Cloak"));
+					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
+					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
 				
 				upgrades.AddRange (customUpgrades);
 			}
@@ -92,11 +94,10 @@ namespace SquadBuilder
 				}
 
 				if (isValid) {
-					pilotUpgrades = new List <object> (Pilot.Upgrades);
+					var upgradeTypes = new List <string> (Pilot.UpgradeTypes);
 					foreach (var slot in upgrade.RequiredSlots) {
-						var slotObject = new { Name = slot, IsUpgrade = false };
-						if (pilotUpgrades.Contains (slotObject))
-							pilotUpgrades.Remove (slotObject);
+						if (upgradeTypes.Contains (slot))
+							upgradeTypes.Remove (slot);
 						else {
 							isValid = false;
 							break;
@@ -142,7 +143,10 @@ namespace SquadBuilder
 		public RelayCommand NoUpgrade {
 			get {
 				if (noUpgrade == null)
-					noUpgrade = new RelayCommand (() => MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null));
+					noUpgrade = new RelayCommand (() => {
+						MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null);
+						Navigation.RemoveAsync <UpgradesListViewModel> (this);
+					});
 
 				return noUpgrade;
 			}
@@ -152,6 +156,9 @@ namespace SquadBuilder
 		public string SearchText {
 			get { return searchText; }
 			set {
+				if (value == null)
+					value = "";
+				
 				SetProperty (ref searchText, value);
 
 				SearchUpgrades (value);

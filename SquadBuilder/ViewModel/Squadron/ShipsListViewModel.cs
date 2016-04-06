@@ -46,10 +46,10 @@ namespace SquadBuilder
 
 				if (value != null) {
 					MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
-						Navigation.RemoveAsync <PilotsListViewModel> (vm);
 						MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 
 						MessagingCenter.Send <ShipsListViewModel, Pilot> (this, "Pilot selected", pilot);
+						Navigation.RemoveAsync <ShipsListViewModel> (this);
 					});
 
 					Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {

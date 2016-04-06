@@ -62,7 +62,6 @@ namespace SquadBuilder
 						tb.Children.Add (new MainView (faction.Name));
 
 					mainView = new NavigationPage (tb);
-//					mainView = new NavigationPage (new MainView ());
 				}
 
 				return mainView;

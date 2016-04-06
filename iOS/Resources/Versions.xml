@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Versions>
-	<Factions>2.00</Factions>
-	<Ships>2.04</Ships>
-	<Pilots>2.29</Pilots>
-	<Upgrades>2.44</Upgrades>
-	<Settings>1.03</Settings>
+	<Factions>2.03</Factions>
+	<Ships>2.07</Ships>
+	<Pilots>2.38</Pilots>
+	<Upgrades>2.60</Upgrades>
+	<Settings>1.04</Settings>
 	<Expansions>1.19</Expansions>
 </Versions>

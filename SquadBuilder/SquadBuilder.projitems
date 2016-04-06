@@ -140,6 +140,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionCategoryListView.xaml.cs">
       <DependentUpon>UpgradesCollectionCategoryListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Squadron\ImportView.xaml.cs">
+      <DependentUpon>ImportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ImportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -240,5 +244,12 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Collection\UpgradesCollectionCategoryListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\ImportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="$(MSBuildThisFileDirectory)down.png" />
+    <BundleResource Include="$(MSBuildThisFileDirectory)up.png" />
   </ItemGroup>
 </Project>

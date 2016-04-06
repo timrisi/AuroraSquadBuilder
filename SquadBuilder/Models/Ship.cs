@@ -29,6 +29,14 @@ namespace SquadBuilder
 			}
 		}
 
+		string canonicalName;
+		public string CanonicalName {
+			get { return canonicalName; }
+			set {
+				SetProperty (ref canonicalName, value);
+			}
+		}
+
 		bool largeBase;
 		public bool LargeBase { 
 			get { return largeBase; }
@@ -130,6 +138,7 @@ namespace SquadBuilder
 			return new Ship {
 				Id = Id,
 				Name = Name,
+				CanonicalName = CanonicalName,
 				LargeBase = LargeBase,
 				Huge = Huge,
 				Actions = new ObservableCollection <string> (Actions)
@@ -154,6 +163,19 @@ namespace SquadBuilder
 
 				return decrement;
 			}
+		}
+
+		public override bool Equals (object obj)
+		{
+			if (!(obj is Ship))
+				return false;
+
+			return Id == (obj as Ship).Id;
+		}
+
+		public override int GetHashCode ()
+		{
+			return Id.GetHashCode ();
 		}
 	}
 }

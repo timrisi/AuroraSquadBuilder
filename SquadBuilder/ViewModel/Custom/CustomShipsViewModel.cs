@@ -21,18 +21,8 @@ namespace SquadBuilder
 			MessagingCenter.Subscribe <Ship> (this, "Edit Ship", ship => {
 				string shipName = ship.Name;
 				MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
-//					if (shipName == updatedShip.Name) {
 						Ships [Ships.IndexOf (ship)] = updatedShip;
 						Cards.SharedInstance.CustomShips [Cards.SharedInstance.CustomShips.IndexOf (ship)] = updatedShip;
-//					}
-//					else {
-//						var index = Ships.IndexOf (ship);
-//						Ships.Remove (ship);
-//						var customIndex = Cards.SharedInstance.CustomShips.IndexOf (ship);
-//						Cards.SharedInstance.CustomShips.Remove (ship);
-//						Ships.Insert (index, updatedShip);
-//						Cards.SharedInstance.CustomShips.Insert (customIndex, updatedShip);
-//					}
 
 					Navigation.RemoveAsync <EditShipViewModel> (vm);
 					NotifyPropertyChanged ("Ships");

@@ -257,7 +257,7 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
-						XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades.xml")));
+						XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
 						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
 						if (upgradesXml.Descendants ().FirstOrDefault (e => e?.Value == Name) != null)

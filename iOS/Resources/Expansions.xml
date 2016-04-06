@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Expansions Version="1.19">
 <!-- Core Sets -->
 	<Expansion id="coreset">
@@ -153,7 +153,7 @@
 
 <!-- Wave 2 -->
 	<Expansion id="yt1300">
-		<Name>Millenium Falcon</Name>
+		<Name>Millennium Falcon</Name>
 		<Wave>Wave 2</Wave>
 		<Ships>
 			<Ship>yt1300</Ship>
@@ -174,7 +174,7 @@
 			<Upgrade>lukeskywalker</Upgrade>
 			<Upgrade>niennunb</Upgrade>
 			<Upgrade>weaponsengineer</Upgrade>
-			<Upgrade>milleniumfalcon</Upgrade>
+			<Upgrade>millenniumfalcon</Upgrade>
 			<Upgrade>engineupgrade</Upgrade>
 			<Upgrade>engineupgrade</Upgrade>
 			<Upgrade>shieldupgrade</Upgrade>
@@ -292,6 +292,7 @@
 			<Upgrade>heavylasercannon</Upgrade>
 			<Upgrade>darthvader</Upgrade>
 			<Upgrade>flightinstructor</Upgrade>
+			<Upgrade>intelligenceagent</Upgrade>>
 			<Upgrade>navigator</Upgrade>
 			<Upgrade>rebelcaptive</Upgrade>
 			<Upgrade>weaponsengineer</Upgrade>
@@ -486,8 +487,8 @@
 			<Upgrade>moffjerjerrod</Upgrade>
 			<Upgrade>ysanneisard</Upgrade>
 			<Upgrade>dauntless</Upgrade>
-			<Upgrade>tacticaljammers</Upgrade>
-			<Upgrade>tacticaljammers</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
@@ -520,7 +521,7 @@
 			<Pilot>mandalorianmercenary</Pilot>
 			<Pilot>dacebonearm</Pilot>
 			<Pilot>palobgodalhi</Pilot>
-			<Pilot>torkhilmux</Pilot>
+			<Pilot>torkilmux</Pilot>
 			<Pilot>spicerunner</Pilot>
 		</Pilots>
 		<Upgrades>
@@ -583,7 +584,7 @@
 			<Upgrade>bodyguard</Upgrade>
 			<Upgrade>calculation</Upgrade>
 			<Upgrade>iontorpedoes</Upgrade>
-			<Upgrade>accuraccorrector</Upgrade>
+			<Upgrade>accuracycorrector</Upgrade>
 			<Upgrade>virago</Upgrade>
 			<Upgrade>autothrusters</Upgrade>
 			<Upgrade>autothrusters</Upgrade>
@@ -609,7 +610,7 @@
 			<Upgrade>autoblaster</Upgrade>
 			<Upgrade>seismiccharges</Upgrade>
 			<Upgrade>proximitymines</Upgrade>
-			<Upgrade>accuraccorrector</Upgrade>
+			<Upgrade>accuracycorrector</Upgrade>
 			<Upgrade>ig2000</Upgrade>
 			<Upgrade>hotshotblaster</Upgrade>
 			<Upgrade>deadmansswitch</Upgrade>
@@ -760,7 +761,7 @@
 		</Pilots>
 		<Upgrades>
 			<Upgrade>juke</Upgrade>
-			<Upgrade>commsrelay</Upgrade>
+			<Upgrade>commrelay</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>

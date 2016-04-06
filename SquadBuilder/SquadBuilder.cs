@@ -2,22 +2,42 @@
 
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
+using Dropbox.Api;
+using System.Runtime.Remoting.Lifetime;
+using PerpetualEngine.Storage;
+using Xamarin;
 
 namespace SquadBuilder
 {
 	public class App : Application
 	{
+		public static DropboxClient DropboxClient;
+		public static SimpleStorage Storage;
+
 		public App ()
 		{
+			Storage = SimpleStorage.EditGroup ("AuroraSB");
 			RegisterViews();
 			MainPage = new RootPage ();
 		}
 
-		protected override void OnStart ()
+		protected override async void OnStart ()
 		{
 			// Handle when your app starts
 			if (Settings.UpdateOnLaunch) {
 				Settings.CheckForUpdates ();
+			}
+
+			//if (Application.Current.Properties.ContainsKey (SettingsViewModel.AccessTokenKey)) {
+			if (App.Storage.HasKey (SettingsViewModel.AccessTokenKey)) {
+				try {
+					DropboxClient = new DropboxClient (App.Storage.Get<string> (SettingsViewModel.AccessTokenKey));
+					SettingsViewModel.SyncDropbox ();
+					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
+					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
+				} catch (Exception e) {
+					Insights.Report (e, Insights.Severity.Warning);
+				}
 			}
 		}
 
@@ -28,6 +48,8 @@ namespace SquadBuilder
 
 		protected override void OnResume ()
 		{
+			if (DropboxClient != null)
+				SettingsViewModel.SyncDropbox ();
 		}
 
 		void RegisterViews ()
@@ -55,6 +77,7 @@ namespace SquadBuilder
 			ViewFactory.Register <UpgradesCollectionView, UpgradesCollectionViewModel> ();
 			ViewFactory.Register <PilotsCollectionShipsListView, PilotsCollectionShipsListViewModel> ();
 			ViewFactory.Register <UpgradesCollectionCategoryListView, UpgradesCollectionCategoryListViewModel> ();
+			ViewFactory.Register <ImportView, ImportViewModel> ();
 		}
 	}
 }

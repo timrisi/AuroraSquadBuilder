@@ -46,6 +46,10 @@
 									</StackLayout>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
+									<StackLayout Orientation="Horizontal" Spacing="10">
+										<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+										<Label Text="{Binding Expansions}" />
+									</StackLayout>
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>

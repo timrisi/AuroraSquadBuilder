@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Versions>
+<<<<<<< HEAD
+	<Factions>2.03</Factions>
+	<Ships>2.06</Ships>
+	<Pilots>2.34</Pilots>
+	<Upgrades>2.54</Upgrades>
+	<Settings>1.04</Settings>
+	<Expansions>1.17</Expansions>
+=======
+	<Factions>2.00</Factions>
+	<Ships>2.04</Ships>
+	<Pilots>2.29</Pilots>
+	<Upgrades>2.44</Upgrades>
+	<Settings>1.03</Settings>
+	<Expansions>1.19</Expansions>
+>>>>>>> c4afdb9... Wave 8 expansions
+</Versions>

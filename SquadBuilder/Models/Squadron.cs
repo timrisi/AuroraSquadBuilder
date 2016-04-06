@@ -11,11 +11,18 @@ using XLabs.Data;
 using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Schema;
+
+using Newtonsoft.Json;
+using XLabs.Platform.Device;
+using System.Globalization;
 
 namespace SquadBuilder
 {
 	public class Squadron : ObservableObject
 	{
+		const string XwsVersion = "0.3.0";
+
 		public Squadron ()
 		{
 			Name = "";
@@ -53,6 +60,16 @@ namespace SquadBuilder
 			}
 		}
 
+		string description;
+		public string Description {
+			get { return description; }
+			set { SetProperty (ref description, value); }
+		}
+
+		public bool DescriptionVisible {
+			get { return !string.IsNullOrEmpty (description); }
+		}
+
 		ObservableCollection <Pilot> pilots = new ObservableCollection <Pilot> ();
 		public ObservableCollection <Pilot> Pilots { 
 			get { 
@@ -63,6 +80,39 @@ namespace SquadBuilder
 				NotifyPropertyChanged ("PointDetails");
 				Pilots.CollectionChanged += (sender, e) => 
 					NotifyPropertyChanged ("PointsDescription");
+			}
+		}
+
+		int wins = 0;
+		public int Wins {
+			get { return wins; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref wins, value); 
+			}
+		}
+
+		int losses = 0;
+		public int Losses {
+			get { return losses; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref losses, value); 
+			}
+		}
+
+		int draws = 0;
+		public int Draws {
+			get { return draws; }
+			set { 
+				if (value < 0)
+					value = 0;
+				
+				SetProperty (ref draws, value); 
 			}
 		}
 
@@ -137,12 +187,13 @@ namespace SquadBuilder
 				new JProperty ("name", Name),
 				new JProperty ("points", Points),
 				new JProperty ("faction", Faction.Id),
+				new JProperty ("version", XwsVersion),
 				new JProperty ("pilots",
 					new JArray (
 						from p in Pilots
 						select new JObject (
-							new JProperty ("name", p.Id),
-							new JProperty ("ship", p.Ship.Id),
+							new JProperty ("name", p.CanonicalName ?? p.Id),
+							new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
 							new JProperty ("upgrades", new JObject (
 								from category in 
 									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
@@ -151,7 +202,7 @@ namespace SquadBuilder
 									new JArray (
 										from upgrade in p.UpgradesEquipped.Where (u => u != null)
 										where upgrade.CategoryId == category
-										select upgrade.Id
+										select upgrade.CanonicalName ?? upgrade.Id
 									)
 									)
 								)
@@ -161,7 +212,95 @@ namespace SquadBuilder
 				)
 			);
 
-			return json.ToString ();
+			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schema = JSchema.Parse (schemaText);
+
+			IList<string> errors;
+			var valid = json.IsValid (schema, out errors);
+
+			var jsonString = json.ToString ();
+
+			return jsonString;
+		}
+
+		public static Squadron FromXws (string xws)
+		{
+			var json = JObject.Parse (xws);
+
+			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schema = JSchema.Parse (schemaText);
+
+			try {
+				var squadron = new Squadron () {
+					Name = json ["name"].ToString (),
+					Faction = Cards.SharedInstance.Factions.FirstOrDefault (f => f.Id == json ["faction"].ToString ()),
+					MaxPoints = (int)json ["points"],
+					Pilots = new ObservableCollection<Pilot> ()
+				};
+
+				foreach (var pilotObject in json ["pilots"]) {
+					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
+
+					if (pilot == null)
+						continue;
+
+					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
+						pilot.UpgradesEquipped.Add (null);
+
+					foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
+						var upgradeType = (upgradeTypeArray as JProperty).Name;
+
+						foreach (var value in upgradeTypeArray.Values ()) {
+							var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
+
+							if (upgrade == null)
+								continue;
+
+							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+
+							if (index < 0)
+								continue;
+
+							pilot.EquipUpgrade (index, upgrade);
+						}
+					}
+
+					squadron.pilots.Add (pilot);
+				}
+
+				return squadron;
+			} catch (Exception e) {
+				IList<string> errors;
+				var valid = json.IsValid (schema, out errors);
+
+				if (!valid) {
+					MessagingCenter.Send <Squadron, IList<string>> (null, "Invalid xws info", errors);
+					return null;
+				}
+				Console.WriteLine (e.Message);
+			}
+
+			return null;
+		}
+
+		public override bool Equals (object obj)
+		{
+			if (obj == null || !(obj is Squadron))
+				return false;
+
+			var squadron = obj as Squadron;
+
+			return Name == squadron.Name &&
+				Faction?.Id == squadron.Faction?.Id &&
+				Points == squadron.Points &&
+				MaxPoints == squadron.MaxPoints &&
+				Description == squadron.Description &&
+				Pilots.SequenceEqual (squadron.Pilots);
+		}
+
+		public override int GetHashCode ()
+		{
+			return (Name + Description + Points + MaxPoints + Faction.Id + Pilots).GetHashCode ();
 		}
 	}
 }

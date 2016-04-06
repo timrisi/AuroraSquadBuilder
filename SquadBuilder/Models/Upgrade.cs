@@ -33,6 +33,16 @@ namespace SquadBuilder
 		public bool Limited { get; set; }
 		public bool Unique { get; set; }
 		public bool Preview { get; set; }
+		public string RequiredAction { get; set; }
+		public int MinPilotSkill { get; set; }
+
+		string canonicalName;
+		public string CanonicalName {
+			get { return canonicalName; }
+			set {
+				SetProperty (ref canonicalName, value);
+			}
+		}
 
 		int owned;
 		public int Owned { 
@@ -99,6 +109,17 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
+		string expansions;
+		public string Expansions {
+			get {
+				if (string.IsNullOrEmpty (expansions))
+					expansions = string.Join (", ", Cards.SharedInstance.Expansions.Where (e => e.Upgrades.Any (u => u == Id)).Select (e => e.Name));
+
+				return expansions;
+			}
+		}
+
+		[XmlIgnore]
 		public RelayCommand deleteUpgrade;
 		[XmlIgnore]
 		public RelayCommand DeleteUpgrade {
@@ -147,7 +168,9 @@ namespace SquadBuilder
 			return new Upgrade {
 				Id = Id,
 				Name = Name,
+				CanonicalName = CanonicalName,
 				Category = Category,
+				CategoryId = CategoryId,
 				Cost = Cost,
 				ShipRequirement = ShipRequirement,
 				Faction = Faction,
@@ -166,6 +189,7 @@ namespace SquadBuilder
 				Limited = Limited,
 				Unique = Unique, 
 				Preview = Preview,
+				MinPilotSkill = MinPilotSkill,
 				Slots = new ObservableCollection <string> (Slots),
 				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),
@@ -191,6 +215,21 @@ namespace SquadBuilder
 
 				return decrement;
 			}
+		}
+
+		public override bool Equals (object obj)
+		{
+			if (!(obj is Upgrade))
+				return false;
+
+			var upgrade = obj as Upgrade;
+			return Id == upgrade.Id && 
+				CategoryId == upgrade.CategoryId;
+		}
+
+		public override int GetHashCode ()
+		{
+			return ((Id + CategoryId).GetHashCode ());
 		}
 	}
 }
