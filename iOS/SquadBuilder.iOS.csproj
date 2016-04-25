@@ -37,7 +37,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Timothy Risi (GF4DUJBW65)</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <IpaPackageName></IpaPackageName>
+    <IpaPackageName>
+    </IpaPackageName>
     <BuildIpa>true</BuildIpa>
     <CodesignProvision>f394dd55-e9f9-498c-9ceb-e4df3e5fad83</CodesignProvision>
   </PropertyGroup>
@@ -51,7 +52,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n></MtouchI18n>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,7 +70,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <IpaPackageName></IpaPackageName>
+    <IpaPackageName>
+    </IpaPackageName>
     <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <ItemGroup>

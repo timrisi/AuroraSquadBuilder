@@ -139,15 +139,15 @@ namespace SquadBuilder
 					App.Storage.Put <string> (AccountKey, userAccount.Name.DisplayName);
 					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 					MessagingCenter.Send <SettingsViewModel> (this, "Logged in");
+
+					#if __IOS__
+					UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
+					#endif
+
+					SyncDropbox ();
+				} else {
+					DropboxSync = false;
 				}
-
-#if __IOS__
-				UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
-#elif __ANDROID__
-
-#endif
-
-				await SyncDropbox ();
 			};
 
 #if __IOS__
