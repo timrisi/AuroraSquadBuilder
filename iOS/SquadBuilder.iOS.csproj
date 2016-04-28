@@ -138,6 +138,9 @@
     <Reference Include="Dropbox.Api">
       <HintPath>..\packages\Dropbox.Api.3.0.5\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Dropbox.Api.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleStorage.iOS">
+      <HintPath>..\Libraries\SimpleStorage.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
@@ -225,11 +228,5 @@
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-167.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\SimpleStorage\lib\SimpleStorage.iOS\SimpleStorage.iOS.csproj">
-      <Project>{638A785D-0AF8-429A-9C16-675015A42113}</Project>
-      <Name>SimpleStorage.iOS</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>

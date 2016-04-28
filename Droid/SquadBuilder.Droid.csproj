@@ -119,6 +119,9 @@
     <Reference Include="Dropbox.Api">
       <HintPath>..\packages\Dropbox.Api.3.0.5\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Dropbox.Api.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleStorage.Droid">
+      <HintPath>..\Libraries\SimpleStorage.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -199,11 +202,5 @@
       <Version>1.2.3.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\SimpleStorage\lib\SimpleStorage.Droid\SimpleStorage.Droid.csproj">
-      <Project>{56CDDEA6-940E-411C-8F63-391B3BD5D437}</Project>
-      <Name>SimpleStorage.Droid</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
