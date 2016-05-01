@@ -140,16 +140,20 @@ namespace SquadBuilder
 					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 					MessagingCenter.Send <SettingsViewModel> (this, "Logged in");
 
-					#if __IOS__
+#if __IOS__
 					UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
-					#endif
+#endif
 
 					SyncDropbox ();
 				} else {
+#if __IOS__
+					UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
+#endif
+
 					DropboxSync = false;
 				}
 			};
-
+				
 #if __IOS__
 			UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController (auth.GetUI (), false, null);
 #elif __ANDROID__
