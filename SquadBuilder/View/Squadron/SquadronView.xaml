@@ -5,7 +5,7 @@
 				x:Class="SquadBuilder.SquadronView" 
 				Title="{Binding Squadron.Name}">
 	<mvvm:BaseView.ToolbarItems>
-		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" />
+		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" StyleId="AddPilot" />
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
@@ -61,14 +61,12 @@
 			</ListView>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 				<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="15,0" Spacing="15">
-<!--				<Button Text="-" Command="{Binding DecrementWins}" VerticalOptions="Center" />-->
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementWins}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Wins, StringFormat='W: {0}'}" VerticalOptions="Center" TextColor="Green" />
-<!--				<Button Text="+" Command="{Binding IncrementWins}" VerticalOptions="Center" />-->
 					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementWins}" />
@@ -76,14 +74,12 @@
 					</Label>
 				</StackLayout>
 				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="15,0" Spacing="15">
-<!--				<Button Text="-" Command="{Binding DecrementLosses}" VerticalOptions="Center" />-->
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementLosses}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Losses, StringFormat='L: {0}'}" VerticalOptions="Center" TextColor="Red"   />
-<!--				<Button Text="+" Command="{Binding IncrementLosses}" VerticalOptions="Center" />-->
 					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementLosses}" />
@@ -91,14 +87,12 @@
 					</Label>
 				</StackLayout>
 				<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="15,0" Spacing="15">
-<!--				<Button Text="-" Command="{Binding DecrementDraws}" VerticalOptions="Center" />-->
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementDraws}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Draws, StringFormat='D: {0}'}" VerticalOptions="Center" TextColor="Navy"  />
-<!--				<Button Text="+" Command="{Binding IncrementDraws}" VerticalOptions="Center" />-->
 					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementDraws}" />

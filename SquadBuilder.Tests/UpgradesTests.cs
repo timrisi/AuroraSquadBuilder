@@ -348,7 +348,10 @@ namespace SquadBuilder.Tests
 
 		void addPilot (string ship, string pilot)
 		{
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			if (!app.Query (ship).Any ())
 				app.ScrollDownTo (ship, timeout: TimeSpan.FromSeconds (30));
@@ -366,4 +369,3 @@ namespace SquadBuilder.Tests
 		}
 	}
 }
-

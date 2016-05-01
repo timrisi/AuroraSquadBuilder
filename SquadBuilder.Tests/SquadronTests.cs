@@ -230,7 +230,10 @@ namespace SquadBuilder.Tests
 		{
 			createSquadron ("Rebel", "Foo", index: 0);
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 
@@ -281,7 +284,10 @@ namespace SquadBuilder.Tests
 		{
 			createSquadron ("Rebel", "Foo", index: 0);
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 
@@ -358,7 +364,10 @@ namespace SquadBuilder.Tests
 		{
 			createSquadron ("Rebel", index: 0);
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 
@@ -390,7 +399,10 @@ namespace SquadBuilder.Tests
 		{
 			createSquadron ("Rebel", index: 0);
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 
@@ -424,7 +436,10 @@ namespace SquadBuilder.Tests
 		{
 			createSquadron ("Rebel", index: 0);
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 
@@ -433,6 +448,74 @@ namespace SquadBuilder.Tests
 			app.EnterText ("prototype");
 
 			Assert.IsNotEmpty (app.Query ("Prototype Pilot"));
+		}
+
+		[TestCase ("Rebel", 0, "CR90 Corvette (Fore)", "CR90 Corvette (Aft)", "CR90 Corvette (Fore)")]
+		[TestCase ("Imperial", 1, "Raider-class Corvette (Fore)", "Raider-class Corvette (Aft)", "Raider-class Corv. (Fore)")]
+		public void ShouldAddBothSectionsForTwoCardEpics (string faction, int index, string firstHalf, string secondHalf, string ship)
+		{
+			createSquadron (faction, index: index);
+
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
+
+			if (!app.Query (ship).Any ())
+				app.ScrollDownTo (ship);
+
+			app.Tap (ship);
+			app.WaitForElement ("Pilots");
+
+			if (platform == Platform.iOS)
+				app.Tap (firstHalf);
+			else
+				app.Tap (c => c.Marked (firstHalf).Index (app.Query (x => x.Marked (firstHalf)).Length - 1));
+
+			app.WaitForElement ("Export to Clipboard");
+
+			Assert.IsNotEmpty (app.Query (firstHalf));
+			Assert.IsNotEmpty (app.Query (secondHalf));
+		}
+
+		[TestCase ("Rebel", 0, "CR90 Corvette (Fore)", "CR90 Corvette (Aft)", "CR90 Corvette (Fore)")]
+		[TestCase ("Imperial", 1, "Raider-class Corvette (Fore)", "Raider-class Corvette (Aft)", "Raider-class Corv. (Fore)")]
+		public void ShouldDeleteBothSectionsForTwoCardEpics (string faction, int index, string firstHalf, string secondHalf, string ship)
+		{
+			createSquadron (faction, index: index);
+
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
+
+			if (!app.Query (ship).Any ())
+				app.ScrollDownTo (ship);
+
+			app.Tap (ship);
+			app.WaitForElement ("Pilots");
+
+			if (platform == Platform.iOS)
+				app.Tap (firstHalf);
+			else
+				app.Tap (c => c.Marked (firstHalf).Index (app.Query (x => x.Marked (firstHalf)).Length - 1));
+
+			app.WaitForElement ("Export to Clipboard");
+
+			if (platform == Platform.iOS) {
+				var name = app.Query (firstHalf).First ();
+				var points = app.Query ("50").First ();
+
+				(app as iOSApp).FlickCoordinates (points.Rect.CenterX, points.Rect.CenterY, name.Rect.CenterX, name.Rect.CenterY);
+			}
+			else
+				app.TouchAndHold (firstHalf);
+
+			app.Tap ("Delete");
+			Thread.Sleep (500);
+
+			Assert.IsEmpty (app.Query (firstHalf), "Failed to delete pilot");
+			Assert.IsEmpty (app.Query (secondHalf), "Failed to delete pilot");
 		}
 
 		void createSquadron (string faction = null, string name = null, int points = 100, int index = 0)

@@ -88,7 +88,7 @@ namespace SquadBuilder
 
 
 				try {
-					var versionsXml = XElement.Load (xwingDataUrl + Cards.SettingsFilename);
+					var versionsXml = XElement.Load (xwingDataUrl + Cards.VersionsFilename);
 
 					if ((float)versionsXml.Element ("Factions") > FactionsVersion) {
 						updateXml ("Factions");

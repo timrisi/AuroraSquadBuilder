@@ -38,17 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppInitializer.cs" />
-    <Compile Include="RebelFilteredShipsTests.cs" />
-    <Compile Include="RebelAllShipsTests.cs" />
-    <Compile Include="ImperialFilteredShipsTests.cs" />
-    <Compile Include="ImperialAllShipsTests.cs" />
-    <Compile Include="ScumAllShipsTests.cs" />
-    <Compile Include="ScumFilteredShipsTests.cs" />
-    <Compile Include="MixedFilteredShipsTests.cs" />
-    <Compile Include="MixedAllShipsTests.cs" />
     <Compile Include="BugFixTests.cs" />
     <Compile Include="SquadronTests.cs" />
     <Compile Include="UpgradesTests.cs" />
+    <Compile Include="UnfilteredShipPilotTests.cs" />
+    <Compile Include="FilteredShipPilotTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

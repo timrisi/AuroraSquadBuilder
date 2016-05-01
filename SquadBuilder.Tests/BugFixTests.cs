@@ -36,7 +36,10 @@ namespace SquadBuilder.Tests
 
 			Assert.IsNotEmpty (app.Query ("0/100"));
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 
 			app.Tap ("A-Wing");
 			app.Tap ("Ships");
@@ -71,7 +74,10 @@ namespace SquadBuilder.Tests
 
 			Assert.IsNotEmpty (app.Query ("0/100"));
 
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
 			app.Back ();
 			app.Back ();
 			app.Tap ("Rebel");
