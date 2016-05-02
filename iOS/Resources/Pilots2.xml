@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.39">
+<Pilots Version="2.40">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2517,6 +2517,7 @@
 	<Pilot id="gammasquadronveteran" faction="imperial" ship="tiebomber">
 		<Name>Gamma Squadron Veteran</Name>
 		<Unique>false</Unique>
+		<Preview>true</Preview>
 		<PilotSkill>5</PilotSkill>
 		<Attack>2</Attack>
 		<Agility>2</Agility>
@@ -2574,6 +2575,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When you reveal your maneuver dial or after you perform an actions, you may perform a {bomb} upgrade card action as a free action.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
@@ -2632,6 +2634,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When your attack deals a faceup Damage card to the defender, instead draw 3 Damage cards, choose 1 to deal, and discard the others.</Ability>
 		<CanonicalName>maarekstele</CanonicalName>
 		<Owned>0</Owned>
@@ -2671,6 +2674,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="countessryad" faction="imperial" ship="tiedefender">
@@ -2689,6 +2693,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When you reveal a {straight} maneuver, you may treat it as a {k-turn} maneuver.</Ability>
 		<Owned>0</Owned>
 	</Pilot>

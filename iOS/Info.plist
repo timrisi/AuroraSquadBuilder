@@ -50,9 +50,6 @@
 	<key>CFBundleName</key>
 	<string>Aurora SB</string>
 	<key>CFBundleVersion</key>
-	<string>1
-				#if __IOS__
-				UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
-				#endif</string>
+	<string>1</string>
 </dict>
 </plist>

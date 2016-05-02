@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.62">
+<Upgrades Version="2.63">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -779,6 +779,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>2</Cost>
 			<Text>After you execute a green maneuver, choose another friendly ship at Range 1.  That ship may acquire a target lock.</Text>
 			<Faction>imperial</Faction>
+			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
