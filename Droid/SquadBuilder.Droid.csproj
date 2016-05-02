@@ -82,9 +82,6 @@
     <Reference Include="XLabs.Serialization">
       <HintPath>..\packages\XLabs.Serialization.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="XLabs.Forms.Droid">
-      <HintPath>..\packages\XLabs.Forms.2.0.5782\lib\MonoAndroid\XLabs.Forms.Droid.dll</HintPath>
-    </Reference>
     <Reference Include="XLabs.Forms">
       <HintPath>..\packages\XLabs.Forms.2.0.5782\lib\MonoAndroid\XLabs.Forms.dll</HintPath>
     </Reference>
@@ -121,6 +118,9 @@
     </Reference>
     <Reference Include="SimpleStorage.Droid">
       <HintPath>..\Libraries\SimpleStorage.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms.Droid">
+      <HintPath>..\packages\XLabs.Forms.2.0.5782\lib\MonoAndroid\XLabs.Forms.Droid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
