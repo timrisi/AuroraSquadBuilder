@@ -44,8 +44,8 @@ namespace SquadBuilder
 				SetProperty (ref selectedUpgrade, value);
 
 				if (value != null) {
+					Navigation.RemoveAsync<UpgradesListViewModel> (this);
 					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
-					Navigation.RemoveAsync <UpgradesListViewModel> (this);
 				}
 			}
 		}

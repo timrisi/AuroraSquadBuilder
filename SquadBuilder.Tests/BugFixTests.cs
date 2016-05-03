@@ -58,7 +58,11 @@ namespace SquadBuilder.Tests
 				app.Tap (x => x.Class ("ImageView"));
 
 			app.Tap ("Settings");
-			app.Tap ("FilterSwitch");
+			//app.Tap ("FilterSwitch");
+			if (platform == Platform.iOS)
+				app.Tap (c => c.Marked ("Filter Pilots By Ship").Switch ());
+			else
+				app.Tap (x => x.Class ("Switch").Index (1));
 
 			if (platform == Platform.iOS)
 				app.Tap ("Menu");
@@ -81,7 +85,11 @@ namespace SquadBuilder.Tests
 			app.Back ();
 			app.Back ();
 			app.Tap ("Rebel");
-			app.Tap ("+");
+			if (platform == Platform.iOS)
+				app.Tap (x => x.Class ("UINavigationButton"));
+			else
+				app.Tap (c => c.Class ("ActionMenuItemview"));
+			Thread.Sleep (500);
 			app.Tap ("Tycho Celchu");
 
 			app.WaitForElement ("Export to Clipboard", "Squadron creation failed");

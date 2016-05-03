@@ -118,7 +118,7 @@ namespace SquadBuilder.Tests
 
 			app.Tap ("Delete");
 
-			Assert.IsEmpty (app.Query ("Rebel"), "Failed to delete squadron");
+			Assert.IsEmpty (app.Query ("0 / 100"), "Failed to delete squadron");
 		}
 
 		[Test]
@@ -276,6 +276,7 @@ namespace SquadBuilder.Tests
 			app.WaitForElement ("Squadrons");
 			Thread.Sleep (500);
 
+			app.Repl ();
 			Assert.IsNotEmpty (app.Query ("0 / 100"), "Failed to remove pilots when changing faction");
 		}
 
@@ -525,12 +526,14 @@ namespace SquadBuilder.Tests
 			if (name != null) {
 				app.Tap ("SquadName");
 				app.EnterText ("Foo");
+				app.DismissKeyboard ();
 			}
 
 			if (points != 100) {
 				app.Tap ("Points");
 				app.ClearText ();
 				app.EnterText (points.ToString ());
+				app.DismissKeyboard ();
 			}
 
 			if (faction != null) {

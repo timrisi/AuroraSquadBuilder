@@ -40,14 +40,14 @@ namespace SquadBuilder.Tests
 		[TestCase ("Cargo", "Expanded Cargo Hold", rebel, rebelIndex, "GR-75 Medium Transport", "GR-75 Medium Transport", TestName = "Cargo")]
 		[TestCase ("Crew", "Intelligence Agent", scum, scumIndex, "G-1A Starfighter", "Zuckuss", TestName = "Crew")]
 		[TestCase ("Elite Pilot Talent", "Adrenaline Rush", scum, scumIndex, "G-1A Starfighter", "Zuckuss", TestName = "Elite Pilot Talent")]
-		[TestCase ("Hardpoint", "Ion Cannon Battery", rebel, 0, "CR9rebelIndex Corvette (Aft)", "CR90 Corvette (Aft)", TestName = "Hardpoint")]
+		[TestCase ("Hardpoint", "Ion Cannon Battery", rebel, 0, "CR90 Corvette (Aft)", "CR90 Corvette (Aft)", TestName = "Hardpoint")]
 		[TestCase ("Illicit", "Inertial Dampeners", scum, scumIndex, "G-1A Starfighter", "Zuckuss", TestName = "Illicit")]
 		[TestCase ("Missile", "Adv. Homing Missiles", scum, scumIndex, "Kihraxz", "Talonbane Cobra", TestName = "Missile")]
 		[TestCase ("Modification", "Experimental Interface", scum, scumIndex, "Kihraxz", "Talonbane Cobra", TestName = "Modification")]
 		[TestCase ("Salvaged Astromech", "Unhinged Astromech", scum, scumIndex, "Y-Wing", "Kavil", TestName = "Salvaged Astromech")]
 		[TestCase ("System Upgrade", "Fire Control System", scum, scumIndex, "G-1A Starfighter", "Zuckuss", TestName = "System Upgrade")]
 		[TestCase ("Team", "Engineering Team", rebel, rebelIndex, "CR90 Corvette (Aft)", "CR90 Corvette (Aft)", TestName = "Team")]
-		[TestCase ("Tech", "Weapons Guidance", rebel, rebelIndex, "T-70 X-wing", "Poe Dameron", TestName = "Tech")]
+		[TestCase ("Tech", "Weapons Guidance", rebel, rebelIndex, "T-70 X-Wing", "Poe Dameron", TestName = "Tech")]
 		[TestCase ("Torpedo", "Flechette Torpedoes", scum, scumIndex, "StarViper", "Prince Xizor", TestName = "Torpedo")]
 		[TestCase ("Turret Weapon", "Ion Cannon Turret", scum, scumIndex, "HWK-290", "Dace Bonearm", TestName = "Turret Weapon")]
 		public void ShouldAddUpgrade (string upgradeType, string upgradeName, string faction, int index, string ship, string pilot)
@@ -59,10 +59,10 @@ namespace SquadBuilder.Tests
 
 			app.Tap (pilot);
 
-			if (!app.Query (upgradeType).Any ())
-				app.ScrollDownTo (upgradeType);
+			app.ScrollDownTo (upgradeType, strategy: ScrollStrategy.Gesture);
 			
 			app.Tap (upgradeType);
+			app.ScrollDownTo (upgradeName, strategy: ScrollStrategy.Gesture);
 			app.Tap (upgradeName);
 			app.WaitForElement (pilot);
 			Thread.Sleep (150);
@@ -94,6 +94,8 @@ namespace SquadBuilder.Tests
 			app.Tap ("Emperor Palpatine");
 			app.WaitForElement ("Captain Kagi");
 			Thread.Sleep (150);
+
+			app.ScrollDown ();
 
 			Assert.AreEqual (app.Query ("Emperor Palpatine").Length, 2);
 			Assert.IsEmpty (app.Query ("Crew"));
@@ -198,6 +200,7 @@ namespace SquadBuilder.Tests
 
 			app.Tap ("Zuckuss");
 
+			app.ScrollDownTo ("Title");
 			app.Tap ("Title");
 			app.Tap ("Mist Hunter");
 			app.WaitForElement ("Zuckuss");
@@ -232,7 +235,7 @@ namespace SquadBuilder.Tests
 			app.Tap ("\"Heavy Scyk\" Interceptor");
 			app.Tap (upgradeType);
 			app.WaitForElement ("Serissu");
-			Thread.Sleep (150);
+			Thread.Sleep (500);
 			app.ScrollDown ();
 
 			Assert.AreEqual (app.Query (upgradeType).Length, 1);
@@ -259,11 +262,6 @@ namespace SquadBuilder.Tests
 			app.Tap ("Title");
 			app.Tap ("\"Heavy Scyk\" Interceptor");
 			app.Tap ("Cancel");
-			Assert.IsNotEmpty (app.Query ("Title"));
-			app.Back ();
-			app.WaitForElement ("Serissu");
-			Thread.Sleep (150);
-
 			Assert.IsNotEmpty (app.Query ("Title"));
 			Assert.IsEmpty (app.Query ("Cannon"));
 			Assert.IsEmpty (app.Query ("Torpedo"));
@@ -309,6 +307,7 @@ namespace SquadBuilder.Tests
 
 			app.Tap ("Ten Numb");
 
+			app.ScrollDownTo ("Modification");
 			app.Tap ("Modification");
 			app.Tap ("B-Wing/E2");
 			app.WaitForElement ("Ten Numb");
