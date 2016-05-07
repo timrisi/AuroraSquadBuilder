@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.63">
+<Upgrades Version="2.64">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1844,6 +1844,24 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 				<Upgrade>Crew</Upgrade>
 				<Upgrade>Crew</Upgrade>
 			</AdditionalUpgrades>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="millenniumfalcontfa">
+			<Name>Millennium Falcon</Name>
+			<Cost>1</Cost>
+			<Text>After you execute a 3-speed bank maneuver, if you are not touching another ship and you are not stressed, you may receive 1 stress token to rotate your ship 180 degrees.</Text>
+			<Ship>yt1300</Ship>
+			<ShipRequirement>YT-1300</ShipRequirement>
+			<Unique>True</Unique>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="blackone">
+			<Name>Black One</Name>
+			<Cost>1</Cost>
+			<Text>After you perform a boost or barrel roll action, you may remove 1 enemy target lock from a friendly ship at range 1.  You cannot equip this card if your pilot skill is "6" or lower.</Text>
+			<ShipRequirement>T-70 X-wing</ShipRequirement>
+			<Unique>True</Unique>
+			<MinPilotSkill>7</MinPilotSkill>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>
