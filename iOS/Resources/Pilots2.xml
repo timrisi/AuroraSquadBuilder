@@ -562,7 +562,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability>When dropping a bomb, you may use the [3{Left Bank}], [3{Straight}] or [3{Right Bank}] template instead of the [1{Straight}] template.</Ability>
+		<Ability>When dropping a bomb, you may use the [3{Left Turn}], [3{Straight}] or [3{Right Turn}] template instead of the [1{Straight}] template.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="mandalorianmercenary" faction="scum" ship="firespray31">

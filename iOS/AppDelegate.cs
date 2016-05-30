@@ -222,6 +222,7 @@ namespace SquadBuilder.iOS
 				var pilotXml = saveAndLoad.LoadText (Cards.PilotsFilename);
 				foreach (var key in deprecatedIds.Keys)
 					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
+				pilotXml = pilotXml.Replace("baronoftheimperial", "baronoftheempire");
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotXml);
 			}
 
@@ -250,6 +251,7 @@ namespace SquadBuilder.iOS
 				var expansionXml = saveAndLoad.LoadText (Cards.ExpansionsFilename);
 				foreach (var key in deprecatedIds.Keys)
 					expansionXml = expansionXml.Replace (key, deprecatedIds [key]);
+				expansionXml = expansionXml.Replace("baronoftheimperial", "baronoftheempire");
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionXml);
 			}
 
@@ -257,6 +259,7 @@ namespace SquadBuilder.iOS
 				var squadronXml = saveAndLoad.LoadText (Cards.SquadronsFilename);
 				foreach (var key in deprecatedIds.Keys)
 					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
+				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
 				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
 			}
 
