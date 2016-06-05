@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.64">
+<Upgrades Version="2.70">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1845,8 +1845,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 				<Upgrade>Crew</Upgrade>
 			</AdditionalUpgrades>
 			<Owned>0</Owned>
-		</Upgrade>
-		<Upgrade id="millenniumfalcontfa">
+		</Upgrade><Upgrade id="millenniumfalcontfa">
 			<Name>Millennium Falcon</Name>
 			<Cost>1</Cost>
 			<Text>After you execute a 3-speed bank maneuver, if you are not touching another ship and you are not stressed, you may receive 1 stress token to rotate your ship 180 degrees.</Text>
@@ -1862,6 +1861,38 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<ShipRequirement>T-70 X-wing</ShipRequirement>
 			<Unique>True</Unique>
 			<MinPilotSkill>7</MinPilotSkill>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="allianceoverhaul">
+			<Name>Alliance Overhaul</Name>
+			<Cost>0</Cost>
+			<Text>When attacking with a primary weapon from your primary firing arc, you may roll 1 additional attack die.  When attacking from your auxiliary firing arc, you may change 1 of your {focus} results to a {crit} result.</Text>
+			<ShipRequirement>ARC-170</ShipRequirement>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="specialopstraining">
+			<Name>Special Ops Training</Name>
+			<Cost>0</Cost>
+			<Text>When attacking with a parimary weapon from your primary firing arc, you may roll 1 additional attack die.  If you do not, you may perform an additional attack from your auxiliary firing arc.</Text>
+			<ShipRequirement>TIE/SF</ShipRequirement>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="concorddawnprotector">
+			<Name>Concord Dawn Protector</Name>
+			<Cost>1</Cost>
+			<Text>When defending, if you are inside the attacker's firing arc and at Range 1, and the attacker is inside your firing arc, add 1 {evade} result.</Text>
+			<ShipRequirement>Protectorate Starfighter</ShipRequirement>
+			<Preview>true</Preview>
+			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="shadowcaster">
+			<Name>Shadow Caster</Name>
+			<Cost>3</Cost>
+			<Text>After you perform an attack that hits, if the defender is inside your mobile firing arc and at Range 1-2, you may assign the defender 1 tractor beam token.</Text>
+			<ShipRequirement>Lancer-class Pursuit Craft</ShipRequirement>
+			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 	</Category>

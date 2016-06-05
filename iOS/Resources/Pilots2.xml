@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.41">
+<Pilots Version="2.50">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -500,6 +500,25 @@
 		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="fennrau" faction="scum" ship="protectoratestarfighter">
+		<Name>Fenn Rau</Name>
+		<Unique>true</Unique>
+		<PilotSkill>9</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>3</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>28</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, if the enemy ship is at Range 1, you may roll 1 additional die.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
 	<Pilot id="bobafett" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
 		<Unique>true</Unique>
@@ -848,6 +867,47 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="ketsuonto" faction="scum" ship="lancerclasspursuitcraft">
+		<Name>Ketsu Onto</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>7</Hull>
+		<Shields>3</Shields>
+		<Cost>38</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the start of the Combat phase, you may choose a ship at Range 1.  If it is inside your primary and secondary firing arcs, assign 1 tractor beam token to it.</Ability>
+		<Owned>0</Owned>
+	</Pilot><Pilot id="sabinewrenlancer" faction="scum" ship="lancerclasspursuitcraft">
+		<Name>Sabine Wren</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>7</Hull>
+		<Shields>3</Shields>
+		<Cost>35</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When defending against an enemy ship inside your mobile firing arc at Range 1-2, you may add 1 {focus} result to your roll.</Ability>
+		<Owned>0</Owned>
+		<CanonicalName>sabinewren</CanonicalName>
 	</Pilot>
 
 	<!--- Rebel Pilots -->
@@ -1747,6 +1807,48 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="norrawexley" faction="rebel" ship="arc170">
+		<Name>Norra Wexley</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>3</Shields>
+		<Cost>29</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, you may spend a Target Lock you have on the enemy ship to add 1 {focus} result to your roll.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="sharabey" faction="rebel" ship="arc170">
+		<Name>Shara Bey</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>3</Shields>
+		<Cost>28</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When another friendly ship at Range 1-2 is attacking, it may treat your blue target lock tokens as its own.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="hansolo" faction="rebel" ship="yt1300">
@@ -3325,6 +3427,27 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="quickdraw" faction="imperial" ship="tiesffighter">
+		<Name>&quot;Quickdraw&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>9</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>3</Shields>
+		<Cost>29</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Once per round, when you lose a shield token, you may perform a primary weapon attack.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray31">
