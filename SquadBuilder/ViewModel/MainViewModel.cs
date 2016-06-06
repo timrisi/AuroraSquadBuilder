@@ -132,6 +132,10 @@ namespace SquadBuilder
 				Cards.SharedInstance.Squadrons.Add (squadron.Copy ());
 				NotifyPropertyChanged ("Squadrons");
 			});
+
+			MessagingCenter.Subscribe<SquadronViewModel> (this, "Squadron updated", vm => {
+				NotifyPropertyChanged ("Squadrons");
+			});
 		}
 
 		public override void OnViewDisappearing ()

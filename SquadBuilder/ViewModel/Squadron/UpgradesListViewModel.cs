@@ -44,8 +44,13 @@ namespace SquadBuilder
 				SetProperty (ref selectedUpgrade, value);
 
 				if (value != null) {
-					Navigation.RemoveAsync<UpgradesListViewModel> (this);
-					MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
+					if (Device.OS == TargetPlatform.iOS) {
+						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
+					} else {
+						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
+						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+					}
 				}
 			}
 		}

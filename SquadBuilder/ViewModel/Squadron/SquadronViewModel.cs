@@ -324,6 +324,7 @@ namespace SquadBuilder
 		{
 			base.OnViewDisappearing ();
 
+			MessagingCenter.Send<SquadronViewModel> (this, "Squadron updated");
 			MessagingCenter.Unsubscribe <Pilot> (this, "Remove Pilot");
 			MessagingCenter.Unsubscribe <Pilot> (this, "Copy Pilot");
 		}
