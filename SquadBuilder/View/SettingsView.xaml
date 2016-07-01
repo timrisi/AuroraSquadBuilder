@@ -5,28 +5,6 @@
 				x:Class="SquadBuilder.SettingsView"
 				Title="Settings" >
 	<mvvm:BaseView.Content>
-<!--		<StackLayout Orientation="Vertical"
-					 Padding="15"
-					 Spacing="10" >
-			<StackLayout Orientation="Horizontal" Spacing="5">
-				<Label Text="Allow Custom" YAlign="Center" HorizontalOptions="StartAndExpand" />
-				<Switch IsToggled="{Binding AllowCustom, Mode=TwoWay}" HorizontalOptions="End" />
-			</StackLayout>
-			<StackLayout Orientation="Horizontal" Spacing="5">
-				<Label Text="Filter Pilots by Ship" YAlign="Center" HorizontalOptions="StartAndExpand" />
-				<Switch IsToggled="{Binding FilterPilotsByShip, Mode=TwoWay}" StyleId="FilterSwitch" HorizontalOptions="End" />
-			</StackLayout>
-			<StackLayout Orientation="Horizontal" Spacing="5">
-				<Label Text="Hide Unavailable Ships/Cards" YAlign="Center" HorizontalOptions="StartAndExpand" />
-				<Switch IsToggled="{Binding HideUnavailable, Mode=TwoWay}" StyleId="FilterSwitch" HorizontalOptions="End" />
-			</StackLayout>
-			<StackLayout Orientation="Horizontal" Spacing="5">
-				<Label Text="Check for updates on launch" YAlign="Center" HorizontalOptions="StartAndExpand" />
-				<Switch IsToggled="{Binding UpdateOnLaunch, Mode=TwoWay}" HorizontalOptions="End" />
-			</StackLayout>
-			<Button Text="Check for updates" Command="{Binding CheckForUpdates}" />
-			<Button Text="Dropbox Login" Command="{Binding DropboxLogin}" />
-		</StackLayout>-->
 		<TableView Intent="Settings">
 			<TableRoot>
 				<TableSection>

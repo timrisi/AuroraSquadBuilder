@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.21">
+<Expansions Version="1.25">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -949,7 +949,41 @@
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
-
+	<Expansion id="imperialveterans">
+		<Name>Imperial Veterans</Name>
+		<Wave>Aces Packs</Wave>
+		<Ships>
+			<Ship>tiedefender</Ship>
+			<Ship>tiebomber</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>maareksteledefender</Pilot>
+			<Pilot>countessryad</Pilot>
+			<Pilot>glaivesquadronpilot</Pilot>
+			<Pilot>glaivesquadronpilot</Pilot>
+			<Pilot>tomaxbren</Pilot>
+			<Pilot>deathfire</Pilot>
+			<Pilot>gammasquadronveteran</Pilot>
+			<Pilot>gammasquadronveteran</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>proximitymines</Upgrade>
+			<Upgrade>clustermines</Upgrade>
+			<Upgrade>tractorbeam</Upgrade>
+			<Upgrade>systemsofficer</Upgrade>
+			<Upgrade>crackshot</Upgrade>
+			<Upgrade>tied</Upgrade>
+			<Upgrade>tied</Upgrade>
+			<Upgrade>tiex7</Upgrade>
+			<Upgrade>tiex7</Upgrade>
+			<Upgrade>tieshuttle</Upgrade>
+			<Upgrade>tieshuttle</Upgrade>
+			<Upgrade>longrangescanners</Upgrade>
+			<Upgrade>longrangescanners</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	
 <!-- Huge Ships -->
 	<Expansion id="gr75mediumtransport">
 		<Name>Rebel Transport</Name>
