@@ -101,6 +101,7 @@ namespace SquadBuilder
 			get { 
 				if (ships == null)
 					GetAllShips ();
+
 				return ships; }
 			set { 
 				SetProperty (ref ships, value);
@@ -145,6 +146,9 @@ namespace SquadBuilder
 			get {
 				if (pilots == null)
 					GetAllPilots ();
+
+				if (!Settings.AllowCustom)
+					return new ObservableCollection<Pilot> (pilots.Where (p => !p.IsCustom));
 				
 				return pilots; }
 			set { 
@@ -190,6 +194,9 @@ namespace SquadBuilder
 			get {
 				if (upgrades == null)
 					GetAllUpgrades ();
+
+				if (!Settings.AllowCustom)
+					return new ObservableCollection<Upgrade> (upgrades.Where (u => !u.IsCustom));
 				
 				return upgrades; }
 			set { 
@@ -306,6 +313,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
+					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
 					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
 							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
@@ -323,6 +331,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
+					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
 					owned = 0
 				})
 			);
@@ -356,7 +365,7 @@ namespace SquadBuilder
 				Ability = pilot.Element ("Ability")?.Value,
 				UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
-				IsCustom = false,
+				IsCustom = pilot.Element ("Custom") != null ? (bool)pilot.Element ("Custom") : false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
 				owned = pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) != null ?
 							(int)pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) : 0
@@ -437,7 +446,8 @@ namespace SquadBuilder
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
 					owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
 											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
-					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
+					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
+					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
@@ -484,7 +494,8 @@ namespace SquadBuilder
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
 					owned = 0,
-					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
+					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
+					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);

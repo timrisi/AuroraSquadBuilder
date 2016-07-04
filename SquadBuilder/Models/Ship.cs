@@ -53,6 +53,12 @@ namespace SquadBuilder
 			}
 		}
 
+		bool isCustom;
+		public bool IsCustom {
+			get { return isCustom; }
+			set { SetProperty (ref isCustom, value); }
+		}
+
 		[XmlIgnore]
 		public int owned;
 		[XmlIgnore]

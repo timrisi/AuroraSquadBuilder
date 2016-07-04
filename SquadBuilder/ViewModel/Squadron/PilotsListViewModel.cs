@@ -77,6 +77,8 @@ namespace SquadBuilder
 
 			if (Settings.AllowCustom)
 				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
+			else
+				allPilots.RemoveAll (p => p.IsCustom);
 
 			if (Settings.HideUnavailable)
 				allPilots = allPilots.Where (p => p.IsAvailable).ToList ();

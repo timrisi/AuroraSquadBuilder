@@ -196,6 +196,12 @@
     <AndroidAsset Include="..\iOS\Resources\Upgrades2.xml">
       <Link>Assets\Upgrades2.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\Collection.xml">
+      <Link>Assets\Collection.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\ReferenceCards.xml">
+      <Link>Assets\ReferenceCards.xml</Link>
+    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">

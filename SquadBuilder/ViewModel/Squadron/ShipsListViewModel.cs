@@ -69,7 +69,7 @@ namespace SquadBuilder
 			if (Settings.AllowCustom)
 				allShips = Cards.SharedInstance.AllShips;
 			else
-				allShips = Cards.SharedInstance.Ships;
+				allShips = new ObservableCollection<Ship> (Cards.SharedInstance.Ships.Where (s => !s.IsCustom));
 
 			if (Settings.HideUnavailable)
 				allShips = new ObservableCollection<Ship> (allShips.Where (s => s.IsAvailable));

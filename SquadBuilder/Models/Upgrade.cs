@@ -35,6 +35,7 @@ namespace SquadBuilder
 		public bool Preview { get; set; }
 		public string RequiredAction { get; set; }
 		public int MinPilotSkill { get; set; }
+		public bool IsCustom { get; set; }
 
 		string canonicalName;
 		public string CanonicalName {

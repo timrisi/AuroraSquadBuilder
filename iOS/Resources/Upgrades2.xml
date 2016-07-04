@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.77">
+<Upgrades Version="2.78">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>

@@ -274,7 +274,8 @@ namespace SquadBuilder
 							new XElement ("Shields", Shields),
 							new XElement ("SecondaryWeapon", SecondaryWeapon),
 							new XElement ("Dice", Dice),
-							new XElement ("Range", Range)
+							new XElement ("Range", Range),
+                            new XElement ("Custom", true)
 						);
 
 						customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == UpgradeTypes [UpgradeTypeIndex])?.Add (element);

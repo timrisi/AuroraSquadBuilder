@@ -158,6 +158,7 @@ namespace SquadBuilder
 							element.Add (new XElement ("Name", Name));
 							element.Add (new XElement ("LargeBase", LargeBase));
 							element.Add (new XElement ("Huge", Huge));
+							element.Add (new XElement ("Custom", true));
 							element.Add (new XElement ("Actions",
 								from action in Ship.Actions
 								select new XElement ("Action", action)));

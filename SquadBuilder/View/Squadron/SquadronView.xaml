@@ -50,6 +50,7 @@
 									<StackLayout Orientation="Horizontal" Spacing="10">
 										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
 										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
+										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 									</StackLayout>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />

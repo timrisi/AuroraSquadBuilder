@@ -57,6 +57,16 @@ namespace SquadBuilder.Droid
 			if(!Resolver.IsSet) 
 				SetIoc();
 
+			var collectionXml = new StreamReader (Application.Context.Assets.Open ("Collection.xml")).ReadToEnd ();
+			if (!saveAndLoad.FileExists ("Collection.xml"))
+				saveAndLoad.SaveText ("Collection.xml", collectionXml);
+
+			var referenceCardXml = new StreamReader (Application.Context.Assets.Open ("ReferenceCards.xml")).ReadToEnd ();
+			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
+				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
+			Settings.ReferenceCardsVersion = referenceCardsVersion;
+
 			UpdateIds ();
 
 			var schemaJson = new StreamReader (Application.Context.Assets.Open ("schema.json")).ReadToEnd ();

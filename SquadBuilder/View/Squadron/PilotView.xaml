@@ -35,6 +35,7 @@
 						<StackLayout Orientation="Horizontal" Spacing="10">
 							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
 							<Label Text="Preview" IsVisible="{Binding Pilot.Preview}" TextColor="Blue" FontAttributes="Italic" />
+							<Label Text="Custom" IsVisible="{Binding Pilot.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 						</StackLayout>
 						<Label Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" />
 					</StackLayout>
@@ -58,6 +59,7 @@
 									<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
 									<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
 									<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" />
+									<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 								</StackLayout>
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
 									<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
