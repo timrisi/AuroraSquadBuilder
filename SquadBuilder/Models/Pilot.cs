@@ -48,7 +48,7 @@ namespace SquadBuilder
 		public bool Preview { get; set; }
 		public Guid LinkedPilotCardGuid { get; set; }
 
-		int owned;
+		public int owned;
 		public int Owned { 
 			get { return owned; }
 			set {
@@ -56,6 +56,24 @@ namespace SquadBuilder
 					value = 0;
 				
 				SetProperty (ref owned, value); 
+
+				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+				var pilotsElement = collectionXml.Element ("Pilots");
+
+				var pilotsOwned = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == Id).Owned;
+
+				if (pilotsElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
+					if (pilotsOwned == 0)
+						pilotsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id)?.Remove ();
+					else
+						pilotsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id).SetValue (pilotsOwned);
+				} else {
+					var element = new XElement ("Pilot", pilotsOwned);
+					element.SetAttributeValue ("id", Id);
+					pilotsElement.Add (element);
+				}
+
+				DependencyService.Get<ISaveAndLoad> ().SaveText ("Collection.xml", collectionXml.ToString ());
 			}
 		}
 

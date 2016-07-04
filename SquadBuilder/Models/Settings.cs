@@ -109,8 +109,6 @@ namespace SquadBuilder
 
 					if ((float)versionsXml.Element ("Settings") > SettingsVersion)
 						updateXml ("Settings");
-
-					Cards.SharedInstance.SaveCollection ();
 				} catch (Exception e) {		
 					Insights.Report (e);
 				}
@@ -131,61 +129,29 @@ namespace SquadBuilder
 		public static void UpdateShips ()
 		{
 			var element = XElement.Load (xwingDataUrl + "Ships2.xml");
-
-			var oldShips = Cards.SharedInstance.Ships;
-
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ShipsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllShips ();
-
-			foreach (var ship in oldShips) {
-				if (Cards.SharedInstance.Ships.Any (s => s.Id == ship.Id))
-					Cards.SharedInstance.Ships.First (s => s.Id == ship.Id).Owned = ship.Owned;
-			}
 		}
 
 		public static void UpdatePilots ()
 		{
 			var element = XElement.Load (xwingDataUrl + "Pilots2.xml");
-
-			var oldPilots = Cards.SharedInstance.Pilots;
-
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.PilotsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllPilots ();
-
-			foreach (var pilot in oldPilots) {
-				if (Cards.SharedInstance.Pilots.Any (p => p.Id == pilot.Id))
-					Cards.SharedInstance.Pilots.First (p => p.Id == pilot.Id).Owned = pilot.Owned;
-			}
 		}
 
 		public static void UpdateUpgrades ()
 		{
 			var element = XElement.Load (xwingDataUrl + "Upgrades2.xml");
-
-			var oldUpgrades = Cards.SharedInstance.Upgrades;
-
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.UpgradesFilename, element.ToString ());
 			Cards.SharedInstance.GetAllUpgrades ();
-
-			foreach (var upgrade in oldUpgrades) {
-				if (Cards.SharedInstance.Upgrades.Any (u => u.Id == upgrade.Id))
-					Cards.SharedInstance.Upgrades.First (u => u.Id == upgrade.Id).Owned = upgrade.Owned;
-			}
 		}
 
 		public static void UpdateExpansions ()
 		{
 			var element = XElement.Load (xwingDataUrl + Cards.ExpansionsFilename);
-
-			var oldExpansions = Cards.SharedInstance.Expansions;
-
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ExpansionsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllExpansions ();
-
-			foreach (var expansion in oldExpansions) {
-				if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
-					Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).Owned = expansion.Owned;
-			}
 		}
 	}
 }

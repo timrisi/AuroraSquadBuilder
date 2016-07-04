@@ -82,15 +82,8 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ShipsFilename)))?.Attribute ("Version") < Settings.ShipsVersion) {
-				var oldShips = Cards.SharedInstance.Ships;
-
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
 				Cards.SharedInstance.GetAllShips ();
-
-				foreach (var ship in oldShips) {
-					if (Cards.SharedInstance.Ships.Any (s => s.Id == ship.Id))
-						Cards.SharedInstance.Ships.First (s => s.Id == ship.Id).Owned = ship.Owned;
-				}
 			}
 
 			var customShipsXml = new StreamReader (Application.Context.Assets.Open ("Ships_Custom.xml")).ReadToEnd ();
@@ -102,15 +95,8 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
-				var oldPilots = Cards.SharedInstance.Pilots;
-
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
 				Cards.SharedInstance.GetAllPilots ();
-
-				foreach (var pilot in oldPilots) {
-					if (Cards.SharedInstance.Pilots.Any (p => p.Id == pilot.Id && p.Ship.Id == pilot.Ship.Id && p.Faction.Id == pilot.Faction.Id))
-						Cards.SharedInstance.Pilots.First (p => p.Id == pilot.Id && p.Ship.Id == pilot.Ship.Id && p.Faction.Id == pilot.Faction.Id).Owned = pilot.Owned;
-				}
 			}
 			
 			var customPilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots_Custom.xml")).ReadToEnd ();
@@ -122,15 +108,8 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
-				var oldUpgrades = Cards.SharedInstance.Upgrades;
-
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
 				Cards.SharedInstance.GetAllUpgrades ();
-
-				foreach (var upgrade in oldUpgrades) {
-					if (Cards.SharedInstance.Upgrades.Any (u => u.Id == upgrade.Id && u.CategoryId == upgrade.CategoryId))
-						Cards.SharedInstance.Upgrades.First (u => u.Id == upgrade.Id && u.CategoryId == upgrade.CategoryId).Owned = upgrade.Owned;
-				}
 			}
 			
 			var customUpgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades_Custom.xml")).ReadToEnd ();
@@ -142,15 +121,8 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename))
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ExpansionsFilename)))?.Attribute ("Version") < Settings.ExpansionsVersion) {
-				var oldExpansions = Cards.SharedInstance.Expansions;			
-
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 				Cards.SharedInstance.GetAllExpansions ();
-
-				foreach (var expansion in oldExpansions) {
-					if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
-						Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).owned = expansion.owned;
-				}
 			}
 
 
@@ -158,7 +130,6 @@ namespace SquadBuilder.Droid
 			Cards.SharedInstance.GetAllShips ();
 			Cards.SharedInstance.GetAllPilots ();
 			Cards.SharedInstance.GetAllUpgrades ();
-			Cards.SharedInstance.SaveCollection ();
 			
 			LoadApplication(new App());
 		}

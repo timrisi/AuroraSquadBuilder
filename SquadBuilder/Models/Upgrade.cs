@@ -44,7 +44,7 @@ namespace SquadBuilder
 			}
 		}
 
-		int owned;
+		public int owned;
 		public int Owned { 
 			get { return owned; }
 			set {
@@ -52,6 +52,24 @@ namespace SquadBuilder
 					value = 0;
 				
 				SetProperty (ref owned, value);
+
+				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+				var upgradesElement = collectionXml.Element ("Upgrades");
+
+				var upgradesOwned = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == Id).Owned;
+
+				if (upgradesElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
+					if (upgradesOwned == 0)
+						upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id)?.Remove ();
+					else
+						upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id).SetValue (upgradesOwned);
+				} else {
+					var element = new XElement ("Upgrade", upgradesOwned);
+					element.SetAttributeValue ("id", Id);
+					upgradesElement.Add (element);
+				}
+
+				DependencyService.Get<ISaveAndLoad> ().SaveText ("Collection.xml", collectionXml.ToString ());
 			}
 		}
 

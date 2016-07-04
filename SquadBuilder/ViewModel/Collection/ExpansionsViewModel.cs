@@ -50,12 +50,5 @@ namespace SquadBuilder
 
 			expansions = getAllExpansions ();
 		}
-
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
-
-			Cards.SharedInstance.SaveCollection ();
-		}
 	}
 }

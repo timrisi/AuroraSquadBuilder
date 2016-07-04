@@ -88,15 +88,8 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ShipsFilename)))?.Attribute ("Version") < Settings.ShipsVersion) {
-				var oldShips = Cards.SharedInstance.Ships;
-
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
 				Cards.SharedInstance.GetAllShips ();
-
-				foreach (var ship in oldShips) {
-					if (Cards.SharedInstance.Ships.Any (s => s.Id == ship.Id))
-						Cards.SharedInstance.Ships.First (s => s.Id == ship.Id).Owned = ship.Owned;
-				}
 			}
 
 			var customShipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships_Custom", "xml")).ReadToEnd ();
@@ -108,15 +101,8 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
-				var oldPilots = Cards.SharedInstance.Pilots;
-
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
 				Cards.SharedInstance.GetAllPilots ();
-
-				foreach (var pilot in oldPilots) {
-					if (Cards.SharedInstance.Pilots.Any (p => p.Id == pilot.Id && p.Ship.Id == pilot.Ship.Id && p.Faction.Id == pilot.Faction.Id))
-						Cards.SharedInstance.Pilots.First (p => p.Id == pilot.Id && p.Ship.Id == pilot.Ship.Id && p.Faction.Id == pilot.Faction.Id).Owned = pilot.Owned;
-				}
 			}
 
 			var customPilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots_Custom", "xml")).ReadToEnd ();
@@ -128,15 +114,8 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
-				var oldUpgrades = Cards.SharedInstance.Upgrades;
-
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
 				Cards.SharedInstance.GetAllUpgrades ();
-
-				foreach (var upgrade in oldUpgrades) {
-					if (Cards.SharedInstance.Upgrades.Any (u => u.Id == upgrade.Id && u.CategoryId == upgrade.CategoryId))
-						Cards.SharedInstance.Upgrades.First (u => u.Id == upgrade.Id && u.CategoryId == upgrade.CategoryId).Owned = upgrade.Owned;
-				}
 			}
 
 			var customUpgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades_Custom", "xml")).ReadToEnd ();
@@ -149,22 +128,18 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 			}
 			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ExpansionsFilename)))?.Attribute ("Version") < Settings.ExpansionsVersion) {
-				var oldExpansions = Cards.SharedInstance.Expansions;			
-
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 				Cards.SharedInstance.GetAllExpansions ();
-
-				foreach (var expansion in oldExpansions) {
-					if (Cards.SharedInstance.Expansions.Any (e => e.Id == expansion.Id))
-						Cards.SharedInstance.Expansions.First (e => e.Id == expansion.Id).owned = expansion.owned;
-				}
 			}
+
+			var collectionXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Collection", "xml")).ReadToEnd ();
+			if (!saveAndLoad.FileExists ("Collection.xml"))
+				saveAndLoad.SaveText ("Collection.xml", collectionXml);
 				
 			Cards.SharedInstance.GetAllFactions ();
 			Cards.SharedInstance.GetAllShips ();
 			Cards.SharedInstance.GetAllPilots ();
 			Cards.SharedInstance.GetAllUpgrades ();
-			Cards.SharedInstance.SaveCollection ();
 
 			LoadApplication (new App ());
 
@@ -260,6 +235,7 @@ namespace SquadBuilder.iOS
 				foreach (var key in deprecatedIds.Keys)
 					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
 				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
+				squadronXml = squadronXml.Replace ("4lom", "fourlom");
 				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
 			}
 

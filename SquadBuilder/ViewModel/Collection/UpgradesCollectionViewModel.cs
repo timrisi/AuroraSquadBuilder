@@ -81,12 +81,5 @@ namespace SquadBuilder
 			UpgradeGroups = new ObservableCollection <UpgradeGroup> (allUpgrades);
 			filterUpgrades ();
 		}
-
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
-
-			Cards.SharedInstance.SaveCollection ();
-		}
 	}
 }

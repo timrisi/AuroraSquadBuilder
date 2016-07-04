@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.75">
+<Upgrades Version="2.77">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -475,13 +475,14 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
-		<Upgrade id="r2d2">
+		<Upgrade id="r2d2crew">
 			<Name>R2-D2</Name>
 			<Cost>4</Cost>
 			<Text>At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a {hit} result, randomly flip 1 of your facedown Damage cards faceup and resolve it.</Text>
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
+			<CanonicalName>r2d2</CanonicalName>
 		</Upgrade>
 		<Upgrade id="raymusantilles">
 			<Name>Raymus Antilles</Name>
@@ -740,13 +741,14 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
 		</Upgrade>
-		<Upgrade id="4lom">
+		<Upgrade id="fourlom">
 			<Name>4-LOM</Name>
 			<Cost>1</Cost>
 			<Text>When attacking, during the &quot;Modify Attack Dice&quot; step, you may receive 1 ion token to chose 1 of the defender's focus or evade tokens.  That token cannot be spent during this attack.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
+			<CanonicalName>4lom</CanonicalName>
 		</Upgrade>
 		<Upgrade id="gonk">
 			<Name>&quot;Gonk&quot;</Name>
@@ -1840,23 +1842,6 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 				<Upgrade>Crew</Upgrade>
 			</AdditionalUpgrades>
 			<Owned>0</Owned>
-		</Upgrade><Upgrade id="millenniumfalcontfa">
-			<Name>Millennium Falcon</Name>
-			<Cost>1</Cost>
-			<Text>After you execute a 3-speed bank maneuver, if you are not touching another ship and you are not stressed, you may receive 1 stress token to rotate your ship 180 degrees.</Text>
-			<Ship>yt1300</Ship>
-			<ShipRequirement>YT-1300</ShipRequirement>
-			<Unique>True</Unique>
-			<Owned>0</Owned>
-		</Upgrade>
-		<Upgrade id="blackone">
-			<Name>Black One</Name>
-			<Cost>1</Cost>
-			<Text>After you perform a boost or barrel roll action, you may remove 1 enemy target lock from a friendly ship at range 1.  You cannot equip this card if your pilot skill is "6" or lower.</Text>
-			<ShipRequirement>T-70 X-wing</ShipRequirement>
-			<Unique>True</Unique>
-			<MinPilotSkill>7</MinPilotSkill>
-			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="millenniumfalcontfa">
 			<Name>Millennium Falcon</Name>
@@ -1866,6 +1851,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<ShipRequirement>YT-1300</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>
+			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="blackone">
 			<Name>Black One</Name>
@@ -1875,6 +1861,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Unique>True</Unique>
 			<MinPilotSkill>7</MinPilotSkill>
 			<Owned>0</Owned>
+			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="allianceoverhaul">
 			<Name>Alliance Overhaul</Name>

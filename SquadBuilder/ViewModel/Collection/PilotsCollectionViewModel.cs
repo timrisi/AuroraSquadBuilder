@@ -73,13 +73,6 @@ namespace SquadBuilder
 			filterPilots ();
 		}
 
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
-
-			Cards.SharedInstance.SaveCollection ();
-		}
-
 		void filterPilots ()
 		{
 			PilotGroups.Clear ();

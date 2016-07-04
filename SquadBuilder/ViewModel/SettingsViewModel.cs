@@ -316,9 +316,25 @@ namespace SquadBuilder
 						squad.Faction = Cards.SharedInstance.AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 						foreach (var pilot in squad.Pilots) {
+							if (squad.Faction.Id == "scum") {
+								if (pilot.Id == "bobafett")
+									pilot.Id = "bobafettscum";
+								if (pilot.Id == "kathscarlet")
+									pilot.Id = "kathscarletscum";
+							}
+							if (pilot.Id == "Ello Asty")
+								pilot.Id = "elloasty";
+							if (pilot.Id == "4lom")
+								pilot.Id = "fourlom";
+							
 							foreach (var upgrade in pilot.UpgradesEquipped) {
 								if (upgrade == null)
 									continue;
+
+								if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
+									upgrade.Id = "r2d2crew";
+								if (upgrade.Id == "4lom")
+									upgrade.Id = "fourlom";
 
 								if (upgrade.CategoryId == null)
 									upgrade.CategoryId = Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.25">
+<Expansions Version="1.27">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -515,8 +515,8 @@
 			<Pilot>hiredgun</Pilot>
 			<Pilot>syndicatethug</Pilot>
 			<Pilot>syndicatethug</Pilot>
-			<Pilot>bobafett</Pilot>
-			<Pilot>kathscarlet</Pilot>
+			<Pilot>bobafettscum</Pilot>
+			<Pilot>kathscarletscum</Pilot>
 			<Pilot>emonazzameen</Pilot>
 			<Pilot>mandalorianmercenary</Pilot>
 			<Pilot>dacebonearm</Pilot>
@@ -731,7 +731,7 @@
 			<Ship>t70xwing</Ship>
 		</Ships>
 		<Pilots>
-			<Pilot>Ello Asty</Pilot>
+			<Pilot>elloasty</Pilot>
 			<Pilot>redace</Pilot>
 			<Pilot>redsquadronveteran</Pilot>
 			<Pilot>bluesquadronnovice</Pilot>
@@ -831,7 +831,7 @@
 		</Ships>
 		<Pilots>
 			<Pilot>zuckuss</Pilot>
-			<Pilot>4lom</Pilot>
+			<Pilot>fourlom</Pilot>
 			<Pilot>gandfindsman</Pilot>
 			<Pilot>ruthlessfreelancer</Pilot>
 		</Pilots>
@@ -841,7 +841,7 @@
 			<Upgrade>adaptability</Upgrade>
 			<Upgrade>adaptabilitydual</Upgrade>
 			<Upgrade>zuckuss</Upgrade>
-			<Upgrade>4lom</Upgrade>
+			<Upgrade>fourlom</Upgrade>
 			<Upgrade>tractorbeam</Upgrade>
 			<Upgrade>misthunter</Upgrade>
 			<Upgrade>electronicbaffle</Upgrade>
@@ -1050,7 +1050,7 @@
 			<Upgrade>c3po</Upgrade>
 			<Upgrade>hansolo</Upgrade>
 			<Upgrade>leiaorgana</Upgrade>
-			<Upgrade>r2d2</Upgrade>
+			<Upgrade>r2d2crew</Upgrade>
 			<Upgrade>raymusantilles</Upgrade>
 			<Upgrade>targetingcoordinator</Upgrade>
 			<Upgrade>quadlasercannons</Upgrade>

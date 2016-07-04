@@ -289,7 +289,10 @@ namespace SquadBuilder
 		{
 			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.ShipsFilename))
 				return;
-			
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var shipsCollectionElement = collectionXml.Element ("Ships");
+
 			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ShipsFilename)));
 			ships = new ObservableCollection <Ship> ((
 				from ship in shipsElement.Elements ()
@@ -302,7 +305,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
-					Owned = ship.Element ("Owned") != null ? (int)ship.Element ("Owned") : 0
+					owned = shipsCollectionElement.Element (ship.Attribute("id").Value) != null ? (int) shipsCollectionElement.Element (ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
 			);
 
@@ -318,7 +321,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
-					Owned = 0
+					owned = 0
 				})
 			);
 
@@ -329,7 +332,10 @@ namespace SquadBuilder
 		{
 			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.PilotsFilename))
 				return;
-			
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var pilotsCollectionElement = collectionXml.Element ("Pilots");
+
 			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.PilotsFilename)));
 			pilots = new ObservableCollection <Pilot> (from pilot in pilotsXml.Elements ()
 			                                           select new Pilot {
@@ -350,7 +356,7 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
-				Owned = pilot.Element ("Owned") != null ? (int)pilot.Element ("Owned") : 0
+				owned = pilotsCollectionElement.Element (pilot.Attribute ("id").Value) != null ? (int)pilotsCollectionElement.Element (pilot.Attribute ("id").Value) : 0
 			});
 
 			XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
@@ -373,7 +379,7 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = (bool)pilot.Element ("Custom"),
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
-				Owned = 0
+				owned = 0
 			});
 
 			updateAllPilots ();
@@ -383,7 +389,10 @@ namespace SquadBuilder
 		{
 			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.UpgradesFilename))
 				return;
-			
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var upgradesElement = collectionXml.Element ("Upgrades");
+
 			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
 			List <Upgrade> allUpgrades = new List <Upgrade> ();
 
@@ -423,7 +432,7 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
-					Owned = upgrade.Element ("Owned") != null ? (int)upgrade.Element ("Owned") : 0,
+					owned = upgradesElement.Element (upgrade.Attribute ("id").Value) != null ? (int)upgradesElement.Element (upgrade.Attribute ("id").Value) : 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
 				});
 
@@ -470,7 +479,7 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
-					Owned = 0,
+					owned = 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
 				});
 
@@ -486,7 +495,9 @@ namespace SquadBuilder
 		{
 			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.ExpansionsFilename))
 				return;
-			
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var expansionsElement = collectionXml.Element ("Expansions");
+
 			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ExpansionsFilename)));
 			expansions = new ObservableCollection <Expansion> (from expansion in expansionsXml.Elements ()
 			                                                    select new Expansion {
@@ -499,7 +510,7 @@ namespace SquadBuilder
 						select pilot.Value).ToList (),
 					Upgrades = (from upgrade in expansion.Element ("Upgrades").Elements ()
 						select upgrade.Value).ToList (),
-					owned = (int)expansion.Element ("Owned")
+					owned = expansionsElement.Element (expansion.Attribute ("id").Value) != null ? (int)expansionsElement.Element (expansion.Attribute ("id").Value) : 0
 			});
 		}
 
@@ -522,10 +533,26 @@ namespace SquadBuilder
 					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 					foreach (var pilot in squad.Pilots) {
+						if (squad.Faction.Id == "scum") {
+							if (pilot.Id == "bobafett")
+								pilot.Id = "bobafettscum";
+							if (pilot.Id == "kathscarlet")
+								pilot.Id = "kathscarletscum";
+						}
+						if (pilot.Id == "Ello Asty")
+							pilot.Id = "elloasty";
+						if (pilot.Id == "4lom")
+							pilot.Id = "fourlom";
+
 						foreach (var upgrade in pilot.UpgradesEquipped) {
 							if (upgrade == null)
 								continue;
 
+							if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
+								upgrade.Id = "r2d2crew";
+							if (upgrade.Id == "4lom")
+								upgrade.Id = "fourlom";
+							
 							if (upgrade.CategoryId == null)
 								upgrade.CategoryId = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
 						}
@@ -557,57 +584,6 @@ namespace SquadBuilder
 						await SettingsViewModel.SaveToDropbox ();
 				}
 			}
-		}
-
-		public void SaveCollection ()
-		{
-			XElement expansionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ExpansionsFilename)));
-			XElement shipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ShipsFilename)));
-			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.PilotsFilename)));
-			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
-
-			foreach (var expansion in Expansions) {
-				var element = expansionsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == expansion.Id);
-
-				if (element == null)
-					continue;
-
-				element.SetElementValue ("Owned", expansion.Owned);
-			}
-
-			foreach (var ship in Ships) {
-				var element = shipsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == ship.Id);
-
-				if (element == null)
-					continue;
-
-				element.SetElementValue ("Owned", ship.Owned);
-			}
-
-			foreach (var pilot in Pilots) {
-				var element = pilotsXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == pilot.Id && e.Attribute ("ship").Value == pilot.Ship.Id && e.Attribute ("faction").Value == pilot.Faction.Id);
-
-				if (element == null)
-					continue;
-
-				element.SetElementValue ("Owned", pilot.Owned);
-			}
-
-			foreach (var upgrade in Upgrades) {
-				var element = upgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == upgrade.Id && e.Parent.Attribute ("id").Value == upgrade.CategoryId);
-
-				if (element == null)
-					continue;
-
-				element.SetElementValue ("Owned", upgrade.Owned);
-			}
-
-			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ExpansionsFilename, expansionsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ShipsFilename, shipsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.PilotsFilename, pilotsXml.ToString ());
-			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.UpgradesFilename, upgradesXml.ToString ());
-
-			Cards.SharedInstance.GetAllExpansions ();
 		}
 	}
 }

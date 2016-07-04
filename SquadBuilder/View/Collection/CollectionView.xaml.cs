@@ -30,8 +30,6 @@ namespace SquadBuilder
 
 				foreach (var upgrade in Cards.SharedInstance.Upgrades)
 					upgrade.Owned = 0;
-
-				Cards.SharedInstance.SaveCollection ();
 			});
 		}
 	}

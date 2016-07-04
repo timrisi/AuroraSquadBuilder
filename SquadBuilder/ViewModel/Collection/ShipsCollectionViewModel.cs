@@ -30,12 +30,5 @@ namespace SquadBuilder
 
 			Ships = Cards.SharedInstance.Ships;
 		}
-
-		public override void OnViewDisappearing ()
-		{
-			base.OnViewDisappearing ();
-
-			Cards.SharedInstance.SaveCollection ();
-		}
 	}
 }

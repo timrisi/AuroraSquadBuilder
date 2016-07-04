@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using XLabs;
+using Xamarin.Forms;
+using System.Xml.Linq;
+using System.IO;
 
 namespace SquadBuilder
 {
@@ -29,38 +32,29 @@ namespace SquadBuilder
 				var previousNumber = owned;
 				SetProperty (ref owned, value);
 
+				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+				var expansionsElement = collectionXml.Element ("Expansions");
+				if (expansionsElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
+					if (owned == 0)
+						expansionsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id)?.Remove ();
+					else 
+						expansionsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Id).SetValue (owned);
+				} else {
+					var element = new XElement ("Expansion", owned);
+					element.SetAttributeValue ("id", Id);
+					expansionsElement.Add (element);
+				}
+
+				DependencyService.Get<ISaveAndLoad> ().SaveText ("Collection.xml", collectionXml.ToString ());
+
 				foreach (var ship in Ships)
 					Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == ship).Owned += (owned - previousNumber);
-
-				foreach (var pilot in Pilots) {
-					if (pilot == "bobafett") {
-						if (Id == "firespray31")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "imperial").Owned += (owned - previousNumber);
-						else if (Id == "mostwanted")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
-						continue;
-					} else if (pilot == "kathscarlet") {
-						if (Id == "firespray31")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id == "imperial").Owned += (owned - previousNumber);
-						else if (Id == "mostwanted")
-							Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && p.Faction.Id== "scum").Owned += (owned - previousNumber);
-						continue;
-					}
-
+				
+				foreach (var pilot in Pilots)
 					Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot).Owned += (owned - previousNumber);
-				}
-
-				foreach (var upgrade in Upgrades) {
-					if (upgrade == "r2d2") {
-						if (Id == "coreset")
-							Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade && u.CategoryId == "amd").Owned += (owned - previousNumber);
-						else if (Id == "tantiveiv")
-							Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade && u.CategoryId == "crew").Owned += (owned - previousNumber);
-						continue;
-					}
-
+			
+				foreach (var upgrade in Upgrades)
 					Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade).Owned += (owned - previousNumber);
-				}
 			}
 		}
 
