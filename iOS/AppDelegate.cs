@@ -62,6 +62,16 @@ namespace SquadBuilder.iOS
 
 			if (!Resolver.IsSet)
 				SetIoc ();
+
+			var collectionXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Collection", "xml")).ReadToEnd ();
+			if (!saveAndLoad.FileExists ("Collection.xml"))
+				saveAndLoad.SaveText ("Collection.xml", collectionXml);
+
+			var referenceCardXml = new StreamReader (NSBundle.MainBundle.PathForResource ("ReferenceCards", "xml")).ReadToEnd ();
+			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
+				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
+			Settings.ReferenceCardsVersion = referenceCardsVersion;
 			
 			UpdateIds ();
 
@@ -131,15 +141,13 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 				Cards.SharedInstance.GetAllExpansions ();
 			}
-
-			var collectionXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Collection", "xml")).ReadToEnd ();
-			if (!saveAndLoad.FileExists ("Collection.xml"))
-				saveAndLoad.SaveText ("Collection.xml", collectionXml);
 				
 			Cards.SharedInstance.GetAllFactions ();
 			Cards.SharedInstance.GetAllShips ();
 			Cards.SharedInstance.GetAllPilots ();
 			Cards.SharedInstance.GetAllUpgrades ();
+
+			Cards.SharedInstance.GetAllSquadrons ();
 
 			LoadApplication (new App ());
 
@@ -235,11 +243,8 @@ namespace SquadBuilder.iOS
 				foreach (var key in deprecatedIds.Keys)
 					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
 				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
-				squadronXml = squadronXml.Replace ("4lom", "fourlom");
 				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
 			}
-
-			Cards.SharedInstance.GetAllSquadrons ();
 		}
 	}
 }

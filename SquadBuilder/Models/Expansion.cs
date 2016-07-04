@@ -7,6 +7,7 @@ using XLabs;
 using Xamarin.Forms;
 using System.Xml.Linq;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace SquadBuilder
 {
@@ -19,7 +20,9 @@ namespace SquadBuilder
 		public List <string> Pilots { get; set; }
 		public List <string> Upgrades { get; set; }
 
+		[XmlIgnore]
 		public int owned;
+		[XmlIgnore]
 		public int Owned { 
 			get { return owned; }
 			set {

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SquadBuilder.ReferenceCardListView"
+			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+			 Title="{Binding Title}">
+	<mvvm:BaseView.Content>
+		<ListView ItemsSource="{Binding ReferenceCards}"
+							SelectedItem="{Binding SelectedReferenceCard}"
+							HasUnevenRows="true">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding Name}" Detail="{Binding Detail}" />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

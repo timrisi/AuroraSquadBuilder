@@ -180,6 +180,7 @@
     </BundleResource>
     <BundleResource Include="Resources\Icon-167.png" />
     <BundleResource Include="Resources\Collection.xml" />
+    <BundleResource Include="Resources\ReferenceCards.xml" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

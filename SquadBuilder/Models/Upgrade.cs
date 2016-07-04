@@ -44,7 +44,9 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
 		public int owned;
+		[XmlIgnore]
 		public int Owned { 
 			get { return owned; }
 			set {

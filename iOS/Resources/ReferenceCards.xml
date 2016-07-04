@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ReferenceCards Version="0.03">
+	<ReferenceCard>
+		<Name>Ion Token</Name>
+		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
+
+Some card abilities, such as the &quot;Ion Cannon Turret&quot; Upgrade card, can cause a ship to receive an ion token.  A ship with an ion token assigned to it follows special rules during these phases:
+
+* Planning Phase: The owner does not assign a maneuver dial to this ship.
+
+* Activation Phase: The owner moves the ship as if it were assigned a white {1 straight} maneuver.  After executing this maneuver, remove all ion tokens from the ship.  It may perform actions as normal.
+
+* Combat Phase: The ship may attack as normal.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Boost Action</Name>
+		<Text>This card explains the rules for performing a Boost action.  Ships with the {boost} icon in their action bar may perform a boost action.  To boost, follow these steps:
+
+1.  Choose the {1 straight}, {1 bank left}, or {1 bank right} maneuver template.
+2.  Set the maneuver template between the ship's front guides.
+3.  Move the ship to the opposite end of the template and slide the rear guides of the ship into the template.
+
+Performing a boost does not count as executing a maneuver.  A ship cannot boost if this would cause its base to overlap with another ship's base or an obstacle token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Bomb Tokens</Name>
+		<Detail>(Seismic Charge and Proximity Mine)</Detail>
+		<Text>The seismic charge and proximity mine tokens are bomb tokens.  Bomb tokens Detonate as described on their corresponding Upgrade cards, producing one of the following effects.
+
+* Seismic Charge Token: When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage.  Then discard this token.
+
+* Proximity Mine Token: When this bomb token detonates, the ship that moved through or overlapped this token rolls 3 attack dice and suffers all damage {hit} and critical damage {crit} rolled.  Then discard this token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Bomb Tokens</Name>
+		<Detail>(Seismic Charge and Proton Bomb)</Detail>
+		<Text>Bomb tokens Detonate as described on their corresponding Upgrade cards, producing one of the following effects:
+
+* Seismic Charge Token: When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage.  Then discard this token.
+
+* Proton Bomb Token: When this bomb token detonates, deal 1 faceup Damage card to each ship at Range 1 of the token.   Then discard this token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Bomb Tokens</Name>
+		<Detail>(Ion Bomb and Conner Net)</Detail>
+		<Text>The ion bomb and Conner net tokens are bomb tokens.  Bomb tokens Detonate as described on their corresponding Upgrade cards, producing one of the following effects:
+
+* Ion Bomb Token: When this bomb token detonates, each ship at Range 1 of the token receives 2 ion tokens.  Then discard this token.
+
+* Conner Net Token: When this bomb token detonates, the ship that moved through or overlapped this token suffers 1 damage, receives 2 ion tokens, and skips its &quot;Perform Action&quot; step.  Then discard this token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Bomb Tokens</Name>
+		<Detail>(Ion Bomb and Cluster Mines)</Detail>
+		<Text>The ion bomb and cluster mine tokens are bomb tokens.  Bomb tokens Detonate as described on their corresponding Upgrade cards, producing one of the following effects.
+
+* Ion Bomb Token: When this bomb token detonates, each ship at Range 1 of the token receives 2 ion tokens.  Then discard this token.
+
+* Cluster Mine Tokens: When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers all damage {hit} rolled.  Then discard that token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Bomb Tokens</Name>
+		<Detail>(Thermal Detonators and Conner Net)</Detail>
+		<Text>The Thermal Detonator and Conner Net tokens are bomb tokens.  Bomb tokens Detonate as described on their corresponding Upgrade cards, producing one of the following effects:
+
+* Thermal Detonators Token: When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage and receives 1 stress token.  Then discard this token.
+
+* Conner Net Token: When this bomb token detonates, the ship that moved through or overlapped this token suffers 1 damage, receives 2 ion tokens, and skips its &quot;Perform Action&quot; step.  Then discard this token.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Cloak</Name>
+		<Text>This card explains the rules for performing a Cloak action.  Ships with the {cloak} icon in their action bar may perform a cloak action.
+
+When a ship performs the cloak action, place 1 cloak token near that ship.  A ship cannot perform the cloak action while it already has a cloak token.
+
+The agility value of a ship with a cloak token is increased by 2.  While that ship has a cloak token, it cannot perform attacks.
+
+Cloak tokens are not removed during the End phase.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Decloak</Name>
+		<Text>At the start of the Activation phase, after players have resolved all other abilities that trigger at the start of the Activation phase, each ship may spend a cloak token to Decloak, starting with the ship with the lowets pilot skill (using initiative to break ties).  When a ship decloaks, it must choose one of the following effects:
+
+* Perform a barrel roll using the {straight 2} maneuver template.
+
+* Perform a boost using the {straight 2} maneuver template.
+
+Decloaking is not an action or a maneuver, and a ship can decloak while it has a stress token.
+
+A ship cannot decloak if it would overlap another ship or an obstacle token, or if the maneuver template would overlap an obstacle token.
+
+After all decloaking ships have been resolved, the Activation phase continues as normal.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Stegnor's Loop</Name>
+		<Text>This card explains the rules for performing a Stegnor's Loop maneuver.
+
+The Stegnor's Loop maneuver {s-loop left or s-loop right} uses the same maneuver template as a bank maneuver (bank left or bank right).  The only difference between these maneuvers is that after executing a Stegnor's Loop , the player rotates his ship 180 degrees.  If a Stegnor's Loop maneuver causes a ship to overlap another ship, instead treat its maneuver as a bank maneuver with the same speed, color, and direction revealed on the dial.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>SLAM Action</Name>
+		<Text>Ships with the {slam} icon in their action bar may perform a SLAM (SubLight Acceleration Motor) action.
+
+To SLAM, choose and execute a maneuver on the ship's dial.  The chosen maneuver must be the same speed as the maneuver that ship executed this round.  Then assign that ship a weapons disabled token.
+
+A ship with a weapons disabled token assigned to it cannot perform attacks.  Weapons disabled tokens are removed during the End phase along with focus and evade tokens.
+
+Performing a SLAM counts as executing a maneuver.
+
+A ship cannot perform SLAM as a free action.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Tractor Beam Token</Name>
+		<Text>A ship with at least one tractor beam token assigned to it follows special rules during these phases:
+
+* Combat Phase: The agility value of that ship is reduced by 1 for each tractor beam token, to a minimum of 0.
+
+* End Phase: Remove all tractor beam tokens from the ship.
+
+The first time a small ship receives a tractor beam token each round, the opposing player chooses one of the following effects:
+
+* Perform a barrel roll using the {straight 1} maneuver template.  The opposing player selects the direction of the barrel roll and the final position of the ship.
+
+* Perform a boost using the {straight 1} maneuver template.
+
+This is not an action or a maneuver, and can cause the ship to overlap obstacles (but not other ships).</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Dual Upgrade Cards</Name>
+		<Text>Dual Upgrade cards are double-faced.  Because they do not have a card back, they can be identified by the symbol in the lower-left corner.
+
+When a ship equipped with a Dual Upgrade card is placed in the play area during setup, its equipped Dual Upgrade card can be placed with either side faceup.
+
+Dual Upgrade cards are not active until they are placed in the play area during setup.  Only the faceup side of a Dual Upgrade card is active.</Text>
+	</ReferenceCard>
+</ReferenceCards>

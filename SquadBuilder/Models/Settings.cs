@@ -29,6 +29,7 @@ namespace SquadBuilder
 		public static float UpgradesVersion { get; set; }
 		public static float SettingsVersion { get; set; }
 		public static float ExpansionsVersion { get; set; }
+		public static float ReferenceCardsVersion { get; set; }
 
 		static bool allowCustom;
 		public static bool AllowCustom { 
@@ -109,6 +110,10 @@ namespace SquadBuilder
 
 					if ((float)versionsXml.Element ("Settings") > SettingsVersion)
 						updateXml ("Settings");
+
+					if ((float)versionsXml.Element ("ReferenceCards") > ReferenceCardsVersion)
+						updateXml ("ReferenceCardsVersion");
+					
 				} catch (Exception e) {		
 					Insights.Report (e);
 				}

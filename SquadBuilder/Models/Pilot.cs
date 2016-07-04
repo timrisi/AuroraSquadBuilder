@@ -48,7 +48,9 @@ namespace SquadBuilder
 		public bool Preview { get; set; }
 		public Guid LinkedPilotCardGuid { get; set; }
 
+		[XmlIgnore]
 		public int owned;
+		[XmlIgnore]
 		public int Owned { 
 			get { return owned; }
 			set {

@@ -28,6 +28,7 @@ namespace SquadBuilder
 		public const string ExpansionsFilename = "Expansions.xml";
 		public const string SettingsFilename = "Settings.xml";
 		public const string VersionsFilename = "Versions.xml";
+		public const string ReferenceCardsFilename = "ReferenceCards.xml";
 
 		public Cards ()
 		{
@@ -305,7 +306,8 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
-					owned = shipsCollectionElement.Element (ship.Attribute("id").Value) != null ? (int) shipsCollectionElement.Element (ship.Attribute ("id").Value) : 0
+					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
+							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
 			);
 
@@ -356,7 +358,8 @@ namespace SquadBuilder
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
-				owned = pilotsCollectionElement.Element (pilot.Attribute ("id").Value) != null ? (int)pilotsCollectionElement.Element (pilot.Attribute ("id").Value) : 0
+				owned = pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) != null ?
+							(int)pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) : 0
 			});
 
 			XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
@@ -432,7 +435,8 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
-					owned = upgradesElement.Element (upgrade.Attribute ("id").Value) != null ? (int)upgradesElement.Element (upgrade.Attribute ("id").Value) : 0,
+					owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
+											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0
 				});
 
@@ -510,7 +514,8 @@ namespace SquadBuilder
 						select pilot.Value).ToList (),
 					Upgrades = (from upgrade in expansion.Element ("Upgrades").Elements ()
 						select upgrade.Value).ToList (),
-					owned = expansionsElement.Element (expansion.Attribute ("id").Value) != null ? (int)expansionsElement.Element (expansion.Attribute ("id").Value) : 0
+					owned = expansionsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == expansion.Attribute ("id").Value) != null ? 
+				                             (int)expansionsElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == expansion.Attribute ("id").Value) : 0
 			});
 		}
 
@@ -524,6 +529,8 @@ namespace SquadBuilder
 			}
 
 			var serializedXml = service.LoadText (SquadronsFilename);
+			serializedXml.Replace ("<Owned>0</Owned>", "");
+			serializedXml.Replace ("<owned>0</owned>", "");
 			var serializer = new XmlSerializer (typeof(ObservableCollection <Squadron>));
 
 			using (TextReader reader = new StringReader (serializedXml)) {

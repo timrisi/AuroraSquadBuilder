@@ -40,6 +40,18 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand showReferenceCards;
+		public RelayCommand ShowReferenceCards {
+			get {
+				if (showReferenceCards == null)
+					showReferenceCards = new RelayCommand (() => {
+						MessagingCenter.Send<MenuViewModel> (this, "Show Reference Cards");
+					});
+
+				return showReferenceCards;
+			}
+		}
+
 		RelayCommand showCustomFactions;
 		public RelayCommand ShowCustomFactions {
 			get {

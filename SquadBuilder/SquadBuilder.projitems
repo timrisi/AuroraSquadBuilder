@@ -144,6 +144,15 @@
       <DependentUpon>ImportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ImportViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ReferenceCardListView.xaml.cs">
+      <DependentUpon>ReferenceCardListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ReferenceCardListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ReferenceCard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ReferenceCardView.xaml.cs">
+      <DependentUpon>ReferenceCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ReferenceCardViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -245,6 +254,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Squadron\ImportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ReferenceCardListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ReferenceCardView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
