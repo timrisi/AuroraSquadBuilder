@@ -558,9 +558,13 @@ namespace SquadBuilder
 						if (pilot.Id == "4lom")
 							pilot.Id = "fourlom";
 
+						pilot.Preview = AllPilots.FirstOrDefault (p => p.Id == pilot.Id)?.Preview ?? false;
+
 						foreach (var upgrade in pilot.UpgradesEquipped) {
 							if (upgrade == null)
 								continue;
+
+							upgrade.Preview = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id)?.Preview ?? false;
 
 							if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
 								upgrade.Id = "r2d2crew";
