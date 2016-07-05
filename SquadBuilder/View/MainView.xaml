@@ -34,7 +34,11 @@
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
 											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
-											<Label Text="{Binding Faction.Name}" FontSize="Micro" HorizontalOptions="StartAndExpand" VerticalOptions="End" TextColor="{Binding Faction.Color}" />
+											<StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="End" >
+												<Label Text="{Binding Faction.Name}" FontSize="Micro" TextColor="{Binding Faction.Color}" />
+												<Label Text="Preview" IsVisible="{Binding ContainsPreview}" FontSize="Micro" TextColor="Blue" FontAttributes="Italic" />
+												<Label Text="Custom" IsVisible="{Binding ContainsCustom}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
+											</StackLayout>
 										</StackLayout>
 										<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">
 											<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" XAlign="End" YAlign="Center" />

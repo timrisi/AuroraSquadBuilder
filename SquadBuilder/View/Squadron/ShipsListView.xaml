@@ -18,7 +18,19 @@
 					  SelectedItem="{Binding SelectedShip, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<TextCell Text="{Binding Name}" TextColor="{Binding TextColor}" Detail="{Binding ActionsString}" />
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout Padding="15,5" Spacing="0">
+									<StackLayout Orientation="Horizontal">
+										<Label Text="{Binding Name}" TextColor="{Binding TextColor}" />
+										<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
+										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+									</StackLayout>
+									<Label Text="{Binding ActionsString}" FontSize="Micro" TextColor="Navy" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+<!--						<TextCell Text="{Binding Name}" TextColor="{Binding TextColor}" Detail="{Binding ActionsString}" />-->
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

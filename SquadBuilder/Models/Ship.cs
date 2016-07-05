@@ -53,6 +53,12 @@ namespace SquadBuilder
 			}
 		}
 
+		bool isPreview;
+		public bool IsPreview {
+			get { return isPreview; }
+			set { SetProperty (ref isPreview, value); }
+		}
+
 		bool isCustom;
 		public bool IsCustom {
 			get { return isCustom; }

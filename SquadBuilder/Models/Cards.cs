@@ -147,9 +147,6 @@ namespace SquadBuilder
 				if (pilots == null)
 					GetAllPilots ();
 
-				if (!Settings.AllowCustom)
-					return new ObservableCollection<Pilot> (pilots.Where (p => !p.IsCustom));
-				
 				return pilots; }
 			set { 
 				SetProperty (ref pilots, value); 
@@ -195,9 +192,6 @@ namespace SquadBuilder
 				if (upgrades == null)
 					GetAllUpgrades ();
 
-				if (!Settings.AllowCustom)
-					return new ObservableCollection<Upgrade> (upgrades.Where (u => !u.IsCustom));
-				
 				return upgrades; }
 			set { 
 				SetProperty (ref upgrades, value);
@@ -302,7 +296,7 @@ namespace SquadBuilder
 			var shipsCollectionElement = collectionXml.Element ("Ships");
 
 			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ShipsFilename)));
-			ships = new ObservableCollection <Ship> ((
+			ships = new ObservableCollection<Ship> ((
 				from ship in shipsElement.Elements ()
 				select new Ship {
 					Id = ship.Attribute ("id").Value,
@@ -310,10 +304,11 @@ namespace SquadBuilder
 					CanonicalName = ship.Element ("CanonicalName")?.Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
-					Actions = new ObservableCollection <string> (
+					Actions = new ObservableCollection<string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
+					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
 							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
@@ -331,6 +326,7 @@ namespace SquadBuilder
 					Actions = new ObservableCollection <string> (
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
+					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
 					owned = 0
 				})

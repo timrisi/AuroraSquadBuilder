@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.59">
+<Pilots Version="2.60">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1694,6 +1694,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
@@ -1891,6 +1892,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When attacking or defending, if the enemy ship is inside your firing arc, you may reroll up to 2 of your blank rolls.</Ability>
 		<Owned>0</Owned>
 	</Pilot>

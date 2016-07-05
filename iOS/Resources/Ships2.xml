@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="2.14">
+<Ships Version="2.15">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -109,6 +109,7 @@
 			<Action>Barrel Roll</Action>
 			<Action>Boost</Action>
 		</Actions>
+		<Preview>true</Preview>
 		<Owned>0</Owned>
 	</Ship>
 	<Ship id="lancerclasspursuitcraft">
@@ -120,6 +121,7 @@
 			<Action>Evade</Action>
 			<Action>Rotate Arc</Action>
 		</Actions>
+		<Preview>true</Preview>
 		<Owned>0</Owned>
 	</Ship>
 	<Ship id="awing">
@@ -221,6 +223,7 @@
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
+		<Preview>true</Preview>
 		<Owned>0</Owned>
 	</Ship>
 	<Ship id="gr75mediumtransport">
@@ -365,6 +368,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
+		<Preview>true</Preview>
 		<Owned>0</Owned>
 	</Ship>
 	<Ship id="raiderf">

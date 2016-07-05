@@ -116,6 +116,18 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool ContainsPreview {
+			get {
+				return Pilots.Any (p => p.Preview || p.UpgradesEquipped.Any (u => u?.Preview ?? false));
+			}
+		}
+
+		public bool ContainsCustom {
+			get {
+				return Pilots.Any (p => p.IsCustom || p.UpgradesEquipped.Any (u => u?.IsCustom ?? false));
+			}
+		}
+
 		public string PointDetails {
 			get { return Points + " / " + MaxPoints; }
 		}
