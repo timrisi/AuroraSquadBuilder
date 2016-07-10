@@ -558,6 +558,9 @@ namespace SquadBuilder
 						if (pilot.Id == "4lom")
 							pilot.Id = "fourlom";
 
+						if (CustomPilots.Any (p => p.Id == pilot.Id))
+							pilot.IsCustom = true;
+
 						pilot.Preview = AllPilots.FirstOrDefault (p => p.Id == pilot.Id)?.Preview ?? false;
 
 						foreach (var upgrade in pilot.UpgradesEquipped) {

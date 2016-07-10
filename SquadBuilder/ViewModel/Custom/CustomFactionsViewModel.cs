@@ -39,6 +39,7 @@ namespace SquadBuilder
 						MessagingCenter.Subscribe <CreateFactionViewModel, Faction> (this, "Faction Created", (vm, faction) => {
 							Factions.Add (faction);
 							Cards.SharedInstance.CustomFactions.Add (faction);
+							Cards.SharedInstance.GetAllFactions ();
 							Navigation.RemoveAsync <CreateFactionViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateFactionViewModel, Faction> (this, "Faction Created");
 						});

@@ -56,6 +56,7 @@ namespace SquadBuilder
 						MessagingCenter.Subscribe <CreateShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
 							Ships.Add (ship);
 							Cards.SharedInstance.CustomShips.Add (ship);
+							Cards.SharedInstance.GetAllShips ();
 							Navigation.RemoveAsync <CreateShipViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateShipViewModel, Ship> (this, "Ship Created");
 						});

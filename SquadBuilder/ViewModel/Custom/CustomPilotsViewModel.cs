@@ -47,6 +47,31 @@ namespace SquadBuilder
 						PilotGroups.Add (pilotGroup);
 						pilotGroup.Add (updatedPilot);
 					}
+
+					foreach (var squad in Cards.SharedInstance.Squadrons) {
+						if (squad.Pilots.Any (p => p.Id == updatedPilot.Id)) {
+							for (int i = 0; i < squad.Pilots.Count; i++) {
+								var squadPilot = squad.Pilots [i];
+
+								if (squadPilot.Id != updatedPilot.Id)
+									continue;
+
+								var upgradeTypes = squadPilot.UpgradeTypes;
+								var upgradesEquipped = squadPilot.UpgradesEquipped;
+								squad.Pilots [i] = updatedPilot.Copy ();
+								squad.Pilots [i].UpgradesEquipped = new ObservableCollection<Upgrade> { null, null, null, null, null, null };
+
+								for (int j = 0; j < upgradesEquipped.Count; j++) {
+									var equippedUpgrade = upgradesEquipped [j];
+									if (equippedUpgrade != null) {
+										var index = squad.Pilots [i].UpgradeTypes.IndexOf (upgradeTypes [j]);
+										if (index >= 0)
+											squad.Pilots [i].UpgradesEquipped [index] = equippedUpgrade;
+									}
+								}
+							}
+						}
+					}
 						
 					Navigation.RemoveAsync <EditPilotViewModel> (vm);
 					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
@@ -89,7 +114,7 @@ namespace SquadBuilder
 
 							pilotGroup.Add (pilot);
 							Cards.SharedInstance.CustomPilots.Add (pilot);
-
+							Cards.SharedInstance.GetAllPilots ();
 							Navigation.RemoveAsync <CreatePilotViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreatePilotViewModel, Pilot> (this, "Pilot Created");
 						});

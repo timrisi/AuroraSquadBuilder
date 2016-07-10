@@ -93,7 +93,7 @@ namespace SquadBuilder
 							upgradeGroup.Add (upgrade);
 
 							Cards.SharedInstance.CustomUpgrades.Add (upgrade);
-
+							Cards.SharedInstance.GetAllUpgrades ();
 							Navigation.RemoveAsync <CreateUpgradeViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created");
 						});
