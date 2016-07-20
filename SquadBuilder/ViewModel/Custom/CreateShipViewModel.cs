@@ -14,9 +14,13 @@ namespace SquadBuilder
 	{
 		Ship ship;
 		public Ship Ship {
-			get { 
-				if (ship == null)
+			get {
+				if (ship == null) {
 					ship = new Ship ();
+					ship.Maneuvers = new List<string> (new string [29]);
+					//for (int i = 0; i < 29; i++)
+					//	ship.Maneuvers.Add ("");	
+				}
 			
 				return ship;
 			}

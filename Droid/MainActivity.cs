@@ -65,7 +65,6 @@ namespace SquadBuilder.Droid
 			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
-			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
 			UpdateIds ();
 
@@ -77,8 +76,9 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
 				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
 			Settings.SettingsVersion = settingsVersion;
+			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
-			var factionsXml = new StreamReader (Application.Context.Assets.Open ("Factions2.xml")).ReadToEnd ();
+			var factionsXml = new StreamReader (Application.Context.Assets.Open ("Factions3.xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText (Cards.FactionsFilename, factionsXml);
@@ -87,7 +87,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 			
-			var shipsXml = new StreamReader (Application.Context.Assets.Open ("Ships2.xml")).ReadToEnd ();
+			var shipsXml = new StreamReader (Application.Context.Assets.Open ("Ships3.xml")).ReadToEnd ();
 			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
@@ -100,7 +100,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Ships_Custom.xml"))
 				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
 			
-			var pilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots2.xml")).ReadToEnd ();
+			var pilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots3.xml")).ReadToEnd ();
 			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
@@ -113,7 +113,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Pilots_Custom.xml"))
 				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
 
-			var upgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades2.xml")).ReadToEnd ();
+			var upgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades3.xml")).ReadToEnd ();
 			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
@@ -126,7 +126,7 @@ namespace SquadBuilder.Droid
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 
-			var expansionsXml = new StreamReader (Application.Context.Assets.Open (Cards.ExpansionsFilename)).ReadToEnd ();
+			var expansionsXml = new StreamReader (Application.Context.Assets.Open ("Expansions3.xml")).ReadToEnd ();
 			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename))
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);

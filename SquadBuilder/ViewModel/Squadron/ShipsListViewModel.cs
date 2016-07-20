@@ -83,7 +83,6 @@ namespace SquadBuilder
 			else
 				pilots = Cards.SharedInstance.Pilots;
 
-			var test = allShips.Where (s => pilots.Any (p => (Faction.Name == "Mixed" || p.Faction.Id == Faction.Id) && p.Ship.Id == s.Id));
 			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Any (p => (Faction.Name == "Mixed" || p.Faction.Id == Faction.Id) && p.Ship.Id == s.Id)).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.60">
+<Pilots Version="2.67">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -48,6 +48,7 @@
 		<Cost>27</Cost>
 		<Upgrades>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -63,6 +64,7 @@
 		<Cost>25</Cost>
 		<Upgrades>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -236,6 +238,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, if there are no other friendly ships at Range 1-2, roll 1 additional attack die.</Ability>
@@ -254,6 +257,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the Combat phase, you may remove 1 focus or evade token from another friendly ship at Range 1-2 and assign it to yourself.</Ability>
@@ -271,6 +275,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -287,6 +292,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -368,6 +374,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
@@ -385,6 +392,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When defending, if the attacker is inside your firing arc, roll 1 additional defense die.</Ability>
@@ -403,6 +411,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -419,6 +428,7 @@
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1031,6 +1041,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, 1 of your {crit} results cannot be cancelled by defense dice.</Ability>
@@ -1051,6 +1062,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, you may remove 1 stress token to change all of your {focus} results to {hit} results.</Ability>
@@ -1071,6 +1083,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, if you have at least one stress token, you may reroll 1 of your dice.</Ability>
@@ -1091,6 +1104,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>You can perform {torpedo} secondary weapon attacks at ships outside your firing arc.</Ability>
@@ -1110,6 +1124,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1128,6 +1143,7 @@
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1146,6 +1162,7 @@
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the End phase, you may perform 1 attack.  You may not attack next round.</Ability>
@@ -1165,6 +1182,7 @@
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When an enemy ship inside your firing arc at Range 1-3 is defending, the attacker may change 1 of its {hit} results to a {crit}.</Ability>
@@ -1183,6 +1201,7 @@
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1200,6 +1219,7 @@
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1294,6 +1314,7 @@
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Once per round when attacking, you may either spend 1 shield to roll 1 additional attack die or roll 1 fewer attack die to recover 1 shield.</Ability>
@@ -1316,6 +1337,7 @@
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1-2 is attacking, it may treat your focus tokens as its own.</Ability>
@@ -1338,6 +1360,7 @@
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1359,6 +1382,7 @@
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
 			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1376,6 +1400,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, reduce the defender's agility value by 1 (to a minimum of 0).</Ability>
@@ -1394,6 +1419,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you perform an attack, you may remove 1 focus, evade or blue target lock token from the defender.</Ability>
@@ -1412,6 +1438,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When defending, you may change 1 of your {focus} results to an {evade} result.</Ability>
@@ -1430,6 +1457,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you receive a stress token, you may remove it and roll 1 attack die.  On a {hit} result, deal 1 facedown damage card to this ship.</Ability>
@@ -1447,6 +1475,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After spending a focus token, you may place that token on any other friendly ship at Range 1-2 (instead of discarding it).</Ability>
@@ -1464,6 +1493,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead.</Ability>
@@ -1481,6 +1511,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you aquire or spend a target lock you may remove 1 stress token from your ship.</Ability>
@@ -1498,6 +1529,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1514,6 +1546,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When an enemy ship declares you as the target of an attack, you may acquire a target lock on that ship.</Ability>
@@ -1531,6 +1564,7 @@
 		<Upgrades>
 			<Upgrade>Astromech Droid</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1625,6 +1659,7 @@
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you perform an attack, you may choose another friendly ship at Range 1.  That ship may perform 1 free action.</Ability>
@@ -1642,6 +1677,7 @@
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, the defender is hit by your attack, even if he does not suffer any damage.</Ability>
@@ -1658,6 +1694,7 @@
 		<Cost>13</Cost>
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1673,6 +1710,7 @@
 		<Cost>12</Cost>
 		<Upgrades>
 			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -1853,6 +1891,46 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1-2 is attacking, it may treat your blue target lock tokens as its own.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="thanekyrell" faction="rebel" ship="arc170">
+		<Name>Thane Kyrell</Name>
+		<Unique>true</Unique>
+		<PilotSkill>4</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>3</Shields>
+		<Cost>26</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After an enemy ship inside your firing arc at Range 1-3 attacks another friendly ship, you may perform a free action.</Ability>
+		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="braylenstramm" faction="rebel" ship="arc170">
+		<Name>Braylen Stramm</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>3</Shields>
+		<Cost>25</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After you execute a maneuver, you may roll an attack die.  On a {hit} or {crit} result, remove 1 stress from your ship.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="hansolo" faction="rebel" ship="yt1300">
@@ -2269,6 +2347,7 @@
 		<Cost>18</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 is attacking with its primary weapon, it may reroll 1 attack die.</Ability>
@@ -2285,6 +2364,7 @@
 		<Cost>17</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking at Range 1, roll 1 additional attack die.</Ability>
@@ -2301,6 +2381,7 @@
 		<Cost>17</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking a defender that has 1 or more Damage cards, roll 1 additional attack die.</Ability>
@@ -2316,6 +2397,7 @@
 		<Shields>0</Shields>
 		<Cost>16</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When defending, ships attacking you cannot spend focus tokens or reroll attack dice.</Ability>
@@ -2331,6 +2413,7 @@
 		<Shields>0</Shields>
 		<Cost>16</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking from outside the defender's firing arc, roll 1 additional attack die.</Ability>
@@ -2347,6 +2430,7 @@
 		<Cost>15</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Friendly TIE Fighters at Range 1-3 may perform the action on your equipped {Elite Pilot Talent} Upgrade card.</Ability>
@@ -2362,6 +2446,7 @@
 		<Shields>0</Shields>
 		<Cost>15</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking at Range 1, you may change 1 of your {hit} results to a {crit} result.</Ability>
@@ -2377,6 +2462,7 @@
 		<Shields>0</Shields>
 		<Cost>15</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After executing a green manoeuvre, you may perform a free focus action.</Ability>
@@ -2392,6 +2478,7 @@
 		<Shields>0</Shields>
 		<Cost>14</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, you may cancel all dice results.  If you cancel a {crit} result, deal 1 facedown Damage card to the defender.</Ability>
@@ -2408,6 +2495,7 @@
 		<Cost>14</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -2422,6 +2510,7 @@
 		<Shields>0</Shields>
 		<Cost>14</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When another friendly ship at Range 1 spends a focus token, assign a focus token to your ship.</Ability>
@@ -2437,6 +2526,7 @@
 		<Shields>0</Shields>
 		<Cost>13</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -2451,6 +2541,7 @@
 		<Shields>0</Shields>
 		<Cost>12</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3014,6 +3105,7 @@
 		<Cost>21</Cost>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3028,6 +3120,7 @@
 		<Shields>0</Shields>
 		<Cost>20</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3042,6 +3135,7 @@
 		<Shields>0</Shields>
 		<Cost>18</Cost>
 		<Upgrades>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3059,6 +3153,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you perform an attack that hits, you may assign 1 focus token to your ship.</Ability>
@@ -3077,6 +3172,7 @@
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you decloak, you must use the 2 {left bank} or 2 {right bank} template instead of the 2 {straight} template.</Ability>
@@ -3094,6 +3190,7 @@
 		<Upgrades>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3110,6 +3207,7 @@
 		<Upgrades>
 			<Upgrade>System Upgrade</Upgrade>
 			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
@@ -3761,6 +3859,46 @@
 	</Pilot>
 
 	<!-- Custom Card League -->
+	<Pilot id="noblecalder" faction="imperial" ship="assaultgunboat">
+		<Name>Noble Calder</Name>
+		<Unique>false</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>5</Hull>
+		<Shields>3</Shields>
+		<Cost>21</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you perform a focus action, you may assign 1 Focus token to another friendly ship at Range 1-2.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="xeal" faction="imperial" ship="assaultgunboat">
+		<Name>Xeal</Name>
+		<Unique>false</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>5</Hull>
+		<Shields>3</Shields>
+		<Cost>20</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>If you have 1 or more Damage cards, you may roll 1 additional attack die.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
 	<Pilot id="eaglesquadronpilot" faction="imperial" ship="assaultgunboat">
 		<Name>Eagle Squadron Pilot</Name>
 		<Unique>false</Unique>
@@ -3798,6 +3936,51 @@
 		</Upgrades>
 		<Custom>true</Custom>
 	</Pilot>
+	<Pilot id="marajadesorosuub" faction="scum" ship="sorosuubluxuryyacht3000">
+		<Name>Mara Jade</Name>
+		<Unique>true</Unique>
+		<PilotSkill>8</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>7</Hull>
+		<Shields>4</Shields>
+		<Cost>29</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, after you spend a target lock, you may acquire a focus token.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="hondoohnaka" faction="scum" ship="sorosuubluxuryyacht3000">
+		<Name>Hondo Ohnaka</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>7</Hull>
+		<Shields>4</Shields>
+		<Cost>27</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
+			<Upgrade>Cannon</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the start of the combat phase, you may transfer a token from a friendly ship at Range 1-3 to another ship at Range 1 of you.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
 	<Pilot id="spicesmuggler" faction="scum" ship="sorosuubluxuryyacht3000">
 		<Name>Spice Smuggler</Name>
 		<Unique>false</Unique>
@@ -3809,7 +3992,7 @@
 		<Cost>25</Cost>
 		<Upgrades>
 			<Upgrade>System Upgrade</Upgrade>
-			<Upgrade>Turret</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -3830,7 +4013,7 @@
 		<Cost>23</Cost>
 		<Upgrades>
 			<Upgrade>System Upgrade</Upgrade>
-			<Upgrade>Turret</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
 			<Upgrade>Cannon</Upgrade>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -3838,6 +4021,44 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="reach" faction="scum" ship="vwing">
+		<Name>Reach</Name>
+		<Unique>true</Unique>
+		<PilotSkill>8</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>21</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Salvaged Astromech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, you may spend a focus token to roll an additional attack die.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="cikatrovizago" faction="scum" ship="vwing">
+		<Name>Cikatro Vizago</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>19</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Salvaged Astromech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, at the start of the 'Compare Results' step you may spend an evade token to cancel 1 of the defender's {evade} results.</Ability>
 		<Custom>true</Custom>
 	</Pilot>
 	<Pilot id="cartelhotshot" faction="scum" ship="vwing">
@@ -3875,6 +4096,42 @@
 		</Upgrades>
 		<Custom>true</Custom>
 	</Pilot>
+	<Pilot id="sedayamorningstar" faction="imperial" ship="tieavenger">
+		<Name>Sedaya Morningstar</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>3</Shields>
+		<Cost>33</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, you may change one of your blank results to a {hit} result.  Then, receive 1 stress token.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="edge" faction="imperial" ship="tieavenger">
+		<Name>&quot;Edge&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>3</Shields>
+		<Cost>30</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Once per round, when you are declared the target of an attack, you may assign yourself one focus token.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
 	<Pilot id="avengersquadronpilot" faction="imperial" ship="tieavenger">
 		<Name>Avenger Squadron Pilot</Name>
 		<Unique>false</Unique>
@@ -3906,6 +4163,154 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="talonbanecobrastarviper" faction="scum" ship="starviper">
+		<Name>Talonbane Cobra</Name>
+		<Unique>true</Unique>
+		<PilotSkill>9</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>3</Agility>
+		<Hull>4</Hull>
+		<Shields>1</Shields>
+		<Cost>33</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="savan" faction="scum" ship="starviper">
+		<Name>Savan</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>3</Agility>
+		<Hull>4</Hull>
+		<Shields>1</Shields>
+		<Cost>29</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, if the enemy has one or more stress tokens, you may roll one additional die.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="aeronazzameen" faction="rebel" ship="yt1300">
+		<Name>Aeron Azzameen</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>6</Shields>
+		<Cost>37</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When defending, you may spend a focus token to choose 1 of the attackers focus or target lock tokens.  That token cannot be spent during this attack and must be discarded.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<!-- Savan -->
+	<Pilot id="myndonos" faction="rebel" ship="xwing">
+		<Name>Myn Donos</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>2</Shields>
+		<Cost>26</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, you may spend a focus token to convert one of the target's {evade} results to a blank result.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="oorylqrygg" faction="rebel" ship="xwing">
+		<Name>Ooryl Qrygg</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>2</Shields>
+		<Cost>24</Cost>
+		<Upgrades>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When a friendly ship at Range 1-2 is defending, you may spend your focus token to change their blank results to {eyeball} results.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="roguesquadronace" faction="rebel" ship="xwing">
+		<Name>Rogue Squadron Ace</Name>
+		<Unique>false</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>2</Shields>
+		<Cost>24</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="sharabeyawing" faction="rebel" ship="awing">
+		<Name>Shara Bey</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>2</Shields>
+		<Cost>23</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you perform a boost action, you may use the 2 {bank left}, {straight}, or {bank right} templates.  If you do so, assign yourself 1 stress token.</Ability>
+		<Custom>true</Custom>
+	</Pilot>
+	<Pilot id="yrsaharu" faction="scum" ship="kihraxzfighter">
+		<Name>Yrsa Haru</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>1</Shields>
+		<Cost>26</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you receive a stress token, you may perform a free barrel roll action, even while stressed.</Ability>
 		<Custom>true</Custom>
 	</Pilot>
 </Pilots>

@@ -82,6 +82,15 @@ namespace SquadBuilder
 			}
 		}
 
+		static bool showManeuversInShipList = true;
+		public static bool ShowManeuversInShipList {
+			get { return showManeuversInShipList; }
+			set {
+				showManeuversInShipList = value;
+				App.Storage.Put<bool> ("ShowManeuversInShipList", value); 
+			}
+		}
+
 		public static void CheckForUpdates ()
 		{
 			Task.Run (() => {
@@ -114,8 +123,7 @@ namespace SquadBuilder
 					if ((float)versionsXml.Element ("ReferenceCards") > ReferenceCardsVersion)
 						updateXml ("ReferenceCardsVersion");
 					
-				} catch (Exception e) {		
-					Insights.Report (e);
+				} catch (Exception e) {
 				}
 
 				Device.BeginInvokeOnMainThread (() => Application.Current.MainPage.IsBusy = false);
@@ -125,7 +133,7 @@ namespace SquadBuilder
 		static void updateXml (string file)
 		{
 			if (file == "Factions")
-				file = file + "2";
+				file = file + "3";
 			
 			var element = XElement.Load (xwingDataUrl + file + ".xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (file + ".xml", element.ToString ());
@@ -133,28 +141,28 @@ namespace SquadBuilder
 
 		public static void UpdateShips ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Ships2.xml");
+			var element = XElement.Load (xwingDataUrl + "Ships3.xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ShipsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllShips ();
 		}
 
 		public static void UpdatePilots ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Pilots2.xml");
+			var element = XElement.Load (xwingDataUrl + "Pilots3.xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.PilotsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllPilots ();
 		}
 
 		public static void UpdateUpgrades ()
 		{
-			var element = XElement.Load (xwingDataUrl + "Upgrades2.xml");
+			var element = XElement.Load (xwingDataUrl + "Upgrades3.xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.UpgradesFilename, element.ToString ());
 			Cards.SharedInstance.GetAllUpgrades ();
 		}
 
 		public static void UpdateExpansions ()
 		{
-			var element = XElement.Load (xwingDataUrl + Cards.ExpansionsFilename);
+			var element = XElement.Load (xwingDataUrl + "Expansions3.xml");
 			DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.ExpansionsFilename, element.ToString ());
 			Cards.SharedInstance.GetAllExpansions ();
 		}

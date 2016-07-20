@@ -69,6 +69,13 @@ namespace SquadBuilder
 				NotifyPropertyChanged ("HideUnavailable");
 			}
 		}
+		public bool ShowManeuversInShipList {
+			get { return Settings.ShowManeuversInShipList; }
+			set {
+				Settings.ShowManeuversInShipList = value;
+				NotifyPropertyChanged ("ShowManeuversInShipList");
+			}
+		}
 
 		public bool DropboxSync {
 			get { return Settings.DropboxSync; }

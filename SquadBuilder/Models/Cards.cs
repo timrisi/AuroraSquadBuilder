@@ -291,7 +291,7 @@ namespace SquadBuilder
 		{
 			if (!DependencyService.Get <ISaveAndLoad> ().FileExists (Cards.ShipsFilename))
 				return;
-
+			
 			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
 			var shipsCollectionElement = collectionXml.Element ("Ships");
 
@@ -309,6 +309,11 @@ namespace SquadBuilder
 						select action.Value),
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
+					Maneuvers = new List<string> (
+						from maneuver in ship.Element ("Maneuvers").Elements ()
+							//select !string.IsNullOrEmpty (maneuver.Value) ? maneuver.Value : "Blank"
+						select maneuver.Value
+					),
 					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
 							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
@@ -328,6 +333,7 @@ namespace SquadBuilder
 						select action.Value),
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
+					Maneuvers = new List <string> (new string[29]),
 					owned = 0
 				})
 			);
@@ -547,6 +553,13 @@ namespace SquadBuilder
 					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 					foreach (var pilot in squad.Pilots) {
+						pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id);
+						if (pilot.Ship.Maneuvers == null || pilot.Ship.Maneuvers.Count < 29) {
+							pilot.Ship.Maneuvers = new List<string> (new string [29]);
+							//for (int i = 0; i < 29; i++)
+							//	pilot.Ship.Maneuvers.Add ("");
+						}
+						
 						if (squad.Faction.Id == "scum") {
 							if (pilot.Id == "bobafett")
 								pilot.Id = "bobafettscum";

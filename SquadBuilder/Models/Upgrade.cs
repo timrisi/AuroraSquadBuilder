@@ -211,6 +211,7 @@ namespace SquadBuilder
 				Unique = Unique, 
 				Preview = Preview,
 				MinPilotSkill = MinPilotSkill,
+				IsCustom = IsCustom,
 				Slots = new ObservableCollection <string> (Slots),
 				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),

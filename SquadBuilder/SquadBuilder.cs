@@ -17,6 +17,7 @@ namespace SquadBuilder
 		public App ()
 		{
 			Storage = SimpleStorage.EditGroup ("AuroraSB");
+			Settings.ShowManeuversInShipList = Storage.Get<bool> ("ShowManeuversInShipList", true);
 			RegisterViews();
 			MainPage = new RootPage ();
 		}

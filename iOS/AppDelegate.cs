@@ -71,7 +71,6 @@ namespace SquadBuilder.iOS
 			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
-			Settings.ReferenceCardsVersion = referenceCardsVersion;
 			
 			UpdateIds ();
 
@@ -84,7 +83,9 @@ namespace SquadBuilder.iOS
 				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
 			Settings.SettingsVersion = settingsVersion;
 
-			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions2", "xml")).ReadToEnd ();
+			Settings.ReferenceCardsVersion = referenceCardsVersion;
+
+			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions3", "xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText (Cards.FactionsFilename, factionsXml);
@@ -93,7 +94,7 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 
-			var shipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships2", "xml")).ReadToEnd ();
+			var shipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships3", "xml")).ReadToEnd ();
 			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
@@ -106,7 +107,7 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Ships_Custom.xml"))
 				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
 
-			var pilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots2", "xml")).ReadToEnd ();
+			var pilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots3", "xml")).ReadToEnd ();
 			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
@@ -119,7 +120,7 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Pilots_Custom.xml"))
 				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
 
-			var upgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades2", "xml")).ReadToEnd ();
+			var upgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades3", "xml")).ReadToEnd ();
 			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
@@ -132,7 +133,7 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists ("Upgrades_Custom.xml"))
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 
-			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions", "xml")).ReadToEnd ();
+			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions3", "xml")).ReadToEnd ();
 			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename)) {
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);

@@ -164,23 +164,57 @@
     <BundleResource Include="Resources\spacial-cosmic.png" />
     <BundleResource Include="Resources\Settings.xml" />
     <BundleResource Include="Resources\Versions.xml" />
-    <BundleResource Include="Resources\Expansions.xml" />
+    <BundleResource Include="Resources\Expansions3.xml" />
     <BundleResource Include="Resources\schema.json" />
-    <BundleResource Include="Resources\Ships2.xml">
+    <BundleResource Include="Resources\Ships3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Factions2.xml">
+    <BundleResource Include="Resources\Factions3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Pilots2.xml">
+    <BundleResource Include="Resources\Pilots3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Upgrades2.xml">
+    <BundleResource Include="Resources\Upgrades3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\Icon-167.png" />
     <BundleResource Include="Resources\Collection.xml" />
     <BundleResource Include="Resources\ReferenceCards.xml" />
+    <BundleResource Include="Resources\xwing-miniatures.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\bank_left.png" />
+    <BundleResource Include="Resources\bank_left_green.png" />
+    <BundleResource Include="Resources\bank_left_red.png" />
+    <BundleResource Include="Resources\bank_right.png" />
+    <BundleResource Include="Resources\bank_right_green.png" />
+    <BundleResource Include="Resources\bank_right_red.png" />
+    <BundleResource Include="Resources\Blank.png" />
+    <BundleResource Include="Resources\forward.png" />
+    <BundleResource Include="Resources\forward_green.png" />
+    <BundleResource Include="Resources\forward_red.png" />
+    <BundleResource Include="Resources\koiogran.png" />
+    <BundleResource Include="Resources\koiogran_red.png" />
+    <BundleResource Include="Resources\segnors_loop_left.png" />
+    <BundleResource Include="Resources\segnors_loop_left_green.png" />
+    <BundleResource Include="Resources\segnors_loop_left_red.png" />
+    <BundleResource Include="Resources\segnors_loop_right.png" />
+    <BundleResource Include="Resources\segnors_loop_right_green.png" />
+    <BundleResource Include="Resources\segnors_loop_right_red.png" />
+    <BundleResource Include="Resources\stop.png" />
+    <BundleResource Include="Resources\stop_green.png" />
+    <BundleResource Include="Resources\stop_red.png" />
+    <BundleResource Include="Resources\tallon_roll_left.png" />
+    <BundleResource Include="Resources\tallon_roll_left_red.png" />
+    <BundleResource Include="Resources\tallon_roll_right.png" />
+    <BundleResource Include="Resources\tallon_roll_right_red.png" />
+    <BundleResource Include="Resources\turn_left.png" />
+    <BundleResource Include="Resources\turn_left_green.png" />
+    <BundleResource Include="Resources\turn_left_red.png" />
+    <BundleResource Include="Resources\turn_right.png" />
+    <BundleResource Include="Resources\turn_right_green.png" />
+    <BundleResource Include="Resources\turn_right_red.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

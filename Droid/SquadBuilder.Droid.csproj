@@ -153,6 +153,99 @@
     <AndroidResource Include="..\iOS\Resources\menu.png">
       <Link>Resources\drawable\menu.png</Link>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_left_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_left_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_right_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bank_right_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Blank.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\forward.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\forward_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\forward_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\koiogran.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\koiogran_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_left_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_left_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_right_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\segnors_loop_right_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\stop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\stop_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\stop_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tallon_roll_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tallon_roll_left_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tallon_roll_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tallon_roll_right_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_left_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_left_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_right_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\turn_right_red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -178,23 +271,23 @@
     <AndroidAsset Include="..\iOS\Resources\Versions.xml">
       <Link>Assets\Versions.xml</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Expansions.xml">
-      <Link>Assets\Expansions.xml</Link>
+    <AndroidAsset Include="..\iOS\Resources\Expansions3.xml">
+      <Link>Assets\Expansions3.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Resources\schema.json">
       <Link>Assets\schema.json</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Factions2.xml">
-      <Link>Assets\Factions2.xml</Link>
+    <AndroidAsset Include="..\iOS\Resources\Factions3.xml">
+      <Link>Assets\Factions3.xml</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Pilots2.xml">
-      <Link>Assets\Pilots2.xml</Link>
+    <AndroidAsset Include="..\iOS\Resources\Pilots3.xml">
+      <Link>Assets\Pilots3.xml</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Ships2.xml">
-      <Link>Assets\Ships2.xml</Link>
+    <AndroidAsset Include="..\iOS\Resources\Ships3.xml">
+      <Link>Assets\Ships3.xml</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Resources\Upgrades2.xml">
-      <Link>Assets\Upgrades2.xml</Link>
+    <AndroidAsset Include="..\iOS\Resources\Upgrades3.xml">
+      <Link>Assets\Upgrades3.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Resources\Collection.xml">
       <Link>Assets\Collection.xml</Link>

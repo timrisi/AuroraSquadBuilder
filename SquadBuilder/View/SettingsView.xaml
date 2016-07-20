@@ -11,6 +11,7 @@
 					<SwitchCell Text="Allow Custom" On="{Binding AllowCustom}" />
 					<SwitchCell Text="Filter Pilots By Ship" On="{Binding FilterPilotsByShip}" />
 					<SwitchCell Text="Hide Unavailable Ships/Cards" On="{Binding HideUnavailable}" />
+					<SwitchCell Text="Show Maneuvers In Ship List" On="{Binding ShowManeuversInShipList}" />
 				</TableSection>
 				<TableSection Title="Updates">
 					<SwitchCell Text="Check for updates on launch" On="{Binding UpdateOnLaunch}" />
