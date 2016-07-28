@@ -18,6 +18,9 @@ namespace SquadBuilder
 		{
 			Storage = SimpleStorage.EditGroup ("AuroraSB");
 			Settings.ShowManeuversInShipList = Storage.Get<bool> ("ShowManeuversInShipList", true);
+			Settings.ShowManeuversInSquadronList = Storage.Get<bool> ("ShowManeuversInSquadronList", false);
+			Settings.ShowManeuversInPilotView = Storage.Get<bool> ("ShowManeuversInPilotView", true);
+			Settings.CustomCardLeague = Storage.Get<bool> ("CustomCardLeague", false);
 			RegisterViews();
 			MainPage = new RootPage ();
 		}

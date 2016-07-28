@@ -83,6 +83,9 @@ namespace SquadBuilder
 			if (Settings.HideUnavailable)
 				allPilots = allPilots.Where (p => p.IsAvailable).ToList ();
 
+			if (!Settings.CustomCardLeague)
+				allPilots = allPilots.Where (p => !p.CCL).ToList ();
+
 			foreach (var pilot in allPilots) {
 				while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 					pilot.UpgradesEquipped.Add (null);

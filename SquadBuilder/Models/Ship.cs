@@ -65,10 +65,20 @@ namespace SquadBuilder
 			set { SetProperty (ref isCustom, value); }
 		}
 
-		List<string> maneuvers = new List<string> (new [] { "forward", "2", "3", "foo", null, "pie" });
-		public List<string> Maneuvers {
-			get { return maneuvers; }
-			set { SetProperty (ref maneuvers, value); }
+		bool ccl;
+		public bool CCL {
+			get { return ccl; }
+			set { SetProperty (ref ccl, value); }
+		}
+
+		string maneuverGridImage;
+		public string ManeuverGridImage {
+			get {
+				return maneuverGridImage;
+			}
+			set {
+				SetProperty (ref maneuverGridImage, value);
+			}
 		}
 
 		[XmlIgnore]
@@ -132,65 +142,8 @@ namespace SquadBuilder
 			}
 		}
 
-		public bool SpeedFiveVisible {
-			get { 
-				return !string.IsNullOrEmpty (Maneuvers [0]) || 
-					          !string.IsNullOrEmpty (Maneuvers [1]); 
-			}
-		}
-
-		public bool SpeedFourVisible {
-			get { 
-				return !string.IsNullOrEmpty (Maneuvers [2]) || 
-					          !string.IsNullOrEmpty (Maneuvers [3]); 
-			}
-		}
-
-		public bool SpeedThreeVisible {
-			get {
-				return !string.IsNullOrEmpty (Maneuvers [4]) ||
-							  !string.IsNullOrEmpty (Maneuvers [5]) ||
-							  !string.IsNullOrEmpty (Maneuvers [6]) ||
-							  !string.IsNullOrEmpty (Maneuvers [7]) ||
-					          !string.IsNullOrEmpty (Maneuvers [8]) ||
-					          !string.IsNullOrEmpty (Maneuvers [9]) ||
-					          !string.IsNullOrEmpty (Maneuvers [10]) ||
-							  !string.IsNullOrEmpty (Maneuvers [11]);
-			}
-		}
-
-		public bool SpeedTwoVisible {
-			get {
-				return !string.IsNullOrEmpty (Maneuvers [12]) ||
-							  !string.IsNullOrEmpty (Maneuvers [13]) ||
-							  !string.IsNullOrEmpty (Maneuvers [14]) ||
-							  !string.IsNullOrEmpty (Maneuvers [15]) ||
-							  !string.IsNullOrEmpty (Maneuvers [16]) ||
-							  !string.IsNullOrEmpty (Maneuvers [17]) ||
-							  !string.IsNullOrEmpty (Maneuvers [18]) ||
-							  !string.IsNullOrEmpty (Maneuvers [19]);
-			}
-		}
-
-		public bool SpeedOneVisible {
-			get {
-				return !string.IsNullOrEmpty (Maneuvers [20]) ||
-							  !string.IsNullOrEmpty (Maneuvers [21]) ||
-							  !string.IsNullOrEmpty (Maneuvers [22]) ||
-							  !string.IsNullOrEmpty (Maneuvers [23]) ||
-							  !string.IsNullOrEmpty (Maneuvers [24]) ||
-							  !string.IsNullOrEmpty (Maneuvers [25]) ||
-							  !string.IsNullOrEmpty (Maneuvers [26]) ||
-							  !string.IsNullOrEmpty (Maneuvers [27]);
-			}
-		}
-
-		public bool SpeedZeroVisible {
-			get { return !string.IsNullOrEmpty (Maneuvers [28]); }
-		}
-
 		public bool ShowManeuvers {
-			get { return Settings.ShowManeuversInShipList && Maneuvers != null && Maneuvers.Count >= 29 && Maneuvers.Any (m => !string.IsNullOrEmpty (m)); }
+			get { return Settings.ShowManeuversInShipList && !string.IsNullOrEmpty (ManeuverGridImage); }
 		}
 
 		[XmlIgnore]
@@ -241,7 +194,9 @@ namespace SquadBuilder
 				LargeBase = LargeBase,
 				Huge = Huge,
 				Actions = new ObservableCollection<string> (Actions),
-				Maneuvers = new List<string> (Maneuvers)
+				ManeuverGridImage = ManeuverGridImage,
+				IsCustom = IsCustom,
+				CCL = CCL
 			};
 		}
 

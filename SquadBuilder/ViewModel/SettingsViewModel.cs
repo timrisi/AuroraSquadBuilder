@@ -12,7 +12,6 @@ using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using Xamarin.Auth;
 using System.Security.Cryptography;
-using Xamarin.Forms;
 using System.Threading.Tasks;
 
 #if __IOS__
@@ -46,6 +45,14 @@ namespace SquadBuilder
 			}
 		}
 				
+		public bool CustomCardLeague {
+			get { return Settings.CustomCardLeague; }
+			set {
+				Settings.CustomCardLeague = value;
+				NotifyPropertyChanged ("CustomCardLeague");
+			}
+		}
+
 		public bool FilterPilotsByShip {
 			get { return Settings.FilterPilotsByShip; }
 			set {
@@ -69,11 +76,28 @@ namespace SquadBuilder
 				NotifyPropertyChanged ("HideUnavailable");
 			}
 		}
+
 		public bool ShowManeuversInShipList {
 			get { return Settings.ShowManeuversInShipList; }
 			set {
 				Settings.ShowManeuversInShipList = value;
 				NotifyPropertyChanged ("ShowManeuversInShipList");
+			}
+		}
+
+		public bool ShowManeuversInSquadronList {
+			get { return Settings.ShowManeuversInSquadronList; }
+			set {
+				Settings.ShowManeuversInSquadronList = value;
+				NotifyPropertyChanged ("ShowManeuversInSquadronList");
+			}
+		}
+
+		public bool ShowManeuversInPilotView {
+			get { return Settings.ShowManeuversInPilotView; }
+			set {
+				Settings.ShowManeuversInPilotView = value;
+				NotifyPropertyChanged ("ShowManeuversInPilotView");
 			}
 		}
 

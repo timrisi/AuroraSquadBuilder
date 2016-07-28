@@ -73,6 +73,9 @@ namespace SquadBuilder
 
 			if (Settings.HideUnavailable)
 				allShips = new ObservableCollection<Ship> (allShips.Where (s => s.IsAvailable));
+
+			if (!Settings.CustomCardLeague)
+				allShips = new ObservableCollection<Ship> (allShips.Where (s => !s.CCL));
 		}
 
 		void filterShips ()
@@ -82,6 +85,9 @@ namespace SquadBuilder
 				pilots = Cards.SharedInstance.AllPilots;
 			else
 				pilots = Cards.SharedInstance.Pilots;
+
+			if (!Settings.CustomCardLeague)
+				pilots = new ObservableCollection <Pilot> (pilots.Where (p => !p.CCL));
 
 			Ships = new ObservableCollection <Ship> (allShips.Where (s => pilots.Any (p => (Faction.Name == "Mixed" || p.Faction.Id == Faction.Id) && p.Ship.Id == s.Id)).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}

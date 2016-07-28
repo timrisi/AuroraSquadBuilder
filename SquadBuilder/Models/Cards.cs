@@ -308,12 +308,9 @@ namespace SquadBuilder
 						from action in ship.Element ("Actions").Elements ()
 						select action.Value),
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
+					CCL = ship.Element ("CCL") != null ? (bool)ship.Element ("CCL") : false,
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
-					Maneuvers = new List<string> (
-						from maneuver in ship.Element ("Maneuvers").Elements ()
-							//select !string.IsNullOrEmpty (maneuver.Value) ? maneuver.Value : "Blank"
-						select maneuver.Value
-					),
+					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
 					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
 							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
@@ -333,7 +330,8 @@ namespace SquadBuilder
 						select action.Value),
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					IsCustom = ship.Element ("Custom") != null ? (bool)ship.Element ("Custom") : false,
-					Maneuvers = new List <string> (new string[29]),
+					CCL = false,
+					ManeuverGridImage = "",
 					owned = 0
 				})
 			);
@@ -368,6 +366,7 @@ namespace SquadBuilder
 				UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = pilot.Element ("Custom") != null ? (bool)pilot.Element ("Custom") : false,
+				CCL = pilot.Element ("CCL") != null ? (bool)pilot.Element ("CCL") : false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
 				owned = pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) != null ?
 							(int)pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) : 0
@@ -392,6 +391,7 @@ namespace SquadBuilder
 				UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = (bool)pilot.Element ("Custom"),
+				CCL = false,
 				Preview = pilot.Element ("Preview") != null ? (bool)pilot.Element ("Preview") : false,
 				owned = 0
 			});
@@ -449,7 +449,8 @@ namespace SquadBuilder
 					owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
 											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
-					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false
+					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
+					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
@@ -498,6 +499,7 @@ namespace SquadBuilder
 					owned = 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
+					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);
@@ -554,10 +556,8 @@ namespace SquadBuilder
 
 					foreach (var pilot in squad.Pilots) {
 						pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id);
-						if (pilot.Ship.Maneuvers == null || pilot.Ship.Maneuvers.Count < 29) {
-							pilot.Ship.Maneuvers = new List<string> (new string [29]);
-							//for (int i = 0; i < 29; i++)
-							//	pilot.Ship.Maneuvers.Add ("");
+						if (pilot.Ship.ManeuverGridImage == null) {
+							pilot.Ship.ManeuverGridImage = "";
 						}
 						
 						if (squad.Faction.Id == "scum") {

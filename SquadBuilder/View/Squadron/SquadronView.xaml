@@ -51,6 +51,7 @@
 										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
 										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
 										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
 									</StackLayout>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
@@ -61,7 +62,7 @@
 				</ListView.ItemTemplate>
 			</ListView>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-				<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="15,0" Spacing="15">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="15,0" Spacing="10">
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementWins}" />
@@ -74,7 +75,7 @@
 						</Label.GestureRecognizers>
 					</Label>
 				</StackLayout>
-				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="15,0" Spacing="15">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="15,0" Spacing="10">
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementLosses}" />
@@ -87,7 +88,7 @@
 						</Label.GestureRecognizers>
 					</Label>
 				</StackLayout>
-				<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="15,0" Spacing="15">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="15,0" Spacing="10">
 					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementDraws}" />

@@ -20,7 +20,8 @@
 					<DataTemplate> 
 						<ViewCell>
 							<ViewCell.View>
-								<Grid HorizontalOptions="FillAndExpand">
+<!--								<StackLayout Orientation="Horizontal">-->
+								<Grid>
 									<Grid.RowDefinitions>
 										<RowDefinition Height="*" />
 									</Grid.RowDefinitions>
@@ -29,85 +30,18 @@
 										<ColumnDefinition Width="*" />
 										<ColumnDefinition Width="Auto" />
 									</Grid.ColumnDefinitions>
-
+									
 									<StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
 										<StackLayout Orientation="Horizontal">
 											<Label Text="{Binding Name}" TextColor="{Binding TextColor}" />
 											<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
 											<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+											<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
 										</StackLayout>
 										<Label Text="{Binding ActionsString}" FontSize="Micro" TextColor="Navy" />
 									</StackLayout>
-									<Grid RowSpacing="1" ColumnSpacing="1" HorizontalOptions="End" Grid.Row="0" Grid.Column="1" IsVisible="{Binding ShowManeuvers}">
-										<Grid.RowDefinitions>
-										    <RowDefinition Height="Auto" />
-										    <RowDefinition Height="Auto" />
-										    <RowDefinition Height="Auto" />
-										    <RowDefinition Height="Auto" />
-										    <RowDefinition Height="Auto" />
-											<RowDefinition Height="Auto" />
-										</Grid.RowDefinitions>
-
-										<Grid.ColumnDefinitions>
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										    <ColumnDefinition Width="13" />
-										</Grid.ColumnDefinitions>
-
-										<Label Text="5" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedFiveVisible}" />
-										<Label Text="4" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedFourVisible}" />
-										<Label Text="3" Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedThreeVisible}" />
-										<Label Text="2" Grid.Row="3" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedTwoVisible}" />
-										<Label Text="1" Grid.Row="4" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedOneVisible}" />
-										<Label Text="0" Grid.Row="5" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding SpeedZeroVisible}" />
-
-										<!-- 5 Speed -->
-										<Image Source="{Binding Maneuvers[0], StringFormat='{0}.png'}" Grid.Row="0" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[1], StringFormat='{0}.png'}" Grid.Row="0" Grid.Column="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-										<!-- 4 Speed -->
-										<Image Source="{Binding Maneuvers[2], StringFormat='{0}.png'}" Grid.Row="1" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[3], StringFormat='{0}.png'}" Grid.Row="1" Grid.Column="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-										<!-- 3 Speed -->
-										<Image Source="{Binding Maneuvers[4], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[5], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[6], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[7], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[8], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[9], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[10], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="7" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[11], StringFormat='{0}.png'}" Grid.Row="2" Grid.Column="8" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-										<!-- 2 Speed -->
-										<Image Source="{Binding Maneuvers[12], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[13], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[14], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[15], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[16], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[17], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[18], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="7" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[19], StringFormat='{0}.png'}" Grid.Row="3" Grid.Column="8" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										
-										<!-- 1 Speed -->
-										<Image Source="{Binding Maneuvers[20], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[21], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[22], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[23], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[24], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[25], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[26], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="7" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-										<Image Source="{Binding Maneuvers[27], StringFormat='{0}.png'}" Grid.Row="4" Grid.Column="8" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-										<!-- 0 Speed -->
-										<Image Source="{Binding Maneuvers[28], StringFormat='{0}.png'}" Grid.Row="5" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-									</Grid>
+									<Image Source="{Binding ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
+<!--								</StackLayout>-->
 								</Grid>
 							</ViewCell.View>
 						</ViewCell>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.85">
+<Upgrades Version="2.90">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -117,7 +117,7 @@
 			<Cost>1</Cost>
 			<Text>When defending against an attack from outside of your firing arc, you may change 1 blank result to a {focus} result.</Text>
 			<Faction>rebel</Faction>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="r5m12">
@@ -125,7 +125,7 @@
 			<Cost>3</Cost>
 			<Text>After performing an attack that hits, if you have a target lock on the defender, you may spend it to roll 1 attack die.  On a {hit} or {crit} result, the defender receives 1 ion token.</Text>
 			<Faction>rebel</Faction>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="whistler">
@@ -133,7 +133,7 @@
 			<Cost>2</Cost>
 			<Text>Once per round, when you receive a stress token you may assign an evade token to your ship.</Text>
 			<Faction>rebel</Faction>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="r9astromech">
@@ -141,7 +141,7 @@
 			<Cost>2</Cost>
 			<Text>After executing a 1- to 2-speed maneuver you may receive a free evade token.</Text>
 			<Faction>rebel</Faction>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 	<Category id="bomb" type="Bomb">
@@ -836,7 +836,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<ExtraSlots>
 				<Upgrade>Crew</Upgrade>
 			</ExtraSlots>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="lieutenantblountcrew">
 			<Name>Lieutenant Blount</Name>
@@ -844,7 +844,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>When attacking, if you have a target lock on the defender and are not stressed, you may spend the target lock and receive any number of stress tokens to change an equal number of attack dice to {crit} results.</Text>
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="biggsdarklightercrew">
 			<Name>Biggs Darklighter</Name>
@@ -852,7 +852,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>When a friendly ship at Range 1 is hit by an attack, you may suffer 1 of the uncancelled critical results instead of the target ship.</Text>
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="tc4">
 			<Name>TC-4</Name>
@@ -860,7 +860,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>When another friendly ship at Range 1-2 would receive a stress token, if you have 2 or fewer stress tokens, you may receive that token instead.</Text>
 			<Faction>imperial</Faction>
 			<Unique>true</Unique>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
@@ -1163,7 +1163,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Name>Adrenaline Stims</Name>
 			<Cost>2</Cost>
 			<Text>Discard this card at the beginning of the Activation phase.  Treat your Pilot Skill value as 12 for the rest of the round.  Next round, treat your Pilot Skill value as 0.</Text>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="concealedwarheads">
 			<Name>Concealed Warheads</Name>
@@ -1174,7 +1174,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 				<Upgrade>Torpedo</Upgrade>
 				<Upgrade>Missile</Upgrade>
 			</UpgradeOptions>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 	<Category id="missile" type="Missile">
@@ -1265,7 +1265,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<AdditionalUpgrades>
 				<Upgrade>Torpedo</Upgrade>
 			</AdditionalUpgrades>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Limited>true</Limited>
 		</Upgrade>
 		<Upgrade id="aegisflares">
@@ -1273,7 +1273,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>When defending, you may discard this card to add 1 {evade} result.</Text>
 			<ShipRequirement>Kihraxz</ShipRequirement>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Limited>true</Limited>
 		</Upgrade>
 	</Category>
@@ -1571,7 +1571,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Lock-Threat Warning System</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, when an enemy ship acquires a target lock on you, you may immediately perform a free action.</Text>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
@@ -2025,7 +2025,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Name>Death Mark</Name>
 			<Cost>2</Cost>
 			<Text>At the start of the first round, choose 1 unique pilot.  When attacking or defending against that ship, you may change one of your {focus} results to a {hit} or {evade} result.</Text>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
 		</Upgrade>
@@ -2037,7 +2037,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<AdditionalUpgrades>
 				<Upgrade>Modification</Upgrade>
 			</AdditionalUpgrades>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="z95af4h">
 			<Name>Z-95 AF4-H</Name>
@@ -2049,14 +2049,14 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 				<Upgrade>Missile</Upgrade>
 				<Upgrade>Salvaged Astromech</Upgrade>
 			</AdditionalUpgrades>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="tiesa">
 			<Name>TIE/SA</Name>
 			<Cost>0</Cost>
 			<Text>When dropping a bomb, you may use the {bank left} or {bank right} maneuver template.</Text>
 			<ShipRequirement>TIE Bomber</ShipRequirement>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="huttcartel">
 			<Name>Hutt Cartel</Name>
@@ -2066,7 +2066,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<AdditionalUpgrades>
 				<Upgrade>Illicit</Upgrade>
 			</AdditionalUpgrades>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="jayhawk">
 			<Name>JayHawk</Name>
@@ -2076,7 +2076,7 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<AdditionalUpgrades>
 				<Upgrade>System Upgrade</Upgrade>
 			</AdditionalUpgrades>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 	<Category id="torpedo" type="Torpedo">
@@ -2214,7 +2214,7 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>2</Dice>
 			<Range>1</Range>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 	</Category>
 </Upgrades>

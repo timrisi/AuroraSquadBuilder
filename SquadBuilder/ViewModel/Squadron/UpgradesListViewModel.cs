@@ -63,7 +63,8 @@ namespace SquadBuilder
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
-                .Where (u => !u.IsCustom || Settings.AllowCustom).ToList ();
+                .Where (u => !u.IsCustom || Settings.AllowCustom)
+                .Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades

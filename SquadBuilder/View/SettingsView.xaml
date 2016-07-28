@@ -8,10 +8,15 @@
 		<TableView Intent="Settings">
 			<TableRoot>
 				<TableSection>
-					<SwitchCell Text="Allow Custom" On="{Binding AllowCustom}" />
+					<SwitchCell Text="Show Custom" On="{Binding AllowCustom}" />
+					<SwitchCell Text="Include Custom Card League" On="{Binding CustomCardLeague}" />
 					<SwitchCell Text="Filter Pilots By Ship" On="{Binding FilterPilotsByShip}" />
 					<SwitchCell Text="Hide Unavailable Ships/Cards" On="{Binding HideUnavailable}" />
-					<SwitchCell Text="Show Maneuvers In Ship List" On="{Binding ShowManeuversInShipList}" />
+				</TableSection>
+				<TableSection Title="Maneuver Grids">
+					<SwitchCell Text="Show In Ship List" On="{Binding ShowManeuversInShipList}" />
+					<SwitchCell Text="Show In Squadron List" On="{Binding ShowManeuversInSquadronList}" />
+					<SwitchCell Text="Show In Pilot View" On="{Binding ShowManeuversInPilotView}" />
 				</TableSection>
 				<TableSection Title="Updates">
 					<SwitchCell Text="Check for updates on launch" On="{Binding UpdateOnLaunch}" />

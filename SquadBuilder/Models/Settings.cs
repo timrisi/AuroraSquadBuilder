@@ -13,7 +13,7 @@ namespace SquadBuilder
 	{
 		const string xwingDataUrl = "http://www.risiapps.com/xwing_data/";
 
-		static XElement settingsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.SettingsFilename)));
+		static XElement settingsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Cards.SettingsFilename)));
 		static Settings ()
 		{
 			allowCustom = (bool)settingsXml.Element ("AllowCustom");
@@ -32,23 +32,23 @@ namespace SquadBuilder
 		public static float ReferenceCardsVersion { get; set; }
 
 		static bool allowCustom;
-		public static bool AllowCustom { 
+		public static bool AllowCustom {
 			get { return allowCustom; }
 			set {
 				allowCustom = value;
 				settingsXml.SetElementValue ("AllowCustom", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+				DependencyService.Get<ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 
 			}
 		}
 
 		static bool filterPilotsByShip;
-		public static bool FilterPilotsByShip { 
+		public static bool FilterPilotsByShip {
 			get { return filterPilotsByShip; }
 			set {
 				filterPilotsByShip = value;
 				settingsXml.SetElementValue ("FilterPilotsByShip", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+				DependencyService.Get<ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -58,7 +58,7 @@ namespace SquadBuilder
 			set {
 				updateOnLaunch = value;
 				settingsXml.SetElementValue ("UpdateOnLaunch", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+				DependencyService.Get<ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -68,7 +68,7 @@ namespace SquadBuilder
 			set {
 				hideUnavailable = value;
 				settingsXml.SetElementValue ("HideUnavailable", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+				DependencyService.Get<ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace SquadBuilder
 			set {
 				dropboxSync = value;
 				settingsXml.SetElementValue ("DropboxSync", value);
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
+				DependencyService.Get<ISaveAndLoad> ().SaveText (Cards.SettingsFilename, settingsXml.ToString ());
 			}
 		}
 
@@ -87,7 +87,34 @@ namespace SquadBuilder
 			get { return showManeuversInShipList; }
 			set {
 				showManeuversInShipList = value;
-				App.Storage.Put<bool> ("ShowManeuversInShipList", value); 
+				App.Storage.Put<bool> ("ShowManeuversInShipList", value);
+			}
+		}
+
+		static bool showManeuversInSquadronList = false;
+		public static bool ShowManeuversInSquadronList {
+			get { return showManeuversInSquadronList; }
+			set {
+				showManeuversInSquadronList = value;
+				App.Storage.Put<bool> ("ShowManeuversInSquadronList", value);
+			}
+		}
+
+		static bool showManeuversInPilotView = true;
+		public static bool ShowManeuversInPilotView {
+			get { return showManeuversInPilotView; }
+			set {
+				showManeuversInPilotView = value;
+				App.Storage.Put<bool> ("ShowManeuversInPilotView", value);
+			}
+		}
+
+		static bool customCardLeague = false;
+		public static bool CustomCardLeague {
+			get { return customCardLeague; }
+			set {
+				customCardLeague = value;
+				App.Storage.Put<bool> ("CustomCardLeague", value);
 			}
 		}
 

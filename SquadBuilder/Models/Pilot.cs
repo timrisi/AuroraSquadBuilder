@@ -45,6 +45,7 @@ namespace SquadBuilder
 		public int BaseCost { get; set; }
 		public string Ability { get; set; }
 		public bool IsCustom { get; set; }
+		public bool CCL { get; set; }
 		public bool Preview { get; set; }
 		public Guid LinkedPilotCardGuid { get; set; }
 
@@ -412,6 +413,7 @@ namespace SquadBuilder
 				Ability = Ability,
 				Preview = Preview,
 				IsCustom = IsCustom,
+				CCL = CCL,
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (UpgradesEquipped.ToList ())
 			};

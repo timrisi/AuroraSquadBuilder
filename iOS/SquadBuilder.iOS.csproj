@@ -139,6 +139,21 @@
     <Reference Include="SimpleStorage.iOS">
       <HintPath>..\Libraries\SimpleStorage.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="WebP.Touch">
+      <HintPath>..\packages\WebP.Touch.1.0.2\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.1.6\lib\Xamarin.iOS10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.1.6\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.1.6\lib\Xamarin.iOS10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.Touch">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.1.6\lib\Xamarin.iOS10\FFImageLoading.Forms.Touch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
@@ -215,6 +230,39 @@
     <BundleResource Include="Resources\turn_right.png" />
     <BundleResource Include="Resources\turn_right_green.png" />
     <BundleResource Include="Resources\turn_right_red.png" />
+    <BundleResource Include="Resources\StarViperDial.png" />
+    <BundleResource Include="Resources\HWK290Dial.png" />
+    <BundleResource Include="Resources\AggressorDial.png" />
+    <BundleResource Include="Resources\FiresprayDial.png" />
+    <BundleResource Include="Resources\G1ADial.png" />
+    <BundleResource Include="Resources\JumpMasterDial.png" />
+    <BundleResource Include="Resources\KihraxzDial.png" />
+    <BundleResource Include="Resources\ScykDial.png" />
+    <BundleResource Include="Resources\YV666Dial.png" />
+    <BundleResource Include="Resources\YwingDial.png" />
+    <BundleResource Include="Resources\Z95Dial.png" />
+    <BundleResource Include="Resources\AttackShuttleDial.png" />
+    <BundleResource Include="Resources\AwingDial.png" />
+    <BundleResource Include="Resources\BwingDial.png" />
+    <BundleResource Include="Resources\EwingDial.png" />
+    <BundleResource Include="Resources\KwingDial.png" />
+    <BundleResource Include="Resources\T70XwingDial.png" />
+    <BundleResource Include="Resources\VCX100Dial.png" />
+    <BundleResource Include="Resources\XwingDial.png" />
+    <BundleResource Include="Resources\YT1300Dial.png" />
+    <BundleResource Include="Resources\YT2400Dial.png" />
+    <BundleResource Include="Resources\TIEDefenderDial.png" />
+    <BundleResource Include="Resources\LambdaDial.png" />
+    <BundleResource Include="Resources\TIEAdvancedDial.png" />
+    <BundleResource Include="Resources\TIEAdvPrototypeDial.png" />
+    <BundleResource Include="Resources\TIEBomberDial.png" />
+    <BundleResource Include="Resources\TIEFighterDial.png" />
+    <BundleResource Include="Resources\TIEFODial.png" />
+    <BundleResource Include="Resources\TIEInterceptorDial.png" />
+    <BundleResource Include="Resources\TIEPhantomDial.png" />
+    <BundleResource Include="Resources\TIEPunisherDial.png" />
+    <BundleResource Include="Resources\TIESFDial.png" />
+    <BundleResource Include="Resources\VT49Dial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
