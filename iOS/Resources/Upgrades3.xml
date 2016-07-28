@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.90">
+<Upgrades Version="2.91">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1057,6 +1057,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>0</Cost>
 			<Text>Decrease your pilot skill value by 1.</Text>
 			<PilotSkill>-1</PilotSkill>
+			<CanonicalName>adaptability</CanonicalName>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="rage">
@@ -1071,6 +1072,13 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Text>Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one.</Text>
 			<Faction>scum</Faction>
 			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="fearlessness">
+			<Name>Fearlessness</Name>
+			<Cost>1</Cost>
+			<Text>When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 {hit} result to your roll.</Text>
+			<Faction>scum</Faction>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="hardpoint" type="Hardpoint">
@@ -1571,7 +1579,15 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Lock-Threat Warning System</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, when an enemy ship acquires a target lock on you, you may immediately perform a free action.</Text>
+			<Custom>true</Custom>
+		</Upgrade>
+		<Upgrade id="collisiondetector">
+			<Name>Collision Detector</Name>
+			<Cost>0</Cost>
+			<Text>When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.
 			<CCL>true</CCL>
+When rolling for obstacle damage, ignore all {crit} results.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
@@ -2215,6 +2231,12 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<Dice>2</Dice>
 			<Range>1</Range>
 			<CCL>true</CCL>
+		</Upgrade>
+		<Upgrade id="sensorcluster">
+			<Name>Sensor Cluster</Name>
+			<Cost>2</Cost>
+			<Text>When defending, you may spend a focus token to change 1 of your blank results to an {evade} result.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 </Upgrades>
