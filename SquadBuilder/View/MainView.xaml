@@ -38,6 +38,7 @@
 												<Label Text="{Binding Faction.Name}" FontSize="Micro" TextColor="{Binding Faction.Color}" />
 												<Label Text="Preview" IsVisible="{Binding ContainsPreview}" FontSize="Micro" TextColor="Blue" FontAttributes="Italic" />
 												<Label Text="Custom" IsVisible="{Binding ContainsCustom}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
+												<Label Text="CCL" IsVisible="{Binding ContainsCCL}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
 											</StackLayout>
 										</StackLayout>
 										<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">

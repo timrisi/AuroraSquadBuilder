@@ -20,7 +20,6 @@
 					<DataTemplate> 
 						<ViewCell>
 							<ViewCell.View>
-<!--								<StackLayout Orientation="Horizontal">-->
 								<Grid>
 									<Grid.RowDefinitions>
 										<RowDefinition Height="*" />
@@ -41,7 +40,6 @@
 										<Label Text="{Binding ActionsString}" FontSize="Micro" TextColor="Navy" />
 									</StackLayout>
 									<Image Source="{Binding ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
-<!--								</StackLayout>-->
 								</Grid>
 							</ViewCell.View>
 						</ViewCell>

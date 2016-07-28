@@ -255,6 +255,14 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool ShowManeuversInPilotView {
+			get { return Settings.ShowManeuversInPilotView && !string.IsNullOrEmpty (Ship.ManeuverGridImage); }
+		}
+
+		public bool ShowManeuversInSquadronList {
+			get { return Settings.ShowManeuversInSquadronList && !string.IsNullOrEmpty (Ship.ManeuverGridImage); }
+		}
+
 		public void EquipUpgrade (int index, Upgrade upgrade)
 		{
 			var oldUpgrade = UpgradesEquipped [index];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="2.41">
+<Ships Version="2.51">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -411,37 +411,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
 		<CCL>true</CCL>
-		<Maneuvers>
-			<FiveStraight></FiveStraight>
-			<FiveReverse></FiveReverse>
-			<FourStraight>forward</FourStraight>
-			<FourReverse></FourReverse>
-			<ThreeLeftTurn>turn_left_red</ThreeLeftTurn>
-			<ThreeLeftBank>bank_left</ThreeLeftBank>
-			<ThreeStraight>forward</ThreeStraight>
-			<ThreeRightBank>bank_right</ThreeRightBank>
-			<ThreeRightTurn>turn_right_red</ThreeRightTurn>
-			<ThreeReverse>koiogran_red</ThreeReverse>
-			<ThreeLeftReverse></ThreeLeftReverse>
-			<ThreeRightReverse></ThreeRightReverse>
-			<TwoLeftTurn>turn_left</TwoLeftTurn>
-			<TwoLeftBank>bank_left_green</TwoLeftBank>
-			<TwoStraight>forward_green</TwoStraight>
-			<TwoRightBank>bank_right_green</TwoRightBank>
-			<TwoRightTurn>turn_right</TwoRightTurn>
-			<TwoReverse></TwoReverse>
-			<TwoLeftReverse></TwoLeftReverse>
-			<TwoRightReverse></TwoRightReverse>
-			<OneLeftTurn>turn_left_red</OneLeftTurn>
-			<OneLeftBank>bank_left</OneLeftBank>
-			<OneStraight>forward_green</OneStraight>
-			<OneRightBank>bank_right</OneRightBank>
-			<OneRightTurn>turn_right_red</OneRightTurn>
-			<OneReverse></OneReverse>
-			<OneLeftReverse></OneLeftReverse>
-			<OneRightReverse></OneRightReverse>
-			<ZeroStop></ZeroStop>
-		</Maneuvers>
+		<ManeuverGridImage>AssaultGunboatDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="sorosuubluxuryyacht3000">
 		<Name>SoroSuub Luxury Yacht 3000</Name>
@@ -451,37 +421,7 @@
 		</Actions>
 		<LargeBase>true</LargeBase>
 		<CCL>true</CCL>
-		<Maneuvers>
-			<FiveStraight></FiveStraight>
-			<FiveReverse></FiveReverse>
-			<FourStraight>forward_red</FourStraight>
-			<FourReverse></FourReverse>
-			<ThreeLeftTurn></ThreeLeftTurn>
-			<ThreeLeftBank>bank_left_red</ThreeLeftBank>
-			<ThreeStraight>forward</ThreeStraight>
-			<ThreeRightBank>bank_right_red</ThreeRightBank>
-			<ThreeRightTurn></ThreeRightTurn>
-			<ThreeReverse>koiogran_red</ThreeReverse>
-			<ThreeLeftReverse></ThreeLeftReverse>
-			<ThreeRightReverse></ThreeRightReverse>
-			<TwoLeftTurn>turn_left_red</TwoLeftTurn>
-			<TwoLeftBank>bank_left</TwoLeftBank>
-			<TwoStraight>forward_green</TwoStraight>
-			<TwoRightBank>bank_right</TwoRightBank>
-			<TwoRightTurn>turn_right_red</TwoRightTurn>
-			<TwoReverse></TwoReverse>
-			<TwoLeftReverse></TwoLeftReverse>
-			<TwoRightReverse></TwoRightReverse>
-			<OneLeftTurn>turn_left</OneLeftTurn>
-			<OneLeftBank>bank_left_green</OneLeftBank>
-			<OneStraight>forward_green</OneStraight>
-			<OneRightBank>bank_right_green</OneRightBank>
-			<OneRightTurn>turn_right</OneRightTurn>
-			<OneReverse></OneReverse>
-			<OneLeftReverse></OneLeftReverse>
-			<OneRightReverse></OneRightReverse>
-			<ZeroStop></ZeroStop>
-		</Maneuvers>
+		<ManeuverGridImage>SoroSuubDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="vwing">
 		<Name>V-Wing</Name>
@@ -491,37 +431,7 @@
 			<Action>Evade</Action>
 		</Actions>
 		<CCL>true</CCL>
-		<Maneuvers>
-			<FiveStraight></FiveStraight>
-			<FiveReverse></FiveReverse>
-			<FourStraight>forward</FourStraight>
-			<FourReverse>koiogran_red</FourReverse>
-			<ThreeLeftTurn>turn_left_green</ThreeLeftTurn>
-			<ThreeLeftBank>bank_left_green</ThreeLeftBank>
-			<ThreeStraight>forward_green</ThreeStraight>
-			<ThreeRightBank>bank_right_green</ThreeRightBank>
-			<ThreeRightTurn>turn_right_green</ThreeRightTurn>
-			<ThreeReverse></ThreeReverse>
-			<ThreeLeftReverse></ThreeLeftReverse>
-			<ThreeRightReverse></ThreeRightReverse>
-			<TwoLeftTurn>turn_left</TwoLeftTurn>
-			<TwoLeftBank>bank_left_green</TwoLeftBank>
-			<TwoStraight>forward_green</TwoStraight>
-			<TwoRightBank>bank_right_green</TwoRightBank>
-			<TwoRightTurn>turn_right</TwoRightTurn>
-			<TwoReverse></TwoReverse>
-			<TwoLeftReverse>tallon_roll_left_red</TwoLeftReverse>
-			<TwoRightReverse>tallon_roll_right_red</TwoRightReverse>
-			<OneLeftTurn>turn_left</OneLeftTurn>
-			<OneLeftBank>bank_left</OneLeftBank>
-			<OneStraight></OneStraight>
-			<OneRightBank>bank_right</OneRightBank>
-			<OneRightTurn>turn_right</OneRightTurn>
-			<OneReverse></OneReverse>
-			<OneLeftReverse></OneLeftReverse>
-			<OneRightReverse></OneRightReverse>
-			<ZeroStop></ZeroStop>
-		</Maneuvers>
+		<ManeuverGridImage>VwingDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="tieavenger">
 		<Name>TIE Avenger</Name>
@@ -532,36 +442,6 @@
 			<Action>Evade</Action>
 		</Actions>
 		<CCL>true</CCL>
-		<Maneuvers>
-			<FiveStraight>forward</FiveStraight>
-			<FiveReverse></FiveReverse>
-			<FourStraight>forward_green</FourStraight>
-			<FourReverse>koiogran_red</FourReverse>
-			<ThreeLeftTurn>turn_left</ThreeLeftTurn>
-			<ThreeLeftBank>bank_left</ThreeLeftBank>
-			<ThreeStraight>forward_green</ThreeStraight>
-			<ThreeRightBank>bank_right</ThreeRightBank>
-			<ThreeRightTurn>turn_right</ThreeRightTurn>
-			<ThreeReverse></ThreeReverse>
-			<ThreeLeftReverse>tallon_roll_left_red</ThreeLeftReverse>
-			<ThreeRightReverse>tallon_roll_right_red</ThreeRightReverse>
-			<TwoLeftTurn>turn_left</TwoLeftTurn>
-			<TwoLeftBank>bank_left_green</TwoLeftBank>
-			<TwoStraight>forward_green</TwoStraight>
-			<TwoRightBank>bank_right_green</TwoRightBank>
-			<TwoRightTurn>turn_right</TwoRightTurn>
-			<TwoReverse></TwoReverse>
-			<TwoLeftReverse></TwoLeftReverse>
-			<TwoRightReverse></TwoRightReverse>
-			<OneLeftTurn>turn_left_red</OneLeftTurn>
-			<OneLeftBank>bank_left</OneLeftBank>
-			<OneStraight>forward_green</OneStraight>
-			<OneRightBank>bank_right</OneRightBank>
-			<OneRightTurn>turn_right_red</OneRightTurn>
-			<OneReverse></OneReverse>
-			<OneLeftReverse></OneLeftReverse>
-			<OneRightReverse></OneRightReverse>
-			<ZeroStop></ZeroStop>
-		</Maneuvers>
+		<ManeuverGridImage>TIEAvengerDial.png</ManeuverGridImage>
 	</Ship>
 </Ships>

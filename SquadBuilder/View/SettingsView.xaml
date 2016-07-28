@@ -14,7 +14,8 @@
 					<SwitchCell Text="Hide Unavailable Ships/Cards" On="{Binding HideUnavailable}" />
 				</TableSection>
 				<TableSection Title="Maneuver Grids">
-					<SwitchCell Text="Show In Ship List" On="{Binding ShowManeuversInShipList}" />
+					<SwitchCell Text="Show In Ship Selection" On="{Binding ShowManeuversInShipList}" />
+					<SwitchCell Text="Show In Pilot Selection" On="{Binding ShowManeuversInPilotSelection}" />
 					<SwitchCell Text="Show In Squadron List" On="{Binding ShowManeuversInSquadronList}" />
 					<SwitchCell Text="Show In Pilot View" On="{Binding ShowManeuversInPilotView}" />
 				</TableSection>

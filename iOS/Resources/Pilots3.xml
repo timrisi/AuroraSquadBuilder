@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.71">
+<Pilots Version="2.72">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -4002,7 +4002,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you perform a focus action, you may assign 1 Focus token to another friendly ship at Range 1-2.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="xeal" faction="imperial" ship="assaultgunboat">
 		<Name>Xeal</Name>
@@ -4022,7 +4022,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>If you have 1 or more Damage cards, you may roll 1 additional attack die.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="eaglesquadronpilot" faction="imperial" ship="assaultgunboat">
 		<Name>Eagle Squadron Pilot</Name>
@@ -4041,7 +4041,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="rhosquadronpilot" faction="imperial" ship="assaultgunboat">
 		<Name>Rho Squadron Pilot</Name>
@@ -4059,7 +4059,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="marajadesorosuub" faction="scum" ship="sorosuubluxuryyacht3000">
 		<Name>Mara Jade</Name>
@@ -4082,7 +4082,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, after you spend a target lock, you may acquire a focus token.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="hondoohnaka" faction="scum" ship="sorosuubluxuryyacht3000">
 		<Name>Hondo Ohnaka</Name>
@@ -4104,7 +4104,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the combat phase, you may transfer a token from a friendly ship at Range 1-3 to another ship at Range 1 of you.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="spicesmuggler" faction="scum" ship="sorosuubluxuryyacht3000">
 		<Name>Spice Smuggler</Name>
@@ -4125,7 +4125,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="contractedhauler" faction="scum" ship="sorosuubluxuryyacht3000">
 		<Name>Contracted Hauler</Name>
@@ -4146,7 +4146,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="reach" faction="scum" ship="vwing">
 		<Name>Reach</Name>
@@ -4165,7 +4165,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, you may spend a focus token to roll an additional attack die.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="cikatrovizago" faction="scum" ship="vwing">
 		<Name>Cikatro Vizago</Name>
@@ -4184,7 +4184,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, at the start of the 'Compare Results' step you may spend an evade token to cancel 1 of the defender's {evade} results.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="cartelhotshot" faction="scum" ship="vwing">
 		<Name>Cartel Hotshot</Name>
@@ -4202,7 +4202,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="cartelbandit" faction="scum" ship="vwing">
 		<Name>Cartel Bandit</Name>
@@ -4219,7 +4219,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="sedayamorningstar" faction="imperial" ship="tieavenger">
 		<Name>Sedaya Morningstar</Name>
@@ -4237,7 +4237,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, you may change one of your blank results to a {hit} result.  Then, receive 1 stress token.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="edge" faction="imperial" ship="tieavenger">
 		<Name>&quot;Edge&quot;</Name>
@@ -4255,7 +4255,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Once per round, when you are declared the target of an attack, you may assign yourself one focus token.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="avengersquadronpilot" faction="imperial" ship="tieavenger">
 		<Name>Avenger Squadron Pilot</Name>
@@ -4272,7 +4272,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="direcatsquadronpilot" faction="imperial" ship="tieavenger">
 		<Name>Dire Cat Squadron Pilot</Name>
@@ -4288,7 +4288,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="talonbanecobrastarviper" faction="scum" ship="starviper">
 		<Name>Talonbane Cobra</Name>
@@ -4306,7 +4306,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="savan" faction="scum" ship="starviper">
 		<Name>Savan</Name>
@@ -4324,7 +4324,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, if the enemy has one or more stress tokens, you may roll one additional die.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="aeronazzameen" faction="rebel" ship="yt1300">
 		<Name>Aeron Azzameen</Name>
@@ -4343,7 +4343,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When defending, you may spend a focus token to choose 1 of the attackers focus or target lock tokens.  That token cannot be spent during this attack and must be discarded.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<!-- Savan -->
 	<Pilot id="myndonos" faction="rebel" ship="xwing">
@@ -4363,7 +4363,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking, you may spend a focus token to convert one of the target's {evade} results to a blank result.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="oorylqrygg" faction="rebel" ship="xwing">
 		<Name>Ooryl Qrygg</Name>
@@ -4381,7 +4381,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When a friendly ship at Range 1-2 is defending, you may spend your focus token to change their blank results to {eyeball} results.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="roguesquadronace" faction="rebel" ship="xwing">
 		<Name>Rogue Squadron Ace</Name>
@@ -4399,7 +4399,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="sharabeyawing" faction="rebel" ship="awing">
 		<Name>Shara Bey</Name>
@@ -4417,7 +4417,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you perform a boost action, you may use the 2 {bank left}, {straight}, or {bank right} templates.  If you do so, assign yourself 1 stress token.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="yrsaharu" faction="scum" ship="kihraxzfighter">
 		<Name>Yrsa Haru</Name>
@@ -4436,6 +4436,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you receive a stress token, you may perform a free barrel roll action, even while stressed.</Ability>
-		<Custom>true</Custom>
+		<CCL>true</CCL>
 	</Pilot>
 </Pilots>

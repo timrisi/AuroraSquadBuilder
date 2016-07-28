@@ -109,6 +109,15 @@ namespace SquadBuilder
 			}
 		}
 
+		static bool showManeuversInPilotSelection = false;
+		public static bool ShowManeuversInPilotSelection {
+			get { return showManeuversInPilotSelection; }
+			set {
+				showManeuversInPilotSelection = value;
+				App.Storage.Put<bool> ("ShowManeuversInPilotSelection", value);
+			}
+		}
+
 		static bool customCardLeague = false;
 		public static bool CustomCardLeague {
 			get { return customCardLeague; }

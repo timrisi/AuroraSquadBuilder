@@ -22,6 +22,12 @@ namespace SquadBuilder
 		public string Header {
 			get { return Ship?.Name + " - " + Faction?.Name; }
 		}
+
+		public bool ShowManeuvers {
+			get {
+				return Settings.ShowManeuversInPilotSelection && !string.IsNullOrEmpty (Ship?.ManeuverGridImage);
+			}
+		}
 	}
 }
 

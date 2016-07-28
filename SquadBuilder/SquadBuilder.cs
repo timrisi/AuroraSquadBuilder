@@ -20,6 +20,7 @@ namespace SquadBuilder
 			Settings.ShowManeuversInShipList = Storage.Get<bool> ("ShowManeuversInShipList", true);
 			Settings.ShowManeuversInSquadronList = Storage.Get<bool> ("ShowManeuversInSquadronList", false);
 			Settings.ShowManeuversInPilotView = Storage.Get<bool> ("ShowManeuversInPilotView", true);
+			Settings.ShowManeuversInPilotView = Storage.Get<bool> ("ShowManeuversInPilotSelection", false);
 			Settings.CustomCardLeague = Storage.Get<bool> ("CustomCardLeague", false);
 			RegisterViews();
 			MainPage = new RootPage ();

@@ -199,37 +199,6 @@
     <BundleResource Include="Resources\xwing-miniatures.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\bank_left.png" />
-    <BundleResource Include="Resources\bank_left_green.png" />
-    <BundleResource Include="Resources\bank_left_red.png" />
-    <BundleResource Include="Resources\bank_right.png" />
-    <BundleResource Include="Resources\bank_right_green.png" />
-    <BundleResource Include="Resources\bank_right_red.png" />
-    <BundleResource Include="Resources\Blank.png" />
-    <BundleResource Include="Resources\forward.png" />
-    <BundleResource Include="Resources\forward_green.png" />
-    <BundleResource Include="Resources\forward_red.png" />
-    <BundleResource Include="Resources\koiogran.png" />
-    <BundleResource Include="Resources\koiogran_red.png" />
-    <BundleResource Include="Resources\segnors_loop_left.png" />
-    <BundleResource Include="Resources\segnors_loop_left_green.png" />
-    <BundleResource Include="Resources\segnors_loop_left_red.png" />
-    <BundleResource Include="Resources\segnors_loop_right.png" />
-    <BundleResource Include="Resources\segnors_loop_right_green.png" />
-    <BundleResource Include="Resources\segnors_loop_right_red.png" />
-    <BundleResource Include="Resources\stop.png" />
-    <BundleResource Include="Resources\stop_green.png" />
-    <BundleResource Include="Resources\stop_red.png" />
-    <BundleResource Include="Resources\tallon_roll_left.png" />
-    <BundleResource Include="Resources\tallon_roll_left_red.png" />
-    <BundleResource Include="Resources\tallon_roll_right.png" />
-    <BundleResource Include="Resources\tallon_roll_right_red.png" />
-    <BundleResource Include="Resources\turn_left.png" />
-    <BundleResource Include="Resources\turn_left_green.png" />
-    <BundleResource Include="Resources\turn_left_red.png" />
-    <BundleResource Include="Resources\turn_right.png" />
-    <BundleResource Include="Resources\turn_right_green.png" />
-    <BundleResource Include="Resources\turn_right_red.png" />
     <BundleResource Include="Resources\StarViperDial.png" />
     <BundleResource Include="Resources\HWK290Dial.png" />
     <BundleResource Include="Resources\AggressorDial.png" />
@@ -263,6 +232,10 @@
     <BundleResource Include="Resources\TIEPunisherDial.png" />
     <BundleResource Include="Resources\TIESFDial.png" />
     <BundleResource Include="Resources\VT49Dial.png" />
+    <BundleResource Include="Resources\AssaultGunboatDial.png" />
+    <BundleResource Include="Resources\SoroSuubDial.png" />
+    <BundleResource Include="Resources\TIEAvengerDial.png" />
+    <BundleResource Include="Resources\VwingDial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

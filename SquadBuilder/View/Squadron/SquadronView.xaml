@@ -33,26 +33,39 @@
 					               		  IsDestructive="True" />
 					        </ViewCell.ContextActions>
 							<ViewCell.View>
-								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
-									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
-										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" />
-									</StackLayout>
-									<StackLayout Orientation="Horizontal" 
-												 Spacing="15">
-										<Label Text="{Binding PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
-									</StackLayout>
-									<Label Text="{Binding Ship.Name}" FontAttributes="Italic" />
-									<StackLayout Orientation="Horizontal" Spacing="10">
-										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
-										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
-										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
-										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
-									</StackLayout>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto" />
+										</Grid.RowDefinitions>
+
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="Auto" /> 
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+
+										<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
+											<StackLayout Orientation="Horizontal" 
+														 Spacing="15">
+												<Label Text="{Binding PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
+												<Label Text="{Binding Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+												<Label Text="{Binding Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
+												<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
+												<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
+											</StackLayout>
+											<Label Text="{Binding Ship.Name}" FontAttributes="Italic" />
+											<StackLayout Orientation="Horizontal" Spacing="10">
+												<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
+												<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
+												<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+												<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+											</StackLayout>
+										</StackLayout>
+										<Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuversInSquadronList}" Grid.Row="0" Grid.Column="1" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" Grid.Row="0" Grid.Column="2" />
+									</Grid>
 									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
 								</StackLayout>

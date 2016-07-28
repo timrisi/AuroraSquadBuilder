@@ -128,6 +128,12 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool ContainsCCL {
+			get {
+				return Pilots.Any (p => p.CCL || p.UpgradesEquipped.Any (u => u?.CCL ?? false));
+			}
+		}
+
 		public string PointDetails {
 			get { return Points + " / " + MaxPoints; }
 		}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.91">
+<Upgrades Version="2.92">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1579,7 +1579,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Name>Lock-Threat Warning System</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, when an enemy ship acquires a target lock on you, you may immediately perform a free action.</Text>
-			<Custom>true</Custom>
+			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="collisiondetector">
 			<Name>Collision Detector</Name>

@@ -20,13 +20,37 @@
 					  SelectedItem="{Binding SelectedPilot, Mode=TwoWay}">
 				<ListView.GroupHeaderTemplate>
 					<DataTemplate>
-						<TextCell Text="{Binding Ship.Name}" Detail="{Binding Ship.ActionsString}" />
+						<ViewCell>
+							<ViewCell.View>
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+									
+									<StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
+										<StackLayout Orientation="Horizontal">
+											<Label Text="{Binding Ship.Name}" TextColor="{Binding Ship.TextColor}" />
+											<Label Text="Preview" IsVisible="{Binding Ship.IsPreview}" TextColor="Blue" FontAttributes="Italic" />
+											<Label Text="Custom" IsVisible="{Binding Ship.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+											<Label Text="CCL" IsVisible="{Binding Ship.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+										</StackLayout>
+										<Label Text="{Binding Ship.ActionsString}" FontSize="Micro" TextColor="Navy" />
+									</StackLayout>
+									<Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
+								</Grid>
+							</ViewCell.View>
+						</ViewCell>
 					</DataTemplate>
 				</ListView.GroupHeaderTemplate>
 				<ListView.ItemTemplate>
 					<DataTemplate> 
 						<ViewCell>
-						<ViewCell.View>
+							<ViewCell.View>
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" TextColor="{Binding TextColor}" />

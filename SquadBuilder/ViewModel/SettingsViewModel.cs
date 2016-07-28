@@ -101,6 +101,14 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool ShowManeuversInPilotSelection {
+			get { return Settings.ShowManeuversInPilotSelection; }
+			set {
+				Settings.ShowManeuversInPilotSelection = value;
+				NotifyPropertyChanged ("ShowManeuversInPilotSelection");
+			}
+		}
+
 		public bool DropboxSync {
 			get { return Settings.DropboxSync; }
 			set {
