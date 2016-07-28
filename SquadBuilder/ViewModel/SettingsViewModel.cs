@@ -119,11 +119,8 @@ namespace SquadBuilder
 					DropboxLogin ();
 				else {
 					App.DropboxClient = null;
-					//Xamarin.Forms.Application.Current.Properties.Remove (SettingsViewModel.AccessTokenKey);
 					App.Storage.Delete (SettingsViewModel.AccessTokenKey);
-					//Xamarin.Forms.Application.Current.Properties.Remove (AccountKey);
 					App.Storage.Delete (AccountKey);
-					//Xamarin.Forms.Application.Current.SavePropertiesAsync ().ContinueWith (arg => { });
 					NotifyPropertyChanged ("Account");
 					NotifyPropertyChanged ("DropboxSync");
 				}
@@ -132,11 +129,7 @@ namespace SquadBuilder
 
 		public string Account {
 			get {
-				//if (Xamarin.Forms.Application.Current.Properties.ContainsKey (AccountKey))
 				return App.Storage.Get<string> (AccountKey) ?? "";
-					//return Xamarin.Forms.Application.Current.Properties [AccountKey].ToString ();
-
-				//return "";
 			}
 		}
 
