@@ -236,6 +236,19 @@
     <BundleResource Include="Resources\SoroSuubDial.png" />
     <BundleResource Include="Resources\TIEAvengerDial.png" />
     <BundleResource Include="Resources\VwingDial.png" />
+    <BundleResource Include="Resources\JumpMasterDialUnhinged.png" />
+    <BundleResource Include="Resources\TIEAdvancedDialMk2.png" />
+    <BundleResource Include="Resources\TIEAdvPrototypeDialMk2.png" />
+    <BundleResource Include="Resources\TIEAvengerDialMk2.png" />
+    <BundleResource Include="Resources\TIEBomberDialMk2.png" />
+    <BundleResource Include="Resources\TIEDefenderDialMk2.png" />
+    <BundleResource Include="Resources\TIEFighterDialMk2.png" />
+    <BundleResource Include="Resources\TIEFODialMk2.png" />
+    <BundleResource Include="Resources\TIEInterceptorDialMk2.png" />
+    <BundleResource Include="Resources\TIEPhantomDialMk2.png" />
+    <BundleResource Include="Resources\TIEPunisherDialMk2.png" />
+    <BundleResource Include="Resources\TIESFDialMk2.png" />
+    <BundleResource Include="Resources\YwingDialUnhinged.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

@@ -72,17 +72,6 @@ namespace SquadBuilder
 						MessagingCenter.Unsubscribe<UpgradesListView, string> (this, "Upgrade Option Selected");
 					});
 					MessagingCenter.Send (this, "Select Upgrade Option", upgr.UpgradeOptions.ToList ());
-				//}
-				//if (upgrade?.Name == "\"Heavy Scyk\" Interceptor") {
-				//	var upgr = upgrade;
-				//	MessagingCenter.Subscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected", (uvm, upgradeType) => {
-				//		if (upgradeType != "Cancel") {
-				//			upgr.AdditionalUpgrades.Add (upgradeType);
-				//			updateUpgrade (index, upgr);
-				//		}
-				//		MessagingCenter.Unsubscribe <UpgradesListView, string> (this, "Scyk Upgrade Selected"); 
-				//	});
-				//	MessagingCenter.Send <PilotViewModel> (this, "Select Scyk Upgrade");
 				} else
 					updateUpgrade (index, upgrade);
 

@@ -37,6 +37,7 @@ namespace SquadBuilder
 		public int MinPilotSkill { get; set; }
 		public bool IsCustom { get; set; }
 		public bool CCL { get; set; }
+		public string ModifiedManeuverDial { get; set; }
 
 		string canonicalName;
 		public string CanonicalName {
@@ -215,6 +216,7 @@ namespace SquadBuilder
 				MinPilotSkill = MinPilotSkill,
 				IsCustom = IsCustom,
 				CCL = CCL,
+				ModifiedManeuverDial = ModifiedManeuverDial,
 				Slots = new ObservableCollection<string> (Slots),
 				AdditionalUpgrades = new ObservableCollection<string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection<string> (RemovedUpgrades),

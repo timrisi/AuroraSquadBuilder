@@ -307,6 +307,9 @@ namespace SquadBuilder
 						}
 					}
 				}
+
+				if (!string.IsNullOrEmpty (oldUpgrade.ModifiedManeuverDial))
+					Ship.ManeuverGridImage = Ship.ManeuverGridImage.Replace (oldUpgrade.ModifiedManeuverDial, "");
 			}
 			if (upgrade != null) {
 				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
@@ -330,9 +333,10 @@ namespace SquadBuilder
 
 				if (upgrade.Id == "misthunter")
 					UpgradesEquipped [UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
-			}
 
-//			NotifyPropertyChanged ("Pilot");
+				if (!string.IsNullOrEmpty (upgrade.ModifiedManeuverDial))
+					Ship.ManeuverGridImage = Path.GetFileNameWithoutExtension (Ship.ManeuverGridImage) + upgrade.ModifiedManeuverDial + Path.GetExtension (Ship.ManeuverGridImage);
+			}
 		}
 
 		[XmlIgnore]

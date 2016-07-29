@@ -452,7 +452,8 @@ namespace SquadBuilder
 											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
-					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false
+					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
+					ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value
 				});
 
 				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
