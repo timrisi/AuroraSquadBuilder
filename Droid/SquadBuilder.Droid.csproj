@@ -246,6 +246,117 @@
     <AndroidResource Include="Resources\drawable\turn_right_red.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\AggressorDial.png">
+      <Link>Resources\drawable\AggressorDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\AssaultGunboatDial.png">
+      <Link>Resources\drawable\AssaultGunboatDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\AttackShuttleDial.png">
+      <Link>Resources\drawable\AttackShuttleDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\AwingDial.png">
+      <Link>Resources\drawable\AwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\BwingDial.png">
+      <Link>Resources\drawable\BwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\EwingDial.png">
+      <Link>Resources\drawable\EwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\FiresprayDial.png">
+      <Link>Resources\drawable\FiresprayDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\G1ADial.png">
+      <Link>Resources\drawable\G1ADial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\HWK290Dial.png">
+      <Link>Resources\drawable\HWK290Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\JumpMasterDial.png">
+      <Link>Resources\drawable\JumpMasterDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\KihraxzDial.png">
+      <Link>Resources\drawable\KihraxzDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\KwingDial.png">
+      <Link>Resources\drawable\KwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\LambdaDial.png">
+      <Link>Resources\drawable\LambdaDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\ScykDial.png">
+      <Link>Resources\drawable\ScykDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\SoroSuubDial.png">
+      <Link>Resources\drawable\SoroSuubDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\T70XwingDial.png">
+      <Link>Resources\drawable\T70XwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAdvancedDial.png">
+      <Link>Resources\drawable\TIEAdvancedDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAdvPrototypeDial.png">
+      <Link>Resources\drawable\TIEAdvPrototypeDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAvengerDial.png">
+      <Link>Resources\drawable\TIEAvengerDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEBomberDial.png">
+      <Link>Resources\drawable\TIEBomberDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEDefenderDial.png">
+      <Link>Resources\drawable\TIEDefenderDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEFighterDial.png">
+      <Link>Resources\drawable\TIEFighterDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEFODial.png">
+      <Link>Resources\drawable\TIEFODial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEInterceptorDial.png">
+      <Link>Resources\drawable\TIEInterceptorDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEPhantomDial.png">
+      <Link>Resources\drawable\TIEPhantomDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEPunisherDial.png">
+      <Link>Resources\drawable\TIEPunisherDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIESFDial.png">
+      <Link>Resources\drawable\TIESFDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\VCX100Dial.png">
+      <Link>Resources\drawable\VCX100Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\VT49Dial.png">
+      <Link>Resources\drawable\VT49Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\VwingDial.png">
+      <Link>Resources\drawable\VwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\XwingDial.png">
+      <Link>Resources\drawable\XwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YT1300Dial.png">
+      <Link>Resources\drawable\YT1300Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YT2400Dial.png">
+      <Link>Resources\drawable\YT2400Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YV666Dial.png">
+      <Link>Resources\drawable\YV666Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YwingDial.png">
+      <Link>Resources\drawable\YwingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\Z95Dial.png">
+      <Link>Resources\drawable\Z95Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\StarViperDial.png">
+      <Link>Resources\drawable\StarViperDial.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
