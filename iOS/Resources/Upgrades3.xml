@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.93">
+<Upgrades Version="2.95">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -39,7 +39,7 @@
 			<Name>R2 Astromech</Name>
 			<Cost>1</Cost>
 			<Text>You may treat all 1- and 2-speed maneuvers as green maneuvers.</Text>
-			<Owned>0</Owned>
+			<ModifiedManeuverDial>r2astro</ModifiedManeuverDial>
 		</Upgrade>
 		<Upgrade id="r2d6">
 			<Name>R2-D6</Name>
@@ -388,7 +388,7 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Text>You may treat all {straight} maneuvers as green maneuvers.</Text>
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
-			<Owned>0</Owned>
+			<ModifiedManeuverDial>NienNumb</ModifiedManeuverDial>
 		</Upgrade>
 		<Upgrade id="weaponsengineer">
 			<Name>Weapons Engineer</Name>

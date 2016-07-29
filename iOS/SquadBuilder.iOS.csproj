@@ -249,6 +249,17 @@
     <BundleResource Include="Resources\TIEPunisherDialMk2.png" />
     <BundleResource Include="Resources\TIESFDialMk2.png" />
     <BundleResource Include="Resources\YwingDialUnhinged.png" />
+    <BundleResource Include="Resources\AttackShuttleDialNienNumb.png" />
+    <BundleResource Include="Resources\BwingDialNienNumb.png" />
+    <BundleResource Include="Resources\EwingDialr2astro.png" />
+    <BundleResource Include="Resources\HWK290DialNienNumb.png" />
+    <BundleResource Include="Resources\KwingDialNienNumb.png" />
+    <BundleResource Include="Resources\T70XwingDialr2astro.png" />
+    <BundleResource Include="Resources\VCX100DialNienNumb.png" />
+    <BundleResource Include="Resources\XwingDialr2astro.png" />
+    <BundleResource Include="Resources\YT1300DialNienNumb.png" />
+    <BundleResource Include="Resources\YT2400DialNienNumb.png" />
+    <BundleResource Include="Resources\YwingDialr2astro.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
