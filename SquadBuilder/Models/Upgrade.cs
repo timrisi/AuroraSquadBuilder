@@ -109,6 +109,7 @@ namespace SquadBuilder
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
 		public ObservableCollection <string> RemovedUpgrades { get; set; }
 		public ObservableCollection <string> RequiredSlots { get; set; }
+		public ObservableCollection <string> UpgradeOptions { get; set; }
 
 		public Color TextColor {
 			get { return IsAvailable ? Color.Black : Color.Gray; }
@@ -209,15 +210,16 @@ namespace SquadBuilder
 				Dice = Dice,
 				Range = Range,
 				Limited = Limited,
-				Unique = Unique, 
+				Unique = Unique,
 				Preview = Preview,
 				MinPilotSkill = MinPilotSkill,
 				IsCustom = IsCustom,
 				CCL = CCL,
-				Slots = new ObservableCollection <string> (Slots),
-				AdditionalUpgrades = new ObservableCollection <string> (AdditionalUpgrades),
-				RemovedUpgrades = new ObservableCollection <string> (RemovedUpgrades),
-				RequiredSlots = new ObservableCollection <string> (RequiredSlots)
+				Slots = new ObservableCollection<string> (Slots),
+				AdditionalUpgrades = new ObservableCollection<string> (AdditionalUpgrades),
+				RemovedUpgrades = new ObservableCollection<string> (RemovedUpgrades),
+				RequiredSlots = new ObservableCollection<string> (RequiredSlots),
+				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions)
 			};
 		}
 

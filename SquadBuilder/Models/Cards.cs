@@ -445,6 +445,8 @@ namespace SquadBuilder
 																		 select upgr.Value).ToList ()),
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
+					UpgradeOptions = new ObservableCollection <string> ((from upgr in upgrade.Element ("UpgradeOptions") != null ? upgrade.Element ("UpgradeOptions").Elements () : new List<XElement> ()
+					                                                     select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
 					owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
 											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
@@ -496,6 +498,7 @@ namespace SquadBuilder
 					RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List <XElement> ()
 																	   select upgr.Value).ToList ()),
 					RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
+					UpgradeOptions = new ObservableCollection <string> (),
 					owned = 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,

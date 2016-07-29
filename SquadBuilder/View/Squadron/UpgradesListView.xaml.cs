@@ -12,6 +12,12 @@ namespace SquadBuilder
 		{
 			InitializeComponent ();
 
+			MessagingCenter.Subscribe<PilotViewModel, List<string>> (this, "Select Upgrade Option", async (vm, options) => {
+				var upgrade = await DisplayActionSheet ("Select Upgrade Type", "Cancel", null, options.ToArray ());
+				MessagingCenter.Send (this, "Upgrade Option Selected", upgrade);
+				MessagingCenter.Unsubscribe <PilotViewModel, List<string>> (this, "Select Upgrade Option");
+			});
+
 			MessagingCenter.Subscribe <PilotViewModel> (this, "Select Scyk Upgrade", async vm => {
 				var upgrade = await DisplayActionSheet ("Select Upgrade Type", "Cancel", null, "Cannon", "Torpedo", "Missile");
 				MessagingCenter.Send <UpgradesListView, string> (this, "Scyk Upgrade Selected", upgrade);
