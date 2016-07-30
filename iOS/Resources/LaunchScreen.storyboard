@@ -16,42 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="spacial-cosmic.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="180">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Aurora Launch Image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="180">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" id="45" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" adjustsFontSizeToFit="NO" adjustsLetterSpacingToFitWidth="NO" text="Aurora" autoresizesSubviews="NO" misplaced="YES">
-                                <rect key="frame" x="150" y="99" width="301" height="57"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="160.5" y="79" width="93" height="36"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="353.5" y="79" width="93" height="36"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Squad Builder" lineBreakMode="tailTruncation" minimumFontSize="10" id="50" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" autoresizesSubviews="NO" misplaced="YES">
-                                <rect key="frame" x="188" y="455" width="225" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="303" y="671" width="194.5" height="36"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="110" y="607" width="194.5" height="36"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
                         <constraints>
@@ -59,10 +33,6 @@
                             <constraint id="181" firstItem="23" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom"/>
                             <constraint id="182" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="23" secondAttribute="bottom"/>
                             <constraint id="183" firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading"/>
-                            <constraint id="184" firstItem="45" firstAttribute="centerX" secondItem="23" secondAttribute="centerX"/>
-                            <constraint id="185" firstItem="50" firstAttribute="centerX" secondItem="23" secondAttribute="centerX"/>
-                            <constraint id="186" firstItem="45" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" constant="79"/>
-                            <constraint id="187" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="50" secondAttribute="bottom" constant="93"/>
                         </constraints>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
@@ -95,15 +65,79 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="Default-568h.png" width="320" height="568"/>
         <image name="Default-Portrait.png" width="768" height="1004"/>
-        <image name="Icon-76.png" width="76" height="76"/>
         <image name="Icon-Small.png" width="29" height="29"/>
         <image name="Icon-Small-40.png" width="40" height="40"/>
-        <image name="Icon.png" width="600" height="600"/>
         <image name="Icon-180.png" width="180" height="180"/>
         <image name="menu.png" width="512" height="477"/>
         <image name="spacial-cosmic.png" width="1047" height="1920"/>
+        <image name="Icon-167.png" width="167" height="167"/>
+        <image name="StarViperDial.png" width="121" height="64"/>
+        <image name="down.png" width="128" height="128"/>
+        <image name="up.png" width="128" height="128"/>
+        <image name="HWK290Dial.png" width="121" height="64"/>
+        <image name="AggressorDial.png" width="121" height="64"/>
+        <image name="FiresprayDial.png" width="121" height="64"/>
+        <image name="G1ADial.png" width="121" height="64"/>
+        <image name="JumpMasterDial.png" width="121" height="64"/>
+        <image name="KihraxzDial.png" width="121" height="80"/>
+        <image name="ScykDial.png" width="121" height="80"/>
+        <image name="YV666Dial.png" width="121" height="80"/>
+        <image name="YwingDial.png" width="121" height="64"/>
+        <image name="Z95Dial.png" width="121" height="64"/>
+        <image name="AttackShuttleDial.png" width="121" height="64"/>
+        <image name="AwingDial.png" width="121" height="80"/>
+        <image name="BwingDial.png" width="121" height="64"/>
+        <image name="EwingDial.png" width="121" height="80"/>
+        <image name="KwingDial.png" width="121" height="48"/>
+        <image name="T70XwingDial.png" width="121" height="64"/>
+        <image name="VCX100Dial.png" width="121" height="80"/>
+        <image name="XwingDial.png" width="121" height="64"/>
+        <image name="YT1300Dial.png" width="121" height="64"/>
+        <image name="YT2400Dial.png" width="121" height="64"/>
+        <image name="TIEDefenderDial.png" width="121" height="80"/>
+        <image name="LambdaDial.png" width="121" height="64"/>
+        <image name="TIEAdvancedDial.png" width="121" height="80"/>
+        <image name="TIEAdvPrototypeDial.png" width="121" height="80"/>
+        <image name="TIEBomberDial.png" width="121" height="80"/>
+        <image name="TIEFighterDial.png" width="121" height="80"/>
+        <image name="TIEFODial.png" width="121" height="80"/>
+        <image name="TIEInterceptorDial.png" width="121" height="80"/>
+        <image name="TIEPhantomDial.png" width="121" height="64"/>
+        <image name="TIEPunisherDial.png" width="121" height="64"/>
+        <image name="TIESFDial.png" width="121" height="64"/>
+        <image name="VT49Dial.png" width="121" height="80"/>
+        <image name="AssaultGunboatDial.png" width="121" height="64"/>
+        <image name="SoroSuubDial.png" width="121" height="64"/>
+        <image name="TIEAvengerDial.png" width="121" height="80"/>
+        <image name="VwingDial.png" width="121" height="64"/>
+        <image name="JumpMasterDialUnhinged.png" width="121" height="64"/>
+        <image name="TIEAdvancedDialMk2.png" width="121" height="80"/>
+        <image name="TIEAdvPrototypeDialMk2.png" width="121" height="80"/>
+        <image name="TIEAvengerDialMk2.png" width="121" height="80"/>
+        <image name="TIEBomberDialMk2.png" width="121" height="80"/>
+        <image name="TIEDefenderDialMk2.png" width="121" height="80"/>
+        <image name="TIEFighterDialMk2.png" width="121" height="80"/>
+        <image name="TIEFODialMk2.png" width="121" height="80"/>
+        <image name="TIEInterceptorDialMk2.png" width="121" height="80"/>
+        <image name="TIEPhantomDialMk2.png" width="121" height="64"/>
+        <image name="TIEPunisherDialMk2.png" width="121" height="64"/>
+        <image name="TIESFDialMk2.png" width="121" height="64"/>
+        <image name="YwingDialUnhinged.png" width="121" height="64"/>
+        <image name="AttackShuttleDialNienNumb.png" width="121" height="64"/>
+        <image name="BwingDialNienNumb.png" width="121" height="64"/>
+        <image name="EwingDialr2astro.png" width="121" height="80"/>
+        <image name="HWK290DialNienNumb.png" width="121" height="64"/>
+        <image name="KwingDialNienNumb.png" width="121" height="48"/>
+        <image name="T70XwingDialr2astro.png" width="121" height="64"/>
+        <image name="VCX100DialNienNumb.png" width="121" height="80"/>
+        <image name="XwingDialr2astro.png" width="121" height="64"/>
+        <image name="YT1300DialNienNumb.png" width="121" height="64"/>
+        <image name="YT2400DialNienNumb.png" width="121" height="64"/>
+        <image name="YwingDialr2astro.png" width="121" height="64"/>
+        <image name="Aurora Launch Image.jpg" width="1152" height="2048"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina55"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedOrientationMetrics key="orientation"/>
     </simulatedMetricsContainer>
 </document>

@@ -260,6 +260,7 @@
     <BundleResource Include="Resources\YT1300DialNienNumb.png" />
     <BundleResource Include="Resources\YT2400DialNienNumb.png" />
     <BundleResource Include="Resources\YwingDialr2astro.png" />
+    <BundleResource Include="Resources\Aurora Launch Image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
