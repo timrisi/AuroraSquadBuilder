@@ -357,6 +357,78 @@
     <AndroidResource Include="..\iOS\Resources\StarViperDial.png">
       <Link>Resources\drawable\StarViperDial.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\AttackShuttleDialNienNumb.png">
+      <Link>Resources\drawable\AttackShuttleDialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\BwingDialNienNumb.png">
+      <Link>Resources\drawable\BwingDialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\EwingDialr2astro.png">
+      <Link>Resources\drawable\EwingDialr2astro.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\HWK290DialNienNumb.png">
+      <Link>Resources\drawable\HWK290DialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\JumpMasterDialUnhinged.png">
+      <Link>Resources\drawable\JumpMasterDialUnhinged.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\KwingDialNienNumb.png">
+      <Link>Resources\drawable\KwingDialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\T70XwingDialr2astro.png">
+      <Link>Resources\drawable\T70XwingDialr2astro.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAdvancedDialMk2.png">
+      <Link>Resources\drawable\TIEAdvancedDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAdvPrototypeDialMk2.png">
+      <Link>Resources\drawable\TIEAdvPrototypeDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEAvengerDialMk2.png">
+      <Link>Resources\drawable\TIEAvengerDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEBomberDialMk2.png">
+      <Link>Resources\drawable\TIEBomberDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEDefenderDialMk2.png">
+      <Link>Resources\drawable\TIEDefenderDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEFighterDialMk2.png">
+      <Link>Resources\drawable\TIEFighterDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEFODialMk2.png">
+      <Link>Resources\drawable\TIEFODialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEInterceptorDialMk2.png">
+      <Link>Resources\drawable\TIEInterceptorDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEPhantomDialMk2.png">
+      <Link>Resources\drawable\TIEPhantomDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEPunisherDialMk2.png">
+      <Link>Resources\drawable\TIEPunisherDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIESFDialMk2.png">
+      <Link>Resources\drawable\TIESFDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\VCX100DialNienNumb.png">
+      <Link>Resources\drawable\VCX100DialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\XwingDialr2astro.png">
+      <Link>Resources\drawable\XwingDialr2astro.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YT1300DialNienNumb.png">
+      <Link>Resources\drawable\YT1300DialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YT2400DialNienNumb.png">
+      <Link>Resources\drawable\YT2400DialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YwingDialr2astro.png">
+      <Link>Resources\drawable\YwingDialr2astro.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\YwingDialUnhinged.png">
+      <Link>Resources\drawable\YwingDialUnhinged.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
