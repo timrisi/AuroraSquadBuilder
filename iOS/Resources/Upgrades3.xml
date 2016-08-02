@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.95">
+<Upgrades Version="2.96">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -862,6 +862,24 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Unique>true</Unique>
 			<CCL>true</CCL>
 		</Upgrade>
+		<Upgrade id="ig88d">
+			<Name>IG-88D</Name>
+			<Cost>1</Cost>
+			<Text>You have the pilot ability of each friendly ship with the IG-2000 Upgrade card (in addition to your own pilot ability).</Text>
+			<Faction>scum</Faction>
+		</Upgrade>
+		<Upgrade id="lattsrazzi">
+			<Name>Latts Razzi</Name>
+			<Cost>2</Cost>
+			<Text>When defending, you may remove 1 stress token from the attacker to add 1 {evade} result to your roll.</Text>
+			<Faction>scum</Faction>
+		</Upgrade>
+		<Upgrade id="ketsuonyo">
+			<Name>Ketsu Onyo</Name>
+			<Cost>1</Cost>
+			<Text>At the start of the End phase, you may choose 1 enemy ship inside your firing arc at Range 1-2.  That ship does not remove its tractor tokens.</Text>
+			<Faction>scum</Faction>
+		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -1183,6 +1201,12 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 				<Upgrade>Missile</Upgrade>
 			</UpgradeOptions>
 			<CCL>true</CCL>
+		</Upgrade>
+		<Upgrade id="riggedcargochute">
+			<Name>Rigged Cargo Chute</Name>
+			<Cost>1</Cost>
+			<Text>Action: Discard this card to drop one cargo token.</Text>
+			<LargeOnly>true</LargeOnly>
 		</Upgrade>
 	</Category>
 	<Category id="missile" type="Missile">
@@ -2159,6 +2183,11 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Dice>4</Dice>
 			<Range>2-3</Range>
 			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="seismictorpedo">
+			<Name>Seismic Torpedo</Name>
+			<Cost>2</Cost>
+			<Text>Action: Discard this card to choose an obstacle at Range 1-2 and inside your primary firing arc.  Each ship at Range 1 of the obstacle rolls 1 attack die and suffers an damage {hit} or critical damage {crit} rolled.  Then remove the obstacle.</Text>
 		</Upgrade>
 	</Category>
 	<Category id="turret" type="Turret Weapon">
