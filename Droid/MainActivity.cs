@@ -18,7 +18,7 @@ using PerpetualEngine.Storage;
 
 namespace SquadBuilder.Droid
 {
-	[Activity (Label = "Aurora SB", 
+	[Activity (Label = "Aurora", 
 		Icon="@drawable/icon", 
 		MainLauncher = true, 
 		Theme = "@style/CustomTheme",
