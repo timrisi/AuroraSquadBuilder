@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="2.96">
+<Upgrades Version="2.99">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1207,6 +1207,13 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>Action: Discard this card to drop one cargo token.</Text>
 			<LargeOnly>true</LargeOnly>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="blackmarketslicertools">
+			<Name>Black Market Slicer Tools</Name>
+			<Cost>1</Cost>
+			<Text>Action: Choose a stressed enemy ship at Range 1-2 and roll 1 attack die.  On a {hit} or {crit} result, remove 1 stress token and deal it 1 facedown damage card.</Text>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="missile" type="Missile">
@@ -1501,6 +1508,13 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>2</Cost>
 			<Text>Your action bar gains the {barrel roll} action icon.</Text>
 			<SmallOnly>true</SmallOnly>
+		</Upgrade>
+		<Upgrade id="gyroscopictargeting">
+			<Name>Gyroscopic Targeting</Name>
+			<Cost>2</Cost>
+			<Text>At the end of the Combat phase, if you executed a 3-, 4-, or 5-speed maneuver this round, you may rotate your mobile firing arc.</Text>
+			<ShipRequirement>Lancer-class Pursuit Craft</ShipRequirement>
+			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="samd" type="Salvaged Astromech">
