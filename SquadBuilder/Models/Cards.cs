@@ -354,7 +354,7 @@ namespace SquadBuilder
 				Name = pilot.Element ("Name").Value,
 				CanonicalName = pilot.Element ("CanonicalName")?.Value,
 				Faction = Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
-				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
+				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
 				Unique = (bool)pilot.Element ("Unique"),
 				BasePilotSkill = (int)pilot.Element ("PilotSkill"),
 				BaseAttack = (int)pilot.Element ("Attack"),
@@ -379,7 +379,7 @@ namespace SquadBuilder
 				Name = pilot.Element ("Name").Value,
 				CanonicalName = pilot.Element ("CanonicalName")?.Value,
 				Faction = allFactions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
-				Ship = allShips.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value),
+				Ship = allShips.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
 				Unique = (bool)pilot.Element ("Unique"),
 				BasePilotSkill = (int)pilot.Element ("PilotSkill"),
 				BaseAttack = (int)pilot.Element ("Attack"),
@@ -421,7 +421,7 @@ namespace SquadBuilder
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
 					Faction = Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
-					Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
+					Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
 					ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
@@ -475,7 +475,7 @@ namespace SquadBuilder
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
 					Faction = allFactions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
-					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value),
+					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int)upgrade.Element ("Agility") : 0,
@@ -559,7 +559,7 @@ namespace SquadBuilder
 					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 					foreach (var pilot in squad.Pilots) {
-						pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id);
+						pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id)?.Copy ();
 						if (pilot.Ship.ManeuverGridImage == null) {
 							pilot.Ship.ManeuverGridImage = "";
 						}

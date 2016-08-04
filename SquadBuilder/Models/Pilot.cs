@@ -414,7 +414,7 @@ namespace SquadBuilder
 				Name = Name,
 				CanonicalName = CanonicalName,
 				Faction = Faction,
-				Ship = Ship,
+				Ship = Ship.Copy (),
 				Unique = Unique,
 				BasePilotSkill = BasePilotSkill,
 				BaseAttack = BaseAttack,

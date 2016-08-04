@@ -30,7 +30,7 @@ namespace SquadBuilder
 				});
 
 				Navigation.PushAsync<EditShipViewModel> ((vm, p) => {
-					vm.Ship = ship.Copy ();
+					vm.Ship = ship?.Copy ();
 				});
 			});
 		}

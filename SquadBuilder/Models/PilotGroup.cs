@@ -16,7 +16,7 @@ namespace SquadBuilder
 
 		public PilotGroup (Ship ship)
 		{
-			Ship = ship;
+			Ship = ship.Copy ();
 		}
 
 		public string Header {

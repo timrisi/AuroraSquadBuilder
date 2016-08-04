@@ -121,7 +121,7 @@ namespace SquadBuilder
 			PilotGroups.Clear ();
 
 			var filteredPilotGroups = allPilots.Where (p => (Faction == null || Faction?.Name != "Mixed" ? p?.Faction?.Name == Faction?.Name : p != null) &&
-															(Ship == null || p?.Ship == Ship)).ToList ();
+			                                           (Ship == null || p?.Ship.Id == Ship.Id)).ToList ();
 
 			foreach (var pilotGroup in filteredPilotGroups)
 				PilotGroups.Add (pilotGroup);

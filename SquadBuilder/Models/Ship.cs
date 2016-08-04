@@ -14,7 +14,7 @@ namespace SquadBuilder
 	public class Ship : ObservableObject
 	{
 		string id;
-		public String Id {
+		public string Id {
 			get { return id; }
 			set {
 				SetProperty (ref id, value);

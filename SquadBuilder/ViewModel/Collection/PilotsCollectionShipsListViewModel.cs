@@ -36,7 +36,7 @@ namespace SquadBuilder
 
 				if (value != null) {
 					Navigation.PushAsync <PilotsCollectionViewModel> ((vm, p) => {
-						vm.Ship = SelectedShip;
+						vm.Ship = SelectedShip?.Copy ();
 					});
 				}
 			}

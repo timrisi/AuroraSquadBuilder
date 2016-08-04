@@ -209,7 +209,7 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref shipIndex, value);
 				if (shipIndex > 0)
-					Upgrade.Ship = Ships [shipIndex - 1];
+					Upgrade.Ship = Ships [shipIndex - 1].Copy ();
 				else
 					Upgrade.Ship = null;
 			}

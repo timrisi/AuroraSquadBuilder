@@ -66,7 +66,7 @@ namespace SquadBuilder
 			set { 
 				SetProperty (ref shipIndex, value); 
 				if (value > -1)
-					Pilot.Ship = Ships [value];
+					Pilot.Ship = Ships [value].Copy ();
 			}
 		}
 

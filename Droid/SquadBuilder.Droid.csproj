@@ -153,99 +153,6 @@
     <AndroidResource Include="..\iOS\Resources\menu.png">
       <Link>Resources\drawable\menu.png</Link>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_left_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_left_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_right_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bank_right_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Blank.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\forward.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\forward_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\forward_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\koiogran.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\koiogran_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_left_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_left_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_right_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\segnors_loop_right_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stop.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stop_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\stop_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tallon_roll_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tallon_roll_left_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tallon_roll_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\tallon_roll_right_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_left_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_left_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_right_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\turn_right_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidResource>
     <AndroidResource Include="..\iOS\Resources\AggressorDial.png">
       <Link>Resources\drawable\AggressorDial.png</Link>
     </AndroidResource>
@@ -428,6 +335,15 @@
     </AndroidResource>
     <AndroidResource Include="..\iOS\Resources\YwingDialUnhinged.png">
       <Link>Resources\drawable\YwingDialUnhinged.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\Arc170Dial.png">
+      <Link>Resources\drawable\Arc170Dial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\LancerDial.png">
+      <Link>Resources\drawable\LancerDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\ProtectorateDial.png">
+      <Link>Resources\drawable\ProtectorateDial.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />

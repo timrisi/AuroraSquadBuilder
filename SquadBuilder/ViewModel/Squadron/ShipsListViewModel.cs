@@ -54,7 +54,7 @@ namespace SquadBuilder
 
 					Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
 						vm.Faction = Faction;
-						vm.Ship = selectedShip;
+						vm.Ship = selectedShip.Copy ();
 					});
 				}
 			}
