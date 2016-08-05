@@ -31,7 +31,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.0</string>
+	<string>1.2.1</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>CFBundleURLTypes</key>
@@ -54,6 +54,6 @@
 	<key>CFBundleName</key>
 	<string>Aurora</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>1</string>
 </dict>
 </plist>
