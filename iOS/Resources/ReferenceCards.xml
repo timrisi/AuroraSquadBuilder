@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ReferenceCards Version="0.03">
+<ReferenceCards Version="0.04">
 	<ReferenceCard>
 		<Name>Ion Token</Name>
 		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
@@ -117,7 +117,7 @@ A ship cannot perform SLAM as a free action.</Text>
 
 * End Phase: Remove all tractor beam tokens from the ship.
 
-The first time a small ship receives a tractor beam token each round, the opposing player chooses one of the following effects:
+The first time a small ship receives a tractor beam token each round, the opposing player may choose one of the following effects:
 
 * Perform a barrel roll using the {straight 1} maneuver template.  The opposing player selects the direction of the barrel roll and the final position of the ship.
 

@@ -77,7 +77,7 @@ namespace SquadBuilder
 		{
 			PilotGroups.Clear ();
 
-			var filteredPilotGroups = allPilots.Where (p => (Ship == null || p?.Ship == Ship)).ToList ();
+			var filteredPilotGroups = allPilots.Where (p => (Ship == null || p?.Ship?.Id == Ship?.Id)).ToList ();
 
 			foreach (var pilotGroup in filteredPilotGroups)
 				PilotGroups.Add (pilotGroup);
