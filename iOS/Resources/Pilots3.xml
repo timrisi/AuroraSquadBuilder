@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.75">
+<Pilots Version="2.76">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -614,6 +614,26 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+	</Pilot>
+	<Pilot id="unkarplutt" faction="scum" ship="quadjumper">
+		<Name>Unkar Plutt</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>5</Hull>
+		<Shields>0</Shields>
+		<Cost>17</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the end of the Activation phase, you must assign a tractor beam token to each ship you are touching.</Ability>
 	</Pilot>
 	<Pilot id="bobafettscum" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
@@ -2056,6 +2076,24 @@
 		<Ability>After you execute a maneuver, you may roll an attack die.  On a {hit} or {crit} result, remove 1 stress from your ship.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="sabinewrentie" faction="rebel" ship="tiefighter">
+		<Name>Sabine Wren</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>15</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Immediately before you reveal your maneuver, you may perform a free boost or barrel roll action.</Ability>
+		<Preview>true</Preview>
+		<CanonicalName>sabinewren</CanonicalName>
+	</Pilot>
 	<Pilot id="hansolo" faction="rebel" ship="yt1300">
 		<Name>Han Solo</Name>
 		<Unique>true</Unique>
@@ -2355,7 +2393,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Immediately before you reveal your maneuver, you may perform a free boost or barrel roll action.</Ability>
-		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="ezrabridger" faction="rebel" ship="attackshuttle">
 		<Name>Ezra Bridger</Name>
@@ -3954,6 +3991,28 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="kyloren" faction="imperial" ship="upsilonclassshuttle">
+		<Name>Kylo Ren</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>4</Attack>
+		<Agility>1</Agility>
+		<Hull>6</Hull>
+		<Shields>6</Shields>
+		<Cost>34</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>The first time you are hit by an attack each round, assign the &quot;I'll Show You the Dark Side&quot; Condition card to the attacker.</Ability>
+		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="raiderfore" faction="imperial" ship="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>
