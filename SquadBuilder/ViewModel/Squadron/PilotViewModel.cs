@@ -98,9 +98,7 @@ namespace SquadBuilder
 			get {
 				if (selectUpgrade == null)
 					selectUpgrade = new RelayCommand (() => {
-						
 						MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
-							
 //							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
@@ -111,12 +109,54 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand changePilot;
+		public RelayCommand ChangePilot {
+			get {
+				if (changePilot == null) {
+					changePilot = new RelayCommand (() => {
+						MessagingCenter.Subscribe<PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
+
+							var upgradeTypes = new ObservableCollection <string> (this.Pilot.UpgradeTypes);
+							var upgradesEquiped = new ObservableCollection <Upgrade> (this.Pilot.UpgradesEquipped);
+
+							if (upgradeTypes.Contains ("Elite Pilot Talent") && !pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
+								var index = upgradeTypes.IndexOf ("Elite Pilot Talent");
+								upgradeTypes.RemoveAt (index);
+								upgradesEquiped.RemoveAt (index);
+							}
+
+							if (!upgradeTypes.Contains ("Elite Pilot Talent") && pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
+								upgradeTypes.Insert (0, "Elite Pilot Talent");
+								upgradesEquiped.Insert (0, null);
+							}
+
+							pilot.UpgradeTypes = upgradeTypes;
+							pilot.UpgradesEquipped = upgradesEquiped;
+
+							var pilotIndex = Cards.SharedInstance.CurrentSquadron.Pilots.IndexOf (this.Pilot);
+							Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
+							this.Pilot = Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex];
+						});
+
+						Navigation.PushAsync<PilotsListViewModel> ((vm, p) => {
+							vm.Faction = Pilot?.Faction;
+							vm.Ship = Pilot?.Ship;
+						});
+					});
+				}
+
+				return changePilot;
+			}
+		}
+
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
 			SelectedUpgrade = null;
 
 			MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
+			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 		}
 	}
 }
