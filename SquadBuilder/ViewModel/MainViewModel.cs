@@ -35,7 +35,12 @@ namespace SquadBuilder
 		Squadron selectedSquadron = null;
 		public Squadron SelectedSquadron {
 			get { return selectedSquadron; }
-			set { 
+			set {
+				if (Settings.Editing) {
+					selectedSquadron = null;
+					return;
+				}
+				
 				SetProperty (ref selectedSquadron, value);
 				if (value != null) {
 					Cards.SharedInstance.CurrentSquadron = selectedSquadron;
@@ -104,6 +109,19 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand sortSquadron ;
+		public RelayCommand SortSquadron {
+			get {
+				if (sortSquadron == null)
+					sortSquadron = new RelayCommand (() => {
+						Settings.Editing = !Settings.Editing;
+						NotifyPropertyChanged ("Squadrons");
+					});
+
+				return sortSquadron;
+			}
+		}
+
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
@@ -133,6 +151,44 @@ namespace SquadBuilder
 				NotifyPropertyChanged ("Squadrons");
 			});
 
+			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronUp", squadron => {
+				var index = Cards.SharedInstance.Squadrons.IndexOf (squadron);
+
+				if (index == 0)
+					return;
+
+				int newIndex;
+
+				if (Faction != null) {
+					newIndex = Cards.SharedInstance.Squadrons.ToList ().FindLastIndex (index - 1, s => s.Faction.Id == squadron.Faction.Id);
+					if (newIndex < 0)
+						return;
+				} else
+					newIndex = index - 1;
+
+				Cards.SharedInstance.Squadrons.Move (index, --index);
+				NotifyPropertyChanged ("Squadrons");
+			});
+
+			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronDown", squadron => {
+				var index = Cards.SharedInstance.Squadrons.IndexOf (squadron);
+
+				if (index == Cards.SharedInstance.Squadrons.Count - 1)
+					return;
+
+				int newIndex;
+
+				if (Faction != null) {
+					newIndex = Cards.SharedInstance.Squadrons.ToList ().FindIndex (index + 1, s => s.Faction.Id == squadron.Faction.Id);
+					if (newIndex < 0)
+						return;
+				} else
+					newIndex = index + 1;
+
+				Cards.SharedInstance.Squadrons.Move (index, newIndex);
+				NotifyPropertyChanged ("Squadrons");
+			});
+
 			MessagingCenter.Subscribe<SquadronViewModel> (this, "Squadron updated", vm => {
 				NotifyPropertyChanged ("Squadrons");
 			});
@@ -145,6 +201,8 @@ namespace SquadBuilder
 			MessagingCenter.Unsubscribe <Squadron> (this, "DeleteSquadron");
 			MessagingCenter.Unsubscribe <Squadron> (this, "CopySquadron");
 			MessagingCenter.Unsubscribe <Squadron> (this, "EditDetails");
+			MessagingCenter.Unsubscribe<Squadron> (this, "MoveSquadronUp");
+			MessagingCenter.Unsubscribe<Squadron> (this, "MoveSquadronDown");
 		}
 
 		void filterSquadrons ()

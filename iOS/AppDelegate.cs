@@ -246,6 +246,8 @@ namespace SquadBuilder.iOS
 				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
 				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
 			}
+
+
 		}
 	}
 }

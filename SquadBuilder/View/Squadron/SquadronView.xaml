@@ -6,6 +6,8 @@
 				Title="{Binding Squadron.Name}">
 	<mvvm:BaseView.ToolbarItems>
 		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" StyleId="AddPilot" />
+		<ToolbarItem Text="Export to Clipboard" Command="{Binding ExportToClipboard}" Order="Secondary" />
+		<ToolbarItem Text="Export as XWS" Command="{Binding ExportXws}" Order="Secondary" />
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
@@ -114,10 +116,6 @@
 						</Label.GestureRecognizers>
 					</Label>
 				</StackLayout>
-			</StackLayout>
-			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30" >
-				<Button Text="Export to Clipboard" Command="{Binding ExportToClipboard}" HorizontalOptions="CenterAndExpand" />
-				<Button Text="Export as XWS" Command="{Binding ExportXws}" HorizontalOptions="CenterAndExpand" />
 			</StackLayout>
 		</StackLayout>
 	</mvvm:BaseView.Content>

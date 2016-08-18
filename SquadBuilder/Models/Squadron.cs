@@ -148,6 +148,10 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool Editing {
+				get { return Settings.Editing; }
+		}
+
 		[XmlIgnore]
 		RelayCommand deleteSquadron;
 		[XmlIgnore]
@@ -184,10 +188,34 @@ namespace SquadBuilder
 			}
 		}
 
+		[XmlIgnore]
+		RelayCommand moveUp;
+		[XmlIgnore]
+		public RelayCommand MoveUp {
+			get {
+				if (moveUp == null)
+					moveUp = new RelayCommand (() => MessagingCenter.Send <Squadron> (this, "MoveSquadronUp"));
+
+				return moveUp;
+			}
+		}
+
+		[XmlIgnore]
+		RelayCommand moveDown;
+		[XmlIgnore]
+		public RelayCommand MoveDown {
+			get {
+				if (moveDown == null)
+					moveDown = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronDown"));
+
+				return moveDown;
+			}
+		}
+
 		public Squadron Copy ()
 		{
 			var squadron = new Squadron {
-				Name = Name,
+				Name = Name + "- Copy",
 				Faction = Faction,
 				MaxPoints = MaxPoints,
 				Pilots = new ObservableCollection<Pilot> (),

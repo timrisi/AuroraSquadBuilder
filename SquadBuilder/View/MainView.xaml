@@ -5,8 +5,9 @@
 				x:Class="SquadBuilder.MainView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
-		<ToolbarItem Text="Import" Command="{Binding ImportSquadron}" />
 		<ToolbarItem Text="+" Command="{Binding AddSquadron}" />
+		<ToolbarItem Text="Import" Command="{Binding ImportSquadron}" Order="Secondary" />
+		<ToolbarItem Text="Sort" Command="{Binding SortSquadron}" Order="Secondary" />
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
@@ -30,30 +31,54 @@
 					               		  IsDestructive="True" />
 					        </ViewCell.ContextActions>
 							<ViewCell.View>
-								<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="15, 5, 15, 5" >
-									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
-											<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
-											<StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="End" >
-												<Label Text="{Binding Faction.Name}" FontSize="Micro" TextColor="{Binding Faction.Color}" />
-												<Label Text="Preview" IsVisible="{Binding ContainsPreview}" FontSize="Micro" TextColor="Blue" FontAttributes="Italic" />
-												<Label Text="Custom" IsVisible="{Binding ContainsCustom}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
-												<Label Text="CCL" IsVisible="{Binding ContainsCCL}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
+								<Grid Padding="15, 5, 15, 5">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+									
+									<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+										<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+											<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
+												<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+												<StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="End" >
+													<Label Text="{Binding Faction.Name}" FontSize="Micro" TextColor="{Binding Faction.Color}" />
+													<Label Text="Preview" IsVisible="{Binding ContainsPreview}" FontSize="Micro" TextColor="Blue" FontAttributes="Italic" />
+													<Label Text="Custom" IsVisible="{Binding ContainsCustom}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
+													<Label Text="CCL" IsVisible="{Binding ContainsCCL}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />
+												</StackLayout>
+											</StackLayout>
+											<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">
+												<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" XAlign="End" YAlign="Center" />
+												<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+													<Label Text="{Binding Wins}" TextColor="Green" FontSize="Micro" HorizontalOptions="End" />
+													<Label Text="/" FontSize="Micro" />
+													<Label Text="{Binding Losses}" TextColor="Red" FontSize="Micro" />
+													<Label Text="/" FontSize="Micro" />
+													<Label Text="{Binding Draws}" TextColor="Navy" FontSize="Micro" HorizontalOptions="End" />
+												</StackLayout>
 											</StackLayout>
 										</StackLayout>
-										<StackLayout Orientation="Vertical" HorizontalOptions="End" Spacing="0">
-											<Label Text="{Binding PointDetails}" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" XAlign="End" YAlign="Center" />
-											<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-												<Label Text="{Binding Wins}" TextColor="Green" FontSize="Micro" HorizontalOptions="End" />
-												<Label Text="/" FontSize="Micro" />
-												<Label Text="{Binding Losses}" TextColor="Red" FontSize="Micro" />
-												<Label Text="/" FontSize="Micro" />
-												<Label Text="{Binding Draws}" TextColor="Navy" FontSize="Micro" HorizontalOptions="End" />
-											</StackLayout>
-										</StackLayout>
+										<Label Text="{Binding PilotsString}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
 									</StackLayout>
-									<Label Text="{Binding PilotsString}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
-								</StackLayout>
+
+									<StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1" Padding="5, 0, 0, 0" VerticalOptions="FillAndExpand" IsVisible="{Binding Editing}">
+										<Label Text="▲" VerticalOptions="Start">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Command="{Binding MoveUp}" />
+											</Label.GestureRecognizers>
+										</Label>
+										<Label Text="▼" VerticalOptions="End">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Command="{Binding MoveDown}" />
+											</Label.GestureRecognizers>
+										</Label>
+									</StackLayout>
+								</Grid>
 							</ViewCell.View>
 						</ViewCell>
 					</DataTemplate>

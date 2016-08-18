@@ -118,6 +118,16 @@ namespace SquadBuilder
 			}
 		}
 
+		static bool editing;
+		public static bool Editing {
+			get {
+				return editing;
+			}
+			set {
+				editing = value;
+			}
+		}
+
 		static bool customCardLeague = false;
 		public static bool CustomCardLeague {
 			get { return customCardLeague; }

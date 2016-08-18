@@ -118,21 +118,30 @@ namespace SquadBuilder
 							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 
 							var upgradeTypes = new ObservableCollection <string> (this.Pilot.UpgradeTypes);
-							var upgradesEquiped = new ObservableCollection <Upgrade> (this.Pilot.UpgradesEquipped);
+							var upgradesEquipped = new ObservableCollection <Upgrade> (this.Pilot.UpgradesEquipped);
 
-							if (upgradeTypes.Contains ("Elite Pilot Talent") && !pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
+							var eptCount = upgradeTypes.Count (u => u == "Elite Pilot Talent");
+							if (upgradesEquipped.Any (u => u?.Id == "awingtestpilot"))
+								eptCount--;
+
+							if (eptCount > 0 && !pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
 								var index = upgradeTypes.IndexOf ("Elite Pilot Talent");
 								upgradeTypes.RemoveAt (index);
-								upgradesEquiped.RemoveAt (index);
+								upgradesEquipped.RemoveAt (index);
 							}
 
-							if (!upgradeTypes.Contains ("Elite Pilot Talent") && pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
+							if (eptCount == 0 && pilot.UpgradeTypes.Contains ("Elite Pilot Talent")) {
 								upgradeTypes.Insert (0, "Elite Pilot Talent");
-								upgradesEquiped.Insert (0, null);
+								upgradesEquipped.Insert (0, null);
 							}
+
+							if (this.Pilot.Id == "outerrimsmuggler")
+								upgradeTypes.Insert (upgradeTypes.IndexOf ("Crew"), "Missile");
+							else if (this.Pilot.Ship.Id == "yt1300")
+								upgradeTypes.Remove ("Missile");
 
 							pilot.UpgradeTypes = upgradeTypes;
-							pilot.UpgradesEquipped = upgradesEquiped;
+							pilot.UpgradesEquipped = upgradesEquipped;
 
 							var pilotIndex = Cards.SharedInstance.CurrentSquadron.Pilots.IndexOf (this.Pilot);
 							Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
