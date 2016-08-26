@@ -29,6 +29,11 @@ namespace SquadBuilder
 				Detail = ReferenceCardsListView;
 			});
 
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Explore Cards", vm => {
+				IsPresented = false;
+				Detail = ExploreCardsView;
+			});
+
 			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
 				IsPresented = false;
 				Detail = CustomFactionsView;
@@ -80,6 +85,16 @@ namespace SquadBuilder
 					collectionView = new NavigationPage (new CollectionView ());
 
 				return collectionView;
+			}
+		}
+
+		NavigationPage exploreCardsView;
+		public NavigationPage ExploreCardsView {
+			get {
+				if (exploreCardsView == null)
+					exploreCardsView = new NavigationPage (new ExploreCardsView ());
+
+				return exploreCardsView;
 			}
 		}
 

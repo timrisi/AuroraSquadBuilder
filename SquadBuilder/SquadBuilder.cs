@@ -84,6 +84,12 @@ namespace SquadBuilder
 			ViewFactory.Register <UpgradesCollectionCategoryListView, UpgradesCollectionCategoryListViewModel> ();
 			ViewFactory.Register <ImportView, ImportViewModel> ();
 			ViewFactory.Register<ReferenceCardView, ReferenceCardViewModel> ();
+			ViewFactory.Register<ExploreShipsView, ExploreShipsViewModel> ();
+			ViewFactory.Register<ExplorePilotsView, ExplorePilotsViewModel> ();
+			ViewFactory.Register<ExploreUpgradesView, ExploreUpgradesViewModel> ();
+			ViewFactory.Register<ExploreUpgradesCategoryListView, ExploreUpgradesCategoryListViewModel> ();
+			ViewFactory.Register<ExploreExpansionsView, ExploreExpansionsViewModel> ();
+			ViewFactory.Register<ExploreExpansionContentsView, ExploreExpansionContentsViewModel> ();
 		}
 	}
 }

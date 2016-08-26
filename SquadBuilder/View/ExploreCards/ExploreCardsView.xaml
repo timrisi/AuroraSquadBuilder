@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.ExploreCardsView"
+				Title="Browse Cards">
+	<mvvm:BaseView.Content>
+		<StackLayout Orientation="Vertical">
+			<TableView VerticalOptions="FillAndExpand">
+				<TableRoot>
+					<TableSection>
+						<TextCell Text="Expansions" Command="{Binding ViewExpansions}" />
+						<TextCell Text="Ships and Pilots" Command="{Binding ViewShipsAndPilots}" />
+						<TextCell Text="Upgrades" Command="{Binding ViewUpgrades}" />
+					</TableSection>
+				</TableRoot>
+			</TableView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

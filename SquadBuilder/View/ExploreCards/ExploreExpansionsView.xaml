@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.ExploreExpansionsView" 
+				Title="{Binding PageName}">
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+			<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+					  IsGroupingEnabled="true"
+         			  HasUnevenRows="true"
+					  ItemsSource="{Binding Expansions}" 
+					  SelectedItem="{Binding SelectedExpansion}">
+				<ListView.GroupHeaderTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding Wave}" />
+					</DataTemplate>
+				</ListView.GroupHeaderTemplate>
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+									<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

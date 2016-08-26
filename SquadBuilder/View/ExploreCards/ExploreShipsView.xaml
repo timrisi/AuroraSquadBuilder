@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.ExploreShipsView" 
+				Title="{Binding PageName}">
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+	    	<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+         			  HasUnevenRows="true"
+					  ItemsSource="{Binding Ships}"  
+					  SelectedItem="{Binding SelectedShip, Mode=TwoWay}">
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.View>
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+									
+									<StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
+										<StackLayout Orientation="Horizontal">
+											<Label Text="{Binding Name}" />
+											<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
+											<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+											<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+										</StackLayout>
+										<Label Text="{Binding ActionsString}" FontSize="Micro" TextColor="Navy" />
+									</StackLayout>
+									<Image Source="{Binding ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
+								</Grid>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

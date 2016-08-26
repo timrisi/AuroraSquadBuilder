@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.ExploreUpgradesView" 
+				Title="{Binding UpgradeType}">
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+	    	<Label HorizontalOptions="FillAndExpand" 
+	    		   XAlign="Center" />
+	    	<SearchBar Placeholder="Search..." Text="{Binding SearchText, Mode=TwoWay}" />
+			<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+					  BackgroundColor="Transparent"
+         			  HasUnevenRows="true"
+					  ItemsSource="{Binding Upgrades}">
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
+										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+										<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />
+										<Label Text="Limited" IsVisible="{Binding Limited}" FontAttributes="Italic" />
+										<Label Text="{Binding ShipRequirement, StringFormat='{0} Only'}" IsVisible="{Binding ShowShipRequirement}" FontAttributes="Italic" />
+										<Label Text="Small Ship Only" IsVisible="{Binding SmallOnly}" FontAttributes="Italic" />
+										<Label Text="Large Ship Only" IsVisible="{Binding LargeOnly}" FontAttributes="Italic" />
+										<Label Text="Huge Ship Only" IsVisible="{Binding HugeOnly}" FontAttributes="Italic" />
+										<Label Text="{Binding Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding FactionRestricted}" FontAttributes="Italic" />
+										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" />
+										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">
+										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
+										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
+									</StackLayout>
+									<Label Text="{Binding Text}" />
+									<StackLayout Orientation="Horizontal" Spacing="10">
+										<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+										<Label Text="{Binding Expansions}" />
+									</StackLayout>
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

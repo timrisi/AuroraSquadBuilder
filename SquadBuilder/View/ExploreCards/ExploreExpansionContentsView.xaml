@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+				x:Class="SquadBuilder.ExploreExpansionContentsView" 
+				Title="{Binding Expansion.Name}">
+	<mvvm:BaseView.Content>
+	    <StackLayout VerticalOptions="FillAndExpand" 
+	    			 HorizontalOptions="FillAndExpand">
+			<ListView VerticalOptions="FillAndExpand" 
+					  HorizontalOptions="FillAndExpand" 
+         			  HasUnevenRows="true"
+					  ItemsSource="{Binding Ships}"
+					  Header="{Binding .}">
+				<ListView.HeaderTemplate>
+					<DataTemplate> 
+						<StackLayout VerticalOptions="FillAndExpand"
+							 HorizontalOptions="FillAndExpand"
+							 Padding="15,0,15,10"
+							 Spacing="15">
+							<Label HorizontalOptions="FillAndExpand" 
+			    		   XAlign="Center" 
+			    		   Text="Ships" />
+						</StackLayout>
+					</DataTemplate>
+				</ListView.HeaderTemplate>
+				<ListView.ItemTemplate>
+					<DataTemplate> 
+						<TextCell Text="{Binding Name}" />
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</mvvm:BaseView.Content>
+</mvvm:BaseView>

@@ -153,6 +153,32 @@
       <DependentUpon>ReferenceCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ReferenceCardViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreCardsView.xaml.cs">
+      <DependentUpon>ExploreCardsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreCardsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreShipsView.xaml.cs">
+      <DependentUpon>ExploreShipsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreShipsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExplorePilotsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExplorePilotsView.xaml.cs">
+      <DependentUpon>ExplorePilotsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreUpgradesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreUpgradesView.xaml.cs">
+      <DependentUpon>ExploreUpgradesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreUpgradesCategoryListView.xaml.cs">
+      <DependentUpon>ExploreUpgradesCategoryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreUpgradesCategoryListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreExpansionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreExpansionsView.xaml.cs">
+      <DependentUpon>ExploreExpansionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreExpansionContentsView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreExpansionContentsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -164,6 +190,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)View\Collection\" />
     <Folder Include="$(MSBuildThisFileDirectory)View\Custom\" />
     <Folder Include="$(MSBuildThisFileDirectory)View\Squadron\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\ExploreCards\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainView.xaml">
@@ -260,6 +288,24 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ReferenceCardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreCardsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreShipsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExplorePilotsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreUpgradesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreUpgradesCategoryListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreExpansionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
