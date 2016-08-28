@@ -77,40 +77,40 @@
 				</ListView.ItemTemplate>
 			</ListView>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-				<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="15,0" Spacing="10">
-					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="13,0" Spacing="10">
+					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementWins}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Wins, StringFormat='W: {0}'}" VerticalOptions="Center" TextColor="Green" />
-					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
+					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementWins}" />
 						</Label.GestureRecognizers>
 					</Label>
 				</StackLayout>
-				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="15,0" Spacing="10">
-					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="13,0" Spacing="10">
+					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementLosses}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Losses, StringFormat='L: {0}'}" VerticalOptions="Center" TextColor="Red"   />
-					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
+					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementLosses}" />
 						</Label.GestureRecognizers>
 					</Label>
 				</StackLayout>
-				<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="15,0" Spacing="10">
-					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="13,0" Spacing="10">
+					<Label Text="-" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding DecrementDraws}" />
 						</Label.GestureRecognizers>
 					</Label>
 					<Label Text="{Binding Draws, StringFormat='D: {0}'}" VerticalOptions="Center" TextColor="Navy"  />
-					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE">
+					<Label Text="+" VerticalOptions="Center" TextColor="#0E7AFE" FontSize="Large">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IncrementDraws}" />
 						</Label.GestureRecognizers>

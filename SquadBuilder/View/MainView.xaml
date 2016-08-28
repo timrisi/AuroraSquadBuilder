@@ -66,18 +66,30 @@
 										<Label Text="{Binding PilotsString}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
 									</StackLayout>
 
-									<StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1" Padding="5, 0, 0, 0" VerticalOptions="FillAndExpand" IsVisible="{Binding Editing}">
-										<Label Text="▲" VerticalOptions="Start">
+									<Grid Grid.Row="0" Grid.Column="1" IsVisible="{Binding Editing}">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*" />
+											<RowDefinition Height="*" />
+										</Grid.RowDefinitions>
+
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+										
+										<Label Text="▲" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" />
+										<BoxView Color="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
 											<Label.GestureRecognizers>
 												<TapGestureRecognizer Command="{Binding MoveUp}" />
 											</Label.GestureRecognizers>
-										</Label>
-										<Label Text="▼" VerticalOptions="End">
+										</BoxView>
+										
+										<Label Text="▼" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" />
+										<BoxView Color="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0">
 											<Label.GestureRecognizers>
 												<TapGestureRecognizer Command="{Binding MoveDown}" />
 											</Label.GestureRecognizers>
-										</Label>
-									</StackLayout>
+										</BoxView>
+									</Grid>
 								</Grid>
 							</ViewCell.View>
 						</ViewCell>
