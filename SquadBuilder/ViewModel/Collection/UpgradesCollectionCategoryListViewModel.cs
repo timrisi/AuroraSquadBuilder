@@ -16,7 +16,7 @@ namespace SquadBuilder
 			GetAllCategories ();
 		}
 
-		public string PageName { get { return "Select Upgrade Type"; } }
+		public string PageName { get { return "Upgrades"; } }
 
 		ObservableCollection <string> categories = new ObservableCollection <string> ();
 		public ObservableCollection <string> Categories {

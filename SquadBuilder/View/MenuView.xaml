@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
@@ -14,10 +14,7 @@
 			<Button Text="Collection" HorizontalOptions="FillAndExpand" Command="{Binding ShowCollection}" />
 			<Button Text="Reference Cards" HorizontalOptions="FillAndExpand" Command="{Binding ShowReferenceCards}" />
 			<Button Text="Browse Cards" HorizontalOptions="FillAndExpand" Command="{Binding ShowExploreCards}" />
-			<Button Text="Custom Factions" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomFactions}" IsVisible="{Binding AllowCustom}" />
-			<Button Text="Custom Ships" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomShips}" IsVisible="{Binding AllowCustom}" />
-			<Button Text="Custom Pilots" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomPilots}" IsVisible="{Binding AllowCustom}" />
-			<Button Text="Custom Upgrades" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomUpgrades}" IsVisible="{Binding AllowCustom}" />
+			<Button Text="Custom Cards" HorizontalOptions="FillAndExpand" Command="{Binding ShowCustomCards}" IsVisible="{Binding AllowCustom}" />
 			<Button Text="Settings" HorizontalOptions="FillAndExpand" Command="{Binding ShowSettings}" />
 			<Button Text="Feedback" HorizontalOptions="FillAndExpand" Command="{Binding SendFeedback}" />
 		</StackLayout>

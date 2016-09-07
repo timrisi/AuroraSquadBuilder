@@ -16,7 +16,7 @@ namespace SquadBuilder
 			GetAllShips ();
 		}
 
-		public string PageName { get { return "Ships"; } }
+		public string PageName { get { return "Ships and Pilots"; } }
 
 		ObservableCollection<Ship> ships = new ObservableCollection<Ship> ();
 		public ObservableCollection<Ship> Ships {

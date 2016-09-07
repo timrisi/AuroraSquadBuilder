@@ -16,7 +16,7 @@ namespace SquadBuilder
 			expansions = getAllExpansions ();
 		}
 
-		public string PageName { get { return "Collection"; } }
+		public string PageName { get { return "Expansions"; } }
 
 		ObservableCollection <ExpansionGroup> expansions;
 		public ObservableCollection <ExpansionGroup> Expansions {

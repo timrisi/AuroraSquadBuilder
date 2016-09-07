@@ -138,7 +138,7 @@ namespace SquadBuilder
 				if (Cards.SharedInstance.Ships.Sum (s => s.Owned) == 0)
 					return true;
 				
-				return Owned > Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id); 
+				return Owned > (Cards.SharedInstance.CurrentSquadron != null ? Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id) : 0); 
 			}
 		}
 

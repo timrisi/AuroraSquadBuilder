@@ -34,6 +34,11 @@ namespace SquadBuilder
 				Detail = ExploreCardsView;
 			});
 
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Cards", vm => {
+				IsPresented = false;
+				Detail = CustomView;
+			});
+
 			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
 				IsPresented = false;
 				Detail = CustomFactionsView;
@@ -81,8 +86,36 @@ namespace SquadBuilder
 		NavigationPage collectionView;
 		public NavigationPage CollectionView {
 			get {
-				if (collectionView == null)
-					collectionView = new NavigationPage (new CollectionView ());
+				if (collectionView == null) {
+					var tb = new TabbedPage {
+						Title = "Collection"
+					};
+					tb.ToolbarItems.Add (new ToolbarItem ("Clear Collection", null, async () => {
+						var accept = await DisplayAlert ("Clear Collection Info", "Are you sure you want to erase all collection info?", "Ok", "Cancel");
+
+						if (!accept)
+							return;
+
+						foreach (var expansion in Cards.SharedInstance.Expansions)
+							expansion.Owned = 0;
+
+						foreach (var ship in Cards.SharedInstance.Ships)
+							ship.Owned = 0;
+
+						foreach (var pilot in Cards.SharedInstance.Pilots)
+							pilot.Owned = 0;
+
+						foreach (var upgrade in Cards.SharedInstance.Upgrades)
+							upgrade.Owned = 0;
+					}, ToolbarItemOrder.Secondary));
+
+					tb.Children.Add (new ExpansionsView ());
+					tb.Children.Add (new ShipsCollectionView { BindingContext = new ShipsCollectionViewModel () });
+					tb.Children.Add (new PilotsCollectionShipsListView { BindingContext = new PilotsCollectionShipsListViewModel () });
+					tb.Children.Add (new UpgradesCollectionCategoryListView { BindingContext = new UpgradesCollectionCategoryListViewModel () });
+
+					collectionView = new NavigationPage (tb);
+				}
 
 				return collectionView;
 			}
@@ -91,8 +124,18 @@ namespace SquadBuilder
 		NavigationPage exploreCardsView;
 		public NavigationPage ExploreCardsView {
 			get {
-				if (exploreCardsView == null)
-					exploreCardsView = new NavigationPage (new ExploreCardsView ());
+				if (exploreCardsView == null) {
+					var tb = new TabbedPage {
+						Title = "Browse Cards"
+					};
+
+					tb.Children.Add (new ExploreExpansionsView { BindingContext = new ExploreExpansionsViewModel () });
+					tb.Children.Add (new ExploreShipsView { BindingContext = new ExploreShipsViewModel () });
+					tb.Children.Add (new ExploreUpgradesCategoryListView { BindingContext = new ExploreUpgradesCategoryListViewModel () });
+
+					exploreCardsView = new NavigationPage (tb);
+				}
+					//exploreCardsView = new NavigationPage (new ExploreCardsView ());
 
 				return exploreCardsView;
 			}
@@ -105,6 +148,24 @@ namespace SquadBuilder
 					referenceCardsListView = new NavigationPage (new ReferenceCardListView ());
 
 				return referenceCardsListView;
+			}
+		}
+
+		NavigationPage customView;
+		public NavigationPage CustomView {
+			get {
+				if (customView == null) {
+					var tb = new TabbedPage ();
+					tb.Title = "Custom Cards";
+					tb.Children.Add (new CustomFactionsView ());
+					tb.Children.Add (new CustomShipsView ());
+					tb.Children.Add (new CustomPilotsView ());
+					tb.Children.Add (new CustomUpgradesView ());
+
+					customView = new NavigationPage (tb);
+				}
+
+				return customView;
 			}
 		}
 

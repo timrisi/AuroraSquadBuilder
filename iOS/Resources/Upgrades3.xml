@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.00">
+<Upgrades Version="3.06">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -867,24 +867,28 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>You have the pilot ability of each friendly ship with the IG-2000 Upgrade card (in addition to your own pilot ability).</Text>
 			<Faction>scum</Faction>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="lattsrazzi">
 			<Name>Latts Razzi</Name>
 			<Cost>2</Cost>
 			<Text>When defending, you may remove 1 stress token from the attacker to add 1 {evade} result to your roll.</Text>
 			<Faction>scum</Faction>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="ketsuonyo">
 			<Name>Ketsu Onyo</Name>
 			<Cost>1</Cost>
 			<Text>At the start of the End phase, you may choose 1 enemy ship inside your firing arc at Range 1-2.  That ship does not remove its tractor tokens.</Text>
 			<Faction>scum</Faction>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="kyloren">
 			<Name>Kylo Ren</Name>
 			<Cost>3</Cost>
 			<Text>Action: Assign the &quot;I'll Show You the Dark Side&quot; Condition card to an enemy ship at Range 1-3.</Text>
 			<Faction>imperial</Faction>
+			<Unique>true</Unique>
 			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="unkarplutt">
@@ -892,6 +896,22 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>After executing a maneuver that causes you to overlap an enemy ship, you may suffer 1 damage to perform 1 action.</Text>
 			<Faction>scum</Faction>
+			<Unique>true</Unique>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="finn">
+			<Name>Finn</Name>
+			<Cost>5</Cost>
+			<Text>When attacking with a primary weapon or defending, if the enemy ship is inside your firing arc, you may add 1 blank result to your roll.</Text>
+			<Faction>rebel</Faction>
+			<Unique>true</Unique>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="rey">
+			<Name>Rey</Name>
+			<Cost>2</Cost>
+			<Text>At the start of the End phase, you may place 1 of your ship's focus tokens on this card.  At the start of the Combat phase, you may assign 1 of those tokens to your ship.</Text>
+			<Faction>rebel</Faction>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
@@ -1110,7 +1130,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>1</Cost>
 			<Text>When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 {hit} result to your roll.</Text>
 			<Faction>scum</Faction>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="ascoretosettle">
 			<Name>A Score To Settle</Name>
@@ -1230,13 +1249,20 @@ When attacking a ship that has the &quot;A Debt to Pay&quot; Condition card, you
 			<Cost>1</Cost>
 			<Text>Action: Discard this card to drop one cargo token.</Text>
 			<LargeOnly>true</LargeOnly>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="blackmarketslicertools">
 			<Name>Black Market Slicer Tools</Name>
 			<Cost>1</Cost>
 			<Text>Action: Choose a stressed enemy ship at Range 1-2 and roll 1 attack die.  On a {hit} or {crit} result, remove 1 stress token and deal it 1 facedown damage card.</Text>
+		</Upgrade>
+		<Upgrade id="burnoutslam">
+			<Name>Burnout SLAM</Name>
+			<Cost>1</Cost>
+			<Text>Your action bar gains the {SLAM} action icon.
+
+After you perform a SLAM action, discard this card.</Text>
 			<Preview>true</Preview>
+			<LargeOnly>true</LargeOnly>
 		</Upgrade>
 	</Category>
 	<Category id="missile" type="Missile">
@@ -1537,6 +1563,17 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Cost>2</Cost>
 			<Text>At the end of the Combat phase, if you executed a 3-, 4-, or 5-speed maneuver this round, you may rotate your mobile firing arc.</Text>
 			<ShipRequirement>Lancer-class Pursuit Craft</ShipRequirement>
+		</Upgrade>
+		<Upgrade id="smugglingcompartment">
+			<Name>Smuggling Compartment</Name>
+			<Cost>0</Cost>
+			<Text>Your upgrade bar gains the {illicit} upgrade icon.  You may equip 1 additional Modification upgrade that costs 3 fewer squad points.</Text>
+			<ShipRequirement>YT</ShipRequirement>
+			<AdditionalUpgrades>
+				<Upgrade>Illicit</Upgrade>
+				<Upgrade>Modification</Upgrade>
+			</AdditionalUpgrades>
+			<Limited>true</Limited>
 			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
@@ -1648,7 +1685,6 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
 			<Text>When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.
 			<CCL>true</CCL>
 When rolling for obstacle damage, ignore all {crit} results.</Text>
-			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
@@ -2071,7 +2107,6 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>0</Cost>
 			<Text>When attacking with a primary weapon from your primary firing arc, you may roll 1 additional attack die.  When attacking from your auxiliary firing arc, you may change 1 of your {focus} results to a {crit} result.</Text>
 			<ShipRequirement>ARC-170</ShipRequirement>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="specialopstraining">
@@ -2079,7 +2114,6 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>0</Cost>
 			<Text>When attacking with a parimary weapon from your primary firing arc, you may roll 1 additional attack die.  If you do not, you may perform an additional attack from your auxiliary firing arc.</Text>
 			<ShipRequirement>TIE/SF</ShipRequirement>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="concorddawnprotector">
@@ -2087,7 +2121,6 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>1</Cost>
 			<Text>When defending, if you are inside the attacker's firing arc and at Range 1, and the attacker is inside your firing arc, add 1 {evade} result.</Text>
 			<ShipRequirement>Protectorate Starfighter</ShipRequirement>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="shadowcaster">
@@ -2095,7 +2128,6 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>3</Cost>
 			<Text>After you perform an attack that hits, if the defender is inside your mobile firing arc and at Range 1-2, you may assign the defender 1 tractor beam token.</Text>
 			<ShipRequirement>Lancer-class Pursuit Craft</ShipRequirement>
-			<Preview>true</Preview>
 			<Owned>0</Owned>
 		</Upgrade>
 		<Upgrade id="deathmark">
@@ -2321,7 +2353,6 @@ If the target of this attack is at Range 1, roll 1 additional attack die.</Text>
 			<Name>Sensor Cluster</Name>
 			<Cost>2</Cost>
 			<Text>When defending, you may spend a focus token to change 1 of your blank results to an {evade} result.</Text>
-			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 </Upgrades>

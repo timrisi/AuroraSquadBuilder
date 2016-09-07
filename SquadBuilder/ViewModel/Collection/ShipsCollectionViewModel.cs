@@ -16,7 +16,7 @@ namespace SquadBuilder
 			Ships = Cards.SharedInstance.Ships;
 		}
 
-		public string PageName { get { return "Ships Owned"; } }
+		public string PageName { get { return "Ships"; } }
 
 		ObservableCollection <Ship> ships;
 		public ObservableCollection <Ship> Ships {

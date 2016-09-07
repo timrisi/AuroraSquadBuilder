@@ -64,6 +64,19 @@ namespace SquadBuilder
 			}
 		}
 
+		RelayCommand showCustomCards;
+		public RelayCommand ShowCustomCards {
+			get {
+				if (showCustomCards == null) {
+					showCustomCards = new RelayCommand (() => {
+						MessagingCenter.Send<MenuViewModel> (this, "Show Custom Cards");
+					});
+				}
+
+				return showCustomCards;
+			}
+		}
+
 		RelayCommand showCustomFactions;
 		public RelayCommand ShowCustomFactions {
 			get {

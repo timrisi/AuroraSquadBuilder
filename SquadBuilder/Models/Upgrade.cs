@@ -119,6 +119,10 @@ namespace SquadBuilder
 		public bool IsAvailable {
 			get {
 				var count = 0;
+
+				if (Cards.SharedInstance.CurrentSquadron == null)
+					return Owned > 0;
+				
 				foreach (var pilot in Cards.SharedInstance.CurrentSquadron.Pilots)
 					count += pilot.UpgradesEquipped.Count (u => u != null && u.Id == Id);
 

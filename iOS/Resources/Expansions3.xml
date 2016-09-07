@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.27">
+<Expansions Version="1.29">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -879,6 +879,98 @@
 			<Upgrade>punishingone</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Expansion>
+
+<!-- Wave 8 -->
+	<Expansion id="tiesffighter">
+		<Name>TIE/SF Fighter</Name>
+		<Wave>Wave 9</Wave>
+		<Ships>
+			<Ship>tiesffighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>quickdraw</Pilot>
+			<Pilot>backdraft</Pilot>
+			<Pilot>omegaspecialist</Pilot>
+			<Pilot>zetaspecialist</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>specialopstraining</Upgrade>
+			<Upgrade>sensorcluster</Upgrade>
+			<Upgrade>sensorcluster</Upgrade>
+			<Upgrade>collisiondetector</Upgrade>
+			<Upgrade>wired</Upgrade>
+		</Upgrades>
+	</Expansion>
+	<Expansion id="arc170">
+		<Name>ARC-170</Name>
+		<Wave>Wave 9</Wave>
+		<Ships>
+			<Ship>arc170</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>norrawexley</Pilot>
+			<Pilot>sharabey</Pilot>
+			<Pilot>braylenstramm</Pilot>
+			<Pilot>thanekyrell</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>allianceoverhaul</Upgrade>
+			<Upgrade>vectoredthrusters</Upgrade>
+			<Upgrade>vectoredthrusters</Upgrade>
+			<Upgrade>seismictorpedo</Upgrade>
+			<Upgrade>adrenalinerush</Upgrade>
+			<Upgrade>r3astromech</Upgrade>
+			<Upgrade>r3astromech</Upgrade>
+			<Upgrade>tailgunner</Upgrade>
+			<Upgrade>reconspecialist</Upgrade>
+		</Upgrades>
+	</Expansion>
+	<Expansion id="shadowcaster">
+		<Name>Shadowcaster</Name>
+		<Wave>Wave 9</Wave>
+		<Ships>
+			<Ship>lancerclasspursuitcraft</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>ketsuonto</Pilot>
+			<Pilot>asajjventress</Pilot>
+			<Pilot>sabinewren</Pilot>
+			<Pilot>shadowporthunter</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>veteraninstincts</Upgrade>
+			<Upgrade>shadowcaster</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
+			<Upgrade>tacticaljammer</Upgrade>
+			<Upgrade>gyroscopictargeting</Upgrade>
+			<Upgrade>ketsuonyo</Upgrade>
+			<Upgrade>countermeasures</Upgrade>
+			<Upgrade>riggedcargochute</Upgrade>
+			<Upgrade>blackmarketslicertools</Upgrade>
+			<Upgrade>blackmarketslicertools</Upgrade>
+			<Upgrade>ig88d</Upgrade>
+			<Upgrade>lattsrazzi</Upgrade>
+		</Upgrades>
+	</Expansion>
+	<Expansion id="protectoratestarfighter">
+		<Name>Protectorate Starfighter</Name>
+		<Wave>Wave 9</Wave>
+		<Ships>
+			<Ship>protectoratestarfighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>fennrau</Pilot>
+			<Pilot>oldteroch</Pilot>
+			<Pilot>kadsolus</Pilot>
+			<Pilot>concorddawnace</Pilot>
+			<Pilot>concorddawnveteran</Pilot>
+			<Pilot>zealousrecruit</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>concorddawnprotector</Upgrade>
+			<Upgrade>fearlessness</Upgrade>
+		</Upgrades>
 	</Expansion>
 
 <!-- Aces Packs-->
