@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="2.55">
+<Ships Version="2.57">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -177,6 +177,32 @@
 		</Actions>
 		<ManeuverGridImage>XwingDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="t70xwing">
+		<Name>T-70 X-Wing</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Boost</Action>
+		</Actions>
+		<ManeuverGridImage>T70XwingDial.png</ManeuverGridImage>
+	</Ship>
+	<Ship id="attackshuttle">
+		<Name>Attack Shuttle</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Barrel Roll</Action>
+			<Action>Evade</Action>
+		</Actions>
+		<ManeuverGridImage>AttackShuttleDial.png</ManeuverGridImage>
+	</Ship>
+	<Ship id="arc170">
+		<Name>ARC-170</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+		<ManeuverGridImage>Arc170Dial.png</ManeuverGridImage>
+	</Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
 		<LargeBase>true</LargeBase>
@@ -196,24 +222,6 @@
 		</Actions>
 		<ManeuverGridImage>YT2400Dial.png</ManeuverGridImage>
 	</Ship>
-	<Ship id="t70xwing">
-		<Name>T-70 X-Wing</Name>
-		<Actions>
-			<Action>Focus</Action>
-			<Action>Target Lock</Action>
-			<Action>Boost</Action>
-		</Actions>
-		<ManeuverGridImage>T70XwingDial.png</ManeuverGridImage>
-	</Ship>
-	<Ship id="attackshuttle">
-		<Name>Attack Shuttle</Name>
-		<Actions>
-			<Action>Focus</Action>
-			<Action>Barrel Roll</Action>
-			<Action>Evade</Action>
-		</Actions>
-		<ManeuverGridImage>AttackShuttleDial.png</ManeuverGridImage>
-	</Ship>
 	<Ship id="vcx100">
 		<Name>VCX-100</Name>
 		<LargeBase>true</LargeBase>
@@ -224,13 +232,16 @@
 		</Actions>
 		<ManeuverGridImage>VCX100Dial.png</ManeuverGridImage>
 	</Ship>
-	<Ship id="arc170">
-		<Name>ARC-170</Name>
+	<Ship id="uwing">
+		<Name>U-Wing</Name>
+		<LargeBase>true</LargeBase>
 		<Actions>
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
 		</Actions>
-		<ManeuverGridImage>Arc170Dial.png</ManeuverGridImage>
+		<LargeBase>true</LargeBase>
+		<Preview>true</Preview>
+		<ManeuverGridImage></ManeuverGridImage>
 	</Ship>
 	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
@@ -339,24 +350,6 @@
 		</Actions>
 		<ManeuverGridImage>TIEAdvPrototypeDial.png</ManeuverGridImage>
 	</Ship>
-	<Ship id="lambdaclassshuttle">
-		<Name>Lambda-Class Shuttle</Name>
-		<LargeBase>true</LargeBase>
-		<Actions>
-			<Action>Focus</Action>
-			<Action>Target Lock</Action>
-		</Actions>
-		<ManeuverGridImage>LambdaDial.png</ManeuverGridImage>
-	</Ship>
-	<Ship id="vt49decimator">
-		<Name>VT-49 Decimator</Name>
-		<LargeBase>true</LargeBase>
-		<Actions>
-			<Action>Focus</Action>
-			<Action>Target Lock</Action>
-		</Actions>
-		<ManeuverGridImage>VT49Dial.png</ManeuverGridImage>
-	</Ship>
 	<Ship id="tiefofighter">
 		<Name>TIE/FO Fighter</Name>
 		<Actions>
@@ -376,6 +369,34 @@
 		</Actions>
 		<ManeuverGridImage>TIESFDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="tiestriker">
+		<Name>TIE Striker</Name>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+			<Action>Evade</Action>
+		</Actions>
+		<Preview>true</Preview>
+		<ManeuverGridImage></ManeuverGridImage>
+	</Ship>
+	<Ship id="lambdaclassshuttle">
+		<Name>Lambda-Class Shuttle</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+		<ManeuverGridImage>LambdaDial.png</ManeuverGridImage>
+	</Ship>
+	<Ship id="vt49decimator">
+		<Name>VT-49 Decimator</Name>
+		<LargeBase>true</LargeBase>
+		<Actions>
+			<Action>Focus</Action>
+			<Action>Target Lock</Action>
+		</Actions>
+		<ManeuverGridImage>VT49Dial.png</ManeuverGridImage>
+	</Ship>
 	<Ship id="upsilonclassshuttle">
 		<Name>Upsilon-class Shuttle</Name>
 		<Actions>
@@ -383,6 +404,7 @@
 			<Action>Target Lock</Action>
 			<Action>Coordinate</Action>
 		</Actions>
+		<LargeBase>true</LargeBase>
 		<Preview>true</Preview>
 		<ManeuverGridImage></ManeuverGridImage>
 	</Ship>

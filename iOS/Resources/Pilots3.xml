@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.80">
+<Pilots Version="2.81">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2002,7 +2002,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, you may spend a Target Lock you have on the enemy ship to add 1 {focus} result to your roll.</Ability>
-		<Owned>0</Owned>
 	</Pilot>
 	<Pilot id="sharabey" faction="rebel" ship="arc170">
 		<Name>Shara Bey</Name>
@@ -2079,6 +2078,27 @@
 		<Ability>Immediately before you reveal your maneuver, you may perform a free boost or barrel roll action.</Ability>
 		<Preview>true</Preview>
 		<CanonicalName>sabinewren</CanonicalName>
+	</Pilot>
+	<Pilot id="cassianandor" faction="rebel" ship="uwing">
+		<Name>Cassian Andor</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>27</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the start of the Activation phase, you may remove 1 stress token from 1 other friendly ship at Range 1-2.</Ability>
+		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="hansolo" faction="rebel" ship="yt1300">
 		<Name>Han Solo</Name>
@@ -3786,6 +3806,23 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="duchess" faction="imperial" ship="tiestriker">
+		<Name>&quot;Duchess&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>8</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>23</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>While you have the &quot;Adaptive Ailerons&quot; Upgrade card equipped, you may choose to ignore its card ability.</Ability>
+		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray31">
 		<Name>Boba Fett</Name>

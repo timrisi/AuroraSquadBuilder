@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ReferenceCards Version="0.04">
+<ReferenceCards Version="0.05">
 	<ReferenceCard>
 		<Name>Ion Token</Name>
 		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
@@ -92,10 +92,10 @@ A ship cannot decloak if it would overlap another ship or an obstacle token, or 
 After all decloaking ships have been resolved, the Activation phase continues as normal.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
-		<Name>Stegnor's Loop</Name>
-		<Text>This card explains the rules for performing a Stegnor's Loop maneuver.
+		<Name>Segnor's Loop</Name>
+		<Text>This card explains the rules for performing a Segnor's Loop maneuver.
 
-The Stegnor's Loop maneuver {s-loop left or s-loop right} uses the same maneuver template as a bank maneuver (bank left or bank right).  The only difference between these maneuvers is that after executing a Stegnor's Loop , the player rotates his ship 180 degrees.  If a Stegnor's Loop maneuver causes a ship to overlap another ship, instead treat its maneuver as a bank maneuver with the same speed, color, and direction revealed on the dial.</Text>
+The Segnor's Loop maneuver {s-loop left or s-loop right} uses the same maneuver template as a bank maneuver (bank left or bank right).  The only difference between these maneuvers is that after executing a Segnor's Loop , the player rotates his ship 180 degrees.  If a Segnor's Loop maneuver causes a ship to overlap another ship, instead treat its maneuver as a bank maneuver with the same speed, color, and direction revealed on the dial.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>SLAM Action</Name>

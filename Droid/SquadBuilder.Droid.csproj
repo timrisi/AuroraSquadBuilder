@@ -37,7 +37,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <EnableProguard>true</EnableProguard>
     <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <DebugType>full</DebugType>
