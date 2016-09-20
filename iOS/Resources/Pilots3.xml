@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.81">
+<Pilots Version="2.82">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -1907,7 +1907,25 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>While you are not stressed, you may treat your {talon roll left} and {talon roll right} maneuvers as white maneuvers.</Ability>
-		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="niennunb" faction="rebel" ship="t70xwing">
+		<Name>Nien Nunb</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>3</Shields>
+		<Cost>29</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you receive a stress token, if there is an enemy ship inside your firing arc at Range 1, you may discard that stress token.</Ability>
 	</Pilot>
 	<Pilot id="redace" faction="rebel" ship="t70xwing">
 		<Name>&quot;Red Ace&quot;</Name>
@@ -1927,6 +1945,25 @@
 		</Upgrades>
 		<Ability>The first time you remove a shield token from your ship each round, assign 1 evade token to your ship.</Ability>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="snapwexley" faction="rebel" ship="t70xwing">
+		<Name>&quot;Snap&quot; Wexley</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>3</Shields>
+		<Cost>28</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After you execute a 2-, 3- or 4-speed maneuver, if you are not touching a ship, you may perform a free boost action.</Ability>
 	</Pilot>
 	<Pilot id="blueace" faction="rebel" ship="t70xwing">
 		<Name>&quot;Blue Ace&quot;</Name>
@@ -1965,6 +2002,24 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="jesspava" faction="rebel" ship="t70xwing">
+		<Name>Jess Pava</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>3</Hull>
+		<Shields>3</Shields>
+		<Cost>25</Cost>
+		<Upgrades>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Astromech Droid</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, you may reroll 1 of your dice for each other friendly ship at Range 1.</Ability>
 	</Pilot>
 	<Pilot id="bluesquadronnovice" faction="rebel" ship="t70xwing">
 		<Name>Blue Squadron Novice</Name>
