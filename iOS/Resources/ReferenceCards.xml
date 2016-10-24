@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ReferenceCards Version="0.05">
+<ReferenceCards Version="0.06">
 	<ReferenceCard>
 		<Name>Ion Token</Name>
 		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
@@ -56,7 +56,7 @@ Performing a boost does not count as executing a maneuver.  A ship cannot boost 
 
 * Ion Bomb Token: When this bomb token detonates, each ship at Range 1 of the token receives 2 ion tokens.  Then discard this token.
 
-* Cluster Mine Tokens: When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers all damage {hit} rolled.  Then discard that token.</Text>
+* Cluster Mine Tokens: When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers 1 damage for each {hit} and {crit} rolled.  Then discard that token.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>Bomb Tokens</Name>
@@ -132,5 +132,17 @@ This is not an action or a maneuver, and can cause the ship to overlap obstacles
 When a ship equipped with a Dual Upgrade card is placed in the play area during setup, its equipped Dual Upgrade card can be placed with either side faceup.
 
 Dual Upgrade cards are not active until they are placed in the play area during setup.  Only the faceup side of a Dual Upgrade card is active.</Text>
+	</ReferenceCard>
+	<ReferenceCard>
+		<Name>Condition Cards</Name>
+		<Text>Condition cards are cards assigned by Ship and Upgrade cards that represent persistent game effects.
+
+A Condition card is not in play until a game effect assigns it to a ship.  When a Condition card is assigned, its text immediately resolves.
+
+After a ship is assigned a Condition card, assign the associated Condition token to that ship as a reminder of the card's ongoing effect.  That token is removed when the Condition is removed.  A Condition that has been removed can be assigned again.
+
+Unique Conditions
+
+If one of your unique Conditions is already in play and one of your effects calls for it to be assigned again, remove the Condition card from the original ship and assign it to the new ship.</Text>
 	</ReferenceCard>
 </ReferenceCards>
