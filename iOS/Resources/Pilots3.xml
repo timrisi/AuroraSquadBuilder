@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.87">
+<Pilots Version="2.89">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2161,7 +2161,6 @@
 		<Shields>0</Shields>
 		<Cost>14</Cost>
 		<Upgrades>
-			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
@@ -2245,6 +2244,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>When you are placed during setup, you can be placed anywhere in the play area beyond Range 3 of enemy ships.</Ability>
 		<CanonicalName>hansolo</CanonicalName>
 	</Pilot>
@@ -2326,7 +2326,27 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+		<Preview>true</Preview>
 		<Ability>After another friendly ship at Range 1-3 is destroyed (but has not fled the battlefield), you may perform an attack.</Ability>
+		<CanonicalName>chewbacca</CanonicalName>
+	</Pilot>
+	<Pilot id="resistancesympathizer" faction="rebel" ship="yt1300">
+		<Name>Resistance Sympathizer</Name>
+		<Unique>false</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>8</Hull>
+		<Shields>5</Shields>
+		<Cost>38</Cost>
+		<Upgrades>
+			<Upgrade>Missile</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Preview>true</Preview>
 		<CanonicalName>chewbacca</CanonicalName>
 	</Pilot>
 	<Pilot id="outerrimsmuggler" faction="rebel" ship="yt1300">

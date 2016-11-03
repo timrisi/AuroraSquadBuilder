@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="1.30">
+<Expansions Version="1.33">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1072,6 +1072,47 @@
 			<Upgrade>tieshuttle</Upgrade>
 			<Upgrade>longrangescanners</Upgrade>
 			<Upgrade>longrangescanners</Upgrade>
+		</Upgrades>
+		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="heroesoftheresistance">
+		<Name>Heroes of the Resistance</Name>
+		<Wave>Aces Packs</Wave>
+		<Ships>
+			<Ship>yt1300</Ship>
+			<Ship>t70xwing</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>hansolotfa</Pilot>
+			<Pilot>rey</Pilot>
+			<Pilot>chewbaccatfa</Pilot>
+			<Pilot>resistancesympathizer</Pilot>
+			<Pilot>poedameron9</Pilot>
+			<Pilot>niennunb</Pilot>
+			<Pilot>snapwexley</Pilot>
+			<Pilot>jesspava</Pilot>
+			<Pilot>redsquadronveteran</Pilot>
+			<Pilot>bluesquadronnovice</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>snapshot</Upgrade>
+			<Upgrade>snapshot</Upgrade>
+			<Upgrade>trickshot</Upgrade>
+			<Upgrade>trickshot</Upgrade>
+			<Upgrade>finn</Upgrade>
+			<Upgrade>hotshotcopilot</Upgrade>
+			<Upgrade>rey</Upgrade>
+			<Upgrade>m9g8</Upgrade>
+			<Upgrade>burnoutslam</Upgrade>
+			<Upgrade>burnoutslam</Upgrade>
+			<Upgrade>primedthrusters</Upgrade>
+			<Upgrade>patternanalyzer</Upgrade>
+			<Upgrade>patternanalyzer</Upgrade>
+			<Upgrade>millenniumfalcontfa</Upgrade>
+			<Upgrade>blackone</Upgrade>
+			<Upgrade>integratedastromech</Upgrade>
+			<Upgrade>integratedastromech</Upgrade>
+			<Upgrade>smugglingcompartment</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
