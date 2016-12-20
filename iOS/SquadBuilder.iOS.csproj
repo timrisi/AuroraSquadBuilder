@@ -261,6 +261,8 @@
     <BundleResource Include="Resources\Arc170Dial.png" />
     <BundleResource Include="Resources\LancerDial.png" />
     <BundleResource Include="Resources\ProtectorateDial.png" />
+    <BundleResource Include="Resources\TIEStrikerDial.png" />
+    <BundleResource Include="Resources\UWingDial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

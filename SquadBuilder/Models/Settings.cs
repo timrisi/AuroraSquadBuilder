@@ -167,7 +167,7 @@ namespace SquadBuilder
 						updateXml ("Settings");
 
 					if ((float)versionsXml.Element ("ReferenceCards") > ReferenceCardsVersion)
-						updateXml ("ReferenceCardsVersion");
+						updateXml ("ReferenceCards");
 					
 				} catch (Exception e) {
 				}

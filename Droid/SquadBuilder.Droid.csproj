@@ -17,6 +17,7 @@
     <AssemblyName>SquadBuilder.Droid</AssemblyName>
     <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -343,6 +344,12 @@
     </AndroidResource>
     <AndroidResource Include="..\iOS\Resources\ProtectorateDial.png">
       <Link>Resources\drawable\ProtectorateDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEStrikerDial.png">
+      <Link>Resources\drawable\TIEStrikerDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\UWingDial.png">
+      <Link>Resources\drawable\UWingDial.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />

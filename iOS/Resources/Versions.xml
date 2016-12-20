@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Versions>
 	<Factions>2.03</Factions>
-	<Ships>2.57</Ships>
-	<Pilots>2.89</Pilots>
-	<Upgrades>3.15</Upgrades>
+	<Ships>3.50</Ships>
+	<Pilots>3.50</Pilots>
+	<Upgrades>3.50</Upgrades>
 	<Settings>1.04</Settings>
-	<Expansions>1.33</Expansions>
+	<Expansions>3.50</Expansions>
 	<ReferenceCards>0.06</ReferenceCards>
 </Versions>

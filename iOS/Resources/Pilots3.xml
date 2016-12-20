@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="2.89">
+<Pilots Version="3.50">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -609,6 +609,48 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
+	<Pilot id="constablezuvio" faction="scum" ship="quadjumper">
+		<Name>Constable Zuvio</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>5</Hull>
+		<Shields>0</Shields>
+		<Cost>19</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When you reveal a reverse maneuver, you may drop a bomb using your front guides (including a bomb with the &quot;Action:&quot; header).</Ability>
+	</Pilot>
+	<Pilot id="sarcoplank" faction="scum" ship="quadjumper">
+		<Name>Sarco Plank</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>5</Hull>
+		<Shields>0</Shields>
+		<Cost>18</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When defending, instead of using your agility value, you may roll a number of defense dice equal to the speed of the maneuver you executed this round.</Ability>
+	</Pilot>
 	<Pilot id="unkarplutt" faction="scum" ship="quadjumper">
 		<Name>Unkar Plutt</Name>
 		<Unique>true</Unique>
@@ -628,6 +670,25 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the end of the Activation phase, you must assign a tractor beam token to each ship you are touching.</Ability>
+	</Pilot>
+	<Pilot id="jakkugunrunner" faction="scum" ship="quadjumper">
+		<Name>Jakku Gunrunner</Name>
+		<Unique>false</Unique>
+		<PilotSkill>1</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>2</Agility>
+		<Hull>5</Hull>
+		<Shields>0</Shields>
+		<Cost>15</Cost>
+		<Preview>true</Preview>
+		<Upgrades>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Bomb</Upgrade>
+			<Upgrade>Tech</Upgrade>
+			<Upgrade>Illicit</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
 	</Pilot>
 	<Pilot id="bobafettscum" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
@@ -1865,7 +1926,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 		<Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
@@ -2167,6 +2227,22 @@
 		<Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
 		<Preview>true</Preview>
 	</Pilot>
+	<Pilot id="zeborrelios" faction="rebel" ship="tiefighter">
+		<Name>&quot;Zeb&quot; Orrelios</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>3</Hull>
+		<Shields>0</Shields>
+		<Cost>13</Cost>
+		<Upgrades>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
+		<Preview>true</Preview>
+	</Pilot>
 	<Pilot id="cassianandor" faction="rebel" ship="uwing">
 		<Name>Cassian Andor</Name>
 		<Unique>true</Unique>
@@ -2186,7 +2262,44 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the Activation phase, you may remove 1 stress token from 1 other friendly ship at Range 1-2.</Ability>
-		<Preview>true</Preview>
+	</Pilot>
+	<Pilot id="bodhirook" faction="rebel" ship="uwing">
+		<Name>Bodhi Rook</Name>
+		<Unique>true</Unique>
+		<PilotSkill>4</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>25</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When a friendly ship acquires a target lock, that ship can lock onto an enemy ship at Range 1-3 of any friendly ship.</Ability>
+	</Pilot>
+	<Pilot id="hefftobber" faction="rebel" ship="uwing">
+		<Name>Heff Tobber</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>1</Agility>
+		<Hull>4</Hull>
+		<Shields>4</Shields>
+		<Cost>24</Cost>
+		<Upgrades>
+			<Upgrade>System Upgrade</Upgrade>
+			<Upgrade>Torpedo</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Crew</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After an enemy ship executes a maneuver that causes it to overlap your ship, you may perform a free action.</Ability>
 	</Pilot>
 	<Pilot id="bluesquadronpathfinder" faction="rebel" ship="uwing">
 		<Name>Blue Squadron Pathfinder</Name>
@@ -2205,7 +2318,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="hansolo" faction="rebel" ship="yt1300">
 		<Name>Han Solo</Name> 
@@ -2244,7 +2356,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 		<Ability>When you are placed during setup, you can be placed anywhere in the play area beyond Range 3 of enemy ships.</Ability>
 		<CanonicalName>hansolo</CanonicalName>
 	</Pilot>
@@ -2265,7 +2376,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 		<Ability>When attacking or defending, if the enemy ship is inside your firing arc, you may reroll up to 2 of your blank rolls.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
@@ -2326,7 +2436,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 		<Ability>After another friendly ship at Range 1-3 is destroyed (but has not fled the battlefield), you may perform an attack.</Ability>
 		<CanonicalName>chewbacca</CanonicalName>
 	</Pilot>
@@ -2346,7 +2455,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 		<CanonicalName>chewbacca</CanonicalName>
 	</Pilot>
 	<Pilot id="outerrimsmuggler" faction="rebel" ship="yt1300">
@@ -3950,7 +4058,80 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>While you have the &quot;Adaptive Ailerons&quot; Upgrade card equipped, you may choose to ignore its card ability.</Ability>
-		<Preview>true</Preview>
+	</Pilot>
+	<Pilot id="puresabacc" faction="imperial" ship="tiestriker">
+		<Name>&quot;Pure Sabacc&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>22</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking, if you have 1 or fewer Damage cards, roll 1 additional attack die.</Ability>
+	</Pilot>
+	<Pilot id="countdown" faction="imperial" ship="tiestriker">
+		<Name>&quot;Countdown&quot;</Name>
+		<Unique>true</Unique>
+		<PilotSkill>5</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>20</Cost>
+		<Upgrades>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When defending, if you are not stressed, during the &quot;Compare Results&quot; step, you may suffer 1 damage to cancel all dice results.  If you do, receive 1 stress token.</Ability>
+	</Pilot>
+	<Pilot id="blacksquadronscout" faction="imperial" ship="tiestriker">
+		<Name>Black Squadron Scout</Name>
+		<Unique>false</Unique>
+		<PilotSkill>4</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>20</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+	</Pilot>
+	<Pilot id="scarifdefender" faction="imperial" ship="tiestriker">
+		<Name>Scarif Defender</Name>
+		<Unique>false</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>18</Cost>
+		<Upgrades>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+	</Pilot>
+	<Pilot id="imperialtrainee" faction="imperial" ship="tiestriker">
+		<Name>Imperial Trainee</Name>
+		<Unique>false</Unique>
+		<PilotSkill>1</PilotSkill>
+		<Attack>3</Attack>
+		<Agility>2</Agility>
+		<Hull>4</Hull>
+		<Shields>0</Shields>
+		<Cost>17</Cost>
+		<Upgrades>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray31">
 		<Name>Boba Fett</Name>
