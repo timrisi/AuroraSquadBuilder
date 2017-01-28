@@ -15,6 +15,8 @@ using Xamarin;
 using System.Linq;
 using System.Collections.Generic;
 using PerpetualEngine.Storage;
+using HockeyApp.Android;
+using HockeyApp.Android.Metrics;
 
 namespace SquadBuilder.Droid
 {
@@ -43,7 +45,9 @@ namespace SquadBuilder.Droid
 
 			SimpleStorage.SetContext (ApplicationContext);
 
-			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6", BaseContext);
+			CrashManager.Register (this, "ce337527cc114b12805fcf7477297f40");
+			MetricsManager.Register (Application, "ce337527cc114b12805fcf7477297f40");
+			SendMail.ApplicationContext = ApplicationContext;
 
 			saveAndLoad = new SaveAndLoad ();
 

@@ -3062,6 +3062,126 @@ namespace SquadBuilder.Droid
 			global::XLabs.Forms.Resource.Styleable.ViewStubCompat_android_id = global::SquadBuilder.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::XLabs.Forms.Resource.Styleable.ViewStubCompat_android_inflatedId = global::SquadBuilder.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::XLabs.Forms.Resource.Styleable.ViewStubCompat_android_layout = global::SquadBuilder.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::HockeyApp.Resource.Color.hockeyapp_background_header = global::SquadBuilder.Droid.Resource.Color.hockeyapp_background_header;
+			global::HockeyApp.Resource.Color.hockeyapp_background_light = global::SquadBuilder.Droid.Resource.Color.hockeyapp_background_light;
+			global::HockeyApp.Resource.Color.hockeyapp_background_white = global::SquadBuilder.Droid.Resource.Color.hockeyapp_background_white;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background = global::SquadBuilder.Droid.Resource.Color.hockeyapp_button_background;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_pressed = global::SquadBuilder.Droid.Resource.Color.hockeyapp_button_background_pressed;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_selected = global::SquadBuilder.Droid.Resource.Color.hockeyapp_button_background_selected;
+			global::HockeyApp.Resource.Color.hockeyapp_text_black = global::SquadBuilder.Droid.Resource.Color.hockeyapp_text_black;
+			global::HockeyApp.Resource.Color.hockeyapp_text_light = global::SquadBuilder.Droid.Resource.Color.hockeyapp_text_light;
+			global::HockeyApp.Resource.Color.hockeyapp_text_normal = global::SquadBuilder.Droid.Resource.Color.hockeyapp_text_normal;
+			global::HockeyApp.Resource.Color.hockeyapp_text_white = global::SquadBuilder.Droid.Resource.Color.hockeyapp_text_white;
+			global::HockeyApp.Resource.Drawable.hockeyapp_btn_background = global::SquadBuilder.Droid.Resource.Drawable.hockeyapp_btn_background;
+			global::HockeyApp.Resource.Id.button_add_response = global::SquadBuilder.Droid.Resource.Id.button_add_response;
+			global::HockeyApp.Resource.Id.button_attachment = global::SquadBuilder.Droid.Resource.Id.button_attachment;
+			global::HockeyApp.Resource.Id.button_login = global::SquadBuilder.Droid.Resource.Id.button_login;
+			global::HockeyApp.Resource.Id.button_refresh = global::SquadBuilder.Droid.Resource.Id.button_refresh;
+			global::HockeyApp.Resource.Id.button_send = global::SquadBuilder.Droid.Resource.Id.button_send;
+			global::HockeyApp.Resource.Id.button_update = global::SquadBuilder.Droid.Resource.Id.button_update;
+			global::HockeyApp.Resource.Id.input_email = global::SquadBuilder.Droid.Resource.Id.input_email;
+			global::HockeyApp.Resource.Id.input_message = global::SquadBuilder.Droid.Resource.Id.input_message;
+			global::HockeyApp.Resource.Id.input_name = global::SquadBuilder.Droid.Resource.Id.input_name;
+			global::HockeyApp.Resource.Id.input_password = global::SquadBuilder.Droid.Resource.Id.input_password;
+			global::HockeyApp.Resource.Id.input_subject = global::SquadBuilder.Droid.Resource.Id.input_subject;
+			global::HockeyApp.Resource.Id.label_author = global::SquadBuilder.Droid.Resource.Id.label_author;
+			global::HockeyApp.Resource.Id.label_date = global::SquadBuilder.Droid.Resource.Id.label_date;
+			global::HockeyApp.Resource.Id.label_last_updated = global::SquadBuilder.Droid.Resource.Id.label_last_updated;
+			global::HockeyApp.Resource.Id.label_message = global::SquadBuilder.Droid.Resource.Id.label_message;
+			global::HockeyApp.Resource.Id.label_text = global::SquadBuilder.Droid.Resource.Id.label_text;
+			global::HockeyApp.Resource.Id.label_title = global::SquadBuilder.Droid.Resource.Id.label_title;
+			global::HockeyApp.Resource.Id.label_version = global::SquadBuilder.Droid.Resource.Id.label_version;
+			global::HockeyApp.Resource.Id.list_attachments = global::SquadBuilder.Droid.Resource.Id.list_attachments;
+			global::HockeyApp.Resource.Id.list_feedback_messages = global::SquadBuilder.Droid.Resource.Id.list_feedback_messages;
+			global::HockeyApp.Resource.Id.text_headline = global::SquadBuilder.Droid.Resource.Id.text_headline;
+			global::HockeyApp.Resource.Id.view_header = global::SquadBuilder.Droid.Resource.Id.view_header;
+			global::HockeyApp.Resource.Id.web_update_details = global::SquadBuilder.Droid.Resource.Id.web_update_details;
+			global::HockeyApp.Resource.Id.wrapper_attachments = global::SquadBuilder.Droid.Resource.Id.wrapper_attachments;
+			global::HockeyApp.Resource.Id.wrapper_feedback = global::SquadBuilder.Droid.Resource.Id.wrapper_feedback;
+			global::HockeyApp.Resource.Id.wrapper_feedback_scroll = global::SquadBuilder.Droid.Resource.Id.wrapper_feedback_scroll;
+			global::HockeyApp.Resource.Id.wrapper_messages = global::SquadBuilder.Droid.Resource.Id.wrapper_messages;
+			global::HockeyApp.Resource.Id.wrapper_messages_buttons = global::SquadBuilder.Droid.Resource.Id.wrapper_messages_buttons;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_expiry_info = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_activity_expiry_info;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_feedback = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_activity_feedback;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_login = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_activity_login;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_update = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_activity_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_fragment_update = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_fragment_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_view_feedback_message = global::SquadBuilder.Droid.Resource.Layout.hockeyapp_view_feedback_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_app_name_fallback = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_app_name_fallback;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_neutral_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_crash_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_dialog_error_message;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_dialog_error_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_download_failed_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_download_failed_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_download_failed_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_download_failed_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_error_no_network_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_error_no_network_message;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_expiry_info_text;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_expiry_info_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_file = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_attach_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_picture = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_attach_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_button_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_attachment_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_attachment_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_loading = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_attachment_loading;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_email_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_failed_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_failed_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_fetching_feedback_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_fetching_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_generic_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_last_updated_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_last_updated_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_max_attachments_allowed = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_max_attachments_allowed;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_message_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_message_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_name_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_name_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_refresh_button_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_refresh_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_response_button_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_response_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_file = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_select_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_picture = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_select_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_button_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_send_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_generic_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_send_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_network_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_send_network_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_sending_feedback_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_sending_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_subject_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_subject_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_empty = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_validate_email_empty;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_validate_email_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_name_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_validate_name_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_subject_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_validate_subject_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_text_error = global::SquadBuilder.Droid.Resource.String.hockeyapp_feedback_validate_text_error;
+			global::HockeyApp.Resource.String.hockeyapp_login_email_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_headline_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text_email_only = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_headline_text_email_only;
+			global::HockeyApp.Resource.String.hockeyapp_login_login_button_text = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_login_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_missing_credentials_toast = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_missing_credentials_toast;
+			global::HockeyApp.Resource.String.hockeyapp_login_password_hint = global::SquadBuilder.Droid.Resource.String.hockeyapp_login_password_hint;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_neutral_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_indicator_toast = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_indicator_toast;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_clear = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_menu_clear;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_save = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_menu_save;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_undo = global::SquadBuilder.Droid.Resource.String.hockeyapp_paint_menu_undo;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_permission_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_permission_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_permission_update_message;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_permission_update_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_message = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_negative_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_positive_button = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_title = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_mandatory_toast = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_mandatory_toast;
+			global::HockeyApp.Resource.String.hockeyapp_update_version_details_label = global::SquadBuilder.Droid.Resource.String.hockeyapp_update_version_details_label;
+			global::HockeyApp.Resource.String.library_name = global::SquadBuilder.Droid.Resource.String.library_name;
+			global::HockeyApp.Resource.Style.HockeyApp_ButtonStyle = global::SquadBuilder.Droid.Resource.Style.HockeyApp_ButtonStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_EditTextStyle = global::SquadBuilder.Droid.Resource.Style.HockeyApp_EditTextStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_SingleLineInputStyle = global::SquadBuilder.Droid.Resource.Style.HockeyApp_SingleLineInputStyle;
 		}
 		
 		public partial class Animation
@@ -4009,32 +4129,32 @@ namespace SquadBuilder.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f080052
-			public const int abc_background_cache_hint_selector_material_dark = 2131230802;
+			// aapt resource value: 0x7f08005c
+			public const int abc_background_cache_hint_selector_material_dark = 2131230812;
 			
-			// aapt resource value: 0x7f080053
-			public const int abc_background_cache_hint_selector_material_light = 2131230803;
+			// aapt resource value: 0x7f08005d
+			public const int abc_background_cache_hint_selector_material_light = 2131230813;
 			
-			// aapt resource value: 0x7f080054
-			public const int abc_color_highlight_material = 2131230804;
+			// aapt resource value: 0x7f08005e
+			public const int abc_color_highlight_material = 2131230814;
 			
 			// aapt resource value: 0x7f08000d
 			public const int abc_input_method_navigation_guard = 2131230733;
 			
-			// aapt resource value: 0x7f080055
-			public const int abc_primary_text_disable_only_material_dark = 2131230805;
+			// aapt resource value: 0x7f08005f
+			public const int abc_primary_text_disable_only_material_dark = 2131230815;
 			
-			// aapt resource value: 0x7f080056
-			public const int abc_primary_text_disable_only_material_light = 2131230806;
+			// aapt resource value: 0x7f080060
+			public const int abc_primary_text_disable_only_material_light = 2131230816;
 			
-			// aapt resource value: 0x7f080057
-			public const int abc_primary_text_material_dark = 2131230807;
+			// aapt resource value: 0x7f080061
+			public const int abc_primary_text_material_dark = 2131230817;
 			
-			// aapt resource value: 0x7f080058
-			public const int abc_primary_text_material_light = 2131230808;
+			// aapt resource value: 0x7f080062
+			public const int abc_primary_text_material_light = 2131230818;
 			
-			// aapt resource value: 0x7f080059
-			public const int abc_search_url_text = 2131230809;
+			// aapt resource value: 0x7f080063
+			public const int abc_search_url_text = 2131230819;
 			
 			// aapt resource value: 0x7f08000e
 			public const int abc_search_url_text_normal = 2131230734;
@@ -4045,11 +4165,11 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f080010
 			public const int abc_search_url_text_selected = 2131230736;
 			
-			// aapt resource value: 0x7f08005a
-			public const int abc_secondary_text_material_dark = 2131230810;
+			// aapt resource value: 0x7f080064
+			public const int abc_secondary_text_material_dark = 2131230820;
 			
-			// aapt resource value: 0x7f08005b
-			public const int abc_secondary_text_material_light = 2131230811;
+			// aapt resource value: 0x7f080065
+			public const int abc_secondary_text_material_light = 2131230821;
 			
 			// aapt resource value: 0x7f080011
 			public const int accent_material_dark = 2131230737;
@@ -4093,41 +4213,41 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f08001e
 			public const int button_material_light = 2131230750;
 			
-			// aapt resource value: 0x7f080047
-			public const int calendar_active_month_bg = 2131230791;
-			
-			// aapt resource value: 0x7f080048
-			public const int calendar_bg = 2131230792;
-			
-			// aapt resource value: 0x7f080049
-			public const int calendar_divider = 2131230793;
-			
-			// aapt resource value: 0x7f08004c
-			public const int calendar_highlighted_day_bg = 2131230796;
-			
-			// aapt resource value: 0x7f08004a
-			public const int calendar_inactive_month_bg = 2131230794;
-			
-			// aapt resource value: 0x7f08004b
-			public const int calendar_selected_day_bg = 2131230795;
-			
-			// aapt resource value: 0x7f08004d
-			public const int calendar_selected_range_bg = 2131230797;
-			
-			// aapt resource value: 0x7f08004f
-			public const int calendar_text_active = 2131230799;
-			
-			// aapt resource value: 0x7f08004e
-			public const int calendar_text_inactive = 2131230798;
-			
-			// aapt resource value: 0x7f080050
-			public const int calendar_text_selected = 2131230800;
-			
-			// aapt resource value: 0x7f08005c
-			public const int calendar_text_selector = 2131230812;
-			
 			// aapt resource value: 0x7f080051
-			public const int calendar_text_unselectable = 2131230801;
+			public const int calendar_active_month_bg = 2131230801;
+			
+			// aapt resource value: 0x7f080052
+			public const int calendar_bg = 2131230802;
+			
+			// aapt resource value: 0x7f080053
+			public const int calendar_divider = 2131230803;
+			
+			// aapt resource value: 0x7f080056
+			public const int calendar_highlighted_day_bg = 2131230806;
+			
+			// aapt resource value: 0x7f080054
+			public const int calendar_inactive_month_bg = 2131230804;
+			
+			// aapt resource value: 0x7f080055
+			public const int calendar_selected_day_bg = 2131230805;
+			
+			// aapt resource value: 0x7f080057
+			public const int calendar_selected_range_bg = 2131230807;
+			
+			// aapt resource value: 0x7f080059
+			public const int calendar_text_active = 2131230809;
+			
+			// aapt resource value: 0x7f080058
+			public const int calendar_text_inactive = 2131230808;
+			
+			// aapt resource value: 0x7f08005a
+			public const int calendar_text_selected = 2131230810;
+			
+			// aapt resource value: 0x7f080066
+			public const int calendar_text_selector = 2131230822;
+			
+			// aapt resource value: 0x7f08005b
+			public const int calendar_text_unselectable = 2131230811;
 			
 			// aapt resource value: 0x7f080000
 			public const int cardview_dark_background = 2131230720;
@@ -4197,6 +4317,36 @@ namespace SquadBuilder.Droid
 			
 			// aapt resource value: 0x7f080028
 			public const int hint_foreground_material_light = 2131230760;
+			
+			// aapt resource value: 0x7f080047
+			public const int hockeyapp_background_header = 2131230791;
+			
+			// aapt resource value: 0x7f080048
+			public const int hockeyapp_background_light = 2131230792;
+			
+			// aapt resource value: 0x7f080049
+			public const int hockeyapp_background_white = 2131230793;
+			
+			// aapt resource value: 0x7f08004a
+			public const int hockeyapp_button_background = 2131230794;
+			
+			// aapt resource value: 0x7f08004b
+			public const int hockeyapp_button_background_pressed = 2131230795;
+			
+			// aapt resource value: 0x7f08004c
+			public const int hockeyapp_button_background_selected = 2131230796;
+			
+			// aapt resource value: 0x7f08004d
+			public const int hockeyapp_text_black = 2131230797;
+			
+			// aapt resource value: 0x7f08004e
+			public const int hockeyapp_text_light = 2131230798;
+			
+			// aapt resource value: 0x7f08004f
+			public const int hockeyapp_text_normal = 2131230799;
+			
+			// aapt resource value: 0x7f080050
+			public const int hockeyapp_text_white = 2131230800;
 			
 			// aapt resource value: 0x7f080029
 			public const int material_blue_grey_800 = 2131230761;
@@ -4282,11 +4432,11 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f080044
 			public const int switch_thumb_disabled_material_light = 2131230788;
 			
-			// aapt resource value: 0x7f08005d
-			public const int switch_thumb_material_dark = 2131230813;
+			// aapt resource value: 0x7f080067
+			public const int switch_thumb_material_dark = 2131230823;
 			
-			// aapt resource value: 0x7f08005e
-			public const int switch_thumb_material_light = 2131230814;
+			// aapt resource value: 0x7f080068
+			public const int switch_thumb_material_light = 2131230824;
 			
 			// aapt resource value: 0x7f080045
 			public const int switch_thumb_normal_material_dark = 2131230789;
@@ -4876,277 +5026,280 @@ namespace SquadBuilder.Droid
 			public const int G1ADial = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int HWK290Dial = 2130837582;
+			public const int hockeyapp_btn_background = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int HWK290DialNienNumb = 2130837583;
+			public const int HWK290Dial = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_cast_dark = 2130837584;
+			public const int HWK290DialNienNumb = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_cast_disabled_light = 2130837585;
+			public const int ic_cast_dark = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_cast_light = 2130837586;
+			public const int ic_cast_disabled_light = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_cast_off_light = 2130837587;
+			public const int ic_cast_light = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_cast_on_0_light = 2130837588;
+			public const int ic_cast_off_light = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_cast_on_1_light = 2130837589;
+			public const int ic_cast_on_0_light = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_cast_on_2_light = 2130837590;
+			public const int ic_cast_on_1_light = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_cast_on_light = 2130837591;
+			public const int ic_cast_on_2_light = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_media_pause = 2130837592;
+			public const int ic_cast_on_light = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_media_play = 2130837593;
+			public const int ic_media_pause = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_media_route_disabled_mono_dark = 2130837594;
+			public const int ic_media_play = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_media_route_off_mono_dark = 2130837595;
+			public const int ic_media_route_disabled_mono_dark = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_media_route_on_0_mono_dark = 2130837596;
+			public const int ic_media_route_off_mono_dark = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_media_route_on_1_mono_dark = 2130837597;
+			public const int ic_media_route_on_0_mono_dark = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_media_route_on_2_mono_dark = 2130837598;
+			public const int ic_media_route_on_1_mono_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_media_route_on_mono_dark = 2130837599;
+			public const int ic_media_route_on_2_mono_dark = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_pause_dark = 2130837600;
+			public const int ic_media_route_on_mono_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_pause_light = 2130837601;
+			public const int ic_pause_dark = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_play_dark = 2130837602;
+			public const int ic_pause_light = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int ic_play_light = 2130837603;
+			public const int ic_play_dark = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int ic_setting_dark = 2130837604;
+			public const int ic_play_light = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int ic_setting_light = 2130837605;
+			public const int ic_setting_dark = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int icon = 2130837606;
+			public const int ic_setting_light = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int JumpMasterDial = 2130837607;
+			public const int icon = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int JumpMasterDialUnhinged = 2130837608;
+			public const int JumpMasterDial = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int KihraxzDial = 2130837609;
+			public const int JumpMasterDialUnhinged = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int KwingDial = 2130837610;
+			public const int KihraxzDial = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int KwingDialNienNumb = 2130837611;
+			public const int KwingDial = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int LambdaDial = 2130837612;
+			public const int KwingDialNienNumb = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int LancerDial = 2130837613;
+			public const int LambdaDial = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int menu = 2130837614;
+			public const int LancerDial = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int mr_ic_cast_dark = 2130837615;
+			public const int menu = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int mr_ic_cast_light = 2130837616;
+			public const int mr_ic_cast_dark = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837617;
+			public const int mr_ic_cast_light = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int mr_ic_media_route_connecting_mono_light = 2130837618;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int mr_ic_media_route_mono_dark = 2130837619;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int mr_ic_media_route_mono_light = 2130837620;
+			public const int mr_ic_media_route_mono_dark = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int mr_ic_pause_dark = 2130837621;
+			public const int mr_ic_media_route_mono_light = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int mr_ic_pause_light = 2130837622;
+			public const int mr_ic_pause_dark = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int mr_ic_play_dark = 2130837623;
+			public const int mr_ic_pause_light = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int mr_ic_play_light = 2130837624;
+			public const int mr_ic_play_dark = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int mr_ic_settings_dark = 2130837625;
+			public const int mr_ic_play_light = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int mr_ic_settings_light = 2130837626;
-			
-			// aapt resource value: 0x7f0200a8
-			public const int notification_template_icon_bg = 2130837672;
+			public const int mr_ic_settings_dark = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ProtectorateDial = 2130837627;
+			public const int mr_ic_settings_light = 2130837627;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int notification_template_icon_bg = 2130837673;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ScykDial = 2130837628;
+			public const int ProtectorateDial = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int SoroSuubDial = 2130837629;
+			public const int ScykDial = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int StarViperDial = 2130837630;
+			public const int SoroSuubDial = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int T70XwingDial = 2130837631;
+			public const int StarViperDial = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int T70XwingDialr2astro = 2130837632;
+			public const int T70XwingDial = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int TIEAdvancedDial = 2130837633;
+			public const int T70XwingDialr2astro = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int TIEAdvancedDialMk2 = 2130837634;
+			public const int TIEAdvancedDial = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int TIEAdvPrototypeDial = 2130837635;
+			public const int TIEAdvancedDialMk2 = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int TIEAdvPrototypeDialMk2 = 2130837636;
+			public const int TIEAdvPrototypeDial = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int TIEAvengerDial = 2130837637;
+			public const int TIEAdvPrototypeDialMk2 = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int TIEAvengerDialMk2 = 2130837638;
+			public const int TIEAvengerDial = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int TIEBomberDial = 2130837639;
+			public const int TIEAvengerDialMk2 = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int TIEBomberDialMk2 = 2130837640;
+			public const int TIEBomberDial = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int TIEDefenderDial = 2130837641;
+			public const int TIEBomberDialMk2 = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int TIEDefenderDialMk2 = 2130837642;
+			public const int TIEDefenderDial = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int TIEFighterDial = 2130837643;
+			public const int TIEDefenderDialMk2 = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int TIEFighterDialMk2 = 2130837644;
+			public const int TIEFighterDial = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int TIEFODial = 2130837645;
+			public const int TIEFighterDialMk2 = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int TIEFODialMk2 = 2130837646;
+			public const int TIEFODial = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int TIEInterceptorDial = 2130837647;
+			public const int TIEFODialMk2 = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int TIEInterceptorDialMk2 = 2130837648;
+			public const int TIEInterceptorDial = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int TIEPhantomDial = 2130837649;
+			public const int TIEInterceptorDialMk2 = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int TIEPhantomDialMk2 = 2130837650;
+			public const int TIEPhantomDial = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int TIEPunisherDial = 2130837651;
+			public const int TIEPhantomDialMk2 = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int TIEPunisherDialMk2 = 2130837652;
+			public const int TIEPunisherDial = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int TIESFDial = 2130837653;
+			public const int TIEPunisherDialMk2 = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int TIESFDialMk2 = 2130837654;
+			public const int TIESFDial = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int TIEStrikerDial = 2130837655;
+			public const int TIESFDialMk2 = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int UWingDial = 2130837656;
+			public const int TIEStrikerDial = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int VCX100Dial = 2130837657;
+			public const int UWingDial = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int VCX100DialNienNumb = 2130837658;
+			public const int VCX100Dial = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int VT49Dial = 2130837659;
+			public const int VCX100DialNienNumb = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int VwingDial = 2130837660;
+			public const int VT49Dial = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int XwingDial = 2130837661;
+			public const int VwingDial = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int XwingDialr2astro = 2130837662;
+			public const int XwingDial = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int YT1300Dial = 2130837663;
+			public const int XwingDialr2astro = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int YT1300DialNienNumb = 2130837664;
+			public const int YT1300Dial = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int YT2400Dial = 2130837665;
+			public const int YT1300DialNienNumb = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int YT2400DialNienNumb = 2130837666;
+			public const int YT2400Dial = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int YV666Dial = 2130837667;
+			public const int YT2400DialNienNumb = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int YwingDial = 2130837668;
+			public const int YV666Dial = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int YwingDialr2astro = 2130837669;
+			public const int YwingDial = 2130837669;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int YwingDialUnhinged = 2130837670;
+			public const int YwingDialr2astro = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int Z95Dial = 2130837671;
+			public const int YwingDialUnhinged = 2130837671;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int Z95Dial = 2130837672;
 			
 			static Drawable()
 			{
@@ -5161,8 +5314,8 @@ namespace SquadBuilder.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0078
-			public const int action0 = 2131361912;
+			// aapt resource value: 0x7f0a0094
+			public const int action0 = 2131361940;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int action_bar = 2131361877;
@@ -5188,8 +5341,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0056
 			public const int action_context_bar = 2131361878;
 			
-			// aapt resource value: 0x7f0a007c
-			public const int action_divider = 2131361916;
+			// aapt resource value: 0x7f0a0098
+			public const int action_divider = 2131361944;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -5215,8 +5368,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0032
 			public const int always = 2131361842;
 			
-			// aapt resource value: 0x7f0a0070
-			public const int art = 2131361904;
+			// aapt resource value: 0x7f0a008c
+			public const int art = 2131361932;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int beginning = 2131361840;
@@ -5227,17 +5380,35 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a004b
 			public const int buttonPanel = 2131361867;
 			
-			// aapt resource value: 0x7f0a0075
-			public const int buttons = 2131361909;
+			// aapt resource value: 0x7f0a0076
+			public const int button_add_response = 2131361910;
 			
-			// aapt resource value: 0x7f0a0069
-			public const int calendar_grid = 2131361897;
+			// aapt resource value: 0x7f0a0071
+			public const int button_attachment = 2131361905;
+			
+			// aapt resource value: 0x7f0a007b
+			public const int button_login = 2131361915;
+			
+			// aapt resource value: 0x7f0a0077
+			public const int button_refresh = 2131361911;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int button_send = 2131361906;
+			
+			// aapt resource value: 0x7f0a007f
+			public const int button_update = 2131361919;
+			
+			// aapt resource value: 0x7f0a0091
+			public const int buttons = 2131361937;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int calendar_grid = 2131361925;
 			
 			// aapt resource value: 0x7f0a0064
 			public const int calendar_view = 2131361892;
 			
-			// aapt resource value: 0x7f0a0079
-			public const int cancel_action = 2131361913;
+			// aapt resource value: 0x7f0a0095
+			public const int cancel_action = 2131361941;
 			
 			// aapt resource value: 0x7f0a0012
 			public const int center = 2131361810;
@@ -5251,8 +5422,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a004d
 			public const int checkbox = 2131361869;
 			
-			// aapt resource value: 0x7f0a007f
-			public const int chronometer = 2131361919;
+			// aapt resource value: 0x7f0a009b
+			public const int chronometer = 2131361947;
 			
 			// aapt resource value: 0x7f0a001b
 			public const int clip_horizontal = 2131361819;
@@ -5278,14 +5449,14 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a003e
 			public const int default_activity_button = 2131361854;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int default_control_frame = 2131361903;
+			// aapt resource value: 0x7f0a008b
+			public const int default_control_frame = 2131361931;
 			
 			// aapt resource value: 0x7f0a0025
 			public const int disableHome = 2131361829;
 			
-			// aapt resource value: 0x7f0a0076
-			public const int disconnect = 2131361910;
+			// aapt resource value: 0x7f0a0092
+			public const int disconnect = 2131361938;
 			
 			// aapt resource value: 0x7f0a0057
 			public const int edit_query = 2131361879;
@@ -5293,8 +5464,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0015
 			public const int end = 2131361813;
 			
-			// aapt resource value: 0x7f0a0084
-			public const int end_padder = 2131361924;
+			// aapt resource value: 0x7f0a00a0
+			public const int end_padder = 2131361952;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int enterAlways = 2131361802;
@@ -5338,8 +5509,44 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a003d
 			public const int image = 2131361853;
 			
+			// aapt resource value: 0x7f0a009f
+			public const int info = 2131361951;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int input_email = 2131361901;
+			
+			// aapt resource value: 0x7f0a006f
+			public const int input_message = 2131361903;
+			
+			// aapt resource value: 0x7f0a006c
+			public const int input_name = 2131361900;
+			
+			// aapt resource value: 0x7f0a007a
+			public const int input_password = 2131361914;
+			
+			// aapt resource value: 0x7f0a006e
+			public const int input_subject = 2131361902;
+			
+			// aapt resource value: 0x7f0a0081
+			public const int label_author = 2131361921;
+			
+			// aapt resource value: 0x7f0a0082
+			public const int label_date = 2131361922;
+			
+			// aapt resource value: 0x7f0a0074
+			public const int label_last_updated = 2131361908;
+			
+			// aapt resource value: 0x7f0a0069
+			public const int label_message = 2131361897;
+			
 			// aapt resource value: 0x7f0a0083
-			public const int info = 2131361923;
+			public const int label_text = 2131361923;
+			
+			// aapt resource value: 0x7f0a007d
+			public const int label_title = 2131361917;
+			
+			// aapt resource value: 0x7f0a007e
+			public const int label_version = 2131361918;
 			
 			// aapt resource value: 0x7f0a0017
 			public const int left = 2131361815;
@@ -5347,32 +5554,38 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0066
 			public const int left_arrow = 2131361894;
 			
-			// aapt resource value: 0x7f0a007d
-			public const int line1 = 2131361917;
+			// aapt resource value: 0x7f0a0099
+			public const int line1 = 2131361945;
 			
-			// aapt resource value: 0x7f0a0081
-			public const int line3 = 2131361921;
+			// aapt resource value: 0x7f0a009d
+			public const int line3 = 2131361949;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int listMode = 2131361827;
 			
+			// aapt resource value: 0x7f0a0084
+			public const int list_attachments = 2131361924;
+			
+			// aapt resource value: 0x7f0a0078
+			public const int list_feedback_messages = 2131361912;
+			
 			// aapt resource value: 0x7f0a003f
 			public const int list_item = 2131361855;
 			
-			// aapt resource value: 0x7f0a007b
-			public const int media_actions = 2131361915;
+			// aapt resource value: 0x7f0a0097
+			public const int media_actions = 2131361943;
 			
-			// aapt resource value: 0x7f0a006e
-			public const int media_route_control_frame = 2131361902;
+			// aapt resource value: 0x7f0a008a
+			public const int media_route_control_frame = 2131361930;
 			
-			// aapt resource value: 0x7f0a006a
-			public const int media_route_list = 2131361898;
+			// aapt resource value: 0x7f0a0086
+			public const int media_route_list = 2131361926;
 			
-			// aapt resource value: 0x7f0a0073
-			public const int media_route_volume_layout = 2131361907;
+			// aapt resource value: 0x7f0a008f
+			public const int media_route_volume_layout = 2131361935;
 			
-			// aapt resource value: 0x7f0a0074
-			public const int media_route_volume_slider = 2131361908;
+			// aapt resource value: 0x7f0a0090
+			public const int media_route_volume_slider = 2131361936;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int middle = 2131361841;
@@ -5401,8 +5614,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0010
 			public const int pin = 2131361808;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int play_pause = 2131361905;
+			// aapt resource value: 0x7f0a008d
+			public const int play_pause = 2131361933;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int progress_circular = 2131361798;
@@ -5419,8 +5632,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0065
 			public const int right_arrow = 2131361893;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int route_name = 2131361900;
+			// aapt resource value: 0x7f0a0088
+			public const int route_name = 2131361928;
 			
 			// aapt resource value: 0x7f0a002c
 			public const int screen = 2131361836;
@@ -5467,8 +5680,8 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0063
 			public const int select_dialog_listview = 2131361891;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int settings = 2131361901;
+			// aapt resource value: 0x7f0a0089
+			public const int settings = 2131361929;
 			
 			// aapt resource value: 0x7f0a004e
 			public const int shortcut = 2131361870;
@@ -5503,38 +5716,41 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a0019
 			public const int start = 2131361817;
 			
-			// aapt resource value: 0x7f0a007a
-			public const int status_bar_latest_event_content = 2131361914;
+			// aapt resource value: 0x7f0a0096
+			public const int status_bar_latest_event_content = 2131361942;
 			
-			// aapt resource value: 0x7f0a0077
-			public const int stop = 2131361911;
+			// aapt resource value: 0x7f0a0093
+			public const int stop = 2131361939;
 			
 			// aapt resource value: 0x7f0a0060
 			public const int submit_area = 2131361888;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int subtitle = 2131361906;
+			// aapt resource value: 0x7f0a008e
+			public const int subtitle = 2131361934;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int tabMode = 2131361828;
 			
-			// aapt resource value: 0x7f0a0082
-			public const int text = 2131361922;
+			// aapt resource value: 0x7f0a009e
+			public const int text = 2131361950;
 			
-			// aapt resource value: 0x7f0a0080
-			public const int text2 = 2131361920;
+			// aapt resource value: 0x7f0a009c
+			public const int text2 = 2131361948;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int textSpacerNoButtons = 2131361864;
 			
-			// aapt resource value: 0x7f0a007e
-			public const int time = 2131361918;
+			// aapt resource value: 0x7f0a0079
+			public const int text_headline = 2131361913;
+			
+			// aapt resource value: 0x7f0a009a
+			public const int time = 2131361946;
 			
 			// aapt resource value: 0x7f0a0041
 			public const int title = 2131361857;
 			
-			// aapt resource value: 0x7f0a006b
-			public const int title_bar = 2131361899;
+			// aapt resource value: 0x7f0a0087
+			public const int title_bar = 2131361927;
 			
 			// aapt resource value: 0x7f0a0044
 			public const int title_template = 2131361860;
@@ -5551,14 +5767,35 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f0a002a
 			public const int useLogo = 2131361834;
 			
+			// aapt resource value: 0x7f0a007c
+			public const int view_header = 2131361916;
+			
 			// aapt resource value: 0x7f0a0000
 			public const int view_offset_helper = 2131361792;
+			
+			// aapt resource value: 0x7f0a0080
+			public const int web_update_details = 2131361920;
 			
 			// aapt resource value: 0x7f0a0036
 			public const int withText = 2131361846;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int wrap_content = 2131361847;
+			
+			// aapt resource value: 0x7f0a0070
+			public const int wrapper_attachments = 2131361904;
+			
+			// aapt resource value: 0x7f0a006b
+			public const int wrapper_feedback = 2131361899;
+			
+			// aapt resource value: 0x7f0a006a
+			public const int wrapper_feedback_scroll = 2131361898;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int wrapper_messages = 2131361907;
+			
+			// aapt resource value: 0x7f0a0075
+			public const int wrapper_messages_buttons = 2131361909;
 			
 			static Id()
 			{
@@ -5713,55 +5950,73 @@ namespace SquadBuilder.Droid
 			public const int dialog = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int month = 2130903076;
+			public const int hockeyapp_activity_expiry_info = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int mr_media_route_chooser_dialog = 2130903077;
+			public const int hockeyapp_activity_feedback = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int mr_media_route_controller_material_dialog_b = 2130903078;
+			public const int hockeyapp_activity_login = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int mr_media_route_list_item = 2130903079;
+			public const int hockeyapp_activity_update = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_media_action = 2130903080;
+			public const int hockeyapp_fragment_update = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_media_cancel_action = 2130903081;
+			public const int hockeyapp_view_feedback_message = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_template_big_media = 2130903082;
+			public const int month = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_big_media_narrow = 2130903083;
+			public const int mr_media_route_chooser_dialog = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_template_lines = 2130903084;
+			public const int mr_media_route_controller_material_dialog_b = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_media = 2130903085;
+			public const int mr_media_route_list_item = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_part_chronometer = 2130903086;
+			public const int notification_media_action = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_part_time = 2130903087;
+			public const int notification_media_cancel_action = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int select_dialog_item_material = 2130903088;
+			public const int notification_template_big_media = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int select_dialog_multichoice_material = 2130903089;
+			public const int notification_template_big_media_narrow = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int select_dialog_singlechoice_material = 2130903090;
+			public const int notification_template_lines = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int support_simple_spinner_dropdown_item = 2130903091;
+			public const int notification_template_media = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int week = 2130903092;
+			public const int notification_template_part_chronometer = 2130903092;
+			
+			// aapt resource value: 0x7f030035
+			public const int notification_template_part_time = 2130903093;
+			
+			// aapt resource value: 0x7f030036
+			public const int select_dialog_item_material = 2130903094;
+			
+			// aapt resource value: 0x7f030037
+			public const int select_dialog_multichoice_material = 2130903095;
+			
+			// aapt resource value: 0x7f030038
+			public const int select_dialog_singlechoice_material = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int support_simple_spinner_dropdown_item = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int week = 2130903098;
 			
 			static Layout()
 			{
@@ -5776,11 +6031,11 @@ namespace SquadBuilder.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050024
-			public const int ApplicationName = 2131034148;
+			// aapt resource value: 0x7f05006b
+			public const int ApplicationName = 2131034219;
 			
-			// aapt resource value: 0x7f050023
-			public const int Hello = 2131034147;
+			// aapt resource value: 0x7f05006a
+			public const int Hello = 2131034218;
 			
 			// aapt resource value: 0x7f05000c
 			public const int abc_action_bar_home_description = 2131034124;
@@ -5836,20 +6091,233 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f05000b
 			public const int appbar_scrolling_view_behavior = 2131034123;
 			
-			// aapt resource value: 0x7f05001f
-			public const int day_name_format = 2131034143;
+			// aapt resource value: 0x7f050066
+			public const int day_name_format = 2131034214;
 			
-			// aapt resource value: 0x7f050022
-			public const int full_date_format = 2131034146;
+			// aapt resource value: 0x7f050069
+			public const int full_date_format = 2131034217;
+			
+			// aapt resource value: 0x7f05001f
+			public const int hockeyapp_crash_dialog_app_name_fallback = 2131034143;
 			
 			// aapt resource value: 0x7f050020
-			public const int invalid_date = 2131034144;
+			public const int hockeyapp_crash_dialog_message = 2131034144;
+			
+			// aapt resource value: 0x7f050021
+			public const int hockeyapp_crash_dialog_negative_button = 2131034145;
+			
+			// aapt resource value: 0x7f050022
+			public const int hockeyapp_crash_dialog_neutral_button = 2131034146;
+			
+			// aapt resource value: 0x7f050023
+			public const int hockeyapp_crash_dialog_positive_button = 2131034147;
+			
+			// aapt resource value: 0x7f050024
+			public const int hockeyapp_crash_dialog_title = 2131034148;
+			
+			// aapt resource value: 0x7f050025
+			public const int hockeyapp_dialog_error_message = 2131034149;
+			
+			// aapt resource value: 0x7f050026
+			public const int hockeyapp_dialog_error_title = 2131034150;
+			
+			// aapt resource value: 0x7f050027
+			public const int hockeyapp_dialog_negative_button = 2131034151;
+			
+			// aapt resource value: 0x7f050028
+			public const int hockeyapp_dialog_positive_button = 2131034152;
+			
+			// aapt resource value: 0x7f050029
+			public const int hockeyapp_download_failed_dialog_message = 2131034153;
+			
+			// aapt resource value: 0x7f05002a
+			public const int hockeyapp_download_failed_dialog_negative_button = 2131034154;
+			
+			// aapt resource value: 0x7f05002b
+			public const int hockeyapp_download_failed_dialog_positive_button = 2131034155;
+			
+			// aapt resource value: 0x7f05002c
+			public const int hockeyapp_download_failed_dialog_title = 2131034156;
+			
+			// aapt resource value: 0x7f05002d
+			public const int hockeyapp_error_no_network_message = 2131034157;
+			
+			// aapt resource value: 0x7f05002e
+			public const int hockeyapp_expiry_info_text = 2131034158;
+			
+			// aapt resource value: 0x7f05002f
+			public const int hockeyapp_expiry_info_title = 2131034159;
+			
+			// aapt resource value: 0x7f050030
+			public const int hockeyapp_feedback_attach_file = 2131034160;
+			
+			// aapt resource value: 0x7f050031
+			public const int hockeyapp_feedback_attach_picture = 2131034161;
+			
+			// aapt resource value: 0x7f050032
+			public const int hockeyapp_feedback_attachment_button_text = 2131034162;
+			
+			// aapt resource value: 0x7f050033
+			public const int hockeyapp_feedback_attachment_error = 2131034163;
+			
+			// aapt resource value: 0x7f050034
+			public const int hockeyapp_feedback_attachment_loading = 2131034164;
+			
+			// aapt resource value: 0x7f050035
+			public const int hockeyapp_feedback_email_hint = 2131034165;
+			
+			// aapt resource value: 0x7f050036
+			public const int hockeyapp_feedback_failed_text = 2131034166;
+			
+			// aapt resource value: 0x7f050037
+			public const int hockeyapp_feedback_failed_title = 2131034167;
+			
+			// aapt resource value: 0x7f050038
+			public const int hockeyapp_feedback_fetching_feedback_text = 2131034168;
+			
+			// aapt resource value: 0x7f050039
+			public const int hockeyapp_feedback_generic_error = 2131034169;
+			
+			// aapt resource value: 0x7f05003a
+			public const int hockeyapp_feedback_last_updated_text = 2131034170;
+			
+			// aapt resource value: 0x7f05003b
+			public const int hockeyapp_feedback_max_attachments_allowed = 2131034171;
+			
+			// aapt resource value: 0x7f05003c
+			public const int hockeyapp_feedback_message_hint = 2131034172;
+			
+			// aapt resource value: 0x7f05003d
+			public const int hockeyapp_feedback_name_hint = 2131034173;
+			
+			// aapt resource value: 0x7f05003e
+			public const int hockeyapp_feedback_refresh_button_text = 2131034174;
+			
+			// aapt resource value: 0x7f05003f
+			public const int hockeyapp_feedback_response_button_text = 2131034175;
+			
+			// aapt resource value: 0x7f050040
+			public const int hockeyapp_feedback_select_file = 2131034176;
+			
+			// aapt resource value: 0x7f050041
+			public const int hockeyapp_feedback_select_picture = 2131034177;
+			
+			// aapt resource value: 0x7f050042
+			public const int hockeyapp_feedback_send_button_text = 2131034178;
+			
+			// aapt resource value: 0x7f050043
+			public const int hockeyapp_feedback_send_generic_error = 2131034179;
+			
+			// aapt resource value: 0x7f050044
+			public const int hockeyapp_feedback_send_network_error = 2131034180;
+			
+			// aapt resource value: 0x7f050045
+			public const int hockeyapp_feedback_sending_feedback_text = 2131034181;
+			
+			// aapt resource value: 0x7f050046
+			public const int hockeyapp_feedback_subject_hint = 2131034182;
+			
+			// aapt resource value: 0x7f050047
+			public const int hockeyapp_feedback_title = 2131034183;
+			
+			// aapt resource value: 0x7f050048
+			public const int hockeyapp_feedback_validate_email_empty = 2131034184;
+			
+			// aapt resource value: 0x7f050049
+			public const int hockeyapp_feedback_validate_email_error = 2131034185;
+			
+			// aapt resource value: 0x7f05004a
+			public const int hockeyapp_feedback_validate_name_error = 2131034186;
+			
+			// aapt resource value: 0x7f05004b
+			public const int hockeyapp_feedback_validate_subject_error = 2131034187;
+			
+			// aapt resource value: 0x7f05004c
+			public const int hockeyapp_feedback_validate_text_error = 2131034188;
+			
+			// aapt resource value: 0x7f05004d
+			public const int hockeyapp_login_email_hint = 2131034189;
+			
+			// aapt resource value: 0x7f05004e
+			public const int hockeyapp_login_headline_text = 2131034190;
+			
+			// aapt resource value: 0x7f05004f
+			public const int hockeyapp_login_headline_text_email_only = 2131034191;
+			
+			// aapt resource value: 0x7f050050
+			public const int hockeyapp_login_login_button_text = 2131034192;
+			
+			// aapt resource value: 0x7f050051
+			public const int hockeyapp_login_missing_credentials_toast = 2131034193;
+			
+			// aapt resource value: 0x7f050052
+			public const int hockeyapp_login_password_hint = 2131034194;
+			
+			// aapt resource value: 0x7f050053
+			public const int hockeyapp_paint_dialog_message = 2131034195;
+			
+			// aapt resource value: 0x7f050054
+			public const int hockeyapp_paint_dialog_negative_button = 2131034196;
+			
+			// aapt resource value: 0x7f050055
+			public const int hockeyapp_paint_dialog_neutral_button = 2131034197;
+			
+			// aapt resource value: 0x7f050056
+			public const int hockeyapp_paint_dialog_positive_button = 2131034198;
+			
+			// aapt resource value: 0x7f050057
+			public const int hockeyapp_paint_indicator_toast = 2131034199;
+			
+			// aapt resource value: 0x7f050058
+			public const int hockeyapp_paint_menu_clear = 2131034200;
+			
+			// aapt resource value: 0x7f050059
+			public const int hockeyapp_paint_menu_save = 2131034201;
+			
+			// aapt resource value: 0x7f05005a
+			public const int hockeyapp_paint_menu_undo = 2131034202;
+			
+			// aapt resource value: 0x7f05005b
+			public const int hockeyapp_permission_dialog_negative_button = 2131034203;
+			
+			// aapt resource value: 0x7f05005c
+			public const int hockeyapp_permission_dialog_positive_button = 2131034204;
+			
+			// aapt resource value: 0x7f05005d
+			public const int hockeyapp_permission_update_message = 2131034205;
+			
+			// aapt resource value: 0x7f05005e
+			public const int hockeyapp_permission_update_title = 2131034206;
+			
+			// aapt resource value: 0x7f05005f
+			public const int hockeyapp_update_button = 2131034207;
+			
+			// aapt resource value: 0x7f050060
+			public const int hockeyapp_update_dialog_message = 2131034208;
+			
+			// aapt resource value: 0x7f050061
+			public const int hockeyapp_update_dialog_negative_button = 2131034209;
+			
+			// aapt resource value: 0x7f050062
+			public const int hockeyapp_update_dialog_positive_button = 2131034210;
+			
+			// aapt resource value: 0x7f050063
+			public const int hockeyapp_update_dialog_title = 2131034211;
+			
+			// aapt resource value: 0x7f050064
+			public const int hockeyapp_update_mandatory_toast = 2131034212;
+			
+			// aapt resource value: 0x7f050065
+			public const int hockeyapp_update_version_details_label = 2131034213;
+			
+			// aapt resource value: 0x7f050067
+			public const int invalid_date = 2131034215;
 			
 			// aapt resource value: 0x7f05001e
 			public const int library_name = 2131034142;
 			
-			// aapt resource value: 0x7f050021
-			public const int month_name_format = 2131034145;
+			// aapt resource value: 0x7f050068
+			public const int month_name_format = 2131034216;
 			
 			// aapt resource value: 0x7f050000
 			public const int mr_media_route_button_content_description = 2131034112;
@@ -6329,17 +6797,17 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f070008
 			public const int Base_Widget_Design_TabLayout = 2131165192;
 			
-			// aapt resource value: 0x7f070145
-			public const int CalendarCell = 2131165509;
+			// aapt resource value: 0x7f070148
+			public const int CalendarCell = 2131165512;
+			
+			// aapt resource value: 0x7f07014a
+			public const int CalendarCell_CalendarDate = 2131165514;
+			
+			// aapt resource value: 0x7f070149
+			public const int CalendarCell_DayHeader = 2131165513;
 			
 			// aapt resource value: 0x7f070147
-			public const int CalendarCell_CalendarDate = 2131165511;
-			
-			// aapt resource value: 0x7f070146
-			public const int CalendarCell_DayHeader = 2131165510;
-			
-			// aapt resource value: 0x7f070144
-			public const int CalendarTitle = 2131165508;
+			public const int CalendarTitle = 2131165511;
 			
 			// aapt resource value: 0x7f070004
 			public const int CardView = 2131165188;
@@ -6350,8 +6818,17 @@ namespace SquadBuilder.Droid
 			// aapt resource value: 0x7f070006
 			public const int CardView_Light = 2131165190;
 			
-			// aapt resource value: 0x7f070148
-			public const int CustomTheme = 2131165512;
+			// aapt resource value: 0x7f07014b
+			public const int CustomTheme = 2131165515;
+			
+			// aapt resource value: 0x7f070144
+			public const int HockeyApp_ButtonStyle = 2131165508;
+			
+			// aapt resource value: 0x7f070145
+			public const int HockeyApp_EditTextStyle = 2131165509;
+			
+			// aapt resource value: 0x7f070146
+			public const int HockeyApp_SingleLineInputStyle = 2131165510;
 			
 			// aapt resource value: 0x7f070025
 			public const int Platform_AppCompat = 2131165221;

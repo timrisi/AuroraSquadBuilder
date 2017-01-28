@@ -54,6 +54,34 @@ namespace SquadBuilder
 			get { return upgrades; }
 			set { SetProperty (ref upgrades, value); }
 		}
+
+		Pilot selectedPilot;
+		public Pilot SelectedPilot {
+			get { return selectedPilot; }
+			set {
+				SetProperty (ref selectedPilot, value);
+
+				if (selectedPilot != null) {
+					Navigation.PushAsync<SinglePilotViewModel> ((vm, page) => {
+						vm.Pilot = selectedPilot;
+					});
+				}
+			}
+		}
+
+		Upgrade selectedUpgrade;
+		public Upgrade SelectedUpgrade {
+			get { return selectedUpgrade; }
+			set {
+				SetProperty (ref selectedUpgrade, value);
+
+				if (selectedUpgrade != null) {
+					Navigation.PushAsync<SingleUpgradeViewModel> ((vm, page) => {
+						vm.Upgrade = selectedUpgrade;
+					});
+				}
+			}
+		}
 	}
 }
 

@@ -63,6 +63,7 @@ namespace SquadBuilder
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
+                .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
                 .Where (u => !u.IsCustom || Settings.AllowCustom)
                 .Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
 
@@ -174,7 +175,13 @@ namespace SquadBuilder
 
 		public void SearchUpgrades (string text)
 		{
-			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u => u.Name.ToLower ().Contains (text.ToLower ())));
+			text = text.ToLower ();
+			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
+																						   u.Name.ToLower ().Contains (text) ||
+																						   u.Text.ToLower ().Contains (text) ||
+			                                                                               (u.Faction != null && u.Faction.Name.ToLower ().Contains (text)) ||
+			                                                                               (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
+			                                                                              ));
 		}
 	}
 }

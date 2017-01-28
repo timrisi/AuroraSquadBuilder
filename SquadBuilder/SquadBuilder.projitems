@@ -179,6 +179,14 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\ExploreExpansionContentsView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreExpansionContentsView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\SinglePilotViewModel.xaml.cs">
+      <DependentUpon>SinglePilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\SinglePilotViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\SingleUpgradeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ExploreCards\SingleUpgradeView.xaml.cs">
+      <DependentUpon>SingleUpgradeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -306,6 +314,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\ExploreExpansionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\SinglePilotView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ExploreCards\SingleUpgradeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

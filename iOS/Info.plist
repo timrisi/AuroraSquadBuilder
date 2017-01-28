@@ -31,7 +31,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.3</string>
+	<string>1.2.4</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>CFBundleURLTypes</key>
@@ -53,7 +53,9 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>Aurora</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library Access Warning</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>2</string>
 </dict>
 </plist>

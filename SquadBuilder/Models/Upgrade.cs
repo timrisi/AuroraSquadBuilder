@@ -35,9 +35,12 @@ namespace SquadBuilder
 		public bool Preview { get; set; }
 		public string RequiredAction { get; set; }
 		public int MinPilotSkill { get; set; }
+		public int? MaxPilotSkill { get; set; }
 		public bool IsCustom { get; set; }
 		public bool CCL { get; set; }
 		public string ModifiedManeuverDial { get; set; }
+		public int? MinAgility { get; set; }
+		public int? MaxAgility { get; set; }
 
 		string canonicalName;
 		public string CanonicalName {
@@ -218,6 +221,9 @@ namespace SquadBuilder
 				Unique = Unique,
 				Preview = Preview,
 				MinPilotSkill = MinPilotSkill,
+				MaxPilotSkill = MaxPilotSkill,
+				MinAgility = MinAgility,
+				MaxAgility = MaxAgility,
 				IsCustom = IsCustom,
 				CCL = CCL,
 				ModifiedManeuverDial = ModifiedManeuverDial,

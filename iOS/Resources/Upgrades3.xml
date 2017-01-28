@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.50">
+<Upgrades Version="3.52">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -996,6 +996,23 @@ When defending, the attacker must spend 1 focus token if able.</Text>
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
 		</Upgrade>
+		<Upgrade id="cikatrovizago">
+			<Name>Cikatro Vizago</Name>
+			<Cost>0</Cost>
+			<Text>At the start of the End phase, you may discard this card to replace a faceup {illicit} or {cargo} Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.</Text>
+			<Faction>scum</Faction>
+			<Unique>true</Unique>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="azmorigan">
+			<Name>Azmorigan</Name>
+			<Cost>2</Cost>
+			<Text>At the start of the End phase, you may spend 1 energy to replace a faceup {crew} or {team} Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.</Text>
+			<Faction>scum</Faction>
+			<Unique>true</Unique>
+			<HugeOnly>true</HugeOnly>
+			<Preview>true</Preview>
+		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -1293,6 +1310,17 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
 			<Ship>gozanticlasscruiser</Ship>
 			<ShipRequirement>Gozanti-class Cruiser</ShipRequirement>
 			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="heavylaserturret">
+			<Name>Heavy Laser Turret</Name>
+			<Cost>5</Cost>
+			<Text>Attack (Energy): Spend 2 energy from this card to perform this attack against 1 ship (even a ship outside of your firing arc).</Text>
+			<SecondaryWeapon>true</SecondaryWeapon>
+			<Energy>2</Energy>
+			<Dice>4</Dice>
+			<Range>2-3</Range>
+			<Preview>true</Preview>
+			<ShipRequirement>C-ROC Cruiser</ShipRequirement>
 		</Upgrade>
 	</Category>
 	<Category id="illicit" type="Illicit">
@@ -1828,7 +1856,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Name>Collision Detector</Name>
 			<Cost>0</Cost>
 			<Text>When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.
-			<CCL>true</CCL>
+				
 When rolling for obstacle damage, ignore all {crit} results.</Text>
 		</Upgrade>
 	</Category>
@@ -2023,7 +2051,9 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 		<Upgrade id="heavyscykinterceptor">
 			<Name>&quot;Heavy Scyk&quot; Interceptor</Name>
 			<Cost>2</Cost>
-			<Text>Your upgrade bar gains the {cannon}, {torpedo} or {missile} upgrade icon.</Text>
+			<Text>Your upgrade bar gains the {cannon}, {torpedo} or {missile} upgrade icon.
+
+Increase your hull value by 1.</Text>
 			<Ship>m3ainterceptor</Ship>
 			<ShipRequirement>M3-A Interceptor</ShipRequirement>
 			<Hull>1</Hull>
@@ -2363,6 +2393,32 @@ After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to y
 			<Cost>0</Cost>
 			<Text>Immediately before you reveal your maneuver dial, if you are not stressed, you must execute a white 1 {bank left}, 1 {straight}, or 1 {bank right} maneuver.</Text>
 			<ShipRequirement>TIE Striker</ShipRequirement>
+		</Upgrade>
+		<Upgrade id="merchantone">
+			<Name>Merchant One</Name>
+			<Cost>2</Cost>
+			<Text>Your upgrade bar gains 1 additional {crew} upgrade icon and 1 additional {team} upgrade icon and loses 1 {cargo} upgrade icon.</Text>
+			<ShipRequirement>C-ROC Cruiser</ShipRequirement>
+			<Unique>True</Unique>
+			<AdditionalUpgrades>
+				<Upgrade>Crew</Upgrade>
+				<Upgrade>Team</Upgrade>
+			</AdditionalUpgrades>
+			<RemovedUpgrades>
+				<Upgrade>Cargo</Upgrade>
+			</RemovedUpgrades>
+			<Energy>1</Energy>
+			<Preview>true</Preview>
+		</Upgrade>
+		<Upgrade id="lightscykinterceptor">
+			<Name>&quot;Light Scyk&quot; Interceptor</Name>
+			<Cost>-2</Cost>
+			<Text>All Damage cards dealt to you are dealt faceup.  You may treat all bank maneuvers as green maneuvers.  You cannot equip Modification upgrades.</Text>
+			<ShipRequirement>M3-A Interceptor</ShipRequirement>
+			<Preview>true</Preview>
+			<RemovedUpgrades>
+				<Upgrade>Modification</Upgrade>
+			</RemovedUpgrades>
 		</Upgrade>
 	</Category>
 	<Category id="torpedo" type="Torpedo">

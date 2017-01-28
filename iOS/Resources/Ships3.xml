@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.50">
+<Ships Version="3.52">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -131,6 +131,19 @@
 		<Preview>true</Preview>
 		<ManeuverGridImage></ManeuverGridImage>
 	</Ship>
+	<Ship id="croccruiser">
+		<Name>C-ROC Cruiser</Name>
+		<Huge>true</Huge>
+		<Actions>
+			<Action>Recover</Action>
+			<Action>Reinforce</Action>
+			<Action>Target Lock</Action>
+			<Action>Jam</Action>
+		</Actions>
+		<Preview>true</Preview>
+		<ManeuverGridImage></ManeuverGridImage>
+	</Ship>
+	
 	<Ship id="awing">
 		<Name>A-Wing</Name>
 		<Actions>
@@ -372,7 +385,7 @@
 		<Name>TIE Striker</Name>
 		<Actions>
 			<Action>Focus</Action>
-			<Action>Target Lock</Action>
+			<Action>Barrel Roll</Action>
 			<Action>Evade</Action>
 		</Actions>
 		<ManeuverGridImage>TIEStrikerDial.png</ManeuverGridImage>

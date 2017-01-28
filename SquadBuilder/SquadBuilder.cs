@@ -41,7 +41,7 @@ namespace SquadBuilder
 					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
 					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
 				} catch (Exception e) {
-					Insights.Report (e, Insights.Severity.Warning);
+					//Insights.Report (e, Insights.Severity.Warning);
 				}
 			}
 		}
@@ -83,14 +83,15 @@ namespace SquadBuilder
 			ViewFactory.Register <PilotsCollectionShipsListView, PilotsCollectionShipsListViewModel> ();
 			ViewFactory.Register <UpgradesCollectionCategoryListView, UpgradesCollectionCategoryListViewModel> ();
 			ViewFactory.Register <ImportView, ImportViewModel> ();
-			ViewFactory.Register<ReferenceCardView, ReferenceCardViewModel> ();
-			ViewFactory.Register<ExploreShipsView, ExploreShipsViewModel> ();
-			ViewFactory.Register<ExplorePilotsView, ExplorePilotsViewModel> ();
-			ViewFactory.Register<ExploreUpgradesView, ExploreUpgradesViewModel> ();
-			ViewFactory.Register<ExploreUpgradesCategoryListView, ExploreUpgradesCategoryListViewModel> ();
-			ViewFactory.Register<ExploreExpansionsView, ExploreExpansionsViewModel> ();
-			ViewFactory.Register<ExploreExpansionContentsView, ExploreExpansionContentsViewModel> ();
+			ViewFactory.Register <ReferenceCardView, ReferenceCardViewModel> ();
+			ViewFactory.Register <ExploreShipsView, ExploreShipsViewModel> ();
+			ViewFactory.Register <ExplorePilotsView, ExplorePilotsViewModel> ();
+			ViewFactory.Register <ExploreUpgradesView, ExploreUpgradesViewModel> ();
+			ViewFactory.Register <ExploreUpgradesCategoryListView, ExploreUpgradesCategoryListViewModel> ();
+			ViewFactory.Register <ExploreExpansionsView, ExploreExpansionsViewModel> ();
+			ViewFactory.Register <ExploreExpansionContentsView, ExploreExpansionContentsViewModel> ();
+			ViewFactory.Register <SinglePilotView, SinglePilotViewModel> ();
+			ViewFactory.Register <SingleUpgradeView, SingleUpgradeViewModel> ();
 		}
 	}
 }
-

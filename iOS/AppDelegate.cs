@@ -12,8 +12,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
 using Xamarin.Forms;
-//using Dropbox.CoreApi.iOS;
 using Dropbox.Api;
+using HockeyApp.iOS;
 
 namespace SquadBuilder.iOS
 {
@@ -39,19 +39,15 @@ namespace SquadBuilder.iOS
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			Insights.Initialize("1396f6a6fc0e812ab8a8d84a01810917fd3940a6");
-
-
-//			var session = new Session (appKey, appSecret, Session.RootAppFolder);
-//			// The session that you have just created, will live through all the app
-//			Session.SharedSession = session;
-//			if (Session.SharedSession.IsLinked)
-//				Console.WriteLine ("Already Linked");
-
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
 			 
+			var manager = BITHockeyManager.SharedHockeyManager;
+			manager.Configure ("ce337527cc114b12805fcf7477297f40");
+			manager.StartManager ();
+			//manager.Authenticator.AuthenticateInstallation ();
+
 			saveAndLoad = new SaveAndLoad ();
 			global::Xamarin.Forms.Forms.Init ();
 

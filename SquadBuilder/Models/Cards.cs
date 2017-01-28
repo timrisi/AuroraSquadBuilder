@@ -451,6 +451,9 @@ namespace SquadBuilder
 					owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
 											 (int)upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
+					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
+					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
+					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 					ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value
@@ -502,6 +505,9 @@ namespace SquadBuilder
 					UpgradeOptions = new ObservableCollection <string> (),
 					owned = 0,
 					MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int)upgrade.Element ("MinPilotSkill") : 0,
+					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
+					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
+					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 				});
