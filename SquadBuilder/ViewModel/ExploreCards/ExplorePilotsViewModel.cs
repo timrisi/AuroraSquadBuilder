@@ -98,17 +98,24 @@ namespace SquadBuilder
 
 		public void SearchPilots (string text)
 		{
+			text = text.ToLower ();
 			var filteredPilotGroups = allPilots.ToList ();
 
 			var searchPilots = new ObservableCollection<PilotGroup> ();
 
 			foreach (var grp in filteredPilotGroups) {
-				if (grp.Ship.Name.ToLower ().Contains (text.ToLower ())) {
-					searchPilots.Add (grp);
+				if (Ship == null) {
+					if (grp.Ship.Name.ToLower ().Contains (text) ||
+						grp.Ship.ActionsString.ToLower ().Contains (text)) {
+						searchPilots.Add (grp);
+						continue;
+					}
+				} else if (grp.Ship.Name != Ship.Name)
 					continue;
-				}
 
-				var filteredPilots = grp.Where (p => p.Name.ToLower ().Contains (text.ToLower ()));
+				var filteredPilots = grp.Where (p => p.Name.ToLower ().Contains (text) ||
+												(!string.IsNullOrEmpty (p.Ability) && p.Ability.ToLower ().Contains (text)) ||
+												p.UpgradeTypesString.ToLower ().Contains (text));
 				if (filteredPilots?.Count () > 0) {
 					var newGroup = new PilotGroup (grp.Ship) { Faction = grp.Faction };
 					foreach (var pilot in filteredPilots)

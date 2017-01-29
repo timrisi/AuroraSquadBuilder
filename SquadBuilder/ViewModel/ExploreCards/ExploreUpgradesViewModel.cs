@@ -86,8 +86,7 @@ namespace SquadBuilder
 																						   u.Name.ToLower ().Contains (text) ||
 																						   u.Text.ToLower ().Contains (text) ||
 																						   (u.Faction != null && u.Faction.Name.ToLower ().Contains (text)) ||
-																						   (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text)) ||
-																						   u.Category.ToLower ().Contains (text)
+																						   (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
 																						  ));
 		}
 	}
