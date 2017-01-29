@@ -28,7 +28,7 @@ namespace SquadBuilder
 
 		string canonicalName;
 		public string CanonicalName {
-			get { return canonicalName; }
+			get { return canonicalName ?? id; }
 			set {
 				SetProperty (ref canonicalName, value);
 			}

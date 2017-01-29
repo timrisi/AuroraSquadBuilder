@@ -285,7 +285,7 @@ namespace SquadBuilder
 				};
 
 				foreach (var pilotObject in json ["pilots"]) {
-					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
+					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
 
 					if (pilot == null)
 						continue;
@@ -293,21 +293,23 @@ namespace SquadBuilder
 					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
 						pilot.UpgradesEquipped.Add (null);
 
-					foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
-						var upgradeType = (upgradeTypeArray as JProperty).Name;
+					if (pilotObject ["upgrades"] != null) {
+						foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
+							var upgradeType = (upgradeTypeArray as JProperty).Name;
 
-						foreach (var value in upgradeTypeArray.Values ()) {
-							var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
+							foreach (var value in upgradeTypeArray.Values ()) {
+								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
 
-							if (upgrade == null)
-								continue;
+								if (upgrade == null)
+									continue;
 
-							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+								var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
 
-							if (index < 0)
-								continue;
+								if (index < 0)
+									continue;
 
-							pilot.EquipUpgrade (index, upgrade);
+								pilot.EquipUpgrade (index, upgrade);
+							}
 						}
 					}
 
