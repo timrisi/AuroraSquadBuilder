@@ -54,7 +54,8 @@ namespace SquadBuilder
 					Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == ship).Owned += (owned - previousNumber);
 				
 				foreach (var pilot in Pilots)
-					Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot).Owned += (owned - previousNumber);
+					(Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot && Ships.Contains (p.Ship.Id)) ??
+					 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == pilot)).Owned += (owned - previousNumber);
 			
 				foreach (var upgrade in Upgrades)
 					Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == upgrade).Owned += (owned - previousNumber);

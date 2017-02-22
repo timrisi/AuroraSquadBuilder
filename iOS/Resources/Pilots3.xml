@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.51">
+<Pilots Version="3.53">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -618,7 +618,6 @@
 		<Hull>5</Hull>
 		<Shields>0</Shields>
 		<Cost>19</Cost>
-		<Preview>true</Preview>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -639,7 +638,6 @@
 		<Hull>5</Hull>
 		<Shields>0</Shields>
 		<Cost>18</Cost>
-		<Preview>true</Preview>
 		<Upgrades>
 			<Upgrade>Elite Pilot Talent</Upgrade>
 			<Upgrade>Crew</Upgrade>
@@ -660,7 +658,6 @@
 		<Hull>5</Hull>
 		<Shields>0</Shields>
 		<Cost>17</Cost>
-		<Preview>true</Preview>
 		<Upgrades>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
@@ -680,7 +677,6 @@
 		<Hull>5</Hull>
 		<Shields>0</Shields>
 		<Cost>15</Cost>
-		<Preview>true</Preview>
 		<Upgrades>
 			<Upgrade>Crew</Upgrade>
 			<Upgrade>Bomb</Upgrade>
@@ -2191,7 +2187,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the Combat phase, you may spend 1 focus token to choose a friendly ship at Range 1.  It may perform 1 free action.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="sabinewrentie" faction="rebel" ship="tiefighter">
 		<Name>Sabine Wren</Name>
@@ -2208,7 +2203,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Immediately before you reveal your maneuver, you may perform a free boost or barrel roll action.</Ability>
-		<Preview>true</Preview>
 		<CanonicalName>sabinewren</CanonicalName>
 	</Pilot>
 	<Pilot id="captainrex" faction="rebel" ship="tiefighter">
@@ -2225,7 +2219,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="zeborrelios" faction="rebel" ship="tiefighter">
 		<Name>&quot;Zeb&quot; Orrelios</Name>
@@ -2240,8 +2233,8 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
-		<Preview>true</Preview>
+		<Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
+		<CanonicalName>zeborrelios</CanonicalName>
 	</Pilot>
 	<Pilot id="cassianandor" faction="rebel" ship="uwing">
 		<Name>Cassian Andor</Name>
@@ -4397,7 +4390,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>The first time you are hit by an attack each round, assign the &quot;I'll Show You the Dark Side&quot; Condition card to the attacker.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="majorstridan" faction="imperial" ship="upsilonclassshuttle">
 		<Name>Major Stridan</Name>
@@ -4418,7 +4410,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>For the purpose of your actions and Upgrade cards, you may treat friendly ships at Range 2-3 as being at Range 1.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="lieutenantdormitz" faction="imperial" ship="upsilonclassshuttle">
 		<Name>Lieutenant Dormitz</Name>
@@ -4439,7 +4430,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>During setup, friendly ships may be placed anywhere in the play area at Range 1-2 of you.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="starkillerbasepilot" faction="imperial" ship="upsilonclassshuttle">
 		<Name>Starkiller Base Pilot</Name>
@@ -4459,7 +4449,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="raiderfore" faction="imperial" ship="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>

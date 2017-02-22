@@ -283,6 +283,12 @@
     <BundleResource Include="Resources\ProtectorateDial.png" />
     <BundleResource Include="Resources\TIEStrikerDial.png" />
     <BundleResource Include="Resources\UWingDial.png" />
+    <BundleResource Include="Resources\Arc170DialNienNumb.png" />
+    <BundleResource Include="Resources\Arc170Dialr2astro.png" />
+    <BundleResource Include="Resources\TIEStrikerDialMk2.png" />
+    <BundleResource Include="Resources\UpsilonDial.png" />
+    <BundleResource Include="Resources\UWingDialNienNumb.png" />
+    <BundleResource Include="Resources\QuadjumperDial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

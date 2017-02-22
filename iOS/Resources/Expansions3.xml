@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.50">
+<Expansions Version="3.52">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1023,6 +1023,76 @@
 			<Upgrade>lightweightframe</Upgrade>
 		</Upgrades>
 	</Expansion>
+	<Expansion id="sabinestiefighter">
+		<Name>Sabine's TIE Fighter</Name>
+		<Wave>Wave 10</Wave>
+		<Ships>
+			<Ship>tiefighter</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>ahsokatano</Pilot>
+			<Pilot>sabinewrentie</Pilot>
+			<Pilot>captainrex</Pilot>
+			<Pilot>zeborrelios</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>veteraninstincts</Upgrade>
+			<Upgrade>captainrex</Upgrade>
+			<Upgrade>sabinesmasterpiece</Upgrade>
+			<Upgrade>empdevice</Upgrade>
+			<Upgrade>capturedtie</Upgrade>
+		</Upgrades>
+	</Expansion>
+	<Expansion id="upsilonclassshuttle">
+		<Name>Upsilon-class Shuttle</Name>
+		<Wave>Wave 10</Wave>
+		<Ships>
+			<Ship>upsilonclassshuttle</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>kyloren</Pilot>
+			<Pilot>majorstridan</Pilot>
+			<Pilot>lieutenantdormitz</Pilot>
+			<Pilot>starkillerbasepilot</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>snapshot</Upgrade>
+			<Upgrade>snapshot</Upgrade>
+			<Upgrade>kyloren</Upgrade>
+			<Upgrade>generalhux</Upgrade>
+			<Upgrade>operationsspecialist</Upgrade>
+			<Upgrade>operationsspecialist</Upgrade>
+			<Upgrade>targetingsynchronizer</Upgrade>
+			<Upgrade>targetingsynchronizer</Upgrade>
+			<Upgrade>hyperwavecommscanner</Upgrade>
+			<Upgrade>hyperwavecommscanner</Upgrade>
+			<Upgrade>kylorensshuttle</Upgrade>
+			<Upgrade>ionprojector</Upgrade>
+			<Upgrade>ionprojector</Upgrade>
+		</Upgrades>
+	</Expansion>
+	<Expansion id="quadjumper">
+		<Name>Quadjumper</Name>
+		<Wave>Wave 10</Wave>
+		<Ships>
+			<Ship>quadjumper</Ship>
+		</Ships>
+		<Pilots>
+			<Pilot>constablezuvio</Pilot>
+			<Pilot>sarcoplank</Pilot>
+			<Pilot>unkarplutt</Pilot>
+			<Pilot>jakkugunrunner</Pilot>
+		</Pilots>
+		<Upgrades>
+			<Upgrade>ascoretosettle</Upgrade>
+			<Upgrade>unkarplutt</Upgrade>
+			<Upgrade>boshek</Upgrade>
+			<Upgrade>thermaldetonators</Upgrade>
+			<Upgrade>hyperwavecommscanner</Upgrade>
+			<Upgrade>scavengercrane</Upgrade>
+			<Upgrade>spacetugtractorarray</Upgrade>
+		</Upgrades>
+	</Expansion>
 
 <!-- Aces Packs-->
 	<Expansion id="imperialaces">
@@ -1353,6 +1423,8 @@
 			<Upgrade>dockingclamps</Upgrade>
 			<Upgrade>clusterbombs</Upgrade>
 			<Upgrade>clusterbombs</Upgrade>
+			<Upgrade>homingmissiles</Upgrade>
+			<Upgrade>clustermissiles</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>

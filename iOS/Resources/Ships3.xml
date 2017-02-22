@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.52">
+<Ships Version="3.55">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -128,8 +128,7 @@
 			<Action>Focus</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
-		<Preview>true</Preview>
-		<ManeuverGridImage></ManeuverGridImage>
+		<ManeuverGridImage>QuadjumperDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="croccruiser">
 		<Name>C-ROC Cruiser</Name>
@@ -416,8 +415,7 @@
 			<Action>Coordinate</Action>
 		</Actions>
 		<LargeBase>true</LargeBase>
-		<Preview>true</Preview>
-		<ManeuverGridImage></ManeuverGridImage>
+		<ManeuverGridImage>UpsilonDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="raiderf">
 		<Name>Raider-class Corv. (Fore)</Name>
