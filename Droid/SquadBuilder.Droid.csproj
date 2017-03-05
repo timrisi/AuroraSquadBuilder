@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -353,6 +352,24 @@
     </AndroidResource>
     <AndroidResource Include="..\iOS\Resources\UWingDial.png">
       <Link>Resources\drawable\UWingDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\Arc170DialNienNumb.png">
+      <Link>Resources\drawable\Arc170DialNienNumb.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\Arc170Dialr2astro.png">
+      <Link>Resources\drawable\Arc170Dialr2astro.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\QuadjumperDial.png">
+      <Link>Resources\drawable\QuadjumperDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\TIEStrikerDialMk2.png">
+      <Link>Resources\drawable\TIEStrikerDialMk2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\UpsilonDial.png">
+      <Link>Resources\drawable\UpsilonDial.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\UWingDialNienNumb.png">
+      <Link>Resources\drawable\UWingDialNienNumb.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />
