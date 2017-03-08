@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.54">
+<Upgrades Version="3.55">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -662,7 +662,7 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 		<Upgrade id="emperorpalpatine">
 			<Name>Emperor Palpatine</Name>
 			<Cost>8</Cost>
-			<Text>Once per round, you may change a friendly ship's die result to any other die result.  That die result cannot be modified again.</Text>
+			<Text>Once per round, before a friendly ship rolls dice, you may name a die result. After rolling, you must change 1 of your dice results to the named result. That die result cannot be modified again.</Text>
 			<Faction>imperial</Faction>
 			<Unique>true</Unique>
 			<ExtraSlots>
@@ -780,7 +780,7 @@ After you perform an action while you are stressed.  Suffer 1 damage.</Text>
 		<Upgrade id="zuckuss">
 			<Name>Zuckuss</Name>
 			<Cost>1</Cost>
-			<Text>When attacking, you may receive any number of stress tokens to choose an equal number of defense dice.  The defender must reroll those dice.</Text>
+			<Text>When attacking, if you are not stressed, you may receive any number of stress tokens to choose an equal number of defense dice. The defender must reroll those dice.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
@@ -2206,7 +2206,7 @@ Increase your hull value by 1.</Text>
 			<Cost>-2</Cost>
 			<Text>Your upgrade bar loses the {cannon} and {missile} upgrade icons.  
 
-After executing a 3-, 4-, or 5-speed maneuver, you may assign 1 evade token to your ship.</Text>
+After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacle or ship, you may perform a free evade action.</Text>
 			<Ship>tiedefender</Ship>
 			<ShipRequirement>TIE Defender</ShipRequirement>
 			<RemovedUpgrades>
