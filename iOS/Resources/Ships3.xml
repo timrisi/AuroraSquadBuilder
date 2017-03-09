@@ -360,6 +360,7 @@
 			<Action>Boost</Action>
 		</Actions>
 		<ManeuverGridImage>TIEAdvPrototypeDial.png</ManeuverGridImage>
+		<CanonicalName>tieadvprototype</CanonicalName>
 	</Ship>
 	<Ship id="tiefofighter">
 		<Name>TIE/FO Fighter</Name>
