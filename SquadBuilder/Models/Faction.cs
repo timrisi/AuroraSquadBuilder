@@ -60,6 +60,11 @@ namespace SquadBuilder
 		{
 			return (Id + Name + Color.GetHashCode ()).GetHashCode ();
 		}
+
+		public override string ToString ()
+		{
+			return Name;
+		}
 	}
 }
 

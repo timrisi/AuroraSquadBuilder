@@ -60,13 +60,18 @@ namespace SquadBuilder
 			}
 		}
 
-		int shipIndex;
+		int shipIndex = -1;
 		public int ShipIndex {
 			get { return shipIndex; }
-			set { 
-				SetProperty (ref shipIndex, value); 
-				if (value > -1)
-					Pilot.Ship = Ships [value].Copy ();
+			set {
+				if (value < 0) {
+					var oldVal = shipIndex;
+					SetProperty (ref shipIndex, value);
+					SetProperty (ref shipIndex, oldVal);
+				} else if (value != shipIndex)
+					SetProperty (ref shipIndex, value);
+				if (shipIndex > -1)
+					Pilot.Ship = Ships [shipIndex].Copy ();
 			}
 		}
 
@@ -76,11 +81,16 @@ namespace SquadBuilder
 			set { SetProperty (ref ships, value); }
 		}
 
-		int factionIndex;
+		int factionIndex = -1;
 		public int FactionIndex {
 			get { return factionIndex; }
 			set { 
-				SetProperty (ref factionIndex, value); 
+				if (value < 0) {
+					var oldVal = factionIndex;
+					SetProperty (ref factionIndex, value);
+					SetProperty (ref factionIndex, oldVal);
+				} else if (value != factionIndex)
+					SetProperty (ref factionIndex, value);
 				if (value > -1)
 					Pilot.Faction = Factions [value];
 			}

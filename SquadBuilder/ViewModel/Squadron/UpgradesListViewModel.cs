@@ -133,12 +133,14 @@ namespace SquadBuilder
 
 		bool meetsRequirement (string shipRequirement)
 		{
-			var requirements = shipRequirement.Split (' ');
+			var requirements = shipRequirement.Split (',');
 
-			foreach (var requirement in requirements) {
-				if (!Pilot.Ship.Name.ToLower ().Contains (requirement.ToLower ()))
-					return false;
-			}
+			if (!requirements.Any (r => Pilot.Ship.Name.ToLower ().Contains (r.Trim ().ToLower ())))
+				return false;
+			//foreach (var requirement in requirements) {
+			//	if (!Pilot.Ship.Name.ToLower ().Contains (requirement.ToLower ()))
+			//		return false;
+			//}
 
 			return true;
 		}

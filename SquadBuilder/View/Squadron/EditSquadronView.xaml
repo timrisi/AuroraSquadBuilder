@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
@@ -12,7 +12,7 @@
 				   TextColor="Red"
 				   FontSize="Small"
 				   FontAttributes="Italic" />
-			<Picker x:Name="factionPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" StyleId="FactionPicker" />
+			<Picker ItemsSource="{Binding Factions}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Faction" StyleId="FactionPicker" />
 			<Label Text="{Binding Squadron.Faction}" />
 			<StackLayout VerticalOptions="FillAndExpand" >
 				<Label Text="Description:" />

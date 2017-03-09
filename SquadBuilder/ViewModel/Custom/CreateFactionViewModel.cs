@@ -24,11 +24,17 @@ namespace SquadBuilder
 			}
 		}
 
-		int selectedIndex = Device.OnPlatform <int> (8, 14, 8);
+		int selectedIndex = Device.OnPlatform<int> (8, 14, 8);
 		public int SelectedIndex {
 			get { return selectedIndex; }
-			set { 
-				SetProperty (ref selectedIndex, value); 
+			set {
+				if (value < 0) {
+					var oldVal = selectedIndex;
+					SetProperty (ref selectedIndex, value);
+					SetProperty (ref selectedIndex, oldVal);
+				} else if (value != selectedIndex)
+					SetProperty (ref selectedIndex, value);
+
 				SelectedColor = nameToColor [Colors [selectedIndex]];
 			}
 		}
