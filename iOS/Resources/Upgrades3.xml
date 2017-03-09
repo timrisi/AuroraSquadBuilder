@@ -540,7 +540,7 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Faction>rebel</Faction>
 			<Unique>true</Unique>
 			<Owned>0</Owned>
-			<CanonicalName>r2d2</CanonicalName>
+			<CanonicalName>r2d2-swx22</CanonicalName>
 		</Upgrade>
 		<Upgrade id="raymusantilles">
 			<Name>Raymus Antilles</Name>
@@ -1486,7 +1486,7 @@ After you perform a SLAM action, discard this card.</Text>
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>3</Dice>
 			<Range>2</Range>
-			<Owned>0</Owned>
+			<CanonicalName>advhomingmissiles</CanonicalName>
 		</Upgrade>
 		<Upgrade id="xx23sthreadtracers">
 			<Name>XX-23 S-Thread Tracers</Name>
@@ -1831,7 +1831,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Text>When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 {crit} result to your roll. If you do, you cannot spend target locks during this attack.</Text>
 			<Ship>tieadvanced</Ship>
 			<ShipRequirement>TIE Advanced</ShipRequirement>
-			<Owned>0</Owned>
+			<CanonicalName>advtargetingcomputer</CanonicalName>
 		</Upgrade>
 		<Upgrade id="reinforceddeflectors">
 			<Name>Reinforced Deflectors</Name>
@@ -2264,7 +2264,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<Ship>yt1300</Ship>
 			<ShipRequirement>YT-1300</ShipRequirement>
 			<Unique>True</Unique>
-			<Owned>0</Owned>
+			<CanonicalName>millenniumfalcon-swx57</CanonicalName>
 		</Upgrade>
 		<Upgrade id="blackone">
 			<Name>Black One</Name>
@@ -2455,7 +2455,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>5</Dice>
 			<Range>1</Range>
-			<Owned>0</Owned>
+			<CanonicalName>advhomingmissiles</CanonicalName>
 		</Upgrade>
 		<Upgrade id="flechettetorpedoes">
 			<Name>Flechette Torpedoes</Name>

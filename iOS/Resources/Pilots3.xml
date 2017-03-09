@@ -1923,7 +1923,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
-		<Owned>0</Owned>
+		<CanonicalName>poedameron-swx57</CanonicalName>
 	</Pilot>
 	<Pilot id="poedameron" faction="rebel" ship="t70xwing">
 		<Name>Poe Dameron</Name>
@@ -2350,7 +2350,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When you are placed during setup, you can be placed anywhere in the play area beyond Range 3 of enemy ships.</Ability>
-		<CanonicalName>hansolo</CanonicalName>
+		<CanonicalName>hansolo-swx57</CanonicalName>
 	</Pilot>
 	<Pilot id="rey" faction="rebel" ship="yt1300">
 		<Name>Rey</Name>
@@ -2430,7 +2430,7 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After another friendly ship at Range 1-3 is destroyed (but has not fled the battlefield), you may perform an attack.</Ability>
-		<CanonicalName>chewbacca</CanonicalName>
+		<CanonicalName>chewbacca-swx57</CanonicalName>
 	</Pilot>
 	<Pilot id="resistancesympathizer" faction="rebel" ship="yt1300">
 		<Name>Resistance Sympathizer</Name>
@@ -3710,7 +3710,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Owned>0</Owned>
+		<CanonicalName>blackeightsqpilot</CanonicalName>
 	</Pilot>
 	<Pilot id="cutlasssquadronpilot" faction="imperial" ship="tiepunisher">
 		<Name>Cutlass Squadron Pilot</Name>
