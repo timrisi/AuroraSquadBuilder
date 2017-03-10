@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.55">
+<Pilots Version="3.56">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -314,6 +314,40 @@
 		<Ability>When another friendly ship at Range 1 is defending, he may reroll 1 defense dice.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="genesisred" faction="scum" ship="m3ainterceptor">
+		<Name>Genesis Red</Name>
+		<Unique>true</Unique>
+		<PilotSkill>7</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>1</Shields>
+		<Cost>19</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>After you acquire a target lock, assign focus and evade tokens to your ship until you have the same number of each token as the locked ship.</Ability>
+		<Preview>true</Preview>
+	</Pilot>
+	<Pilot id="quinnjast" faction="scum" ship="m3ainterceptor">
+		<Name>Quinn Jast</Name>
+		<Unique>true</Unique>
+		<PilotSkill>6</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>1</Shields>
+		<Cost>18</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>At the start of the Combat Phase, you may receive a weapons disabled token to flip one of your discarded {torpedo} or {missile} Upgrade cards faceup.</Ability>
+		<Preview>true</Preview>
+	</Pilot>
 	<Pilot id="laetinashera" faction="scum" ship="m3ainterceptor">
 		<Name>Laetin A'shera</Name>
 		<Unique>true</Unique>
@@ -346,6 +380,23 @@
 		</Upgrades>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="inaldra" faction="scum" ship="m3ainterceptor">
+		<Name>Inaldra</Name>
+		<Unique>true</Unique>
+		<PilotSkill>3</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>1</Shields>
+		<Cost>15</Cost>
+		<Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>When attacking or defending, you may spend 1 shield to reroll any number of your dice.</Ability>
+		<Preview>true</Preview>
+	</Pilot>
 	<Pilot id="cartelspacer" faction="scum" ship="m3ainterceptor">
 		<Name>Cartel Spacer</Name>
 		<Unique>false</Unique>
@@ -360,6 +411,22 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Pilot>
+	<Pilot id="sunnybounder" faction="scum" ship="m3ainterceptor">
+		<Name>Sunny Bounder</Name>
+		<Unique>true</Unique>
+		<PilotSkill>1</PilotSkill>
+		<Attack>2</Attack>
+		<Agility>3</Agility>
+		<Hull>2</Hull>
+		<Shields>1</Shields>
+		<Cost>14</Cost>
+		<Upgrades>
+			<Upgrade>Title</Upgrade>
+			<Upgrade>Modification</Upgrade>
+		</Upgrades>
+		<Ability>Once per round, after you roll or reroll dice, if you have the same result on each of your dice, you may add 1 matching result.</Ability>
+		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="talonbanecobra" faction="scum" ship="kihraxzfighter">
 		<Name>Talonbane Cobra</Name>
