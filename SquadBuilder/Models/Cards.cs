@@ -15,6 +15,7 @@ using Dropbox.Api;
 using Xamarin.Auth;
 using System.Runtime.Remoting.Lifetime;
 using System.Runtime.InteropServices;
+using Newtonsoft.Json.Linq;
 
 namespace SquadBuilder
 {
@@ -628,6 +629,36 @@ namespace SquadBuilder
 						await SettingsViewModel.SaveToDropbox ();
 				}
 			}
+		}
+
+		public string CreateXWS ()
+		{
+			var obj = Squadrons [0].CreateXwsObject ();
+			var json = new JObject (
+				new JProperty ("container",
+				               new JArray (
+								   from s in Squadrons
+					               select s.CreateXwsObject ()
+					              )),
+				new JProperty ("vendor",
+                	new JObject (
+						new JProperty ("aurora", 
+		                    new JObject (
+								new JProperty ("builder", "Aurora Squad Builder"),
+			                    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8")
+						    )
+	                    )
+	            	)
+                )
+			);
+
+
+			return json.ToString ();
+		}
+
+		public void FromXws ()
+		{
+
 		}
 	}
 }

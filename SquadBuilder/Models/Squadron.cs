@@ -19,7 +19,7 @@ using System.Globalization;
 
 namespace SquadBuilder {
 	public class Squadron : ObservableObject {
-		const string XwsVersion = "0.3.0";
+		const string XwsVersion = "1.0.0";
 
 		public Squadron ()
 		{
@@ -225,7 +225,7 @@ namespace SquadBuilder {
 			return squadron;
 		}
 
-		public string CreateXws ()
+		public JObject CreateXwsObject ()
 		{
 			var json = new JObject (
 				new JProperty ("name", Name),
@@ -255,18 +255,20 @@ namespace SquadBuilder {
 						)
 					)
 				),
-					new JProperty ("vendor",
-						 new JObject (
-						   new JProperty ("aurora", new JObject (
-						new JProperty ("builder", "Aurora Squad Builder"),
-	                	new JProperty ("maxpoints", MaxPoints),
-						new JProperty ("wins", Wins),
-						new JProperty ("losses", Losses),
-						new JProperty ("draws", Draws)
-										  )
-								  )
-							  )
-						  )
+				new JProperty ("vendor",
+					 new JObject (
+					   new JProperty ("aurora", new 
+	                    	JObject (
+								new JProperty ("builder", "Aurora Squad Builder"),
+			                    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8"),
+			                	new JProperty ("maxpoints", MaxPoints),
+								new JProperty ("wins", Wins),
+								new JProperty ("losses", Losses),
+								new JProperty ("draws", Draws)
+							)
+			 		    )
+				    )
+			    )
 			);
 
 			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
@@ -275,9 +277,12 @@ namespace SquadBuilder {
 			IList<string> errors;
 			var valid = json.IsValid (schema, out errors);
 
-			var jsonString = json.ToString ();
+			return json;
+		}
 
-			return jsonString;
+		public string CreateXws ()
+		{
+			return CreateXwsObject ().ToString ();
 		}
 
 		public static Squadron FromXws (string xws)
@@ -349,7 +354,7 @@ namespace SquadBuilder {
 				var valid = json.IsValid (schema, out errors);
 
 				if (!valid) {
-					MessagingCenter.Send<Squadron, IList<string>> (null, "Invalid xws info", errors);
+					MessagingCenter.Send<Squadron, IList<string>> (new Squadron (), "Invalid xws info", errors);
 					return null;
 				}
 				Console.WriteLine (e.Message);
