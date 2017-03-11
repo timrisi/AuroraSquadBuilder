@@ -59,7 +59,7 @@ namespace SquadBuilder
 		{
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
-				.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
+                .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
@@ -70,7 +70,7 @@ namespace SquadBuilder
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
-					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
+                  	.Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
@@ -135,12 +135,8 @@ namespace SquadBuilder
 		{
 			var requirements = shipRequirement.Split (',');
 
-			if (!requirements.Any (r => Pilot.Ship.Name.ToLower ().Contains (r.Trim ().ToLower ())))
+			if (!requirements.Any (r => r.Trim ().ToLower ().Split (' ').All (s => Pilot.Ship.Name.ToLower ().Split (' ').Contains (s))))
 				return false;
-			//foreach (var requirement in requirements) {
-			//	if (!Pilot.Ship.Name.ToLower ().Contains (requirement.ToLower ()))
-			//		return false;
-			//}
 
 			return true;
 		}
@@ -181,7 +177,7 @@ namespace SquadBuilder
 			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
 																						   u.Name.ToLower ().Contains (text) ||
 																						   u.Text.ToLower ().Contains (text) ||
-			                                                                               (u.Faction != null && u.Faction.Name.ToLower ().Contains (text)) ||
+			                                                                               (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
 			                                                                               (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
 			                                                                              ));
 		}

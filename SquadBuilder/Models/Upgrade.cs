@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using XLabs;
 using System.Linq;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace SquadBuilder
 {
@@ -96,17 +97,33 @@ namespace SquadBuilder
 			} 
 		}
 
-		Faction faction;
-		public Faction Faction {
-			get { return faction; }
-			set { 
-				SetProperty (ref faction, value);
+		//Faction faction;
+		//public Faction Faction {
+		//	get { return faction; }
+		//	set { 
+		//		SetProperty (ref faction, value);
+		//		NotifyPropertyChanged ("FactionRestricted");
+		//	}
+		//}
+
+		List<Faction> factions;
+		public List<Faction> Factions {
+			get { return factions; }
+			set {
+				SetProperty (ref factions, value);
 				NotifyPropertyChanged ("FactionRestricted");
+				NotifyPropertyChanged ("FactionsString");
+			}
+		}
+
+		public string FactionsString {
+			get {
+				return string.Join (", ", Factions);
 			}
 		}
 
 		public bool FactionRestricted {
-			get { return Faction != null; }
+			get { return Factions != null && Factions.Count > 0; }
 		}
 
 		public ObservableCollection <string> Slots { get; set; }
@@ -204,7 +221,7 @@ namespace SquadBuilder
 				CategoryId = CategoryId,
 				Cost = Cost,
 				ShipRequirement = ShipRequirement,
-				Faction = Faction,
+				Factions = Factions,
 				SmallOnly = SmallOnly,
 				LargeOnly = LargeOnly,
 				HugeOnly = HugeOnly,

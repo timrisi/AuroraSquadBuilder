@@ -17,7 +17,7 @@
 				<Label Text="Small Ship Only" IsVisible="{Binding Upgrade.SmallOnly}" FontAttributes="Italic" />
 				<Label Text="Large Ship Only" IsVisible="{Binding Upgrade.LargeOnly}" FontAttributes="Italic" />
 				<Label Text="Huge Ship Only" IsVisible="{Binding Upgrade.HugeOnly}" FontAttributes="Italic" />
-				<Label Text="{Binding Upgrade.Faction.Name, StringFormat='{0} Only'}" IsVisible="{Binding Upgrade.FactionRestricted}" FontAttributes="Italic" />
+				<Label Text="{Binding Upgrade.FactionsString, StringFormat='{0} Only'}" IsVisible="{Binding Upgrade.FactionRestricted}" FontAttributes="Italic" />
 				<Label Text="Preview" IsVisible="{Binding Upgrade.Preview}" TextColor="Blue" />
 				<Label Text="Custom" IsVisible="{Binding Upgrade.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 				<Label Text="CCL" IsVisible="{Binding Upgrade.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
