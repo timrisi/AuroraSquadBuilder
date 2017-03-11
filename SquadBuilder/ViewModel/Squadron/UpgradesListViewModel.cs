@@ -64,6 +64,7 @@ namespace SquadBuilder
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
                 .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
+                .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
                 .Where (u => !u.IsCustom || Settings.AllowCustom)
                 .Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
 

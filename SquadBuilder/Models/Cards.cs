@@ -456,6 +456,7 @@ namespace SquadBuilder
 					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
 					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
 					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
+					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 					ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value
@@ -510,6 +511,7 @@ namespace SquadBuilder
 					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
 					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
 					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
+					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 				});

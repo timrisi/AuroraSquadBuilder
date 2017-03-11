@@ -40,7 +40,7 @@
     </IpaPackageName>
     <BuildIpa>true</BuildIpa>
     <CodesignProvision>c990f628-dd54-4994-9740-65ba7351cf58</CodesignProvision>
-    <MtouchUseLlvm>false</MtouchUseLlvm>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
 <MtouchFloat32>true</MtouchFloat32>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
 <RunCodeAnalysis>true</RunCodeAnalysis>  </PropertyGroup>

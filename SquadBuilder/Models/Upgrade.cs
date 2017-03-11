@@ -42,7 +42,7 @@ namespace SquadBuilder
 		public string ModifiedManeuverDial { get; set; }
 		public int? MinAgility { get; set; }
 		public int? MaxAgility { get; set; }
-
+		public int? ShieldRequirement { get; set; }
 		string canonicalName;
 		public string CanonicalName {
 			get { return canonicalName; }
@@ -241,6 +241,7 @@ namespace SquadBuilder
 				MaxPilotSkill = MaxPilotSkill,
 				MinAgility = MinAgility,
 				MaxAgility = MaxAgility,
+				ShieldRequirement = ShieldRequirement,
 				IsCustom = IsCustom,
 				CCL = CCL,
 				ModifiedManeuverDial = ModifiedManeuverDial,
