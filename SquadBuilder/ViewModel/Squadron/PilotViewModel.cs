@@ -30,7 +30,8 @@ namespace SquadBuilder
 					}
 
 					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || 
-						(pilot.LinkedPilotCardGuid != Guid.Empty && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
+					     (pilot.MultiSectionId >= 0 && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
+					    //(pilot.LinkedPilotCardGuid != Guid.Empty && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
 					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
 					     Pilot.UpgradeTypes [index] == "Torpedo" ||
 						 Pilot.UpgradeTypes [index] == "Missile") &&

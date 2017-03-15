@@ -180,7 +180,7 @@ namespace SquadBuilder {
 		public RelayCommand CopySquadron {
 			get {
 				if (copySquadron == null)
-					copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
+						copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
 
 				return copySquadron;
 			}
@@ -213,7 +213,7 @@ namespace SquadBuilder {
 		public Squadron Copy ()
 		{
 			var squadron = new Squadron {
-				Name = Name + "- Copy",
+				Name = Name + " - Copy",
 				Faction = Faction,
 				MaxPoints = MaxPoints,
 				Pilots = new ObservableCollection<Pilot> (),
@@ -251,25 +251,31 @@ namespace SquadBuilder {
 									)
 									)
 								)
-							)
+							),
+						   p.MultiSectionId >= 0 ? new JProperty ("multisection_id", p.MultiSectionId) : new JProperty ("remove", "")
 						)
 					)
 				),
 				new JProperty ("vendor",
 					 new JObject (
-					   new JProperty ("aurora", new 
-	                    	JObject (
+					   new JProperty ("aurora", new
+							JObject (
 								new JProperty ("builder", "Aurora Squad Builder"),
-			                    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8"),
-			                	new JProperty ("maxpoints", MaxPoints),
+								new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8"),
+								new JProperty ("maxpoints", MaxPoints),
 								new JProperty ("wins", Wins),
 								new JProperty ("losses", Losses),
 								new JProperty ("draws", Draws)
 							)
-			 		    )
-				    )
-			    )
+						 )
+					)
+				)
 			);
+
+			foreach (var pilot in json ["pilots"]) {
+				Console.WriteLine (pilot [""]);
+			}
+			json ["pilots"]?.ForEach ((arg) => arg.SelectToken("remove").Remove ());
 
 			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
 			var schema = JSchema.Parse (schemaText);
@@ -317,17 +323,25 @@ namespace SquadBuilder {
 				squadron.MaxPoints = maxPoints;
 
 				foreach (var pilotObject in json ["pilots"]) {
-					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
+					var pilot = (Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.CanonicalName == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.CanonicalName == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id))?.Copy ();
 
-					if (pilot == null)
+					if (pilot == null) {
+						//pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString ());
 						continue;
+					}
 
 					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
 						pilot.UpgradesEquipped.Add (null);
 
 					if (pilotObject ["upgrades"] != null) {
+						List<Upgrade> skippedUpgrades = new List<Upgrade> ();
+
 						foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
 							var upgradeType = (upgradeTypeArray as JProperty).Name;
+
 
 							foreach (var value in upgradeTypeArray.Values ()) {
 								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
@@ -337,11 +351,23 @@ namespace SquadBuilder {
 
 								var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
 
-								if (index < 0)
+								if (index < 0) {
+									skippedUpgrades.Add (upgrade);
 									continue;
+								}
 
 								pilot.EquipUpgrade (index, upgrade);
 							}
+						}
+
+						foreach (var upgrade in skippedUpgrades) {
+							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+
+							if (index < 0) {
+								continue;
+							}
+
+							pilot.EquipUpgrade (index, upgrade);
 						}
 					}
 

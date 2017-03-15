@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.56">
+<Pilots Version="3.57">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -2796,7 +2796,8 @@
 	</Pilot>
 	<Pilot id="cr90f" faction="rebel" ship="cr90f">
 		<Name>CR90 Corvette (Fore)</Name>
-		<CanonicalName>cr90corvette</CanonicalName>
+		<OldId>cr90corvette</OldId>
+		<CanonicalName>cr90corvettefore</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>4</Attack>
@@ -2819,7 +2820,8 @@
 	</Pilot>
 	<Pilot id="cr90a" faction="rebel" ship="cr90a">
 		<Name>CR90 Corvette (Aft)</Name>
-		<CanonicalName>cr90corvette</CanonicalName>
+		<OldId>cr90corvette</OldId>
+		<CanonicalName>cr90corvetteaft</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>0</Attack>
@@ -4519,7 +4521,8 @@
 	</Pilot>
 	<Pilot id="raiderfore" faction="imperial" ship="raiderf">
 		<Name>Raider-class Corvette (Fore)</Name>
-		<CanonicalName>raiderclasscorvette</CanonicalName>
+		<OldId>raiderclasscorvette</OldId>
+		<CanonicalName>raiderclasscorvettefore</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>4</Attack>
@@ -4537,7 +4540,8 @@
 	</Pilot>
 	<Pilot id="raideraft" faction="imperial" ship="raidera">
 		<Name>Raider-class Corvette (Aft)</Name>
-		<CanonicalName>raiderclasscorvette</CanonicalName>
+		<OldId>raiderclasscorvette</OldId>
+		<CanonicalName>raiderclasscorvetteaft</CanonicalName>
 		<Unique>false</Unique>
 		<PilotSkill>4</PilotSkill>
 		<Attack>0</Attack>

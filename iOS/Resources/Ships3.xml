@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.55">
+<Ships Version="3.57">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -360,6 +360,7 @@
 			<Action>Boost</Action>
 		</Actions>
 		<ManeuverGridImage>TIEAdvPrototypeDial.png</ManeuverGridImage>
+		<OldId>tieadvancedprototype</OldId>
 		<CanonicalName>tieadvprototype</CanonicalName>
 	</Ship>
 	<Ship id="tiefofighter">
