@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.59">
+<Pilots Version="3.61">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -756,14 +756,14 @@
 	<Pilot id="karthakkpirate" faction="scum" ship="scurrgh6bomber">
 		<Name>Karthakk Pirate</Name>
 		<Unique>false</Unique>
-		<PilotSkill>2</PilotSkill>
+		<PilotSkill>1</PilotSkill>
 		<Attack>3</Attack>
 		<Agility>1</Agility>
 		<Hull>5</Hull>
 		<Shields>5</Shields>
 		<Cost>24</Cost>
 		<Upgrades>
-			<Upgrade>Turret</Upgrade>
+			<Upgrade>Turret Weapon</Upgrade>
 			<Upgrade>Torpedo</Upgrade>
 			<Upgrade>Missile</Upgrade>
 			<Upgrade>Crew</Upgrade>
