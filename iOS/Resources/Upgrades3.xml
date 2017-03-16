@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.61">
+<Upgrades Version="3.62">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1797,13 +1797,13 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Name>&quot;Genius&quot;</Name>
 			<Cost>0</Cost>
 			<Text>If you are equipped with a bomb that can be dropped before you reveal your maneuver, you may drop the bomb after you execute your maneuver instead.</Text>
-			<Owned>0</Owned>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="r4b11">
 			<Name>R4-B11</Name>
 			<Cost>3</Cost>
 			<Text>When attacking, if you have a target lock on the defender, you may spend the target lock to choose any or all defense dice. The defender must reroll the chosen dice.</Text>
-			<Owned>0</Owned>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="salvagedastromech">
 			<Name>Salvaged Astromech</Name>
@@ -1815,7 +1815,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Name>R5-P8</Name>
 			<Cost>3</Cost>
 			<Text>Once per round, after defending, you may roll 1 attack die.  On a {hit} result, the attacker suffers 1 damage.  On a {crit} result, you and the attacker each suffer 1 damage.</Text>
-			<Owned>0</Owned>
+			<Unique>true</Unique>
 		</Upgrade>
 		<Upgrade id="overclockedr4">
 			<Name>Overclocked R4</Name>
