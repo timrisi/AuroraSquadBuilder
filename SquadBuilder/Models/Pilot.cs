@@ -462,6 +462,7 @@ namespace SquadBuilder
 				Preview = Preview,
 				IsCustom = IsCustom,
 				CCL = CCL,
+				MultiSectionId = MultiSectionId,
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
 				UpgradesEquipped = new ObservableCollection<Upgrade> (UpgradesEquipped.ToList ())
 			};

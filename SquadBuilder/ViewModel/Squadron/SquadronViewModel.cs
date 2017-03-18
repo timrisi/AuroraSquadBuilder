@@ -115,7 +115,10 @@ namespace SquadBuilder
 								if (pilot.Id.Contains ("cr90")) {
 									if (pilot.Name.Contains ("Aft")) {
 										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Fore")).Copy ();
-										pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										if (Squadron.Pilots.Any ())
+											pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										else
+											pilot.MultiSectionId = 0;
 										otherPilot.MultiSectionId = pilot.MultiSectionId;
 										//pilot.LinkedPilotCardGuid = Guid.NewGuid ();
 										//otherPilot.LinkedPilotCardGuid = pilot.LinkedPilotCardGuid;
@@ -123,7 +126,10 @@ namespace SquadBuilder
 									}
 									else {
 										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Aft")).Copy ();
-										pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										if (Squadron.Pilots.Any ())
+											pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										else
+											pilot.MultiSectionId = 0;
 										otherPilot.MultiSectionId = pilot.MultiSectionId;
 										//pilot.LinkedPilotCardGuid = Guid.NewGuid ();
 										//otherPilot.LinkedPilotCardGuid = pilot.LinkedPilotCardGuid;
@@ -136,7 +142,10 @@ namespace SquadBuilder
 								if (pilot.Id.Contains ("raider")) {
 									if (pilot.Name.Contains ("Aft")) {
 										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Fore")).Copy ();
-										pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										if (Squadron.Pilots.Any ())
+											pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										else
+											pilot.MultiSectionId = 0;
 										otherPilot.MultiSectionId = pilot.MultiSectionId;
 										//pilot.LinkedPilotCardGuid = Guid.NewGuid ();
 										//otherPilot.LinkedPilotCardGuid = pilot.LinkedPilotCardGuid;
@@ -144,7 +153,10 @@ namespace SquadBuilder
 									}
 									else{
 										var otherPilot = Cards.SharedInstance.Pilots.First (p => p.Id.Contains ("raider") && p.Name.Contains ("Aft")).Copy ();
-										pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										if (Squadron.Pilots.Any ())
+											pilot.MultiSectionId = Squadron.Pilots.Max (p => p.MultiSectionId) + 1;
+										else
+											pilot.MultiSectionId = 0;
 										otherPilot.MultiSectionId = pilot.MultiSectionId;
 										//pilot.LinkedPilotCardGuid = Guid.NewGuid ();
 										//otherPilot.LinkedPilotCardGuid = pilot.LinkedPilotCardGuid;

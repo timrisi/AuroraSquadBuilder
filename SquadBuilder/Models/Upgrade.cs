@@ -134,6 +134,10 @@ namespace SquadBuilder
 			get { return Factions != null && Factions.Count > 0; }
 		}
 
+		public bool ShowEnergy {
+			get { return Energy != 0; }
+		}
+
 		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
 		public ObservableCollection <string> RemovedUpgrades { get; set; }

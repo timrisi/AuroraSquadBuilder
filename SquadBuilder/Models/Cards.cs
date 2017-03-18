@@ -630,7 +630,7 @@ namespace SquadBuilder
 
 					Squadrons = squads;
 
-					SaveSquadrons ().Wait ();
+					SaveSquadrons ();
 				}
 			} else {
 				Squadrons = new ObservableCollection <Squadron> ();
