@@ -31,10 +31,16 @@ namespace SquadBuilder
 
 		string canonicalName;
 		public string CanonicalName {
-			get { return canonicalName; }
+			get { return canonicalName ?? id; }
 			set {
 				SetProperty (ref canonicalName, value);
 			}
+		}
+
+		string oldId;
+		public string OldId {
+			get { return oldId; }
+			set { SetProperty (ref oldId, value); }
 		}
 
 		bool largeBase;
@@ -196,7 +202,8 @@ namespace SquadBuilder
 				Actions = new ObservableCollection<string> (Actions),
 				ManeuverGridImage = ManeuverGridImage,
 				IsCustom = IsCustom,
-				CCL = CCL
+				CCL = CCL,
+				OldId = OldId
 			};
 		}
 

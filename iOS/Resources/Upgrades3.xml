@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.62">
+<Upgrades Version="3.63">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1989,9 +1989,8 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
 		<Upgrade id="brighthope">
 			<Name>Bright Hope</Name>
 			<Cost>5</Cost>
-			<Text>+2 Energy
-
-A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
+			<Text>A reinforce token assigned to your fore section adds 2 {evade} results (instead of 1).</Text>
+			<Energy>2</Energy>
 			<Ship>gr75mediumtransport</Ship>
 			<ShipRequirement>GR-75</ShipRequirement>
 			<Unique>True</Unique>
@@ -2009,9 +2008,7 @@ A reinforce token assigned to your fore section adds 2 {evade} results (instead 
 		<Upgrade id="quantumstorm">
 			<Name>Quantum Storm</Name>
 			<Cost>4</Cost>
-			<Text>+1 Energy
-
-At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 energy token.</Text>
+			<Text>At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 energy token.</Text>
 			<Energy>1</Energy>
 			<Ship>gr75mediumtransport</Ship>
 			<ShipRequirement>GR-75</ShipRequirement>
@@ -2021,8 +2018,7 @@ At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 ener
 		<Upgrade id="dodonnaspride">
 			<Name>Dodonna's Pride</Name>
 			<Cost>4</Cost>
-			<Text>When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action.</Text>
-			<Ship>cr90f</Ship>
+			<Text>When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action.</Text>x`	
 			<ShipRequirement>CR90 Fore</ShipRequirement>
 			<Unique>True</Unique>
 			<Owned>0</Owned>

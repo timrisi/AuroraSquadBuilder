@@ -24,6 +24,7 @@ namespace SquadBuilder
 		public bool HugeOnly { get; set; }
 		public string Text { get; set; }
 		public int PilotSkill { get; set; }
+		public int Energy { get; set; }
 		public int Attack { get; set; }
 		public int Agility { get; set; }
 		public int Hull { get; set; }
@@ -43,12 +44,19 @@ namespace SquadBuilder
 		public int? MinAgility { get; set; }
 		public int? MaxAgility { get; set; }
 		public int? ShieldRequirement { get; set; }
+
 		string canonicalName;
 		public string CanonicalName {
-			get { return canonicalName; }
+			get { return canonicalName ?? Id; }
 			set {
 				SetProperty (ref canonicalName, value);
 			}
+		}
+
+		string oldId;
+		public string OldId {
+			get { return oldId; }
+			set { SetProperty (ref oldId, value); }
 		}
 
 		[XmlIgnore]
@@ -124,6 +132,10 @@ namespace SquadBuilder
 
 		public bool FactionRestricted {
 			get { return Factions != null && Factions.Count > 0; }
+		}
+
+		public bool ShowEnergy {
+			get { return Energy != 0; }
 		}
 
 		public ObservableCollection <string> Slots { get; set; }
@@ -217,6 +229,7 @@ namespace SquadBuilder
 				Id = Id,
 				Name = Name,
 				CanonicalName = CanonicalName,
+				OldId = OldId,
 				Category = Category,
 				CategoryId = CategoryId,
 				Cost = Cost,
@@ -227,6 +240,7 @@ namespace SquadBuilder
 				HugeOnly = HugeOnly,
 				Text = Text,
 				PilotSkill = PilotSkill,
+				Energy = Energy,
 				Attack = Attack,
 				Agility = Agility,
 				Hull = Hull,
@@ -286,6 +300,11 @@ namespace SquadBuilder
 		public override int GetHashCode ()
 		{
 			return ((Id + CategoryId).GetHashCode ());
+		}
+
+		public override string ToString ()
+		{
+			return Name;
 		}
 	}
 }

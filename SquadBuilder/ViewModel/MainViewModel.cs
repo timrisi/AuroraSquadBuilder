@@ -126,7 +126,7 @@ namespace SquadBuilder
 			get {
 				if (exportAll == null) {
 					exportAll = new RelayCommand (() => {
-						DependencyService.Get <IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXWS ());
+						DependencyService.Get <IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXwc ());
 						MessagingCenter.Send <MainViewModel> (this, "Squadrons Copied");
 					});
 				}

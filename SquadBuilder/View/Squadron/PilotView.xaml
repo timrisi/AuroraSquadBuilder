@@ -36,7 +36,8 @@
 								<StackLayout Orientation="Horizontal" 
 											 Spacing="15">
 									<Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+									<Label Text="{Binding Pilot.Energy}" IsVisible="{Binding Pilot.ShowEnergy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" />
+									<Label Text="{Binding Pilot.Attack}" IsVisible="{Binding Pilot.ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
 									<Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
 									<Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
 									<Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />

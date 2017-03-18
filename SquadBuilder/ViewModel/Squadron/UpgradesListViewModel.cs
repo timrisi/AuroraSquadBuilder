@@ -132,11 +132,12 @@ namespace SquadBuilder
 			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
 		}
 
-		bool meetsRequirement (string shipRequirement)
+		bool meetsRequirement (string requirementList)
 		{
-			var requirements = shipRequirement.Split (',');
+			
+			var requirements = requirementList.Split (',');
 
-			if (!requirements.Any (r => r.Trim ().ToLower ().Split (' ').All (s => Pilot.Ship.Name.ToLower ().Split (' ').Contains (s))))
+			if (!requirements.Any (r => r.Trim ().ToLower ().Split (' ').All (s => Pilot.Ship.Name.ToLower ().Split (' ').Any (p => p.Contains (s)))))
 				return false;
 
 			return true;

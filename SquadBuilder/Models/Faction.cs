@@ -19,6 +19,7 @@ namespace SquadBuilder
 		public string Name { get; set; }
 		public Color Color { get; set; }
 		public string CanonicalName { get; set; }
+		public string OldId { get; set; }
 
 		[XmlIgnore]
 		RelayCommand deleteFaction;
