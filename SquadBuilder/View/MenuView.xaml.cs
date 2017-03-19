@@ -12,6 +12,10 @@ namespace SquadBuilder
 		{
 			InitializeComponent ();
 			BindingContext = new MenuViewModel ();
+
+			MessagingCenter.Subscribe<Squadron, string> (this, "Xws Error", (Squadron squadron, string error) => {
+				DisplayAlert ("Xws Error", error, "Okay");
+			});
 		}
 	}
 }

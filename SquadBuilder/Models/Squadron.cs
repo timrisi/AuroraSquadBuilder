@@ -232,30 +232,45 @@ namespace SquadBuilder {
 				new JProperty ("points", Points),
 				new JProperty ("faction", Faction.Id),
 				new JProperty ("version", XwsVersion),
-				new JProperty ("description", Description ?? ""),
-				new JProperty ("pilots",
-					new JArray (
-						from p in Pilots
-						select new JObject (
-							new JProperty ("name", p.CanonicalName ?? p.Id),
-							new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
-							new JProperty ("upgrades", new JObject (
-								from category in
-									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
-									 select upgrade.CategoryId).Distinct ()
-								select new JProperty (category,
-									new JArray (
-										from upgrade in p.UpgradesEquipped.Where (u => u != null)
-										where upgrade.CategoryId == category
-										select upgrade.CanonicalName ?? upgrade.Id
-									)
-									)
+				new JProperty ("description", Description ?? ""));
+			
+			var pilots = new JArray ();
+
+			foreach (var p in Pilots) {
+				try {
+					var obj = new JObject (
+						new JProperty ("name", p.CanonicalName ?? p.Id),
+						new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
+						new JProperty ("upgrades", new JObject (
+							from category in
+							(from upgrade in p.UpgradesEquipped.Where (u => u != null && !string.IsNullOrEmpty (u.CategoryId))
+							 select upgrade.CategoryId).Distinct ()
+							select new JProperty (category,
+								new JArray (
+									from upgrade in p.UpgradesEquipped.Where (u => u != null && !string.IsNullOrEmpty (u.CategoryId))
+									where upgrade.CategoryId == category
+									select upgrade.CanonicalName ?? upgrade.Id
 								)
-							),
-						   p.MultiSectionId >= 0 ? new JProperty ("multisection_id", p.MultiSectionId) : new JProperty ("remove", "")
+							)
+							)
 						)
-					)
-				),
+					);
+
+					if (p.MultiSectionId >= 0)
+						obj.Add (new JProperty ("multisection_id", p.MultiSectionId));
+
+					pilots.Add (obj);
+				} catch (Exception e) {
+					HockeyApp.MetricsManager.TrackEvent ("Xws error",
+                    	new Dictionary<string, string> { { "error message", e.Message } },
+						new Dictionary<string, double> { { "time", 1.0 } }
+                    );
+					MessagingCenter.Send<Squadron, string> (this, "Xws Error", $"Error creating xws object for squadron {Name}"); 
+				}
+			}
+
+			json.Add (new JProperty ("pilots", pilots));
+			json.Add (
 				new JProperty ("vendor",
 					 new JObject (
 					   new JProperty ("aurora", new
@@ -271,11 +286,6 @@ namespace SquadBuilder {
 					)
 				)
 			);
-
-			foreach (var pilot in json ["pilots"]) {
-				Console.WriteLine (pilot [""]);
-			}
-			json ["pilots"]?.ForEach ((arg) => arg.SelectToken("remove").Remove ());
 
 			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
 			var schema = JSchema.Parse (schemaText);

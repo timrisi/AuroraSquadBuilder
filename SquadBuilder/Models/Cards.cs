@@ -630,7 +630,7 @@ namespace SquadBuilder
 
 					Squadrons = squads;
 
-					SaveSquadrons ();
+					SaveSquadrons ().Wait ();
 				}
 			} else {
 				Squadrons = new ObservableCollection <Squadron> ();
@@ -661,7 +661,6 @@ namespace SquadBuilder
 
 		public string CreateXwc ()
 		{
-			var obj = Squadrons [0].CreateXwsObject ();
 			var json = new JObject (
 				new JProperty ("container",
 				               new JArray (
@@ -679,7 +678,6 @@ namespace SquadBuilder
 	            	)
                 )
 			);
-
 
 			return json.ToString ();
 		}

@@ -20,22 +20,7 @@ namespace SquadBuilder.iOS
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : XLabs.Forms.XFormsApplicationDelegate
 	{
-		string appKey = "qms26ynz79cou3i";
-		string appSecret = "sa9emnj6m74ofbm";
-
-		Dictionary <string, string> deprecatedIds = new Dictionary <string, string> {
-			{ "rebels",	"rebel" },
-			{ "empire",	"imperial" },
-			{ "tacticaljammers", "tacticaljammer" },
-			{ "accuraccorrector", "accuracycorrector" },
-			{ "commsrelay", "commrelay" },
-			{ "milleniumfalcon", "millenniumfalcon" },
-			{ "torkhilmux", "torkilmux" }
-		};
-
 		SaveAndLoad saveAndLoad;
-
-		const string HasMigrated = "HasMigrated";
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -67,8 +52,6 @@ namespace SquadBuilder.iOS
 			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
-			
-			UpdateIds ();
 
 			var schemaJson = new StreamReader (NSBundle.MainBundle.PathForResource ("schema", "json")).ReadToEnd ();
 			saveAndLoad.SaveText ("schema.json", schemaJson);
@@ -163,87 +146,6 @@ namespace SquadBuilder.iOS
 			}
 
 			return true;
-		}
-
-		void UpdateIds ()
-		{
-			if (!saveAndLoad.FileExists (Cards.SquadronsFilename))
-				return; 
-
-			if (saveAndLoad.FileExists (Cards.FactionsFilename)) {
-				var factionXml = saveAndLoad.LoadText (Cards.FactionsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					factionXml = factionXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.FactionsFilename, factionXml);
-			}
-
-			if (saveAndLoad.FileExists ("Factions_Custom.xml")) {
-				var factionXml = saveAndLoad.LoadText ("Factions_Custom.xml");
-				foreach (var key in deprecatedIds.Keys)
-					factionXml = factionXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText ("Factions_Custom.xml", factionXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.ShipsFilename)) {
-				var shipXml = saveAndLoad.LoadText (Cards.ShipsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					shipXml = shipXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.ShipsFilename, shipXml);
-			}
-
-			if (saveAndLoad.FileExists ("Ships_Custom.xml")) {
-				var shipXml = saveAndLoad.LoadText ("Ships_Custom.xml");
-				foreach (var key in deprecatedIds.Keys)
-					shipXml = shipXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText ("Ships_Custom.xml", shipXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.PilotsFilename)) {
-				var pilotXml = saveAndLoad.LoadText (Cards.PilotsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
-				pilotXml = pilotXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.PilotsFilename, pilotXml);
-			}
-
-			if (saveAndLoad.FileExists ("Pilots_Custom.xml")) {
-				var pilotXml = saveAndLoad.LoadText ("Pilots_Custom.xml");
-				foreach (var key in deprecatedIds.Keys)
-					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText ("Pilots_Custom.xml", pilotXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.UpgradesFilename)) {
-				var upgradeXml = saveAndLoad.LoadText (Cards.UpgradesFilename);
-				foreach (var key in deprecatedIds.Keys)
-					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradeXml);
-			}
-
-			if (saveAndLoad.FileExists ("Upgrades_Custom.xml")) {
-				var upgradeXml = saveAndLoad.LoadText ("Upgrades_Custom.xml");
-				foreach (var key in deprecatedIds.Keys)
-					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText ("Upgrades_Custom.xml", upgradeXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.ExpansionsFilename)) {
-				var expansionXml = saveAndLoad.LoadText (Cards.ExpansionsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					expansionXml = expansionXml.Replace (key, deprecatedIds [key]);
-				expansionXml = expansionXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.SquadronsFilename)) {
-				var squadronXml = saveAndLoad.LoadText (Cards.SquadronsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
-				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
-			}
-
-
 		}
 	}
 }
