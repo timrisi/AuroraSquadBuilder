@@ -233,7 +233,7 @@ namespace SquadBuilder
 
 				foreach (var upgrade in UpgradesEquipped) {
 					if (upgrade != null)
-						cost += upgrade.Cost / (upgrade.Slots.Count + 1);
+						cost += upgrade.Cost;
 				}
 
 				if (UpgradesEquipped != null && UpgradesEquipped.Count (u => u?.Name == "TIE/x1") != 0) {
@@ -305,9 +305,10 @@ namespace SquadBuilder
 				}
 
 				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
-					var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
-					if (index >= 0)
-						UpgradesEquipped [extraIndex] = null;
+					UpgradeTypes.Add (oldUpgrade.Slots [i]);
+					//var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
+					//if (index >= 0)
+					//	UpgradesEquipped [extraIndex] = null;
 				}
 
 				if (oldUpgrade.Id == "ordnancetubes") {
@@ -362,7 +363,8 @@ namespace SquadBuilder
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {
 					var extraIndex = Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
 					if (index >= 0)
-						UpgradesEquipped [extraIndex] = upgrade;
+						UpgradeTypes.RemoveAt (extraIndex);
+						//UpgradesEquipped [extraIndex] = upgrade;
 				}
 
 				if (upgrade.Id == "misthunter")

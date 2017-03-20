@@ -55,9 +55,11 @@
 	<string>Aurora</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library Access Warning</string>
-	<key>CFBundleVersion</key>
-	<string>3</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>CFBundleVersion</key>
+	<string>5</string>
 </dict>
 </plist>

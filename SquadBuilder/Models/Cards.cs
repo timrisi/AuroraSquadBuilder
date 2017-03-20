@@ -625,12 +625,28 @@ namespace SquadBuilder
 								if (upgrade.CategoryId == null)
 									upgrade.CategoryId = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
 							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "emperorpalpatine") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "emperorpalpatine"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "wookieecommandos") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "wookieecommandos"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "unguidedrockets") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "unguidedrockets"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
 						}
 					}
 
 					Squadrons = squads;
-
-					SaveSquadrons ().Wait ();
 				}
 			} else {
 				Squadrons = new ObservableCollection <Squadron> ();
@@ -661,12 +677,22 @@ namespace SquadBuilder
 
 		public string CreateXwc ()
 		{
+			var squads = new JArray ();
+			foreach (var s in Squadrons) {
+				var squad = s.CreateXwsObject ();
+				if (squad == null)
+					continue;
+
+				squads.Add (squad);
+			}
+			//},
+			//	               new JArray (
+			//					   from s in Squadrons
+			//		               select s.CreateXwsObject ()
+			//		              )),
+
 			var json = new JObject (
-				new JProperty ("container",
-				               new JArray (
-								   from s in Squadrons
-					               select s.CreateXwsObject ()
-					              )),
+				new JProperty ("container", squads),
 				new JProperty ("vendor",
                 	new JObject (
 						new JProperty ("aurora", 

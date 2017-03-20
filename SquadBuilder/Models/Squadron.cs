@@ -333,9 +333,9 @@ namespace SquadBuilder {
 				squadron.MaxPoints = maxPoints;
 
 				foreach (var pilotObject in json ["pilots"]) {
-					var pilot = (Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.CanonicalName == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
-				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.CanonicalName == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
-				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+					var pilot = (Cards.SharedInstance.Pilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id) ??
 				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id))?.Copy ();
 
 					if (pilot == null) {
@@ -417,6 +417,11 @@ namespace SquadBuilder {
 		public override int GetHashCode ()
 		{
 			return (Name + Description + Points + MaxPoints + Faction.Id + Pilots).GetHashCode ();
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ($"Name={Name}, Faction={Faction.Name}");
 		}
 	}
 }

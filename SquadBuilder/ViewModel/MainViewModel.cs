@@ -29,7 +29,7 @@ namespace SquadBuilder
 		}
 
 		public IEnumerable <Squadron> Squadrons {
-			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s.Faction.Name == Faction); }
+ 			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s?.Faction?.Name == Faction); }
 		}
 
 		Squadron selectedSquadron = null;
