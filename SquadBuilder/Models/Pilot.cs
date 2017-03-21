@@ -311,6 +311,16 @@ namespace SquadBuilder
 					//	UpgradesEquipped [extraIndex] = null;
 				}
 
+				if (oldUpgrade.UpgradeOptions != null && oldUpgrade.UpgradeOptions.Any ()) {
+					foreach (var upgradeType in oldUpgrade.UpgradeOptions) {
+						var typeIndex = UpgradeTypes.IndexOf (upgradeType);
+						if (typeIndex >= 0) {
+							UpgradeTypes.RemoveAt (typeIndex);
+							upgradesEquipped.RemoveAt (typeIndex);
+						}
+					}
+				}
+
 				if (oldUpgrade.Id == "ordnancetubes") {
 					for (int i = 0; i < UpgradeTypes.Count; i++) {
 						var type = UpgradeTypes [i];

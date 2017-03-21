@@ -2511,7 +2511,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<SecondaryWeapon>true</SecondaryWeapon>
 			<Dice>5</Dice>
 			<Range>1</Range>
-			<CanonicalName>advhomingmissiles</CanonicalName>
+			<CanonicalName>advprotontorpedoes</CanonicalName>
 		</Upgrade>
 		<Upgrade id="flechettetorpedoes">
 			<Name>Flechette Torpedoes</Name>

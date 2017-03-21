@@ -370,6 +370,31 @@ namespace SquadBuilder {
 							}
 						}
 
+						if (pilot.UpgradesEquipped.Any (u => u?.Id == "heavyscykinterceptor")) {
+							if (skippedUpgrades.Any (u => u.CategoryId == "missile")) {
+								pilot.UpgradeTypes.Add ("Missile");
+								pilot.UpgradesEquipped.Add (null);
+							} else if (skippedUpgrades.Any (u => u.CategoryId == "torpedo")) {
+								pilot.UpgradeTypes.Add ("Torpedo");
+								pilot.UpgradesEquipped.Add (null);
+							} else {
+								pilot.UpgradeTypes.Add ("Cannon");
+								pilot.UpgradesEquipped.Add (null);
+							}
+						}
+
+						if (pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes")) {
+							foreach (var upgrade in skippedUpgrades) {
+								if (upgrade.CategoryId == "missile") {
+									var index = pilot.UpgradeTypes.IndexOf ("Hardpoint");
+									pilot.UpgradeTypes [index] = "Missile";
+								} else if (upgrade.CategoryId == "torpedo") {
+									var index = pilot.UpgradeTypes.IndexOf ("Hardpoint");
+									pilot.UpgradeTypes [index] = "Torpedo";
+								}
+							}
+						}
+
 						foreach (var upgrade in skippedUpgrades) {
 							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
 
