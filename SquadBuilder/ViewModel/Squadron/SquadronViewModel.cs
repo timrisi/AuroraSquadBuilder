@@ -10,6 +10,7 @@ using System.Text;
 using System.Linq;
 using System.Threading;
 using System.Security.AccessControl;
+using System.Text.RegularExpressions;
 
 namespace SquadBuilder
 {
@@ -218,6 +219,21 @@ namespace SquadBuilder
 					});
 
 				return exportXws;
+			}
+		}
+
+		RelayCommand exportCompactXws;
+		public RelayCommand ExportCompactXws {
+			get {
+				if (exportCompactXws == null)
+					exportCompactXws = new RelayCommand (() => {
+						var json = Squadron.CreateXws ();
+						json = Regex.Replace (json, @"\s+", "");
+						DependencyService.Get<IClipboardService> ().CopyToClipboard (json.ToString ());
+						MessagingCenter.Send<SquadronViewModel> (this, "Squadron Copied as XWS data");
+					});
+
+				return exportCompactXws;
 			}
 		}
 
