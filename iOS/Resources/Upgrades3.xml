@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.66">
+<Upgrades Version="3.67">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -859,17 +859,6 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
 			<Cost>2</Cost>
 			<Text>When attacking from your rear-facing auxiliary firing arc, reduce the defender's agility by 1 (to a minimum of "0").</Text>
 			<Owned>0</Owned>
-		</Upgrade>
-		<Upgrade id="jabbathehutt">
-			<Name>Jabba the Hutt</Name>
-			<Cost>6</Cost>
-			<Text>Place 1 munitions token on each {illicit} upgrade in your squad that must be discarded after use.  You may discard that token first.</Text>
-			<Faction>scum</Faction>
-			<Unique>true</Unique>
-			<ExtraSlots>
-				<Upgrade>Crew</Upgrade>
-			</ExtraSlots>
-			<CCL>true</CCL>
 		</Upgrade>
 		<Upgrade id="lieutenantblountcrew">
 			<Name>Lieutenant Blount</Name>
