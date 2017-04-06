@@ -29,7 +29,7 @@ namespace SquadBuilder
 		}
 
 		public IEnumerable <Squadron> Squadrons {
-			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s.Faction.Name == Faction); }
+ 			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s?.Faction?.Name == Faction); }
 		}
 
 		Squadron selectedSquadron = null;
@@ -90,7 +90,8 @@ namespace SquadBuilder
 					importSquadron = new RelayCommand (() => {
 						MessagingCenter.Subscribe <ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
 							MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
-
+							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
+							
 							Cards.SharedInstance.Squadrons.Add (squadron);
 
 							Cards.SharedInstance.SaveSquadrons ();
@@ -102,10 +103,35 @@ namespace SquadBuilder
 							});
 						});
 
+						MessagingCenter.Subscribe <ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
+							MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");	
+							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
+
+							foreach (var squadron in squadrons)
+								Cards.SharedInstance.Squadrons.Add (squadron);
+
+							Cards.SharedInstance.SaveSquadrons ();
+							NotifyPropertyChanged ("Squadrons");
+						});
+
 						Navigation.PushAsync <ImportViewModel> ();
 					});
 
 				return importSquadron;
+			}
+		}
+
+		RelayCommand exportAll;
+		public RelayCommand ExportAll {
+			get {
+				if (exportAll == null) {
+					exportAll = new RelayCommand (() => {
+						DependencyService.Get <IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXwc ());
+						MessagingCenter.Send <MainViewModel> (this, "Squadrons Copied");
+					});
+				}
+
+				return exportAll;
 			}
 		}
 
@@ -135,6 +161,7 @@ namespace SquadBuilder
 
 			MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 			MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
+			MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadrons Imported");
 
 			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", squadron => {
 				Cards.SharedInstance.Squadrons.Remove (squadron);

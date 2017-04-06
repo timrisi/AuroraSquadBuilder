@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 x:Class="SquadBuilder.CreatePilotView" 
@@ -9,8 +9,8 @@
 						 Spacing="10"
 						 Padding="15,10">
 				<Entry Text="{Binding Name}" Placeholder="Enter Pilot Name" />
-				<Picker x:Name="factionPicker" SelectedIndex="{Binding FactionIndex, Mode=TwoWay}" Title="Faction" />
-				<Picker x:Name="shipPicker" SelectedIndex="{Binding ShipIndex, Mode=TwoWay}" Title="Ship" />
+				<Picker ItemsSource="{Binding Factions}" SelectedIndex="{Binding FactionIndex, Mode=TwoWay}" Title="Faction" />
+				<Picker ItemsSource="{Binding Ships}" SelectedIndex="{Binding ShipIndex, Mode=TwoWay}" Title="Ship" />
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
 					<Label Text="Cost" XAlign="End" YAlign="Center" />
 					<Entry Placeholder="Enter Cost" Text="{Binding Pilot.BaseCost}" />

@@ -11,21 +11,6 @@ namespace SquadBuilder
 		{
 			InitializeComponent ();
 		}
-
-		protected override void OnBindingContextChanged()
-		{
-			base.OnBindingContextChanged();
-
-			CreateFactionViewModel vm = BindingContext as CreateFactionViewModel;
-			if (vm != null) {
-				colorPicker.Items.Clear();
-				foreach (var color in vm.Colors)
-				{
-					colorPicker.Items.Add(color);
-				}
-				colorPicker.SelectedIndex = vm.SelectedIndex;
-			}
-		}
 	}
 }
 

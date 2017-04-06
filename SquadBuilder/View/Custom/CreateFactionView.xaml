@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SquadBuilder.CreateFactionView">
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical"
 					 Spacing="10"
 					 Padding="15,10">
 			<Entry Text="{Binding Name}" Placeholder="Enter Faction Name" TextColor="{Binding SelectedColor}" />
-			<Picker x:Name="colorPicker" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Color" />
+			<Picker ItemsSource="{Binding Colors}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Title="Color" />
 			<Button Text="Save" Command="{Binding SaveFaction}" />
 		</StackLayout>
 	</ContentPage.Content>

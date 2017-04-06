@@ -59,18 +59,19 @@ namespace SquadBuilder
 		{
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
-				.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
+                .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
                 .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
+                .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
                 .Where (u => !u.IsCustom || Settings.AllowCustom)
                 .Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
-					.Where (u => u.Faction == null || u.Faction.Id == Pilot.Faction.Id)
+                  	.Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
@@ -131,14 +132,13 @@ namespace SquadBuilder
 			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
 		}
 
-		bool meetsRequirement (string shipRequirement)
+		bool meetsRequirement (string requirementList)
 		{
-			var requirements = shipRequirement.Split (' ');
+			
+			var requirements = requirementList.Split (',');
 
-			foreach (var requirement in requirements) {
-				if (!Pilot.Ship.Name.ToLower ().Contains (requirement.ToLower ()))
-					return false;
-			}
+			if (!requirements.Any (r => r.Trim ().ToLower ().Split (' ').All (s => Pilot.Ship.Name.ToLower ().Split (' ').Any (p => p.Contains (s)))))
+				return false;
 
 			return true;
 		}
@@ -179,7 +179,7 @@ namespace SquadBuilder
 			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
 																						   u.Name.ToLower ().Contains (text) ||
 																						   u.Text.ToLower ().Contains (text) ||
-			                                                                               (u.Faction != null && u.Faction.Name.ToLower ().Contains (text)) ||
+			                                                                               (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
 			                                                                               (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
 			                                                                              ));
 		}

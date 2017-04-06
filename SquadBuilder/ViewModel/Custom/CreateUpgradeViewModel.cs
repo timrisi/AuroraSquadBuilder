@@ -187,9 +187,9 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref factionIndex, value);
 				if (factionIndex > 0)
-					Upgrade.Faction = Factions [factionIndex - 1];
+					Upgrade.Factions = new List<Faction> { Factions [factionIndex - 1] };
 				else
-					Upgrade.Faction = null;
+					Upgrade.Factions = null;
 			}
 		}
 
@@ -263,7 +263,7 @@ namespace SquadBuilder
 							new XElement ("Unique", IsUnique),
 							new XElement ("Limited", IsLimited),
 							new XElement ("Ship", Upgrade.Ship?.Id),
-							new XElement ("Faction", Upgrade.Faction?.Id),
+							new XElement ("Factions", Upgrade.Factions? [0]?.Id),
 							new XElement ("SmallOnly", SmallOnly),
 							new XElement ("LargeOnly", LargeOnly),
 							new XElement ("HugeOnly", HugeOnly),

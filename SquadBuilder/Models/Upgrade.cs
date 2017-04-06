@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using XLabs;
 using System.Linq;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace SquadBuilder
 {
@@ -23,6 +24,7 @@ namespace SquadBuilder
 		public bool HugeOnly { get; set; }
 		public string Text { get; set; }
 		public int PilotSkill { get; set; }
+		public int Energy { get; set; }
 		public int Attack { get; set; }
 		public int Agility { get; set; }
 		public int Hull { get; set; }
@@ -41,13 +43,20 @@ namespace SquadBuilder
 		public string ModifiedManeuverDial { get; set; }
 		public int? MinAgility { get; set; }
 		public int? MaxAgility { get; set; }
+		public int? ShieldRequirement { get; set; }
 
 		string canonicalName;
 		public string CanonicalName {
-			get { return canonicalName; }
+			get { return canonicalName ?? Id; }
 			set {
 				SetProperty (ref canonicalName, value);
 			}
+		}
+
+		string oldId;
+		public string OldId {
+			get { return oldId; }
+			set { SetProperty (ref oldId, value); }
 		}
 
 		[XmlIgnore]
@@ -96,17 +105,37 @@ namespace SquadBuilder
 			} 
 		}
 
-		Faction faction;
-		public Faction Faction {
-			get { return faction; }
-			set { 
-				SetProperty (ref faction, value);
+		//Faction faction;
+		//public Faction Faction {
+		//	get { return faction; }
+		//	set { 
+		//		SetProperty (ref faction, value);
+		//		NotifyPropertyChanged ("FactionRestricted");
+		//	}
+		//}
+
+		List<Faction> factions;
+		public List<Faction> Factions {
+			get { return factions; }
+			set {
+				SetProperty (ref factions, value);
 				NotifyPropertyChanged ("FactionRestricted");
+				NotifyPropertyChanged ("FactionsString");
+			}
+		}
+
+		public string FactionsString {
+			get {
+				return string.Join (", ", Factions);
 			}
 		}
 
 		public bool FactionRestricted {
-			get { return Faction != null; }
+			get { return Factions != null && Factions.Count > 0; }
+		}
+
+		public bool ShowEnergy {
+			get { return Energy != 0; }
 		}
 
 		public ObservableCollection <string> Slots { get; set; }
@@ -200,16 +229,18 @@ namespace SquadBuilder
 				Id = Id,
 				Name = Name,
 				CanonicalName = CanonicalName,
+				OldId = OldId,
 				Category = Category,
 				CategoryId = CategoryId,
 				Cost = Cost,
 				ShipRequirement = ShipRequirement,
-				Faction = Faction,
+				Factions = Factions,
 				SmallOnly = SmallOnly,
 				LargeOnly = LargeOnly,
 				HugeOnly = HugeOnly,
 				Text = Text,
 				PilotSkill = PilotSkill,
+				Energy = Energy,
 				Attack = Attack,
 				Agility = Agility,
 				Hull = Hull,
@@ -224,6 +255,7 @@ namespace SquadBuilder
 				MaxPilotSkill = MaxPilotSkill,
 				MinAgility = MinAgility,
 				MaxAgility = MaxAgility,
+				ShieldRequirement = ShieldRequirement,
 				IsCustom = IsCustom,
 				CCL = CCL,
 				ModifiedManeuverDial = ModifiedManeuverDial,
@@ -268,6 +300,11 @@ namespace SquadBuilder
 		public override int GetHashCode ()
 		{
 			return ((Id + CategoryId).GetHashCode ());
+		}
+
+		public override string ToString ()
+		{
+			return Name;
 		}
 	}
 }

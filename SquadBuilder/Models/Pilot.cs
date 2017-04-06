@@ -12,8 +12,7 @@ using System.IO;
 
 namespace SquadBuilder
 {
-	public class Pilot  : ObservableObject
-	{
+	public class Pilot : ObservableObject {
 		string id;
 		public string Id {
 			get { return id; }
@@ -21,7 +20,7 @@ namespace SquadBuilder
 		}
 
 		string name;
-		public string Name { 
+		public string Name {
 			get { return name; }
 			set { SetProperty (ref name, value); }
 		}
@@ -34,10 +33,17 @@ namespace SquadBuilder
 			}
 		}
 
+		string oldId;
+		public string OldId {
+			get { return oldId; }
+			set { SetProperty (ref oldId, value); }
+		}
+
 		public Faction Faction { get; set; }
 		public Ship Ship { get; set; }
 		public bool Unique { get; set; }
 		public int BasePilotSkill { get; set; }
+		public int BaseEnergy { get; set; }
 		public int BaseAttack { get; set; }
 		public int BaseAgility { get; set; }
 		public int BaseHull { get; set; }
@@ -48,17 +54,18 @@ namespace SquadBuilder
 		public bool CCL { get; set; }
 		public bool Preview { get; set; }
 		public Guid LinkedPilotCardGuid { get; set; }
+		public int MultiSectionId { get; set; } = -1;
 
 		[XmlIgnore]
 		public int owned;
 		[XmlIgnore]
-		public int Owned { 
+		public int Owned {
 			get { return owned; }
 			set {
 				if (value < 0)
 					value = 0;
-				
-				SetProperty (ref owned, value); 
+
+				SetProperty (ref owned, value);
 
 				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
 				var pilotsElement = collectionXml.Element ("Pilots");
@@ -80,8 +87,8 @@ namespace SquadBuilder
 			}
 		}
 
-		ObservableCollection <string> upgradeTypes = new ObservableCollection <string> ();
-		public ObservableCollection <string> UpgradeTypes { 
+		ObservableCollection<string> upgradeTypes = new ObservableCollection<string> ();
+		public ObservableCollection<string> UpgradeTypes {
 			get {
 				return upgradeTypes;
 			}
@@ -90,8 +97,8 @@ namespace SquadBuilder
 			}
 		}
 
-		ObservableCollection <Upgrade> upgradesEquipped = new ObservableCollection <Upgrade> ();
-		public ObservableCollection <Upgrade> UpgradesEquipped { 
+		ObservableCollection<Upgrade> upgradesEquipped = new ObservableCollection<Upgrade> ();
+		public ObservableCollection<Upgrade> UpgradesEquipped {
 			get {
 				return upgradesEquipped;
 			}
@@ -108,6 +115,7 @@ namespace SquadBuilder
 					NotifyPropertyChanged ("Shields");
 					NotifyPropertyChanged ("Cost");
 					NotifyPropertyChanged ("UpgradesEquippedString");
+					NotifyPropertyChanged ("Energy");
 				};
 			}
 		}
@@ -137,16 +145,16 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		public string UpgradeTypesString { 
+		public string UpgradeTypesString {
 			get {
 				return string.Join (", ", UpgradeTypes);
 			}
 		}
 
 		[XmlIgnore]
-		public ObservableCollection <object> Upgrades {
+		public ObservableCollection<object> Upgrades {
 			get {
-				var u = new ObservableCollection <object> ();
+				var u = new ObservableCollection<object> ();
 
 				for (int i = 0; i < UpgradeTypes.Count (); i++) {
 					var upgradeType = UpgradeTypes [i];
@@ -175,19 +183,26 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		public int PilotSkill { 
+		public int PilotSkill {
 			get {
 				return BasePilotSkill + UpgradesEquipped.Sum (u => u?.PilotSkill ?? 0);
 			}
-		
+
 		}
 
 		[XmlIgnore]
-		public int Attack { 
+		public int Energy {
+			get {
+				return BaseEnergy + UpgradesEquipped.Sum (u => u?.Energy ?? 0);
+			}
+		}
+
+		[XmlIgnore]
+		public int Attack {
 			get {
 				return BaseAttack + UpgradesEquipped.Sum (u => u?.Attack ?? 0);
 			}
-		
+
 		}
 		[XmlIgnore]
 
@@ -198,7 +213,7 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		public int Hull { 
+		public int Hull {
 			get {
 				return BaseHull + UpgradesEquipped.Sum (u => u?.Hull ?? 0);
 			}
@@ -218,7 +233,7 @@ namespace SquadBuilder
 
 				foreach (var upgrade in UpgradesEquipped) {
 					if (upgrade != null)
-						cost += upgrade.Cost / (upgrade.Slots.Count + 1);
+						cost += upgrade.Cost;
 				}
 
 				if (UpgradesEquipped != null && UpgradesEquipped.Count (u => u?.Name == "TIE/x1") != 0) {
@@ -233,13 +248,13 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public Color AbilityColor {
 			get {
-				return Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
+				return Device.OnPlatform<Color> (Color.Navy, Color.Teal, Color.Navy);
 			}
 		}
 
 		public Color TextColor {
 			get {
-				return IsAvailable ? Color.Black : Color.Gray; 
+				return IsAvailable ? Color.Black : Color.Gray;
 			}
 		}
 
@@ -247,10 +262,10 @@ namespace SquadBuilder
 			get {
 				if (Unique && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
 					return false;
-				
+
 				if (Cards.SharedInstance.Pilots.Sum (p => p.Owned) == 0)
 					return true;
-				
+
 				return Owned > (Cards.SharedInstance.CurrentSquadron != null ? Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Id == Id) : 0);
 			}
 		}
@@ -261,6 +276,14 @@ namespace SquadBuilder
 
 		public bool ShowManeuversInSquadronList {
 			get { return Settings.ShowManeuversInSquadronList && !string.IsNullOrEmpty (Ship.ManeuverGridImage); }
+		}
+
+		public bool ShowEnergy {
+			get { return Energy > 0; }
+		}
+
+		public bool ShowAttack {
+			get { return Attack > 0; }
 		}
 
 		public void EquipUpgrade (int index, Upgrade upgrade)
@@ -282,9 +305,20 @@ namespace SquadBuilder
 				}
 
 				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
-					var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
-					if (index >= 0)
-						UpgradesEquipped [extraIndex] = null;
+					UpgradeTypes.Add (oldUpgrade.Slots [i]);
+					//var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
+					//if (index >= 0)
+					//	UpgradesEquipped [extraIndex] = null;
+				}
+
+				if (oldUpgrade.UpgradeOptions != null && oldUpgrade.UpgradeOptions.Any ()) {
+					foreach (var upgradeType in oldUpgrade.UpgradeOptions) {
+						var typeIndex = UpgradeTypes.IndexOf (upgradeType);
+						if (typeIndex >= 0) {
+							UpgradeTypes.RemoveAt (typeIndex);
+							upgradesEquipped.RemoveAt (typeIndex);
+						}
+					}
 				}
 
 				if (oldUpgrade.Id == "ordnancetubes") {
@@ -296,16 +330,27 @@ namespace SquadBuilder
 						}
 					}
 
-					if (LinkedPilotCardGuid != Guid.Empty) {
-						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != Name && p.LinkedPilotCardGuid == LinkedPilotCardGuid);
-						for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
-							var type = otherPilot.UpgradeTypes [i];
+					if (MultiSectionId >= 0) {
+						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.name != Name && p.MultiSectionId == MultiSectionId);
+						for (int i = 0; i < otherPilot.upgradeTypes.Count; i++) {
+							var type = otherPilot.upgradeTypes [i];
 							if (type == "Missile" || type == "Torpedo") {
 								otherPilot.UpgradeTypes [i] = "Hardpoint";
 								otherPilot.UpgradesEquipped [i] = null;
 							}
 						}
 					}
+
+					//if (LinkedPilotCardGuid != Guid.Empty) {
+					//	var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != Name && p.LinkedPilotCardGuid == LinkedPilotCardGuid);
+					//	for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
+					//		var type = otherPilot.UpgradeTypes [i];
+					//		if (type == "Missile" || type == "Torpedo") {
+					//			otherPilot.UpgradeTypes [i] = "Hardpoint";
+					//			otherPilot.UpgradesEquipped [i] = null;
+					//		}
+					//	}
+					//}
 				}
 
 				if (!string.IsNullOrEmpty (oldUpgrade.ModifiedManeuverDial))
@@ -328,7 +373,8 @@ namespace SquadBuilder
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {
 					var extraIndex = Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
 					if (index >= 0)
-						UpgradesEquipped [extraIndex] = upgrade;
+						UpgradeTypes.RemoveAt (extraIndex);
+						//UpgradesEquipped [extraIndex] = upgrade;
 				}
 
 				if (upgrade.Id == "misthunter")
@@ -346,9 +392,9 @@ namespace SquadBuilder
 			get {
 				if (deletePilot == null)
 					deletePilot = new RelayCommand (() => {
-						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
+						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
-						var pilotElement = customPilotsXml.Elements ().FirstOrDefault (e => 
+						var pilotElement = customPilotsXml.Elements ().FirstOrDefault (e =>
 							e.Element ("Name")?.Value == Name &&
 							(Faction == null || e.Attribute ("faction")?.Value == Faction?.Id) &&
 							(Ship == null || e.Attribute ("ship")?.Value == Ship?.Id));
@@ -358,9 +404,9 @@ namespace SquadBuilder
 
 						pilotElement.Remove ();
 
-						DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
+						DependencyService.Get<ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
 
-						MessagingCenter.Send <Pilot> (this, "DeletePilot");
+						MessagingCenter.Send<Pilot> (this, "DeletePilot");
 					});
 
 				return deletePilot;
@@ -374,7 +420,7 @@ namespace SquadBuilder
 			get {
 				if (editPilot == null)
 					editPilot = new RelayCommand (() => {
-						MessagingCenter.Send <Pilot> (this, "Edit Pilot");
+						MessagingCenter.Send<Pilot> (this, "Edit Pilot");
 					});
 
 				return editPilot;
@@ -388,7 +434,7 @@ namespace SquadBuilder
 			get {
 				if (removePilot == null)
 					removePilot = new RelayCommand (() => {
-						MessagingCenter.Send <Pilot> (this, "Remove Pilot");
+						MessagingCenter.Send<Pilot> (this, "Remove Pilot");
 					});
 
 				return removePilot;
@@ -401,7 +447,7 @@ namespace SquadBuilder
 		public RelayCommand CopyPilot {
 			get {
 				if (copyPilot == null)
-					copyPilot = new RelayCommand (() => MessagingCenter.Send <Pilot> (this, "Copy Pilot"));
+					copyPilot = new RelayCommand (() => MessagingCenter.Send<Pilot> (this, "Copy Pilot"));
 
 				return copyPilot;
 			}
@@ -413,10 +459,12 @@ namespace SquadBuilder
 				Id = Id,
 				Name = Name,
 				CanonicalName = CanonicalName,
+				OldId = OldId,
 				Faction = Faction,
 				Ship = Ship.Copy (),
 				Unique = Unique,
 				BasePilotSkill = BasePilotSkill,
+				BaseEnergy = BaseEnergy,
 				BaseAttack = BaseAttack,
 				BaseAgility = BaseAgility,
 				BaseHull = BaseHull,
@@ -426,8 +474,9 @@ namespace SquadBuilder
 				Preview = Preview,
 				IsCustom = IsCustom,
 				CCL = CCL,
+				MultiSectionId = MultiSectionId,
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
-				UpgradesEquipped = new ObservableCollection <Upgrade> (UpgradesEquipped.ToList ())
+				UpgradesEquipped = new ObservableCollection<Upgrade> (UpgradesEquipped.ToList ())
 			};
 		}
 
@@ -467,6 +516,11 @@ namespace SquadBuilder
 		public override int GetHashCode ()
 		{
 			return (Id + Faction?.Id + Ship?.Id + UpgradesEquippedString).GetHashCode ();
+		}
+
+		public override string ToString ()
+		{
+			return Ship.Name + " - " + Name;
 		}
 	}
 }

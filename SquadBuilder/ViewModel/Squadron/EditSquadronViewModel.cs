@@ -41,13 +41,18 @@ namespace SquadBuilder
 		int selectedIndex = 0;
 		public int SelectedIndex {
 			get { return selectedIndex; }
-			set { 
-				SetProperty (ref selectedIndex, value); 
-				if (SelectedIndex >= 0) {
+			set {
+				if (value < 0) {
+					var oldVal = selectedIndex;
+					SetProperty (ref selectedIndex, value);
+					SetProperty (ref selectedIndex, oldVal);
+				} else if (value != selectedIndex) {
+					SetProperty (ref selectedIndex, value);
+
 					var newFaction = Factions [SelectedIndex];
 
 					if (newFaction.Name != "Mixed" && Squadron.Faction?.Name != newFaction.Name) {
-						var pilots = new List <Pilot> (Squadron.Pilots);
+						var pilots = new List<Pilot> (Squadron.Pilots);
 						foreach (var pilot in pilots) {
 							if (pilot.Faction.Name != newFaction.Name)
 								Squadron.Pilots.Remove (pilot);

@@ -15,12 +15,14 @@ using Dropbox.Api;
 using Xamarin.Auth;
 using System.Runtime.Remoting.Lifetime;
 using System.Runtime.InteropServices;
+using Newtonsoft.Json.Linq;
 
 namespace SquadBuilder
 {
 	public class Cards : ObservableObject
 	{
 		public const string SquadronsFilename = "squadrons.xml";
+		public const string XwcFilename = "squadrons.xwc";
 		public const string FactionsFilename = "Factions.xml";
 		public const string ShipsFilename = "Ships.xml";
 		public const string PilotsFilename = "Pilots.xml";
@@ -262,6 +264,7 @@ namespace SquadBuilder
 					Id = faction.Attribute ("id").Value,
 					Name = faction.Value,
 					CanonicalName = faction.Element ("CanonicalName")?.Value,
+					OldId = faction.Element ("OldId")?.Value,
 					Color = Color.FromRgb (
 						(int)faction.Element ("Color").Attribute ("r"),
 						(int)faction.Element ("Color").Attribute ("g"),
@@ -276,6 +279,7 @@ namespace SquadBuilder
 					Id = faction.Attribute ("id").Value,
 					Name = faction.Value,
 					CanonicalName = faction.Element ("CanonicalName")?.Value,
+					OldId = faction.Element ("OldId")?.Value,
 					Color = Color.FromRgb (
 						(int)faction.Element ("Color").Attribute ("r"),
 						(int)faction.Element ("Color").Attribute ("g"),
@@ -302,6 +306,7 @@ namespace SquadBuilder
 					Id = ship.Attribute ("id").Value,
 					Name = ship.Element ("Name").Value,
 					CanonicalName = ship.Element ("CanonicalName")?.Value,
+					OldId = ship.Element ("OldId")?.Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
 					Actions = new ObservableCollection<string> (
@@ -323,6 +328,7 @@ namespace SquadBuilder
 					Id = ship.Attribute ("id").Value,
 					Name = ship.Element ("Name").Value,
 					CanonicalName = ship.Element ("CanonicalName")?.Value,
+					OldId = ship.Element ("OldId")?.Value,
 					LargeBase = ship.Element ("LargeBase") != null ? (bool)ship.Element ("LargeBase") : false,
 					Huge = ship.Element ("Huge") != null ? (bool)ship.Element ("Huge") : false,
 					Actions = new ObservableCollection <string> (
@@ -353,10 +359,12 @@ namespace SquadBuilder
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
 				CanonicalName = pilot.Element ("CanonicalName")?.Value,
+			    OldId = pilot.Element ("OldId")?.Value,
 				Faction = Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
 				Unique = (bool)pilot.Element ("Unique"),
 				BasePilotSkill = (int)pilot.Element ("PilotSkill"),
+				BaseEnergy = pilot.Element ("Energy") != null ? (int)pilot.Element ("Energy") : 0,
 				BaseAttack = (int)pilot.Element ("Attack"),
 				BaseAgility = (int)pilot.Element ("Agility"),
 				BaseHull = (int)pilot.Element ("Hull"),
@@ -378,10 +386,12 @@ namespace SquadBuilder
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
 				CanonicalName = pilot.Element ("CanonicalName")?.Value,
+				OldId = pilot.Element ("OldId")?.Value,
 				Faction = allFactions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = allShips.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
 				Unique = (bool)pilot.Element ("Unique"),
 				BasePilotSkill = (int)pilot.Element ("PilotSkill"),
+				BaseEnergy = pilot.Element ("Energy") != null ? (int)pilot.Element ("Energy") : 0,
 				BaseAttack = (int)pilot.Element ("Attack"),
 				BaseAgility = (int)pilot.Element ("Agility"),
 				BaseHull = (int)pilot.Element ("Hull"),
@@ -416,14 +426,17 @@ namespace SquadBuilder
 					Id = upgrade.Attribute ("id").Value,
 					Name = upgrade.Element ("Name")?.Value,
 					CanonicalName = upgrade.Element ("CanonicalName")?.Value,
+					OldId = upgrade.Element ("OldId")?.Value,
 					CategoryId = upgrade.Parent.Attribute ("id").Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
-					Faction = Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
+					Factions = Factions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
+							    //Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
 					Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
 					ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
+					Energy = upgrade.Element ("Energy") != null ? (int)upgrade.Element ("Energy") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int)upgrade.Element ("Agility") : 0,
 					Hull = upgrade.Element ("Hull") != null ? (int)upgrade.Element ("Hull") : 0,
@@ -454,6 +467,7 @@ namespace SquadBuilder
 					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
 					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
 					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
+					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 					ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value
@@ -474,12 +488,14 @@ namespace SquadBuilder
 					Id = upgrade.Attribute ("id")?.Value,
 					Name = upgrade.Element ("Name")?.Value,
 					CanonicalName = upgrade.Element ("CanonicalName")?.Value,
+					OldId = upgrade.Element ("OldId")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
-					Faction = allFactions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
+					Factions = allFactions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
 					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
+					Energy = upgrade.Element ("Energy") != null ? (int)upgrade.Element ("Energy") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,
 					Agility = upgrade.Element ("Agility") != null ? (int)upgrade.Element ("Agility") : 0,
 					Hull = upgrade.Element ("Hull") != null ? (int)upgrade.Element ("Hull") : 0,
@@ -508,6 +524,7 @@ namespace SquadBuilder
 					MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?)upgrade.Element ("MaxPilotSkill") : 0,
 					MinAgility = upgrade.Element ("MinAgility") != null ? (int?)upgrade.Element ("MinAgility") : null,
 					MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?)upgrade.Element ("MaxAgility") : null,
+					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 				});
@@ -546,88 +563,149 @@ namespace SquadBuilder
 
 		public void GetAllSquadrons ()
 		{
-			var service = DependencyService.Get <ISaveAndLoad> ();
+			var service = DependencyService.Get<ISaveAndLoad> ();
 
-			if (!service.FileExists (SquadronsFilename)) {
-				Squadrons = new ObservableCollection <Squadron> ();
-				return;
-			}
+			if (service.FileExists (XwcFilename)) {
+				var json = JObject.Parse (service.LoadText (XwcFilename));
 
-			var serializedXml = service.LoadText (SquadronsFilename);
-			serializedXml.Replace ("<Owned>0</Owned>", "");
-			serializedXml.Replace ("<owned>0</owned>", "");
-			var serializer = new XmlSerializer (typeof(ObservableCollection <Squadron>));
+				if (json ["container"] == null)
+					throw new ArgumentException ("Container key is missing");
 
-			using (TextReader reader = new StringReader (serializedXml)) {
-				var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
+				var squads = new List<Squadron> ();
 
-				foreach (var squad in squads) {
-					squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
+				foreach (var squadXws in json ["container"])
+					squads.Add (Squadron.FromXws (squadXws.ToString ()));
 
-					foreach (var pilot in squad.Pilots) {
-						pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id)?.Copy ();
-						if (pilot.Ship.ManeuverGridImage == null) {
-							pilot.Ship.ManeuverGridImage = "";
-						}
-						
-						if (squad.Faction.Id == "scum") {
-							if (pilot.Id == "bobafett")
-								pilot.Id = "bobafettscum";
-							if (pilot.Id == "kathscarlet")
-								pilot.Id = "kathscarletscum";
-						}
-						if (pilot.Id == "Ello Asty")
-							pilot.Id = "elloasty";
-						if (pilot.Id == "4lom")
-							pilot.Id = "fourlom";
+				Squadrons = new ObservableCollection<Squadron> (squads);
+			} else if (service.FileExists (SquadronsFilename)) {
+				var serializedXml = service.LoadText (SquadronsFilename);
+				serializedXml.Replace ("<Owned>0</Owned>", "");
+				serializedXml.Replace ("<owned>0</owned>", "");
+				var serializer = new XmlSerializer (typeof (ObservableCollection<Squadron>));
 
-						if (CustomPilots.Any (p => p.Id == pilot.Id))
-							pilot.IsCustom = true;
+				using (TextReader reader = new StringReader (serializedXml)) {
+					var squads = (ObservableCollection<Squadron>)serializer.Deserialize (reader);
 
-						pilot.Preview = AllPilots.FirstOrDefault (p => p.Id == pilot.Id)?.Preview ?? false;
+					foreach (var squad in squads) {
+						squad.Faction = AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
-						foreach (var upgrade in pilot.UpgradesEquipped) {
-							if (upgrade == null)
-								continue;
+						foreach (var pilot in squad.Pilots) {
+							pilot.Ship = AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id)?.Copy ();
+							if (pilot.Ship.ManeuverGridImage == null) {
+								pilot.Ship.ManeuverGridImage = "";
+							}
 
-							upgrade.Preview = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id)?.Preview ?? false;
+							if (squad.Faction.Id == "scum") {
+								if (pilot.Id == "bobafett")
+									pilot.Id = "bobafettscum";
+								if (pilot.Id == "kathscarlet")
+									pilot.Id = "kathscarletscum";
+							}
+							if (pilot.Id == "Ello Asty")
+								pilot.Id = "elloasty";
+							if (pilot.Id == "4lom")
+								pilot.Id = "fourlom";
 
-							if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
-								upgrade.Id = "r2d2crew";
-							if (upgrade.Id == "4lom")
-								upgrade.Id = "fourlom";
-							
-							if (upgrade.CategoryId == null)
-								upgrade.CategoryId = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
+							if (CustomPilots.Any (p => p.Id == pilot.Id))
+								pilot.IsCustom = true;
+
+							pilot.Preview = AllPilots.FirstOrDefault (p => p.Id == pilot.Id)?.Preview ?? false;
+
+							foreach (var upgrade in pilot.UpgradesEquipped) {
+								if (upgrade == null)
+									continue;
+
+								upgrade.Preview = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id)?.Preview ?? false;
+
+								if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
+									upgrade.Id = "r2d2crew";
+								if (upgrade.Id == "4lom")
+									upgrade.Id = "fourlom";
+
+								if (upgrade.CategoryId == null)
+									upgrade.CategoryId = AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "emperorpalpatine") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "emperorpalpatine"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "wookieecommandos") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "wookieecommandos"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "unguidedrockets") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "unguidedrockets"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
 						}
 					}
-				}
 
-				Squadrons = squads;
+					Squadrons = squads;
+				}
+			} else {
+				Squadrons = new ObservableCollection <Squadron> ();
+				return;
 			}
 		}
 
 		public async Task SaveSquadrons ()
 		{
-			if (Squadrons.Count == 0)
-				DependencyService.Get <ISaveAndLoad> ().DeleteFile (SquadronsFilename);
-			
-			var serializer = new XmlSerializer (typeof (ObservableCollection <Squadron>));
-			using (var stringWriter = new StringWriter ()) {
-				serializer.Serialize (stringWriter, Squadrons);
-				string serializedXML = stringWriter.ToString ();
+			var service = DependencyService.Get<ISaveAndLoad> ();
 
-				var service = DependencyService.Get <ISaveAndLoad> ();
-
-				if (!service.FileExists (SquadronsFilename) || DependencyService.Get <ISaveAndLoad> ().LoadText (SquadronsFilename) != serializedXML) {
-				DependencyService.Get <ISaveAndLoad> ().SaveText (SquadronsFilename, serializedXML);
-					//Application.Current.Properties [SettingsViewModel.ModifiedDateKey] = DateTime.Now;
-					App.Storage.Put<DateTime> (SettingsViewModel.ModifiedDateKey, DateTime.Now);
-
-					if (App.DropboxClient != null && Squadrons.Count > 0)
-						await SettingsViewModel.SaveToDropbox ();
-				}
+			if (Squadrons.Count == 0) {
+				service.DeleteFile (XwcFilename);
+				return;
 			}
+
+			var xwc = CreateXwc ();
+
+			if (!service.FileExists (XwcFilename) || service.LoadText (XwcFilename) != xwc) {
+				service.SaveText (XwcFilename, xwc);
+
+				App.Storage.Put<DateTime> (SettingsViewModel.ModifiedDateKey, DateTime.Now);
+
+				if (App.DropboxClient != null)
+					await SettingsViewModel.SaveToDropbox ();
+			}
+		}
+
+		public string CreateXwc ()
+		{
+			var squads = new JArray ();
+			foreach (var s in Squadrons) {
+				var squad = s.CreateXwsObject ();
+				if (squad == null)
+					continue;
+
+				squads.Add (squad);
+			}
+			//},
+			//	               new JArray (
+			//					   from s in Squadrons
+			//		               select s.CreateXwsObject ()
+			//		              )),
+
+			var json = new JObject (
+				new JProperty ("container", squads),
+				new JProperty ("vendor",
+                	new JObject (
+						new JProperty ("aurora", 
+		                    new JObject (
+								new JProperty ("builder", "Aurora Squad Builder"),
+			                    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8")
+						    )
+	                    )
+	            	)
+                )
+			);
+
+			return json.ToString ();
 		}
 	}
 }

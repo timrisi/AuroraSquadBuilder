@@ -48,7 +48,14 @@ namespace SquadBuilder
 		int selectedIndex = 0;
 		public int SelectedIndex {
 			get { return selectedIndex; }
-			set { SetProperty (ref selectedIndex, value); }
+			set {
+				if (value < 0) {
+					var oldVal = selectedIndex;
+					SetProperty (ref selectedIndex, value);
+					SetProperty (ref selectedIndex, oldVal);
+				} else if (value != selectedIndex)
+					SetProperty (ref selectedIndex, value);
+			}
 		}
 
 		string description;

@@ -17,16 +17,14 @@ using Newtonsoft.Json;
 using XLabs.Platform.Device;
 using System.Globalization;
 
-namespace SquadBuilder
-{
-	public class Squadron : ObservableObject
-	{
-		const string XwsVersion = "0.3.0";
+namespace SquadBuilder {
+	public class Squadron : ObservableObject {
+		const string XwsVersion = "1.0.0";
 
 		public Squadron ()
 		{
 			Name = "";
-			Pilots = new ObservableCollection <Pilot> ();
+			Pilots = new ObservableCollection<Pilot> ();
 			Pilots.CollectionChanged += (sender, e) => {
 				NotifyPropertyChanged ("Points");
 				NotifyPropertyChanged ("PointDetails");
@@ -40,21 +38,21 @@ namespace SquadBuilder
 		}
 
 		Faction faction;
-		public Faction Faction { 
+		public Faction Faction {
 			get { return faction; }
 			set { SetProperty (ref faction, value); }
 		}
 
-		public int Points { 
+		public int Points {
 			get {
 				return Pilots.Sum (p => p.Cost);
-			} 
+			}
 		}
 
 		int maxPoints;
-		public int MaxPoints { 
+		public int MaxPoints {
 			get { return maxPoints; }
-			set { 
+			set {
 				SetProperty (ref maxPoints, value);
 				NotifyPropertyChanged ("PointDetails");
 			}
@@ -70,15 +68,15 @@ namespace SquadBuilder
 			get { return !string.IsNullOrEmpty (description); }
 		}
 
-		ObservableCollection <Pilot> pilots = new ObservableCollection <Pilot> ();
-		public ObservableCollection <Pilot> Pilots { 
-			get { 
+		ObservableCollection<Pilot> pilots = new ObservableCollection<Pilot> ();
+		public ObservableCollection<Pilot> Pilots {
+			get {
 				return pilots;
 			}
 			set {
 				SetProperty (ref pilots, value);
 				NotifyPropertyChanged ("PointDetails");
-				Pilots.CollectionChanged += (sender, e) => 
+				Pilots.CollectionChanged += (sender, e) =>
 					NotifyPropertyChanged ("PointsDescription");
 			}
 		}
@@ -86,33 +84,33 @@ namespace SquadBuilder
 		int wins = 0;
 		public int Wins {
 			get { return wins; }
-			set { 
+			set {
 				if (value < 0)
 					value = 0;
-				
-				SetProperty (ref wins, value); 
+
+				SetProperty (ref wins, value);
 			}
 		}
 
 		int losses = 0;
 		public int Losses {
 			get { return losses; }
-			set { 
+			set {
 				if (value < 0)
 					value = 0;
-				
-				SetProperty (ref losses, value); 
+
+				SetProperty (ref losses, value);
 			}
 		}
 
 		int draws = 0;
 		public int Draws {
 			get { return draws; }
-			set { 
+			set {
 				if (value < 0)
 					value = 0;
-				
-				SetProperty (ref draws, value); 
+
+				SetProperty (ref draws, value);
 			}
 		}
 
@@ -149,7 +147,7 @@ namespace SquadBuilder
 		}
 
 		public bool Editing {
-				get { return Settings.Editing; }
+			get { return Settings.Editing; }
 		}
 
 		[XmlIgnore]
@@ -158,7 +156,7 @@ namespace SquadBuilder
 		public RelayCommand DeleteSquadron {
 			get {
 				if (deleteSquadron == null)
-					deleteSquadron = new RelayCommand (() => MessagingCenter.Send <Squadron> (this, "DeleteSquadron"));
+					deleteSquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "DeleteSquadron"));
 
 				return deleteSquadron;
 			}
@@ -170,8 +168,8 @@ namespace SquadBuilder
 		public RelayCommand EditDetails {
 			get {
 				if (editDetails == null)
-					editDetails = new RelayCommand (() => MessagingCenter.Send <Squadron> (this, "EditDetails"));
-			
+					editDetails = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "EditDetails"));
+
 				return editDetails;
 			}
 		}
@@ -182,7 +180,7 @@ namespace SquadBuilder
 		public RelayCommand CopySquadron {
 			get {
 				if (copySquadron == null)
-					copySquadron = new RelayCommand (() => MessagingCenter.Send <Squadron> (this, "CopySquadron"));
+						copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
 
 				return copySquadron;
 			}
@@ -194,7 +192,7 @@ namespace SquadBuilder
 		public RelayCommand MoveUp {
 			get {
 				if (moveUp == null)
-					moveUp = new RelayCommand (() => MessagingCenter.Send <Squadron> (this, "MoveSquadronUp"));
+					moveUp = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronUp"));
 
 				return moveUp;
 			}
@@ -215,7 +213,7 @@ namespace SquadBuilder
 		public Squadron Copy ()
 		{
 			var squadron = new Squadron {
-				Name = Name + "- Copy",
+				Name = Name + " - Copy",
 				Faction = Faction,
 				MaxPoints = MaxPoints,
 				Pilots = new ObservableCollection<Pilot> (),
@@ -227,75 +225,136 @@ namespace SquadBuilder
 			return squadron;
 		}
 
-		public string CreateXws ()
+		public JObject CreateXwsObject ()
 		{
 			var json = new JObject (
 				new JProperty ("name", Name),
 				new JProperty ("points", Points),
 				new JProperty ("faction", Faction.Id),
 				new JProperty ("version", XwsVersion),
-				new JProperty ("pilots",
-					new JArray (
-						from p in Pilots
-						select new JObject (
-							new JProperty ("name", p.CanonicalName ?? p.Id),
-							new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
-							new JProperty ("upgrades", new JObject (
-								from category in 
-									(from upgrade in p.UpgradesEquipped.Where (u => u != null)
-									select upgrade.CategoryId).Distinct ()
-								select new JProperty (category, 
-									new JArray (
-										from upgrade in p.UpgradesEquipped.Where (u => u != null)
-										where upgrade.CategoryId == category
-										select upgrade.CanonicalName ?? upgrade.Id
-									)
-									)
+				new JProperty ("description", Description ?? ""));
+			
+			var pilots = new JArray ();
+
+			foreach (var p in Pilots) {
+				try {
+					var obj = new JObject (
+						new JProperty ("name", p.CanonicalName ?? p.Id),
+						new JProperty ("ship", p.Ship.CanonicalName ?? p.Ship.Id),
+						new JProperty ("upgrades", new JObject (
+							from category in
+							(from upgrade in p.UpgradesEquipped.Where (u => u != null && !string.IsNullOrEmpty (u.CategoryId))
+							 select upgrade.CategoryId).Distinct ()
+							select new JProperty (category,
+								new JArray (
+									from upgrade in p.UpgradesEquipped.Where (u => u != null && !string.IsNullOrEmpty (u.CategoryId))
+									where upgrade.CategoryId == category
+									select upgrade.CanonicalName ?? upgrade.Id
 								)
 							)
+							)
 						)
+					);
+
+					if (p.MultiSectionId >= 0)
+						obj.Add (new JProperty ("multisection_id", p.MultiSectionId));
+
+					pilots.Add (obj);
+				} catch (Exception e) {
+					HockeyApp.MetricsManager.TrackEvent ("Xws error",
+                    	new Dictionary<string, string> { { "error message", e.Message } },
+						new Dictionary<string, double> { { "time", 1.0 } }
+                    );
+					MessagingCenter.Send<Squadron, string> (this, "Xws Error", $"Error creating xws object for squadron {Name}"); 
+				}
+			}
+
+			json.Add (new JProperty ("pilots", pilots));
+			json.Add (
+				new JProperty ("vendor",
+					 new JObject (
+					   new JProperty ("aurora", new
+							JObject (
+								new JProperty ("builder", "Aurora Squad Builder"),
+								new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8"),
+								new JProperty ("maxpoints", MaxPoints),
+								new JProperty ("wins", Wins),
+								new JProperty ("losses", Losses),
+								new JProperty ("draws", Draws)
+							)
+						 )
 					)
 				)
 			);
 
-			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
 			var schema = JSchema.Parse (schemaText);
 
 			IList<string> errors;
 			var valid = json.IsValid (schema, out errors);
 
-			var jsonString = json.ToString ();
+			return json;
+		}
 
-			return jsonString;
+		public string CreateXws ()
+		{
+			return CreateXwsObject ().ToString ();
 		}
 
 		public static Squadron FromXws (string xws)
 		{
 			var json = JObject.Parse (xws);
 
-			var schemaText = DependencyService.Get <ISaveAndLoad> ().LoadText ("schema.json");
+			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
 			var schema = JSchema.Parse (schemaText);
 
 			try {
 				var squadron = new Squadron () {
 					Name = json ["name"].ToString (),
+					Description = json ["description"].ToString (),
 					Faction = Cards.SharedInstance.Factions.FirstOrDefault (f => f.Id == json ["faction"].ToString ()),
 					MaxPoints = (int)json ["points"],
 					Pilots = new ObservableCollection<Pilot> ()
 				};
 
-				foreach (var pilotObject in json ["pilots"]) {
-					var pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.CanonicalName == pilotObject ["name"].ToString () && p.Ship.Id == pilotObject ["ship"].ToString () && p.Faction.Id == squadron.Faction.Id)?.Copy ();
+				int wins = 0, losses = 0, draws = 0;
+				int.TryParse (json ["vendor"]? ["aurora"]? ["wins"]?.ToString (), out wins);
+				int.TryParse (json ["vendor"]? ["aurora"]? ["losses"]?.ToString (), out losses);
+				int.TryParse (json ["vendor"]? ["aurora"]? ["draws"]?.ToString (), out draws);
 
-					if (pilot == null)
+				squadron.Wins = wins;
+				squadron.Losses = losses;
+				squadron.Draws = draws;
+
+				int maxPoints = 100;
+				var parsed = int.TryParse (json ["vendor"]? ["aurora"]? ["maxpoints"]?.ToString (), out maxPoints);
+				if (!parsed)
+					maxPoints = 100;
+				squadron.MaxPoints = maxPoints;
+
+				if (squadron.Faction.Id == "mixed")
+				Console.WriteLine("Foo");
+
+				foreach (var pilotObject in json ["pilots"]) {
+					var pilot = (Cards.SharedInstance.Pilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)))?.Copy ();
+
+					if (pilot == null) {
+						//pilot = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString ());
 						continue;
+					}
 
 					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
 						pilot.UpgradesEquipped.Add (null);
 
 					if (pilotObject ["upgrades"] != null) {
+						List<Upgrade> skippedUpgrades = new List<Upgrade> ();
+
 						foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
 							var upgradeType = (upgradeTypeArray as JProperty).Name;
+
 
 							foreach (var value in upgradeTypeArray.Values ()) {
 								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
@@ -305,11 +364,48 @@ namespace SquadBuilder
 
 								var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
 
-								if (index < 0)
+								if (index < 0) {
+									skippedUpgrades.Add (upgrade);
 									continue;
+								}
 
 								pilot.EquipUpgrade (index, upgrade);
 							}
+						}
+
+						if (pilot.UpgradesEquipped.Any (u => u?.Id == "heavyscykinterceptor")) {
+							if (skippedUpgrades.Any (u => u.CategoryId == "missile")) {
+								pilot.UpgradeTypes.Add ("Missile");
+								pilot.UpgradesEquipped.Add (null);
+							} else if (skippedUpgrades.Any (u => u.CategoryId == "torpedo")) {
+								pilot.UpgradeTypes.Add ("Torpedo");
+								pilot.UpgradesEquipped.Add (null);
+							} else {
+								pilot.UpgradeTypes.Add ("Cannon");
+								pilot.UpgradesEquipped.Add (null);
+							}
+						}
+
+						if (pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes")) {
+							foreach (var upgrade in skippedUpgrades) {
+								if (upgrade.CategoryId == "missile") {
+									var index = pilot.UpgradeTypes.IndexOf ("Hardpoint");
+									pilot.UpgradeTypes [index] = "Missile";
+								} else if (upgrade.CategoryId == "torpedo") {
+									var index = pilot.UpgradeTypes.IndexOf ("Hardpoint");
+									pilot.UpgradeTypes [index] = "Torpedo";
+								}
+							}
+						}
+
+						foreach (var upgrade in skippedUpgrades) {
+							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+
+							if (index < 0) {
+								continue;
+							}
+
+							pilot.EquipUpgrade (index, upgrade);
 						}
 					}
 
@@ -322,7 +418,7 @@ namespace SquadBuilder
 				var valid = json.IsValid (schema, out errors);
 
 				if (!valid) {
-					MessagingCenter.Send <Squadron, IList<string>> (null, "Invalid xws info", errors);
+					MessagingCenter.Send<Squadron, IList<string>> (new Squadron (), "Invalid xws info", errors);
 					return null;
 				}
 				Console.WriteLine (e.Message);
@@ -349,6 +445,11 @@ namespace SquadBuilder
 		public override int GetHashCode ()
 		{
 			return (Name + Description + Points + MaxPoints + Faction.Id + Pilots).GetHashCode ();
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ($"Name={Name}, Faction={Faction.Name}");
 		}
 	}
 }

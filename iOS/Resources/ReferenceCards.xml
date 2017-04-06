@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ReferenceCards Version="0.06">
+<ReferenceCards Version="0.07">
 	<ReferenceCard>
 		<Name>Ion Token</Name>
 		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
@@ -79,7 +79,7 @@ Cloak tokens are not removed during the End phase.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>Decloak</Name>
-		<Text>At the start of the Activation phase, after players have resolved all other abilities that trigger at the start of the Activation phase, each ship may spend a cloak token to Decloak, starting with the ship with the lowets pilot skill (using initiative to break ties).  When a ship decloaks, it must choose one of the following effects:
+		<Text>At the start of the Activation phase, after players have resolved all other abilities that trigger at the start of the Activation phase, each ship may spend a cloak token to Decloak, starting with the ship with the lowest pilot skill (using initiative to break ties).  When a ship decloaks, it must choose one of the following effects:
 
 * Perform a barrel roll using the {straight 2} maneuver template.
 
@@ -89,7 +89,7 @@ Decloaking is not an action or a maneuver, and a ship can decloak while it has a
 
 A ship cannot decloak if it would overlap another ship or an obstacle token, or if the maneuver template would overlap an obstacle token.
 
-After all decloaking ships have been resolved, the Activation phase continues as normal.</Text>
+After all decloaking has been resolved, the Activation phase continues as normal.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>Segnor's Loop</Name>
@@ -123,7 +123,7 @@ The first time a small ship receives a tractor beam token each round, the opposi
 
 * Perform a boost using the {straight 1} maneuver template.
 
-This is not an action or a maneuver, and can cause the ship to overlap obstacles (but not other ships).</Text>
+This is not an action or a maneuver, and can cause the ship to overlap obstacles (but not other ships).  The ship suffers the effect of any obstacle it overlaps.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>Dual Upgrade Cards</Name>

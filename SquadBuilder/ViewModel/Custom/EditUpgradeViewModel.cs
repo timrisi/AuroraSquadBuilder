@@ -197,9 +197,9 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref factionIndex, value);
 				if (factionIndex > 0)
-					Upgrade.Faction = Factions [factionIndex - 1];
+					Upgrade.Factions = new List<Faction> { Factions [factionIndex - 1] };
 				else
-					Upgrade.Faction = null;
+					Upgrade.Factions = null;
 			}
 		}
 
@@ -257,12 +257,12 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
-						XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
-						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
+						XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
+						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
 						if (upgradesXml.Descendants ().FirstOrDefault (e => e?.Value == Name) != null)
 							return;
-						
+
 						var element = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == OriginalXml.Attribute ("id")?.Value);
 						element.SetAttributeValue ("id", Upgrade.Id);
 						element.SetElementValue ("Name", Name);
@@ -271,7 +271,7 @@ namespace SquadBuilder
 						element.SetElementValue ("Unique", IsUnique);
 						element.SetElementValue ("Limited", IsLimited);
 						element.SetElementValue ("Ship", Upgrade.Ship?.Id);
-						element.SetElementValue ("Faction", Upgrade.Faction?.Id);
+						element.SetElementValue ("Factions", Upgrade.Factions? [0]?.Id);
 						element.SetElementValue ("SmallOnly", SmallOnly);
 						element.SetElementValue ("LargeOnly", LargeOnly);
 						element.SetElementValue ("HugeOnly", HugeOnly);
