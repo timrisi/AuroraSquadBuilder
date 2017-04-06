@@ -72,9 +72,6 @@ namespace SquadBuilder.Droid
 
 			UpdateIds ();
 
-			var schemaJson = new StreamReader (Application.Context.Assets.Open ("schema.json")).ReadToEnd ();
-			saveAndLoad.SaveText ("schema.json", schemaJson);
-
 			var settingsXml = new StreamReader (Application.Context.Assets.Open (Cards.SettingsFilename)).ReadToEnd ();
 			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)

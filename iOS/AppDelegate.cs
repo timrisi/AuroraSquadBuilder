@@ -53,9 +53,6 @@ namespace SquadBuilder.iOS
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
 
-			var schemaJson = new StreamReader (NSBundle.MainBundle.PathForResource ("schema", "json")).ReadToEnd ();
-			saveAndLoad.SaveText ("schema.json", schemaJson);
-
 			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
 			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)

@@ -287,12 +287,6 @@ namespace SquadBuilder {
 				)
 			);
 
-			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
-			var schema = JSchema.Parse (schemaText);
-
-			IList<string> errors;
-			var valid = json.IsValid (schema, out errors);
-
 			return json;
 		}
 
@@ -304,9 +298,6 @@ namespace SquadBuilder {
 		public static Squadron FromXws (string xws)
 		{
 			var json = JObject.Parse (xws);
-
-			var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
-			var schema = JSchema.Parse (schemaText);
 
 			try {
 				var squadron = new Squadron () {
@@ -414,6 +405,9 @@ namespace SquadBuilder {
 
 				return squadron;
 			} catch (Exception e) {
+				var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
+				var schema = JSchema.Parse (schemaText);
+
 				IList<string> errors;
 				var valid = json.IsValid (schema, out errors);
 
