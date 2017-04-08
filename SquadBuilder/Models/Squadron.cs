@@ -357,7 +357,10 @@ namespace SquadBuilder {
 
 
 							foreach (var value in upgradeTypeArray.Values ()) {
-								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.Id == value.ToString ())?.Copy ();
+								if (value.ToString ().Contains ("4lom"))
+									Console.WriteLine ("Foo");
+								
+								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ())?.Copy ();
 
 								if (upgrade == null)
 									continue;
