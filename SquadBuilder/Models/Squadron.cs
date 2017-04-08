@@ -230,7 +230,7 @@ namespace SquadBuilder {
 			var json = new JObject (
 				new JProperty ("name", Name),
 				new JProperty ("points", Points),
-				new JProperty ("faction", Faction.Id),
+				new JProperty ("faction", Faction?.Id),
 				new JProperty ("version", XwsVersion),
 				new JProperty ("description", Description ?? ""));
 			

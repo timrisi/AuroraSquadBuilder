@@ -13,7 +13,8 @@ namespace SquadBuilder.iOS
 		public async void SendFeedback ()
 		{
 			var feedbackManager = BITHockeyManager.SharedHockeyManager.FeedbackManager;
-			feedbackManager.ShowFeedbackListView ();
+			//feedbackManager.ShowFeedbackListView ();
+			feedbackManager.ShowFeedbackComposeView ();
 
 			//var rootController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 			//try {

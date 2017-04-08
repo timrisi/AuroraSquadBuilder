@@ -595,7 +595,7 @@ namespace SquadBuilder
 								pilot.Ship.ManeuverGridImage = "";
 							}
 
-							if (squad.Faction.Id == "scum") {
+							if (squad.Faction?.Id == "scum") {
 								if (pilot.Id == "bobafett")
 									pilot.Id = "bobafettscum";
 								if (pilot.Id == "kathscarlet")
@@ -663,7 +663,9 @@ namespace SquadBuilder
 				return;
 			}
 
-			var xwc = CreateXwc ();
+			try {
+				var xwc = CreateXwc ();
+			
 
 			if (!service.FileExists (XwcFilename) || service.LoadText (XwcFilename) != xwc) {
 				service.SaveText (XwcFilename, xwc);
@@ -672,6 +674,9 @@ namespace SquadBuilder
 
 				if (App.DropboxClient != null)
 					await SettingsViewModel.SaveToDropbox ();
+			}
+				} catch (Exception e) {
+				Console.WriteLine ("Foo");
 			}
 		}
 
