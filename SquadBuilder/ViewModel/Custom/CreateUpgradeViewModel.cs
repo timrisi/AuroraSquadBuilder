@@ -278,7 +278,14 @@ namespace SquadBuilder
                             new XElement ("Custom", true)
 						);
 
-						customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == UpgradeTypes [UpgradeTypeIndex])?.Add (element);
+						var category = customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == UpgradeTypes [UpgradeTypeIndex]);
+						if (category == null) {
+							category = new XElement ("Category", new XAttribute ("type", UpgradeTypes [UpgradeTypeIndex]));
+							customUpgradesXml.Add (category);
+						}
+
+						category?.Add (element);
+	
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customUpgradesXml.ToString ());
 //
 						MessagingCenter.Send <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", Upgrade);

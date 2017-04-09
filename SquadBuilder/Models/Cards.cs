@@ -663,9 +663,7 @@ namespace SquadBuilder
 				return;
 			}
 
-			try {
-				var xwc = CreateXwc ();
-			
+			var xwc = CreateXwc ();
 
 			if (!service.FileExists (XwcFilename) || service.LoadText (XwcFilename) != xwc) {
 				service.SaveText (XwcFilename, xwc);
@@ -674,9 +672,6 @@ namespace SquadBuilder
 
 				if (App.DropboxClient != null)
 					await SettingsViewModel.SaveToDropbox ();
-			}
-				} catch (Exception e) {
-				Console.WriteLine ("Foo");
 			}
 		}
 

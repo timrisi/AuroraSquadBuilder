@@ -126,7 +126,7 @@ namespace SquadBuilder
 
 		public string FactionsString {
 			get {
-				return string.Join (", ", Factions);
+				return Factions != null ? string.Join (", ", Factions) : null;
 			}
 		}
 

@@ -27,7 +27,7 @@ namespace SquadBuilder.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
-			 
+
 			var manager = BITHockeyManager.SharedHockeyManager;
 			manager.Configure ("ce337527cc114b12805fcf7477297f40");
 			manager.StartManager ();

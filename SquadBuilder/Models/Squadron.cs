@@ -323,9 +323,6 @@ namespace SquadBuilder {
 					maxPoints = 100;
 				squadron.MaxPoints = maxPoints;
 
-				if (squadron.Faction.Id == "mixed")
-				Console.WriteLine("Foo");
-
 				foreach (var pilotObject in json ["pilots"]) {
 					var pilot = (Cards.SharedInstance.Pilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
 				                 Cards.SharedInstance.Pilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
@@ -348,10 +345,8 @@ namespace SquadBuilder {
 
 
 							foreach (var value in upgradeTypeArray.Values ()) {
-								if (value.ToString ().Contains ("4lom"))
-									Console.WriteLine ("Foo");
-								
-								var upgrade = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ())?.Copy ();
+								var upgrade = (Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ()) ??
+								               Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.OldId == value.ToString ()))?.Copy ();
 
 								if (upgrade == null)
 									continue;
