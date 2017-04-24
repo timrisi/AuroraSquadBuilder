@@ -28,7 +28,9 @@ namespace SquadBuilder
 			MessagingCenter.Subscribe <Upgrade> (this, "Edit Upgrade", upgrade => {
 				string upgradeName = upgrade.Name;
 				string shipName = upgrade.Ship?.Name;
-				string factionName = upgrade.Factions? [0]?.Name;
+				string factionName;
+				if (upgrade.Factions != null && upgrade.Factions.Count > 0)
+					factionName = upgrade.Factions? [0]?.Name;
 
 				MessagingCenter.Subscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", (vm, updatedUpgrade) => {
 					Cards.SharedInstance.CustomUpgrades [Cards.SharedInstance.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;

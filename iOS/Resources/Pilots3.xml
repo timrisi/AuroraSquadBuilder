@@ -2553,7 +2553,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<CanonicalName>chewbacca</CanonicalName>
 	</Pilot>
 	<Pilot id="outerrimsmuggler" faction="rebel" ship="yt1300">
 		<Name>Outer Rim Smuggler</Name>

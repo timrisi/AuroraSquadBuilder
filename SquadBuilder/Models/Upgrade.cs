@@ -18,7 +18,6 @@ namespace SquadBuilder
 		public string CategoryId { get; set; }
 		public string Category { get; set; }
 		public int Cost { get; set; }
-		public Ship Ship { get; set; }
 		public bool SmallOnly { get; set; }
 		public bool LargeOnly { get; set; }
 		public bool HugeOnly { get; set; }
@@ -44,6 +43,8 @@ namespace SquadBuilder
 		public int? MinAgility { get; set; }
 		public int? MaxAgility { get; set; }
 		public int? ShieldRequirement { get; set; }
+
+		public Ship Ship { get; set; }
 
 		string canonicalName;
 		public string CanonicalName {

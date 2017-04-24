@@ -494,6 +494,7 @@ namespace SquadBuilder
 					Text = upgrade.Element ("Text")?.Value,
 					Factions = allFactions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
 					Ship = allShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
+					ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 					PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 					Energy = upgrade.Element ("Energy") != null ? (int)upgrade.Element ("Energy") : 0,
 					Attack = upgrade.Element ("Attack") != null ? (int)upgrade.Element ("Attack") : 0,

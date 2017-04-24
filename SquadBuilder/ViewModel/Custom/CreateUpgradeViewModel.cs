@@ -198,10 +198,14 @@ namespace SquadBuilder
 			get { return shipIndex; }
 			set {
 				SetProperty (ref shipIndex, value);
-				if (shipIndex > 0)
+				if (shipIndex > 0) {
 					Upgrade.Ship = Ships [shipIndex - 1].Copy ();
-				else
+					Upgrade.ShipRequirement = Upgrade.Ship.Name;
+				} else {
 					Upgrade.Ship = null;
+					Upgrade.ShipRequirement = null;
+				}
+				
 			}
 		}
 
@@ -262,7 +266,7 @@ namespace SquadBuilder
 							new XElement ("Text", Text),
 							new XElement ("Unique", IsUnique),
 							new XElement ("Limited", IsLimited),
-							new XElement ("Ship", Upgrade.Ship?.Id),
+                            new XElement ("ShipRequirement", Upgrade.ShipRequirement),
 							new XElement ("Factions", Upgrade.Factions? [0]?.Id),
 							new XElement ("SmallOnly", SmallOnly),
 							new XElement ("LargeOnly", LargeOnly),
