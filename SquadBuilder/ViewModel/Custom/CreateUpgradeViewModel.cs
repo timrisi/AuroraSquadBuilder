@@ -214,8 +214,10 @@ namespace SquadBuilder
 			get { return upgradeTypeIndex; }
 			set {
 				SetProperty (ref upgradeTypeIndex, value);
-				if (upgradeTypeIndex >= 0)
+				if (upgradeTypeIndex >= 0) {
 					Upgrade.Category = UpgradeTypes [upgradeTypeIndex];
+					upgrade.CategoryId = Cards.CategoryToID [Upgrade.Category];
+				}
 			}
 		}
 
@@ -287,6 +289,7 @@ namespace SquadBuilder
 							category = new XElement ("Category", new XAttribute ("type", UpgradeTypes [UpgradeTypeIndex]));
 							customUpgradesXml.Add (category);
 						}
+						element.Add (new XElement ("CategoryId", category.Attribute ("id").ToString ()));
 
 						category?.Add (element);
 	

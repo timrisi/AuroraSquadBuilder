@@ -32,6 +32,26 @@ namespace SquadBuilder
 		public const string VersionsFilename = "Versions.xml";
 		public const string ReferenceCardsFilename = "ReferenceCards.xml";
 
+		public static Dictionary<string, string> CategoryToID = new Dictionary<string, string> {
+			{ "Astromech Droid", "amd" },
+			{ "Bomb", "bomb" },
+			{ "Cannon", "cannon" },
+			{ "Cargo", "cargo" },
+			{ "Crew", "crew" },
+			{ "Elite Pilot Talent", "ept" },
+			{ "Hardpoint", "hardpoint" },
+			{ "Illicit", "illicit" },
+			{ "Missile", "missile" },
+			{ "Modification", "mod" },
+			{ "Salvaged Astromech", "samd" },
+			{ "System Upgrade", "system" },
+			{ "Team", "team" },
+			{ "Title", "title" },
+			{ "Torpedo", "torpedo" },
+			{ "Turret Weapon", "turret" },
+			{ "Tech", "tech" }
+		};
+
 		public Cards ()
 		{
 			MessagingCenter.Subscribe <App> (this, "Save Squadrons", app => SaveSquadrons ());
@@ -490,6 +510,7 @@ namespace SquadBuilder
 					CanonicalName = upgrade.Element ("CanonicalName")?.Value,
 					OldId = upgrade.Element ("OldId")?.Value,
 					Category = upgrade.Parent.Attribute ("type")?.Value,
+					CategoryId = upgrade.Parent.Attribute ("id")?.Value ?? CategoryToID [upgrade.Parent.Attribute ("type")?.Value],
 					Cost = (int)upgrade.Element ("Cost"),
 					Text = upgrade.Element ("Text")?.Value,
 					Factions = allFactions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
