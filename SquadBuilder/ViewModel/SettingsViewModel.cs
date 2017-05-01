@@ -109,6 +109,14 @@ namespace SquadBuilder
 			}
 		}
 
+		public bool IncludeHotac {
+			get { return Settings.IncludeHotac; }
+			set {
+				Settings.IncludeHotac = value;
+				NotifyPropertyChanged ("IncludeHotac");
+			}
+		}
+
 		public bool DropboxSync {
 			get { return Settings.DropboxSync; }
 			set {

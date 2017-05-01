@@ -40,6 +40,7 @@
 										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" />
 										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+										<Label Text="HotAC" IsVisible="{Binding HotAC}" TextColor="Red" FontAttributes="Italic" />
 										<Label Text="{Binding Energy}" IsVisible="{Binding ShowEnergy}" TextColor="Fuchsia" FontAttributes="Bold" HorizontalOptions="EndAndExpand" />
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding SecondaryWeapon}">

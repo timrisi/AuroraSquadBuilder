@@ -118,6 +118,15 @@ namespace SquadBuilder
 			}
 		}
 
+		static bool includeHotac = false;
+		public static bool IncludeHotac {
+			get { return includeHotac; }
+			set {
+				includeHotac = value;
+				App.Storage.Put<bool> ("IncludeHotac", value);
+			}
+		}
+
 		static bool editing;
 		public static bool Editing {
 			get {

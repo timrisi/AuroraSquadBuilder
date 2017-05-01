@@ -22,6 +22,7 @@ namespace SquadBuilder
 			Settings.ShowManeuversInPilotView = Storage.Get<bool> ("ShowManeuversInPilotView", true);
 			Settings.ShowManeuversInPilotSelection = Storage.Get<bool> ("ShowManeuversInPilotSelection", false);
 			Settings.CustomCardLeague = Storage.Get<bool> ("CustomCardLeague", false);
+			Settings.IncludeHotac = Storage.Get<bool> ("IncludeHotac", false);
 			RegisterViews();
 			MainPage = new RootPage ();
 		}

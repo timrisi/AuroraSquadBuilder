@@ -42,7 +42,8 @@ namespace SquadBuilder
 			var upgrades = Cards.SharedInstance.Upgrades.Where (u => u != null)
 				.Where (u => u.Category == type)
 				.Where (u => !u.IsCustom || Settings.AllowCustom)
-				.Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
+				.Where (u => !u.CCL || Settings.CustomCardLeague)
+                .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades

@@ -45,7 +45,7 @@ namespace SquadBuilder
 		void GetAllShips ()
 		{
 			allShips = Cards.SharedInstance.Ships;
-			Ships = new ObservableCollection <Ship> (allShips.OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
+			Ships = new ObservableCollection <Ship> (allShips.Where (s => !s.CCL).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}
 
 		public override void OnViewAppearing ()

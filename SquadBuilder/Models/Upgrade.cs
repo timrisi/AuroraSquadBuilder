@@ -43,6 +43,7 @@ namespace SquadBuilder
 		public int? MinAgility { get; set; }
 		public int? MaxAgility { get; set; }
 		public int? ShieldRequirement { get; set; }
+		public bool HotAC { get; set; }
 
 		public Ship Ship { get; set; }
 
@@ -264,7 +265,8 @@ namespace SquadBuilder
 				AdditionalUpgrades = new ObservableCollection<string> (AdditionalUpgrades),
 				RemovedUpgrades = new ObservableCollection<string> (RemovedUpgrades),
 				RequiredSlots = new ObservableCollection<string> (RequiredSlots),
-				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions)
+				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions),
+				HotAC = HotAC
 			};
 		}
 

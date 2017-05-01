@@ -325,15 +325,19 @@ namespace SquadBuilder {
 
 				foreach (var pilotObject in json ["pilots"]) {
 					var pilot = (Cards.SharedInstance.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-				                 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-				                 Cards.SharedInstance.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-				                 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)))?.Copy ();
-					
+						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)))?.Copy ();
+
 					if (pilot == null)
 						continue;
 
 					while (pilot.UpgradesEquipped.Count < pilot.UpgradeTypes.Count)
 						pilot.UpgradesEquipped.Add (null);
+
+					if (pilotObject ["multisection_id"] != null) {
+						pilot.MultiSectionId = (int)pilotObject ["multisection_id"];
+					}
 
 					if (pilotObject ["upgrades"] != null) {
 						List<Upgrade> skippedUpgrades = new List<Upgrade> ();

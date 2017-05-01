@@ -47,7 +47,7 @@ namespace SquadBuilder
 		{
 			var allPilotGroups = new List <PilotGroup>();
 
-			var pilotList = Cards.SharedInstance.Pilots.ToList ();
+			var pilotList = Cards.SharedInstance.Pilots.Where (p => !p.CCL).ToList ();
 
 			foreach (var pilot in pilotList) {
 				var pilotGroup = allPilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction.Id == pilot.Faction.Id);

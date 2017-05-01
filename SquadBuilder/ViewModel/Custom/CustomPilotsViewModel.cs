@@ -59,7 +59,10 @@ namespace SquadBuilder
 								var upgradeTypes = squadPilot.UpgradeTypes;
 								var upgradesEquipped = squadPilot.UpgradesEquipped;
 								squad.Pilots [i] = updatedPilot.Copy ();
-								squad.Pilots [i].UpgradesEquipped = new ObservableCollection<Upgrade> { null, null, null, null, null, null };
+								squad.Pilots [i].UpgradesEquipped = new ObservableCollection<Upgrade> ();
+								for (int k = 0; k < squad.Pilots [i].UpgradeTypes.Count (); k++) {
+									squad.Pilots [i].UpgradesEquipped.Add (null);
+								}
 
 								for (int j = 0; j < upgradesEquipped.Count; j++) {
 									var equippedUpgrade = upgradesEquipped [j];

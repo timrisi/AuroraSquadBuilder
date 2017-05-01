@@ -66,7 +66,8 @@ namespace SquadBuilder
                 .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
                 .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
                 .Where (u => !u.IsCustom || Settings.AllowCustom)
-                .Where (u => !u.CCL || Settings.CustomCardLeague).ToList ();
+                .Where (u => !u.CCL || Settings.CustomCardLeague)
+                .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
@@ -12,6 +12,7 @@
 					<SwitchCell Text="Include Custom Card League" On="{Binding CustomCardLeague}" />
 					<SwitchCell Text="Filter Pilots By Ship" On="{Binding FilterPilotsByShip}" />
 					<SwitchCell Text="Hide Unavailable Ships/Cards" On="{Binding HideUnavailable}" />
+					<SwitchCell Text="Show Aturi Cluster Upgrades" On="{Binding IncludeHotac}" />
 				</TableSection>
 				<TableSection Title="Maneuver Grids">
 					<SwitchCell Text="Show In Ship Selection" On="{Binding ShowManeuversInShipList}" />

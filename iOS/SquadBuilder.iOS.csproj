@@ -42,7 +42,7 @@
     <IpaPackageName>
     </IpaPackageName>
     <BuildIpa>true</BuildIpa>
-    <CodesignProvision>Squad Builder Distribution</CodesignProvision>
+    <CodesignProvision>Squad Builder Ad Hoc</CodesignProvision>
     <MtouchUseLlvm>true</MtouchUseLlvm>
 <MtouchFloat32>true</MtouchFloat32>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
