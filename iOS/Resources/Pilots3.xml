@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.65">
+<Pilots Version="3.68">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -447,6 +447,26 @@
 		<Ability>When attacking or defending, double the effect of your range combat bonuses.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="viktorhel" faction="scum" ship="kihraxzfighter">
+        <Name>Viktor Hel</Name>
+        <Unique>true</Unique>
+        <PilotSkill>7</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>4</Hull>
+        <Shields>1</Shields>
+        <Cost>25</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Illicit</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>After defending, if you did not roll exactly 2 defense dice, the attacker receives 1 stress token.</Ability>
+        <Owned>0</Owned>
+		<Preview>true</Preview>
+    </Pilot>
 	<Pilot id="grazthehunter" faction="scum" ship="kihraxzfighter">
 		<Name>Graz the Hunter</Name>
 		<Unique>true</Unique>
@@ -4230,6 +4250,65 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
+	<Pilot id="lieutenantkestal" faction="imperial" ship="tieaggressor">
+        <Name>Lieutenant Kestral</Name>
+        <Unique>true</Unique>
+        <PilotSkill>7</PilotSkill>
+        <Attack>2</Attack>
+        <Agility>2</Agility>
+        <Hull>4</Hull>
+        <Shields>1</Shields>
+        <Cost>22</Cost>
+        <Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+		<Ability>When attacking, you may spend 1 focus token to cancel all of the defender's blank and {focus} results.</Ability>
+		<OldId>lieutenantkestral</OldId>
+		<Preview>true</Preview>
+    </Pilot>
+	<Pilot id="doubleedge" faction="imperial" ship="tieaggressor">
+        <Name>Double Edge</Name>
+        <Unique>true</Unique>
+        <PilotSkill>4</PilotSkill>
+        <Attack>2</Attack>
+        <Agility>2</Agility>
+        <Hull>4</Hull>
+        <Shields>1</Shields>
+        <Cost>19</Cost>
+        <Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>Once per round, after you perform a secondary weapon attack that does not hit, you may perform an attack with a different weapon.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
+	<Pilot id="onyxsquadronescort" faction="imperial" ship="tieaggressor">
+        <Name>Onyx Squadron Escort</Name>
+        <Unique>false</Unique>
+        <PilotSkill>5</PilotSkill>
+        <Attack>2</Attack>
+        <Agility>2</Agility>
+        <Hull>4</Hull>
+        <Shields>1</Shields>
+        <Cost>19</Cost>
+        <Upgrades>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Preview>true</Preview>
+    </Pilot>
 	<Pilot id="sienarspecialist" faction="imperial" ship="tieaggressor">
 		<Name>Sienar Specialist</Name>
 		<Unique>false</Unique>
@@ -4246,6 +4325,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
+        <Preview>true</Preview>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray31">
 		<Name>Boba Fett</Name>
@@ -5061,7 +5141,7 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Ability>When a friendly ship at Range 1-2 is defending, you may spend your focus token to change their blank results to {eyeball} results.</Ability>
+		<Ability>When a friendly ship at Range 1-2 is defending, you may spend your focus token to change their blank results to {focus} results.</Ability>
 		<CCL>true</CCL>
 	</Pilot>
 	<Pilot id="roguesquadronace" faction="rebel" ship="xwing">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.71">
+<Upgrades Version="3.76">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -1312,6 +1312,15 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
 			<Text>When attacking, You may consider the defender to be hit by your attack regardless of dice results. If you do, the defender suffers no damage. You gain no XP, but the defender may still suffer tokens, such as Ion and Stress.</Text>
 			<HotAC>true</HotAC>
 		</Upgrade>
+		<Upgrade id="intensity">
+            <Name>Intensity</Name>
+			<Cost>2</Cost>
+			<Text>After you perform a boost or barrel roll action, you may assign 1 focus or evade token to your ship.  If you do, flip this card.
+
+(Exhausted) At the end of the Combat phase, you may spend 1 focus or evade token to flip this card.</Text>
+			<SmallOnly>true</SmallOnly>
+			<Preview>true</Preview>
+		</Upgrade>
 	</Category>
 	<Category id="hardpoint" type="Hardpoint">
 		<Upgrade id="quadlasercannons">
@@ -2518,6 +2527,28 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<Energy>2</Energy>
 			<Preview>true</Preview>
 		</Upgrade>
+		<Upgrade id="starvipermkii">
+            <Name>StarViper Mk.II</Name>
+            <Cost>-3</Cost>
+            <Text>You may equip up to 2 different Title upgrades.  When performing a barrel roll action, you must use the {bank left 1} or {bank right 1} template instead of the {straight 1} template.</Text>
+            <ShipRequirement>StarViper</ShipRequirement>
+            <AdditionalUpgrades>
+                <Upgrade>Title</Upgrade>
+            </AdditionalUpgrades>
+            <Preview>true</Preview>
+        </Upgrade>
+		<Upgrade id="vaksai">
+            <Name>Vaksai</Name>
+            <Cost>0</Cost>
+            <Text>The squad point cost of each of your equipped upgrades is reduced by 1 (to a minimum of 0).  You may equip up to 3 different Modification upgrades.</Text>
+            <Unique>true</Unique>
+            <ShipRequirement>Kihraxz</ShipRequirement>
+            <AdditionalUpgrades>
+                <Upgrade>Modification</Upgrade>
+                <Upgrade>Modification</Upgrade>
+            </AdditionalUpgrades>
+            <Preview>true</Preview>
+        </Upgrade>
 	</Category>
 	<Category id="torpedo" type="Torpedo">
 		<Upgrade id="protontorpedoes">
