@@ -472,6 +472,8 @@ namespace SquadBuilder
 											Preview = upgrade.Element ("Preview") != null ? (bool)upgrade.Element ("Preview") : false,
 											AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List<XElement> ()
 																									select upgr.Value).ToList ()),
+											AdditionalActions = new ObservableCollection<string> ((from action in upgrade.Element ("AdditionalActions") != null ? upgrade.Element ("AdditionalActions").Elements () : new List<XElement> ()
+																		select action.Value).ToList ()),
 											Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List<XElement> ()
 																					   select upgr.Value).ToList ()),
 											RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List<XElement> ()

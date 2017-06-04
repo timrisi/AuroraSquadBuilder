@@ -304,6 +304,11 @@ namespace SquadBuilder
 					UpgradesEquipped.Add (null);
 				}
 
+				foreach (var additionalAction in oldUpgrade.AdditionalActions) {
+					if (Ship.Actions.Contains (additionalAction))
+						Ship.Actions.Remove (additionalAction);
+				}
+
 				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
 					UpgradeTypes.Add (oldUpgrade.Slots [i]);
 					//var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
@@ -357,6 +362,8 @@ namespace SquadBuilder
 					Ship.ManeuverGridImage = Ship.ManeuverGridImage.Replace (oldUpgrade.ModifiedManeuverDial, "");
 			}
 			if (upgrade != null) {
+				upgrade.Pilot = this;
+
 				foreach (var newUpgrade in upgrade.AdditionalUpgrades) {
 					UpgradeTypes.Add (newUpgrade);
 					UpgradesEquipped.Add (null);
@@ -368,6 +375,11 @@ namespace SquadBuilder
 						continue;
 					UpgradeTypes.RemoveAt (removedIndex);
 					UpgradesEquipped.RemoveAt (removedIndex);
+				}
+
+				foreach (var newAction in upgrade.AdditionalActions) {
+					if (!Ship.Actions.Contains (newAction))
+						Ship.Actions.Add (newAction);
 				}
 
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {

@@ -11,13 +11,24 @@ using System.Collections.Generic;
 
 namespace SquadBuilder
 {
-	public class Upgrade : ObservableObject
-	{
+	public class Upgrade : ObservableObject {
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string CategoryId { get; set; }
 		public string Category { get; set; }
-		public int Cost { get; set; }
+
+		int cost;
+		public int Cost { 
+			get {
+				if (Pilot?.UpgradesEquipped?.Any (u => u?.Name == "Vaksai") ?? false)
+					return Math.Max (0, cost - 1);
+				return cost;
+			}
+			set {
+				cost = value;
+			} 
+		}
+
 		public bool SmallOnly { get; set; }
 		public bool LargeOnly { get; set; }
 		public bool HugeOnly { get; set; }
@@ -44,6 +55,7 @@ namespace SquadBuilder
 		public int? MaxAgility { get; set; }
 		public int? ShieldRequirement { get; set; }
 		public bool HotAC { get; set; }
+		public Pilot Pilot { get; set; }
 
 		public Ship Ship { get; set; }
 
@@ -142,6 +154,7 @@ namespace SquadBuilder
 
 		public ObservableCollection <string> Slots { get; set; }
 		public ObservableCollection <string> AdditionalUpgrades { get; set; }
+		public ObservableCollection <string> AdditionalActions { get; set; }
 		public ObservableCollection <string> RemovedUpgrades { get; set; }
 		public ObservableCollection <string> RequiredSlots { get; set; }
 		public ObservableCollection <string> UpgradeOptions { get; set; }
@@ -263,6 +276,7 @@ namespace SquadBuilder
 				ModifiedManeuverDial = ModifiedManeuverDial,
 				Slots = new ObservableCollection<string> (Slots),
 				AdditionalUpgrades = new ObservableCollection<string> (AdditionalUpgrades),
+				AdditionalActions = new ObservableCollection <string> (AdditionalActions),
 				RemovedUpgrades = new ObservableCollection<string> (RemovedUpgrades),
 				RequiredSlots = new ObservableCollection<string> (RequiredSlots),
 				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions),

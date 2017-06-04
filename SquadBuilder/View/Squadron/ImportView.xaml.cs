@@ -17,8 +17,8 @@ namespace SquadBuilder
 		{
 			base.OnAppearing ();
 
-			MessagingCenter.Subscribe <Squadron, IList<string>> (this, "Invalid xws info", ((squadron, errors) => {
-				DisplayAlert ("Invalid xws info", string.Join ("\n", errors), "Okay");
+			MessagingCenter.Subscribe <Squadron> (this, "Error importing squad", ((squadron) => {
+				DisplayAlert ("Error importing squad", "", "Okay");
 			}));
 		}
 

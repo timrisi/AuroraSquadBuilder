@@ -405,17 +405,17 @@ namespace SquadBuilder {
 
 				return squadron;
 			} catch (Exception e) {
-				var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
-				var schema = JSchema.Parse (schemaText);
+				//var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
+				//var schema = JSchema.Parse (schemaText);
 
-				IList<string> errors;
-				var valid = json.IsValid (schema, out errors);
+				//IList<string> errors;
+				//var valid = json.IsValid (schema, out errors);
 
-				if (!valid) {
-					MessagingCenter.Send<Squadron, IList<string>> (new Squadron (), "Invalid xws info", errors);
-					return null;
-				}
-				Console.WriteLine (e.Message);
+				//if (!valid) {
+				MessagingCenter.Send<Squadron> (new Squadron (), "Error loading squad");
+				//	return null;
+				//}
+				//Console.WriteLine (e.Message);
 			}
 
 			return null;
