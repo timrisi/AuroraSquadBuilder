@@ -512,6 +512,7 @@ namespace SquadBuilder
 											  Name = p.Name + " (Pilot)",
 											  Unique = true,
 						AdditionalUpgrades = new ObservableCollection<string> (),
+						AdditionalActions = new ObservableCollection <string> (),
 						UpgradeOptions = new ObservableCollection<string> (),
 						RequiredSlots = new ObservableCollection<string> (),
 						RemovedUpgrades = new ObservableCollection<string> (),

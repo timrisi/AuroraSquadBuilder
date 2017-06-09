@@ -20,29 +20,36 @@ namespace SquadBuilder
 			get { 
 				if (saveSquadron == null) {
 					saveSquadron = new RelayCommand (() => {
-						var json = JObject.Parse (ImportText);
-						if (json ["container"] != null) {
-							var squadrons = new List<Squadron> ();
+						if (string.IsNullOrEmpty (ImportText))
+							return;
 
-							foreach (var squadXws in json ["container"])
-								squadrons.Add (Squadron.FromXws (squadXws.ToString ()));
+						try {
+							var json = JObject.Parse (ImportText);
+							if (json ["container"] != null) {
+								var squadrons = new List<Squadron> ();
 
-							if (squadrons.Count > 0)
-								MessagingCenter.Send<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", squadrons);
+								foreach (var squadXws in json ["container"])
+									squadrons.Add (Squadron.FromXws (squadXws.ToString ()));
 
-							Navigation.RemoveAsync<ImportViewModel> (this);
-						} else {
+								if (squadrons.Count > 0)
+									MessagingCenter.Send<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", squadrons);
 
-							var squadron = Squadron.FromXws (ImportText);
-
-							if (squadron == null)
-								return;
-							else {
-								MessagingCenter.Send<ImportViewModel, Squadron> (this, "Squadron Imported", squadron);
 								Navigation.RemoveAsync<ImportViewModel> (this);
+							} else {
+
+								var squadron = Squadron.FromXws (ImportText);
+
+								if (squadron == null)
+									return;
+								else {
+									MessagingCenter.Send<ImportViewModel, Squadron> (this, "Squadron Imported", squadron);
+									Navigation.RemoveAsync<ImportViewModel> (this);
+								}
 							}
+						} catch (Exception e) {
+							return;
 						}
-					});
+ 					});
 				}
 
 				return saveSquadron;

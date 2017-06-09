@@ -247,7 +247,7 @@ namespace SquadBuilder
 				OldId = OldId,
 				Category = Category,
 				CategoryId = CategoryId,
-				Cost = Cost,
+				Cost = cost,
 				ShipRequirement = ShipRequirement,
 				Factions = Factions,
 				SmallOnly = SmallOnly,
@@ -276,11 +276,12 @@ namespace SquadBuilder
 				ModifiedManeuverDial = ModifiedManeuverDial,
 				Slots = new ObservableCollection<string> (Slots),
 				AdditionalUpgrades = new ObservableCollection<string> (AdditionalUpgrades),
-				AdditionalActions = new ObservableCollection <string> (AdditionalActions),
+				AdditionalActions = new ObservableCollection<string> (AdditionalActions),
 				RemovedUpgrades = new ObservableCollection<string> (RemovedUpgrades),
 				RequiredSlots = new ObservableCollection<string> (RequiredSlots),
 				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions),
-				HotAC = HotAC
+				HotAC = HotAC,
+				Pilot = Pilot,
 			};
 		}
 
