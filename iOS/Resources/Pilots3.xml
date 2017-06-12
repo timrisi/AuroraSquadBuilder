@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.68">
+<Pilots Version="3.69">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -329,7 +329,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>After you acquire a target lock, assign focus and evade tokens to your ship until you have the same number of each token as the locked ship.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="quinnjast" faction="scum" ship="m3ainterceptor">
 		<Name>Quinn Jast</Name>
@@ -346,7 +345,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>At the start of the Combat Phase, you may receive a weapons disabled token to flip one of your discarded {torpedo} or {missile} Upgrade cards faceup.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="laetinashera" faction="scum" ship="m3ainterceptor">
 		<Name>Laetin A'shera</Name>
@@ -395,7 +393,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>When attacking or defending, you may spend 1 shield to reroll any number of your dice.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="cartelspacer" faction="scum" ship="m3ainterceptor">
 		<Name>Cartel Spacer</Name>
@@ -426,7 +423,6 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 		<Ability>Once per round, after you roll or reroll dice, if you have the same result on each of your dice, you may add 1 matching result.</Ability>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="talonbanecobra" faction="scum" ship="kihraxzfighter">
 		<Name>Talonbane Cobra</Name>
@@ -2344,6 +2340,44 @@
 		<Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
 		<CanonicalName>zeborrelios</CanonicalName>
 	</Pilot>
+    <Pilot id="wullffwarro" faction="rebel" ship="auzituckgunship">
+        <Name>Wullffwarro</Name>
+        <Unique>true</Unique>
+        <PilotSkill>7</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shields>3</Shields>
+        <Cost>30</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>When attacking, if you have no shields and at least 1 Damage card assigned to you, roll 1 additional attack die.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
+	<Pilot id="lowhhrick" faction="rebel" ship="auzituckgunship">
+        <Name>Lowhhrick</Name>
+        <Unique>true</Unique>
+        <PilotSkill>5</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shields>3</Shields>
+        <Cost>28</Cost>
+        <Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+		<Ability>When another friendly ship at Range 1 is defending, you may spend 1 reinforce token.  If you do, the defender adds one {evade} result.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
 	<Pilot id="kashyyykdefender" faction="rebel" ship="auzituckgunship">
 		<Name>Kashyyyk Defender</Name>
 		<Unique>false</Unique>
@@ -4741,7 +4775,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 	</Pilot>
 	
 	<!-- Custom Card League -->

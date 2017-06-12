@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.77">
+<Upgrades Version="3.78">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -287,7 +287,6 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Dice>4</Dice>
 			<Range>1</Range>
 			<Faction>scum,rebel</Faction>
-			<Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="cargo" type="Cargo">
@@ -389,14 +388,12 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 			<Cost>2</Cost>
 			<Text>At the end of the Activation phase, you may discard this card to place 1 container token.</Text>
 			<ShipRequirement>C-ROC Cruiser, GR-75</ShipRequirement>
-			<Preview>true</Preview>
 			<Limited>true</Limited>
 		</Upgrade>
 		<Upgrade id="superchargedpowercells">
 			<Name>Supercharged Power Cells</Name>
 			<Cost>3</Cost>
 			<Text>When attacking. you may discard this card to roll 2 additional attack dice.</Text>
-			<Preview>true</Preview>
 			<Limited>true</Limited>
 		</Upgrade>
 	</Category>
@@ -1010,7 +1007,6 @@ When defending, the attacker must spend 1 focus token if able.</Text>
 			<Text>At the start of the End phase, you may discard this card to replace a faceup {illicit} or {cargo} Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="azmorigan">
 			<Name>Azmorigan</Name>
@@ -1019,7 +1015,6 @@ When defending, the attacker must spend 1 focus token if able.</Text>
 			<Faction>scum</Faction>
 			<Unique>true</Unique>
 			<HugeOnly>true</HugeOnly>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="wookieecommandos">
 			<Name>Wookiee Commandos</Name>
@@ -1041,8 +1036,14 @@ When defending, the attacker must spend 1 focus token if able.</Text>
 			<ExtraSlots>
 				<Upgrade>Crew</Upgrade>
 			</ExtraSlots>
-			<Preview>true</Preview>
 		</Upgrade>
+		<Upgrade id="breachspecialist">
+            <Name>Breach Specialist</Name>
+            <Cost>1</Cost>
+            <Text>When you are dealt a faceup Damage card, you may spend 1 reinforce token to flip it facedown (without resolving its effect).  If you do, until the end of the round, when you are dealt a faceup Damage card, flip it facedown (without resolving its effect).</Text>
+            <Unique>false</Unique>
+            <Preview>true</Preview>
+        </Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -1300,18 +1301,21 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
 			<Name>Biggs Darklighter (Pilot)</Name>
 			<Cost>5</Cost>
 			<Text>Once per round, a friendly ship at Range 1 cannot be targeted by an attack if the attacker could target you instead.</Text>
+			<Faction>rebel</Faction>
 			<HotAC>true</HotAC>
 		</Upgrade>
 		<Upgrade id="arvelcrynydpilot">
 			<Name>Arvel Crynyd (Pilot)</Name>
 			<Cost>6</Cost>
 			<Text>You may declare an enemy ship inside your chosen weapon’s firing arc that you are touching as the target of your attack.</Text>
+			<Faction>rebel</Faction>
 			<HotAC>true</HotAC>
 		</Upgrade>
 		<Upgrade id="lieutenantblountpilot">
 			<Name>Lieutenant Blount (Pilot)</Name>
 			<Cost>6</Cost>
 			<Text>When attacking, You may consider the defender to be hit by your attack regardless of dice results. If you do, the defender suffers no damage. You gain no XP, but the defender may still suffer tokens, such as Ion and Stress.</Text>
+            <Faction>rebel</Faction>
 			<HotAC>true</HotAC>
 		</Upgrade>
 		<Upgrade id="intensity">
@@ -1323,6 +1327,13 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
 			<SmallOnly>true</SmallOnly>
 			<Preview>true</Preview>
 		</Upgrade>
+		<Upgrade id="selflessness">
+            <Name>Selflessness</Name>
+            <Cost>1</Cost>
+            <Text>When a friendly ship at Range 1 is hit by an attack, you may discard this card to suffer all uncancelled {hit} results instead of the target ship.</Text>
+            <Faction>rebel</Faction>
+			<SmallOnly>true</SmallOnly>
+        </Upgrade>
 	</Category>
 	<Category id="hardpoint" type="Hardpoint">
 		<Upgrade id="quadlasercannons">
@@ -1375,7 +1386,6 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
 			<Energy>2</Energy>
 			<Dice>4</Dice>
 			<Range>2-3</Range>
-			<Preview>true</Preview>
 			<ShipRequirement>C-ROC Cruiser</ShipRequirement>
 		</Upgrade>
 	</Category>
@@ -1832,7 +1842,6 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Text>During the End phase, you may receive 1 ion token to recover 1 shield (up to your shield value).  You can equip this shield only if your shield value is "1".</Text>
 			<Faction>scum,rebel</Faction>
 			<ShieldRequirement>1</ShieldRequirement>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="extramunitionshotac">
 			<Name>Extra Munitions (HotAC)</Name>
@@ -1981,6 +1990,11 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
 			<Limited>true</Limited>
 			<Owned>0</Owned>
 		</Upgrade>
+		<Upgrade id="igrmthugdroids">
+            <Name>IG-RM Thug Droids</Name>
+            <Cost>1</Cost>
+            <Text>When attacking, you may change 1 of your {hit} results to a {crit} result.</Text>
+        </Upgrade>
 	</Category>
 	<Category id="title" type="Title">
 		<Upgrade id="millenniumfalcon">
@@ -2499,14 +2513,12 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 				<Upgrade>Cargo</Upgrade>
 			</RemovedUpgrades>
 			<Energy>1</Energy>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="lightscykinterceptor">
 			<Name>&quot;Light Scyk&quot; Interceptor</Name>
 			<Cost>-2</Cost>
 			<Text>All Damage cards dealt to you are dealt faceup.  You may treat all bank maneuvers as green maneuvers.  You cannot equip Modification upgrades.</Text>
 			<ShipRequirement>M3-A Interceptor</ShipRequirement>
-			<Preview>true</Preview>
 			<RemovedUpgrades>
 				<Upgrade>Modification</Upgrade>
 			</RemovedUpgrades>
@@ -2534,7 +2546,6 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<ShipRequirement>C-ROC Cruiser</ShipRequirement>
 			<Unique>True</Unique>
 			<Energy>-1</Energy>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="brokenhorn">
 			<Name>Broken Horn</Name>
@@ -2543,7 +2554,6 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 			<ShipRequirement>C-ROC Cruiser</ShipRequirement>
 			<Unique>True</Unique>
 			<Energy>2</Energy>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="starvipermkii">
             <Name>StarViper Mk.II</Name>

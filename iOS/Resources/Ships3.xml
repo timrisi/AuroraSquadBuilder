@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.58">
+<Ships Version="3.59">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -149,7 +149,6 @@
 			<Action>Target Lock</Action>
 			<Action>Jam</Action>
 		</Actions>
-		<Preview>true</Preview>
 		<ManeuverGridImage></ManeuverGridImage>
 	</Ship>
 	

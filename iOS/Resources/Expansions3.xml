@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.52">
+<Expansions Version="3.53">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1428,4 +1428,54 @@
 		</Upgrades>
 		<Owned>0</Owned>
 	</Expansion>
+	<Expansion id="croccruiser">
+        <Name>C-ROC Cruiser</Name>
+        <Wave>Huge Ships</Wave>
+        <Ships>
+            <Ship>croccruiser</Ship>
+            <Ship>m3ainterceptor</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>croccruiser</Pilot>
+            <Pilot>genesisred</Pilot>
+            <Pilot>quinnjast</Pilot>
+            <Pilot>tansariipointveteran</Pilot>
+            <Pilot>inaldra</Pilot>
+            <Pilot>cartelspacer</Pilot>
+            <Pilot>sunnybounder</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>azmorigan</Upgrade>
+            <Upgrade>cikatrovizago</Upgrade>
+            <Upgrade>jabbathehutt</Upgrade>
+            <Upgrade>merchantone</Upgrade>
+            <Upgrade>brokenhorn</Upgrade>
+            <Upgrade>insatiableworrt</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>lightscykinterceptor</Upgrade>
+            <Upgrade>heavyscykinterceptor</Upgrade>
+            <Upgrade>igrmthugdroids</Upgrade>
+            <Upgrade>arccaster</Upgrade>
+            <Upgrade>arccaster</Upgrade>
+            <Upgrade>arccaster</Upgrade>
+            <Upgrade>arccaster</Upgrade>
+            <Upgrade>arccaster</Upgrade>
+            <Upgrade>automatedprotocols</Upgrade>
+            <Upgrade>optimizedgenerators</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>heavylaserturret</Upgrade>
+            <Upgrade>superchargedpowercells</Upgrade>
+            <Upgrade>superchargedpowercells</Upgrade>
+            <Upgrade>quickreleasecargolocks</Upgrade>
+        </Upgrades>
+        <Owned>0</Owned>
+    </Expansion>
 </Expansions>
