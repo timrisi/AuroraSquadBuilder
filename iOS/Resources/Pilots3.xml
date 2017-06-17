@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.69">
+<Pilots Version="3.70">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -769,6 +769,52 @@
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
 	</Pilot>
+	<Pilot id="captainnym" faction="scum" ship="scurrgh6bomber">
+        <Name>Captain Nym</Name>
+        <Unique>true</Unique>
+        <PilotSkill>8</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shields>5</Shields>
+        <Cost>30</Cost>
+        <Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+		<Ability>You may ignore friendly bombs.  When a friendly ship is defending, if the attacker measures range through a friendly bomb token, the defender may add 1 {evade} result.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
+	<Pilot id="solsixxa" faction="scum" ship="scurrgh6bomber">
+        <Name>Sol Sixxa</Name>
+        <Unique>true</Unique>
+        <PilotSkill>6</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shields>5</Shields>
+        <Cost>28</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>When dropping a bomb, you may use the {hard turn left} 1 or {hard turn right} 1 template instead of the {straight} 1 template.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
 	<Pilot id="karthakkpirate" faction="scum" ship="scurrgh6bomber">
 		<Name>Karthakk Pirate</Name>
 		<Unique>false</Unique>
@@ -2864,6 +2910,29 @@
 		<Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
 		<Owned>0</Owned>
 	</Pilot>
+	<Pilot id="captainnymrebel" faction="rebel" ship="scurrgh6bomber">
+        <Name>Captain Nym</Name>
+        <Unique>true</Unique>
+        <PilotSkill>8</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shields>5</Shields>
+        <Cost>30</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>Once per round, you may prevent a friendly bomb token from detonating.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
 	<Pilot id="gr75mediumtransport" faction="rebel" ship="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
 		<Unique>false</Unique>

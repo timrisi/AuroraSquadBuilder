@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.78">
+<Upgrades Version="3.80">
 	<Category id="amd" type="Astromech Droid">
 		<Upgrade id="r2d2">
 			<Name>R2-D2</Name>
@@ -220,6 +220,20 @@ This card detonates at the end of the Activation phase.
 
 Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 stress token.  Then discard this token.</Text>
 			<Owned>0</Owned>
+		</Upgrade>
+		<Upgrade id="bombletgenerator">
+            <Name>Bomblet Generator</Name>
+			<Cost>3</Cost>
+			<Text>When you reveal your maneuver, you may drop 1 bomblet token.
+
+This token detonates at the end of the Activation phase.
+
+Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers all damage {hits} and critical damage {crits} rolled.  Then discard this token.></Text>
+			<ExtraSlots>
+                <Upgrade>Bomb</Upgrade>
+			</ExtraSlots>
+            <Unique>true</Unique>
+            <Preview>true</Preview>
 		</Upgrade>
 	</Category>
 	<Category id="cannon" type="Cannon">
@@ -1044,6 +1058,14 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Unique>false</Unique>
             <Preview>true</Preview>
         </Upgrade>
+		<Upgrade id="cadbane">
+            <Name>Cad Bane</Name>
+			<Cost>2</Cost>
+            <Text>Your upgrade bar gains the {bomb} upgrade token.  Once per round, when an enemy ship rolls attack dice due to a friendly bomb detonating, you may choose any number o {focus} and blank results.  It must reroll those results.</Text>
+			<Faction>scum</Faction>
+			<Unique>true</Unique>
+			<Preview>true</Preview>
+		</Upgrade>
 	</Category>
 	<Category id="ept" type="Elite Pilot Talent">
 		<Upgrade id="determination">
@@ -1960,6 +1982,11 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 			<Text>When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.
 				
 When rolling for obstacle damage, ignore all {crit} results.</Text>
+		</Upgrade>
+		<Upgrade id="minefieldmapper">
+            <Name>Minefield Mapper</Name>
+			<Cost>0</Cost>
+			<Text>During setup, after the 'Place Forces' step, you may discard any number of your equipped {bomb} Upgrade cards.  Place all corresponding bomb tokens in the play area beyond Range 3 of enemy ships.</Text>
 		</Upgrade>
 	</Category>
 	<Category id="team" type="Team">
