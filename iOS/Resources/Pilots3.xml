@@ -2930,6 +2930,7 @@
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
+		<CanonicalName>captainnym</CanonicalName>
         <Ability>Once per round, you may prevent a friendly bomb token from detonating.</Ability>
         <Preview>true</Preview>
     </Pilot>
