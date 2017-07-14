@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.70">
+<Pilots Version="3.73">
 	<!--- Scum Pilots -->
 	<Pilot id="princexizor" faction="scum" ship="starviper">
 		<Name>Prince Xizor</Name>
@@ -790,7 +790,6 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
 		<Ability>You may ignore friendly bombs.  When a friendly ship is defending, if the attacker measures range through a friendly bomb token, the defender may add 1 {evade} result.</Ability>
-        <Preview>true</Preview>
     </Pilot>
 	<Pilot id="solsixxa" faction="scum" ship="scurrgh6bomber">
         <Name>Sol Sixxa</Name>
@@ -813,7 +812,27 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When dropping a bomb, you may use the {hard turn left} 1 or {hard turn right} 1 template instead of the {straight} 1 template.</Ability>
-        <Preview>true</Preview>
+    </Pilot>
+	<Pilot id="lokrevenant" faction="scum" ship="scurrgh6bomber">
+        <Name>Lok Revenant</Name>
+        <Unique>false</Unique>
+        <PilotSkill>3</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shields>5</Shields>
+        <Cost>26</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Turret Weapon</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Bomb</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
     </Pilot>
 	<Pilot id="karthakkpirate" faction="scum" ship="scurrgh6bomber">
 		<Name>Karthakk Pirate</Name>
@@ -834,7 +853,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="bobafettscum" faction="scum" ship="firespray31">
 		<Name>Boba Fett</Name>
@@ -2370,7 +2388,7 @@
 		</Upgrades>
 		<Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
 	</Pilot>
-	<Pilot id="zeborrelios" faction="rebel" ship="tiefighter">
+	<Pilot id="zeborreliostiefighter" faction="rebel" ship="tiefighter">
 		<Name>&quot;Zeb&quot; Orrelios</Name>
 		<Unique>true</Unique>
 		<PilotSkill>3</PilotSkill>
@@ -2385,6 +2403,7 @@
 		</Upgrades>
 		<Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
 		<CanonicalName>zeborrelios</CanonicalName>
+		<OldId>zeborrelios</OldId>
 	</Pilot>
     <Pilot id="wullffwarro" faction="rebel" ship="auzituckgunship">
         <Name>Wullffwarro</Name>
@@ -2403,7 +2422,6 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, if you have no shields and at least 1 Damage card assigned to you, roll 1 additional attack die.</Ability>
-        <Preview>true</Preview>
     </Pilot>
 	<Pilot id="lowhhrick" faction="rebel" ship="auzituckgunship">
         <Name>Lowhhrick</Name>
@@ -2422,7 +2440,23 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
 		<Ability>When another friendly ship at Range 1 is defending, you may spend 1 reinforce token.  If you do, the defender adds one {evade} result.</Ability>
-        <Preview>true</Preview>
+    </Pilot>
+	<Pilot id="wookieeliberator" faction="rebel" ship="auzituckgunship">
+        <Name>Wookiee Liberator</Name>
+        <Unique>false</Unique>
+        <PilotSkill>3</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shields>3</Shields>
+        <Cost>26</Cost>
+        <Upgrades>
+			<Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
     </Pilot>
 	<Pilot id="kashyyykdefender" faction="rebel" ship="auzituckgunship">
 		<Name>Kashyyyk Defender</Name>
@@ -2439,7 +2473,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-		<Preview>true</Preview>
 	</Pilot>
 	<Pilot id="cassianandor" faction="rebel" ship="uwing">
 		<Name>Cassian Andor</Name>
@@ -2932,7 +2965,6 @@
         </Upgrades>
 		<CanonicalName>captainnym</CanonicalName>
         <Ability>Once per round, you may prevent a friendly bomb token from detonating.</Ability>
-        <Preview>true</Preview>
     </Pilot>
 	<Pilot id="gr75mediumtransport" faction="rebel" ship="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
@@ -4373,7 +4405,6 @@
         </Upgrades>
 		<Ability>When attacking, you may spend 1 focus token to cancel all of the defender's blank and {focus} results.</Ability>
 		<OldId>lieutenantkestral</OldId>
-		<Preview>true</Preview>
     </Pilot>
 	<Pilot id="doubleedge" faction="imperial" ship="tieaggressor">
         <Name>Double Edge</Name>
@@ -4393,7 +4424,6 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>Once per round, after you perform a secondary weapon attack that does not hit, you may perform an attack with a different weapon.</Ability>
-        <Preview>true</Preview>
     </Pilot>
 	<Pilot id="onyxsquadronescort" faction="imperial" ship="tieaggressor">
         <Name>Onyx Squadron Escort</Name>
@@ -4411,7 +4441,6 @@
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Preview>true</Preview>
     </Pilot>
 	<Pilot id="sienarspecialist" faction="imperial" ship="tieaggressor">
 		<Name>Sienar Specialist</Name>
@@ -4429,7 +4458,6 @@
 			<Upgrade>Title</Upgrade>
 			<Upgrade>Modification</Upgrade>
 		</Upgrades>
-        <Preview>true</Preview>
 	</Pilot>
 	<Pilot id="bobafett" faction="imperial" ship="firespray31">
 		<Name>Boba Fett</Name>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.53">
+<Expansions Version="3.54">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -973,7 +973,7 @@
 		</Upgrades>
 	</Expansion>
 
-<!-- Wave 9 -->
+<!-- Wave 10 -->
 	<Expansion id="uwing">
 		<Name>U-Wing</Name>
 		<Wave>Wave 10</Wave>
@@ -1033,7 +1033,7 @@
 			<Pilot>ahsokatano</Pilot>
 			<Pilot>sabinewrentie</Pilot>
 			<Pilot>captainrex</Pilot>
-			<Pilot>zeborrelios</Pilot>
+			<Pilot>zeborreliostiefighter</Pilot>
 		</Pilots>
 		<Upgrades>
 			<Upgrade>veteraninstincts</Upgrade>
@@ -1094,7 +1094,76 @@
 		</Upgrades>
 	</Expansion>
 
-<!-- Aces Packs-->
+<!-- Wave 11 -->
+	<Expansion id="tieaggressor">
+        <Name>TIE Aggressor</Name>
+        <Wave>Wave 11</Wave>
+        <Ships>
+            <Ship>tieaggressor</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>lieutenantkestal</Pilot>
+            <Pilot>doubleedge</Pilot>
+            <Pilot>onyxsquadronescort</Pilot>
+            <Pilot>sienarspecialist</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>intensity</Upgrade>
+            <Upgrade>unguidedrockets</Upgrade>
+            <Upgrade>twinlaserturret</Upgrade>
+            <Upgrade>syncedturret</Upgrade>
+            <Upgrade>lightweightframe</Upgrade>
+        </Upgrades>
+    </Expansion>
+    <Expansion id="scurrgh6bomber">
+        <Name>Scurrg H-6 Bomber</Name>
+        <Wave>Wave 11</Wave>
+        <Ships>
+            <Ship>scurrgh6bomber</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>captainnym</Pilot>
+            <Pilot>solsixxa</Pilot>
+            <Pilot>lokrevenant</Pilot>
+            <Pilot>karthakkpirate</Pilot>
+            <Pilot>captainnymrebel</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>lightningreflexes</Upgrade>
+            <Upgrade>seismictorpedo</Upgrade>
+            <Upgrade>cruisemissiles</Upgrade>
+            <Upgrade>cruisemissiles</Upgrade>
+            <Upgrade>syncedturret</Upgrade>
+            <Upgrade>bombletgenerator</Upgrade>
+            <Upgrade>minefieldmapper</Upgrade>
+            <Upgrade>cadbane</Upgrade>
+            <Upgrade>r4e1</Upgrade>
+            <Upgrade>havoc</Upgrade>
+        </Upgrades>
+    </Expansion>
+	<Expansion id="auzituckgunship">
+        <Name>Auzituck Gunship</Name>
+        <Wave>Wave 11</Wave>
+        <Ships>
+            <Ship>auzituckgunship</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>wullffwarro</Pilot>
+            <Pilot>lowhhrick</Pilot>
+            <Pilot>wookieeliberator</Pilot>
+            <Pilot>kashyyykdefender</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>intimidation</Upgrade>
+            <Upgrade>selflessness</Upgrade>
+            <Upgrade>wookieecommandos</Upgrade>
+            <Upgrade>tactician</Upgrade>
+            <Upgrade>breachspecialist</Upgrade>
+            <Upgrade>hullupgrade</Upgrade>
+        </Upgrades>
+    </Expansion>
+	
+<!-- Aces Packs -->
 	<Expansion id="imperialaces">
 		<Name>Imperial Aces</Name>
 		<Wave>Aces Packs</Wave>

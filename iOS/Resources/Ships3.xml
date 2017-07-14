@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.59">
+<Ships Version="3.60">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -117,7 +117,6 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 		<ManeuverGridImage></ManeuverGridImage>
-		<Preview>true</Preview>
 	</Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
@@ -231,7 +230,6 @@
 			<Action>Reinforce</Action>
 		</Actions>
 		<ManeuverGridImage></ManeuverGridImage>
-		<Preview>true</Preview>
 	</Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
@@ -417,7 +415,6 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
 		<ManeuverGridImage></ManeuverGridImage>
-		<Preview>true</Preview>
 	</Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>
