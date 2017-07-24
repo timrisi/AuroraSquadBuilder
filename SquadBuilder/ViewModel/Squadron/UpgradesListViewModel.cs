@@ -59,20 +59,20 @@ namespace SquadBuilder
 		{
 			var upgrades = Cards.SharedInstance.Upgrades
 				.Where (u => u.Category == type)
-                .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
+                		.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
-                .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
-                .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
-                .Where (u => !u.IsCustom || Settings.AllowCustom)
-                .Where (u => !u.CCL || Settings.CustomCardLeague)
-                .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
+		                .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
+		                .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
+		                .Where (u => !u.IsCustom || Settings.AllowCustom)
+		                .Where (u => !u.CCL || Settings.CustomCardLeague)
+		                .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
 			if (Settings.AllowCustom) {
 				var customUpgrades = Cards.SharedInstance.CustomUpgrades
 					.Where (u => u.Category == type)
-                  	.Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
+                  			.Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);

@@ -14,6 +14,9 @@ using System.Threading;
 using Xamarin.Forms;
 using Dropbox.Api;
 using HockeyApp.iOS;
+//using Microsoft.Azure.Mobile;
+//using Microsoft.Azure.Mobile.Analytics;
+//using Microsoft.Azure.Mobile.Crashes;
 
 namespace SquadBuilder.iOS
 {
@@ -32,6 +35,8 @@ namespace SquadBuilder.iOS
 			manager.Configure ("ce337527cc114b12805fcf7477297f40");
 			manager.StartManager ();
 			//manager.Authenticator.AuthenticateInstallation ();
+
+			//MobileCenter.Start ("305be59c-cc7b-471d-80b3-5cc4b4790f59", typeof (Analytics), typeof (Crashes));
 
 			saveAndLoad = new SaveAndLoad ();
 			global::Xamarin.Forms.Forms.Init ();

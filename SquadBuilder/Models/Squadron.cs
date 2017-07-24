@@ -262,9 +262,9 @@ namespace SquadBuilder {
 					pilots.Add (obj);
 				} catch (Exception e) {
 					HockeyApp.MetricsManager.TrackEvent ("Xws error",
-                    	new Dictionary<string, string> { { "error message", e.Message } },
-						new Dictionary<string, double> { { "time", 1.0 } }
-                    );
+			                    	new Dictionary<string, string> { { "error message", e.Message } },
+									new Dictionary<string, double> { { "time", 1.0 } }
+			                    );
 					MessagingCenter.Send<Squadron, string> (this, "Xws Error", $"Error creating xws object for squadron {Name}"); 
 				}
 			}
@@ -345,7 +345,6 @@ namespace SquadBuilder {
 						foreach (var upgradeTypeArray in pilotObject ["upgrades"]) {
 							var upgradeType = (upgradeTypeArray as JProperty).Name;
 
-
 							foreach (var value in upgradeTypeArray.Values ()) {
 								var upgrade = (Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ()) ??
 								               Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.OldId == value.ToString ()))?.Copy ();
@@ -358,6 +357,27 @@ namespace SquadBuilder {
 								if (index < 0) {
 									skippedUpgrades.Add (upgrade);
 									continue;
+								}
+
+								if (upgrade.Slots != null && upgrade.Slots.Count > 0) {
+									var pilotUpgrades = new List<object> (pilot.Upgrades);
+									pilotUpgrades.Remove (new { Name = upgrade.Category, IsUpgrade = false });
+
+									bool isValid = true;
+									foreach (var slot in upgrade.Slots) {
+										var slotObject = new { Name = slot, IsUpgrade = false };
+										if (pilotUpgrades.Contains (slotObject))
+											pilotUpgrades.Remove (slotObject);
+										else {
+											isValid = false;
+											break;
+										}
+									}
+
+									if (!isValid) {
+										skippedUpgrades.Add (upgrade);
+										continue;
+									}
 								}
 
 								pilot.EquipUpgrade (index, upgrade);
@@ -403,6 +423,9 @@ namespace SquadBuilder {
 					squadron.pilots.Add (pilot);
 				}
 
+				if (squadron == null)
+					Console.WriteLine ("Foo");
+
 				return squadron;
 			} catch (Exception e) {
 				//var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
@@ -418,7 +441,7 @@ namespace SquadBuilder {
 				//Console.WriteLine (e.Message);
 			}
 
-			return null;
+			return new Squadron () ;
 		}
 
 		public override bool Equals (object obj)

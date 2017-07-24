@@ -311,9 +311,7 @@ namespace SquadBuilder
 
 				for (int i = 0; i < oldUpgrade.Slots.Count (); i++) {
 					UpgradeTypes.Add (oldUpgrade.Slots [i]);
-					//var extraIndex = UpgradesEquipped.IndexOf (oldUpgrade);
-					//if (index >= 0)
-					//	UpgradesEquipped [extraIndex] = null;
+					UpgradesEquipped.Add (null);
 				}
 
 				if (oldUpgrade.UpgradeOptions != null && oldUpgrade.UpgradeOptions.Any ()) {
@@ -370,7 +368,7 @@ namespace SquadBuilder
 				}
 
 				foreach (var removedUpgrade in upgrade.RemovedUpgrades) {
-					var removedIndex = UpgradeTypes.IndexOf (removedUpgrade);
+					var removedIndex = UpgradeTypes.ToList ().LastIndexOf (removedUpgrade);
 					if (removedIndex < 0)
 						continue;
 					UpgradeTypes.RemoveAt (removedIndex);
@@ -383,10 +381,11 @@ namespace SquadBuilder
 				}
 
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {
-					var extraIndex = Upgrades.IndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
-					if (index >= 0)
-						UpgradeTypes.RemoveAt (extraIndex);
-						//UpgradesEquipped [extraIndex] = upgrade;
+					var extraIndex = Upgrades.ToList ().LastIndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
+					if (index < 0)
+						continue;
+					UpgradeTypes.RemoveAt (extraIndex);
+					UpgradesEquipped.RemoveAt (extraIndex);
 				}
 
 				if (upgrade.Id == "misthunter")

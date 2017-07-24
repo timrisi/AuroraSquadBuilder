@@ -620,7 +620,14 @@ namespace SquadBuilder
 			var service = DependencyService.Get<ISaveAndLoad> ();
 
 			if (service.FileExists (XwcFilename)) {
-				var json = JObject.Parse (service.LoadText (XwcFilename));
+				var xwcText = service.LoadText (XwcFilename);
+				if (string.IsNullOrEmpty (xwcText)) {
+					Squadrons = new ObservableCollection<Squadron> ();
+					return;
+				}
+
+				var json = JObject.Parse (xwcText);
+
 
 				if (json ["container"] == null)
 					throw new ArgumentException ("Container key is missing");
@@ -731,30 +738,36 @@ namespace SquadBuilder
 
 		public string CreateXwc ()
 		{
-			var squads = new JArray ();
-			foreach (var s in Squadrons) {
-				var squad = s.CreateXwsObject ();
-				if (squad == null)
-					continue;
+			try {
+				var squads = new JArray ();
+				foreach (var s in Squadrons) {
+					if (s == null)
+						Console.WriteLine ("Foo");
+					var squad = s.CreateXwsObject ();
+					if (squad == null)
+						continue;
+					{ }
+					squads.Add (squad);
+				}
 
-				squads.Add (squad);
+				var json = new JObject (
+					new JProperty ("container", squads),
+					new JProperty ("vendor",
+				new JObject (
+							new JProperty ("aurora",
+					    new JObject (
+									new JProperty ("builder", "Aurora Squad Builder"),
+						    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8")
+							    )
+				    )
+				    )
+			)
+				);
+
+				return json.ToString ();
+			}catch (Exception e) {
+				return "";
 			}
-
-			var json = new JObject (
-				new JProperty ("container", squads),
-				new JProperty ("vendor",
-                	new JObject (
-						new JProperty ("aurora", 
-		                    new JObject (
-								new JProperty ("builder", "Aurora Squad Builder"),
-			                    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8")
-						    )
-	                    )
-	            	)
-                )
-			);
-
-			return json.ToString ();
 		}
 	}
 }
