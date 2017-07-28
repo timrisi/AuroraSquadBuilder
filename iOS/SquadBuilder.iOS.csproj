@@ -38,7 +38,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Timothy Risi (GF4DUJBW65)</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <IpaPackageName>
     </IpaPackageName>
     <BuildIpa>false</BuildIpa>
@@ -72,12 +72,12 @@
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>false</MtouchProfiling>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>Squad Builder Ad Hoc</CodesignProvision>
+<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision></CodesignProvision>
 <BuildIpa>true</BuildIpa>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad Hoc|iPhone' ">
