@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using XLabs.Forms.Mvvm;
 using System.Collections.ObjectModel;
 using XLabs;
@@ -25,13 +25,12 @@ namespace SquadBuilder
 					var index = Pilot.Upgrades.IndexOf (value);
 
 					if (index < 0) {
-						var upgrade = Pilot.UpgradesEquipped.FirstOrDefault (u => u.Name == (selectedUpgrade));
+						var upgrade = Pilot.UpgradesEquipped.FirstOrDefault (u => u.Name == (string)selectedUpgrade);
 						index = Pilot.UpgradesEquipped.IndexOf (upgrade);
 					}
 
 					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || 
 					     (pilot.MultiSectionId >= 0 && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
-					    //(pilot.LinkedPilotCardGuid != Guid.Empty && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.LinkedPilotCardGuid == pilot.LinkedPilotCardGuid && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
 					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
 					     Pilot.UpgradeTypes [index] == "Torpedo" ||
 						 Pilot.UpgradeTypes [index] == "Missile") &&
