@@ -293,6 +293,9 @@
     <BundleResource Include="Resources\UpsilonDial.png" />
     <BundleResource Include="Resources\UWingDialNienNumb.png" />
     <BundleResource Include="Resources\QuadjumperDial.png" />
+    <BundleResource Include="Resources\AuzituckDial.png" />
+    <BundleResource Include="Resources\ScurrgDial.png" />
+    <BundleResource Include="Resources\TIEAggressorDial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

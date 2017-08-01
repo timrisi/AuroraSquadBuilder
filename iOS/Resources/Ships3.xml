@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.60">
+<Ships Version="3.61">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -116,7 +116,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
-		<ManeuverGridImage></ManeuverGridImage>
+		<ManeuverGridImage>ScurrgDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
@@ -229,7 +229,7 @@
 			<Action>Focus</Action>
 			<Action>Reinforce</Action>
 		</Actions>
-		<ManeuverGridImage></ManeuverGridImage>
+		<ManeuverGridImage>AuzituckDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
@@ -414,7 +414,7 @@
 			<Action>Target Lock</Action>
 			<Action>Barrel Roll</Action>
 		</Actions>
-		<ManeuverGridImage></ManeuverGridImage>
+		<ManeuverGridImage>TIEAggressorDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>

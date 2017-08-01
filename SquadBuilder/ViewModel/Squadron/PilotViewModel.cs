@@ -57,7 +57,7 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+			get { return Cards.SharedInstance.CurrentSquadron?.PointsDescription; }
 		}
 
 		void pushUpgradeList (int index)
