@@ -271,7 +271,7 @@ namespace SquadBuilder
 						element.SetElementValue ("Unique", IsUnique);
 						element.SetElementValue ("Limited", IsLimited);
 						element.SetElementValue ("Ship", Upgrade.Ship?.Id);
-						element.SetElementValue ("Factions", Upgrade.Factions != null ? Upgrade.Factions[0]?.Id : null);
+						element.SetElementValue ("Factions", Upgrade.Factions != null && Upgrade.Factions.Count > 0 ? Upgrade.Factions[0]?.Id : null);
 						element.SetElementValue ("SmallOnly", SmallOnly);
 						element.SetElementValue ("LargeOnly", LargeOnly);
 						element.SetElementValue ("HugeOnly", HugeOnly);
