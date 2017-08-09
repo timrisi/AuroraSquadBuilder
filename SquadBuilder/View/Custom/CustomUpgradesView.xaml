@@ -2,6 +2,7 @@
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.CustomUpgradesView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
@@ -47,14 +48,14 @@
 										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
 										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
 									</StackLayout>
-									<Label Text="{Binding Text}" FontSize="Small">
+									<local:HtmlLabel Text="{Binding Text}" FontSize="Small">
 										<Label.TextColor>
 										    <OnPlatform x:TypeArguments="Color"
 										      			iOS="Navy"
 										      			Android="Aqua"
 										      			WinPhone="Navy" />
 										</Label.TextColor>
-									</Label>
+									</local:HtmlLabel>
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>

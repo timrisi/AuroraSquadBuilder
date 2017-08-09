@@ -28,6 +28,13 @@ namespace SquadBuilder
 			}
 		}
 
+		//public string ImportName {
+		//	get {
+		//		return "Foo";
+		//		//return "<b>Attack (target lock):</b> Spend your target lock and discard this card to perform this attack.  You may change 1 of your <font face='x-wing-symbols'>f</font> results to a <font face='x-wing-symbols'>c</font> result.\"";
+		//	}
+		//}
+
 		public IEnumerable <Squadron> Squadrons {
  			get { return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s?.Faction?.Name == Faction); }
 		}

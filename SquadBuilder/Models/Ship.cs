@@ -87,6 +87,71 @@ namespace SquadBuilder
 			}
 		}
 
+#region Maneuvers
+		//public string straightOne;
+		//public string StraightOne {
+		//	get { return straightOne; }
+		//	set {
+		//		if (!string.IsNullOrEmpty(value))
+		//			straightOne = $"<font color='{value}' face='xwing-miniatures'>8</font>";
+		//		else
+		//			straightOne = "";
+		//	}
+		//}
+
+		//public string straightTwo;
+		//public string StraightTwo
+		//{
+		//	get { return straightTwo; }
+		//	set
+		//	{
+		//		if (!string.IsNullOrEmpty(value))
+		//			straightTwo = $"<font color='{value}' face='xwing-miniatures'>8</font>";
+		//		else
+		//			straightTwo = "";
+		//	}
+		//}
+
+		//public string straightThree;
+		//public string StraightThree
+		//{
+		//	get { return straightThree; }
+		//	set
+		//	{
+		//		if (!string.IsNullOrEmpty(value))
+		//			straightThree = $"<font color='{value}' face='xwing-miniatures'>8</font>";
+		//		else
+		//			straightThree = "";
+		//	}
+		//}
+
+		//public string straightFour;
+		//public string StraightFour
+		//{
+		//	get { return straightOne; }
+		//	set
+		//	{
+		//		if (!string.IsNullOrEmpty(value))
+		//			straightFour = $"<font color='{value}' face='xwing-miniatures'>8</font>";
+		//		else
+		//			straightFour = "";
+		//	}
+		//}
+
+		//public string straightFive;
+		//public string StraightFive
+		//{
+		//	get { return straightFive; }
+		//	set
+		//	{
+		//		if (!string.IsNullOrEmpty(value))
+		//			straightFive = $"<font color='{value}' face='xwing-miniatures'>8</font>";
+		//		else
+		//			straightFive = "";
+		//	}
+		//}
+#endregion
+
 		[XmlIgnore]
 		public int owned;
 		[XmlIgnore]
@@ -203,7 +268,14 @@ namespace SquadBuilder
 				ManeuverGridImage = ManeuverGridImage,
 				IsCustom = IsCustom,
 				CCL = CCL,
-				OldId = OldId
+				OldId = OldId,
+				IsPreview = IsPreview,
+
+				//straightOne = StraightOne,
+				//straightTwo = StraightTwo,
+				//straightThree = StraightThree,
+				//straightFour = StraightFour,
+				//straightFive = StraightFive,
 			};
 		}
 

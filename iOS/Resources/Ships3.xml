@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.61">
+<Ships Version="3.63">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -9,6 +9,11 @@
 			<Action>Boost</Action>
 		</Actions>
 		<ManeuverGridImage>StarViperDial.png</ManeuverGridImage>
+        <!--<StraightOne>green</StraightOne>
+        <StraightTwo>green</StraightTwo>
+		<StraightThree>black</StraightThree>
+        <StraightFour>black</StraightFour>
+        <StraightFive></StraightFive>-->
 	</Ship>
 	<Ship id="hwk290">
 		<Name>HWK-290</Name>

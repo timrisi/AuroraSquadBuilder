@@ -2,6 +2,7 @@
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.SquadronView" 
 				Title="{Binding Squadron.Name}">
 	<mvvm:BaseView.ToolbarItems>
@@ -70,7 +71,7 @@
 										<Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuversInSquadronList}" Grid.Row="0" Grid.Column="1" />
 										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" Grid.Row="0" Grid.Column="2" />
 									</Grid>
-									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
+									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
 								</StackLayout>
 							</ViewCell.View>

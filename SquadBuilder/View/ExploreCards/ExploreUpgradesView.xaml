@@ -2,6 +2,7 @@
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.ExploreUpgradesView" 
 				Title="{Binding UpgradeType}">
 	<mvvm:BaseView.Content>
@@ -41,7 +42,7 @@
 										<Label Text="{Binding Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
 										<Label Text="{Binding Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
 									</StackLayout>
-									<Label Text="{Binding Text}" />
+									<local:HtmlLabel Text="{Binding Text}" />
 									<StackLayout Orientation="Horizontal" Spacing="10">
 										<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
 										<Label Text="{Binding Expansions}" />

@@ -336,6 +336,11 @@ namespace SquadBuilder
 					CCL = ship.Element ("CCL") != null ? (bool)ship.Element ("CCL") : false,
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
+					//StraightOne = ship.Element("StraightOne")?.Value ?? "",
+					//StraightTwo = ship.Element("StraightOne")?.Value ?? "",
+					//StraightThree = ship.Element("StraightOne")?.Value ?? "",
+					//StraightFour = ship.Element("StraightOne")?.Value ?? "",
+					//StraightFive = ship.Element("StraightOne")?.Value ?? "",
 					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
 							(int)shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
 				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)

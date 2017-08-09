@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ReferenceCards Version="0.07">
+<ReferenceCards Version="0.11">
 	<ReferenceCard>
 		<Name>Ion Token</Name>
 		<Text>This card explains the rules for an ion token and serves as a reference to remind players of it's effect.
@@ -8,7 +8,7 @@ Some card abilities, such as the &quot;Ion Cannon Turret&quot; Upgrade card, can
 
 * Planning Phase: The owner does not assign a maneuver dial to this ship.
 
-* Activation Phase: The owner moves the ship as if it were assigned a white {1 straight} maneuver.  After executing this maneuver, remove all ion tokens from the ship.  It may perform actions as normal.
+* Activation Phase: The owner moves the ship as if it were assigned a white 1 {straight} maneuver.  After executing this maneuver, remove all ion tokens from the ship.  It may perform actions as normal.
 
 * Combat Phase: The ship may attack as normal.</Text>
 	</ReferenceCard>
@@ -16,7 +16,7 @@ Some card abilities, such as the &quot;Ion Cannon Turret&quot; Upgrade card, can
 		<Name>Boost Action</Name>
 		<Text>This card explains the rules for performing a Boost action.  Ships with the {boost} icon in their action bar may perform a boost action.  To boost, follow these steps:
 
-1.  Choose the {1 straight}, {1 bank left}, or {1 bank right} maneuver template.
+1.  Choose the 1 {straight}, 1 {bank left}, or 1 {bank right} maneuver template.
 2.  Set the maneuver template between the ship's front guides.
 3.  Move the ship to the opposite end of the template and slide the rear guides of the ship into the template.
 
@@ -81,9 +81,9 @@ Cloak tokens are not removed during the End phase.</Text>
 		<Name>Decloak</Name>
 		<Text>At the start of the Activation phase, after players have resolved all other abilities that trigger at the start of the Activation phase, each ship may spend a cloak token to Decloak, starting with the ship with the lowest pilot skill (using initiative to break ties).  When a ship decloaks, it must choose one of the following effects:
 
-* Perform a barrel roll using the {straight 2} maneuver template.
+* Perform a barrel roll using the {straight} 2 maneuver template.
 
-* Perform a boost using the {straight 2} maneuver template.
+* Perform a boost using the {straight} 2 maneuver template.
 
 Decloaking is not an action or a maneuver, and a ship can decloak while it has a stress token.
 
@@ -95,7 +95,7 @@ After all decloaking has been resolved, the Activation phase continues as normal
 		<Name>Segnor's Loop</Name>
 		<Text>This card explains the rules for performing a Segnor's Loop maneuver.
 
-The Segnor's Loop maneuver {s-loop left or s-loop right} uses the same maneuver template as a bank maneuver (bank left or bank right).  The only difference between these maneuvers is that after executing a Segnor's Loop , the player rotates his ship 180 degrees.  If a Segnor's Loop maneuver causes a ship to overlap another ship, instead treat its maneuver as a bank maneuver with the same speed, color, and direction revealed on the dial.</Text>
+The Segnor's Loop maneuver {sloop left} or {sloop right} uses the same maneuver template as a bank maneuver (bank left or bank right).  The only difference between these maneuvers is that after executing a Segnor's Loop , the player rotates his ship 180 degrees.  If a Segnor's Loop maneuver causes a ship to overlap another ship, instead treat its maneuver as a bank maneuver with the same speed, color, and direction revealed on the dial.</Text>
 	</ReferenceCard>
 	<ReferenceCard>
 		<Name>SLAM Action</Name>
@@ -119,9 +119,9 @@ A ship cannot perform SLAM as a free action.</Text>
 
 The first time a small ship receives a tractor beam token each round, the opposing player may choose one of the following effects:
 
-* Perform a barrel roll using the {straight 1} maneuver template.  The opposing player selects the direction of the barrel roll and the final position of the ship.
+* Perform a barrel roll using the {straight} 1 maneuver template.  The opposing player selects the direction of the barrel roll and the final position of the ship.
 
-* Perform a boost using the {straight 1} maneuver template.
+* Perform a boost using the {straight} 1 maneuver template.
 
 This is not an action or a maneuver, and can cause the ship to overlap obstacles (but not other ships).  The ship suffers the effect of any obstacle it overlaps.</Text>
 	</ReferenceCard>

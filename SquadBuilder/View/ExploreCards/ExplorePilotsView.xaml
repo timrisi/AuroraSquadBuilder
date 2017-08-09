@@ -2,6 +2,7 @@
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.ExplorePilotsView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.Content>
@@ -67,7 +68,7 @@
 										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
 									</StackLayout>
-									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
+									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
 									<StackLayout Orientation="Horizontal" Spacing="10">
 										<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />

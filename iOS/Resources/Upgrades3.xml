@@ -206,7 +206,7 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 
 This token detonates at the end of the Activation phase.
 
-Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers all damage {hits} and critical damage {crits} rolled.  Then discard this token.></Text>
+Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers all damage {hit} and critical damage {crit} rolled.  Then discard this token.></Text>
             <ExtraSlots>
                 <Upgrade>Bomb</Upgrade>
             </ExtraSlots>
@@ -1029,7 +1029,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
         <Upgrade id="daredevil">
             <Name>Daredevil</Name>
             <Cost>3</Cost>
-            <Text>Action: Execute a white {left turn 1} or {right turn 1} maneuver.  Then receive 1 stress token.  Then, if you do not have the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
+            <Text>Action: Execute a white {turn left} 1 or {turn right} 1 maneuver.  Then receive 1 stress token.  Then, if you do not have the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
         </Upgrade>
         <Upgrade id="adrenalinerush">
             <Name>Adrenaline Rush</Name>
@@ -1286,7 +1286,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
         <Upgrade id="inertialdampeners">
             <Name>Inertial Dampeners</Name>
             <Cost>1</Cost>
-            <Text>When you reveal your maneuver, you may discard this card to instead perform a white {stationary} 0 maneuver. Then receive 1 stress token.</Text>
+            <Text>When you reveal your maneuver, you may discard this card to instead perform a white {stop} 0 maneuver. Then receive 1 stress token.</Text>
         </Upgrade>
         <Upgrade id="feedbackarray">
             <Name>Feedback Array</Name>
@@ -1341,7 +1341,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
         <Upgrade id="burnoutslam">
             <Name>Burnout SLAM</Name>
             <Cost>1</Cost>
-            <Text>Your action bar gains the {SLAM} action icon.
+            <Text>Your action bar gains the {slam} action icon.
 
 After you perform a SLAM action, discard this card.</Text>
             <LargeOnly>true</LargeOnly>
@@ -1604,7 +1604,7 @@ Action: Discard this card.  Then roll 1 attack die.  On a {hit} or {crit} result
         <Upgrade id="maneuveringfins">
             <Name>Maneuvering Fins</Name>
             <Cost>1</Cost>
-            <Text>When you reveal a turn maneuver ({left turn} or {right turn}) you may rotate your dial to the corresponding bank maneuver ({left bank} or {right bank}) of the same speed.</Text>
+            <Text>When you reveal a turn maneuver ({turn left} or {turn right}) you may rotate your dial to the corresponding bank maneuver ({bank left} or {bank right}) of the same speed.</Text>
             <Ship>yv666</Ship>
             <ShipRequirement>YV-666</ShipRequirement>
         </Upgrade>
@@ -2295,7 +2295,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="jayhawk">
             <Name>JayHawk</Name>
             <Cost>0</Cost>
-            <Text>Add a {system upgrade} slot to your upgrade bar.</Text>
+            <Text>Add a {system} slot to your upgrade bar.</Text>
             <ShipRequirement>HWK-290</ShipRequirement>
             <AdditionalUpgrades>
                 <Upgrade>System Upgrade</Upgrade>
@@ -2362,7 +2362,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="havoc">
             <Name>Havoc</Name>
             <Cost>0</Cost>
-            <Text>Your upgrade bar gains the {System Upgrade} and {Salvaged Astromech} upgrade icons and loses the {Crew} upgrade icon.  You cannot equip non-unique {Salvaged Astromech} cards.</Text>
+            <Text>Your upgrade bar gains the {system} and {salvaged astromech} upgrade icons and loses the {crew} upgrade icon.  You cannot equip non-unique {salvaged astromech} cards.</Text>
             <Unique>true</Unique>
             <ShipRequirement>Scurrg H-6 Bomber</ShipRequirement>
             <AdditionalUpgrades>
@@ -2392,7 +2392,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="starvipermkii">
             <Name>StarViper Mk.II</Name>
             <Cost>-3</Cost>
-            <Text>You may equip up to 2 different Title upgrades.  When performing a barrel roll action, you must use the {bank left 1} or {bank right 1} template instead of the {straight 1} template.</Text>
+            <Text>You may equip up to 2 different Title upgrades.  When performing a barrel roll action, you must use the {bank left}  or {bank right} 1 template instead of the {straight} 1 template.</Text>
             <ShipRequirement>StarViper</ShipRequirement>
             <AdditionalUpgrades>
                 <Upgrade>Title</Upgrade>

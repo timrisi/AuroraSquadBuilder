@@ -1,11 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SquadBuilder.ReferenceCardView"
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 Title="{Binding Title}"
 			 Padding="10">
 	<mvvm:BaseView.Content>
-		<Label Text="{Binding Card.Text}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" />
+		<local:HtmlLabel Text="{Binding Card.Text}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" />
 	</mvvm:BaseView.Content>
 </mvvm:BaseView>

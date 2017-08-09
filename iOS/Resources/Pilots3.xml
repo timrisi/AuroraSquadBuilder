@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.90">
+<Pilots Version="3.80">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -72,6 +72,7 @@
 Shadowed:  &quot;Thweek&quot; is treated as having the pilot skill value you had after setup.  The pilot skill value of &quot;Thweek&quot; does not change if your pilot skill value changes or you are destroyed.
 
 Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Thweek&quot; can not apply a Condition card by using your pilot ability.  &quot;Thweek&quot; does not lose your pilot ability if you are destroyed.</Ability>
+		<Preview>true</Preview>
     </Pilot>
     <Pilot id="blacksunassassin" faction="scum" ship="starviper">
         <Name>Black Sun Assassin</Name>
@@ -858,7 +859,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When dropping a bomb, you may use the {hard turn left} 1 or {hard turn right} 1 template instead of the {straight} 1 template.</Ability>
+        <Ability>When dropping a bomb, you may use the {turn left} 1 or {turn right} 1 template instead of the {straight} 1 template.</Ability>
     </Pilot>
     <Pilot id="lokrevenant" faction="scum" ship="scurrgh6bomber">
         <Name>Lok Revenant</Name>
@@ -963,7 +964,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When dropping a bomb, you may use the [3{Left Turn}], [3{Straight}] or [3{Right Turn}] template instead of the [1{Straight}] template.</Ability>
+        <Ability>When dropping a bomb, you may use the 3 {turn left}, 3 {straight} or 3 {turn right} template instead of the 1 {straight} template.</Ability>
     </Pilot>
     <Pilot id="mandalorianmercenary" faction="scum" ship="firespray31">
         <Name>Mandalorian Mercenary</Name>
@@ -1067,7 +1068,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>You may execute the {sloopleft} 3 or {sloopright} 3 maneuver using the corresponding {leftturn}3 or {rightturn}3 template.</Ability>
+        <Ability>You may execute the {sloop left} 3 or {sloop right} 3 maneuver using the corresponding {turn left}3 or {turn right}3 template.</Ability>
     </Pilot>
     <Pilot id="bossk" faction="scum" ship="yv666">
         <Name>Bossk</Name>
@@ -1110,7 +1111,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>You can perform {cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
+        <Ability>You can perform {Cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
     </Pilot>
     <Pilot id="lattsrazzi" faction="scum" ship="yv666">
         <Name>Latts Razzi</Name>
@@ -2118,7 +2119,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>While you are not stressed, you may treat your {talon roll left} and {talon roll right} maneuvers as white maneuvers.</Ability>
+        <Ability>While you are not stressed, you may treat your {troll left} and {troll right} maneuvers as white maneuvers.</Ability>
     </Pilot>
     <Pilot id="niennunb" faction="rebel" ship="t70xwing">
         <Name>Nien Nunb</Name>
@@ -2192,7 +2193,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When performing a boost action, you may use the [{left turn} 1] or [{right turn} 1] template.</Ability>
+        <Ability>When performing a boost action, you may use the [{turn left} 1] or [{turn right} 1] template.</Ability>
     </Pilot>
     <Pilot id="redsquadronveteran" faction="rebel" ship="t70xwing">
         <Name>Red Squadron Veteran</Name>
@@ -3342,7 +3343,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>Once per round, after you discard an {elite pilot talent} Upgrade card, flip that card faceup.</Ability>
+        <Ability>Once per round, after you discard an {Elite Pilot Talent} Upgrade card, flip that card faceup.</Ability>
     </Pilot>
     <Pilot id="majorrhymer" faction="imperial" ship="tiebomber">
         <Name>Major Rhymer</Name>
@@ -3552,7 +3553,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When you reveal a {straight} maneuver, you may treat it as a {k-turn} maneuver.</Ability>
+        <Ability>When you reveal a {straight} maneuver, you may treat it as a {kturn} maneuver.</Ability>
     </Pilot>
     <Pilot id="onyxsquadronpilot" faction="imperial" ship="tiedefender">
         <Name>Onyx Squadron Pilot</Name>
@@ -3648,7 +3649,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When you reveal a {k-turn} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
+        <Ability>When you reveal a {kturn} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
     </Pilot>
     <Pilot id="kirkanos" faction="imperial" ship="tieinterceptor">
         <Name>Kir Kanos</Name>
@@ -3678,7 +3679,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When performing a barrel roll action, you may receive 1 stress token to use the 1 {left bank} or {right bank} template instead of the 1 {straight} template.</Ability>
+        <Ability>When performing a barrel roll action, you may receive 1 stress token to use the 1 {bank left} or {bank right} template instead of the 1 {straight} template.</Ability>
     </Pilot>
     <Pilot id="felswrath" faction="imperial" ship="tieinterceptor">
         <Name>&quot;Fel's Wrath&quot;</Name>
@@ -3787,7 +3788,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When you decloak, you must use the 2 {left bank} or 2 {right bank} template instead of the 2 {straight} template.</Ability>
+        <Ability>When you decloak, you must use the 2 {bank left} or 2 {bank right} template instead of the 2 {straight} template.</Ability>
     </Pilot>
     <Pilot id="shadowsquadronpilot" faction="imperial" ship="tiephantom">
         <Name>Shadow Squadron Pilot</Name>

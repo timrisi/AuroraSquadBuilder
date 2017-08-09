@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.CustomPilotsView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
@@ -49,7 +50,7 @@
 										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
 										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
 									</StackLayout>
-									<Label Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
+									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
 									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
 								</StackLayout>
 							</ViewCell.View>
