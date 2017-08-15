@@ -22,41 +22,56 @@
 						<Label HorizontalOptions="FillAndExpand" 
 			    		   XAlign="Center" 
 			    		   Text="{Binding PointsDescription}" />
-						<Grid>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="Auto" />
-							</Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-							<StackLayout Grid.Row="0" Grid.Column="0">
-								<Label Text="{Binding Pilot.Cost, StringFormat='Cost: {0}'}" />
-								<StackLayout Orientation="Horizontal" 
-											 Spacing="15">
-									<Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Energy}" IsVisible="{Binding Pilot.ShowEnergy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Attack}" IsVisible="{Binding Pilot.ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
-									<Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
-								</StackLayout>
-								<Label Text="{Binding Pilot.Ship.Name}" FontAttributes="Italic" />
-							</StackLayout>
-							<Image Source="{Binding Pilot.Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding Pilot.ShowManeuversInPilotView}" Grid.Row="0" Grid.Column="1" />
+                            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+                                <Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" />
+                                <Label Text="{Binding Pilot.Ship.Name}" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                                <local:HtmlLabel Text="{Binding Pilot.FactionSymbol}" FontSize="Large" HorizontalOptions="End" />
+                            </StackLayout>
+
+                            <!--<local:HtmlLabel Text="{Binding Pilot.EnergySymbol}" TextColor="Fuchsia" Grid.Row="1" Grid.Column="0" />
+                            <Label Text="{Binding Pilot.Energy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" />-->
+                            
+                            <local:HtmlLabel Text="{Binding Pilot.AttackSymbol}" TextColor="Red" Grid.Row="1" Grid.Column="0" />
+                            <Label Text="{Binding Pilot.Attack}" IsVisible="{Binding Pilot.ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" />
+
+                            <local:HtmlLabel Text="{Binding Pilot.AgilitySymbol}" TextColor="Green" Grid.Row="2" Grid.Column="0" />
+                            <Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
+                        
+                            <local:HtmlLabel Text="{Binding Pilot.HullSymbol}" TextColor="#FC0" Grid.Row="3" Grid.Column="0" />
+                            <Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" Grid.Row="3" Grid.Column="1" />
+                       
+                            <local:HtmlLabel Text="{Binding Pilot.ShieldsSymbol}" TextColor="Blue" Grid.Row="4" Grid.Column="0" />
+                            <Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
+
+                            <local:HtmlLabel Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" 
+                                                HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="10,0"
+                                                Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" />
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
+                                <local:HtmlLabel Text="{Binding Pilot.Ship.ActionsString}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding Pilot.Cost}" HorizontalOptions="End" />
+                            </StackLayout>
+<!--						<Image Source="{Binding Pilot.Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding Pilot.ShowManeuversInPilotView}" Grid.Row="0" Grid.Column="1" />-->
 						</Grid>
 						<StackLayout Orientation="Horizontal" Spacing="10">
-							<Label Text="Actions:" FontAttributes="Bold" MinimumWidthRequest="100" />
-							<Label Text="{Binding Pilot.Ship.ActionsString}" />
-						</StackLayout>
-						<StackLayout Orientation="Horizontal" Spacing="10">
-							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
 							<Label Text="Preview" IsVisible="{Binding Pilot.Preview}" TextColor="Blue" FontAttributes="Italic" />
 							<Label Text="Custom" IsVisible="{Binding Pilot.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 						</StackLayout>
-						<local:HtmlLabel Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" />
 					</StackLayout>
 				</DataTemplate>
 			</ListView.HeaderTemplate>
@@ -66,11 +81,11 @@
 						<ViewCell.View>
 							<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-									<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
+                                    <local:HtmlLabel Text="{Binding Symbol}" HorizontalOptions="Start" />
+									<Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" XAlign="Start" />
 									<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
 								</StackLayout>
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" IsVisible="{Binding IsUpgrade}">
-									<Label Text="Unique" IsVisible="{Binding Unique}" FontAttributes="Italic" />
 									<Label Text="Limited" IsVisible="{Binding Limited}" FontAttributes="Italic" />
 									<Label Text="{Binding ShipRequirement, StringFormat='{0} Only'}" IsVisible="{Binding ShowShipRequirement}" FontAttributes="Italic" />
 									<Label Text="Small Ship Only" IsVisible="{Binding SmallOnly}" FontAttributes="Italic" />

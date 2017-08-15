@@ -336,6 +336,7 @@ namespace SquadBuilder
 					CCL = ship.Element ("CCL") != null ? (bool)ship.Element ("CCL") : false,
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
+					Symbol = ship.Element ("Symbol")?.Value ?? "",
 					//StraightOne = ship.Element("StraightOne")?.Value ?? "",
 					//StraightTwo = ship.Element("StraightOne")?.Value ?? "",
 					//StraightThree = ship.Element("StraightOne")?.Value ?? "",

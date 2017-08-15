@@ -87,6 +87,12 @@ namespace SquadBuilder
 			}
 		}
 
+		string symbol;
+		public string Symbol {
+			get { return symbol; }
+			set { SetProperty (ref symbol, value);}
+		}
+
 #region Maneuvers
 		//public string straightOne;
 		//public string StraightOne {
@@ -194,9 +200,29 @@ namespace SquadBuilder
 			}
 		}
 
+		Dictionary<string, string> ActionsDictionary = new Dictionary<string, string> {
+			{ "Focus", "<font face='xwing-miniatures'>f</font>" },
+			{ "Target Lock", "<font face='xwing-miniatures'>l</font>" },
+			{ "Evade", "<font face='xwing-miniatures'>e</font>" },
+			{ "Barrel Roll", "<font face='xwing-miniatures'>r</font>" },
+			{ "Boost", "<font face='xwing-miniatures'>b</font>" },
+			{ "SLAM", "<font face='xwing-miniatures'>s</font>" },
+			{ "Reinforce", "<font face='xwing-miniatures'>i</font>" },
+			{ "Coordinate", "<font face='xwing-miniatures'>o</font>" },
+			{ "Jam", "<font face='xwing-miniatures'>j</font>" },
+			{ "Cloak", "<font face='xwing-miniatures'>k</font>" },
+			{ "Recover", "<font face='xwing-miniatures'>v</font>" },
+			{ "Rotate Arc", "<font face='xwing-miniatures'>R</font>" },
+		};
+
 		public string ActionsString { 
 			get {
-				return string.Join (", ", Actions ?? new ObservableCollection <string> ());
+				var actionsString = ActionsDictionary[Actions[0]];
+				for (int i = 1; i < Actions.Count; i++)
+					actionsString += " " + ActionsDictionary[Actions[i]];
+
+				return actionsString;
+				//return string.Join (", ", Actions ?? new ObservableCollection <string> ());
 			}
 		}
 
@@ -258,18 +284,20 @@ namespace SquadBuilder
 
 		public Ship Copy ()
 		{
-			return new Ship {
+			return new Ship
+			{
 				Id = Id,
 				Name = Name,
 				CanonicalName = CanonicalName,
 				LargeBase = LargeBase,
 				Huge = Huge,
-				Actions = new ObservableCollection<string> (Actions),
+				Actions = new ObservableCollection<string>(Actions),
 				ManeuverGridImage = ManeuverGridImage,
 				IsCustom = IsCustom,
 				CCL = CCL,
 				OldId = OldId,
 				IsPreview = IsPreview,
+				Symbol = Symbol,
 
 				//straightOne = StraightOne,
 				//straightTwo = StraightTwo,

@@ -41,7 +41,21 @@ namespace SquadBuilder
 
 		public Faction Faction { get; set; }
 		public Ship Ship { get; set; }
-		public bool Unique { get; set; }
+
+		bool unique;
+		public bool Unique { 
+			get { return unique; } 
+			set { 
+				SetProperty (ref unique, value);
+
+				if (unique) {
+					if (!name.Contains("•"))
+						name = $"•{name}";
+				} else
+					name = name.Replace("•", "");
+			}
+		}
+
 		public int BasePilotSkill { get; set; }
 		public int BaseEnergy { get; set; }
 		public int BaseAttack { get; set; }
@@ -55,6 +69,52 @@ namespace SquadBuilder
 		public bool Preview { get; set; }
 		public Guid LinkedPilotCardGuid { get; set; }
 		public int MultiSectionId { get; set; } = -1;
+
+		public string FactionSymbol {
+			get {
+				string symbol;
+				switch (Faction.Id) {
+					case "rebel":
+						symbol = "!";
+						break;
+					case "imperial":
+						symbol = "@";
+						break;
+					case "scum":
+						symbol = "#";
+						break;
+					default:
+						symbol = "";
+						break;
+				}
+
+				return $"<font face='xwing-miniatures'>{symbol}</font>";
+			}
+		}
+
+		public string EnergySymbol
+		{
+			get { return "<font face='xwing-miniatures'>(</font>"; }
+		}
+
+		public string AttackSymbol {
+			get { return "<font face='xwing-miniatures'>%</font>"; }
+		}
+
+		public string AgilitySymbol
+		{
+			get { return "<font face='xwing-miniatures'>^</font>"; }
+		}
+
+		public string HullSymbol
+		{
+			get { return "<font face='xwing-miniatures'>&</font>"; }
+		}
+
+		public string ShieldsSymbol
+		{
+			get { return "<font face='xwing-miniatures'>*</font>"; }
+		}
 
 		[XmlIgnore]
 		public int owned;
@@ -147,7 +207,12 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public string UpgradeTypesString {
 			get {
-				return string.Join (", ", UpgradeTypes);
+				var upgradesString = Upgrade.UpgradeSymbolDictionary [UpgradeTypes[0]];
+				for (int i = 1; i < UpgradeTypes.Count; i++)
+					upgradesString += " " + Upgrade.UpgradeSymbolDictionary[UpgradeTypes[i]];
+
+				return upgradesString;
+				//return string.Join (", ", UpgradeTypes);
 			}
 		}
 
@@ -166,9 +231,15 @@ namespace SquadBuilder
 						upgrade = null;
 
 					if (upgrade != null)
-						u.Add (upgrade);
+						u.Add(upgrade);
 					else
-						u.Add (new { Name = upgradeType, IsUpgrade = false });
+					{
+						string symbol = "";
+
+						Upgrade.UpgradeSymbolDictionary.TryGetValue(upgradeType, out symbol);
+
+						u.Add(new { Name = upgradeType, Symbol = $"<font face='xwing-miniatures'>{symbol}</font>", IsUpgrade = false });
+					}
 				}
 
 				return u;

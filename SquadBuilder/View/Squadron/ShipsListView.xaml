@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.ShipsListView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.Content>
@@ -26,19 +27,23 @@
 									</Grid.RowDefinitions>
 
 									<Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="*" />
 										<ColumnDefinition Width="Auto" />
 									</Grid.ColumnDefinitions>
-									
-									<StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
-										<StackLayout Orientation="Horizontal">
-											<Label Text="{Binding Name}" TextColor="{Binding TextColor}" />
-											<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
-											<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
-											<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
-										</StackLayout>
-										<Label Text="{Binding ActionsString}" FontSize="Micro" TextColor="Navy" />
-									</StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Padding="10,5">
+                                        <local:HtmlLabel Text="{Binding Symbol}" FontSize="Large" VerticalTextAlignment="Center" />
+        								<StackLayout Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand">
+        									<StackLayout Orientation="Horizontal">
+        										<Label Text="{Binding Name}" TextColor="{Binding TextColor}" />
+        										<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
+        										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+        										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+        									</StackLayout>
+        									<local:HtmlLabel Text="{Binding ActionsString}" FontSize="Small" />
+        								</StackLayout>
+                                    </StackLayout>
 									<Image Source="{Binding ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
 								</Grid>
 							</ViewCell.View>

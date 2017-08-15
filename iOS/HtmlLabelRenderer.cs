@@ -4,6 +4,7 @@ using Foundation;
 using SquadBuilder;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using UIKit;
 
 [assembly: ExportRenderer (typeof (HtmlLabel), typeof (HtmlLabelRenderer))]
 
@@ -25,11 +26,20 @@ namespace SquadBuilder {
 				var font = Control.Font;
 				var fontName = font.Name;
 				var fontSize = font.PointSize;
+				var alignment = Control.TextAlignment;
 				var htmlContents = "<span style=\"font-family: '" + fontName + "'; color: " + textColor + "; font-size: " + fontSize + "\">" + Element.Text + "</span>";
 				var myHtmlData = NSData.FromString (htmlContents, NSStringEncoding.Unicode);
 
 				Control.Lines = 0;
-				Control.AttributedText = new NSAttributedString (myHtmlData, attr, ref nsError);
+				var str = new NSAttributedString (myHtmlData, attr, ref nsError);
+				var mutableString = new NSMutableAttributedString(str);
+
+				NSMutableParagraphStyle style = new NSMutableParagraphStyle();
+				style.Alignment = alignment;
+
+				mutableString.AddAttribute(UIStringAttributeKey.ParagraphStyle, style, new NSRange (0, mutableString.Length));
+
+				Control.AttributedText = mutableString;
 			}
 		}
 

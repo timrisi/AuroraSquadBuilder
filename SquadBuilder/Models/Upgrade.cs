@@ -15,7 +15,43 @@ namespace SquadBuilder
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string CategoryId { get; set; }
-		public string Category { get; set; }
+
+		public static Dictionary<string, string> UpgradeSymbolDictionary = new Dictionary<string, string> {
+			{ "Astromech Droid", "<font face='xwing-miniatures'>A</font>" },
+			{ "Bomb", "<font face='xwing-miniatures'>B</font>" },
+			{ "Cannon", "<font face='xwing-miniatures'>C</font>" },
+			{ "Cargo", "<font face='xwing-miniatures'>G</font>" },
+			{ "Crew", "<font face='xwing-miniatures'>W</font>" },
+			{ "Elite Pilot Talent", "<font face='xwing-miniatures'>E</font>" },
+			{ "Illicit", "<font face='xwing-miniatures'>I</font>" },
+			{ "Missile", "<font face='xwing-miniatures'>M</font>" },
+			{ "Modification", "<font face='xwing-miniatures'>m</font>" },
+			{ "Salvaged Astromech", "<font face='xwing-miniatures'>V</font>" },
+			{ "System Upgrade", "<font face='xwing-miniatures'>S</font>" },
+			{ "Team", "<font face='xwing-miniatures'>T</font>" },
+			{ "Tech", "<font face='xwing-miniatures'>X</font>" },
+			{ "Title", "<font face='xwing-miniatures'>t</font>" },
+			{ "Torpedo", "<font face='xwing-miniatures'>P</font>" },
+			{ "Turret Weapon", "<font face='xwing-miniatures'>U</font>" },
+		};
+
+		string category;
+		public string Category
+		{
+			get { return category; }
+			set
+			{
+				SetProperty(ref category, value);
+
+				string symbol = "";
+
+				UpgradeSymbolDictionary.TryGetValue(category, out symbol);
+
+				Symbol = $"<font face='xwing-miniatures'>{symbol}</font>";
+			}
+		}
+
+		public string Symbol { get; set; }
 
 		int cost;
 		public int Cost { 
@@ -43,7 +79,25 @@ namespace SquadBuilder
 		public int Dice { get; set; }
 		public string Range { get; set; }
 		public bool Limited { get; set; }
-		public bool Unique { get; set; }
+
+		bool unique;
+		public bool Unique
+		{
+			get { return unique; }
+			set
+			{
+				SetProperty(ref unique, value);
+
+				if (unique)
+				{
+					if (!Name.Contains("•"))
+						Name = $"•{Name}";
+				}
+				else
+					Name = Name.Replace("•", "");
+			}
+		}
+
 		public bool Preview { get; set; }
 		public string RequiredAction { get; set; }
 		public int MinPilotSkill { get; set; }
