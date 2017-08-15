@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.77">
+<Pilots Version="3.90">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -530,6 +530,26 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
+    </Pilot>
+	<Pilot id="captainjostero" faction="scum" ship="kihraxzfighter">
+        <Name>Captain Jostero</Name>
+        <Unique>true</Unique>
+        <PilotSkill>4</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>4</Hull>
+        <Shields>1</Shields>
+        <Cost>24</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Missile</Upgrade>
+            <Upgrade>Illicit</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>Once per round, after an enemy ship that is not defending against an attack suffers damage or critical damage, you may perform an attack against that ship.</Ability>
+        <Owned>0</Owned>
+        <Preview>true</Preview>
     </Pilot>
     <Pilot id="cartelmarauder" faction="scum" ship="kihraxzfighter">
         <Name>Cartel Marauder</Name>
