@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+          xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
+          x:Class="SquadBuilder.PilotListGroupHeaderCell">
+    <ViewCell.View>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Header}" TextColor="{Binding Ship.TextColor}" />
+                    <Label Text="Preview" IsVisible="{Binding Ship.IsPreview}" TextColor="Blue" FontAttributes="Italic" />
+                    <Label Text="Custom" IsVisible="{Binding Ship.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+                    <Label Text="CCL" IsVisible="{Binding Ship.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+                </StackLayout>
+                <local:HtmlLabel Text="{Binding Ship.ActionsString}" FontSize="Small" />
+            </StackLayout>
+            <Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

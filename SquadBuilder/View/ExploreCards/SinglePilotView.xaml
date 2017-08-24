@@ -3,7 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 x:Class="SquadBuilder.SinglePilotView" 
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
-                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 Title = "{Binding Pilot.Name}">
 	<mvvm:BaseView.Content>
 		<ListView ItemsSource="{Binding Pilot.Upgrades}"
@@ -11,7 +11,8 @@
 				  Header="{Binding .}"> 
 			<ListView.HeaderTemplate>
 				<DataTemplate>
-					<StackLayout VerticalOptions="FillAndExpand"
+                    <local:PilotGrid />
+					<!--<StackLayout VerticalOptions="FillAndExpand"
 						 HorizontalOptions="FillAndExpand"
 						 Padding="15,10,15,10"
 						 Spacing="15">
@@ -41,7 +42,7 @@
 						</Grid>
 						<StackLayout Orientation="Horizontal" Spacing="10">
 							<Label Text="Actions:" FontAttributes="Bold" MinimumWidthRequest="100" />
-							<Label Text="{Binding Pilot.Ship.ActionsString}" />
+							<local:HtmlLabel Text="{Binding Pilot.Ship.ActionsString}" />
 						</StackLayout>
 						<StackLayout Orientation="Horizontal" Spacing="10">
 							<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Pilot.Unique}" />
@@ -49,7 +50,7 @@
 							<Label Text="Custom" IsVisible="{Binding Pilot.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 						</StackLayout>
 						<local:HtmlLabel Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" />
-					</StackLayout>
+					</StackLayout>-->
 				</DataTemplate>
 			</ListView.HeaderTemplate>
 			<ListView.ItemTemplate>

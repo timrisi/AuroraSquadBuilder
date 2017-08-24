@@ -9,8 +9,6 @@ namespace SquadBuilder
 {
 	public class UpgradesCollectionCategoryListViewModel : ViewModel
 	{
-		ObservableCollection <string> allCategories;
-
 		public UpgradesCollectionCategoryListViewModel ()
 		{
 			GetAllCategories ();
@@ -18,8 +16,8 @@ namespace SquadBuilder
 
 		public string PageName { get { return "Upgrades"; } }
 
-		ObservableCollection <string> categories = new ObservableCollection <string> ();
-		public ObservableCollection <string> Categories {
+		ObservableCollection <UpgradeCategory> categories = new ObservableCollection <UpgradeCategory> ();
+		public ObservableCollection <UpgradeCategory> Categories {
 			get {
 				return categories;
 			} set {
@@ -28,15 +26,15 @@ namespace SquadBuilder
 			}
 		}
 
-		string selectedCategory = null;
-		public string SelectedCategory {
+		UpgradeCategory selectedCategory = null;
+		public UpgradeCategory SelectedCategory {
 			get { return selectedCategory; }
 			set { 
 				SetProperty (ref selectedCategory, value); 
 
 				if (value != null) {
 					Navigation.PushAsync <UpgradesCollectionViewModel> ((vm, p) => {
-						vm.Category = SelectedCategory;
+						vm.Category = SelectedCategory.Name;
 					});
 				}
 			}
@@ -44,8 +42,8 @@ namespace SquadBuilder
 
 		void GetAllCategories ()
 		{
-			allCategories = new ObservableCollection <string> (Cards.SharedInstance.Upgrades.Select (u => u.Category).Distinct ());
-			Categories = new ObservableCollection <string> (allCategories);
+			var categoryNames = new List<string>(Cards.SharedInstance.Upgrades.Select(u => u.Category).Distinct());
+			Categories = new ObservableCollection<UpgradeCategory> (categoryNames.Select (u => new UpgradeCategory { Name = u, Symbol = Upgrade.GetSymbol(u) }).Distinct ());
 		}
 
 		public override void OnViewAppearing ()

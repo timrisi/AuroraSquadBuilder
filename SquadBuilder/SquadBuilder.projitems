@@ -48,7 +48,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateFactionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreatePilotViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateShipViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateUpgradeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomFactionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomPilotsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomShipsViewModel.cs" />
@@ -86,9 +85,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml.cs">
       <DependentUpon>CreateShipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateUpgradeView.xaml.cs">
-      <DependentUpon>CreateUpgradeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml.cs">
       <DependentUpon>CustomFactionsView.xaml</DependentUpon>
@@ -188,6 +184,21 @@
       <DependentUpon>ImportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)HtmlLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Controls\PilotGrid.xaml.cs">
+      <DependentUpon>PilotGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Controls\ShipCell.xaml.cs">
+      <DependentUpon>ShipCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Controls\UpgradeCell.xaml.cs">
+      <DependentUpon>UpgradeCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Controls\PilotListGroupHeaderCell.xaml.cs">
+      <DependentUpon>PilotListGroupHeaderCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\Controls\PilotCell.xaml.cs">
+      <DependentUpon>PilotCell.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -201,6 +212,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)View\Squadron\" />
     <Folder Include="$(MSBuildThisFileDirectory)View\ExploreCards\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\ExploreCards\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainView.xaml">
@@ -237,9 +249,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateUpgradeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml">
@@ -321,6 +330,21 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ImportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Controls\PilotGrid.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Controls\ShipCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Controls\UpgradeCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Controls\PilotListGroupHeaderCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Controls\PilotCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
+          x:Class="SquadBuilder.PilotCell">
+    <ViewCell.View>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" TextColor="{Binding TextColor}" />
+                <Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" TextColor="{Binding TextColor}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="15">
+                <Label Text="{Binding PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Energy}" IsVisible="{Binding ShowEnergy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Attack}" IsVisible="{Binding ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
+                <Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+                <Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+            </StackLayout>
+            <local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
+            <local:HtmlLabel Text="{Binding UpgradeTypesString}"     />
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+                <Label Text="{Binding Expansions}" />
+            </StackLayout>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

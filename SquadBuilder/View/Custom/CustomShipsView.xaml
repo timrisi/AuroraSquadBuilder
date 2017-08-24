@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.CustomShipsView" 
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
@@ -17,15 +18,15 @@
 					  ItemsSource="{Binding Ships}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<TextCell Text="{Binding Name}" Detail="{Binding ActionsString}">
-							<TextCell.ContextActions>
-								<MenuItem Command="{Binding EditShip}"
-										  Text="Edit" />
-								<MenuItem Command="{Binding DeleteShip}"
-					               		  Text="Delete" 
-					               		  IsDestructive="True" />
-							</TextCell.ContextActions>
-						</TextCell>
+                        <local:ShipCell>
+                            <local:ShipCell.ContextActions>
+                                <MenuItem Command="{Binding EditShip}"
+                                          Text="Edit" />
+                                <MenuItem Command="{Binding DeleteShip}"
+                                          Text="Delete" 
+                                          IsDestructive="True" />
+                            </local:ShipCell.ContextActions>
+                        </local:ShipCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

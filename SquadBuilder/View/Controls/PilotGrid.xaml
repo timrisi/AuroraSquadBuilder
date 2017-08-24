@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
+             x:Class="SquadBuilder.PilotGrid">
+	<ContentView.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="15,0,15,10">
+            <Label HorizontalOptions="FillAndExpand" 
+               XAlign="Center" 
+               Text="{Binding PointsDescription}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+                    <Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" />
+                    <Label Text="{Binding Pilot.Ship.Name}" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                    <local:HtmlLabel Text="{Binding Pilot.FactionSymbol}" FontSize="Large" HorizontalOptions="End" />
+                </StackLayout>
+
+                <!--<local:HtmlLabel Text="{Binding Pilot.EnergySymbol}" TextColor="Fuchsia" Grid.Row="1" Grid.Column="0" />
+                <Label Text="{Binding Pilot.Energy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" />-->
+                
+                <local:HtmlLabel Text="{Binding Pilot.AttackSymbol}" TextColor="Red" Grid.Row="1" Grid.Column="0" />
+                <Label Text="{Binding Pilot.Attack}" IsVisible="{Binding Pilot.ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" />
+
+                <local:HtmlLabel Text="{Binding Pilot.AgilitySymbol}" TextColor="Green" Grid.Row="2" Grid.Column="0" />
+                <Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
+            
+                <local:HtmlLabel Text="{Binding Pilot.HullSymbol}" TextColor="#FC0" Grid.Row="3" Grid.Column="0" />
+                <Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" Grid.Row="3" Grid.Column="1" />
+           
+                <local:HtmlLabel Text="{Binding Pilot.ShieldsSymbol}" TextColor="Blue" Grid.Row="4" Grid.Column="0" />
+                <Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
+
+                <local:HtmlLabel Text="{Binding Pilot.Ability}" TextColor="{Binding Pilot.AbilityColor}" IsVisible="{Binding Pilot.AbilityVisible}" 
+                                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="10,0"
+                                    Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" />
+
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
+                    <local:HtmlLabel Text="{Binding Pilot.Ship.ActionsString}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                    <Label Text="{Binding Pilot.Cost}" HorizontalOptions="End" />
+                </StackLayout>
+<!--            <Image Source="{Binding Pilot.Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding Pilot.ShowManeuversInPilotView}" Grid.Row="0" Grid.Column="1" />-->
+            </Grid>
+            <StackLayout Orientation="Horizontal" Spacing="10" IsVisible="{Binding ShowExtras}">
+                <Label Text="Preview" IsVisible="{Binding Pilot.Preview}" TextColor="Blue" FontAttributes="Italic" />
+                <Label Text="Custom" IsVisible="{Binding Pilot.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
+                <Label Text="CCL" IsVisible="{Binding Pilot.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
+                <Label Text="{Binding Pilot.Expansions}" />
+            </StackLayout>
+        </StackLayout>
+	</ContentView.Content>
+</ContentView>

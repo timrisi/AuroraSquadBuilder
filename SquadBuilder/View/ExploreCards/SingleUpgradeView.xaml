@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 x:Class="SquadBuilder.SingleUpgradeView" 
 			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
 			 Title = "{Binding Upgrade.Name}">
@@ -11,7 +12,6 @@
 				<Label Text="{Binding Upgrade.Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
 			</StackLayout>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-				<Label Text="Unique" IsVisible="{Binding Upgrade.Unique}" FontAttributes="Italic" />
 				<Label Text="Limited" IsVisible="{Binding Upgrade.Limited}" FontAttributes="Italic" />
 				<Label Text="{Binding Upgrade.ShipRequirement, StringFormat='{0} Only'}" IsVisible="{Binding Upgrade.ShowShipRequirement}" FontAttributes="Italic" />
 				<Label Text="Small Ship Only" IsVisible="{Binding Upgrade.SmallOnly}" FontAttributes="Italic" />
@@ -26,7 +26,7 @@
 				<Label Text="{Binding Upgrade.Dice}" TextColor="Red" HorizontalOptions="StartAndExpand" />
 				<Label Text="{Binding Upgrade.Range, StringFormat='Range {0}'}" HorizontalOptions="EndAndExpand" />
 			</StackLayout>
-			<Label Text="{Binding Upgrade.Text}" />
+			<local:HtmlLabel Text="{Binding Upgrade.Text}" />
 			<StackLayout Orientation="Horizontal" Spacing="10">
 				<Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
 				<Label Text="{Binding Upgrade.Expansions}" />

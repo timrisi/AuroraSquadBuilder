@@ -98,10 +98,17 @@ namespace SquadBuilder
 		int factionIndex;
 		public int FactionIndex {
 			get { return factionIndex; }
-			set { 
-				SetProperty (ref factionIndex, value); 
+			set {
+				if (value < 0)
+				{
+					var oldVal = factionIndex;
+					SetProperty(ref factionIndex, value);
+					SetProperty(ref factionIndex, oldVal);
+				}
+				else if (value != factionIndex)
+					SetProperty(ref factionIndex, value);
 				if (value > -1)
-					Pilot.Faction = Factions [value];
+					Pilot.Faction = Factions[value];
 			}
 		}
 
@@ -288,7 +295,7 @@ namespace SquadBuilder
 
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
 
-						MessagingCenter.Send <EditPilotViewModel, Pilot> (this, "Finished Editing", Pilot);
+						MessagingCenter.Send <EditPilotViewModel, Pilot> (this, "Finished Editing", Pilot.Copy());
 					});
 
 				return savePilot;

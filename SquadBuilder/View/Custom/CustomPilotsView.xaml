@@ -19,42 +19,20 @@
 					  ItemsSource="{Binding PilotGroups}">
 				<ListView.GroupHeaderTemplate>
 					<DataTemplate>
-						<TextCell Text="{Binding Header}" Detail="{Binding Ship.ActionsString}" />
+						<local:PilotListGroupHeaderCell />
 					</DataTemplate>
 				</ListView.GroupHeaderTemplate>
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<ViewCell>
-							<ViewCell.ContextActions>
+						<local:PilotCell>
+							<local:PilotCell.ContextActions>
 								<MenuItem Command="{Binding EditPilot}"
 										  Text="Edit" />
 								<MenuItem Command="{Binding DeletePilot}"
 					               		  Text="Delete" 
 					               		  IsDestructive="True" />
-							</ViewCell.ContextActions>
-							<ViewCell.View>
-								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
-									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" XAlign="Start" />
-										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" />
-									</StackLayout>
-									<StackLayout Orientation="Horizontal" 
-												 Spacing="15">
-										<Label Text="{Binding PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Attack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" />
-										<Label Text="{Binding Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" />
-									</StackLayout>
-									<StackLayout Orientation="Horizontal" Spacing="10">
-										<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
-										<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
-									</StackLayout>
-									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
-									<Label Text="{Binding UpgradeTypesString}" FontSize="Small" />
-								</StackLayout>
-							</ViewCell.View>
-						</ViewCell>
+							</local:PilotCell.ContextActions>
+						</local:PilotCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

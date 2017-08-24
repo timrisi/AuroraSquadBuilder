@@ -90,11 +90,11 @@ namespace SquadBuilder
 				}
 
 				var pilotUpgrades = new List <object> (Pilot.Upgrades);
-				pilotUpgrades.Remove (new { Name = upgrade.Category, IsUpgrade = false });
+				pilotUpgrades.Remove (Upgrade.CreateUpgradeSlot(upgrade.Category));
 
 				bool isValid = true;
 				foreach (var slot in upgrade.Slots) {
-					var slotObject = new { Name = slot, IsUpgrade = false };
+					var slotObject = Upgrade.CreateUpgradeSlot(slot);
 					if (pilotUpgrades.Contains (slotObject))
 						pilotUpgrades.Remove (slotObject);
 					else {
@@ -178,8 +178,8 @@ namespace SquadBuilder
 		{
 			text = text.ToLower ();
 			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
-																						   u.Name.ToLower ().Contains (text) ||
-																						   u.Text.ToLower ().Contains (text) ||
+													   u.Name.ToLower ().Contains (text) ||
+													   u.Text.ToLower ().Contains (text) ||
 			                                                                               (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
 			                                                                               (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
 			                                                                              ));

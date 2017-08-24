@@ -26,12 +26,6 @@ namespace SquadBuilder
 			});
 
 			MessagingCenter.Subscribe <Upgrade> (this, "Edit Upgrade", upgrade => {
-				string upgradeName = upgrade.Name;
-				string shipName = upgrade.Ship?.Name;
-				string factionName;
-				if (upgrade.Factions != null && upgrade.Factions.Count > 0)
-					factionName = upgrade.Factions? [0]?.Name;
-
 				MessagingCenter.Subscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", (vm, updatedUpgrade) => {
 					Cards.SharedInstance.CustomUpgrades [Cards.SharedInstance.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;
 
@@ -63,6 +57,7 @@ namespace SquadBuilder
 
 				Navigation.PushAsync<EditUpgradeViewModel> ((vm, p) => {
 					vm.Upgrade = upgrade.Copy ();
+					vm.Create = false;
 				});
 			});
 		}
@@ -84,7 +79,7 @@ namespace SquadBuilder
 			get {
 				if (createUpgrade == null)
 					createUpgrade = new RelayCommand (() => {
-						MessagingCenter.Subscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", (vm, upgrade) => {
+						MessagingCenter.Subscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created", (vm, upgrade) => {
 							var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == upgrade.Category);
 
 							if (upgradeGroup == null) {
@@ -96,11 +91,31 @@ namespace SquadBuilder
 
 							Cards.SharedInstance.CustomUpgrades.Add (upgrade);
 							Cards.SharedInstance.GetAllUpgrades ();
-							Navigation.RemoveAsync <CreateUpgradeViewModel> (vm);
-							MessagingCenter.Unsubscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created");
+							Navigation.RemoveAsync <EditUpgradeViewModel> (vm);
+							MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created");
 						});
 
-						Navigation.PushAsync <CreateUpgradeViewModel> ();
+						Navigation.PushAsync<EditUpgradeViewModel>((vm, p) => {
+							vm.Upgrade = new Upgrade();
+							vm.Create = true;
+						});
+						//MessagingCenter.Subscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", (vm, upgrade) => {
+						//	var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == upgrade.Category);
+
+						//	if (upgradeGroup == null) {
+						//		upgradeGroup = new UpgradeGroup (upgrade.Category);
+						//		Upgrades.Add (upgradeGroup);
+						//	}
+
+						//	upgradeGroup.Add (upgrade);
+
+						//	Cards.SharedInstance.CustomUpgrades.Add (upgrade);
+						//	Cards.SharedInstance.GetAllUpgrades ();
+						//	Navigation.RemoveAsync <CreateUpgradeViewModel> (vm);
+						//	MessagingCenter.Unsubscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created");
+						//});
+
+						//Navigation.PushAsync <CreateUpgradeViewModel> ();
 					});
 
 				return createUpgrade;
@@ -111,6 +126,8 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
+			MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Finished Editing");
+			                                                         
 			var factions = Cards.SharedInstance.AllFactions;
 
 			List <Upgrade> upgrades = Cards.SharedInstance.CustomUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost).ToList ();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.90">
+<Upgrades Version="3.904">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -206,7 +206,7 @@ Detonation: Each ship at Range 1 of the token suffers 1 damage and receives 1 st
 
 This token detonates at the end of the Activation phase.
 
-Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers all damage {hit} and critical damage {crit} rolled.  Then discard this token.></Text>
+Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers all damage {hit} and critical damage {crit} rolled.  Then discard this token.</Text>
             <ExtraSlots>
                 <Upgrade>Bomb</Upgrade>
             </ExtraSlots>
@@ -1018,7 +1018,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
         <Upgrade id="deadeye">
             <Name>Deadeye</Name>
             <Cost>1</Cost>
-            <Text>You may treat the 'Attack (target lock):' header as 'Attack (focus):'.  When an attack instructs you to spend a target lock, you may spend a focus token instead.</Text>
+            <Text>You may treat the 'Attack (Target Lock):' header as 'Attack (focus):'.  When an attack instructs you to spend a target lock, you may spend a focus token instead.</Text>
             <SmallOnly>true</SmallOnly>
         </Upgrade>
         <Upgrade id="pushthelimit">
@@ -1370,7 +1370,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="clustermissiles">
             <Name>Cluster Missiles</Name>
             <Cost>4</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack twice.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack twice.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>1-2</Range>
@@ -1378,7 +1378,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="concussionmissiles">
             <Name>Concussion Missiles</Name>
             <Cost>4</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to peform this attack.  You may change 1 of your blank results to a {hit} result.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to peform this attack.  You may change 1 of your blank results to a {hit} result.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -1386,7 +1386,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="assaultmissiles">
             <Name>Assault Missiles</Name>
             <Cost>5</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack.  If this attack hits, each other ship at Range 1 of the defender suffers 1 damage.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack.  If this attack hits, each other ship at Range 1 of the defender suffers 1 damage.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -1394,7 +1394,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="homingmissiles">
             <Name>Homing Missiles</Name>
             <Cost>5</Cost>
-            <Text>Attack (target lock): Discard this card to perform this attack.  The defender cannot spend evade tokens during this attack.</Text>
+            <Text>Attack (Target Lock): Discard this card to perform this attack.  The defender cannot spend evade tokens during this attack.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -1402,7 +1402,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="ionpulsemissiles">
             <Name>Ion Pulse Missiles</Name>
             <Cost>3</Cost>
-            <Text>Attack (target lock): Discard this card to peform this attack.  If this attack hits, the defender suffers 1 damage and recieves 2 ion tokens. Then cancel all dice results.</Text>
+            <Text>Attack (Target Lock): Discard this card to peform this attack.  If this attack hits, the defender suffers 1 damage and recieves 2 ion tokens. Then cancel all dice results.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>2-3</Range>
@@ -1425,7 +1425,7 @@ After you perform a SLAM action, discard this card.</Text>
         <Upgrade id="advancedhomingmissiles">
             <Name>Adv. Homing Missiles</Name>
             <Cost>3</Cost>
-            <Text>Attack (target lock): Discard this card to perform this attack.  If this attack hits, deal 1 faceup Damage card to the defender.  Then cancel all dice results.</Text>
+            <Text>Attack (Target Lock): Discard this card to perform this attack.  If this attack hits, deal 1 faceup Damage card to the defender.  Then cancel all dice results.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>2</Range>
@@ -1473,7 +1473,7 @@ Your attack dice can be modified only by spending a focus token for its standard
         <Upgrade id="cruisemissiles">
             <Name>Cruise Missiles</Name>
             <Cost>3</Cost>
-            <Text>Attack (target lock): Discard this card to perform this attack.  You may roll additional attack dice equal to the speed of the maneuver you executed this round, to a maximum of 4 additional dice.</Text>
+            <Text>Attack (Target Lock): Discard this card to perform this attack.  You may roll additional attack dice equal to the speed of the maneuver you executed this round, to a maximum of 4 additional dice.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>1</Dice>
             <Range>2-3</Range>
@@ -1481,7 +1481,7 @@ Your attack dice can be modified only by spending a focus token for its standard
 		<Upgrade id="harpoonmissiles">
             <Name>Harpoon Missiles</Name>
             <Cost>4</Cost>
-            <Text>Attack (target lock): Discard this card to perform this attack.  If this attack hits, after the attack resolves, assign the &quot;Harpooned!&quot; Condition to the defender.
+            <Text>Attack (Target Lock): Discard this card to perform this attack.  If this attack hits, after the attack resolves, assign the &quot;Harpooned!&quot; Condition to the defender.
 
 Harpooned!:  When you are hit by an attack, if there is at least 1 uncanceled {crit} result, each other ship at Range 1 suffers 1 damage.  Then discard this card and receive 1 facedown Damage card.
 
@@ -2416,7 +2416,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="protontorpedoes">
             <Name>Proton Torpedoes</Name>
             <Cost>4</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack.  You may change 1 of your {focus} results to a {crit} result.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack.  You may change 1 of your {focus} results to a {crit} result.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -2424,7 +2424,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="advancedprotontorpedoes">
             <Name>Advanced Proton Torpedoes</Name>
             <Cost>6</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack. You may change up to 3 of your blank results to {focus} results.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack. You may change up to 3 of your blank results to {focus} results.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>5</Dice>
             <Range>1</Range>
@@ -2433,7 +2433,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="flechettetorpedoes">
             <Name>Flechette Torpedoes</Name>
             <Cost>2</Cost>
-            <Text>Attack (target lock): Discard this card and spend your target lock to perform this attack.  After you perform this attack, the defender receives 1 stress token if its hull value is "4" or lower.</Text>
+            <Text>Attack (Target Lock): Discard this card and spend your target lock to perform this attack.  After you perform this attack, the defender receives 1 stress token if its hull value is "4" or lower.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>2-3</Range>
@@ -2441,7 +2441,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="iontorpedoes">
             <Name>Ion Torpedoes</Name>
             <Cost>5</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack. If this attack hits, the defender and each ship at Range 1 of it receives 1 ion token.</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack. If this attack hits, the defender and each ship at Range 1 of it receives 1 ion token.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -2466,7 +2466,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="plasmatorpedoes">
             <Name>Plasma Torpedoes</Name>
             <Cost>3</Cost>
-            <Text>Attack (target lock): Spend your target lock and discard this card to perform this attack.  If this attack hits, after dealing damage, remove 1 shield token from the defender</Text>
+            <Text>Attack (Target Lock): Spend your target lock and discard this card to perform this attack.  If this attack hits, after dealing damage, remove 1 shield token from the defender</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
@@ -2489,7 +2489,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
         <Upgrade id="blasterturret">
             <Name>Blaster Turret</Name>
             <Cost>4</Cost>
-            <Text>Attack (focus): Spend 1 focus token to perform this attack against 1 ship (even a ship outside your firing arc).</Text>
+            <Text>Attack (Focus): Spend 1 focus token to perform this attack against 1 ship (even a ship outside your firing arc).</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>1-2</Range>

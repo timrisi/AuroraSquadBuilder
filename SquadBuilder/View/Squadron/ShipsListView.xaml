@@ -19,35 +19,7 @@
 					  SelectedItem="{Binding SelectedShip, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
-						<ViewCell>
-							<ViewCell.View>
-								<Grid>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="*" />
-									</Grid.RowDefinitions>
-
-									<Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-										<ColumnDefinition Width="*" />
-										<ColumnDefinition Width="Auto" />
-									</Grid.ColumnDefinitions>
-
-                                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Padding="10,5">
-                                        <local:HtmlLabel Text="{Binding Symbol}" FontSize="Large" VerticalTextAlignment="Center" />
-        								<StackLayout Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand">
-        									<StackLayout Orientation="Horizontal">
-        										<Label Text="{Binding Name}" TextColor="{Binding TextColor}" />
-        										<Label Text="Preview" IsVisible="{Binding IsPreview}" TextColor="Blue" FontAttributes="Italic" />
-        										<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
-        										<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
-        									</StackLayout>
-        									<local:HtmlLabel Text="{Binding ActionsString}" FontSize="Small" />
-        								</StackLayout>
-                                    </StackLayout>
-									<Image Source="{Binding ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
-								</Grid>
-							</ViewCell.View>
-						</ViewCell>
+                        <local:ShipCell />
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

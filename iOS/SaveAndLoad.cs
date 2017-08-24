@@ -87,6 +87,12 @@ namespace SquadBuilder.iOS {
 			sb.Replace ("{slam}", "&#60;font face='xwing-miniatures'&#62;s&#60;/font&#62;");
 			sb.Replace ("{jam}", "&#60;font face='xwing-miniatures'&#62;j&#60;/font&#62;");
 			sb.Replace ("{stop}", "&#60;font face='xwing-miniatures'&#62;5&#60;/font&#62;");
+			sb.Replace ("Action:", "&#60;b&#62;Action:&#60;/b&#62;"); 
+			sb.Replace("Attack:", "&#60;b&#62;Attack:&#60;/b&#62;");
+			sb.Replace("Attack (Target Lock):", "&#60;b&#62;Attack (Target Lock):&#60;/b&#62;");
+			sb.Replace("Attack (Focus):", "&#60;b&#62;Attack (Focus):&#60;/b&#62;");
+			sb.Replace("detonates", "&#60;b&#62;detonates&#60;/b&#62;");
+			sb.Replace("Detonation:", "&#60;b&#62;Detonation:&#60;/b&#62;");
 
 			return sb.ToString ();
 		}

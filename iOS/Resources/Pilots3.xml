@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.80">
+<Pilots Version="3.903">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -1026,7 +1026,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>Once per round, after you perform an attack that does not hit, you may perform an attack with an equipped {Cannon} secondary weapon.</Ability>
+        <Ability>Once per round, after you perform an attack that does not hit, you may perform an attack with an equipped {cannon} secondary weapon.</Ability>
     </Pilot>
     <Pilot id="ig88c" faction="scum" ship="aggressor">
         <Name>IG88-C</Name>
@@ -1111,7 +1111,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>You can perform {Cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
+        <Ability>You can perform {cannon} secondary weapon attacks against ships inside your auxiliary firing arc.</Ability>
     </Pilot>
     <Pilot id="lattsrazzi" faction="scum" ship="yv666">
         <Name>Latts Razzi</Name>
@@ -2368,7 +2368,13 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.</Ability>
+        <Ability>After you perform an attack, assign the &quot;Suppressive Fire&quot; Condition card to the defender.
+
+Suppressive Fire: When attacking a ship other than &quot;Captain Rex,&quot; roll 1 fewer attack die.
+
+When you declare an attack targeting &quot;Captain Rex&quot; or when &quot;Captain Rex&quot; is destroyed, remove this card.
+
+At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an attack this phase, remove this card.</Ability>
     </Pilot>
     <Pilot id="zeborreliostiefighter" faction="rebel" ship="tiefighter">
         <Name>&quot;Zeb&quot; Orrelios</Name>
@@ -3088,7 +3094,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>Friendly TIE Fighters at Range 1-3 may perform the action on your equipped {Elite Pilot Talent} Upgrade card.</Ability>
+        <Ability>Friendly TIE Fighters at Range 1-3 may perform the action on your equipped {elite pilot talent} Upgrade card.</Ability>
     </Pilot>
     <Pilot id="wingedgundark" faction="imperial" ship="tiefighter">
         <Name>Winged Gundark</Name>
@@ -3118,7 +3124,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>After executing a green manoeuvre, you may perform a free focus action.</Ability>
+        <Ability>After executing a green maneuver, you may perform a free focus action.</Ability>
     </Pilot>
     <Pilot id="wampa" faction="imperial" ship="tiefighter">
         <Name>&quot;Wampa&quot;</Name>
@@ -3343,7 +3349,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>Once per round, after you discard an {Elite Pilot Talent} Upgrade card, flip that card faceup.</Ability>
+        <Ability>Once per round, after you discard an {elite pilot talent} Upgrade card, flip that card faceup.</Ability>
     </Pilot>
     <Pilot id="majorrhymer" faction="imperial" ship="tiebomber">
         <Name>Major Rhymer</Name>

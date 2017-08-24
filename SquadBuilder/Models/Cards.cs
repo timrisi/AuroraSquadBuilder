@@ -459,7 +459,7 @@ namespace SquadBuilder
 											Text = upgrade.Element ("Text")?.Value,
 											Factions = Factions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
 											//Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
-											Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
+											//Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
 											ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
 											PilotSkill = upgrade.Element ("PilotSkill") != null ? (int)upgrade.Element ("PilotSkill") : 0,
 											Energy = upgrade.Element ("Energy") != null ? (int)upgrade.Element ("Energy") : 0,

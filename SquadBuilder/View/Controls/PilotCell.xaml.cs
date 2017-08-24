@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace SquadBuilder
 {
-	public partial class EditUpgradeView : ContentPage
+	public partial class PilotCell : ViewCell
 	{
-		public EditUpgradeView ()
+		public PilotCell()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }
-

@@ -11,7 +11,8 @@ using System.Collections.Generic;
 
 namespace SquadBuilder
 {
-	public class Upgrade : ObservableObject {
+	public class Upgrade : ObservableObject
+	{
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string CategoryId { get; set; }
@@ -23,6 +24,7 @@ namespace SquadBuilder
 			{ "Cargo", "<font face='xwing-miniatures'>G</font>" },
 			{ "Crew", "<font face='xwing-miniatures'>W</font>" },
 			{ "Elite Pilot Talent", "<font face='xwing-miniatures'>E</font>" },
+			{ "Hardpoint", "<font face='xwing-miniatures'>H</font>"},
 			{ "Illicit", "<font face='xwing-miniatures'>I</font>" },
 			{ "Missile", "<font face='xwing-miniatures'>M</font>" },
 			{ "Modification", "<font face='xwing-miniatures'>m</font>" },
@@ -35,6 +37,15 @@ namespace SquadBuilder
 			{ "Turret Weapon", "<font face='xwing-miniatures'>U</font>" },
 		};
 
+		public static object CreateUpgradeSlot (string upgradeType) 
+		{
+			string symbol = "";
+
+			UpgradeSymbolDictionary.TryGetValue(upgradeType, out symbol);
+
+			return new { Name = upgradeType, Symbol = $"<font face='xwing-miniatures'>{symbol}</font>", IsUpgrade = false };
+		}
+
 		string category;
 		public string Category
 		{
@@ -43,12 +54,17 @@ namespace SquadBuilder
 			{
 				SetProperty(ref category, value);
 
-				string symbol = "";
-
-				UpgradeSymbolDictionary.TryGetValue(category, out symbol);
-
-				Symbol = $"<font face='xwing-miniatures'>{symbol}</font>";
+				Symbol = GetSymbol(category);
 			}
+		}
+
+		public static string GetSymbol (string category)
+		{
+			string symbol = "";
+
+			UpgradeSymbolDictionary.TryGetValue(category, out symbol);
+
+			return $"<font face='xwing-miniatures'>{symbol}</font>";
 		}
 
 		public string Symbol { get; set; }
@@ -56,7 +72,7 @@ namespace SquadBuilder
 		int cost;
 		public int Cost { 
 			get {
-				if (Pilot?.UpgradesEquipped?.Any (u => u?.Name == "Vaksai") ?? false)
+				if (Pilot?.UpgradesEquipped?.Any (u => u?.Name.Contains("Vaksai") ?? false) ?? false)
 					return Math.Max (0, cost - 1);
 				return cost;
 			}
@@ -79,6 +95,22 @@ namespace SquadBuilder
 		public int Dice { get; set; }
 		public string Range { get; set; }
 		public bool Limited { get; set; }
+
+		public bool ShowExtras {
+			get {
+				return Limited ||
+					ShowShipRequirement ||
+					SmallOnly ||
+					LargeOnly ||
+					HugeOnly ||
+					FactionRestricted ||
+					Preview ||
+					IsCustom ||
+					CCL ||
+					HotAC ||
+					ShowEnergy;
+			}
+		}
 
 		bool unique;
 		public bool Unique
@@ -182,7 +214,7 @@ namespace SquadBuilder
 		//	}
 		//}
 
-		List<Faction> factions;
+		List<Faction> factions = new List<Faction>();
 		public List<Faction> Factions {
 			get { return factions; }
 			set {
@@ -206,12 +238,12 @@ namespace SquadBuilder
 			get { return Energy != 0; }
 		}
 
-		public ObservableCollection <string> Slots { get; set; }
-		public ObservableCollection <string> AdditionalUpgrades { get; set; }
-		public ObservableCollection <string> AdditionalActions { get; set; }
-		public ObservableCollection <string> RemovedUpgrades { get; set; }
-		public ObservableCollection <string> RequiredSlots { get; set; }
-		public ObservableCollection <string> UpgradeOptions { get; set; }
+		public ObservableCollection<string> Slots { get; set; } = new ObservableCollection<string>();
+		public ObservableCollection <string> AdditionalUpgrades { get; set; } = new ObservableCollection<string>();
+		public ObservableCollection <string> AdditionalActions { get; set; } = new ObservableCollection<string>();
+		public ObservableCollection <string> RemovedUpgrades { get; set; } = new ObservableCollection<string>();
+		public ObservableCollection <string> RequiredSlots { get; set; } = new ObservableCollection<string>();
+		public ObservableCollection <string> UpgradeOptions { get; set; } = new ObservableCollection<string>();
 
 		public Color TextColor {
 			get { return IsAvailable ? Color.Black : Color.Gray; }
@@ -303,7 +335,7 @@ namespace SquadBuilder
 				CategoryId = CategoryId,
 				Cost = cost,
 				ShipRequirement = ShipRequirement,
-				Factions = Factions,
+				Factions = Factions != null ? new List<Faction>(Factions) : null,
 				SmallOnly = SmallOnly,
 				LargeOnly = LargeOnly,
 				HugeOnly = HugeOnly,

@@ -213,7 +213,7 @@ namespace SquadBuilder
 						
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
-						if (Cards.SharedInstance.Pilots.Count (p => p.Name == Pilot.Name && p.Faction.Id == Pilot.Faction.Id && p.Ship.Id == Pilot.Ship.Id) > 0)
+					if (Cards.SharedInstance.Pilots.Count (p => p.Name.Contains(Pilot.Name) && p.Faction.Id == Pilot.Faction.Id && p.Ship.Id == Pilot.Ship.Id) > 0)
 							return;
 
 						List <string> upgrades = new List<string> ();
@@ -299,7 +299,7 @@ namespace SquadBuilder
 
 							DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
 
-							MessagingCenter.Send <CreatePilotViewModel, Pilot> (this, "Pilot Created", Pilot);
+							MessagingCenter.Send <CreatePilotViewModel, Pilot> (this, "Pilot Created", Pilot.Copy());
 						}
 					});
 

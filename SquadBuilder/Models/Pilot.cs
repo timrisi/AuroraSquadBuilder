@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using XLabs;
 using Xamarin.Forms;
@@ -67,6 +67,13 @@ namespace SquadBuilder
 		public bool IsCustom { get; set; }
 		public bool CCL { get; set; }
 		public bool Preview { get; set; }
+
+		public bool ShowExtras {
+			get {
+				return IsCustom || CCL || Preview; 
+			}
+		}
+
 		public Guid LinkedPilotCardGuid { get; set; }
 		public int MultiSectionId { get; set; } = -1;
 
@@ -233,13 +240,7 @@ namespace SquadBuilder
 					if (upgrade != null)
 						u.Add(upgrade);
 					else
-					{
-						string symbol = "";
-
-						Upgrade.UpgradeSymbolDictionary.TryGetValue(upgradeType, out symbol);
-
-						u.Add(new { Name = upgradeType, Symbol = $"<font face='xwing-miniatures'>{symbol}</font>", IsUpgrade = false });
-					}
+						u.Add(Upgrade.CreateUpgradeSlot (upgradeType));
 				}
 
 				return u;
@@ -331,7 +332,7 @@ namespace SquadBuilder
 
 		public bool IsAvailable {
 			get {
-				if (Unique && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
+				if (Unique && Cards.SharedInstance.CurrentSquadron != null && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
 					return false;
 
 				if (Cards.SharedInstance.Pilots.Sum (p => p.Owned) == 0)
@@ -452,7 +453,7 @@ namespace SquadBuilder
 				}
 
 				for (int i = 0; i < upgrade.Slots.Count (); i++) {
-					var extraIndex = Upgrades.ToList ().LastIndexOf (new { Name = upgrade.Slots [i], IsUpgrade = false });
+					var extraIndex = Upgrades.ToList ().LastIndexOf (Upgrade.CreateUpgradeSlot(upgrade.Slots [i]));
 					if (index < 0)
 						continue;
 					UpgradeTypes.RemoveAt (extraIndex);

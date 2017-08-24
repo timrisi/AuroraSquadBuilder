@@ -13,7 +13,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>SquadBuilder.Droid</AssemblyName>
+    <AssemblyName>SquadBuilder</AssemblyName>
     <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidTlsProvider></AndroidTlsProvider>
@@ -30,6 +30,7 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -426,6 +427,12 @@
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Resources\ReferenceCards.xml">
       <Link>Assets\ReferenceCards.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\xwing-miniatures-ships.ttf">
+      <Link>Assets\xwing-miniatures-ships.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Resources\xwing-miniatures.ttf">
+      <Link>Assets\xwing-miniatures.ttf</Link>
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>

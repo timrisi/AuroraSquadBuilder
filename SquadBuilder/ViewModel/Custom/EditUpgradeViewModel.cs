@@ -8,25 +8,27 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 
-namespace SquadBuilder
-{
-	public class EditUpgradeViewModel : ViewModel
-	{
+namespace SquadBuilder {
+	public class EditUpgradeViewModel : ViewModel {
+		public bool Create = false;
+
 		public EditUpgradeViewModel ()
 		{
 			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions.Insert (0, new Faction { Name = "Any" });
 
-			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection<Ship> (Cards.SharedInstance.AllShips);
+			Ships.Insert (0, new Ship { Name = "Any" });
 
 			var upgrades = Cards.SharedInstance.AllUpgrades;
 			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
 
-			UpgradeTypes =  new ObservableCollection<string> (upgradeTypes);
+			UpgradeTypes = new ObservableCollection<string> (upgradeTypes);
 		}
 
 		Upgrade upgrade;
 		public Upgrade Upgrade {
-			get { 
+			get {
 				if (upgrade == null)
 					upgrade = new Upgrade ();
 
@@ -35,9 +37,21 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref upgrade, value);
 
-				XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
+				XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
 				originalXml = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == Upgrade.Id);
+
+				if (Upgrade.Factions != null && Upgrade.Factions.Count () > 0)
+					FactionIndex = Factions.IndexOf (upgrade.Factions [0]);
+				NotifyPropertyChanged ("FactionIndex");
+
+				if (Upgrade.ShipRequirement != null && Upgrade.ShipRequirement.Count () > 0)
+					ShipIndex = Ships.IndexOf (Ships.FirstOrDefault (s => s.Name == Upgrade.ShipRequirement));
+				NotifyPropertyChanged ("ShipIndex");
+
+				if (!string.IsNullOrEmpty (Upgrade.Category))
+					UpgradeTypeIndex = UpgradeTypes.IndexOf (Upgrade.Category);
+				NotifyPropertyChanged ("UpgradeTypeIndex");
 			}
 		}
 
@@ -52,10 +66,10 @@ namespace SquadBuilder
 			set {
 				Upgrade.Name = value;
 
-				char[] arr = Name.ToCharArray();
+				char [] arr = Name.ToCharArray ();
 
-				arr = Array.FindAll <char> (arr, (c => (char.IsLetterOrDigit(c))));
-				Upgrade.Id = new string(arr).ToLower ();
+				arr = Array.FindAll<char> (arr, (c => (char.IsLetterOrDigit (c))));
+				Upgrade.Id = new string (arr).ToLower ();
 				NotifyPropertyChanged ("Name");
 			}
 		}
@@ -109,7 +123,7 @@ namespace SquadBuilder
 
 		public bool LargeOnly {
 			get { return Upgrade.LargeOnly; }
-			set { 
+			set {
 				Upgrade.LargeOnly = value;
 				if (value) {
 					SmallOnly = false;
@@ -195,9 +209,15 @@ namespace SquadBuilder
 		public int FactionIndex {
 			get { return factionIndex; }
 			set {
-				SetProperty (ref factionIndex, value);
-				if (factionIndex > 0)
-					Upgrade.Factions = new List<Faction> { Factions [factionIndex - 1] };
+				if (value < 0) {
+					var oldVal = factionIndex;
+					SetProperty (ref factionIndex, value);
+					SetProperty (ref factionIndex, oldVal);
+				} else if (value != factionIndex)
+					SetProperty (ref factionIndex, value);
+
+				if (value > 0)
+					Upgrade.Factions = new List<Faction> { Factions [value] };
 				else
 					Upgrade.Factions = null;
 			}
@@ -207,11 +227,17 @@ namespace SquadBuilder
 		public int ShipIndex {
 			get { return shipIndex; }
 			set {
-				SetProperty (ref shipIndex, value);
+				if (value < 0) {
+					var oldVal = shipIndex;
+					SetProperty (ref shipIndex, value);
+					SetProperty (ref shipIndex, oldVal);
+				} else if (value != shipIndex)
+					SetProperty (ref shipIndex, value);
+
 				if (shipIndex > 0)
-					Upgrade.Ship = Ships [shipIndex - 1].Copy ();
+					Upgrade.ShipRequirement = Ships [shipIndex].Name;
 				else
-					Upgrade.Ship = null;
+					Upgrade.ShipRequirement = null;
 			}
 		}
 
@@ -219,30 +245,36 @@ namespace SquadBuilder
 		public int UpgradeTypeIndex {
 			get { return upgradeTypeIndex; }
 			set {
-				SetProperty (ref upgradeTypeIndex, value);
-				if (upgradeTypeIndex >= 0)
+				if (value < 0) {
+					var oldVal = upgradeTypeIndex;
+					SetProperty (ref upgradeTypeIndex, value);
+					SetProperty (ref upgradeTypeIndex, oldVal);
+				} else if (value != shipIndex)
+					SetProperty (ref upgradeTypeIndex, value);
+
+				if (upgradeTypeIndex > -1)
 					Upgrade.Category = UpgradeTypes [upgradeTypeIndex];
 			}
 		}
 
-		ObservableCollection <Faction> factions;
-		public ObservableCollection <Faction> Factions {
+		ObservableCollection<Faction> factions;
+		public ObservableCollection<Faction> Factions {
 			get { return factions; }
 			set {
 				SetProperty (ref factions, value);
 			}
 		}
 
-		ObservableCollection <Ship> ships;
-		public ObservableCollection <Ship> Ships {
+		ObservableCollection<Ship> ships;
+		public ObservableCollection<Ship> Ships {
 			get { return ships; }
 			set {
 				SetProperty (ref ships, value);
 			}
 		}
 
-		ObservableCollection <string> upgradeTypes;
-		public ObservableCollection <string> UpgradeTypes {
+		ObservableCollection<string> upgradeTypes;
+		public ObservableCollection<string> UpgradeTypes {
 			get { return upgradeTypes; }
 			set {
 				SetProperty (ref upgradeTypes, value);
@@ -257,49 +289,86 @@ namespace SquadBuilder
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
-						XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Cards.UpgradesFilename)));
 						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
-						if (upgradesXml.Descendants ().FirstOrDefault (e => e?.Value == Name) != null)
+						if (Cards.SharedInstance.Upgrades.Count (u => u.Name == Name) > 0)
 							return;
 
-						var element = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == OriginalXml.Attribute ("id")?.Value);
-						element.SetAttributeValue ("id", Upgrade.Id);
-						element.SetElementValue ("Name", Name);
-						element.SetElementValue ("Cost", Cost);
-						element.SetElementValue ("Text", Text);
-						element.SetElementValue ("Unique", IsUnique);
-						element.SetElementValue ("Limited", IsLimited);
-						element.SetElementValue ("Ship", Upgrade.Ship?.Id);
-						element.SetElementValue ("Factions", Upgrade.Factions != null && Upgrade.Factions.Count > 0 ? Upgrade.Factions[0]?.Id : null);
-						element.SetElementValue ("SmallOnly", SmallOnly);
-						element.SetElementValue ("LargeOnly", LargeOnly);
-						element.SetElementValue ("HugeOnly", HugeOnly);
-						element.SetElementValue ("PilotSkill", PilotSkill);
-						element.SetElementValue ("Attack", Attack);
-						element.SetElementValue ("Agility", Agility);
-						element.SetElementValue ("Hull", Hull);
-						element.SetElementValue ("Shields", Shields);
-						element.SetElementValue ("SecondaryWeapon", SecondaryWeapon);
-						element.SetElementValue ("Dice", Dice);
-						element.SetElementValue ("Range", Range);
+						if (Create && Cards.SharedInstance.CustomUpgrades.Count (u => u.Name == Name) > 0)
+							return;
 
-							//							new XElement ("ExtraSlots", 
-							//								new XElement ("Upgrade", )
-							//							),
-							//							new XElement ("AdditionalUpgrades", 
-							//								new XElement ("Upgrade", )
+						XElement element;
+						if (Create) {
+							element = new XElement ("Upgrade",
+								new XAttribute ("id", Upgrade.Id),
+								new XElement ("Name", Name),
+								new XElement ("Cost", Cost),
+								new XElement ("Text", Text),
+								new XElement ("Unique", IsUnique),
+								new XElement ("Limited", IsLimited),
+								new XElement ("ShipRequirement", Upgrade.ShipRequirement),
+				                        	new XElement ("Faction", Upgrade.Factions != null && Upgrade.Factions.Count > 0 ? Upgrade.Factions [0]?.Id : null),
+								new XElement ("SmallOnly", SmallOnly),
+								new XElement ("LargeOnly", LargeOnly),
+								new XElement ("HugeOnly", HugeOnly),
+								new XElement ("PilotSkill", PilotSkill),
+								new XElement ("Attack", Attack),
+								new XElement ("Agility", Agility),
+								new XElement ("Hull", Hull),
+								new XElement ("Shields", Shields),
+								new XElement ("SecondaryWeapon", SecondaryWeapon),
+								new XElement ("Dice", Dice),
+								new XElement ("Range", Range),
+								new XElement ("Custom", true)
+							);
 
-						if (Upgrade.Category != element.Parent.Attribute ("type").Value) {
-							element.Remove ();
+							var category = customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == UpgradeTypes [UpgradeTypeIndex]);
+							if (category == null) {
+								category = new XElement ("Category",
+									new XAttribute ("type", UpgradeTypes [UpgradeTypeIndex]),
+									new XAttribute ("id", TypeToId [UpgradeTypes [UpgradeTypeIndex]]));
+								customUpgradesXml.Add (category);
+							}
+							element.Add (new XElement ("CategoryId", category.Attribute ("id")?.ToString ()));
 
-							var categoryElement = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("type").Value == Upgrade.Category);
-							categoryElement.Add (element);
+							category?.Add (element);
+						} else {
+							element = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("id")?.Value == OriginalXml.Attribute ("id")?.Value);
+							element.SetAttributeValue ("id", Upgrade.Id);
+							element.SetElementValue ("Name", Name);
+							element.SetElementValue ("Cost", Cost);
+							element.SetElementValue ("Text", Text);
+							element.SetElementValue ("Unique", IsUnique);
+							element.SetElementValue ("Limited", IsLimited);
+							element.SetElementValue ("ShipRequirement", Upgrade.ShipRequirement);
+							element.SetElementValue ("Faction", Upgrade.Factions != null && Upgrade.Factions.Count > 0 ? Upgrade.Factions [0]?.Id : null);
+							element.SetElementValue ("SmallOnly", SmallOnly);
+							element.SetElementValue ("LargeOnly", LargeOnly);
+							element.SetElementValue ("HugeOnly", HugeOnly);
+							element.SetElementValue ("PilotSkill", PilotSkill);
+							element.SetElementValue ("Attack", Attack);
+							element.SetElementValue ("Agility", Agility);
+							element.SetElementValue ("Hull", Hull);
+							element.SetElementValue ("Shields", Shields);
+							element.SetElementValue ("SecondaryWeapon", SecondaryWeapon);
+							element.SetElementValue ("Dice", Dice);
+							element.SetElementValue ("Range", Range);
+
+							if (Upgrade.Category != element.Parent.Attribute ("type").Value) {
+								element.Remove ();
+
+								var categoryElement = customUpgradesXml.Descendants ().FirstOrDefault (e => e.Attribute ("type").Value == Upgrade.Category);
+								categoryElement.Add (element);
+							}
 						}
 
-						DependencyService.Get <ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customUpgradesXml.ToString ());
 
-						MessagingCenter.Send <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", Upgrade);
+						DependencyService.Get<ISaveAndLoad> ().SaveText ("Upgrades_Custom.xml", customUpgradesXml.ToString ());
+
+						if (Create)
+							MessagingCenter.Send<EditUpgradeViewModel, Upgrade> (this, "Upgrade Created", Upgrade.Copy ());
+						else
+							MessagingCenter.Send<EditUpgradeViewModel, Upgrade> (this, "Finished Editing", Upgrade.Copy ());
 					});
 				return saveUpgrade;
 			}
@@ -310,14 +379,37 @@ namespace SquadBuilder
 			base.OnViewAppearing ();
 
 			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions.Insert (0, new Faction { Name = "Any" });
 
-			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection<Ship> (Cards.SharedInstance.AllShips);
+			Ships.Insert (0, new Ship { Name = "Any" });
 
 			var upgrades = Cards.SharedInstance.AllUpgrades;
 			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
 
-			UpgradeTypes =  new ObservableCollection<string> (upgradeTypes);
+			UpgradeTypes = new ObservableCollection<string> (upgradeTypes);
 		}
+
+		public Dictionary<string, string> TypeToId = new Dictionary<string, string> {
+			{ "Astromech Droid", "amd" },
+			{ "Bomb", "bomb" },
+			{ "Cannon", "cannon" },
+			{ "Cargo", "cargo" },
+			{ "Crew", "crew" },
+			{ "Elite Pilot Talent", "ept" },
+			{ "Hardpoint", "hardpoint" },
+			{ "Illicit", "illicit" },
+			{ "Missile", "missile" },
+			{ "Modification", "mod" },
+			{ "Salvaged Astromech", "samd" },
+			{ "System Upgrade", "system" },
+			{ "Team", "team" },
+			{ "Title", "title" },
+			{ "Torpedo", "torpedo" },
+			{ "Turret", "turret" },
+			{ "Tech", "tech" },
+		};
+
 	}
 }
 

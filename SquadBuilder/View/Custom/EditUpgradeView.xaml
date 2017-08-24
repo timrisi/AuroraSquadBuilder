@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SquadBuilder.EditUpgradeView" Title="{Binding Name}">
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
 			<StackLayout Orientation="Vertical"
 						 Spacing="10"
 						 Padding="15,10">
-				<Picker x:Name="upgradeTypePicker" SelectedIndex="{Binding UpgradeTypeIndex}" Title="Upgrade Type" />
+				<Picker ItemsSource="{Binding UpgradeTypes}" SelectedIndex="{Binding UpgradeTypeIndex}" Title="Upgrade Type" />
 				<Entry Text="{Binding Name}" Placeholder="Enter Upgrade Name" />
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
 					<Label Text="Cost" XAlign="End" YAlign="Center" />
@@ -47,8 +47,8 @@
 					<Label Text="Additional Shields" XAlign="End" YAlign="Center" TextColor="Blue" WidthRequest="175" />
 					<Entry Text="{Binding Shields}" HorizontalOptions="FillAndExpand" />
 				</StackLayout>
-				<Picker x:Name="factionPicker" SelectedIndex="{Binding FactionIndex}" Title="Faction" />
-				<Picker x:Name="shipPicker" SelectedIndex="{Binding ShipIndex}" Title="Ship" />
+				<Picker ItemsSource="{Binding Factions}" SelectedIndex="{Binding FactionIndex}" Title="Faction" />
+				<Picker ItemsSource="{Binding Ships}" SelectedIndex="{Binding ShipIndex}" Title="Ship" />
 				<StackLayout Orientation="Horizontal" Spacing="10">
 					<Label Text="Secondary Weapon" YAlign="Center"/>
 					<Switch IsToggled="{Binding SecondaryWeapon}" VerticalOptions="CenterAndExpand" />

@@ -352,7 +352,7 @@ namespace SquadBuilder {
 								if (upgrade == null)
 									continue;
 
-								var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+								var index = pilot.Upgrades.IndexOf (Upgrade.CreateUpgradeSlot(upgrade.Category));
 
 								if (index < 0) {
 									skippedUpgrades.Add (upgrade);
@@ -361,11 +361,11 @@ namespace SquadBuilder {
 
 								if (upgrade.Slots != null && upgrade.Slots.Count > 0) {
 									var pilotUpgrades = new List<object> (pilot.Upgrades);
-									pilotUpgrades.Remove (new { Name = upgrade.Category, IsUpgrade = false });
+									pilotUpgrades.Remove (Upgrade.CreateUpgradeSlot(upgrade.Category));
 
 									bool isValid = true;
 									foreach (var slot in upgrade.Slots) {
-										var slotObject = new { Name = slot, IsUpgrade = false };
+										var slotObject = Upgrade.CreateUpgradeSlot(slot);
 										if (pilotUpgrades.Contains (slotObject))
 											pilotUpgrades.Remove (slotObject);
 										else {
@@ -410,7 +410,7 @@ namespace SquadBuilder {
 						}
 
 						foreach (var upgrade in skippedUpgrades) {
-							var index = pilot.Upgrades.IndexOf (new { Name = upgrade.Category, IsUpgrade = false });
+							var index = pilot.Upgrades.IndexOf (Upgrade.CreateUpgradeSlot(upgrade.Category));
 
 							if (index < 0) {
 								continue;

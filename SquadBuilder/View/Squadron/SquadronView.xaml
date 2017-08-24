@@ -62,7 +62,6 @@
 											</StackLayout>
 											<Label Text="{Binding Ship.Name}" FontAttributes="Italic" />
 											<StackLayout Orientation="Horizontal" Spacing="10">
-												<Label Text="Unique" FontAttributes="Italic" IsVisible="{Binding Unique}" />
 												<Label Text="Preview" IsVisible="{Binding Preview}" TextColor="Blue" FontAttributes="Italic" />
 												<Label Text="Custom" IsVisible="{Binding IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
 												<Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />

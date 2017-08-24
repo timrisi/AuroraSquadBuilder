@@ -61,10 +61,9 @@ namespace SquadBuilder
 				};
 
 				stackLayout.Children.Add (internalLayout);
-				stackLayout.Children.Add (new Label {
+				stackLayout.Children.Add (new HtmlLabel {
 					Text = ship.ActionsString,
-					FontSize = Device.GetNamedSize (NamedSize.Micro, typeof (Label)),
-					TextColor = Color.Navy
+					FontSize = Device.GetNamedSize (NamedSize.Small, typeof (Label))
 				});
 
 				cell.View = stackLayout;
@@ -88,118 +87,6 @@ namespace SquadBuilder
 					Text = pilot.Name,
 					Detail = pilot.Ship?.Name
 				};
-				//var cell = new ViewCell ();
-
-				//var stack1 = new StackLayout {
-				//	Orientation = StackOrientation.Horizontal,
-				//	HorizontalOptions = LayoutOptions.FillAndExpand
-				//};
-				//stack1.Children.Add (new Label {
-				//	Text = pilot.Name,
-				//	HorizontalOptions = LayoutOptions.StartAndExpand,
-				//	HorizontalTextAlignment = TextAlignment.Start
-				//});
-				//stack1.Children.Add (new Label {
-				//	Text = pilot.Cost.ToString (),
-				//	HorizontalOptions = LayoutOptions.EndAndExpand,
-				//	HorizontalTextAlignment = TextAlignment.End
-				//});
-
-				//var stack2 = new StackLayout {
-				//	Orientation = StackOrientation.Horizontal,
-				//	Spacing = 15.0
-				//};
-				//stack2.Children.Add (new Label {
-				//	Text = pilot.PilotSkill.ToString (),
-				//	TextColor = Color.FromHex ("#F60"),
-				//	FontSize = Device.GetNamedSize (NamedSize.Large, typeof (Label)),
-				//	FontAttributes = FontAttributes.Bold
-				//});
-				//stack2.Children.Add (new Label {
-				//	Text = pilot.Attack.ToString (),
-				//	TextColor = Color.Red,
-				//	FontSize = Device.GetNamedSize (NamedSize.Large, typeof (Label)),
-				//	FontAttributes = FontAttributes.Bold
-				//});
-				//stack2.Children.Add (new Label {
-				//	Text = pilot.Agility.ToString (),
-				//	TextColor = Color.Green,
-				//	FontSize = Device.GetNamedSize (NamedSize.Large, typeof (Label)),
-				//	FontAttributes = FontAttributes.Bold
-				//});
-				//stack2.Children.Add (new Label {
-				//	Text = pilot.Hull.ToString (),
-				//	TextColor = Color.FromHex ("#FC0"),
-				//	FontSize = Device.GetNamedSize (NamedSize.Large, typeof (Label)),
-				//	FontAttributes = FontAttributes.Bold
-				//});
-				//stack2.Children.Add (new Label {
-				//	Text = pilot.Shields.ToString (),
-				//	TextColor = Color.Blue,
-				//	FontSize = Device.GetNamedSize (NamedSize.Large, typeof (Label)),
-				//	FontAttributes = FontAttributes.Bold
-				//});
-
-				//var stack3 = new StackLayout {
-				//	Orientation = StackOrientation.Horizontal,
-				//	Spacing = 10.0
-				//};
-				//stack3.Children.Add (new Label {
-				//	Text = "Unique",
-				//	FontAttributes = FontAttributes.Italic,
-				//	IsVisible = pilot.Unique
-				//});
-				//stack3.Children.Add (new Label {
-				//	Text = "Preview",
-				//	IsVisible = pilot.Preview,
-				//	TextColor = Color.Blue, 
-				//	FontAttributes = FontAttributes.Italic
-				//});
-				//stack3.Children.Add (new Label {
-				//	Text = "Custom",
-				//	IsVisible = pilot.IsCustom,
-				//	TextColor = Color.Fuchsia,
-				//	FontAttributes = FontAttributes.Italic
-				//});
-				//stack3.Children.Add (new Label {
-				//	Text = "CCL",
-				//	IsVisible = pilot.CCL,
-				//	TextColor = Color.Fuchsia,
-				//	FontAttributes = FontAttributes.Italic
-				//});
-
-				//var stack4 = new StackLayout {
-				//	Orientation = StackOrientation.Horizontal,
-				//	Spacing = 10.0
-				//};
-				//stack4.Children.Add (new Label {
-				//	Text = "Expansions",
-				//	FontAttributes = FontAttributes.Bold,
-				//	MinimumWidthRequest = 100
-				//});
-				//stack4.Children.Add (new Label {
-				//	Text = pilot.Expansions
-				//});
-
-				//var stackLayout = new StackLayout {
-				//	VerticalOptions = LayoutOptions.FillAndExpand,
-				//	Padding = new Thickness (15, 10, 15, 10)
-				//};
-				//stackLayout.Children.Add (stack1);
-				//stackLayout.Children.Add (stack2);
-				//stackLayout.Children.Add (stack3);
-				//stackLayout.Children.Add (new Label {
-				//	Text = pilot.Ability,
-				//	FontSize = Device.GetNamedSize (NamedSize.Small, typeof (Label)),
-				//	TextColor = pilot.AbilityColor
-				//});
-				//stackLayout.Children.Add (new Label {
-				//	Text = pilot.UpgradeTypesString,
-				//	FontSize = Device.GetNamedSize (NamedSize.Small, typeof (Label))
-				//});
-				//stackLayout.Children.Add (stack4);
-
-				//cell.View = stackLayout;
 				cell.Tapped += (sender, e) => {
 					context.SelectedPilot = pilot;
 				};
