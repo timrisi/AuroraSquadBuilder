@@ -46,8 +46,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\ShipsCollectionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Collection\UpgradesCollectionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateFactionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreatePilotViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CreateShipViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomFactionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomPilotsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Custom\CustomShipsViewModel.cs" />
@@ -79,12 +77,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateFactionView.xaml.cs">
       <DependentUpon>CreateFactionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreatePilotView.xaml.cs">
-      <DependentUpon>CreatePilotView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml.cs">
-      <DependentUpon>CreateShipView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml.cs">
       <DependentUpon>CustomFactionsView.xaml</DependentUpon>
@@ -243,12 +235,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateFactionView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreatePilotView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CreateShipView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Custom\CustomFactionsView.xaml">

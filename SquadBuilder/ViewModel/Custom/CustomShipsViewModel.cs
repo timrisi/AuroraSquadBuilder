@@ -53,15 +53,18 @@ namespace SquadBuilder
 			get {
 				if (createShip == null)
 					createShip = new RelayCommand (() => {
-						MessagingCenter.Subscribe <CreateShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
+						MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
 							Ships.Add (ship);
 							Cards.SharedInstance.CustomShips.Add (ship);
 							Cards.SharedInstance.GetAllShips ();
-							Navigation.RemoveAsync <CreateShipViewModel> (vm);
-							MessagingCenter.Unsubscribe <CreateShipViewModel, Ship> (this, "Ship Created");
+							Navigation.RemoveAsync <EditShipViewModel> (vm);
+							MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Ship Created");
 						});
 
-						Navigation.PushAsync <CreateShipViewModel> ();
+						Navigation.PushAsync<EditShipViewModel> ((vm, p) => {
+							vm.Ship = new Ship ();
+							vm.Create = true;
+						});
 					});
 
 				return createShip;

@@ -12,6 +12,8 @@ namespace SquadBuilder
 {
 	public class EditPilotViewModel : ViewModel
 	{
+		public bool Create = false;
+
 		public EditPilotViewModel ()
 		{
 			var factions = Cards.SharedInstance.AllFactions.ToList ();;
@@ -69,13 +71,14 @@ namespace SquadBuilder
 				FactionIndex = Factions.IndexOf (Factions.FirstOrDefault (f => f.Id == Pilot.Faction?.Id));
 				NotifyPropertyChanged ("FactionIndex");
 
-				XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
+				if (!Create) {
+					XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
-				OriginalElement = customPilotsXml.Elements ().FirstOrDefault (e => 
-					e.Element ("Name")?.Value == Pilot.Name &&
-					e.Attribute ("faction")?.Value == Pilot.Faction.Id &&
-					e.Attribute ("ship")?.Value == Pilot.Ship.Id);
-				
+					OriginalElement = customPilotsXml.Elements ().FirstOrDefault (e => 
+						e.Element ("Name")?.Value == Pilot.Name &&
+						e.Attribute ("faction")?.Value == Pilot.Faction.Id &&
+						e.Attribute ("ship")?.Value == Pilot.Ship.Id);
+				}
 			}
 		}
 
@@ -267,6 +270,55 @@ namespace SquadBuilder
 
 						Pilot.UpgradeTypes = new ObservableCollection <string> (upgrades);
 
+					if (Create) {
+						var customElement = customPilotsXml.Elements ().FirstOrDefault (e => 
+							e.Element ("Name")?.Value == Pilot.Name &&
+							e.Attribute ("faction")?.Value == Pilot.Faction.Id &&
+							e.Attribute ("ship")?.Value == Pilot.Ship.Id);
+						
+						if (customElement != null) {
+							customElement.SetElementValue ("Unique", Pilot.Unique);
+							customElement.SetElementValue ("PilotSkill", Pilot.BasePilotSkill);
+							customElement.SetElementValue ("Attack", Pilot.BaseAttack);
+							customElement.SetElementValue ("Agility", Pilot.BaseAgility);
+							customElement.SetElementValue ("Hull", Pilot.Hull);
+							customElement.SetElementValue ("Shields", Pilot.BaseShields);
+							customElement.SetElementValue ("Cost", Pilot.BaseCost);
+							customElement.SetElementValue ("Ability", Pilot.Ability);
+							customElement.SetElementValue ("Upgrades",
+								from upgrade in upgrades
+								select new XElement ("Upgrade", upgrade));
+
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
+
+							MessagingCenter.Send <EditPilotViewModel, Pilot> (this, "Finished Editing", Pilot);
+						} else {
+							var element = new XElement ("Pilot", 
+								new XAttribute ("id", Pilot.Id),
+								new XAttribute ("faction", Pilot.Faction.Id),
+								new XAttribute ("ship", Pilot.Ship.Id),
+								new XElement ("Name", Pilot.Name),
+								new XElement ("Unique", Pilot.Unique),
+								new XElement ("PilotSkill", Pilot.BasePilotSkill),
+								new XElement ("Attack", Pilot.BaseAttack),
+								new XElement ("Agility", Pilot.BaseAgility),
+								new XElement ("Hull", Pilot.BaseHull),
+								new XElement ("Shields", Pilot.BaseShields),
+								new XElement ("Cost", Pilot.BaseCost),
+								new XElement ("Ability", Pilot.Ability),
+								new XElement ("Upgrades", 
+									from upgrade in upgrades
+									select new XElement ("Upgrade", upgrade)),
+								new XElement ("Custom", true)
+							);
+
+							customPilotsXml.Add (element);
+
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
+
+							MessagingCenter.Send <EditPilotViewModel, Pilot> (this, "Pilot Created", Pilot.Copy());
+						}
+					} else {
 						var customElement = customPilotsXml.Elements ().FirstOrDefault (e => 
 							e.Element ("Name").Value == OriginalElement.Element ("Name").Value &&
 							e.Attribute ("faction").Value == OriginalElement.Attribute ("faction").Value &&
@@ -296,6 +348,7 @@ namespace SquadBuilder
 						DependencyService.Get <ISaveAndLoad> ().SaveText ("Pilots_Custom.xml", customPilotsXml.ToString ());
 
 						MessagingCenter.Send <EditPilotViewModel, Pilot> (this, "Finished Editing", Pilot.Copy());
+					}
 					});
 
 				return savePilot;

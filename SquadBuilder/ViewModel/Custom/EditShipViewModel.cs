@@ -12,6 +12,7 @@ namespace SquadBuilder
 {
 	public class EditShipViewModel : ViewModel
 	{
+		public bool Create { get; set; }
 		Ship ship;
 		public Ship Ship {
 			get { 
@@ -23,9 +24,11 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref ship, value);
 
-				XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
+				if (!Create) {
+					XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-				originalXml = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id);
+					originalXml = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id);
+				}
 			}
 		}
 
@@ -160,20 +163,42 @@ namespace SquadBuilder
 						if (Cards.SharedInstance.Ships.FirstOrDefault (e => e.Name == Name) != null)
 							return;
 
-						var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == OriginalXml.Attribute ("id").Value);
-						element.SetAttributeValue ("id", Ship.Id);
-						element.SetElementValue ("Name", Ship.Name);
-						element.Element ("LargeBase").SetValue (LargeBase);
-						element.Element ("Huge").SetValue (Huge);
+						if (Create) {
+							if (customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == Ship.Id) != null) {
+								return;
+							} else {
+								var element = new XElement ("Ship");
+								element.Add (new XAttribute ("id", Ship.Id));
+								element.Add (new XElement ("Name", Name));
+								element.Add (new XElement ("LargeBase", LargeBase));
+								element.Add (new XElement ("Huge", Huge));
+								element.Add (new XElement ("Custom", true));
+								element.Add (new XElement ("Actions",
+									from action in Ship.Actions
+									select new XElement ("Action", action)));
 
-						element.Element ("Actions").Remove ();
-						element.Add (new XElement ("Actions",
-							from action in Ship.Actions
-							select new XElement ("Action", action)
-						));
+								customShipsXml.Add (element);
+							
+								DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
 
-						DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
-						MessagingCenter.Send <EditShipViewModel, Ship> (this, "Finished Editing", Ship);
+								MessagingCenter.Send <EditShipViewModel, Ship> (this, "Ship Created", Ship);
+							}
+						} else {
+							var element = customShipsXml.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == OriginalXml.Attribute ("id").Value);
+							element.SetAttributeValue ("id", Ship.Id);
+							element.SetElementValue ("Name", Ship.Name);
+							element.Element ("LargeBase").SetValue (LargeBase);
+							element.Element ("Huge").SetValue (Huge);
+
+							element.Element ("Actions").Remove ();
+							element.Add (new XElement ("Actions",
+								from action in Ship.Actions
+								select new XElement ("Action", action)
+							));
+
+							DependencyService.Get <ISaveAndLoad> ().SaveText ("Ships_Custom.xml", customShipsXml.ToString ());
+							MessagingCenter.Send <EditShipViewModel, Ship> (this, "Finished Editing", Ship);
+						}
 					});
 
 				return saveShip;

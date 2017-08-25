@@ -104,7 +104,7 @@ namespace SquadBuilder
 			get {
 				if (createPilot == null)
 					createPilot = new RelayCommand (() => {
-						MessagingCenter.Subscribe <CreatePilotViewModel, Pilot> (this, "Pilot Created", (vm, pilot) => {
+						MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Pilot Created", (vm, pilot) => {
 							while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 								pilot.UpgradesEquipped.Add (null);
 
@@ -118,11 +118,14 @@ namespace SquadBuilder
 							pilotGroup.Add (pilot);
 							Cards.SharedInstance.CustomPilots.Add (pilot);
 							Cards.SharedInstance.GetAllPilots ();
-							Navigation.RemoveAsync <CreatePilotViewModel> (vm);
-							MessagingCenter.Unsubscribe <CreatePilotViewModel, Pilot> (this, "Pilot Created");
+							Navigation.RemoveAsync <EditPilotViewModel> (vm);
+							MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Pilot Created");
 						});
 
-						Navigation.PushAsync <CreatePilotViewModel> ();
+						Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
+							vm.Pilot = new Pilot ();
+							vm.Create = true;
+						});
 					});
 
 				return createPilot;
