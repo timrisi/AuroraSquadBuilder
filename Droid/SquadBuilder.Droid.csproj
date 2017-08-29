@@ -142,6 +142,7 @@
     <Compile Include="SaveAndLoad.cs" />
     <Compile Include="ClipboardService.cs" />
     <Compile Include="SendMail.cs" />
+    <Compile Include="HtmlLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
