@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.65">
+<Ships Version="3.661">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -136,6 +136,17 @@
         <Symbol>&#60;font face='x-wing-ships'&#62;H&#60;/font&#62;</Symbol>
 		<ManeuverGridImage>ScurrgDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="m12lkimogilafighter">
+        <Name>M12-L Kimogila Fighter</Name>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Target Lock</Action>
+            <Action>Barrel Roll</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <ManeuverGridImage>Kimogila.png</ManeuverGridImage>
+        <Preview>true</Preview>
+    </Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
 		<LargeBase>true</LargeBase>
@@ -261,6 +272,17 @@
         <Symbol>&#60;font face='x-wing-ships'&#62;&#64;&#60;/font&#62;</Symbol>
 		<ManeuverGridImage>AuzituckDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="sheathipedeclassshuttle">
+        <Name>Sheathipede-class Shuttle</Name>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Target Lock</Action>
+            <Action>Coordinate</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <ManeuverGridImage>Sheathipede.png</ManeuverGridImage>
+        <Preview>true</Preview>
+    </Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
 		<LargeBase>true</LargeBase>
@@ -304,6 +326,18 @@
 		<LargeBase>true</LargeBase>
 		<ManeuverGridImage>UWingDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="bsf17bomber">
+        <Name>B/SF-17 Bomber</Name>
+        <LargeBase>true</LargeBase>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Target Lock</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <LargeBase>true</LargeBase>
+        <ManeuverGridImage>BSF17Bomber.png</ManeuverGridImage>
+		<Preview>true</Preview>
+    </Ship>
 	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
 		<Huge>true</Huge>
@@ -465,6 +499,29 @@
         <Symbol>&#60;font face='x-wing-ships'&#62;&#96;&#60;/font&#62;</Symbol>
 		<ManeuverGridImage>TIEAggressorDial.png</ManeuverGridImage>
 	</Ship>
+	<Ship id="alphaclassstarwing">
+        <Name>Alpha-class Star Wing</Name>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Target Lock</Action>
+            <Action>SLAM</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <ManeuverGridImage>AlphaClassStarWing.png</ManeuverGridImage>
+		<Preview>true</Preview>
+    </Ship>
+	<Ship id="tiesilencer">
+        <Name>TIE Silencer</Name>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Target Lock</Action>
+            <Action>Barrel Roll</Action>
+            <Action>Boost</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <ManeuverGridImage>TIESilencer.png</ManeuverGridImage>
+        <Preview>true</Preview>
+    </Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>
 		<LargeBase>true</LargeBase>
