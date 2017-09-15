@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.91">
+<Upgrades Version="3.92">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -2468,7 +2468,7 @@ While you are docked, at the end of the Activation phase, the Ghost may perform 
             <Text>When attacking, if the defender is the only ship in your firing arc at Range 1-3, you may reroll 1 attack die.
 
 When defending, you may discard this card to reroll all of your defense dice.</Text>
-            <ShipRequirement>M12-L Kimogila</ShipRequirement>
+            <ShipRequirement>TIE Silencer</ShipRequirement>
             <Unique>true</Unique>
             <Preview>true</Preview>
         </Upgrade>
