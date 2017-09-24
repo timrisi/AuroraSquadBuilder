@@ -91,6 +91,9 @@ namespace SquadBuilder
 
 					if (upgradeType == "Modification" && Pilot.UpgradesEquippedString.Contains ("Smuggling Compartment") && upgrade.Cost > 3)
 						continue;
+
+					if (upgradeType == "Crew" && Pilot.UpgradesEquippedString.Contains ("TIE Shuttle") && upgrade.Cost > 4)
+						continue;
 #endregion
 
 					if (upgrade.Unique && (bool) Cards.SharedInstance.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
