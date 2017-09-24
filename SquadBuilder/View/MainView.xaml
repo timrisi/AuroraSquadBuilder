@@ -46,15 +46,8 @@
 									<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
 										<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 											<StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Spacing="0">
-												<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
-                                                    <Label.FontFamily>
-                                                        <OnPlatform x:TypeArguments="x:String">
-                                                            <OnPlatform.iOS>xwing-miniatures</OnPlatform.iOS>
-                                                            <OnPlatform.Android>xwing-miniatures.ttf#xwing-miniatures</OnPlatform.Android>
-                                                        </OnPlatform>
-                                                    </Label.FontFamily>
-                                                </Label>
-												<StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="End" >
+												<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+												<StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="End">
 													<Label Text="{Binding Faction.Name}" FontSize="Micro" TextColor="{Binding Faction.Color}" />
 													<Label Text="Preview" IsVisible="{Binding ContainsPreview}" FontSize="Micro" TextColor="Blue" FontAttributes="Italic" />
 													<Label Text="Custom" IsVisible="{Binding ContainsCustom}" FontSize="Micro" TextColor="Fuchsia" FontAttributes="Italic" />

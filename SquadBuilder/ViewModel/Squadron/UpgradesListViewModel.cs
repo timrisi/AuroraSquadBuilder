@@ -57,80 +57,98 @@ namespace SquadBuilder
 
 		ObservableCollection <Upgrade> GetUpgrades (string type)
 		{
-			var upgrades = Cards.SharedInstance.Upgrades
-				.Where (u => u.Category == type)
-                		.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
-				.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
-				.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
-				.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
-		                .Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
-		                .Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
-		                .Where (u => !u.IsCustom || Settings.AllowCustom)
-		                .Where (u => !u.CCL || Settings.CustomCardLeague)
-		                .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
-
-			if (Settings.AllowCustom) {
-				var customUpgrades = Cards.SharedInstance.CustomUpgrades
+			try {
+				var upgrades = Cards.SharedInstance.Upgrades
 					.Where (u => u.Category == type)
-                  			.Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
-					.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
+					.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
-					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
-				
-				upgrades.AddRange (customUpgrades);
-			}
+					.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
+					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
+					.Where (u => u.MaxAgility == null || Pilot.Agility <= u.MaxAgility)
+					.Where (u => u.ShieldRequirement == null || Pilot.Shields == u.ShieldRequirement)
+					.Where (u => !u.IsCustom || Settings.AllowCustom)
+					.Where (u => !u.CCL || Settings.CustomCardLeague)
+					.Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
-			upgrades = upgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost).ToList ();
+				if (Settings.AllowCustom) {
+					var customUpgrades = Cards.SharedInstance.CustomUpgrades
+						.Where (u => u.Category == type)
+						  .Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
+						.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
+						.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
+						.Where (u => u.MinPilotSkill <= Pilot.PilotSkill);
 
-			ObservableCollection <Upgrade> valid = new ObservableCollection<Upgrade> ();
-			foreach (var upgrade in upgrades) {
-				if (!upgrade.Slots.Any () && !upgrade.RequiredSlots.Any ()) {
-					valid.Add (upgrade);	
-					continue;
+					upgrades.AddRange (customUpgrades);
 				}
 
-				var pilotUpgrades = new List <object> (Pilot.Upgrades);
-				pilotUpgrades.Remove (Upgrade.CreateUpgradeSlot(upgrade.Category));
+				upgrades = upgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost).ToList ();
 
-				bool isValid = true;
-				foreach (var slot in upgrade.Slots) {
-					var slotObject = Upgrade.CreateUpgradeSlot(slot);
-					if (pilotUpgrades.Contains (slotObject))
-						pilotUpgrades.Remove (slotObject);
-					else {
-						isValid = false;
-						break;
+				ObservableCollection<Upgrade> valid = new ObservableCollection<Upgrade> ();
+				foreach (var upgrade in upgrades) {
+#region Hard-coded Exceptions
+					if (upgradeType == "Salvaged Astromech" && Pilot.UpgradesEquippedString.Contains ("Havoc") && !upgrade.Unique)
+						continue;
+
+					if (upgradeType == "Modification" && Pilot.UpgradesEquippedString.Contains ("Smuggling Compartment") && upgrade.Cost > 3)
+						continue;
+#endregion
+
+					if (upgrade.Unique && (bool) Cards.SharedInstance.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
+						continue;
+
+					if (upgrade.Limited && (bool)Pilot?.UpgradesEquipped?.Any (u => u?.Name == upgrade.Name))
+						continue;
+					
+					if (!upgrade.Slots.Any () && !upgrade.RequiredSlots.Any ()) {
+						valid.Add (upgrade);
+						continue;
 					}
-				}
 
-				if (isValid) {
-					var upgradeTypes = new List <string> (Pilot.UpgradeTypes);
-					foreach (var slot in upgrade.RequiredSlots) {
-						if (upgradeTypes.Contains (slot))
-							upgradeTypes.Remove (slot);
+					var pilotUpgrades = new List<object> (Pilot.Upgrades);
+					pilotUpgrades.Remove (Upgrade.CreateUpgradeSlot (upgrade.Category));
+
+					bool isValid = true;
+					foreach (var slot in upgrade.Slots) {
+						var slotObject = Upgrade.CreateUpgradeSlot (slot);
+						if (pilotUpgrades.Contains (slotObject))
+							pilotUpgrades.Remove (slotObject);
 						else {
 							isValid = false;
 							break;
 						}
 					}
+
+					if (isValid) {
+						var upgradeTypes = new List<string> (Pilot.UpgradeTypes);
+						foreach (var slot in upgrade.RequiredSlots) {
+							if (upgradeTypes.Contains (slot))
+								upgradeTypes.Remove (slot);
+							else {
+								isValid = false;
+								break;
+							}
+						}
+					}
+
+					if (isValid)
+						valid.Add (upgrade);
 				}
 
-				if (isValid)
-					valid.Add (upgrade);
-			}
+				if (Settings.HideUnavailable)
+					valid = new ObservableCollection<Upgrade> (valid.Where (u => u.IsAvailable));
 
-			if (Settings.HideUnavailable)
-				valid = new ObservableCollection<Upgrade> (valid.Where (u => u.IsAvailable));
+				if (Pilot.Ship.LargeBase)
+					return new ObservableCollection<Upgrade> (valid.Where (u => !u.HugeOnly && !u.SmallOnly));
+				else if (Pilot.Ship.Huge) {
+					if (upgradeType == "Modification")
+						return new ObservableCollection<Upgrade> (valid.Where (u => u.HugeOnly));
+					return new ObservableCollection<Upgrade> (valid.Where (u => !u.SmallOnly && !u.LargeOnly));
+				}
 
-			if (Pilot.Ship.LargeBase)
-				return new ObservableCollection<Upgrade> (valid.Where (u => !u.HugeOnly && !u.SmallOnly));
-			else if (Pilot.Ship.Huge) {
-				if (upgradeType == "Modification")
-					return new ObservableCollection<Upgrade> (valid.Where (u => u.HugeOnly));
-				return new ObservableCollection<Upgrade> (valid.Where (u => !u.SmallOnly && !u.LargeOnly));
+				return new ObservableCollection<Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));
+			} catch (Exception e) {
+				return new ObservableCollection<Upgrade> ();
 			}
-					
-			return new ObservableCollection <Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));		
 		}
 
 		bool meetsRequirement (string requirementList)
@@ -161,6 +179,8 @@ namespace SquadBuilder
 			}
 		}
 
+		DateTime searchTime = DateTime.MinValue;
+
 		string searchText;
 		public string SearchText {
 			get { return searchText; }
@@ -170,20 +190,45 @@ namespace SquadBuilder
 				
 				SetProperty (ref searchText, value);
 
-				SearchUpgrades (value);
+				if (DateTime.Now > searchTime.AddMilliseconds (500)) {
+					Console.WriteLine ("searching");
+					SearchUpgrades (value);
+					searchTime = DateTime.Now;
+				}
 			}
 		}
 
+		bool searching = false;
 		public void SearchUpgrades (string text)
 		{
+			if (searching)
+				return;
+
+			Console.WriteLine ("Searching");
+			searching = true;
 			text = text.ToLower ();
 			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
-													   u.Name.ToLower ().Contains (text) ||
-													   u.Text.ToLower ().Contains (text) ||
-			                                                                               (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
-			                                                                               (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
-			                                                                              ));
+				   u.Name.ToLower ().Contains (text) ||
+				   u.Text.ToLower ().Contains (text) ||
+			       (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
+			       (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
+			      ));
+			searching = false;
+			Console.WriteLine ("Done searching");
 		}
+
+		//RelayCommand textChanged;
+		//public RelayCommand TextChanged {
+		//	get {
+		//		if (textChanged == null) {
+		//			textChanged = new RelayCommand (() => {
+		//				SearchUpgrades (SearchText);
+		//			});
+		//		}
+
+		//		return textChanged;
+		//	}
+		//}
 	}
 }
 

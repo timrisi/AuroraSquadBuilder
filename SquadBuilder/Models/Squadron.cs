@@ -180,7 +180,7 @@ namespace SquadBuilder {
 		public RelayCommand CopySquadron {
 			get {
 				if (copySquadron == null)
-						copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
+					copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
 
 				return copySquadron;
 			}
@@ -233,7 +233,7 @@ namespace SquadBuilder {
 				new JProperty ("faction", Faction?.Id),
 				new JProperty ("version", XwsVersion),
 				new JProperty ("description", Description ?? ""));
-			
+
 			var pilots = new JArray ();
 
 			foreach (var p in Pilots) {
@@ -261,10 +261,12 @@ namespace SquadBuilder {
 
 					pilots.Add (obj);
 				} catch (Exception e) {
+#if IOS
 					HockeyApp.MetricsManager.TrackEvent ("Xws error",
 			                    	new Dictionary<string, string> { { "error message", e.Message } },
 									new Dictionary<string, double> { { "time", 1.0 } }
 			                    );
+#endif
 					MessagingCenter.Send<Squadron, string> (this, "Xws Error", $"Error creating xws object for squadron {Name}"); 
 				}
 			}

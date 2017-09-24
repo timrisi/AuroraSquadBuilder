@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.661">
+<Ships Version="3.664">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -72,6 +72,7 @@
 			<Action>Evade</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;f&#60;/font&#62;</Symbol>
+		<AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#60;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>FiresprayDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="aggressor">
@@ -94,6 +95,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;t&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#62;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>YV666Dial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="g1astarfighter">
@@ -156,6 +158,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;p&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#36;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>JumpMasterDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="lancerclasspursuitcraft">
@@ -223,6 +226,7 @@
 			<Action>SLAM</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;k&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#36;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>KwingDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="xwing">
@@ -261,6 +265,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;c&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#60;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>Arc170Dial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="auzituckgunship">
@@ -270,6 +275,7 @@
 			<Action>Reinforce</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;&#64;&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#62;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>AuzituckDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="sheathipedeclassshuttle">
@@ -291,6 +297,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;m&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#36;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>YT1300Dial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="yt2400">
@@ -302,6 +309,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;o&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#36;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>YT2400Dial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="vcx100">
@@ -477,6 +485,7 @@
 			<Action>Barrel Roll</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;S&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#60;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>TIESFDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="tiestriker">
@@ -540,6 +549,7 @@
 			<Action>Target Lock</Action>
 		</Actions>
         <Symbol>&#60;font face='x-wing-ships'&#62;d&#60;/font&#62;</Symbol>
+        <AttackSymbol>&#60;font face='xwing-miniatures'&#62;&#36;&#60;/font&#62;</AttackSymbol>
 		<ManeuverGridImage>VT49Dial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="upsilonclassshuttle">

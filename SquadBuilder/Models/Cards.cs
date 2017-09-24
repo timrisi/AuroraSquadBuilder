@@ -12,7 +12,6 @@ using Dropbox.Api.Files;
 using System.Threading.Tasks;
 using System.Text;
 using Dropbox.Api;
-using Xamarin.Auth;
 using System.Runtime.Remoting.Lifetime;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
@@ -337,6 +336,7 @@ namespace SquadBuilder
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
 					Symbol = ship.Element ("Symbol")?.Value ?? "",
+					AttackSymbol = ship.Element ("AttackSymbol")?.Value, 
 					//StraightOne = ship.Element("StraightOne")?.Value ?? "",
 					//StraightTwo = ship.Element("StraightOne")?.Value ?? "",
 					//StraightThree = ship.Element("StraightOne")?.Value ?? "",

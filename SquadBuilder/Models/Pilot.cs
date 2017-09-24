@@ -43,16 +43,16 @@ namespace SquadBuilder
 		public Ship Ship { get; set; }
 
 		bool unique;
-		public bool Unique { 
-			get { return unique; } 
-			set { 
+		public bool Unique {
+			get { return unique; }
+			set {
 				SetProperty (ref unique, value);
 
 				if (unique) {
-					if (!name.Contains("•"))
+					if (!name.Contains ("•"))
 						name = $"•{name}";
 				} else
-					name = name.Replace("•", "");
+					name = name.Replace ("•", "");
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace SquadBuilder
 
 		public bool ShowExtras {
 			get {
-				return IsCustom || CCL || Preview; 
+				return IsCustom || CCL || Preview;
 			}
 		}
 
@@ -81,45 +81,41 @@ namespace SquadBuilder
 			get {
 				string symbol;
 				switch (Faction.Id) {
-					case "rebel":
-						symbol = "!";
-						break;
-					case "imperial":
-						symbol = "@";
-						break;
-					case "scum":
-						symbol = "#";
-						break;
-					default:
-						symbol = "";
-						break;
+				case "rebel":
+					symbol = "!";
+					break;
+				case "imperial":
+					symbol = "@";
+					break;
+				case "scum":
+					symbol = "#";
+					break;
+				default:
+					symbol = "";
+					break;
 				}
 
 				return $"<font face='xwing-miniatures'>{symbol}</font>";
 			}
 		}
 
-		public string EnergySymbol
-		{
+		public string EnergySymbol {
 			get { return "<font face='xwing-miniatures'>(</font>"; }
 		}
 
 		public string AttackSymbol {
-			get { return "<font face='xwing-miniatures'>%</font>"; }
+			get { return Ship?.AttackSymbol ?? "<font face='xwing-miniatures'>%</font>"; }
 		}
 
-		public string AgilitySymbol
-		{
+		public string AgilitySymbol {
 			get { return "<font face='xwing-miniatures'>^</font>"; }
 		}
 
-		public string HullSymbol
-		{
+		public string HullSymbol {
 			get { return "<font face='xwing-miniatures'>&</font>"; }
 		}
 
-		public string ShieldsSymbol
-		{
+		public string ShieldsSymbol {
 			get { return "<font face='xwing-miniatures'>*</font>"; }
 		}
 
@@ -161,6 +157,18 @@ namespace SquadBuilder
 			}
 			set {
 				SetProperty (ref upgradeTypes, value);
+
+				try {
+					if (value != null && value.Count () > 0) {
+						var upgradesString = Upgrade.UpgradeSymbolDictionary [UpgradeTypes [0]];
+						for (int i = 1; i < UpgradeTypes.Count; i++)
+							upgradesString += " " + Upgrade.UpgradeSymbolDictionary [UpgradeTypes [i]];
+
+						UpgradeTypesString = upgradesString;
+					}
+				} catch (Exception e) {
+					Console.WriteLine ("Foo");
+				}
 			}
 		}
 
@@ -211,15 +219,19 @@ namespace SquadBuilder
 			}
 		}
 
+		string upgradeTypesString;
 		[XmlIgnore]
 		public string UpgradeTypesString {
 			get {
-				var upgradesString = Upgrade.UpgradeSymbolDictionary [UpgradeTypes[0]];
-				for (int i = 1; i < UpgradeTypes.Count; i++)
-					upgradesString += " " + Upgrade.UpgradeSymbolDictionary[UpgradeTypes[i]];
+				//var upgradesString = Upgrade.UpgradeSymbolDictionary [UpgradeTypes[0]];
+				//for (int i = 1; i < UpgradeTypes.Count; i++)
+				//	upgradesString += " " + Upgrade.UpgradeSymbolDictionary[UpgradeTypes[i]];
 
-				return upgradesString;
+				//return upgradesString;
 				//return string.Join (", ", UpgradeTypes);
+				return upgradeTypesString;
+			} set {
+				SetProperty (ref upgradeTypesString, value);
 			}
 		}
 

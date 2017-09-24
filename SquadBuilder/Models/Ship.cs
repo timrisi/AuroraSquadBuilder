@@ -93,6 +93,12 @@ namespace SquadBuilder
 			set { SetProperty (ref symbol, value);}
 		}
 
+		string attackSymbol;
+		public string AttackSymbol {
+			get { return attackSymbol; }
+			set { SetProperty (ref attackSymbol, value); }
+		}
+
 #region Maneuvers
 		//public string straightOne;
 		//public string StraightOne {
@@ -194,9 +200,16 @@ namespace SquadBuilder
 			get { return actions; }
 			set { 
 				SetProperty (ref actions, value);
+				updateActions ();
 				NotifyPropertyChanged ("ActionsString");
-				actions.CollectionChanged += (sender, e) => NotifyPropertyChanged ("ActionsString");
-				Actions.CollectionChanged += (sender, e) => NotifyPropertyChanged ("ActionsString");
+				actions.CollectionChanged += (sender, e) => {
+					updateActions ();
+					NotifyPropertyChanged ("ActionsString");
+				};
+				Actions.CollectionChanged += (sender, e) => {
+					updateActions ();
+					NotifyPropertyChanged ("ActionsString");
+				};
 			}
 		}
 
@@ -213,16 +226,29 @@ namespace SquadBuilder
 			{ "Cloak", "<font face='xwing-miniatures'>k</font>" },
 			{ "Recover", "<font face='xwing-miniatures'>v</font>" },
 			{ "Rotate Arc", "<font face='xwing-miniatures'>R</font>" },
+			{ "Reload", "" }
 		};
 
+		void updateActions ()
+		{
+			var actionsString = ActionsDictionary [Actions [0]];
+			for (int i = 1; i < Actions.Count; i++)
+				actionsString += " " + ActionsDictionary [Actions [i]];
+
+			this.actionsString = actionsString;
+		}
+
+		string actionsString;
 		public string ActionsString { 
 			get {
-				var actionsString = ActionsDictionary[Actions[0]];
-				for (int i = 1; i < Actions.Count; i++)
-					actionsString += " " + ActionsDictionary[Actions[i]];
-
 				return actionsString;
-				//return string.Join (", ", Actions ?? new ObservableCollection <string> ());
+				//var actionsString = ActionsDictionary[Actions[0]];
+				//for (int i = 1; i < Actions.Count; i++)
+				//	actionsString += " " + ActionsDictionary[Actions[i]];
+
+				//return actionsString;
+			} set {
+				SetProperty (ref actionsString, value);
 			}
 		}
 
@@ -284,20 +310,20 @@ namespace SquadBuilder
 
 		public Ship Copy ()
 		{
-			return new Ship
-			{
+			return new Ship {
 				Id = Id,
 				Name = Name,
 				CanonicalName = CanonicalName,
 				LargeBase = LargeBase,
 				Huge = Huge,
-				Actions = new ObservableCollection<string>(Actions),
+				Actions = new ObservableCollection<string> (Actions),
 				ManeuverGridImage = ManeuverGridImage,
 				IsCustom = IsCustom,
 				CCL = CCL,
 				OldId = OldId,
 				IsPreview = IsPreview,
 				Symbol = Symbol,
+				AttackSymbol = AttackSymbol,
 
 				//straightOne = StraightOne,
 				//straightTwo = StraightTwo,
