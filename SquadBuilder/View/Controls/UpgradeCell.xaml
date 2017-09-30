@@ -6,7 +6,7 @@
     <ViewCell.View>
         <StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <local:HtmlLabel Text="{Binding Symbol}" HorizontalOptions="Start" />
+                <Label FontFamily="xwing-miniatures" Text="{Binding Symbol}" HorizontalOptions="Start" />
                 <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" XAlign="Start" />
                 <Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
             </StackLayout>

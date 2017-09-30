@@ -20,12 +20,12 @@
                             <ViewCell.View>
                                 <StackLayout Padding="15,5" Spacing="0" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0">
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Ship.Name}" TextColor="{Binding Ship.TextColor}" />
+                                        <Label Text="{Binding Ship.Name}" TextColor="{Binding Ship.TextColor}" VerticalOptions="CenterAndExpand" />
                                         <Label Text="Preview" IsVisible="{Binding Ship.IsPreview}" TextColor="Blue" FontAttributes="Italic" />
                                         <Label Text="Custom" IsVisible="{Binding Ship.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
                                         <Label Text="CCL" IsVisible="{Binding Ship.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
                                     </StackLayout>
-                                    <local:HtmlLabel Text="{Binding Ship.ActionsString}" FontSize="Small" />
+                                    <Label FontFamily="xwing-miniatures" Text="{Binding Ship.ActionsString}" FontSize="Small" />
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
@@ -38,7 +38,7 @@
 						    <ViewCell.View>
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" />
+										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" VerticalOptions="CenterAndExpand" />
 										<Button Text="-" Command="{Binding Decrement}" />
 										<Entry Keyboard="Numeric" Text="{Binding Owned}" HorizontalOptions="End" />
 										<Button Text="+" Command="{Binding Increment}" />

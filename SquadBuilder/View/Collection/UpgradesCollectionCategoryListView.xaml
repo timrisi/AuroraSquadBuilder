@@ -19,7 +19,7 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" >
-                                    <local:HtmlLabel Text="{Binding Symbol}" HorizontalOptions="Start" />
+                                    <Label FontFamily="xwing-miniatures" Text="{Binding Symbol}" HorizontalOptions="Start" />
                                     <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" XAlign="Start" />
                                 </StackLayout>
                             </ViewCell.View>

@@ -23,7 +23,7 @@
                 <Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
             </StackLayout>
             <local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
-            <local:HtmlLabel Text="{Binding UpgradeTypesString}"     />
+            <Label FontFamily="xwing-miniatures" Text="{Binding UpgradeTypesString}"     />
             <StackLayout Orientation="Horizontal" Spacing="10">
                 <Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
                 <Label Text="{Binding Expansions}" />

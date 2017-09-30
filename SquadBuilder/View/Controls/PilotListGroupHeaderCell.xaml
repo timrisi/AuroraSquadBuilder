@@ -21,7 +21,7 @@
                     <Label Text="Custom" IsVisible="{Binding Ship.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
                     <Label Text="CCL" IsVisible="{Binding Ship.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
                 </StackLayout>
-                <local:HtmlLabel Text="{Binding Ship.ActionsString}" FontSize="Small" />
+                <Label FontFamily="xwing-miniatures" Text="{Binding Ship.ActionsString}" FontSize="Small" />
             </StackLayout>
             <Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
         </Grid>

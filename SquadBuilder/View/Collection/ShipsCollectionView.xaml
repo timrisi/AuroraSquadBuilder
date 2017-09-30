@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
@@ -18,7 +18,7 @@
 						<ViewCell.View>
 								<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" XAlign="Start" />
+										<Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" XAlign="Start" />
 										<Button Text="-" Command="{Binding Decrement}" />
 										<Entry Keyboard="Numeric" Text="{Binding Owned}" HorizontalOptions="End" />
 										<Button Text="+" Command="{Binding Increment}" />

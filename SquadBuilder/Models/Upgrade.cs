@@ -18,23 +18,23 @@ namespace SquadBuilder
 		public string CategoryId { get; set; }
 
 		public static Dictionary<string, string> UpgradeSymbolDictionary = new Dictionary<string, string> {
-			{ "Astromech Droid", "<font face='xwing-miniatures'>A</font>" },
-			{ "Bomb", "<font face='xwing-miniatures'>B</font>" },
-			{ "Cannon", "<font face='xwing-miniatures'>C</font>" },
-			{ "Cargo", "<font face='xwing-miniatures'>G</font>" },
-			{ "Crew", "<font face='xwing-miniatures'>W</font>" },
-			{ "Elite Pilot Talent", "<font face='xwing-miniatures'>E</font>" },
-			{ "Hardpoint", "<font face='xwing-miniatures'>H</font>"},
-			{ "Illicit", "<font face='xwing-miniatures'>I</font>" },
-			{ "Missile", "<font face='xwing-miniatures'>M</font>" },
-			{ "Modification", "<font face='xwing-miniatures'>m</font>" },
-			{ "Salvaged Astromech", "<font face='xwing-miniatures'>V</font>" },
-			{ "System Upgrade", "<font face='xwing-miniatures'>S</font>" },
-			{ "Team", "<font face='xwing-miniatures'>T</font>" },
-			{ "Tech", "<font face='xwing-miniatures'>X</font>" },
-			{ "Title", "<font face='xwing-miniatures'>t</font>" },
-			{ "Torpedo", "<font face='xwing-miniatures'>P</font>" },
-			{ "Turret Weapon", "<font face='xwing-miniatures'>U</font>" },
+			{ "Astromech Droid", "A" },
+			{ "Bomb", "B" },
+			{ "Cannon", "C" },
+			{ "Cargo", "G" },
+			{ "Crew", "W" },
+			{ "Elite Pilot Talent", "E" },
+			{ "Hardpoint", "H"},
+			{ "Illicit", "I" },
+			{ "Missile", "M" },
+			{ "Modification", "m" },
+			{ "Salvaged Astromech", "V" },
+			{ "System Upgrade", "S" },
+			{ "Team", "T" },
+			{ "Tech", "X" },
+			{ "Title", "t" },
+			{ "Torpedo", "P" },
+			{ "Turret Weapon", "U" },
 		};
 
 		public static object CreateUpgradeSlot (string upgradeType) 
@@ -43,7 +43,7 @@ namespace SquadBuilder
 
 			UpgradeSymbolDictionary.TryGetValue(upgradeType, out symbol);
 
-			return new { Name = upgradeType, Symbol = $"<font face='xwing-miniatures'>{symbol}</font>", IsUpgrade = false };
+			return new { Name = upgradeType, Symbol = symbol, IsUpgrade = false };
 		}
 
 		string category;
@@ -64,7 +64,7 @@ namespace SquadBuilder
 
 			UpgradeSymbolDictionary.TryGetValue(category, out symbol);
 
-			return $"<font face='xwing-miniatures'>{symbol}</font>";
+			return symbol;
 		}
 
 		public string Symbol { get; set; }

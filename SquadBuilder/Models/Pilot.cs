@@ -95,28 +95,28 @@ namespace SquadBuilder
 					break;
 				}
 
-				return $"<font face='xwing-miniatures'>{symbol}</font>";
+				return symbol;
 			}
 		}
 
 		public string EnergySymbol {
-			get { return "<font face='xwing-miniatures'>(</font>"; }
+			get { return "("; }
 		}
 
 		public string AttackSymbol {
-			get { return Ship?.AttackSymbol ?? "<font face='xwing-miniatures'>%</font>"; }
+			get { return Ship?.AttackSymbol ?? "%"; }
 		}
 
 		public string AgilitySymbol {
-			get { return "<font face='xwing-miniatures'>^</font>"; }
+			get { return "^"; }
 		}
 
 		public string HullSymbol {
-			get { return "<font face='xwing-miniatures'>&</font>"; }
+			get { return "&"; }
 		}
 
 		public string ShieldsSymbol {
-			get { return "<font face='xwing-miniatures'>*</font>"; }
+			get { return "*"; }
 		}
 
 		[XmlIgnore]

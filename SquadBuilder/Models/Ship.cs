@@ -214,18 +214,18 @@ namespace SquadBuilder
 		}
 
 		Dictionary<string, string> ActionsDictionary = new Dictionary<string, string> {
-			{ "Focus", "<font face='xwing-miniatures'>f</font>" },
-			{ "Target Lock", "<font face='xwing-miniatures'>l</font>" },
-			{ "Evade", "<font face='xwing-miniatures'>e</font>" },
-			{ "Barrel Roll", "<font face='xwing-miniatures'>r</font>" },
-			{ "Boost", "<font face='xwing-miniatures'>b</font>" },
-			{ "SLAM", "<font face='xwing-miniatures'>s</font>" },
-			{ "Reinforce", "<font face='xwing-miniatures'>i</font>" },
-			{ "Coordinate", "<font face='xwing-miniatures'>o</font>" },
-			{ "Jam", "<font face='xwing-miniatures'>j</font>" },
-			{ "Cloak", "<font face='xwing-miniatures'>k</font>" },
-			{ "Recover", "<font face='xwing-miniatures'>v</font>" },
-			{ "Rotate Arc", "<font face='xwing-miniatures'>R</font>" },
+			{ "Focus", "f" },
+			{ "Target Lock", "l" },
+			{ "Evade", "e" },
+			{ "Barrel Roll", "r" },
+			{ "Boost", "b" },
+			{ "SLAM", "s" },
+			{ "Reinforce", "i" },
+			{ "Coordinate", "o" },
+			{ "Jam", "j" },
+			{ "Cloak", "k" },
+			{ "Recover", "v" },
+			{ "Rotate Arc", "R" },
 			{ "Reload", "" }
 		};
 
@@ -242,11 +242,6 @@ namespace SquadBuilder
 		public string ActionsString { 
 			get {
 				return actionsString;
-				//var actionsString = ActionsDictionary[Actions[0]];
-				//for (int i = 1; i < Actions.Count; i++)
-				//	actionsString += " " + ActionsDictionary[Actions[i]];
-
-				//return actionsString;
 			} set {
 				SetProperty (ref actionsString, value);
 			}

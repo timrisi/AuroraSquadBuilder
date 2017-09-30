@@ -208,9 +208,6 @@
     <Reference Include="PCL.Utils.iOS">
       <HintPath>..\packages\Forms9Patch.0.10.2.6\lib\Xamarin.iOS10\PCL.Utils.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="iOSHTMLLabel">
-      <HintPath>..\packages\CYINT.XPlatformHTMLLabel.0.0.6-alpha\lib\XamariniOS\iOSHTMLLabel.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />

@@ -14,7 +14,7 @@
              <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding Pilot.PilotSkill}" TextColor="#F60" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" />
                 <Label Text="{Binding Pilot.Ship.Name}" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
-                <local:HtmlLabel Text="{Binding Pilot.FactionSymbol}" FontSize="Large" HorizontalOptions="End" />
+                <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.FactionSymbol}" FontSize="Large" HorizontalOptions="End" />
             </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Grid>
@@ -32,19 +32,19 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <local:HtmlLabel Text="{Binding Pilot.EnergySymbol}" TextColor="Fuchsia" Grid.Row="0" Grid.Column="0" IsVisible="{Binding Pilot.ShowEnergy}" VerticalTextAlignment="Center" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.EnergySymbol}" TextColor="Fuchsia" Grid.Row="0" Grid.Column="0" IsVisible="{Binding Pilot.ShowEnergy}" VerticalTextAlignment="Center" />
                         <Label Text="{Binding Pilot.Energy}" TextColor="Fuchsia" FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" IsVisible="{Binding Pilot.ShowEnergy}" />
 
-                        <local:HtmlLabel Text="{Binding Pilot.AttackSymbol}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding Pilot.ShowAttack}" VerticalTextAlignment="Center" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.AttackSymbol}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding Pilot.ShowAttack}" VerticalTextAlignment="Center" />
                         <Label Text="{Binding Pilot.Attack}" IsVisible="{Binding Pilot.ShowAttack}" TextColor="Red" FontSize="Large" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" />
 
-                        <local:HtmlLabel Text="{Binding Pilot.AgilitySymbol}" TextColor="Green" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.AgilitySymbol}" TextColor="Green" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" />
                         <Label Text="{Binding Pilot.Agility}" TextColor="Green" FontSize="Large" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
 
-                        <local:HtmlLabel Text="{Binding Pilot.HullSymbol}" TextColor="#FC0" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.HullSymbol}" TextColor="#FC0" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" />
                         <Label Text="{Binding Pilot.Hull}" TextColor="#FC0" FontSize="Large" FontAttributes="Bold" Grid.Row="3" Grid.Column="1" />
 
-                        <local:HtmlLabel Text="{Binding Pilot.ShieldsSymbol}" TextColor="Blue" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.ShieldsSymbol}" TextColor="Blue" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" />
                         <Label Text="{Binding Pilot.Shields}" TextColor="Blue" FontSize="Large" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
                 </Grid>
 
@@ -53,7 +53,7 @@
             </StackLayout>
             
             <StackLayout Orientation="Horizontal">
-                        <local:HtmlLabel Text="{Binding Pilot.Ship.ActionsString}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <Label FontFamily="xwing-miniatures" Text="{Binding Pilot.Ship.ActionsString}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                         <Label Text="{Binding Pilot.Cost}" HorizontalOptions="End" />
                     </StackLayout>
             <StackLayout Orientation="Horizontal" Spacing="10" IsVisible="{Binding ShowExtras}">
