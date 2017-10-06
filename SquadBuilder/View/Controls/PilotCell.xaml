@@ -23,7 +23,14 @@
                 <Label Text="CCL" IsVisible="{Binding CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
             </StackLayout>
             <local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
-            <Label FontFamily="xwing-miniatures" Text="{Binding UpgradeTypesString}"     />
+            <Label FontFamily="xwing-miniatures" Text="{Binding UpgradeTypesString}">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS>xwing-miniatures</OnPlatform.iOS>
+                        <OnPlatform.Android>xwing-miniatures.ttf#xwing-miniatures</OnPlatform.Android>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
             <StackLayout Orientation="Horizontal" Spacing="10">
                 <Label Text="Expansions:" FontAttributes="Bold" MinimumWidthRequest="100" />
                 <Label Text="{Binding Expansions}" />

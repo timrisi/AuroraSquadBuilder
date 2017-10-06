@@ -66,36 +66,31 @@ namespace SquadBuilder.Droid
 				saveAndLoad.SaveText ("Collection.xml", collectionXml);
 
 			var referenceCardXml = new StreamReader (Application.Context.Assets.Open ("ReferenceCards.xml")).ReadToEnd ();
-			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
-			var text = saveAndLoad.LoadText (Cards.ReferenceCardsFilename);
-			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || string.IsNullOrEmpty (text) ||  (float)XElement.Load (new StringReader (text))?.Attribute ("Version") < referenceCardsVersion)
+			var referenceCardsVersion = (float) XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
-
-			UpdateIds ();
-
-			var settingsXml = new StreamReader (Application.Context.Assets.Open (Cards.SettingsFilename)).ReadToEnd ();
-			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.SettingsFilename);
-			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (text))?.Attribute ("Version") < settingsVersion)
-				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
-			Settings.SettingsVersion = settingsVersion;
 			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
+			var settingsXml = new StreamReader (Application.Context.Assets.Open (Cards.SettingsFilename)).ReadToEnd ();
+			var settingsVersion = (float) XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
+				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
+			Settings.SettingsVersion = settingsVersion;
+
 			var factionsXml = new StreamReader (Application.Context.Assets.Open ("Factions3.xml")).ReadToEnd ();
-			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.FactionsFilename);
-			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (text))?.Attribute ("Version") < Settings.FactionsVersion)
+			Settings.FactionsVersion = (float) XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
 				saveAndLoad.SaveText (Cards.FactionsFilename, factionsXml);
 
 			var customFactionsXml = new StreamReader (Application.Context.Assets.Open ("Factions_Custom.xml")).ReadToEnd ();
-			if (!saveAndLoad.FileExists ("Factions_Custom.xml") || string.IsNullOrEmpty (saveAndLoad.LoadText ("Factions_Custom.xml")))
+			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
 				saveAndLoad.SaveText ("Factions_Custom.xml", customFactionsXml);
 			
 			var shipsXml = new StreamReader (Application.Context.Assets.Open ("Ships3.xml")).ReadToEnd ();
-			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.ShipsFilename);
+			Settings.ShipsVersion = (float) XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
-			if (!saveAndLoad.FileExists (Cards.ShipsFilename) || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (text))?.Attribute ("Version") < Settings.ShipsVersion) {
+			else if ((float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ShipsFilename)))?.Attribute ("Version") < Settings.ShipsVersion) {
 				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
 				Cards.SharedInstance.GetAllShips ();
 			}
@@ -105,9 +100,10 @@ namespace SquadBuilder.Droid
 				saveAndLoad.SaveText ("Ships_Custom.xml", customShipsXml);
 			
 			var pilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots3.xml")).ReadToEnd ();
-			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.PilotsFilename);
-			if (!saveAndLoad.FileExists (Cards.PilotsFilename) || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
+			Settings.PilotsVersion = (float) XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
+				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
+			else if ((float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
 				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
 				Cards.SharedInstance.GetAllPilots ();
 			}
@@ -115,11 +111,12 @@ namespace SquadBuilder.Droid
 			var customPilotsXml = new StreamReader (Application.Context.Assets.Open ("Pilots_Custom.xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Pilots_Custom.xml") || string.IsNullOrEmpty (saveAndLoad.LoadText ("Pilots_Custom.xml")))
 				saveAndLoad.SaveText ("Pilots_Custom.xml", customPilotsXml);
-
+			
 			var upgradesXml = new StreamReader (Application.Context.Assets.Open ("Upgrades3.xml")).ReadToEnd ();
-			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.UpgradesFilename);
-			if (!saveAndLoad.FileExists (Cards.UpgradesFilename)  || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
+			Settings.UpgradesVersion = (float) XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
+				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
+			else if ((float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
 				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
 				Cards.SharedInstance.GetAllUpgrades ();
 			}
@@ -129,9 +126,10 @@ namespace SquadBuilder.Droid
 				saveAndLoad.SaveText ("Upgrades_Custom.xml", customUpgradesXml);
 
 			var expansionsXml = new StreamReader (Application.Context.Assets.Open ("Expansions3.xml")).ReadToEnd ();
-			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
-			text = saveAndLoad.LoadText (Cards.ExpansionsFilename);
-			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename) || string.IsNullOrEmpty (text) || (float)XElement.Load (new StringReader (text))?.Attribute ("Version") < Settings.ExpansionsVersion) {
+			Settings.ExpansionsVersion = (float) XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename)) {
+				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
+			} else if ((float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ExpansionsFilename)))?.Attribute ("Version") < Settings.ExpansionsVersion) {
 				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
 				Cards.SharedInstance.GetAllExpansions ();
 			}
@@ -141,7 +139,9 @@ namespace SquadBuilder.Droid
 			Cards.SharedInstance.GetAllShips ();
 			Cards.SharedInstance.GetAllPilots ();
 			Cards.SharedInstance.GetAllUpgrades ();
-			
+
+			Cards.SharedInstance.GetAllSquadrons ();
+
 			LoadApplication(new App());
 		}
 
@@ -149,59 +149,6 @@ namespace SquadBuilder.Droid
 		{
 			var resolverContainer = new SimpleContainer();
 			Resolver.SetResolver(resolverContainer.GetResolver());
-		}
-
-		void UpdateIds ()
-		{
-			if (!saveAndLoad.FileExists (Cards.SquadronsFilename))
-				return; 
-
-			if (saveAndLoad.FileExists (Cards.FactionsFilename)) {
-				var factionXml = saveAndLoad.LoadText (Cards.FactionsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					factionXml = factionXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.FactionsFilename, factionXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.ShipsFilename)) {
-				var shipXml = saveAndLoad.LoadText (Cards.ShipsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					shipXml = shipXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.ShipsFilename, shipXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.PilotsFilename)) {
-				var pilotXml = saveAndLoad.LoadText (Cards.PilotsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					pilotXml = pilotXml.Replace (key, deprecatedIds [key]);
-				pilotXml = pilotXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.PilotsFilename, pilotXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.UpgradesFilename)) {
-				var upgradeXml = saveAndLoad.LoadText (Cards.UpgradesFilename);
-				foreach (var key in deprecatedIds.Keys)
-					upgradeXml = upgradeXml.Replace (key, deprecatedIds [key]);
-				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradeXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.ExpansionsFilename)) {
-				var expansionXml = saveAndLoad.LoadText (Cards.ExpansionsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					expansionXml = expansionXml.Replace (key, deprecatedIds [key]);
-				expansionXml = expansionXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionXml);
-			}
-
-			if (saveAndLoad.FileExists (Cards.SquadronsFilename)) {
-				var squadronXml = saveAndLoad.LoadText (Cards.SquadronsFilename);
-				foreach (var key in deprecatedIds.Keys)
-					squadronXml = squadronXml.Replace (key, deprecatedIds [key]);
-				squadronXml = squadronXml.Replace("baronoftheimperial", "baronoftheempire");
-				saveAndLoad.SaveText (Cards.SquadronsFilename, squadronXml);
-			}
-
-			Cards.SharedInstance.GetAllSquadrons ();
 		}
 	}
 }

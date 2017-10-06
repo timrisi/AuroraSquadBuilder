@@ -24,8 +24,7 @@ namespace SquadBuilder {
 					Control.TextColor.GetRGBA (out r, out g, out b, out a);
 					var textColor = string.Format ("#{0:X2}{1:X2}{2:X2}", (int) (r * 255.0), (int) (g * 255.0), (int) (b * 255.0));
 
-					var font = Control.7ujmko0
-					                  Font;
+					var font = Control.Font;
 					var fontName = font.Name;
 					var fontSize = font.PointSize;
 					var alignment = Control.TextAlignment;

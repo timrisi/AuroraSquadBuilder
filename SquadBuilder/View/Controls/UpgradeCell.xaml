@@ -6,7 +6,14 @@
     <ViewCell.View>
         <StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label FontFamily="xwing-miniatures" Text="{Binding Symbol}" HorizontalOptions="Start" />
+                <Label Text="{Binding Symbol}" HorizontalOptions="Start">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>xwing-miniatures</OnPlatform.iOS>
+                            <OnPlatform.Android>xwing-miniatures.ttf#xwing-miniatures</OnPlatform.Android>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
                 <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" XAlign="Start" />
                 <Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" FontAttributes="Bold" />
             </StackLayout>

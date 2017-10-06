@@ -21,7 +21,14 @@
                     <Label Text="Custom" IsVisible="{Binding Ship.IsCustom}" TextColor="Fuchsia" FontAttributes="Italic" />
                     <Label Text="CCL" IsVisible="{Binding Ship.CCL}" TextColor="Fuchsia" FontAttributes="Italic" />
                 </StackLayout>
-                <Label FontFamily="xwing-miniatures" Text="{Binding Ship.ActionsString}" FontSize="Small" />
+                <Label Text="{Binding Ship.ActionsString}" FontSize="Small">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>xwing-miniatures</OnPlatform.iOS>
+                            <OnPlatform.Android>xwing-miniatures.ttf#xwing-miniatures</OnPlatform.Android>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
             </StackLayout>
             <Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuvers}" Grid.Row="0" Grid.Column="1" />
         </Grid>

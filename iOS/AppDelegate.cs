@@ -57,14 +57,13 @@ namespace SquadBuilder.iOS
 			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
+			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
 			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
 			var settingsVersion = (float)XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
 				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
 			Settings.SettingsVersion = settingsVersion;
-
-			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions3", "xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
