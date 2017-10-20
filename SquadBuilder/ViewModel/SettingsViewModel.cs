@@ -159,7 +159,7 @@ namespace SquadBuilder
 				return;
 
 			var authorizeUri = DropboxOAuth2Helper.GetAuthorizeUri ("qms26ynz79cou3i");
-			Console.WriteLine (authorizeUri.ToString ());
+
 			var auth = new OAuth2Authenticator (
 				"qms26ynz79cou3i",
 				"",

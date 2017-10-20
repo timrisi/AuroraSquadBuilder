@@ -64,18 +64,18 @@ namespace SquadBuilder.Droid
 			var collectionXml = new StreamReader (Application.Context.Assets.Open ("Collection.xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Collection.xml") || string.IsNullOrEmpty (saveAndLoad.LoadText ("Collection.xml")))
 				saveAndLoad.SaveText ("Collection.xml", collectionXml);
+			
+			var settingsXml = new StreamReader (Application.Context.Assets.Open (Cards.SettingsFilename)).ReadToEnd ();
+			var settingsVersion = (float) XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
+			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
+				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
+			Settings.SettingsVersion = settingsVersion;
 
 			var referenceCardXml = new StreamReader (Application.Context.Assets.Open ("ReferenceCards.xml")).ReadToEnd ();
 			var referenceCardsVersion = (float) XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
 			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
 				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
 			Settings.ReferenceCardsVersion = referenceCardsVersion;
-
-			var settingsXml = new StreamReader (Application.Context.Assets.Open (Cards.SettingsFilename)).ReadToEnd ();
-			var settingsVersion = (float) XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
-				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
-			Settings.SettingsVersion = settingsVersion;
 
 			var factionsXml = new StreamReader (Application.Context.Assets.Open ("Factions3.xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float) XElement.Load (new StringReader (factionsXml)).Attribute ("Version");

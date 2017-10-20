@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,42 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Aurora Launch Image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="180">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="180" image="Aurora Launch Image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="23">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint id="180" firstItem="yd7-JS-zBw" firstAttribute="trailing" secondItem="23" secondAttribute="trailing"/>
-                            <constraint id="181" firstItem="23" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom"/>
-                            <constraint id="182" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="23" secondAttribute="bottom"/>
-                            <constraint id="183" firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading"/>
+                            <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" id="180"/>
+                            <constraint firstItem="23" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" id="181"/>
+                            <constraint firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="23" secondAttribute="bottom" id="182"/>
+                            <constraint firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading" id="183"/>
                         </constraints>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="79"/>
-                                <include reference="102"/>
-                                <include reference="155"/>
-                                <include reference="156"/>
-                                <include reference="169"/>
-                                <include reference="170"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="constraints">
-                                <include reference="115"/>
-                                <include reference="116"/>
-                                <include reference="133"/>
-                                <include reference="134"/>
-                            </mask>
-                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
@@ -61,10 +38,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Aurora Launch Image.jpg" width="1152" height="2048"/>
         <image name="Default.png" width="320" height="480"/>
         <image name="Default-568h.png" width="320" height="568"/>
         <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Icon-60.png" width="60" height="60"/>
         <image name="Icon-Small.png" width="29" height="29"/>
         <image name="Icon-Small-40.png" width="40" height="40"/>
         <image name="Icon-180.png" width="180" height="180"/>
@@ -72,8 +50,6 @@
         <image name="spacial-cosmic.png" width="1047" height="1920"/>
         <image name="Icon-167.png" width="167" height="167"/>
         <image name="StarViperDial.png" width="121" height="64"/>
-        <image name="down.png" width="128" height="128"/>
-        <image name="up.png" width="128" height="128"/>
         <image name="HWK290Dial.png" width="121" height="64"/>
         <image name="AggressorDial.png" width="121" height="64"/>
         <image name="FiresprayDial.png" width="121" height="64"/>
@@ -105,7 +81,7 @@
         <image name="TIEPhantomDial.png" width="121" height="64"/>
         <image name="TIEPunisherDial.png" width="121" height="64"/>
         <image name="TIESFDial.png" width="121" height="64"/>
-        <image name="VT49Dial.png" width="121" height="80"/>
+        <image name="VT49Dial.png" width="121" height="64"/>
         <image name="AssaultGunboatDial.png" width="121" height="64"/>
         <image name="SoroSuubDial.png" width="121" height="64"/>
         <image name="TIEAvengerDial.png" width="121" height="80"/>
@@ -134,10 +110,21 @@
         <image name="YT1300DialNienNumb.png" width="121" height="64"/>
         <image name="YT2400DialNienNumb.png" width="121" height="64"/>
         <image name="YwingDialr2astro.png" width="121" height="64"/>
-        <image name="Aurora Launch Image.jpg" width="1152" height="2048"/>
+        <image name="Arc170Dial.png" width="120" height="64"/>
+        <image name="LancerDial.png" width="121" height="80"/>
+        <image name="ProtectorateDial.png" width="121" height="80"/>
+        <image name="TIEStrikerDial.png" width="121" height="48"/>
+        <image name="UWingDial.png" width="121" height="80"/>
+        <image name="Arc170DialNienNumb.png" width="120" height="64"/>
+        <image name="Arc170Dialr2astro.png" width="120" height="64"/>
+        <image name="TIEStrikerDialMk2.png" width="121" height="48"/>
+        <image name="UpsilonDial.png" width="121" height="64"/>
+        <image name="UWingDialNienNumb.png" width="121" height="80"/>
+        <image name="QuadjumperDial.png" width="121" height="64"/>
+        <image name="AuzituckDial.png" width="121" height="80"/>
+        <image name="ScurrgDial.png" width="121" height="80"/>
+        <image name="TIEAggressorDial.png" width="121" height="64"/>
+        <image name="down.png" width="128" height="128"/>
+        <image name="up.png" width="128" height="128"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-        <simulatedOrientationMetrics key="orientation"/>
-    </simulatedMetricsContainer>
 </document>

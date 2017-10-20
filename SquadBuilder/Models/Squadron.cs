@@ -425,22 +425,9 @@ namespace SquadBuilder {
 					squadron.pilots.Add (pilot);
 				}
 
-				if (squadron == null)
-					Console.WriteLine ("Foo");
-
 				return squadron;
 			} catch (Exception e) {
-				//var schemaText = DependencyService.Get<ISaveAndLoad> ().LoadText ("schema.json");
-				//var schema = JSchema.Parse (schemaText);
-
-				//IList<string> errors;
-				//var valid = json.IsValid (schema, out errors);
-
-				//if (!valid) {
 				MessagingCenter.Send<Squadron> (new Squadron (), "Error loading squad");
-				//	return null;
-				//}
-				//Console.WriteLine (e.Message);
 			}
 
 			return new Squadron () ;

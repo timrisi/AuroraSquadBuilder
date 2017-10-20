@@ -750,8 +750,6 @@ namespace SquadBuilder
 			try {
 				var squads = new JArray ();
 				foreach (var s in Squadrons) {
-					if (s == null)
-						Console.WriteLine ("Foo");
 					var squad = s.CreateXwsObject ();
 					if (squad == null)
 						continue;

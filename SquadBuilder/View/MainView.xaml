@@ -14,6 +14,7 @@
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand">
+            <SearchBar Placeholder="Search for Squdaron" StyleId="SearchBar" Text="{Binding SearchText, Mode=TwoWay}" />
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"

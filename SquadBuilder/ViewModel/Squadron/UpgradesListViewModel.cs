@@ -194,7 +194,6 @@ namespace SquadBuilder
 				SetProperty (ref searchText, value);
 
 				if (DateTime.Now > searchTime.AddMilliseconds (500)) {
-				Console.WriteLine ("searching");
 				SearchUpgrades (value);
 					searchTime = DateTime.Now;
 				}
@@ -211,7 +210,6 @@ namespace SquadBuilder
 					   u.Text.ToLower ().Contains (text) ||
 				       	   (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
                                            (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text)));
-				Console.WriteLine (upgrades.Count ()); 
 				Upgrades = new ObservableCollection<Upgrade> (upgrades);
 			} catch (Exception ex) {
 				Console.WriteLine (ex.Message);
