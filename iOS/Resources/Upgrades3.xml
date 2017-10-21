@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.92">
+<Upgrades Version="3.931">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -279,6 +279,23 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Dice>4</Dice>
             <Range>1</Range>
             <Faction>scum,rebel</Faction>
+        </Upgrade>
+		<Upgrade id="jammingbeam">
+            <Name>Jamming Beam</Name>
+            <Cost>1</Cost>
+            <Text>Attack: Attack 1 ship.  If this attack hits, the defender receives 1 jam token.  Then cancel all dice results.</Text>
+            <SecondaryWeapon>true</SecondaryWeapon>
+            <Dice>3</Dice>
+            <Range>1-2</Range>
+			<Preview>true</Preview>
+        </Upgrade>
+		<Upgrade id="linkedbattery">
+            <Name>Linked Battery</Name>
+            <Cost>2</Cost>
+            <Text>When attacking with a primary weapon or {cannon} secondary weapon, you may reroll 1 attack die.</Text>
+            <SmallOnly>true</SmallOnly>
+			<Limited>true</Limited>
+			<Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="cargo" type="Cargo">
@@ -1230,6 +1247,12 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Faction>rebel</Faction>
             <SmallOnly>true</SmallOnly>
         </Upgrade>
+		<Upgrade id="saturationsalvo">
+            <Name>Saturation Salvo</Name>
+            <Cost>1</Cost>
+            <Text>After you perform an attack with a {torpedo} or {missile} secondary weapon that does not hit, each ship at Range 1 of the defender with an agility value lower than the squad point cost of the {torpedo} or {missile} Upgrade card must roll 1 attack die and suffer any damage {hit} or critical damage {crit} rolled.</Text>
+            <Preview>true</Preview>
+        </Upgrade>
     </Category>
     <Category id="hardpoint" type="Hardpoint">
         <Upgrade id="quadlasercannons">
@@ -1618,7 +1641,7 @@ Action: Discard this card.  Then roll 1 attack die.  On a {hit} or {crit} result
         <Upgrade id="advancedslam">
             <Name>Advanced SLAM</Name>
             <Cost>2</Cost>
-            <Text>After performing a SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action.</Text>
+            <Text>After performing a SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action on your action bar.</Text>
         </Upgrade>
         <Upgrade id="twinionenginemkii">
             <Name>Twin Ion Engine Mk. II</Name>
@@ -2435,6 +2458,19 @@ You may perform attacks with {cannon} secondary weapons that cost 2 or fewer squ
 			</AdditionalUpgrades>
 			<Preview>true</Preview>
 		</Upgrade>
+		<Upgrade id="os1arsenalloadout">
+            <Name>OS-1 Arsenal Loadout</Name>
+            <Cost>2</Cost>
+            <Text>Your upgrade bar gains the {torpedo} and {missile} upgrade icons.
+
+You may perform attacks with {torpedo} and {missile} secondary weapons against ships you have locked even while you have a weapons disabled token.</Text>
+            <ShipRequirement>Alpha-Class Star Wing</ShipRequirement>
+            <AdditionalUpgrades>
+                <Upgrade>Torpedo</Upgrade>
+                <Upgrade>Missile</Upgrade>
+            </AdditionalUpgrades>
+            <Preview>true</Preview>
+        </Upgrade>
 		<Upgrade id="enforcer">
             <Name>Enforcer</Name>
             <Cost>1</Cost>

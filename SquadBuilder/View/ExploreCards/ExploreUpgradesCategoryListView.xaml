@@ -22,8 +22,8 @@
                                     <Label Text="{Binding Symbol}" HorizontalOptions="Start">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <OnPlatform.iOS>x-wing-ships</OnPlatform.iOS>
-                                                <OnPlatform.Android>xwing-miniatures-ships.ttf#x-wing-ships</OnPlatform.Android>
+                                                <OnPlatform.iOS>xwing-miniatures</OnPlatform.iOS>
+                                                <OnPlatform.Android>xwing-miniatures.ttf#xwing-miniatures</OnPlatform.Android>
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>

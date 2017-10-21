@@ -599,15 +599,6 @@
 	</Ship>
 
 	<!-- Custom Card league -->
-	<Ship id="assaultgunboat">
-		<Name>Assault Gunboat</Name>
-		<Actions>
-			<Action>Focus</Action>
-			<Action>Target Lock</Action>
-		</Actions>
-		<CCL>true</CCL>
-		<ManeuverGridImage>AssaultGunboatDial.png</ManeuverGridImage>
-	</Ship>
 	<Ship id="sorosuubluxuryyacht3000">
 		<Name>SoroSuub Luxury Yacht 3000</Name>
 		<Actions>
