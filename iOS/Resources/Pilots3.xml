@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.92">
+<Pilots Version="3.93">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -4931,83 +4931,6 @@ When there is no Damage card on this card, remove it.</Ability>
     </Pilot>
     
     <!-- Custom Card League -->
-    <Pilot id="noblecalder" faction="imperial" ship="assaultgunboat">
-        <Name>Noble Calder</Name>
-        <Unique>false</Unique>
-        <PilotSkill>7</PilotSkill>
-        <Attack>2</Attack>
-        <Agility>1</Agility>
-        <Hull>5</Hull>
-        <Shields>3</Shields>
-        <Cost>21</Cost>
-        <Upgrades>
-            <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Cannon</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Title</Upgrade>
-            <Upgrade>Modification</Upgrade>
-        </Upgrades>
-        <Ability>When you perform a focus action, you may assign 1 Focus token to another friendly ship at Range 1-2.</Ability>
-        <CCL>true</CCL>
-    </Pilot>
-    <Pilot id="xeal" faction="imperial" ship="assaultgunboat">
-        <Name>Xeal</Name>
-        <Unique>false</Unique>
-        <PilotSkill>5</PilotSkill>
-        <Attack>2</Attack>
-        <Agility>1</Agility>
-        <Hull>5</Hull>
-        <Shields>3</Shields>
-        <Cost>20</Cost>
-        <Upgrades>
-            <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Cannon</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Title</Upgrade>
-            <Upgrade>Modification</Upgrade>
-        </Upgrades>
-        <Ability>If you have 1 or more Damage cards, you may roll 1 additional attack die.</Ability>
-        <CCL>true</CCL>
-    </Pilot>
-    <Pilot id="eaglesquadronpilot" faction="imperial" ship="assaultgunboat">
-        <Name>Eagle Squadron Pilot</Name>
-        <Unique>false</Unique>
-        <PilotSkill>5</PilotSkill>
-        <Attack>2</Attack>
-        <Agility>1</Agility>
-        <Hull>5</Hull>
-        <Shields>3</Shields>
-        <Cost>19</Cost>
-        <Upgrades>
-            <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Cannon</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Title</Upgrade>
-            <Upgrade>Modification</Upgrade>
-        </Upgrades>
-        <CCL>true</CCL>
-    </Pilot>
-    <Pilot id="rhosquadronpilot" faction="imperial" ship="assaultgunboat">
-        <Name>Rho Squadron Pilot</Name>
-        <Unique>false</Unique>
-        <PilotSkill>2</PilotSkill>
-        <Attack>2</Attack>
-        <Agility>1</Agility>
-        <Hull>5</Hull>
-        <Shields>3</Shields>
-        <Cost>16</Cost>
-        <Upgrades>
-            <Upgrade>Cannon</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Missile</Upgrade>
-            <Upgrade>Title</Upgrade>
-            <Upgrade>Modification</Upgrade>
-        </Upgrades>
-        <CCL>true</CCL>
-    </Pilot>
     <Pilot id="marajadesorosuub" faction="scum" ship="sorosuubluxuryyacht3000">
         <Name>Mara Jade</Name>
         <Unique>true</Unique>
