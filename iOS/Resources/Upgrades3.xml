@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.931">
+<Upgrades Version="3.932">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -1168,6 +1168,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Attanni Mindlink</Name>
             <Cost>1</Cost>
             <Text>Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one.</Text>
+			<SquadLimit>2</SquadLimit>
             <Faction>scum</Faction>
         </Upgrade>
         <Upgrade id="fearlessness">
@@ -1771,7 +1772,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
         <Upgrade id="genius">
             <Name>&quot;Genius&quot;</Name>
             <Cost>0</Cost>
-            <Text>If you are equipped with a bomb that can be dropped before you reveal your maneuver, you may drop the bomb after you execute your maneuver instead.</Text>
+            <Text>After you reveal and execute a maneuver, if you did not overlap a ship, you may discard 1 of your equipped {bomb} Upgrade cards without the &quot;Action:&quot; header to drop the corresponding bomb token.</Text>
             <Unique>true</Unique>
         </Upgrade>
         <Upgrade id="r4b11">

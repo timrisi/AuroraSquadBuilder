@@ -7,13 +7,28 @@
 				Title="{Binding Squadron.Name}">
 	<mvvm:BaseView.ToolbarItems>
 		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" StyleId="AddPilot" />
-		<ToolbarItem Text="Export to Clipboard" Command="{Binding ExportToClipboard}" Order="Secondary" />
+		<!--<ToolbarItem Text="Export to Clipboard" Command="{Binding ExportToClipboard}" Order="Secondary" />
 		<ToolbarItem Text="Compact XWS" Command="{Binding ExportCompactXws}" Order="Secondary" />
-		<ToolbarItem Text="Formatted XWS" Command="{Binding ExportXws}" Order="Secondary" />
+		<ToolbarItem Text="Formatted XWS" Command="{Binding ExportXws}" Order="Secondary" />-->
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
-	    			 HorizontalOptions="FillAndExpand">
+	    			 HorizontalOptions="FillAndExpand" Spacing="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Export to Clipboard" Command="{Binding ExportToClipboard}" FontSize="Micro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+                <Button Text="Compact XWS" Command="{Binding ExportCompactXws}" FontSize="Micro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" />
+                <Button Text="Formatted XWS" Command="{Binding ExportXws}" FontSize="Micro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" />
+            </Grid>
 	    	<Label HorizontalOptions="FillAndExpand" 
 	    		   XAlign="Center" 
 	    		   Text="{Binding Squadron.PointsDescription}" />

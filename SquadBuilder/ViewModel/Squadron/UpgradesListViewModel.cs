@@ -99,6 +99,9 @@ namespace SquadBuilder
 					if (upgrade.Unique && (bool) Cards.SharedInstance.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
 						continue;
 
+					if (upgrade.SquadLimit != null && Cards.SharedInstance.CurrentSquadron.Pilots?.Count (p => p != null && p.UpgradesEquippedString.Contains (upgrade.Name)) >= upgrade.SquadLimit)
+						continue;
+
 					if (upgrade.Limited && (bool)Pilot?.UpgradesEquipped?.Any (u => u?.Name == upgrade.Name))
 						continue;
 					

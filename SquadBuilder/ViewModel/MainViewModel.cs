@@ -9,11 +9,9 @@ using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 
-namespace SquadBuilder
-{
-	public class MainViewModel : ViewModel
-	{
-		public MainViewModel(string faction = null)
+namespace SquadBuilder {
+	public class MainViewModel : ViewModel {
+		public MainViewModel (string faction = null)
 		{
 			Faction = faction;
 			squadrons = allSquadrons;
@@ -24,7 +22,7 @@ namespace SquadBuilder
 		string faction;
 		public string Faction {
 			get { return faction; }
-			set { 
+			set {
 				SetProperty (ref faction, value);
 			}
 		}
@@ -49,7 +47,7 @@ namespace SquadBuilder
 		}
 
 		IEnumerable<Squadron> squadrons;
-		public IEnumerable <Squadron> Squadrons {
+		public IEnumerable<Squadron> Squadrons {
 			get { return squadrons; }
 			set { SetProperty (ref squadrons, value); }
 		}
@@ -62,11 +60,11 @@ namespace SquadBuilder
 					selectedSquadron = null;
 					return;
 				}
-				
+
 				SetProperty (ref selectedSquadron, value);
 				if (value != null) {
 					Cards.SharedInstance.CurrentSquadron = selectedSquadron;
-					Navigation.PushAsync <SquadronViewModel> ((vm,p) => {
+					Navigation.PushAsync<SquadronViewModel> ((vm, p) => {
 						vm.Squadron = selectedSquadron;
 						selectedSquadron = null;
 					});
@@ -81,8 +79,8 @@ namespace SquadBuilder
 			get {
 				if (addSquadron == null)
 					addSquadron = new RelayCommand (() => {
-						MessagingCenter.Subscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (vm, Squadron) => {
-							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+						MessagingCenter.Subscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (vm, Squadron) => {
+							MessagingCenter.Unsubscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 
 							Cards.SharedInstance.Squadrons.Add (Squadron);
 							await Navigation.PopAsync (false);
@@ -92,11 +90,11 @@ namespace SquadBuilder
 							Squadrons = allSquadrons;
 
 							Cards.SharedInstance.CurrentSquadron = Squadron;
-							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
+							Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
 								vm2.Squadron = Squadron;
 							});
 						});
-						Navigation.PushAsync <CreateSquadronViewModel> ((vm, page) => {
+						Navigation.PushAsync<CreateSquadronViewModel> ((vm, page) => {
 							if (!string.IsNullOrEmpty (Faction))
 								vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == Faction));
 						});
@@ -111,10 +109,10 @@ namespace SquadBuilder
 			get {
 				if (importSquadron == null)
 					importSquadron = new RelayCommand (() => {
-						MessagingCenter.Subscribe <ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
-							MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
+						MessagingCenter.Subscribe<ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
+							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadron Imported");
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
-							
+
 							Cards.SharedInstance.Squadrons.Add (squadron);
 
 							Cards.SharedInstance.SaveSquadrons ();
@@ -122,13 +120,13 @@ namespace SquadBuilder
 							Squadrons = allSquadrons;
 
 							Cards.SharedInstance.CurrentSquadron = squadron;
-							Navigation.PushAsync <SquadronViewModel> ((vm2,p) => {
+							Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
 								vm2.Squadron = squadron;
 							});
 						});
 
-						MessagingCenter.Subscribe <ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
-							MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");	
+						MessagingCenter.Subscribe<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
+							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadron Imported");
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
 
 							foreach (var squadron in squadrons)
@@ -139,7 +137,7 @@ namespace SquadBuilder
 							Squadrons = allSquadrons;
 						});
 
-						Navigation.PushAsync <ImportViewModel> ();
+						Navigation.PushAsync<ImportViewModel> ();
 					});
 
 				return importSquadron;
@@ -151,8 +149,8 @@ namespace SquadBuilder
 			get {
 				if (exportAll == null) {
 					exportAll = new RelayCommand (() => {
-						DependencyService.Get <IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXwc ());
-						MessagingCenter.Send <MainViewModel> (this, "Squadrons Copied");
+						DependencyService.Get<IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXwc ());
+						MessagingCenter.Send<MainViewModel> (this, "Squadrons Copied");
 					});
 				}
 
@@ -160,17 +158,76 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand sortSquadron ;
+		RelayCommand sortSquadron;
 		public RelayCommand SortSquadron {
 			get {
 				if (sortSquadron == null)
 					sortSquadron = new RelayCommand (() => {
-						Settings.Editing = !Settings.Editing;
-						NotifyPropertyChanged ("Squadrons");
-						Squadrons = allSquadrons;
+						if (Settings.Editing) {
+							Settings.Editing = !Settings.Editing;
+							NotifyPropertyChanged ("Squadrons");
+							Squadrons = allSquadrons;
+							return;
+
+						}
+
+						MessagingCenter.Subscribe<MenuView, string> (this, "Sort type selected", (MenuView view, string result) => {
+							switch (result) {
+							case "Alphabetical":
+								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderBy (s => s.PilotsString, new EmptyStringsAreLast ()).OrderBy (s => s.Name, new EmptyStringsAreLast ()));
+								NotifyPropertyChanged ("Squadrons");
+								Squadrons = allSquadrons;
+								Cards.SharedInstance.SaveSquadrons ();
+								break;
+							case "Wins":
+								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Wins));
+								NotifyPropertyChanged ("Squadrons");
+								Squadrons = allSquadrons;
+								Cards.SharedInstance.SaveSquadrons ();
+								break;
+							case "Loses":
+								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Losses));
+								NotifyPropertyChanged ("Squadrons");
+								Squadrons = allSquadrons;
+								Cards.SharedInstance.SaveSquadrons ();
+								break;
+							case "Total Games":
+								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Wins + s.Losses + s.Draws));
+								NotifyPropertyChanged ("Squadrons");
+								Squadrons = allSquadrons;
+								Cards.SharedInstance.SaveSquadrons ();
+								break;
+							case "Manual":
+								Settings.Editing = !Settings.Editing;
+								NotifyPropertyChanged ("Squadrons");
+								Squadrons = allSquadrons;
+								break;
+							default:
+								return;
+							}
+						});
+
+						MessagingCenter.Send<MainViewModel> (this, "Sort squadrons");
+
+						//Settings.Editing = !Settings.Editing;
+						//NotifyPropertyChanged ("Squadrons");
+						//Squadrons = allSquadrons;
 					});
 
 				return sortSquadron;
+			}
+		}
+
+		public class EmptyStringsAreLast : IComparer<string> {
+			public int Compare (string x, string y)
+			{
+				if (String.IsNullOrEmpty (y) && !String.IsNullOrEmpty (x)) {
+					return -1;
+				} else if (!String.IsNullOrEmpty (y) && String.IsNullOrEmpty (x)) {
+					return 1;
+				} else {
+					return String.Compare (x, y);
+				}
 			}
 		}
 
@@ -185,25 +242,25 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");
 
-			MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
-			MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadron Imported");
-			MessagingCenter.Unsubscribe <ImportViewModel, Squadron> (this, "Squadrons Imported");
+			MessagingCenter.Unsubscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created");
+			MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadron Imported");
+			MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
 
-			MessagingCenter.Subscribe <Squadron> (this, "DeleteSquadron", squadron => {
+			MessagingCenter.Subscribe<Squadron> (this, "DeleteSquadron", squadron => {
 				Cards.SharedInstance.Squadrons.Remove (squadron);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
 				Cards.SharedInstance.SaveSquadrons ();
 			});
 
-			MessagingCenter.Subscribe <Squadron> (this, "EditDetails", squadron => {
+			MessagingCenter.Subscribe<Squadron> (this, "EditDetails", squadron => {
 				Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
 				Cards.SharedInstance.SaveSquadrons ();
 			});
 
-			MessagingCenter.Subscribe <Squadron> (this, "CopySquadron", squadron => {
+			MessagingCenter.Subscribe<Squadron> (this, "CopySquadron", squadron => {
 				Cards.SharedInstance.Squadrons.Add (squadron.Copy ());
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
@@ -264,9 +321,9 @@ namespace SquadBuilder
 		{
 			base.OnViewDisappearing ();
 
-			MessagingCenter.Unsubscribe <Squadron> (this, "DeleteSquadron");
-			MessagingCenter.Unsubscribe <Squadron> (this, "CopySquadron");
-			MessagingCenter.Unsubscribe <Squadron> (this, "EditDetails");
+			MessagingCenter.Unsubscribe<Squadron> (this, "DeleteSquadron");
+			MessagingCenter.Unsubscribe<Squadron> (this, "CopySquadron");
+			MessagingCenter.Unsubscribe<Squadron> (this, "EditDetails");
 			MessagingCenter.Unsubscribe<Squadron> (this, "MoveSquadronUp");
 			MessagingCenter.Unsubscribe<Squadron> (this, "MoveSquadronDown");
 		}

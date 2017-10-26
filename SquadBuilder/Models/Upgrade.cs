@@ -95,6 +95,7 @@ namespace SquadBuilder
 		public int Dice { get; set; }
 		public string Range { get; set; }
 		public bool Limited { get; set; }
+		public int? SquadLimit { get; set; }
 
 		public bool ShowExtras {
 			get {
@@ -335,7 +336,7 @@ namespace SquadBuilder
 				CategoryId = CategoryId,
 				Cost = cost,
 				ShipRequirement = ShipRequirement,
-				Factions = Factions != null ? new List<Faction>(Factions) : null,
+				Factions = Factions != null ? new List<Faction> (Factions) : null,
 				SmallOnly = SmallOnly,
 				LargeOnly = LargeOnly,
 				HugeOnly = HugeOnly,
@@ -368,6 +369,7 @@ namespace SquadBuilder
 				UpgradeOptions = new ObservableCollection<string> (UpgradeOptions),
 				HotAC = HotAC,
 				Pilot = Pilot,
+				SquadLimit = SquadLimit,
 			};
 		}
 

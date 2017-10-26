@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.93">
+<Pilots Version="3.931">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -1878,7 +1878,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>Other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead.</Ability>
+        <Ability>Once per game, at the start of the Combat phase, you may choose that until the end of the round, other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead.</Ability>
     </Pilot>
     <Pilot id="hobbieklivian" faction="rebel" ship="xwing">
         <Name>&quot;Hobbie&quot; Klivian</Name>

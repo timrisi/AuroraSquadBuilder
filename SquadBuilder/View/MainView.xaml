@@ -7,13 +7,28 @@
 				Title="{Binding PageName}">
 	<mvvm:BaseView.ToolbarItems>
 		<ToolbarItem Text="+" Command="{Binding AddSquadron}" />
-		<ToolbarItem Text="Import" Command="{Binding ImportSquadron}" Order="Secondary" />
+<!--		<ToolbarItem Text="Import" Command="{Binding ImportSquadron}" Order="Secondary" />
 		<ToolbarItem Text="Export All" Command="{Binding ExportAll}" Order="Secondary" />
-		<ToolbarItem Text="Sort" Command="{Binding SortSquadron}" Order="Secondary" />
+		<ToolbarItem Text="Sort" Command="{Binding SortSquadron}" Order="Secondary" />-->
 	</mvvm:BaseView.ToolbarItems>
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
-	    			 HorizontalOptions="FillAndExpand">
+	    			 HorizontalOptions="FillAndExpand" Spacing="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Import" Command="{Binding ImportSquadron}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+                <Button Text="Export All" Command="{Binding ExportAll}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" />
+                <Button Text="Sort" Command="{Binding SortSquadron}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" />
+            </Grid>
             <SearchBar Placeholder="Search for Squdaron" StyleId="SearchBar" Text="{Binding SearchText, Mode=TwoWay}" />
 			<ListView VerticalOptions="FillAndExpand" 
 					  HorizontalOptions="FillAndExpand" 
