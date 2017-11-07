@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.931">
+<Pilots Version="3.933">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -34,7 +34,6 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>If you are not stressed, when you reveal a turn, bank or Segnor's Loop maneuver, you may instead treat it as a red Tallon Roll maneuver of the same direction (left or right) using the template of the original revealed maneuver.</Ability>
-        <Preview>true</Preview>
     </Pilot>
     <Pilot id="guri" faction="scum" ship="starviper">
         <Name>Guri</Name>
@@ -72,7 +71,6 @@
 Shadowed:  &quot;Thweek&quot; is treated as having the pilot skill value you had after setup.  The pilot skill value of &quot;Thweek&quot; does not change if your pilot skill value changes or you are destroyed.
 
 Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Thweek&quot; can not apply a Condition card by using your pilot ability.  &quot;Thweek&quot; does not lose your pilot ability if you are destroyed.</Ability>
-		<Preview>true</Preview>
     </Pilot>
     <Pilot id="blacksunassassin" faction="scum" ship="starviper">
         <Name>Black Sun Assassin</Name>
@@ -89,7 +87,6 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Preview>true</Preview>
     </Pilot>
     <Pilot id="blacksunvigo" faction="scum" ship="starviper">
         <Name>Black Sun Vigo</Name>
@@ -495,8 +492,6 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>After defending, if you did not roll exactly 2 defense dice, the attacker receives 1 stress token.</Ability>
-        <Owned>0</Owned>
-        <Preview>true</Preview>
     </Pilot>
     <Pilot id="grazthehunter" faction="scum" ship="kihraxzfighter">
         <Name>Graz the Hunter</Name>
@@ -549,8 +544,6 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>Once per round, after an enemy ship that is not defending against an attack suffers damage or critical damage, you may perform an attack against that ship.</Ability>
-        <Owned>0</Owned>
-        <Preview>true</Preview>
     </Pilot>
     <Pilot id="cartelmarauder" faction="scum" ship="kihraxzfighter">
         <Name>Cartel Marauder</Name>
@@ -1186,10 +1179,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
         <Cost>33</Cost>
         <Upgrades>
             <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
             <Upgrade>Crew</Upgrade>
-            <Upgrade>Salvaged Astromech</Upgrade>
             <Upgrade>Illicit</Upgrade>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
@@ -1207,10 +1197,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
         <Cost>30</Cost>
         <Upgrades>
             <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
             <Upgrade>Crew</Upgrade>
-            <Upgrade>Salvaged Astromech</Upgrade>
             <Upgrade>Illicit</Upgrade>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
@@ -1228,10 +1215,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
         <Cost>27</Cost>
         <Upgrades>
             <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
             <Upgrade>Crew</Upgrade>
-            <Upgrade>Salvaged Astromech</Upgrade>
             <Upgrade>Illicit</Upgrade>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
@@ -1249,10 +1233,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
         <Cost>25</Cost>
         <Upgrades>
             <Upgrade>Elite Pilot Talent</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
-            <Upgrade>Torpedo</Upgrade>
             <Upgrade>Crew</Upgrade>
-            <Upgrade>Salvaged Astromech</Upgrade>
             <Upgrade>Illicit</Upgrade>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>

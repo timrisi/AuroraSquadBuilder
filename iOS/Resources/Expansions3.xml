@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.54">
+<Expansions Version="3.55">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1305,6 +1305,38 @@
 			<Upgrade>smugglingcompartment</Upgrade>
 		</Upgrades>
 		<Owned>0</Owned>
+	</Expansion>
+	<Expansion id="gunsforhire">
+        <Name>Guns For Hire</Name>
+		<Wave>Aces Packs</Wave>
+		<Ships>
+            <Ship>kihraxzfighter</Ship>
+			<Ship>starviper</Ship>
+		</Ships>
+		<Pilots>
+            <Pilot>dalanoberos</Pilot>
+            <Pilot>thweek</Pilot>
+            <Pilot>blacksunassassin</Pilot>
+            <Pilot>blacksunassassin</Pilot>
+            <Pilot>viktorhel</Pilot>
+            <Pilot>captainjostero</Pilot>
+            <Pilot>blacksunace</Pilot>
+            <Pilot>cartelmarauder</Pilot>
+		</Pilots>
+		<Upgrades>
+            <Upgrade>harpoonmissiles</Upgrade>
+            <Upgrade>harpoonmissiles</Upgrade>
+            <Upgrade>iondischargers</Upgrade>
+            <Upgrade>iondischargers</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>pulsedrayshield</Upgrade>
+            <Upgrade>stealthdevice</Upgrade>
+            <Upgrade>vectoredthrusters</Upgrade>
+            <Upgrade>starvipermkii</Upgrade>
+            <Upgrade>starvipermkii</Upgrade>
+            <Upgrade>vaksai</Upgrade>
+            <Upgrade>vaksai</Upgrade>
+		</Upgrades>
 	</Expansion>
 	
 <!-- Huge Ships -->
