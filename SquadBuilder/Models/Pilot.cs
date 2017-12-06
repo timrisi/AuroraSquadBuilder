@@ -68,6 +68,14 @@ namespace SquadBuilder
 		public bool CCL { get; set; }
 		public bool Preview { get; set; }
 
+		public bool ShowAbility {
+			get { return !string.IsNullOrEmpty (Ability); }
+		}
+
+		public bool ShowUpgradesEquipped {
+			get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
+		}
+
 		public bool ShowExtras {
 			get {
 				return IsCustom || CCL || Preview;

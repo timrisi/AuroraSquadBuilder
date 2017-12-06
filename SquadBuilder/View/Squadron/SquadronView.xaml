@@ -85,8 +85,8 @@
 										<Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuversInSquadronList}" Grid.Row="0" Grid.Column="1" />
 										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" Grid.Row="0" Grid.Column="2" />
 									</Grid>
-									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" />
-									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
+									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" IsVisible="{Binding ShowAbility}"/>
+									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" IsVisible="{Binding ShowUpgradesEquipped}" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
