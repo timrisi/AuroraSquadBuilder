@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.55">
+<Expansions Version="3.57">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1162,7 +1162,134 @@
             <Upgrade>hullupgrade</Upgrade>
         </Upgrades>
     </Expansion>
-	
+
+<!-- Wave 12 -->
+    <Expansion id="m12lkimogilafighter">
+        <Name>M12-L Kimogila Fighter</Name>
+        <Wave>Wave 12</Wave>
+        <Ships>
+            <Ship>m12lkimogilafighter</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>toranikulda</Pilot>
+            <Pilot>dalanoberos-swx70</Pilot>
+            <Pilot>cartelexecutioner</Pilot>
+            <Pilot>cartelbrute</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>saturationsalvo</Upgrade>
+            <Upgrade>saturationsalvo</Upgrade>
+            <Upgrade>plasmatorpedoes</Upgrade>
+            <Upgrade>scramblermissiles</Upgrade>
+            <Upgrade>scramblermissiles</Upgrade>
+            <Upgrade>r5tk</Upgrade>
+            <Upgrade>contrabandcybernetics</Upgrade>
+            <Upgrade>contrabandcybernetics</Upgrade>
+            <Upgrade>enforcer</Upgrade>
+            <Upgrade>deadmansswitch</Upgrade>
+        </Upgrades>
+    </Expansion>
+    <Expansion id="alphaclassstarwing">
+        <Name>Alpha-class Star Wing</Name>
+        <Wave>Wave 12</Wave>
+        <Ships>
+            <Ship>alphaclassstarwing</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>majorvynder</Pilot>
+            <Pilot>lieutenantkarsabi</Pilot>
+            <Pilot>rhosquadronveteran</Pilot>
+            <Pilot>nusquadronveteran</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>saturationsalvo</Upgrade>
+            <Upgrade>cruisemissiles</Upgrade>
+            <Upgrade>jammingbeam</Upgrade>
+            <Upgrade>linkedbattery</Upgrade>
+            <Upgrade>advancedslam</Upgrade>
+            <Upgrade>os1arsenalloadout</Upgrade>
+            <Upgrade>xg1assaultconfiguration</Upgrade>
+        </Upgrades>
+    </Expansion>
+    <Expansion id="phantomii">
+        <Name>Phantom II</Name>
+        <Wave>Wave 12</Wave>
+        <Ships>
+            <Ship>sheathipedeclassshuttle</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>fennrau-swx72</Pilot>
+            <Pilot>ezrabridger-swx72</Pilot>
+            <Pilot>zeborrelios-swx72</Pilot>
+            <Pilot>ap5</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>courierdroid</Upgrade>
+            <Upgrade>maul</Upgrade>
+            <Upgrade>chopper-swx72</Upgrade>
+            <Upgrade>phantomii</Upgrade>
+            <Upgrade>ghost-swx72</Upgrade>
+            <Upgrade>flightassistastromech</Upgrade>
+        </Upgrades>
+    </Expansion>
+
+<!-- Wave 13 -->
+    <Expansion id="tiesilencer">
+        <Name>TIE Silencer</Name>
+        <Wave>Wave 13</Wave>
+        <Ships>
+            <Ship>tiesilencer</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>kyloren-swx68</Pilot>
+            <Pilot>testpilotblackout</Pilot>
+            <Pilot>firstordertestpilot</Pilot>
+            <Pilot>sienarjaemusanalyst</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>debrisgambit</Upgrade>
+            <Upgrade>debrisgambit</Upgrade>
+            <Upgrade>sensorjammer</Upgrade>
+            <Upgrade>advancedoptics</Upgrade>
+            <Upgrade>advancedoptics</Upgrade>
+            <Upgrade>primedthrusters</Upgrade>
+            <Upgrade>primedthrusters</Upgrade>
+            <Upgrade>threattracker</Upgrade>
+            <Upgrade>threattracker</Upgrade>
+            <Upgrade>autothrusters</Upgrade>
+            <Upgrade>autothrusters</Upgrade>
+            <Upgrade>firstordervanguard</Upgrade>
+        </Upgrades>
+    </Expansion>
+    <Expansion id="resistancebomber">
+        <Name>Resistance Bomber</Name>
+        <Wave>Wave 13</Wave>
+        <Ships>
+            <Ship>bsf17bomber</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>crimsonleader</Pilot>
+            <Pilot>cobaltleader</Pilot>
+            <Pilot>crimsonspecialist</Pilot>
+            <Pilot>crimsonsquadronpilot</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>trajectorysimulator</Upgrade>
+            <Upgrade>trajectorysimulator</Upgrade>
+            <Upgrade>trajectorysimulator</Upgrade>
+            <Upgrade>connernet</Upgrade>
+            <Upgrade>connernet</Upgrade>
+            <Upgrade>ordnancesilos</Upgrade>
+            <Upgrade>crossfireformation</Upgrade>
+            <Upgrade>thermaldetonators</Upgrade>
+            <Upgrade>seismiccharges</Upgrade>
+            <Upgrade>advancedoptics</Upgrade>
+            <Upgrade>advancedoptics</Upgrade>
+            <Upgrade>targetingsynchronizer</Upgrade>
+            <Upgrade>deflectiveplating</Upgrade>
+        </Upgrades>
+    </Expansion>
+    
 <!-- Aces Packs -->
 	<Expansion id="imperialaces">
 		<Name>Imperial Aces</Name>

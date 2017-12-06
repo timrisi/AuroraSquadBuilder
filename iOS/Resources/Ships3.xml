@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.665">
+<Ships Version="3.666">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -147,7 +147,6 @@
         </Actions>
         <Symbol></Symbol>
         <ManeuverGridImage>Kimogila.png</ManeuverGridImage>
-        <Preview>true</Preview>
     </Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
@@ -287,7 +286,6 @@
         </Actions>
         <Symbol></Symbol>
         <ManeuverGridImage>Sheathipede.png</ManeuverGridImage>
-        <Preview>true</Preview>
     </Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
@@ -344,7 +342,6 @@
         <Symbol></Symbol>
         <LargeBase>true</LargeBase>
         <ManeuverGridImage>BSF17Bomber.png</ManeuverGridImage>
-		<Preview>true</Preview>
     </Ship>
 	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
@@ -517,7 +514,6 @@
         </Actions>
         <Symbol></Symbol>
         <ManeuverGridImage>AlphaClassStarWing.png</ManeuverGridImage>
-		<Preview>true</Preview>
     </Ship>
 	<Ship id="tiesilencer">
         <Name>TIE Silencer</Name>
@@ -529,7 +525,6 @@
         </Actions>
         <Symbol></Symbol>
         <ManeuverGridImage>TIESilencer.png</ManeuverGridImage>
-        <Preview>true</Preview>
     </Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>

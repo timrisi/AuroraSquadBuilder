@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.933">
+<Upgrades Version="3.936">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -136,6 +136,20 @@
 You can acquire target locks on other friendly ships.</Text>
             <Unique>true</Unique>
         </Upgrade>
+		<Upgrade id="chopper-swx72">
+            <Name>&quot;Chopper&quot;</Name>
+            <Cost>1</Cost>
+            <Text>Action: Discard 1 other equipped Upgrade card to recover 1 shield.</Text>
+            <Unique>true</Unique>
+            <CanonicalName>chopper</CanonicalName>
+        </Upgrade>
+		<Upgrade id="flightassistastromech">
+            <Name>Flight-Assist Astromech</Name>
+            <Cost>1</Cost>
+            <Text>You cannot attack ships outside your firing arc.
+
+After you execute a maneuver, if you did not overlap a ship or obstacle and there are no enemy ships inside your firing arc at Range 1-3, you may perform a free boost or barrel roll action.</Text>
+        </Upgrade>
     </Category>
     <Category id="bomb" type="Bomb">
         <Upgrade id="proximitymines">
@@ -217,7 +231,6 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
 			<Cost>2</Cost>
             <Text>When you equip this card, place 3 ordnance tokens on each other equipped {bomb} upgrade card.  When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.</Text>
 			<ShipRequirement>B/SF-17 Bomber</ShipRequirement>
-			<Preview>true</Preview>
 		</Upgrade>
     </Category>
     <Category id="cannon" type="Cannon">
@@ -287,7 +300,6 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>1-2</Range>
-			<Preview>true</Preview>
         </Upgrade>
 		<Upgrade id="linkedbattery">
             <Name>Linked Battery</Name>
@@ -295,7 +307,6 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>When attacking with a primary weapon or {cannon} secondary weapon, you may reroll 1 attack die.</Text>
             <SmallOnly>true</SmallOnly>
 			<Limited>true</Limited>
-			<Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="cargo" type="Cargo">
@@ -991,6 +1002,19 @@ When defending, the attacker must spend 1 focus token if able.</Text>
                 <Upgrade>Bomb</Upgrade>
             </AdditionalUpgrades>
         </Upgrade>
+        <Upgrade id="maul">
+            <Name>Maul</Name>
+            <Cost>3</Cost>
+            <Text>When attacking, if you are not stressed, you may receive any number of stress tokens to reroll that many attack dice.  After performing an attack that hits, you may remove 1 of your stress tokens.</Text>
+            <Unique>true</Unique>
+            <Faction>scum</Faction>
+        </Upgrade>
+		<Upgrade id="courierdroid">
+            <Name>Courier Droid</Name>
+            <Cost>0</Cost>
+            <Text>At the start of the &quot;Place Forces&quot; step, you may choose to treat your pilot skill value as &quot;0&quot; or &quot;8&quot; until the end of the step.</Text>
+            <Limited>true</Limited>
+        </Upgrade>
     </Category>
     <Category id="ept" type="Elite Pilot Talent">
         <Upgrade id="determination">
@@ -1252,7 +1276,12 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Name>Saturation Salvo</Name>
             <Cost>1</Cost>
             <Text>After you perform an attack with a {torpedo} or {missile} secondary weapon that does not hit, each ship at Range 1 of the defender with an agility value lower than the squad point cost of the {torpedo} or {missile} Upgrade card must roll 1 attack die and suffer any damage {hit} or critical damage {crit} rolled.</Text>
-            <Preview>true</Preview>
+        </Upgrade>
+        <Upgrade id="debrisgambit">
+            <Name>Debris Gambit</Name>
+            <Cost>2</Cost>
+            <Text>Action:  Assign 1 evade token to your ship for each obstacle at Range 1, to a maximum of 2 evade tokens.</Text>
+            <SmallOnly>true</SmallOnly>
         </Upgrade>
     </Category>
     <Category id="hardpoint" type="Hardpoint">
@@ -1395,6 +1424,11 @@ After you perform a SLAM action, discard this card.</Text>
             <Cost>2</Cost>
             <Text>After you receive an ion token, you may choose an enemy ship at Range 1.  If you do, remove that ion token.  Then that ship may choose to receive 1 ion token.  If it does, discard this card.</Text>
         </Upgrade>
+        <Upgrade id="contrabandcybernetics">
+            <Name>Contraband Cybernetics</Name>
+            <Cost>1</Cost>
+            <Text>When you become the active ship during the Activation phase, you may discard this card and receive 1 stress token.  If you do, until the end of the round, you may perform actions and execute red maneuvers even while you are stressed.</Text>
+        </Upgrade>
     </Category>
     <Category id="missile" type="Missile">
         <Upgrade id="clustermissiles">
@@ -1520,6 +1554,16 @@ When you are destroyed, each ship at Range 1 suffers 1 damage.
 Action: Discard this card.  Then roll 1 attack die.  On a {hit} or {crit} result, suffer 1 damage.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
+            <Range>2-3</Range>
+        </Upgrade>
+        <Upgrade id="scramblermissiles">
+            <Name>Scrambler Missiles</Name>
+            <Cost>2</Cost>
+            <Text>Attack (Target Lock): Discard this card to perform this attack.
+
+If this attack hits, the defender and each other ship at Range 1 receive 1 jam token.  Then cancel all results.</Text>
+            <SecondaryWeapon>true</SecondaryWeapon>
+            <Dice>3</Dice>
             <Range>2-3</Range>
         </Upgrade>
     </Category>
@@ -1755,6 +1799,12 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Limited>true</Limited>
             <HotAC>true</HotAC>
         </Upgrade>
+        <Upgrade id="deflectiveplating">
+            <Name>Deflective Plating</Name>
+            <Cost>1</Cost>
+            <Text>When a friendly bomb detonates, you may choose not to suffer its effects.  If you do, roll an attack die.  On a {hit} result, discard this card.</Text>
+            <ShipRequirement>B/SF-17 Bomber</ShipRequirement>
+        </Upgrade>
     </Category>
     <Category id="samd" type="Salvaged Astromech">
         <Upgrade id="r4agromech">
@@ -1800,6 +1850,14 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Name>R4-E1</Name>
             <Cost>1</Cost>
             <Text>You can perform actions on your {torpedo} and {bomb} Upgrade cards even if you are stressed.  After you perform an action in this way, you may discard this card to remove 1 stress token from your ship.</Text>
+            <Unique>true</Unique>
+        </Upgrade>
+        <Upgrade id="r5tk">
+            <Name>R5-TK</Name>
+            <Cost>0</Cost>
+            <Text>You may acquire target locks on friendly ships.
+
+You can attack friendly ships.</Text>
             <Unique>true</Unique>
         </Upgrade>
     </Category>
@@ -2431,6 +2489,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <AdditionalUpgrades>
                 <Upgrade>Title</Upgrade>
             </AdditionalUpgrades>
+            <Limited>true</Limited>
         </Upgrade>
         <Upgrade id="vaksai">
             <Name>Vaksai</Name>
@@ -2453,7 +2512,6 @@ You may perform attacks with {cannon} secondary weapons that cost 2 or fewer squ
                 <Upgrade>Cannon</Upgrade>
                 <Upgrade>Cannon</Upgrade>
 			</AdditionalUpgrades>
-			<Preview>true</Preview>
 		</Upgrade>
 		<Upgrade id="os1arsenalloadout">
             <Name>OS-1 Arsenal Loadout</Name>
@@ -2466,7 +2524,6 @@ You may perform attacks with {torpedo} and {missile} secondary weapons against s
                 <Upgrade>Torpedo</Upgrade>
                 <Upgrade>Missile</Upgrade>
             </AdditionalUpgrades>
-            <Preview>true</Preview>
         </Upgrade>
 		<Upgrade id="enforcer">
             <Name>Enforcer</Name>
@@ -2474,26 +2531,23 @@ You may perform attacks with {torpedo} and {missile} secondary weapons against s
             <Text>After defending, if the attacker is inside your bullseye firing arc, it receives 1 stress token.</Text>
             <ShipRequirement>M12-L Kimogila</ShipRequirement>
 			<Unique>true</Unique>
-            <Preview>true</Preview>
         </Upgrade>
-		<Upgrade id="ghost">
+		<Upgrade id="ghost-swx72">
             <Name>Ghost</Name>
             <Cost>0</Cost>
             <Text>Equip the Phantom II title card to a friendly Sheathipede-slass Shuttle and dock it to this ship.  After you execute a maneuver you may deploy it from your rear guides.</Text>
             <Ship>vcx100</Ship>
             <ShipRequirement>VCX-100</ShipRequirement>
             <Unique>true</Unique>
-			<Preview>true</Preview>
         </Upgrade>
-		<Upgrade id="phantom">
-            <Name>Phantom</Name>
+		<Upgrade id="phantomii">
+            <Name>Phantom II</Name>
             <Cost>0</Cost>
             <Text>While you are docked, the Ghost can perform primary weapon attacks from its special firing arc.
 
 While you are docked, at the end of the Activation phase, the Ghost may perform a free coordinate action.</Text>
             <ShipRequirement>Sheathipede-class Shuttle</ShipRequirement>
             <Unique>true</Unique>
-			<Preview>true</Preview>
         </Upgrade>
 		<Upgrade id="firstordervanguard">
             <Name>First Order Vanguard</Name>
@@ -2503,7 +2557,12 @@ While you are docked, at the end of the Activation phase, the Ghost may perform 
 When defending, you may discard this card to reroll all of your defense dice.</Text>
             <ShipRequirement>TIE Silencer</ShipRequirement>
             <Unique>true</Unique>
-            <Preview>true</Preview>
+        </Upgrade>
+        <Upgrade id="crossfireformation">
+            <Name>Crossfire Formation</Name>
+            <Cost>2</Cost>
+            <Text>When defending, if there is at least 1 other friendly Resistance ship at Range 1-2 of the attacker, you may add 1 {focus} result to your roll.</Text>
+            <ShipRequirement>B/SF-17 Bomber</ShipRequirement>
         </Upgrade>
     </Category>
     <Category id="torpedo" type="Torpedo">
@@ -2672,6 +2731,19 @@ If the defender is inside your primary firing arc, you may reroll a number of at
             <Text>At the start of the &quot;Place Forces&quot; step, you may treat your pilot skill value as &quot;0,&quot; &quot;6,&quot; or &quot;12&quot; until the end of the step.
 
 During setup, after another friendly ship is placed at Range 1-2, you may assign 1 focus or evade token to it.</Text>
+        </Upgrade>
+        <Upgrade id="threattracker">
+            <Name>Threat Tracker</Name>
+            <Cost>3</Cost>
+            <Text>When an enemy ship inside your firing arc at Range 1-2 becomes the active ship during the combat phase, you may spend your target lock on that ship to perform a free boost or barrel roll action if that action is on your action bar.</Text>
+            <SmallOnly>true</SmallOnly>
+        </Upgrade>
+        <Upgrade id="advancedoptics">
+            <Name>Advanced Optics</Name>
+            <Cost>2</Cost>
+            <Text>You cannot have more than 1 focus token.
+
+During the End phase, do not remove an unused focus token from your ship.</Text>
         </Upgrade>
     </Category>
 </Upgrades>
