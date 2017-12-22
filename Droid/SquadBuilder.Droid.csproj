@@ -382,6 +382,9 @@
     <AndroidResource Include="..\iOS\Resources\UWingDialNienNumb.png">
       <Link>Resources\drawable\UWingDialNienNumb.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\iOS\Resources\hamburger.png">
+      <Link>Resources\drawable\hamburger.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="..\SquadBuilder\SquadBuilder.projitems" Label="Shared" Condition="Exists('..\SquadBuilder\SquadBuilder.projitems')" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

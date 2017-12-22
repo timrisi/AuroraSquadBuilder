@@ -4,7 +4,9 @@
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
                 xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.UpgradesListView" 
-				Title="{Binding UpgradeType}">
+				Title="{Binding UpgradeType}"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true">
 	<mvvm:BaseView.ToolbarItems>
 		<ToolbarItem Text="None" Command="{Binding NoUpgrade}" />
 	</mvvm:BaseView.ToolbarItems>

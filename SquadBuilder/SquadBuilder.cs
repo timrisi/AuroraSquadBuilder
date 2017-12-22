@@ -42,9 +42,16 @@ namespace SquadBuilder
 					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
 					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
 				} catch (Exception e) {
+					Console.WriteLine (e.Message);
 					//Insights.Report (e, Insights.Severity.Warning);
 				}
 			}
+
+			MessagingCenter.Subscribe <Application> (this, "BrowseCards", (obj) => {
+				//await this.MainPage.Navigation.PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Show Browse Cards");
+			});
 		}
 
 		protected override void OnSleep ()

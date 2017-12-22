@@ -3,7 +3,9 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
                 xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
-				x:Class="SquadBuilder.SquadronView" 
+				x:Class="SquadBuilder.SquadronView"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
 				Title="{Binding Squadron.Name}">
 	<mvvm:BaseView.ToolbarItems>
 		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" StyleId="AddPilot" />
