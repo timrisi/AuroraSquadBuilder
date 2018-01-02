@@ -54,6 +54,7 @@ namespace SquadBuilder
 				if (selectedExpansion != null) {
 					Navigation.PushAsync<ExploreExpansionContentsViewModel> ((vm, page) => {
 						vm.Expansion = selectedExpansion;
+						selectedExpansion = null;
 					});
 				}
 			}
@@ -64,6 +65,8 @@ namespace SquadBuilder
 			base.OnViewAppearing ();
 
 			expansions = getAllExpansions ();
+
+			NotifyPropertyChanged ("SelectedExpansion");
 		}
 	}
 }

@@ -16,7 +16,7 @@
 					  IsGroupingEnabled="true"
          			  HasUnevenRows="true"
 					  ItemsSource="{Binding Expansions}" 
-					  SelectedItem="{Binding SelectedExpansion}">
+					  SelectedItem="{Binding SelectedExpansion, Mode=TwoWay}">
 				<ListView.GroupHeaderTemplate>
 					<DataTemplate>
 						<TextCell Text="{Binding Wave}" />
