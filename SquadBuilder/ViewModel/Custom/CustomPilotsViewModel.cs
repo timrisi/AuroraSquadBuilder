@@ -43,8 +43,8 @@ namespace SquadBuilder
 					}
 
 					if (pilotGroup == null) {
-						pilotGroup = new PilotGroup (updatedPilot.Ship) { Faction = updatedPilot.Faction }; 
-						PilotGroups.Add (pilotGroup);
+						pilotGroup = new PilotGroup (updatedPilot?.Ship) { Faction = updatedPilot?.Faction }; 
+						PilotGroups?.Add (pilotGroup);
 						pilotGroup.Add (updatedPilot);
 					}
 

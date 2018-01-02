@@ -164,15 +164,15 @@ namespace SquadBuilder.iOS
 			// Take action based on the shortcut type
 			switch (shortcutItem.Type) {
 			case ShortcutIdentifier.CreateRebel:
-				Console.WriteLine ("First shortcut selected");
+				MessagingCenter.Send (App.Current, "Create Rebel");
 				handled = true;
 				break;
 			case ShortcutIdentifier.CreateImperial:
-				Console.WriteLine ("Second shortcut selected");
+				MessagingCenter.Send (App.Current, "Create Imperial");
 				handled = true;
 				break;
 			case ShortcutIdentifier.CreateScum:
-				Console.WriteLine ("Third shortcut selected");
+				MessagingCenter.Send (App.Current, "Create Scum");
 				handled = true;
 				break;
 			case ShortcutIdentifier.BrowseCards:

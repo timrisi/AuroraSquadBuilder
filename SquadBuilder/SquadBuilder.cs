@@ -47,10 +47,28 @@ namespace SquadBuilder
 				}
 			}
 
-			MessagingCenter.Subscribe <Application> (this, "BrowseCards", (obj) => {
-				//await this.MainPage.Navigation.PopToRootAsync ();
+			MessagingCenter.Subscribe <Application> (this, "BrowseCards", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
 
 				MessagingCenter.Send (this, "Show Browse Cards");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Rebel", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Rebel");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Imperial", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Imperial");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Scum", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Scum");
 			});
 		}
 

@@ -24,12 +24,13 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>false</MtouchProfiling>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
 <RunCodeAnalysis>true</RunCodeAnalysis>  <MtouchFloat32>true</MtouchFloat32>
 <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
 <MtouchExtraArgs></MtouchExtraArgs>
 <OptimizePNGs>false</OptimizePNGs>
+<CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -39,13 +40,13 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <IpaPackageName>
     </IpaPackageName>
     <BuildIpa>false</BuildIpa>
-    <CodesignProvision>Squad Builder Ad Hoc</CodesignProvision>
+    <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchFloat32>false</MtouchFloat32>
+<MtouchFloat32>true</MtouchFloat32>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
 <RunCodeAnalysis>true</RunCodeAnalysis>  <OptimizePNGs>true</OptimizePNGs>
 <MtouchLink>SdkOnly</MtouchLink>
@@ -59,10 +60,11 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>i386, x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <MtouchUseLlvm>false</MtouchUseLlvm>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  </PropertyGroup>
+<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
+</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -75,12 +77,12 @@
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>false</MtouchProfiling>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
 <MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision></CodesignProvision>
+<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
 <BuildIpa>true</BuildIpa>
 <DeviceSpecificBuild>false</DeviceSpecificBuild>
 </PropertyGroup>
@@ -89,12 +91,13 @@
     <OutputPath>bin\iPhone\Ad Hoc</OutputPath>
     <DefineConstants></DefineConstants>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
