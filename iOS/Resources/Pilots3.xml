@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.936">
+<Pilots Version="3.937">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -17,6 +17,7 @@
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, a friendly ship at Range 1 may suffer 1 uncancelled {hit} or {crit} result instead of you.</Ability>
+        <Keywords>hit, crit</Keywords>
     </Pilot>
     <Pilot id="dalanoberos" faction="scum" ship="starviper">
         <Name>Dalan Oberos</Name>
@@ -831,6 +832,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>You may ignore friendly bombs.  When a friendly ship is defending, if the attacker measures range through a friendly bomb token, the defender may add 1 {evade} result.</Ability>
+        <Keywords>evade</Keywords>
     </Pilot>
     <Pilot id="solsixxa" faction="scum" ship="scurrgh6bomber">
         <Name>Sol Sixxa</Name>
@@ -853,6 +855,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When dropping a bomb, you may use the {turn left} 1 or {turn right} 1 template instead of the {straight} 1 template.</Ability>
+        <Keywords>turn, left, right, straight</Keywords>
     </Pilot>
     <Pilot id="lokrevenant" faction="scum" ship="scurrgh6bomber">
         <Name>Lok Revenant</Name>
@@ -1036,6 +1039,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When dropping a bomb, you may use the 3 {turn left}, 3 {straight} or 3 {turn right} template instead of the 1 {straight} template.</Ability>
+        <Keywords>turn, left, right, straight</Keywords>
     </Pilot>
     <Pilot id="mandalorianmercenary" faction="scum" ship="firespray31">
         <Name>Mandalorian Mercenary</Name>
@@ -1140,6 +1144,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>You may execute the {sloop left} 3 or {sloop right} 3 maneuver using the corresponding {turn left}3 or {turn right}3 template.</Ability>
+        <Keywords>sloop, segnor, segnor's, loop, left, right, turn</Keywords>
     </Pilot>
     <Pilot id="bossk" faction="scum" ship="yv666">
         <Name>Bossk</Name>
@@ -1162,6 +1167,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you perform an attack that hits, before dealing damage, you may cancel 1 of your {crit} results to add 2 {hit} results.</Ability>
+        <Keywords>crit, hit</Keywords>
     </Pilot>
     <Pilot id="moraloeval" faction="scum" ship="yv666">
         <Name>Moralo Eval</Name>
@@ -1352,6 +1358,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending against an enemy ship inside your mobile firing arc at Range 1-2, you may add 1 {focus} result to your roll.</Ability>
+        <Keywords>focus, eyeball</Keywords>
         <CanonicalName>sabinewren</CanonicalName>
     </Pilot>
     <Pilot id="shadowporthunter" faction="scum" ship="lancerclasspursuitcraft">
@@ -1488,6 +1495,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, 1 of your {crit} results cannot be cancelled by defense dice.</Ability>
+        <Keywords>crit</Keywords>
     </Pilot>
     <Pilot id="keyanfarlander" faction="rebel" ship="bwing">
         <Name>Keyan Farlander</Name>
@@ -1508,6 +1516,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may remove 1 stress token to change all of your {focus} results to {hit} results.</Ability>
+        <Keywords>focus, eyeball, hit</Keywords>
     </Pilot>
     <Pilot id="ibtisam" faction="rebel" ship="bwing">
         <Name>Ibtisam</Name>
@@ -1622,6 +1631,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When an enemy ship inside your firing arc at Range 1-3 is defending, the attacker may change 1 of its {hit} results to a {crit}.</Ability>
+        <Keywords>hit, crit</Keywords>
     </Pilot>
     <Pilot id="blackmoonsquadronpilot" faction="rebel" ship="ewing">
         <Name>Blackmoon Squadron Pilot</Name>
@@ -1865,6 +1875,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, you may change 1 of your {focus} results to an {evade} result.</Ability>
+        <Keywords>focus, eyeball, evade</Keywords>
     </Pilot>
     <Pilot id="jekporkins" faction="rebel" ship="xwing">
         <Name>Jek Porkins</Name>
@@ -1883,6 +1894,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you receive a stress token, you may remove it and roll 1 attack die.  On a {hit} result, deal 1 facedown damage card to this ship.</Ability>
+        <Keywords>hit</Keywords>
     </Pilot>
     <Pilot id="garvendreis" faction="rebel" ship="xwing">
         <Name>Garven Dreis</Name>
@@ -2140,6 +2152,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
+        <Keywords>focus, eyeball, hit, evade</Keywords>
         <CanonicalName>poedameron-swx57</CanonicalName>
     </Pilot>
     <Pilot id="poedameron" faction="rebel" ship="t70xwing">
@@ -2160,6 +2173,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking or defending, if you have a focus token, you may change 1 of your {focus} results to a {hit} or {evade} result.</Ability>
+        <Keywords>focus, eyeball, hit, evade</Keywords>
     </Pilot>
     <Pilot id="elloasty" faction="rebel" ship="t70xwing">
         <Name>Ello Asty</Name>
@@ -2179,6 +2193,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>While you are not stressed, you may treat your {troll left} and {troll right} maneuvers as white maneuvers.</Ability>
+        <Keywords>talon, roll, troll, left, right</Keywords>
     </Pilot>
     <Pilot id="niennunb" faction="rebel" ship="t70xwing">
         <Name>Nien Nunb</Name>
@@ -2253,6 +2268,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When performing a boost action, you may use the [{turn left} 1] or [{turn right} 1] template.</Ability>
+        <Keywords>turn, left, right</Keywords>
     </Pilot>
     <Pilot id="redsquadronveteran" faction="rebel" ship="t70xwing">
         <Name>Red Squadron Veteran</Name>
@@ -2325,6 +2341,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking or defending, you may spend a Target Lock you have on the enemy ship to add 1 {focus} result to your roll.</Ability>
+        <Keywords>focus, eyeball</Keywords>
     </Pilot>
     <Pilot id="sharabey" faction="rebel" ship="arc170">
         <Name>Shara Bey</Name>
@@ -2380,6 +2397,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>After you execute a maneuver, you may roll an attack die.  On a {hit} or {crit} result, remove 1 stress from your ship.</Ability>
+        <Keywords>hit, crit</Keywords>
     </Pilot>
     <Pilot id="ahsokatano" faction="rebel" ship="tiefighter">
         <Name>Ahsoka Tano</Name>
@@ -2449,6 +2467,7 @@ At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an at
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
+        <Keywords>crit</Keywords>
         <CanonicalName>zeborrelios</CanonicalName>
         <OldId>zeborrelios</OldId>
     </Pilot>
@@ -2487,6 +2506,7 @@ At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an at
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When another friendly ship at Range 1 is defending, you may spend 1 reinforce token.  If you do, the defender adds one {evade} result.</Ability>
+        <Keywords>evade</Keywords>
     </Pilot>
     <Pilot id="wookieeliberator" faction="rebel" ship="auzituckgunship">
         <Name>Wookiee Liberator</Name>
@@ -2556,6 +2576,7 @@ At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an at
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, if you are stressed, you may change up to 2 of your {focus} results to {evade} results.</Ability>
+        <Keywords>focus, eyeball, evade</Keywords>
     </Pilot>
 	<Pilot id="zeborrelios-swx72" faction="rebel" ship="sheathipedeclassshuttle">
         <Name>&quot;Zeb Orrelios&quot;</Name>
@@ -2573,6 +2594,7 @@ At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an at
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
+        <Keywords>crit, hit</Keywords>
     </Pilot>
 	<Pilot id="ap5" faction="rebel" ship="sheathipedeclassshuttle">
         <Name>AP-5</Name>
@@ -2613,6 +2635,7 @@ At the end of the Combat phase, if &quot;Captain Rex&quot; did not perform an at
 Rattled: When you suffer damage from a bomb, you suffer 1 additional damage.  Then, remove this card.
 
 Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Ability>
+        <Keywords>focus, eyeball, hit</Keywords>
     </Pilot>
     <Pilot id="cobaltleader" faction="rebel" ship="bsf17bomber">
         <Name>&quot;Cobalt Leader&quot;</Name>
@@ -3105,6 +3128,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, if you are stressed, you may change up to 2 of your {focus} results to {evade} results.</Ability>
+        <Keywords>focus, eyeball, evade</Keywords>
     </Pilot>
     <Pilot id="zeborrelios" faction="rebel" ship="attackshuttle">
         <Name>&quot;Zeb&quot; Orrelios</Name>
@@ -3122,6 +3146,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When defending, you may cancel {crit} results before {hit} results.</Ability>
+        <Keywords>hit, crit</Keywords>
     </Pilot>
     <Pilot id="captainnymrebel" faction="rebel" ship="scurrgh6bomber">
         <Name>Captain Nym</Name>
@@ -3303,6 +3328,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>Friendly TIE Fighters at Range 1-3 may perform the action on your equipped {elite pilot talent} Upgrade card.</Ability>
+        <Keywords>ept</Keywords>
     </Pilot>
     <Pilot id="wingedgundark" faction="imperial" ship="tiefighter">
         <Name>Winged Gundark</Name>
@@ -3318,6 +3344,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking at Range 1, you may change 1 of your {hit} results to a {crit} result.</Ability>
+        <Keywords>hit, crit</Keywords>
     </Pilot>
     <Pilot id="nightbeast" faction="imperial" ship="tiefighter">
         <Name>Night Beast</Name>
@@ -3348,6 +3375,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may cancel all dice results.  If you cancel a {crit} result, deal 1 facedown Damage card to the defender.</Ability>
+        <Keywords>crit</Keywords>
     </Pilot>
     <Pilot id="blacksquadronpilot" faction="imperial" ship="tiefighter">
         <Name>Black Squadron Pilot</Name>
@@ -3558,6 +3586,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>Once per round, after you discard an {elite pilot talent} Upgrade card, flip that card faceup.</Ability>
+        <Keywords>ept</Keywords>
     </Pilot>
     <Pilot id="majorrhymer" faction="imperial" ship="tiebomber">
         <Name>Major Rhymer</Name>
@@ -3768,6 +3797,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you reveal a {straight} maneuver, you may treat it as a {kturn} maneuver.</Ability>
+        <Keywords>straight</Keywords>
     </Pilot>
     <Pilot id="onyxsquadronpilot" faction="imperial" ship="tiedefender">
         <Name>Onyx Squadron Pilot</Name>
@@ -3864,6 +3894,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you reveal a {kturn} maneuver, you may treat the speed of that meaneuver as &quot;1&quot;, &quot;3&quot; or &quot;5&quot;.</Ability>
+        <Keywords>kturn, koiogran, turn</Keywords>
     </Pilot>
     <Pilot id="kirkanos" faction="imperial" ship="tieinterceptor">
         <Name>Kir Kanos</Name>
@@ -3879,6 +3910,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking at Range 2-3, you may spend 1 evade token to add one {hit} result to your roll.</Ability>
+        <Keywords>hit</Keywords>
     </Pilot>
     <Pilot id="lieutenantlorrir" faction="imperial" ship="tieinterceptor">
         <Name>Lieutenant Lorrir</Name>
@@ -3894,6 +3926,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When performing a barrel roll action, you may receive 1 stress token to use the 1 {bank left} or {bank right} template instead of the 1 {straight} template.</Ability>
+        <Keywords>bank, left, right, straight</Keywords>
     </Pilot>
     <Pilot id="felswrath" faction="imperial" ship="tieinterceptor">
         <Name>&quot;Fel's Wrath&quot;</Name>
@@ -4003,6 +4036,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you decloak, you must use the 2 {bank left} or 2 {bank right} template instead of the 2 {straight} template.</Ability>
+        <Keywords>bank, left, right, straight</Keywords>
     </Pilot>
     <Pilot id="shadowsquadronpilot" faction="imperial" ship="tiephantom">
         <Name>Shadow Squadron Pilot</Name>
@@ -4220,6 +4254,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may spend a focus token and a target lock you have on the defender to change all of your dice results to {crit} results.</Ability>
+        <Keywords>crit</Keywords>
     </Pilot>
     <Pilot id="zetaleader" faction="imperial" ship="tiefofighter">
         <Name>&quot;Zeta Leader&quot;</Name>
@@ -4270,6 +4305,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When performing a barrel roll, you may use the {straight} 2 template instead of the {straight} 1 template.</Ability>
+        <Keywords>straight</Keywords>
     </Pilot>
     <Pilot id="epsilonace" faction="imperial" ship="tiefofighter">
         <Name>&quot;Epsilon Ace&quot;</Name>
@@ -4370,6 +4406,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking a ship inside your auxiliary firing arc, you may add 1 {crit} result.</Ability>
+        <Keywords>crit</Keywords>
     </Pilot>
     <Pilot id="omegaspecialist" faction="imperial" ship="tiesffighter">
         <Name>Omega Specialist</Name>
@@ -4514,6 +4551,7 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may spend 1 focus token to cancel all of the defender's blank and {focus} results.</Ability>
+        <Keywords>focus, eyeball</Keywords>
         <OldId>lieutenantkestral</OldId>
     </Pilot>
     <Pilot id="doubleedge" faction="imperial" ship="tieaggressor">
@@ -4734,6 +4772,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you reveal a bank maneuver ({bank left} or {bank right}), you may rotate your dial to the other bank maneuver of the same speed.</Ability>
+        <Keywords>bank, left, right</Keywords>
     </Pilot>
     <Pilot id="kathscarlet" faction="imperial" ship="firespray31">
         <Name>Kath Scarlett</Name>
@@ -4754,6 +4793,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, the defender receives 1 stress token if he cancels at least 1 {crit} result.</Ability>
+        <Keywords>crit</Keywords>
     </Pilot>
     <Pilot id="krassistrelix" faction="imperial" ship="firespray31">
         <Name>Krassis Trelix</Name>
@@ -4887,6 +4927,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking at Range 1-2, you may change 1 of your {focus} results to a {crit} result.</Ability>
+        <Keywords>focus, eyeball, crit</Keywords>
     </Pilot>
     <Pilot id="commanderkenkirk" faction="imperial" ship="vt49decimator">
         <Name>Commander Kenkirk</Name>
@@ -5246,6 +5287,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, at the start of the 'Compare Results' step you may spend an evade token to cancel 1 of the defender's {evade} results.</Ability>
+        <Keywords>evade</Keywords>
         <CCL>true</CCL>
     </Pilot>
     <Pilot id="cartelhotshot" faction="scum" ship="vwing">
@@ -5299,6 +5341,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may change one of your blank results to a {hit} result.  Then, receive 1 stress token.</Ability>
+        <Keywords>hit</Keywords>
         <CCL>true</CCL>
     </Pilot>
     <Pilot id="edge" faction="imperial" ship="tieavenger">
@@ -5425,6 +5468,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When attacking, you may spend a focus token to convert one of the target's {evade} results to a blank result.</Ability>
+        <Keywords>evade</Keywords>
         <CCL>true</CCL>
     </Pilot>
     <Pilot id="oorylqrygg" faction="rebel" ship="xwing">
@@ -5443,6 +5487,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When a friendly ship at Range 1-2 is defending, you may spend your focus token to change their blank results to {focus} results.</Ability>
+        <Keywords>focus, eyeball</Keywords>
         <CCL>true</CCL>
     </Pilot>
     <Pilot id="roguesquadronace" faction="rebel" ship="xwing">
@@ -5479,6 +5524,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you perform a boost action, you may use the 2 {bank left}, {straight}, or {bank right} templates.  If you do so, assign yourself 1 stress token.</Ability>
+        <Keywords>bank, left, right, straight</Keywords>
         <CCL>true</CCL>
     </Pilot>
     <Pilot id="yrsaharu" faction="scum" ship="kihraxzfighter">
