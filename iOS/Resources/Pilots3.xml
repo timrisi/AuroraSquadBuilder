@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.937">
+<Pilots Version="3.938">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -917,7 +917,6 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>After you perform an attack, each ship inside your bullseye firing arc at Range 1-3 must choose to suffer 1 damage or remove all of its focus and evade tokens.</Ability>
-		<Preview>true</Preview>
     </Pilot>
     <Pilot id="dalanoberos-swx70" faction="scum" ship="m12lkimogilafighter">
         <Name>Dalan Oberos</Name>
@@ -4624,7 +4623,6 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When Defending, if you have a weapons disabled token, roll 1 additional defense die.</Ability>
-		<Preview>true</Preview>
     </Pilot>
 	<Pilot id="lieutenantkarsabi" faction="imperial" ship="alphaclassstarwing">
         <Name>Lieutenant Karsabi</Name>
@@ -4700,7 +4698,6 @@ I'll Show You The Dark Side:  When this card is assigned, if it is not already i
 When you suffer critical damage during an attack, you are instead dealt the chosen faceup Damage card.
 
 When there is no Damage card on this card, remove it.</Ability>
-		<Preview>true</Preview>
     </Pilot>
     <Pilot id="testpilotblackout" faction="imperial" ship="tiesilencer">
         <Name>Test Pilot &quot;Blackout&quot;</Name>
