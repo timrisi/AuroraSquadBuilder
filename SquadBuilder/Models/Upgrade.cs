@@ -143,7 +143,7 @@ namespace SquadBuilder
 		public int? ShieldRequirement { get; set; }
 		public bool HotAC { get; set; }
 		public Pilot Pilot { get; set; }
-		public List<string> Keywords { get; set; }
+		public string Keywords { get; set; } = "";
 
 		public Ship Ship { get; set; }
 
@@ -371,6 +371,7 @@ namespace SquadBuilder
 				HotAC = HotAC,
 				Pilot = Pilot,
 				SquadLimit = SquadLimit,
+				Keywords = Keywords
 			};
 		}
 

@@ -504,6 +504,7 @@ namespace SquadBuilder
 											CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 											ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value,
 											HotAC = bool.Parse (upgrade.Element ("HotAC")?.Value ?? "false"),
+											Keywords = upgrade.Element ("Keywords")?.Value ?? "",
 				});
 
 				if (category.Attribute ("id").Value == "ept") {
@@ -594,6 +595,7 @@ namespace SquadBuilder
 					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
+				     	Keywords = upgrade.Element ("Keywords")?.Value ?? "",
 				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);

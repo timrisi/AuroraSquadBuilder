@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.936">
+<Upgrades Version="3.937">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -18,6 +18,7 @@
             <Cost>2</Cost>
             <Text>After spending your target lock, roll 1 defense die.  On an {evade} result, immediately acquire a target lock on that same ship.  You cannot spend this target lock during this attack.</Text>
             <Unique>true</Unique>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="r5astromech">
             <Name>R5 Astromech</Name>
@@ -29,6 +30,7 @@
             <Cost>3</Cost>
             <Text>Action: Roll 1 defense die.  On an {evade} or {focus} result, discard one of your facedown Damage cards.</Text>
             <Unique>true</Unique>
+            <Keywords>evade, focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="r2astromech">
             <Name>R2 Astromech</Name>
@@ -45,6 +47,7 @@
             <AdditionalUpgrades>
                 <Upgrade>Elite Pilot Talent</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>ept</Keywords>
         </Upgrade>
         <Upgrade id="r3a2">
             <Name>R3-A2</Name>
@@ -57,12 +60,13 @@
             <Cost>1</Cost>
             <Text>When you are hit by an attack and there are at least 3 uncancelled {hit} results, you may choose and cancel those results until there are 2 remaining. For each result cancelled in this way, receive 1 stress token.</Text>
             <Unique>true</Unique>
+            <Keywords>hit</Keywords>
         </Upgrade>
         <Upgrade id="r5p9">
             <Name>R5-P9</Name>
             <Cost>3</Cost>
             <Text>At the end of the Combat phase, you may spend 1 of your focus tokens to recover 1 shield (up to your shield value).</Text>
-            <Unique>true</Unique>c
+            <Unique>true</Unique>
         </Upgrade>
         <Upgrade id="r7t1">
             <Name>R7-T1</Name>
@@ -96,6 +100,7 @@
             <Name>R3 Astromech</Name>
             <Cost>2</Cost>
             <Text>Once per round, when attacking with a primary weapon, you may cancel 1 of your {focus} results during the 'Modify Attack Dice' step to assign 1 evade token to your ship.</Text>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="r4a14">
             <Name>R4-A14</Name>
@@ -104,6 +109,7 @@
             <Faction>rebel</Faction>
             <CCL>true</CCL>
             <Unique>true</Unique>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="r5m12">
             <Name>R5-M12</Name>
@@ -112,6 +118,7 @@
             <Faction>rebel</Faction>
             <CCL>true</CCL>
             <Unique>true</Unique>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="whistler">
             <Name>&quot;Whistler&quot;</Name>
@@ -187,6 +194,7 @@ Detonation: Deal 1 faceup Damage card to each ship at Range 1 of the token. Then
 When a ship's base or maneuver template overlaps a cluster mine token, that token detonates.
 
 Detonation:  The ship that moved through or overlapped the token rolls 2 attack dice and suffers 1 damage for each {hit} and {crit} rolled.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="connernet">
             <Name>Conner Net</Name>
@@ -225,12 +233,14 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
                 <Upgrade>Bomb</Upgrade>
             </ExtraSlots>
             <Unique>true</Unique>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
 		<Upgrade id="ordnancesilos">
 			<Name>Ordnance Silos</Name>
 			<Cost>2</Cost>
             <Text>When you equip this card, place 3 ordnance tokens on each other equipped {bomb} upgrade card.  When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.</Text>
 			<ShipRequirement>B/SF-17 Bomber</ShipRequirement>
+            <Keywords>bomb</Keywords>
 		</Upgrade>
     </Category>
     <Category id="cannon" type="Cannon">
@@ -241,6 +251,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="ioncannon">
             <Name>Ion Cannon</Name>
@@ -257,6 +268,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>1</Range>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="flechettecannon">
             <Name>Flechette Cannon</Name>
@@ -273,6 +285,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>3</Dice>
             <Range>1-3</Range>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="tractorbeam">
             <Name>Tractor Beam</Name>
@@ -307,6 +320,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>When attacking with a primary weapon or {cannon} secondary weapon, you may reroll 1 attack die.</Text>
             <SmallOnly>true</SmallOnly>
 			<Limited>true</Limited>
+            <Keywords>cannon</Keywords>
         </Upgrade>
     </Category>
     <Category id="cargo" type="Cargo">
@@ -332,6 +346,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Cost>3</Cost>
             <Text>Immediately before you reveal your maneuver dial, you may spend 1 energy to execute a white {straight} 1 maneuver. You cannot use this ability if you would overlap another ship.</Text>
             <Limited>true</Limited>
+            <Keywords>straight</Keywords>
         </Upgrade>
         <Upgrade id="expandedcargohold">
             <Name>Expanded Cargo Hold</Name>
@@ -385,11 +400,13 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <AdditionalActions>
                 <Action>Jam</Action>
             </AdditionalActions>
+            <Keywords>jam</Keywords>
         </Upgrade>
         <Upgrade id="clusterbombs">
             <Name>Cluster Bombs</Name>
             <Cost>4</Cost>
             <Text>After defending, you may discard this card.  If you do, each other ship at Range 1 of the defending section rolls 2 attack dice, suffering all damage {hit} and critical damage {crit} rolled.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="quickreleasecargolocks">
             <Name>Quick-Release Cargo Locks</Name>
@@ -427,6 +444,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Faction>rebel</Faction>
             <Unique>true</Unique>
             <ModifiedManeuverDial>NienNumb</ModifiedManeuverDial>
+            <Keywords>straight</Keywords>
         </Upgrade>
         <Upgrade id="weaponsengineer">
             <Name>Weapons Engineer</Name>
@@ -442,6 +460,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Name>Mercenary Copilot</Name>
             <Cost>2</Cost>
             <Text>When attacking at Range 3, you may change 1 of your {hit} results to a {crit} result.</Text>
+            <Keywords>crit, hit</Keywords>
         </Upgrade>
         <Upgrade id="intelligenceagent">
             <Name>Intelligence Agent</Name>
@@ -457,6 +476,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Name>Saboteur</Name>
             <Cost>2</Cost>
             <Text>Action: choose 1 enemy ship at Range 1 and roll 1 attack die.  On a {hit} or {crit} result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="darthvader">
             <Name>Darth Vader</Name>
@@ -481,6 +501,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Name>Flight Instructor</Name>
             <Cost>4</Cost>
             <Text>When defending, you may reroll one of your {focus} results. If the attacker's pilot skill is '2' or lower you may reroll 1 of your blank results instead.</Text>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="carlistrieekan">
             <Name>Carlist Rieekan</Name>
@@ -497,6 +518,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Faction>rebel</Faction>
             <Unique>true</Unique>
             <HugeOnly>true</HugeOnly>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="torynfarr">
             <Name>Toryn Farr</Name>
@@ -518,6 +540,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>Once per round, before you roll 1 or more defense dice, you may guess aloud a number of {evade} results. If you roll that many {evade} results (before modifying dice), add 1 {evade} result.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="hansolo">
             <Name>Han Solo</Name>
@@ -525,6 +548,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>When attacking, if you have a target lock on the defender, you may spend that target lock to change all of your {focus} results to {hit} results.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
+            <Keywords>focus, eyeball, hit</Keywords>
         </Upgrade>
         <Upgrade id="leiaorgana">
             <Name>Leia Organa</Name>
@@ -540,6 +564,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Faction>rebel</Faction>
             <Unique>true</Unique>
             <CanonicalName>r2d2-swx22</CanonicalName>
+            <Keywords>hit∂</Keywords>
         </Upgrade>
         <Upgrade id="raymusantilles">
             <Name>Raymus Antilles</Name>
@@ -582,6 +607,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>Action: Roll 2 defense dice. For each {focus} result, assign 1 focus token to your ship. For each {evade} result, assign 1 evade token to your ship.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
+            <Keywords>focus, eyeball, evade</Keywords>
         </Upgrade>
         <Upgrade id="dashrendar">
             <Name>Dash Rendar</Name>
@@ -616,6 +642,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>When you are dealt a faceup Damage card, you may discard this Upgrade card or another {crew} Upgrade card to flip that Damage card facedown (without resolving its effect).</Text>
             <Faction>imperial</Faction>
             <Unique>true</Unique>
+            <Keywords>crew</Keywords>
         </Upgrade>
         <Upgrade id="ysanneisard">
             <Name>Ysanne Isard</Name>
@@ -648,6 +675,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Name>Bombardier</Name>
             <Cost>1</Cost>
             <Text>When dropping a bomb, you may use the [{straight} 2] template instead of the [{straight} 1] template.</Text>
+            <Keywords>straight</Keywords>
         </Upgrade>
         <Upgrade id="bossk">
             <Name>Bossk</Name>
@@ -681,6 +709,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Faction>imperial</Faction>
             <Unique>true</Unique>
             <HugeOnly>true</HugeOnly>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="grandmofftarkin">
             <Name>Grand Moff Tarkin</Name>
@@ -702,6 +731,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Text>At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change one of your {focus} results to a {hit} or {evade} result.</Text>
             <Faction>imperial</Faction>
             <Unique>true</Unique>
+            <Keywords>focus, eyeball, hit, evade</Keywords>
         </Upgrade>
         <Upgrade id="rearadmiralchiraneau">
             <Name>Rear Admiral Chiraneau</Name>
@@ -710,6 +740,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Faction>imperial</Faction>
             <Unique>true</Unique>
             <HugeOnly>true</HugeOnly>
+            <Keywords>straight</Keywords>
         </Upgrade>
         <Upgrade id="constructiondroid">
             <Name>Construction Droid</Name>
@@ -742,6 +773,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <Cost>3</Cost>
             <Text>When attacking, if you are stressed, you may change 1 of your {focus} results to a {crit} result.</Text>
             <Faction>rebel</Faction>
+            <Keywords>focus, eyeball, crit</Keywords>
         </Upgrade>
         <Upgrade id="sabinewren">
             <Name>Sabine Wren</Name>
@@ -751,6 +783,7 @@ Detonation: Each ship at Range 1 of the token rolls 2 attack dice and suffers al
             <AdditionalUpgrades>
                 <Upgrade>Bomb</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>bomb</Keywords>
         </Upgrade>
         <Upgrade id="chopper">
             <Name>&quot;Chopper&quot;</Name>
@@ -816,6 +849,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
             <Faction>rebel</Faction>
             <Unique>true</Unique>
             <CCL>true</CCL>
+            <Keywords>crit</Keywords>
         </Upgrade>
         <Upgrade id="biggsdarklightercrew">
             <Name>Biggs Darklighter</Name>
@@ -846,6 +880,7 @@ Action: Remove 1 shield token from this card to recover 1 shield (up to your shi
             <Text>When defending, you may remove 1 stress token from the attacker to add 1 {evade} result to your roll.</Text>
             <Faction>scum</Faction>
             <Unique>true</Unique>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="ketsuonyo">
             <Name>Ketsu Onyo</Name>
@@ -950,6 +985,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Text>When attacking at Range 1-2, you may change 1 of your {hit} results to a {crit} result.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="cikatrovizago">
             <Name>Cikatro Vizago</Name>
@@ -957,6 +993,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Text>At the start of the End phase, you may discard this card to replace a faceup {illicit} or {cargo} Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.</Text>
             <Faction>scum</Faction>
             <Unique>true</Unique>
+            <Keywords>illicit, cargo</Keywords>
         </Upgrade>
         <Upgrade id="azmorigan">
             <Name>Azmorigan</Name>
@@ -965,6 +1002,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Faction>scum</Faction>
             <Unique>true</Unique>
             <HugeOnly>true</HugeOnly>
+            <Keywords>crew, team</Keywords>
         </Upgrade>
         <Upgrade id="wookieecommandos">
             <Name>Wookiee Commandos</Name>
@@ -975,6 +1013,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <ExtraSlots>
                 <Upgrade>Crew</Upgrade>
             </ExtraSlots>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="jabbathehutt">
             <Name>Jabba the Hutt</Name>
@@ -985,6 +1024,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <ExtraSlots>
                 <Upgrade>Crew</Upgrade>
             </ExtraSlots>
+            <Keywords>illicit</Keywords>
         </Upgrade>
         <Upgrade id="breachspecialist">
             <Name>Breach Specialist</Name>
@@ -1001,6 +1041,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <AdditionalUpgrades>
                 <Upgrade>Bomb</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="maul">
             <Name>Maul</Name>
@@ -1026,11 +1067,13 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Marksmanship</Name>
             <Cost>3</Cost>
             <Text>Action: When attacking this round, you may change 1 of your {focus} results to a {crit} result and all your other {focus} results to {hit} results.</Text>
+            <Keywords>crit, focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="experthandling">
             <Name>Expert Handling</Name>
             <Cost>2</Cost>
             <Text>Action: Perform a free barrel roll action.  If you do not have the {barrel roll} action icon, receive 1 stress token.  You may then remove 1 enemy target lock from your ship.</Text>
+            <Keywords>barrel roll</Keywords>
         </Upgrade>
         <Upgrade id="swarmtactics">
             <Name>Swarm Tactics</Name>
@@ -1046,6 +1089,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Draw Their Fire</Name>
             <Cost>1</Cost>
             <Text>When a friendly ship at Range 1 is hit by an attack, you may suffer one of the uncancelled {crit} results instead of the target ship.</Text>
+            <Keywords>crit</Keywords>
         </Upgrade>
         <Upgrade id="elusiveness">
             <Name>Elusiveness</Name>
@@ -1078,6 +1122,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Daredevil</Name>
             <Cost>3</Cost>
             <Text>Action: Execute a white {turn left} 1 or {turn right} 1 maneuver.  Then receive 1 stress token.  Then, if you do not have the {boost} action icon, roll 2 attack dice.  Suffer any damage {hit} and critical damage {crit} rolled.</Text>
+            <Keywords>turn, left, right, boost, hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="adrenalinerush">
             <Name>Adrenaline Rush</Name>
@@ -1142,6 +1187,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Calculation</Name>
             <Cost>1</Cost>
             <Text>When attacking, you may spend a focus token to change 1 of your {focus} results to a {crit} result.</Text>
+            <Keywords>focus, eyeball, crit</Keywords>
         </Upgrade>
         <Upgrade id="lightningreflexes">
             <Name>Lightning Reflexes</Name>
@@ -1153,11 +1199,13 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Crack Shot</Name>
             <Cost>1</Cost>
             <Text>When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's {evade} results.</Text>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="wired">
             <Name>Wired</Name>
             <Cost>1</Cost>
             <Text>When attacking or defending, if you are stressed, you may reroll 1 or more of your {focus} results.</Text>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="coolhand">
             <Name>Cool Hand</Name>
@@ -1168,6 +1216,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Juke</Name>
             <Cost>2</Cost>
             <Text>When attacking, if you have an evade token, you may change 1 of the defender’s {evade} results to a {focus} result.</Text>
+            <Keywords>evade, focus, eyeball</Keywords>
             <SmallOnly>true</SmallOnly>
         </Upgrade>
         <Upgrade id="adaptability">
@@ -1199,6 +1248,7 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Name>Fearlessness</Name>
             <Cost>1</Cost>
             <Text>When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 {hit} result to your roll.</Text>
+            <Keywords>hit</Keywords>
             <Faction>scum</Faction>
         </Upgrade>
         <Upgrade id="ascoretosettle">
@@ -1210,6 +1260,7 @@ When attacking a ship that has the &quot;A Debt to Pay&quot; Condition card, you
 
 A Debt to Pay: When attacking a ship that has the &quot;A Score to Settle&quot; Upgrade card, you may change 1 {focus} result to a {crit} result.</Text>
             <Unique>true</Unique>
+            <Keywords>focus, eyeball, crit</Keywords>
         </Upgrade>
         <Upgrade id="snapshot">
             <Name>Snap Shot</Name>
@@ -1235,6 +1286,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Name>Expertise</Name>
             <Cost>4</Cost>
             <Text>When attacking, if you are not stressed, you may change all of your {focus} results to {hit} results.</Text>
+            <Keywords>focus, hit</Keywords>
         </Upgrade>
         <Upgrade id="biggsdarklighterpilot">
             <Name>Biggs Darklighter (Pilot)</Name>
@@ -1271,11 +1323,13 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Text>When a friendly ship at Range 1 is hit by an attack, you may discard this card to suffer all uncancelled {hit} results instead of the target ship.</Text>
             <Faction>rebel</Faction>
             <SmallOnly>true</SmallOnly>
+            <Keywords>hit</Keywords>
         </Upgrade>
 		<Upgrade id="saturationsalvo">
             <Name>Saturation Salvo</Name>
             <Cost>1</Cost>
             <Text>After you perform an attack with a {torpedo} or {missile} secondary weapon that does not hit, each ship at Range 1 of the defender with an agility value lower than the squad point cost of the {torpedo} or {missile} Upgrade card must roll 1 attack die and suffer any damage {hit} or critical damage {crit} rolled.</Text>
+            <Keywords>torpedo, missile, hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="debrisgambit">
             <Name>Debris Gambit</Name>
@@ -1302,6 +1356,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Energy>2</Energy>
             <Dice>4</Dice>
             <Range>3-5</Range>
+            <Keywords>focus, eyeball, hit</Keywords>
         </Upgrade>
         <Upgrade id="ioncannonbattery">
             <Name>Ion Cannon Battery</Name>
@@ -1347,6 +1402,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Name>Inertial Dampeners</Name>
             <Cost>1</Cost>
             <Text>When you reveal your maneuver, you may discard this card to instead perform a white {stop} 0 maneuver. Then receive 1 stress token.</Text>
+            <Keywords>stop</Keywords>
         </Upgrade>
         <Upgrade id="feedbackarray">
             <Name>Feedback Array</Name>
@@ -1362,6 +1418,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Name>Glitterstim</Name>
             <Cost>2</Cost>
             <Text>At the start of the Combat phase, you may discard this card and receive 1 stress token. If you do, until the end of the round, when attacking or defending, you may change all of your {focus} results to {hit} or {evade} results.</Text>
+            <Keywords>focus, eyeball, hit, evade</Keywords>
         </Upgrade>
         <Upgrade id="cloakingdevice">
             <Name>Cloaking Device</Name>
@@ -1369,6 +1426,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Text>Action: Perform a free cloak action.  At the end of each round, if you are cloaked, roll 1 attack die.  On a {focus} result, discard this card, then decloak or discard your cloak token.</Text>
             <Unique>true</Unique>
             <SmallOnly>true</SmallOnly>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="adrenalinestims">
             <Name>Adrenaline Stims</Name>
@@ -1386,6 +1444,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
                 <Upgrade>Missile</Upgrade>
             </UpgradeOptions>
             <CCL>true</CCL>
+            <Keywords>torpedo, missile</Keywords>
         </Upgrade>
         <Upgrade id="riggedcargochute">
             <Name>Rigged Cargo Chute</Name>
@@ -1397,6 +1456,7 @@ Attack: Attack 1 ship.  You cannot modify your attack dice and cannot attack aga
             <Name>Black Market Slicer Tools</Name>
             <Cost>1</Cost>
             <Text>Action: Choose a stressed enemy ship at Range 1-2 and roll 1 attack die.  On a {hit} or {crit} result, remove 1 stress token and deal it 1 facedown damage card.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="burnoutslam">
             <Name>Burnout SLAM</Name>
@@ -1408,6 +1468,7 @@ After you perform a SLAM action, discard this card.</Text>
             <AdditionalActions>
                 <Action>SLAM</Action>
             </AdditionalActions>
+            <Keywords>slam</Keywords>
         </Upgrade>
         <Upgrade id="empdevice">
             <Name>EMP Device</Name>
@@ -1418,6 +1479,7 @@ After you perform a SLAM action, discard this card.</Text>
             <Name>Scavenger Crane</Name>
             <Cost>2</Cost>
             <Text>After a ship at Range 1-2 is destroyed, you may choose a discarded {torpedo}, {missile}, {bomb}, {cannon}, {turret}, or Modification Upgrade card that was equipped to your ship and flip it faceup.  Then roll 1 attack die.  On a blank result, discard Scavenger Crane.</Text>
+            <Keywords>torpedo, missile, bomb, cannon, turret</Keywords>
         </Upgrade>
         <Upgrade id="iondischargers">
             <Name>Ion Dischargers</Name>
@@ -1446,6 +1508,7 @@ After you perform a SLAM action, discard this card.</Text>
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
+            <Keywords>hit</Keywords>
         </Upgrade>
         <Upgrade id="assaultmissiles">
             <Name>Assault Missiles</Name>
@@ -1525,6 +1588,7 @@ Your attack dice can be modified only by spending a focus token for its standard
             </AdditionalUpgrades>
             <CCL>true</CCL>
             <Limited>true</Limited>
+            <Keywords>torpedo</Keywords>
         </Upgrade>
         <Upgrade id="aegisflares">
             <Name>Aegis Flares</Name>
@@ -1533,6 +1597,7 @@ Your attack dice can be modified only by spending a focus token for its standard
             <ShipRequirement>Kihraxz</ShipRequirement>
             <CCL>true</CCL>
             <Limited>true</Limited>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="cruisemissiles">
             <Name>Cruise Missiles</Name>
@@ -1555,6 +1620,7 @@ Action: Discard this card.  Then roll 1 attack die.  On a {hit} or {crit} result
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="scramblermissiles">
             <Name>Scrambler Missiles</Name>
@@ -1575,6 +1641,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <AdditionalActions>
                 <Action>Boost</Action>
             </AdditionalActions>
+            <Keywords>boost</Keywords>
         </Upgrade>
         <Upgrade id="shieldupgrade">
             <Name>Shield Upgrade</Name>
@@ -1592,6 +1659,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <Name>Anti-Pursuit Lasers</Name>
             <Cost>2</Cost>
             <Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship suffers 1 damage.</Text>
+            <Keywords>hit, crit</Keywords>
             <LargeOnly>true</LargeOnly>
         </Upgrade>
         <Upgrade id="targetingcomputer">
@@ -1601,6 +1669,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <AdditionalActions>
                 <Action>Target Lock</Action>
             </AdditionalActions>
+            <Keywords>target lock</Keywords>
         </Upgrade>
         <Upgrade id="hullupgrade">
             <Name>Hull Upgrade</Name>
@@ -1644,6 +1713,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <AdditionalUpgrades>
                 <Upgrade>Crew</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>crew</Keywords>
         </Upgrade>
         <Upgrade id="countermeasures">
             <Name>Countermeasures</Name>
@@ -1668,12 +1738,14 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <Cost>2</Cost>
             <Text>When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to an {evade} result. You can equip this card only if you have the {boost} action icon.</Text>
             <RequiredAction>Boost</RequiredAction>
+            <Keywords>evade, boost</Keywords>
         </Upgrade>
         <Upgrade id="ionprojector">
             <Name>Ion Projector</Name>
             <Cost>2</Cost>
             <Text>After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die.  On a {hit} or {crit} result, the enemy ship receives one ion token.</Text>
             <LargeOnly>true</LargeOnly>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="maneuveringfins">
             <Name>Maneuvering Fins</Name>
@@ -1681,6 +1753,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <Text>When you reveal a turn maneuver ({turn left} or {turn right}) you may rotate your dial to the corresponding bank maneuver ({bank left} or {bank right}) of the same speed.</Text>
             <Ship>yv666</Ship>
             <ShipRequirement>YV-666</ShipRequirement>
+            <Keywords>turn, left, right, bank</Keywords>
         </Upgrade>
         <Upgrade id="advancedslam">
             <Name>Advanced SLAM</Name>
@@ -1694,6 +1767,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <ShipRequirement>TIE</ShipRequirement>
             <TIEOnly>true</TIEOnly>
             <ModifiedManeuverDial>Mk2</ModifiedManeuverDial>
+            <Keywords>bank, left, right</Keywords>
         </Upgrade>
         <Upgrade id="integratedastromech">
             <Name>Integrated Astromech</Name>
@@ -1701,6 +1775,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
             <Text>When you are dealt a Damage card you may discard one of your {astromech droid} Upgrade cards to discard that Damage card (without resolving its effect).</Text>
             <Ship>xwing</Ship>
             <ShipRequirement>X-Wing</ShipRequirement>
+            <Keywords>astromech, droid</Keywords>
         </Upgrade>
         <Upgrade id="automatedprotocols">
             <Name>Automated Protocols</Name>
@@ -1721,6 +1796,7 @@ If this attack hits, the defender and each other ship at Range 1 receive 1 jam t
 
 When you are instructed to discard a {torpedo} or {missile} upgrade card, do not discard it.</Text>
             <HugeOnly>true</HugeOnly>
+            <Keywords>hardpoint, torpedo, missile</Keywords>
         </Upgrade>
         <Upgrade id="longrangescanners">
             <Name>Long-Range Scanners</Name>
@@ -1730,11 +1806,13 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
                 <Upgrade>Torpedo</Upgrade>
                 <Upgrade>Missile</Upgrade>
             </RequiredSlots>
+            <Keywords>torpedo, missile</Keywords>
         </Upgrade>
         <Upgrade id="guidancechips">
             <Name>Guidance Chips</Name>
             <Cost>0</Cost>
             <Text>Once per round, when attacking with a {torpedo} or {missile} secondary weapon, you may change 1 die result to a {hit} result (or a {crit} result if your primary weapon value is '3' or higher).</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="vectoredthrusters">
             <Name>Vectored Thrusters</Name>
@@ -1744,6 +1822,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
             <AdditionalActions>
                 <Action>Barrel Roll</Action>
             </AdditionalActions>
+            <Keywords>barrel roll</Keywords>
         </Upgrade>
         <Upgrade id="gyroscopictargeting">
             <Name>Gyroscopic Targeting</Name>
@@ -1761,6 +1840,7 @@ When you are instructed to discard a {torpedo} or {missile} upgrade card, do not
                 <Upgrade>Modification</Upgrade>
             </AdditionalUpgrades>
             <Limited>true</Limited>
+            <Keywords>illicit</Keywords>
         </Upgrade>
         <Upgrade id="capturedtie">
             <Name>Captured TIE</Name>
@@ -1798,12 +1878,14 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Text>When you equip this card, place 1 ordnance token on each equipped {torpedo}, {missile}, and {bomb} Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.</Text>
             <Limited>true</Limited>
             <HotAC>true</HotAC>
+            <Keywords>torpedo, missile, bomb</Keywords>
         </Upgrade>
         <Upgrade id="deflectiveplating">
             <Name>Deflective Plating</Name>
             <Cost>1</Cost>
             <Text>When a friendly bomb detonates, you may choose not to suffer its effects.  If you do, roll an attack die.  On a {hit} result, discard this card.</Text>
             <ShipRequirement>B/SF-17 Bomber</ShipRequirement>
+            <Keywords>hit</Keywords>
         </Upgrade>
     </Category>
     <Category id="samd" type="Salvaged Astromech">
@@ -1823,6 +1905,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Cost>0</Cost>
             <Text>After you reveal and execute a maneuver, if you did not overlap a ship, you may discard 1 of your equipped {bomb} Upgrade cards without the &quot;Action:&quot; header to drop the corresponding bomb token.</Text>
             <Unique>true</Unique>
+            <Keywords>bomb</Keywords>
         </Upgrade>
         <Upgrade id="r4b11">
             <Name>R4-B11</Name>
@@ -1840,6 +1923,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Cost>3</Cost>
             <Text>Once per round, after defending, you may roll 1 attack die.  On a {hit} result, the attacker suffers 1 damage.  On a {crit} result, you and the attacker each suffer 1 damage.</Text>
             <Unique>true</Unique>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="overclockedr4">
             <Name>Overclocked R4</Name>
@@ -1851,6 +1935,7 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <Cost>1</Cost>
             <Text>You can perform actions on your {torpedo} and {bomb} Upgrade cards even if you are stressed.  After you perform an action in this way, you may discard this card to remove 1 stress token from your ship.</Text>
             <Unique>true</Unique>
+            <Keywords>torpedo, bomb</Keywords>
         </Upgrade>
         <Upgrade id="r5tk">
             <Name>R5-TK</Name>
@@ -1871,6 +1956,7 @@ You can attack friendly ships.</Text>
             <Name>Sensor Jammer</Name>
             <Cost>4</Cost>
             <Text>When defending, you may change 1 of the attacker's {hit} results to a {focus} result.  The attacker cannot reroll the die with the changed result.</Text>
+            <Keywords>hit, focus, evade</Keywords>
         </Upgrade>
         <Upgrade id="firecontrolsystem">
             <Name>Fire Control System</Name>
@@ -1886,6 +1972,7 @@ You can attack friendly ships.</Text>
             <Name>Accuracy Corrector</Name>
             <Cost>3</Cost>
             <Text>When attacking, you may cancel all of your dice results. Then, you may add 2 {hit} results to your roll. Your dice cannot be modified again during this attack.</Text>
+            <Keywords>hit</Keywords>
         </Upgrade>
         <Upgrade id="advancedtargetingcomputer">
             <Name>Advanced Targeting Computer</Name>
@@ -1894,6 +1981,7 @@ You can attack friendly ships.</Text>
             <Ship>tieadvanced</Ship>
             <ShipRequirement>TIE Advanced</ShipRequirement>
             <CanonicalName>advtargetingcomputer</CanonicalName>
+            <Keywords>crit</Keywords>
         </Upgrade>
         <Upgrade id="reinforceddeflectors">
             <Name>Reinforced Deflectors</Name>
@@ -1918,16 +2006,19 @@ You can attack friendly ships.</Text>
             <Text>When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.
                 
 When rolling for obstacle damage, ignore all {crit} results.</Text>
+            <Keywords>crit</Keywords>
         </Upgrade>
         <Upgrade id="minefieldmapper">
             <Name>Minefield Mapper</Name>
             <Cost>0</Cost>
             <Text>During setup, after the 'Place Forces' step, you may discard any number of your equipped {bomb} Upgrade cards.  Place all corresponding bomb tokens in the play area beyond Range 3 of enemy ships.</Text>
+            <Keywords>bomb</Keywords>
         </Upgrade>
 		<Upgrade id="trajectorysimulator">
             <Name>Trajectory Simulator</Name>
             <Cost>1</Cost>
             <Text>You may launch bombs using the ({straight} 5) template instead of dropping them.  You cannot launch bombs with the &quot;Action:&quot; header in this way.</Text>
+            <Keywords>straight</Keywords>
         </Upgrade>
     </Category>
     <Category id="team" type="Team">
@@ -1941,6 +2032,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
             <Name>Engineering Team</Name>
             <Cost>4</Cost>
             <Text>During the Activation phase, when you reveal a {straight} maneuver, gain 1 additional energy during the "Gain Energy" step.</Text>
+            <Keywords>straight</Keywords>
             <Limited>true</Limited>
         </Upgrade>
         <Upgrade id="sensorteam">
@@ -1958,6 +2050,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
             <Name>IG-RM Thug Droids</Name>
             <Cost>1</Cost>
             <Text>When attacking, you may change 1 of your {hit} results to a {crit} result.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
     </Category>
     <Category id="title" type="Title">
@@ -1982,6 +2075,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
                 <Upgrade>Torpedo</Upgrade>
             </AdditionalUpgrades>
             <Unique>True</Unique>
+            <Keywords>torpedo</Keywords>
         </Upgrade>
         <Upgrade id="moldycrow">
             <Name>Moldy Crow</Name>
@@ -2018,6 +2112,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
             <Ship>gr75mediumtransport</Ship>
             <ShipRequirement>GR-75</ShipRequirement>
             <Unique>True</Unique>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="dutyfree">
             <Name>Dutyfree</Name>
@@ -2062,6 +2157,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
                 <Upgrade>Crew</Upgrade>
                 <Upgrade>Team</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>crew, team</Keywords>
         </Upgrade>
         <Upgrade id="awingtestpilot">
             <Name>A-Wing Test Pilot</Name>
@@ -2081,6 +2177,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
             <Ship>yt2400</Ship>
             <ShipRequirement>YT-2400</ShipRequirement>
             <Unique>True</Unique>
+            <Keywords>cannon</Keywords>
         </Upgrade>
         <Upgrade id="dauntless">
             <Name>Dauntless</Name>
@@ -2102,6 +2199,7 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
                 <Upgrade>System Upgrade</Upgrade>
                 <Upgrade>Illicit</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>system, illicit</Keywords>
         </Upgrade>
         <Upgrade id="heavyscykinterceptor">
             <Name>&quot;Heavy Scyk&quot; Interceptor</Name>
@@ -2116,6 +2214,7 @@ Increase your hull value by 1.</Text>
                 <Upgrade>Torpedo</Upgrade>
                 <Upgrade>Missile</Upgrade>
             </UpgradeOptions>
+            <Keywords>cannon, torpedo, missile</Keywords>
         </Upgrade>
         <Upgrade id="ig2000">
             <Name>IG-2000</Name>
@@ -2131,6 +2230,7 @@ Increase your hull value by 1.</Text>
             <Text>You cannot attack ships outside your firing arc. After you perform a primary weapon attack, you may immediately perform an attack with a {turret} secondary weapon.</Text>
             <Ship>ywing</Ship>
             <ShipRequirement>Y-Wing</ShipRequirement>
+            <Keywords>turret</Keywords>
         </Upgrade>
         <Upgrade id="andrasta">
             <Name>Andrasta</Name>
@@ -2143,6 +2243,7 @@ Increase your hull value by 1.</Text>
                 <Upgrade>Bomb</Upgrade>
                 <Upgrade>Bomb</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>bomb</Keywords>
         </Upgrade>
         <Upgrade id="tiex1">
             <Name>TIE/x1</Name>
@@ -2153,6 +2254,7 @@ Increase your hull value by 1.</Text>
             <AdditionalUpgrades>
                 <Upgrade>System Upgrade</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>system</Keywords>
         </Upgrade>
         <Upgrade id="houndstooth">
             <Name>Hound's Tooth</Name>
@@ -2168,6 +2270,7 @@ Increase your hull value by 1.</Text>
             <Text>When defending, if the target section has a reinforce token you may change 1 {focus} result to an {evade} result.</Text>
             <Ship>raidera</Ship>
             <ShipRequirement>Raider-class Corv. Aft</ShipRequirement>
+            <Keywords>focus, eyeball, evade</Keywords>
             <Unique>True</Unique>
         </Upgrade>
         <Upgrade id="impetuous">
@@ -2227,6 +2330,7 @@ Increase your hull value by 1.</Text>
             <Ship>attackshuttle</Ship>
             <ShipRequirement>Attack Shuttle</ShipRequirement>
             <Unique>true</Unique>
+            <Keywords>turret</Keywords>
         </Upgrade>
         <Upgrade id="misthunter">
             <Name>Mist Hunter</Name>
@@ -2241,6 +2345,7 @@ Increase your hull value by 1.</Text>
             <AdditionalActions>
                 <Action>Barrel Roll</Action>
             </AdditionalActions>
+            <Keywords>barrel, roll</Keywords>
         </Upgrade>
         <Upgrade id="punishingone">
             <Name>Punishing One</Name>
@@ -2270,6 +2375,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Cannon</Upgrade>
                 <Upgrade>Missile</Upgrade>
             </RemovedUpgrades>
+            <Keywords>cannon, missile</Keywords>
         </Upgrade>
         <Upgrade id="tied">
             <Name>TIE/D</Name>
@@ -2277,6 +2383,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Text>Once per round, after you perform an attack with a {cannon} secondary weapon that costs 3 or fewer squad points, you may perform a primary weapon attack.</Text>
             <Ship>tiedefender</Ship>
             <ShipRequirement>TIE Defender</ShipRequirement>
+            <Keywords>cannon</Keywords>
         </Upgrade>
         <Upgrade id="tieshuttle">
             <Name>TIE Shuttle</Name>
@@ -2295,6 +2402,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Crew</Upgrade>
                 <Upgrade>Crew</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>torpedo, missile, bomb, crew</Keywords>
         </Upgrade>
         <Upgrade id="millenniumfalcontfa">
             <Name>Millennium Falcon</Name>
@@ -2318,6 +2426,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Cost>0</Cost>
             <Text>When attacking with a primary weapon from your primary firing arc, you may roll 1 additional attack die.  When attacking from your auxiliary firing arc, you may change 1 of your {focus} results to a {crit} result.</Text>
             <ShipRequirement>ARC-170</ShipRequirement>
+            <Keywords>focus, eyeball, crit</Keywords>
         </Upgrade>
         <Upgrade id="specialopstraining">
             <Name>Special Ops Training</Name>
@@ -2330,6 +2439,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Cost>1</Cost>
             <Text>When defending, if you are inside the attacker's firing arc and at Range 1, and the attacker is inside your firing arc, add 1 {evade} result.</Text>
             <ShipRequirement>Protectorate Starfighter</ShipRequirement>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="shadowcaster">
             <Name>Shadow Caster</Name>
@@ -2341,6 +2451,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Name>Death Mark</Name>
             <Cost>2</Cost>
             <Text>At the start of the first round, choose 1 unique pilot.  When attacking or defending against that ship, you may change one of your {focus} results to a {hit} or {evade} result.</Text>
+            <Keywords>focus, eyeball, hit, evade</Keywords>
             <CCL>true</CCL>
             <Faction>scum</Faction>
             <Unique>true</Unique>
@@ -2365,6 +2476,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Missile</Upgrade>
                 <Upgrade>Salvaged Astromech</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>missile, salvaged, astromech, droid</Keywords>
             <CCL>true</CCL>
         </Upgrade>
         <Upgrade id="tiesa">
@@ -2372,6 +2484,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Cost>0</Cost>
             <Text>When dropping a bomb, you may use the {bank left} or {bank right} maneuver template.</Text>
             <ShipRequirement>TIE Bomber</ShipRequirement>
+            <Keywords>bank, left, right</Keywords>
             <CCL>true</CCL>
         </Upgrade>
         <Upgrade id="huttcartel">
@@ -2383,6 +2496,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Illicit</Upgrade>
             </AdditionalUpgrades>
             <CCL>true</CCL>
+            <Keywords>illicit</Keywords>
         </Upgrade>
         <Upgrade id="jayhawk">
             <Name>JayHawk</Name>
@@ -2393,6 +2507,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>System Upgrade</Upgrade>
             </AdditionalUpgrades>
             <CCL>true</CCL>
+            <Keywords>system</Keywords>
         </Upgrade>
         <Upgrade id="sabinesmasterpiece">
             <Name>Sabine's Masterpiece</Name>
@@ -2404,6 +2519,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Crew</Upgrade>
                 <Upgrade>Illicit</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>crew, illicit</Keywords>
         </Upgrade>
         <Upgrade id="kylorensshuttle">
             <Name>Kylo Ren's Shuttle</Name>
@@ -2419,11 +2535,13 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
 
 (Landing) When reveal a (0 {stop}) maneuver, you may rotate your ship 180 degrees.  After executing a maneuver you may flip this card.</Text>
             <ShipRequirement>U-Wing</ShipRequirement>
+            <Keywords>stop</Keywords>
         </Upgrade>
         <Upgrade id="adaptiveailerons">
             <Name>Adaptive Ailerons</Name>
             <Cost>0</Cost>
             <Text>Immediately before you reveal your maneuver dial, if you are not stressed, you must execute a white 1 {bank left}, 1 {straight}, or 1 {bank right} maneuver.</Text>
+            <Keywords>bank, left, straight, right</Keywords>
             <ShipRequirement>TIE Striker</ShipRequirement>
         </Upgrade>
         <Upgrade id="merchantone">
@@ -2440,6 +2558,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Cargo</Upgrade>
             </RemovedUpgrades>
             <Energy>1</Energy>
+            <Keywords>crew, team, cargo</Keywords>
         </Upgrade>
         <Upgrade id="lightscykinterceptor">
             <Name>&quot;Light Scyk&quot; Interceptor</Name>
@@ -2464,6 +2583,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <RemovedUpgrades>
                 <Upgrade>Crew</Upgrade>
             </RemovedUpgrades>
+            <Keywords>system, salvaged, astromech, droid, crew</Keywords>
         </Upgrade>
         <Upgrade id="insatiableworrt">
             <Name>Insatiable Worrt</Name>
@@ -2480,6 +2600,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <ShipRequirement>C-ROC Cruiser</ShipRequirement>
             <Unique>True</Unique>
             <Energy>2</Energy>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="starvipermkii">
             <Name>StarViper Mk.II</Name>
@@ -2490,6 +2611,7 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
                 <Upgrade>Title</Upgrade>
             </AdditionalUpgrades>
             <Limited>true</Limited>
+            <Keywords>bank, left, right, straight</Keywords>
         </Upgrade>
         <Upgrade id="vaksai">
             <Name>Vaksai</Name>
@@ -2512,6 +2634,7 @@ You may perform attacks with {cannon} secondary weapons that cost 2 or fewer squ
                 <Upgrade>Cannon</Upgrade>
                 <Upgrade>Cannon</Upgrade>
 			</AdditionalUpgrades>
+            <Keywords>cannon</Keywords>
 		</Upgrade>
 		<Upgrade id="os1arsenalloadout">
             <Name>OS-1 Arsenal Loadout</Name>
@@ -2524,6 +2647,7 @@ You may perform attacks with {torpedo} and {missile} secondary weapons against s
                 <Upgrade>Torpedo</Upgrade>
                 <Upgrade>Missile</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>torpedo, missile</Keywords>
         </Upgrade>
 		<Upgrade id="enforcer">
             <Name>Enforcer</Name>
@@ -2563,6 +2687,7 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <Cost>2</Cost>
             <Text>When defending, if there is at least 1 other friendly Resistance ship at Range 1-2 of the attacker, you may add 1 {focus} result to your roll.</Text>
             <ShipRequirement>B/SF-17 Bomber</ShipRequirement>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
     </Category>
     <Category id="torpedo" type="Torpedo">
@@ -2573,6 +2698,7 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>4</Dice>
             <Range>2-3</Range>
+            <Keywords>focus, eyeball, crit</Keywords>
         </Upgrade>
         <Upgrade id="advancedprotontorpedoes">
             <Name>Advanced Proton Torpedoes</Name>
@@ -2582,6 +2708,7 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <Dice>5</Dice>
             <Range>1</Range>
             <CanonicalName>advprotontorpedoes</CanonicalName>
+            <Keywords>focus, eyeball</Keywords>
         </Upgrade>
         <Upgrade id="flechettetorpedoes">
             <Name>Flechette Torpedoes</Name>
@@ -2609,12 +2736,14 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <AdditionalUpgrades>
                 <Upgrade>Bomb</Upgrade>
             </AdditionalUpgrades>
+            <Keywords>bomb</Keywords>
         </Upgrade>
         <Upgrade id="extramunitions">
             <Name>Extra Munitions</Name>
             <Cost>2</Cost>
             <Text>When you equip this card, place 1 ordnance token on each equipped {torpedo}, {missile}, and {bomb} Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.</Text>
             <Limited>true</Limited>
+            <Keywords>torpedo, missile, bomb</Keywords>
         </Upgrade>
         <Upgrade id="plasmatorpedoes">
             <Name>Plasma Torpedoes</Name>
@@ -2628,6 +2757,7 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <Name>Seismic Torpedo</Name>
             <Cost>2</Cost>
             <Text>Action: Discard this card to choose an obstacle at Range 1-2 and inside your primary firing arc.  Each ship at Range 1 of the obstacle rolls 1 attack die and suffers an damage {hit} or critical damage {crit} rolled.  Then remove the obstacle.</Text>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
     </Category>
     <Category id="turret" type="Turret Weapon">
@@ -2654,6 +2784,7 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <SecondaryWeapon>true</SecondaryWeapon>
             <Dice>2</Dice>
             <Range>1</Range>
+            <Keywords>hit, crit</Keywords>
         </Upgrade>
         <Upgrade id="twinlaserturret">
             <Name>Twin Laser Turret</Name>
@@ -2689,6 +2820,7 @@ If the defender is inside your primary firing arc, you may reroll a number of at
             <Name>Weapons Guidance</Name>
             <Cost>2</Cost>
             <Text>When attacking, you may spend a focus token to change one of your blank results to a {hit} result.</Text>
+            <Keywords>hit</Keywords>
         </Upgrade>
         <Upgrade id="commrelay">
             <Name>Comm Relay</Name>
@@ -2708,6 +2840,7 @@ If the defender is inside your primary firing arc, you may reroll a number of at
             <Name>Sensor Cluster</Name>
             <Cost>2</Cost>
             <Text>When defending, you may spend a focus token to change 1 of your blank results to an {evade} result.</Text>
+            <Keywords>evade</Keywords>
         </Upgrade>
         <Upgrade id="primedthrusters">
             <Name>Primed Thrusters</Name>
