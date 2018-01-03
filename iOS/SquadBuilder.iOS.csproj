@@ -334,6 +334,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\hamburger.png" />
+    <BundleResource Include="Resources\AlphaClassStarWingDial.png" />
+    <BundleResource Include="Resources\BSF17BomberDial.png" />
+    <BundleResource Include="Resources\KimogilaDial.png" />
+    <BundleResource Include="Resources\SheathipedeDial.png" />
+    <BundleResource Include="Resources\TIESilencerDial.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
