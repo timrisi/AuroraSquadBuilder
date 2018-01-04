@@ -64,7 +64,7 @@ namespace SquadBuilder
 
 		public string PageName { get { return "Upgrades"; } }
 
-		ObservableCollection <UpgradeGroup> upgrades;
+		ObservableCollection<UpgradeGroup> upgrades = new ObservableCollection<UpgradeGroup> ();
 		public ObservableCollection <UpgradeGroup> Upgrades {
 			get {
 				return upgrades;
@@ -80,14 +80,17 @@ namespace SquadBuilder
 				if (createUpgrade == null)
 					createUpgrade = new RelayCommand (() => {
 						MessagingCenter.Subscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created", (vm, upgrade) => {
-							var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == upgrade.Category);
+							var upgradeGroups = new ObservableCollection<UpgradeGroup> (Upgrades);
+							var upgradeGroup = upgradeGroups.FirstOrDefault (g => g.Category == upgrade.Category);
 
 							if (upgradeGroup == null) {
 								upgradeGroup = new UpgradeGroup (upgrade.Category);
-								Upgrades.Add (upgradeGroup);
+								upgradeGroups.Add (upgradeGroup);
 							}
 
 							upgradeGroup.Add (upgrade);
+
+							Upgrades = new ObservableCollection<UpgradeGroup> (upgradeGroups);
 
 							Cards.SharedInstance.CustomUpgrades.Add (upgrade);
 							Cards.SharedInstance.GetAllUpgrades ();

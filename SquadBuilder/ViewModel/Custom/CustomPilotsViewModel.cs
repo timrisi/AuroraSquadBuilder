@@ -108,14 +108,17 @@ namespace SquadBuilder
 							while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 								pilot.UpgradesEquipped.Add (null);
 
-							var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction.Id == pilot.Faction.Id);
+							var pilotGroups = new ObservableCollection<PilotGroup> (PilotGroups);
+							var pilotGroup = pilotGroups.FirstOrDefault (g => g.Ship?.Name == pilot.Ship?.Name && g.Faction.Id == pilot.Faction.Id);
 
 							if (pilotGroup == null) {
 								pilotGroup = new PilotGroup (pilot.Ship) { Faction = pilot.Faction };
-								PilotGroups.Add (pilotGroup);
+								pilotGroups.Add (pilotGroup);
 							}
 
 							pilotGroup.Add (pilot);
+
+							PilotGroups = new ObservableCollection<PilotGroup> (pilotGroups);
 							Cards.SharedInstance.CustomPilots.Add (pilot);
 							Cards.SharedInstance.GetAllPilots ();
 							Navigation.RemoveAsync <EditPilotViewModel> (vm);
