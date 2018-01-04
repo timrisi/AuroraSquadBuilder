@@ -11,7 +11,7 @@ namespace SquadBuilder
 {
 	public static class Settings
 	{
-		const string xwingDataUrl = "http://www.risiapps.com/xwing_data/";
+		const string xwingDataUrl = "https://raw.githubusercontent.com/timrisi/AuroraSquadBuilder/master/iOS/Resources/";
 
 		static XElement settingsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Cards.SettingsFilename)));
 		static Settings ()
