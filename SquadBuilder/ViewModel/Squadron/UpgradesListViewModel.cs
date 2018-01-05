@@ -60,7 +60,7 @@ namespace SquadBuilder
 			try {
 				var upgrades = Cards.SharedInstance.Upgrades
 					.Where (u => u.Category == type)
-					.Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
+				                    .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id) || (u.Id == "maul" && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Name.Contains ("Ezra Bridger") || p.UpgradesEquippedString.Contains ("Ezra Bridger"))))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
