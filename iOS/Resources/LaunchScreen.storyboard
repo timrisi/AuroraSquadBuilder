@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="180" image="Aurora Launch Image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="23">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
                         </subviews>
@@ -46,7 +46,6 @@
         <image name="Icon-Small.png" width="29" height="29"/>
         <image name="Icon-Small-40.png" width="40" height="40"/>
         <image name="Icon-180.png" width="180" height="180"/>
-        <image name="menu.png" width="512" height="477"/>
         <image name="spacial-cosmic.png" width="1047" height="1920"/>
         <image name="Icon-167.png" width="167" height="167"/>
         <image name="StarViperDial.png" width="121" height="64"/>
@@ -124,6 +123,12 @@
         <image name="AuzituckDial.png" width="121" height="80"/>
         <image name="ScurrgDial.png" width="121" height="80"/>
         <image name="TIEAggressorDial.png" width="121" height="64"/>
+        <image name="hamburger.png" width="14" height="15"/>
+        <image name="AlphaClassStarWingDial.png" width="121" height="64"/>
+        <image name="BSF17BomberDial.png" width="121" height="64"/>
+        <image name="KimogilaDial.png" width="121" height="64"/>
+        <image name="SheathipedeDial.png" width="121" height="64"/>
+        <image name="TIESilencerDial.png" width="121" height="80"/>
         <image name="down.png" width="128" height="128"/>
         <image name="up.png" width="128" height="128"/>
     </resources>

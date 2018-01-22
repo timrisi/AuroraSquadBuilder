@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{77BA9493-6FD1-4D49-83B2-6CE088D8B545}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/obj/iPhoneSimulator/Debug/SquadBuilder.iOS.View.RootPage.xaml.g.cs">
+    <Files>
+      <File FileName="SquadBuilder/Models/Pilot.cs" Line="625" Column="42" />
+      <File FileName="SquadBuilder/ViewModel/Squadron/PilotViewModel.cs" Line="65" Column="1" />
+      <File FileName="iOS/Main.cs" Line="16" Column="1" />
+      <File FileName="SquadBuilder/ViewModel/Squadron/UpgradesListViewModel.cs" Line="102" Column="176" />
+      <File FileName="SquadBuilder/View/Squadron/EditSquadronView.xaml" Line="24" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/PilotView.xaml" Line="31" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/SquadronView.xaml" Line="141" Column="17" />
+      <File FileName="SquadBuilder/ViewModel/MainViewModel.cs" Line="356" Column="312" />
+      <File FileName="iOS/obj/iPhoneSimulator/Debug/SquadBuilder.iOS.View.RootPage.xaml.g.cs" Line="19" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/Models/Squadron.cs" relfile="SquadBuilder/Models/Squadron.cs" line="265" column="1" />
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/Models/Cards.cs" relfile="SquadBuilder/Models/Cards.cs" line="782" column="15" />
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/View/Custom/EditUpgradeView.xaml" relfile="SquadBuilder/View/Custom/EditUpgradeView.xaml" line="36" column="1" />
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/iOS/HtmlLabelRenderer.cs" relfile="iOS/HtmlLabelRenderer.cs" line="45" column="1" />
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/ViewModel/MainViewModel.cs" relfile="SquadBuilder/ViewModel/MainViewModel.cs" line="206" column="1" />
+      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" relfile="SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" line="88" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.BA7CC829-6A4F-41A1-BCD6-B11590298740" automaticSigning="False" />
+  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>UITests/SquadBuilder.UITests.csproj</String>
+    <String>SquadBuilder.Mac/SquadBuilder.Mac.csproj</String>
+  </DisabledProjects>
+</Properties>

@@ -60,7 +60,7 @@ namespace SquadBuilder
 			try {
 				var upgrades = Cards.SharedInstance.Upgrades
 					.Where (u => u.Category == type)
-				                    .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id) || (u.Id == "maul" && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Name.Contains ("Ezra Bridger") || p.UpgradesEquippedString.Contains ("Ezra Bridger"))))
+				                    .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id) || (u.Id == "maul" && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Name.Contains ("Ezra Bridger") || (bool)(p.UpgradesEquippedString?.Contains ("Ezra Bridger") ?? false))))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
@@ -86,20 +86,20 @@ namespace SquadBuilder
 				ObservableCollection<Upgrade> valid = new ObservableCollection<Upgrade> ();
 				foreach (var upgrade in upgrades) {
 #region Hard-coded Exceptions
-					if (upgradeType == "Salvaged Astromech" && Pilot.UpgradesEquippedString.Contains ("Havoc") && !upgrade.Unique)
+					if (upgradeType == "Salvaged Astromech" && (bool)(Pilot.UpgradesEquippedString?.Contains ("Havoc") ?? false) && !upgrade.Unique)
 						continue;
 
-					if (upgradeType == "Modification" && Pilot.UpgradesEquippedString.Contains ("Smuggling Compartment") && upgrade.Cost > 3)
+					if (upgradeType == "Modification" && (bool)(Pilot.UpgradesEquippedString?.Contains ("Smuggling Compartment") ?? false) && upgrade.Cost > 3)
 						continue;
 
-					if (upgradeType == "Crew" && Pilot.UpgradesEquippedString.Contains ("TIE Shuttle") && upgrade.Cost > 4)
+					if (upgradeType == "Crew" && (bool)(Pilot.UpgradesEquippedString?.Contains ("TIE Shuttle") ?? false) && upgrade.Cost > 4)
 						continue;
 #endregion
 
 					if (upgrade.Unique && (bool) Cards.SharedInstance.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
 						continue;
 
-					if (upgrade.SquadLimit != null && Cards.SharedInstance.CurrentSquadron.Pilots?.Count (p => p != null && p.UpgradesEquippedString.Contains (upgrade.Name)) >= upgrade.SquadLimit)
+					if (upgrade.SquadLimit != null && Cards.SharedInstance.CurrentSquadron.Pilots?.Count (p => p != null && (bool)(p.UpgradesEquippedString?.Contains (upgrade.Name) ?? false)) >= upgrade.SquadLimit)
 						continue;
 
 					if (upgrade.Limited && (bool)Pilot?.UpgradesEquipped?.Any (u => u?.Name == upgrade.Name))

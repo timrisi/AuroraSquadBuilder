@@ -353,7 +353,7 @@ namespace SquadBuilder {
 		{
 			text = text.ToLower ();
 
-			var filteredSquadrons = allSquadrons.Where (s => s.Name.ToLower ().Contains (text) || s.Pilots != null && s.Pilots.Any (p => p != null && (p.Name.ToLower ().Contains (text) || (p.Ship != null && p.Ship.Name.ToLower ().Contains (text)) || p.UpgradesEquippedString.ToLower ().Contains (text))));
+			var filteredSquadrons = allSquadrons.Where (s => s.Name.ToLower ().Contains (text) || s.Pilots != null && s.Pilots.Any (p => p != null && (p.Name.ToLower ().Contains (text) || (p.Ship != null && p.Ship.Name.ToLower ().Contains (text)) || (bool)(p.UpgradesEquippedString?.ToLower ().Contains (text) ?? false))));
 
 			Squadrons = filteredSquadrons;
 		}

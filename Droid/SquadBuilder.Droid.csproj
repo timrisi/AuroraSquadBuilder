@@ -163,9 +163,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="..\iOS\Resources\menu.png">
-      <Link>Resources\drawable\menu.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\iOS\Resources\AggressorDial.png">
       <Link>Resources\drawable\AggressorDial.png</Link>
     </AndroidResource>

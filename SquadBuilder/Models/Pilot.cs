@@ -75,9 +75,9 @@ namespace SquadBuilder
 			get { return !string.IsNullOrEmpty (Ability); }
 		}
 
-		public bool ShowUpgradesEquipped {
-			get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
-		}
+		//public bool ShowUpgradesEquipped {
+		//	get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
+		//}
 
 		public bool ShowExtras {
 			get {
@@ -226,7 +226,7 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public string UpgradesEquippedString {
 			get {
-				return string.Join (", ", UpgradesEquipped.Where (u => u != null).Select (u => u.Name));
+				return UpgradesEquipped != null && UpgradesEquipped.Count () > 0 ? string.Join (", ", UpgradesEquipped.Where (u => u != null).Select (u => u.Name)) : "b";
 			}
 		}
 
@@ -617,7 +617,7 @@ namespace SquadBuilder
 			return (Id == pilot.Id &&
 				Faction?.Id == pilot.Faction?.Id &&
 				Ship?.Id == pilot.Ship?.Id &&
-				UpgradesEquippedString == pilot.UpgradesEquippedString);
+				UpgradesEquippedString == pilot?.UpgradesEquippedString);
 		}
 
 		public override int GetHashCode ()
