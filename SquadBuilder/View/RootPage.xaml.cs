@@ -77,7 +77,7 @@ namespace SquadBuilder
 					var tb = new TabbedPage ();
 					tb.Title = "Squadrons";
 					tb.Children.Add (new MainView ());
-					var factions = Settings.AllowCustom ? Cards.SharedInstance.AllFactions : Cards.SharedInstance.Factions;
+					var factions = Settings.AllowCustom ? Faction.AllFactions : Faction.Factions;
 					foreach (var faction in factions)
 						tb.Children.Add (new MainView (faction.Name));
 
@@ -101,16 +101,16 @@ namespace SquadBuilder
 						if (!accept)
 							return;
 
-						foreach (var expansion in Cards.SharedInstance.Expansions)
+						foreach (var expansion in Expansion.Expansions)
 							expansion.Owned = 0;
 
-						foreach (var ship in Cards.SharedInstance.Ships)
+						foreach (var ship in Ship.Ships)
 							ship.Owned = 0;
 
-						foreach (var pilot in Cards.SharedInstance.Pilots)
+						foreach (var pilot in Pilot.Pilots)
 							pilot.Owned = 0;
 
-						foreach (var upgrade in Cards.SharedInstance.Upgrades)
+						foreach (var upgrade in Upgrade.Upgrades)
 							upgrade.Owned = 0;
 					}, ToolbarItemOrder.Secondary));
 

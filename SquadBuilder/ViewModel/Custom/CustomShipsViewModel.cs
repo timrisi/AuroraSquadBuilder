@@ -15,14 +15,14 @@ namespace SquadBuilder
 		{
 			MessagingCenter.Subscribe <Ship> (this, "Remove Ship", ship => {
 				Ships.Remove (ship);
-				Cards.SharedInstance.CustomShips.Remove (ship);
+				Ship.CustomShips.Remove (ship);
 			});
 
 			MessagingCenter.Subscribe <Ship> (this, "Edit Ship", ship => {
 				string shipName = ship.Name;
 				MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Finished Editing", (vm, updatedShip) => {
 					Ships [Ships.IndexOf (ship)] = updatedShip;
-					Cards.SharedInstance.CustomShips [Cards.SharedInstance.CustomShips.IndexOf (ship)] = updatedShip;
+					Ship.CustomShips [Ship.CustomShips.IndexOf (ship)] = updatedShip;
 
 					Navigation.RemoveAsync <EditShipViewModel> (vm);
 					NotifyPropertyChanged ("Ships");
@@ -55,8 +55,8 @@ namespace SquadBuilder
 					createShip = new RelayCommand (() => {
 						MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
 							Ships.Add (ship);
-							Cards.SharedInstance.CustomShips.Add (ship);
-							Cards.SharedInstance.GetAllShips ();
+							Ship.CustomShips.Add (ship);
+							Ship.GetAllShips ();
 							Navigation.RemoveAsync <EditShipViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Ship Created");
 						});
@@ -75,7 +75,7 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.CustomShips);
+			Ships = new ObservableCollection <Ship> (Ship.CustomShips);
 
 			NotifyPropertyChanged ("Ships");
 		}

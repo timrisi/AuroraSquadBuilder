@@ -16,7 +16,7 @@ namespace SquadBuilder
 	{
 		public EditSquadronViewModel ()
 		{
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 		}
 
 		Squadron squadron;
@@ -68,7 +68,7 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 		}
 	}
 }

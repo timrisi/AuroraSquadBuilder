@@ -67,10 +67,10 @@ namespace SquadBuilder
 
 						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
 
-						if (Cards.SharedInstance.Factions.Count (f => f.Name == Name) > 0)
+						if (Faction.Factions.Count (f => f.Name == Name) > 0)
 							return;
 
-						if (Cards.SharedInstance.CustomFactions.Count (f => f.Name == Name) > 0)
+						if (Faction.CustomFactions.Count (f => f.Name == Name) > 0)
 							return;
 						
 						char[] arr = name.ToCharArray();

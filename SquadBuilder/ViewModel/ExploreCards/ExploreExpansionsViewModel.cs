@@ -29,7 +29,7 @@ namespace SquadBuilder
 		{
 			var allExpansionGroups = new ObservableCollection<ExpansionGroup> ();
 
-			var allExpansions = Cards.SharedInstance.Expansions.ToList ();
+			var allExpansions = Expansion.Expansions.ToList ();
 
 			foreach (var expansion in allExpansions) {
 				var expansionGroup = allExpansionGroups.FirstOrDefault (g => g.Wave == expansion.Wave);

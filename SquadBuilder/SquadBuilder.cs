@@ -9,8 +9,10 @@ using Xamarin;
 
 namespace SquadBuilder
 {
-	public class App : Application
-	{
+	public class App : Application {
+		public const string VersionsFilename = "Versions.xml";
+		public const string ReferenceCardsFilename = "ReferenceCards.xml";
+
 		public static DropboxClient DropboxClient;
 		public static SimpleStorage Storage;
 

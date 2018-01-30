@@ -16,12 +16,12 @@ namespace SquadBuilder
 
 		public EditPilotViewModel ()
 		{
-			var factions = Cards.SharedInstance.AllFactions.ToList ();;
+			var factions = Faction.AllFactions.ToList ();;
 			factions.RemoveAll (f => f.Name == "Mixed");
 
 			Factions = new ObservableCollection<Faction> (factions);
 
-			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection <Ship> (Ship.AllShips);
 		}
 
 		XElement originalElement;
@@ -229,7 +229,7 @@ namespace SquadBuilder
 						
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
-						if (Cards.SharedInstance.Pilots.Count (p => p.Name == Pilot.Name && p.Faction.Id == Pilot.Faction.Id && p.Ship.Id == Pilot.Ship.Id) > 0)
+						if (Pilot.Pilots.Count (p => p.Name == Pilot.Name && p.Faction.Id == Pilot.Faction.Id && p.Ship.Id == Pilot.Ship.Id) > 0)
 							return;
 
 						List <string> upgrades = new List<string> ();
@@ -359,12 +359,12 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			var factions = Cards.SharedInstance.AllFactions.ToList ();;
+			var factions = Faction.AllFactions.ToList ();;
 			factions.RemoveAll (f => f.Name == "Mixed");
 
 			Factions = new ObservableCollection<Faction> (factions);
 
-			Ships = new ObservableCollection <Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection <Ship> (Ship.AllShips);
 		}
 	}
 }

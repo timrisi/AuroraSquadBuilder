@@ -16,10 +16,14 @@ using Newtonsoft.Json.Schema;
 using Newtonsoft.Json;
 using XLabs.Platform.Device;
 using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SquadBuilder {
 	public class Squadron : ObservableObject {
 		const string XwsVersion = "1.0.0";
+		public const string SquadronsFilename = "squadrons.xml";
+		public const string XwcFilename = "squadrons.xwc";
 
 		public Squadron ()
 		{
@@ -305,7 +309,7 @@ namespace SquadBuilder {
 				var squadron = new Squadron () {
 					Name = json ["name"].ToString (),
 					Description = json ["description"].ToString (),
-					Faction = Cards.SharedInstance.AllFactions.FirstOrDefault (f => f.Id == json ["faction"].ToString ()),
+					Faction = Faction.AllFactions.FirstOrDefault (f => f.Id == json ["faction"].ToString ()),
 					MaxPoints = (int)json ["points"],
 					Pilots = new ObservableCollection<Pilot> ()
 				};
@@ -326,10 +330,10 @@ namespace SquadBuilder {
 				squadron.MaxPoints = maxPoints;
 
 				foreach (var pilotObject in json ["pilots"]) {
-					var pilot = (Cards.SharedInstance.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
-						 Cards.SharedInstance.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)))?.Copy ();
+					var pilot = (Pilot.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+						 Pilot.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && (p.Ship.CanonicalName ?? p.Ship.Id) == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+						 Pilot.AllPilots.FirstOrDefault (p => (p.CanonicalName ?? p.Id) == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)) ??
+						Pilot.AllPilots.FirstOrDefault (p => p.OldId == pilotObject ["name"].ToString () && p.Ship.OldId == pilotObject ["ship"].ToString () && (squadron.Faction.Id == "mixed" || p.Faction.Id == squadron.Faction.Id)))?.Copy ();
 
 					if (pilot == null)
 						continue;
@@ -348,8 +352,8 @@ namespace SquadBuilder {
 							var upgradeType = (upgradeTypeArray as JProperty).Name;
 
 							foreach (var value in upgradeTypeArray.Values ()) {
-								var upgrade = (Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ()) ??
-								               Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.OldId == value.ToString ()))?.Copy ();
+								var upgrade = (Upgrade.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.CanonicalName == value.ToString ()) ??
+									       Upgrade.AllUpgrades.FirstOrDefault (u => u.CategoryId == upgradeType && u.OldId == value.ToString ()))?.Copy ();
 
 								if (upgrade == null)
 									continue;
@@ -457,6 +461,178 @@ namespace SquadBuilder {
 		{
 			return string.Format ($"Name={Name}, Faction={Faction.Name}");
 		}
+
+		#region Static Methods
+		static Squadron currentSquadron;
+		public static Squadron CurrentSquadron {
+			get { return currentSquadron; }
+			set { currentSquadron = value; }
+		}
+
+		static ObservableCollection<Squadron> squadrons;
+		public static ObservableCollection<Squadron> Squadrons {
+			get {
+				if (squadrons == null)
+					GetAllSquadrons ();
+
+				return squadrons;
+			}
+			set { squadrons = value; }
+		}
+
+		public static void GetAllSquadrons ()
+		{
+			var service = DependencyService.Get<ISaveAndLoad> ();
+
+			if (service.FileExists (XwcFilename)) {
+				var xwcText = service.LoadText (XwcFilename);
+				if (string.IsNullOrEmpty (xwcText)) {
+					Squadrons = new ObservableCollection<Squadron> ();
+					return;
+				}
+
+				var json = JObject.Parse (xwcText);
+
+
+				if (json ["container"] == null)
+					throw new ArgumentException ("Container key is missing");
+
+				var squads = new List<Squadron> ();
+
+				foreach (var squadXws in json ["container"])
+					squads.Add (Squadron.FromXws (squadXws.ToString ()));
+
+				Squadrons = new ObservableCollection<Squadron> (squads);
+			} else if (service.FileExists (SquadronsFilename)) {
+				var serializedXml = service.LoadText (SquadronsFilename);
+				serializedXml.Replace ("<Owned>0</Owned>", "");
+				serializedXml.Replace ("<owned>0</owned>", "");
+				var serializer = new XmlSerializer (typeof (ObservableCollection<Squadron>));
+
+				using (TextReader reader = new StringReader (serializedXml)) {
+					var squads = (ObservableCollection<Squadron>) serializer.Deserialize (reader);
+
+					foreach (var squad in squads) {
+						squad.Faction = Faction.AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
+
+						foreach (var pilot in squad.Pilots) {
+							pilot.Ship = Ship.AllShips.FirstOrDefault (f => f.Id == pilot.Ship.Id)?.Copy ();
+							if (pilot.Ship.ManeuverGridImage == null) {
+								pilot.Ship.ManeuverGridImage = "";
+							}
+
+							if (squad.Faction?.Id == "scum") {
+								if (pilot.Id == "bobafett")
+									pilot.Id = "bobafettscum";
+								if (pilot.Id == "kathscarlet")
+									pilot.Id = "kathscarletscum";
+							}
+							if (pilot.Id == "Ello Asty")
+								pilot.Id = "elloasty";
+							if (pilot.Id == "4lom")
+								pilot.Id = "fourlom";
+
+							if (Pilot.CustomPilots.Any (p => p.Id == pilot.Id))
+								pilot.IsCustom = true;
+
+							pilot.Preview = Pilot.AllPilots.FirstOrDefault (p => p.Id == pilot.Id)?.Preview ?? false;
+
+							foreach (var upgrade in pilot.UpgradesEquipped) {
+								if (upgrade == null)
+									continue;
+
+								upgrade.Preview = Upgrade.AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id)?.Preview ?? false;
+
+								if (upgrade.Id == "r2d2" && upgrade.Category == "Crew")
+									upgrade.Id = "r2d2crew";
+								if (upgrade.Id == "4lom")
+									upgrade.Id = "fourlom";
+
+								if (upgrade.CategoryId == null)
+									upgrade.CategoryId = Upgrade.AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "emperorpalpatine") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "emperorpalpatine"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "wookieecommandos") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "wookieecommandos"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+
+							if (pilot?.UpgradesEquipped?.Count (u => u?.Id == "unguidedrockets") > 1) {
+								var index = pilot.UpgradesEquipped.IndexOf (pilot.UpgradesEquipped.First (u => u?.Id == "unguidedrockets"));
+								pilot.UpgradesEquipped.RemoveAt (index);
+								pilot.UpgradeTypes.RemoveAt (index);
+							}
+						}
+					}
+
+					Squadrons = squads;
+				}
+			} else {
+				Squadrons = new ObservableCollection<Squadron> ();
+				return;
+			}
+		}
+
+		public static async Task SaveSquadrons ()
+		{
+			var service = DependencyService.Get<ISaveAndLoad> ();
+
+			if (Squadrons.Count == 0) {
+				service.DeleteFile (XwcFilename);
+				return;
+			}
+
+			var xwc = CreateXwc ();
+
+			if (!service.FileExists (XwcFilename) || service.LoadText (XwcFilename) != xwc) {
+				service.SaveText (XwcFilename, xwc);
+
+				App.Storage.Put<DateTime> (SettingsViewModel.ModifiedDateKey, DateTime.Now);
+
+				if (App.DropboxClient != null)
+					await SettingsViewModel.SaveToDropbox ();
+			}
+		}
+
+		public static string CreateXwc ()
+		{
+			try {
+				var squads = new JArray ();
+				foreach (var s in Squadrons) {
+					var squad = s.CreateXwsObject ();
+					if (squad == null)
+						continue;
+					{ }
+					squads.Add (squad);
+				}
+
+				var json = new JObject (
+					new JProperty ("container", squads),
+					new JProperty ("vendor",
+				new JObject (
+							new JProperty ("aurora",
+					    new JObject (
+									new JProperty ("builder", "Aurora Squad Builder"),
+						    new JProperty ("builder_url", "https://itunes.apple.com/us/app/aurora-squad-builder/id1020767927?mt=8")
+							    )
+				    )
+				    )
+			)
+				);
+
+				return json.ToString ();
+			} catch (Exception e) {
+				return "";
+			}
+		}
+		#endregion
 	}
 }
 

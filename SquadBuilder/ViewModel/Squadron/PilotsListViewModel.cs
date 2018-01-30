@@ -66,17 +66,17 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+			get { return Squadron.CurrentSquadron.PointsDescription; }
 		}
 
 		ObservableCollection <PilotGroup> getAllPilots ()
 		{
 			var allPilotGroups = new ObservableCollection <PilotGroup>();
 
-			var allPilots = Cards.SharedInstance.Pilots.ToList ();
+			var allPilots = Pilot.Pilots.ToList ();
 
 			if (Settings.AllowCustom)
-				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
+				allPilots.AddRange (Pilot.CustomPilots);
 			else
 				allPilots.RemoveAll (p => p.IsCustom);
 

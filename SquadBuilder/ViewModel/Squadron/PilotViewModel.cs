@@ -30,7 +30,7 @@ namespace SquadBuilder
 					}
 
 					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || 
-					     (pilot.MultiSectionId >= 0 && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
+					     (pilot.MultiSectionId >= 0 && Squadron.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
 					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
 					     Pilot.UpgradeTypes [index] == "Torpedo" ||
 						 Pilot.UpgradeTypes [index] == "Missile") &&
@@ -56,7 +56,7 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron?.PointsDescription; }
+			get { return Squadron.CurrentSquadron?.PointsDescription; }
 		}
 
 		void pushUpgradeList (int index)
@@ -143,9 +143,9 @@ namespace SquadBuilder
 							pilot.UpgradeTypes = upgradeTypes;
 							pilot.UpgradesEquipped = upgradesEquipped;
 
-							var pilotIndex = Cards.SharedInstance.CurrentSquadron.Pilots.IndexOf (this.Pilot);
-							Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
-							this.Pilot = Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex];
+							var pilotIndex = Squadron.CurrentSquadron.Pilots.IndexOf (this.Pilot);
+							Squadron.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
+							this.Pilot = Squadron.CurrentSquadron.Pilots [pilotIndex];
 						});
 
 						Navigation.PushAsync<PilotsListViewModel> ((vm, p) => {

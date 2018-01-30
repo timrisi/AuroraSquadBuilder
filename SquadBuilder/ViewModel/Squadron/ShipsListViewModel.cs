@@ -61,15 +61,15 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron?.PointsDescription; }
+			get { return Squadron.CurrentSquadron?.PointsDescription; }
 		}
 
 		void GetAllShips ()
 		{
 			if (Settings.AllowCustom)
-				allShips = Cards.SharedInstance.AllShips;
+				allShips = Ship.AllShips;
 			else
-				allShips = new ObservableCollection<Ship> (Cards.SharedInstance.Ships.Where (s => !s.IsCustom));
+				allShips = new ObservableCollection<Ship> (Ship.Ships.Where (s => !s.IsCustom));
 
 			if (Settings.HideUnavailable)
 				allShips = new ObservableCollection<Ship> (allShips.Where (s => s.IsAvailable));
@@ -82,9 +82,9 @@ namespace SquadBuilder
 		{
 			ObservableCollection <Pilot> pilots;
 			if (Settings.AllowCustom)
-				pilots = Cards.SharedInstance.AllPilots;
+				pilots = Pilot.AllPilots;
 			else
-				pilots = Cards.SharedInstance.Pilots;
+				pilots = Pilot.Pilots;
 
 			if (!Settings.CustomCardLeague)
 				pilots = new ObservableCollection <Pilot> (pilots.Where (p => !p.CCL));

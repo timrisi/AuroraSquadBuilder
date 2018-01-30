@@ -25,13 +25,15 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>false</MtouchProfiling>
     <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
-<MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <MtouchFloat32>true</MtouchFloat32>
-<MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
-<MtouchExtraArgs></MtouchExtraArgs>
-<OptimizePNGs>false</OptimizePNGs>
-<CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
-</PropertyGroup>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchExtraArgs>
+    </MtouchExtraArgs>
+    <OptimizePNGs>false</OptimizePNGs>
+    <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
@@ -46,12 +48,13 @@
     <BuildIpa>false</BuildIpa>
     <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchFloat32>true</MtouchFloat32>
-<MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <OptimizePNGs>true</OptimizePNGs>
-<MtouchLink>SdkOnly</MtouchLink>
-<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
-</PropertyGroup>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <OptimizePNGs>true</OptimizePNGs>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
@@ -62,9 +65,10 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <MtouchUseLlvm>false</MtouchUseLlvm>
-<MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
-</PropertyGroup>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -81,15 +85,17 @@
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
-<MtouchTlsProvider>Default</MtouchTlsProvider>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
-<BuildIpa>true</BuildIpa>
-<DeviceSpecificBuild>false</DeviceSpecificBuild>
-</PropertyGroup>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodesignProvision>VS: com.risiapps.squadbuilder Development</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad Hoc|iPhone' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Ad Hoc</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer: Timothy Risi (UWZP44RP7F)</CodesignKey>
     <MtouchFloat32>true</MtouchFloat32>
@@ -372,16 +378,36 @@
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

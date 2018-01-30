@@ -160,7 +160,7 @@ namespace SquadBuilder
 
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-						if (Cards.SharedInstance.Ships.FirstOrDefault (e => e.Name == Name) != null)
+						if (Ship.Ships.FirstOrDefault (e => e.Name == Name) != null)
 							return;
 
 						if (Create) {

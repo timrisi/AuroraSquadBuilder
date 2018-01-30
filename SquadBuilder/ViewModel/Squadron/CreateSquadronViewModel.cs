@@ -16,7 +16,7 @@ namespace SquadBuilder
 	{
 		public CreateSquadronViewModel ()
 		{
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 		}
 
 		public string PlaceholderText { get { return "Enter Squadron Name"; } }
@@ -93,7 +93,7 @@ namespace SquadBuilder
 		public override void OnViewAppearing ()
 		{
 			base.OnViewAppearing ();
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 		}
 	}
 }

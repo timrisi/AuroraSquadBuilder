@@ -32,7 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\UpgradeGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ISendMail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IClipboardService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Cards.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\SettingsView.xaml.cs">

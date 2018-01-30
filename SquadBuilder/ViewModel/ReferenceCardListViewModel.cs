@@ -18,7 +18,7 @@ namespace SquadBuilder
 
 		void loadReferenceCards ()
 		{
-			var referenceCardXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.ReferenceCardsFilename)));
+			var referenceCardXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText (App.ReferenceCardsFilename)));
 
 			ReferenceCards = new ObservableCollection<ReferenceCard> (from card in referenceCardXml.Elements ()
 																	  select new ReferenceCard {

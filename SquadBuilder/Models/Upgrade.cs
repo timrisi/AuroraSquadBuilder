@@ -11,8 +11,9 @@ using System.Collections.Generic;
 
 namespace SquadBuilder
 {
-	public class Upgrade : ObservableObject
-	{
+	public class Upgrade : ObservableObject {
+		public const string UpgradesFilename = "Upgrades.xml";
+
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string CategoryId { get; set; }
@@ -175,7 +176,7 @@ namespace SquadBuilder
 				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
 				var upgradesElement = collectionXml.Element ("Upgrades");
 
-				var upgradesOwned = Cards.SharedInstance.Upgrades.FirstOrDefault (u => u.Id == Id).Owned;
+				var upgradesOwned = Upgrade.Upgrades.FirstOrDefault (u => u.Id == Id).Owned;
 
 				if (upgradesElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
 					if (upgradesOwned == 0)
@@ -255,16 +256,16 @@ namespace SquadBuilder
 			get {
 				var count = 0;
 
-				if (Cards.SharedInstance.CurrentSquadron == null)
+				if (Squadron.CurrentSquadron == null)
 					return Owned > 0;
 				
-				foreach (var pilot in Cards.SharedInstance.CurrentSquadron.Pilots)
+				foreach (var pilot in Squadron.CurrentSquadron.Pilots)
 					count += pilot.UpgradesEquipped.Count (u => u != null && u.Id == Id);
 
 				if (Unique && count > 0)
 					return false;
 				
-				if (Cards.SharedInstance.Upgrades.Sum (u => u.Owned) == 0)
+				if (Upgrade.Upgrades.Sum (u => u.Owned) == 0)
 					return true;
 				
 				return Owned > count;
@@ -276,7 +277,7 @@ namespace SquadBuilder
 		public string Expansions {
 			get {
 				if (string.IsNullOrEmpty (expansions))
-					expansions = string.Join (", ", Cards.SharedInstance.Expansions.Where (e => e.Upgrades.Any (u => u == Id)).Select (e => e.Name));
+					expansions = string.Join (", ", Expansion.Expansions.Where (e => e.Upgrades.Any (u => u == Id)).Select (e => e.Name));
 
 				return expansions;
 			}
@@ -414,6 +415,243 @@ namespace SquadBuilder
 		{
 			return Name;
 		}
+
+		#region Static Methods
+		public static Dictionary<string, string> CategoryToID = new Dictionary<string, string> {
+			{ "Astromech Droid", "amd" },
+			{ "Bomb", "bomb" },
+			{ "Cannon", "cannon" },
+			{ "Cargo", "cargo" },
+			{ "Crew", "crew" },
+			{ "Elite Pilot Talent", "ept" },
+			{ "Hardpoint", "hardpoint" },
+			{ "Illicit", "illicit" },
+			{ "Missile", "missile" },
+			{ "Modification", "mod" },
+			{ "Salvaged Astromech", "samd" },
+			{ "System Upgrade", "system" },
+			{ "Team", "team" },
+			{ "Title", "title" },
+			{ "Torpedo", "torpedo" },
+			{ "Turret Weapon", "turret" },
+			{ "Tech", "tech" }
+		};
+
+		static ObservableCollection<Upgrade> upgrades;
+		public static ObservableCollection<Upgrade> Upgrades {
+			get {
+				if (upgrades == null)
+					GetAllUpgrades ();
+
+				return upgrades;
+			}
+			set {
+				upgrades = value;
+				upgrades.CollectionChanged += (sender, e) => updateAllUpgrades ();
+				updateAllUpgrades ();
+			}
+		}
+
+		static ObservableCollection<Upgrade> customUpgrades;
+		public static ObservableCollection<Upgrade> CustomUpgrades {
+			get {
+				if (customUpgrades == null)
+					GetAllUpgrades ();
+
+				return customUpgrades;
+			}
+			set {
+				customUpgrades = value;
+				customUpgrades.CollectionChanged += (sender, e) => updateAllUpgrades ();
+				updateAllUpgrades ();
+			}
+		}
+
+		static ObservableCollection<Upgrade> allUpgrades;
+		public static ObservableCollection<Upgrade> AllUpgrades {
+			get {
+				if (allUpgrades == null)
+					updateAllUpgrades ();
+
+				return allUpgrades;
+			}
+		}
+
+		static void updateAllUpgrades ()
+		{
+			var temp = Upgrades.ToList ();
+			temp.AddRange (customUpgrades);
+			allUpgrades = new ObservableCollection<Upgrade> (temp);
+		}
+
+		public static void GetAllUpgrades ()
+		{
+			if (!DependencyService.Get<ISaveAndLoad> ().FileExists (Upgrade.UpgradesFilename))
+				return;
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var upgradesElement = collectionXml.Element ("Upgrades");
+
+			XElement upgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Upgrade.UpgradesFilename)));
+			List<Upgrade> allUpgrades = new List<Upgrade> ();
+
+			foreach (var category in upgradesXml.Elements ()) {
+				var categoryUpgrades = (from upgrade in category.Elements ()
+							select new Upgrade {
+								Id = upgrade.Attribute ("id").Value,
+								Name = upgrade.Element ("Name")?.Value,
+								CanonicalName = upgrade.Element ("CanonicalName")?.Value,
+								OldId = upgrade.Element ("OldId")?.Value,
+								CategoryId = upgrade.Parent.Attribute ("id").Value,
+								Category = upgrade.Parent.Attribute ("type")?.Value,
+								Cost = (int) upgrade.Element ("Cost"),
+								Text = upgrade.Element ("Text")?.Value,
+								Factions = Faction.Factions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
+								//Factions.FirstOrDefault (f => f.Id == upgrade.Element ("Faction")?.Value),
+								//Ship = Ships.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
+								ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
+								PilotSkill = upgrade.Element ("PilotSkill") != null ? (int) upgrade.Element ("PilotSkill") : 0,
+								Energy = upgrade.Element ("Energy") != null ? (int) upgrade.Element ("Energy") : 0,
+								Attack = upgrade.Element ("Attack") != null ? (int) upgrade.Element ("Attack") : 0,
+								Agility = upgrade.Element ("Agility") != null ? (int) upgrade.Element ("Agility") : 0,
+								Hull = upgrade.Element ("Hull") != null ? (int) upgrade.Element ("Hull") : 0,
+								Shields = upgrade.Element ("Shields") != null ? (int) upgrade.Element ("Shields") : 0,
+								SecondaryWeapon = upgrade.Element ("SecondaryWeapon") != null ? (bool) upgrade.Element ("SecondaryWeapon") : false,
+								Dice = upgrade.Element ("Dice") != null ? (int) upgrade.Element ("Dice") : 0,
+								Range = upgrade.Element ("Range")?.Value,
+								Unique = upgrade.Element ("Unique") != null ? (bool) upgrade.Element ("Unique") : false,
+								Limited = upgrade.Element ("Limited") != null ? (bool) upgrade.Element ("Limited") : false,
+								SmallOnly = upgrade.Element ("SmallOnly") != null ? (bool) upgrade.Element ("SmallOnly") : false,
+								LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool) upgrade.Element ("LargeOnly") : false,
+								HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool) upgrade.Element ("HugeOnly") : false,
+								Preview = upgrade.Element ("Preview") != null ? (bool) upgrade.Element ("Preview") : false,
+								AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List<XElement> ()
+															select upgr.Value).ToList ()),
+								AdditionalActions = new ObservableCollection<string> ((from action in upgrade.Element ("AdditionalActions") != null ? upgrade.Element ("AdditionalActions").Elements () : new List<XElement> ()
+														       select action.Value).ToList ()),
+								Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List<XElement> ()
+													   select upgr.Value).ToList ()),
+								RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List<XElement> ()
+														     select upgr.Value).ToList ()),
+								RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List<XElement> ()
+														   select upgr.Value).ToList ()),
+								UpgradeOptions = new ObservableCollection<string> ((from upgr in upgrade.Element ("UpgradeOptions") != null ? upgrade.Element ("UpgradeOptions").Elements () : new List<XElement> ()
+														    select upgr.Value).ToList ()),
+								RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
+								owned = upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) != null ?
+								 (int) upgradesElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == upgrade.Attribute ("id").Value) : 0,
+								MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int) upgrade.Element ("MinPilotSkill") : 0,
+								MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?) upgrade.Element ("MaxPilotSkill") : 0,
+								MinAgility = upgrade.Element ("MinAgility") != null ? (int?) upgrade.Element ("MinAgility") : null,
+								MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?) upgrade.Element ("MaxAgility") : null,
+								SquadLimit = upgrade.Element ("SquadLimit") != null ? (int?) upgrade.Element ("SquadLimit") : null,
+								ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?) upgrade.Element ("ShieldRequirement") : null,
+								IsCustom = upgrade.Element ("Custom") != null ? (bool) upgrade.Element ("Custom") : false,
+								CCL = upgrade.Element ("CCL") != null ? (bool) upgrade.Element ("CCL") : false,
+								ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value,
+								HotAC = bool.Parse (upgrade.Element ("HotAC")?.Value ?? "false"),
+								Keywords = upgrade.Element ("Keywords")?.Value ?? "",
+							});
+
+				if (category.Attribute ("id").Value == "ept") {
+					var hotacPilotEPTs = (from p in Pilot.Pilots
+							      where p.Unique &&
+							      !categoryUpgrades.Any (u => u.Id == (p.CanonicalName + "pilot" + p.Expansions)) &&
+							      !p.CCL && !p.IsCustom
+							      select new Upgrade {
+								      Cost = p.PilotSkill,
+								      Text = p.Ability,
+								      Factions = p.Faction != null ? new List<Faction> { p.Faction } : null,
+								      HotAC = true,
+								      Category = "Elite Pilot Talent",
+								      CategoryId = "ept",
+								      Id = p.CanonicalName + "pilot" + p.Expansions,
+								      Name = p.Name + " (Pilot)",
+								      Unique = true,
+								      AdditionalUpgrades = new ObservableCollection<string> (),
+								      AdditionalActions = new ObservableCollection<string> (),
+								      UpgradeOptions = new ObservableCollection<string> (),
+								      RequiredSlots = new ObservableCollection<string> (),
+								      RemovedUpgrades = new ObservableCollection<string> (),
+								      Slots = new ObservableCollection<string> ()
+							      }).OrderBy (u => u.Cost).GroupBy (u => u.Text).Select (g => g.First ()).ToList ();
+
+					var upgrades = categoryUpgrades.ToList ();
+					upgrades.AddRange (hotacPilotEPTs);
+					categoryUpgrades = upgrades.AsEnumerable ();
+				}
+
+				allUpgrades.AddRange (categoryUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
+
+			}
+
+			upgrades = new ObservableCollection<Upgrade> (allUpgrades);
+
+			XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
+			List<Upgrade> allCustomUpgrades = new List<Upgrade> ();
+
+			foreach (var customCategory in customUpgradesXml.Elements ()) {
+
+				var categoryCustomUpgrades = (from upgrade in customCategory.Elements ()
+							      select new Upgrade {
+								      Id = upgrade.Attribute ("id")?.Value,
+								      Name = upgrade.Element ("Name")?.Value,
+								      CanonicalName = upgrade.Element ("CanonicalName")?.Value,
+								      OldId = upgrade.Element ("OldId")?.Value,
+								      Category = upgrade.Parent.Attribute ("type")?.Value,
+								      CategoryId = upgrade.Parent.Attribute ("id")?.Value ?? CategoryToID [upgrade.Parent.Attribute ("type")?.Value],
+								      Cost = (int) upgrade.Element ("Cost"),
+								      Text = upgrade.Element ("Text")?.Value,
+								      Factions = Faction.AllFactions.Where (f => (upgrade.Element ("Faction")?.Value?.Split (',')?.Contains (f.Id) ?? false)).ToList (),
+								      Ship = Ship.AllShips.FirstOrDefault (s => s.Id == upgrade.Element ("Ship")?.Value)?.Copy (),
+								      ShipRequirement = upgrade.Element ("ShipRequirement")?.Value,
+								      PilotSkill = upgrade.Element ("PilotSkill") != null ? (int) upgrade.Element ("PilotSkill") : 0,
+								      Energy = upgrade.Element ("Energy") != null ? (int) upgrade.Element ("Energy") : 0,
+								      Attack = upgrade.Element ("Attack") != null ? (int) upgrade.Element ("Attack") : 0,
+								      Agility = upgrade.Element ("Agility") != null ? (int) upgrade.Element ("Agility") : 0,
+								      Hull = upgrade.Element ("Hull") != null ? (int) upgrade.Element ("Hull") : 0,
+								      Shields = upgrade.Element ("Shields") != null ? (int) upgrade.Element ("Shields") : 0,
+								      SecondaryWeapon = upgrade.Element ("SecondaryWeapon") != null ? (bool) upgrade.Element ("SecondaryWeapon") : false,
+								      Dice = upgrade.Element ("Dice") != null ? (int) upgrade.Element ("Dice") : 0,
+								      Range = upgrade.Element ("Range")?.Value,
+								      Unique = upgrade.Element ("Unique") != null ? (bool) upgrade.Element ("Unique") : false,
+								      Limited = upgrade.Element ("Limited") != null ? (bool) upgrade.Element ("Limited") : false,
+								      SmallOnly = upgrade.Element ("SmallOnly") != null ? (bool) upgrade.Element ("SmallOnly") : false,
+								      LargeOnly = upgrade.Element ("LargeOnly") != null ? (bool) upgrade.Element ("LargeOnly") : false,
+								      HugeOnly = upgrade.Element ("HugeOnly") != null ? (bool) upgrade.Element ("HugeOnly") : false,
+								      Preview = upgrade.Element ("Preview") != null ? (bool) upgrade.Element ("Preview") : false,
+								      AdditionalUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("AdditionalUpgrades") != null ? upgrade.Element ("AdditionalUpgrades").Elements () : new List<XElement> ()
+															      select upgr.Value).ToList ()),
+								      AdditionalActions = new ObservableCollection<string> ((from action in upgrade.Element ("AdditionalActions") != null ? upgrade.Element ("AdditionalActions").Elements () : new List<XElement> ()
+															     select action.Value).ToList ()),
+
+								      Slots = new ObservableCollection<string> ((from upgr in upgrade.Element ("ExtraSlots") != null ? upgrade.Element ("ExtraSlots").Elements () : new List<XElement> ()
+														 select upgr.Value).ToList ()),
+								      RemovedUpgrades = new ObservableCollection<string> ((from upgr in upgrade.Element ("RemovedUpgrades") != null ? upgrade.Element ("RemovedUpgrades").Elements () : new List<XElement> ()
+															   select upgr.Value).ToList ()),
+								      RequiredSlots = new ObservableCollection<string> ((from upgr in upgrade.Element ("RequiredSlots") != null ? upgrade.Element ("RequiredSlots").Elements () : new List<XElement> ()
+															 select upgr.Value).ToList ()),
+								      RequiredAction = upgrade.Element ("RequiredAction") != null ? upgrade.Element ("RequiredAction").Value : null,
+								      UpgradeOptions = new ObservableCollection<string> (),
+								      owned = 0,
+								      MinPilotSkill = upgrade.Element ("MinPilotSkill") != null ? (int) upgrade.Element ("MinPilotSkill") : 0,
+								      MaxPilotSkill = upgrade.Element ("MaxPilotSkill") != null ? (int?) upgrade.Element ("MaxPilotSkill") : 0,
+								      MinAgility = upgrade.Element ("MinAgility") != null ? (int?) upgrade.Element ("MinAgility") : null,
+								      MaxAgility = upgrade.Element ("MaxAgility") != null ? (int?) upgrade.Element ("MaxAgility") : null,
+								      ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?) upgrade.Element ("ShieldRequirement") : null,
+								      IsCustom = upgrade.Element ("Custom") != null ? (bool) upgrade.Element ("Custom") : false,
+								      CCL = upgrade.Element ("CCL") != null ? (bool) upgrade.Element ("CCL") : false,
+								      Keywords = upgrade.Element ("Keywords")?.Value ?? "",
+							      });
+
+				allCustomUpgrades.AddRange (categoryCustomUpgrades);
+			}
+
+			customUpgrades = new ObservableCollection<Upgrade> (allCustomUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost));
+
+			updateAllUpgrades ();
+		}
+		#endregion
 	}
 }
 

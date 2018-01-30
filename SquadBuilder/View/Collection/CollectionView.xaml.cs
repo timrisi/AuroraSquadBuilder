@@ -19,16 +19,16 @@ namespace SquadBuilder
 				if (!accept)
 					return;
 
-				foreach (var expansion in Cards.SharedInstance.Expansions)
+				foreach (var expansion in Expansion.Expansions)
 					expansion.Owned = 0;
 
-				foreach (var ship in Cards.SharedInstance.Ships)
+				foreach (var ship in Ship.Ships)
 					ship.Owned = 0;
 
-				foreach (var pilot in Cards.SharedInstance.Pilots)
+				foreach (var pilot in Pilot.Pilots)
 					pilot.Owned = 0;
 
-				foreach (var upgrade in Cards.SharedInstance.Upgrades)
+				foreach (var upgrade in Upgrade.Upgrades)
 					upgrade.Owned = 0;
 			});
 		}

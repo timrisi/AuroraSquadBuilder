@@ -39,14 +39,14 @@ namespace SquadBuilder
 
 		ObservableCollection<Upgrade> GetUpgrades (string type)
 		{
-			var upgrades = Cards.SharedInstance.Upgrades.Where (u => u != null)
+			var upgrades = Upgrade.Upgrades.Where (u => u != null)
 				.Where (u => u.Category == type)
 				.Where (u => !u.IsCustom || Settings.AllowCustom)
 				.Where (u => !u.CCL || Settings.CustomCardLeague)
                 .Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
 			if (Settings.AllowCustom) {
-				var customUpgrades = Cards.SharedInstance.CustomUpgrades
+				var customUpgrades = Upgrade.CustomUpgrades
 					.Where (u => u.Category == type).ToList ();
 
 				upgrades.AddRange (customUpgrades);

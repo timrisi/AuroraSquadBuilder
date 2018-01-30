@@ -43,7 +43,7 @@ namespace SquadBuilder
 
 		void GetAllCategories ()
 		{
-			var categoryNames = new List<string>(Cards.SharedInstance.Upgrades.Select(u => u.Category).Distinct());
+			var categoryNames = new List<string>(Upgrade.Upgrades.Select(u => u.Category).Distinct());
 			Categories = new ObservableCollection<UpgradeCategory> (categoryNames.Select (u => new UpgradeCategory { Name = u, Symbol = Upgrade.GetSymbol(u) }).Distinct ());
 		}
 

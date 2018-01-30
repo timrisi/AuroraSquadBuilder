@@ -21,13 +21,13 @@ namespace SquadBuilder
 					upgradeGroup.Remove (upgrade);
 					if (upgradeGroup.Count == 0)
 						Upgrades.Remove (upgradeGroup);
-					Cards.SharedInstance.CustomUpgrades.Remove (upgrade);
+					Upgrade.CustomUpgrades.Remove (upgrade);
 				}
 			});
 
 			MessagingCenter.Subscribe <Upgrade> (this, "Edit Upgrade", upgrade => {
 				MessagingCenter.Subscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing", (vm, updatedUpgrade) => {
-					Cards.SharedInstance.CustomUpgrades [Cards.SharedInstance.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;
+					Upgrade.CustomUpgrades [Upgrade.CustomUpgrades.IndexOf (upgrade)] = updatedUpgrade;
 
 					var originalGroup = Upgrades.FirstOrDefault (g => g.ToList ().Exists (u => u.Name == upgrade.Name));
 					var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == updatedUpgrade.Category);
@@ -92,8 +92,8 @@ namespace SquadBuilder
 
 							Upgrades = new ObservableCollection<UpgradeGroup> (upgradeGroups);
 
-							Cards.SharedInstance.CustomUpgrades.Add (upgrade);
-							Cards.SharedInstance.GetAllUpgrades ();
+							Upgrade.CustomUpgrades.Add (upgrade);
+							Upgrade.GetAllUpgrades ();
 							Navigation.RemoveAsync <EditUpgradeViewModel> (vm);
 							MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created");
 						});
@@ -112,8 +112,8 @@ namespace SquadBuilder
 
 						//	upgradeGroup.Add (upgrade);
 
-						//	Cards.SharedInstance.CustomUpgrades.Add (upgrade);
-						//	Cards.SharedInstance.GetAllUpgrades ();
+						//	Upgrade.CustomUpgrades.Add (upgrade);
+						//	Upgrade.GetAllUpgrades ();
 						//	Navigation.RemoveAsync <CreateUpgradeViewModel> (vm);
 						//	MessagingCenter.Unsubscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created");
 						//});
@@ -131,9 +131,9 @@ namespace SquadBuilder
 
 			MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Finished Editing");
 			                                                         
-			var factions = Cards.SharedInstance.AllFactions;
+			var factions = Faction.AllFactions;
 
-			List <Upgrade> upgrades = Cards.SharedInstance.CustomUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost).ToList ();
+			List <Upgrade> upgrades = Upgrade.CustomUpgrades.OrderBy (u => u.Name).OrderBy (u => u.Cost).ToList ();
 
 			var allUpgradeGroups = new ObservableCollection<UpgradeGroup> ();
 			foreach (var upgrade in upgrades) {

@@ -11,8 +11,9 @@ using System.Collections.ObjectModel;
 
 namespace SquadBuilder
 {
-	public class Ship : ObservableObject
-	{
+	public class Ship : ObservableObject {
+		public const string ShipsFilename = "Ships.xml";
+
 		string id;
 		public string Id {
 			get { return id; }
@@ -178,7 +179,7 @@ namespace SquadBuilder
 				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
 				var shipsElement = collectionXml.Element ("Ships");
 
-				var shipsOwned = Cards.SharedInstance.Ships.FirstOrDefault (s => s.Id == Id).Owned;
+				var shipsOwned = Ship.Ships.FirstOrDefault (s => s.Id == Id).Owned;
 
 				if (shipsElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
 					if (shipsOwned == 0)
@@ -253,10 +254,10 @@ namespace SquadBuilder
 
 		public bool IsAvailable {
 			get { 
-				if (Cards.SharedInstance.Ships.Sum (s => s.Owned) == 0)
+				if (Ship.Ships.Sum (s => s.Owned) == 0)
 					return true;
 				
-				return Owned > (Cards.SharedInstance.CurrentSquadron != null ? Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id) : 0); 
+				return Owned > (Squadron.CurrentSquadron != null ? Squadron.CurrentSquadron.Pilots.Count (p => p.Ship.Id == Id) : 0); 
 			}
 		}
 
@@ -365,6 +366,116 @@ namespace SquadBuilder
 		{
 			return Name;
 		}
+
+#region Static Methods
+		static ObservableCollection<Ship> ships;
+		public static ObservableCollection<Ship> Ships {
+			get {
+				if (ships == null)
+					GetAllShips ();
+
+				return ships;
+			}
+			set {
+				ships = value;
+				ships.CollectionChanged += (sender, e) => updateAllShips ();
+				updateAllShips ();
+			}
+		}
+
+		static ObservableCollection<Ship> customShips;
+		public static ObservableCollection<Ship> CustomShips {
+			get {
+				if (customShips == null)
+					GetAllShips ();
+
+				return customShips;
+			}
+			set {
+				customShips = value;
+				customShips.CollectionChanged += (sender, e) => updateAllShips ();
+				updateAllShips ();
+			}
+		}
+
+		static ObservableCollection<Ship> allShips;
+		public static ObservableCollection<Ship> AllShips {
+			get {
+				if (allShips == null)
+					updateAllShips ();
+
+				return allShips;
+			}
+		}
+
+		static void updateAllShips ()
+		{
+			var temp = Ships.ToList ();
+			temp.AddRange (customShips);
+			allShips = new ObservableCollection<Ship> (temp);
+		}
+
+		public static void GetAllShips ()
+		{
+			if (!DependencyService.Get<ISaveAndLoad> ().FileExists (Ship.ShipsFilename))
+				return;
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var shipsCollectionElement = collectionXml.Element ("Ships");
+
+			XElement shipsElement = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Ship.ShipsFilename)));
+			ships = new ObservableCollection<Ship> ((
+				from ship in shipsElement.Elements ()
+				select new Ship {
+					Id = ship.Attribute ("id").Value,
+					Name = ship.Element ("Name").Value,
+					CanonicalName = ship.Element ("CanonicalName")?.Value,
+					OldId = ship.Element ("OldId")?.Value,
+					LargeBase = ship.Element ("LargeBase") != null ? (bool) ship.Element ("LargeBase") : false,
+					Huge = ship.Element ("Huge") != null ? (bool) ship.Element ("Huge") : false,
+					Actions = new ObservableCollection<string> (
+						from action in ship.Element ("Actions").Elements ()
+						select action.Value),
+					IsCustom = ship.Element ("Custom") != null ? (bool) ship.Element ("Custom") : false,
+					CCL = ship.Element ("CCL") != null ? (bool) ship.Element ("CCL") : false,
+					IsPreview = ship.Element ("Preview") != null ? (bool) ship.Element ("Preview") : false,
+					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
+					Symbol = ship.Element ("Symbol")?.Value ?? "",
+					AttackSymbol = ship.Element ("AttackSymbol")?.Value,
+					//StraightOne = ship.Element("StraightOne")?.Value ?? "",
+					//StraightTwo = ship.Element("StraightOne")?.Value ?? "",
+					//StraightThree = ship.Element("StraightOne")?.Value ?? "",
+					//StraightFour = ship.Element("StraightOne")?.Value ?? "",
+					//StraightFive = ship.Element("StraightOne")?.Value ?? "",
+					owned = shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) != null ?
+							(int) shipsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == ship.Attribute ("id").Value) : 0
+				}).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge)
+			);
+
+			XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
+			customShips = new ObservableCollection<Ship> ((
+				from ship in customShipsXml.Elements ()
+				select new Ship {
+					Id = ship.Attribute ("id").Value,
+					Name = ship.Element ("Name").Value,
+					CanonicalName = ship.Element ("CanonicalName")?.Value,
+					OldId = ship.Element ("OldId")?.Value,
+					LargeBase = ship.Element ("LargeBase") != null ? (bool) ship.Element ("LargeBase") : false,
+					Huge = ship.Element ("Huge") != null ? (bool) ship.Element ("Huge") : false,
+					Actions = new ObservableCollection<string> (
+						from action in ship.Element ("Actions").Elements ()
+						select action.Value),
+					IsPreview = ship.Element ("Preview") != null ? (bool) ship.Element ("Preview") : false,
+					IsCustom = ship.Element ("Custom") != null ? (bool) ship.Element ("Custom") : false,
+					CCL = false,
+					ManeuverGridImage = "",
+					owned = 0
+				})
+			);
+
+			updateAllShips ();
+		}
+		#endregion
 	}
 }
 
