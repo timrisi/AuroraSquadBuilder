@@ -109,6 +109,8 @@ namespace SquadBuilder
 									}
 								}
 
+								Squadron.SaveSquadrons ();
+
 								MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 							});
 						} else {

@@ -167,6 +167,13 @@ namespace SquadBuilder
 			MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 		}
+
+		public override void OnViewDisappearing ()
+		{
+			base.OnViewDisappearing ();
+
+			Squadron.SaveSquadrons ();
+		}
 	}
 }
 
