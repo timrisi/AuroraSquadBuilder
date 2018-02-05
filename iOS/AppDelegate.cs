@@ -4,7 +4,6 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
-using XLabs.Ioc;
 using System.IO;
 using System.Xml.Linq;
 using Xamarin;
@@ -21,7 +20,7 @@ using HockeyApp.iOS;
 namespace SquadBuilder.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : XLabs.Forms.XFormsApplicationDelegate
+	public partial class AppDelegate : Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
 		public static class ShortcutIdentifier {
 			public const string CreateRebel = "com.risiapps.squadbuilder.000";
@@ -54,9 +53,6 @@ namespace SquadBuilder.iOS
 				if (e.View.StyleId != null)
 					e.NativeView.AccessibilityIdentifier = e.View.StyleId;
 			};
-
-			if (!Resolver.IsSet)
-				SetIoc ();
 
 			var collectionXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Collection", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Collection.xml"))
@@ -136,7 +132,6 @@ namespace SquadBuilder.iOS
 			Ship.GetAllShips ();
 			Pilot.GetAllPilots ();
 			Upgrade.GetAllUpgrades ();
-
 			Squadron.GetAllSquadrons ();
 
 			LoadApplication (new App ());
@@ -146,12 +141,6 @@ namespace SquadBuilder.iOS
 				LaunchedShortcutItem = options [UIApplication.LaunchOptionsShortcutItemKey] as UIApplicationShortcutItem;
 
 			return base.FinishedLaunching (app, options);
-		}
-
-		void SetIoc()
-		{
-			var resolverContainer = new SimpleContainer();
-			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
 
 		public bool HandleShortcutItem (UIApplicationShortcutItem shortcutItem)

@@ -1,9 +1,9 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.IO;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
-using XLabs;
+
 using System.Xml.Linq;
 using System.Linq;
 using System.Collections.Generic;
@@ -50,15 +50,12 @@ namespace SquadBuilder
 						upgradeGroup.Add (updatedUpgrade);
 					}
 
-					Navigation.RemoveAsync <EditUpgradeViewModel> (vm);
+					NavigationService.PopAsync (); // <EditUpgradeViewModel> (vm);
 					Upgrades = new ObservableCollection <UpgradeGroup> (Upgrades);
 					MessagingCenter.Unsubscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing");
 				});
 
-				Navigation.PushAsync<EditUpgradeViewModel> ((vm, p) => {
-					vm.Upgrade = upgrade.Copy ();
-					vm.Create = false;
-				});
+				NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = upgrade.Copy (), Create = false });
 			});
 		}
 
@@ -74,11 +71,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand createUpgrade;
-		public RelayCommand CreateUpgrade {
+		Command createUpgrade;
+		public Command CreateUpgrade {
 			get {
 				if (createUpgrade == null)
-					createUpgrade = new RelayCommand (() => {
+					createUpgrade = new Command (() => {
 						MessagingCenter.Subscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created", (vm, upgrade) => {
 							var upgradeGroups = new ObservableCollection<UpgradeGroup> (Upgrades);
 							var upgradeGroup = upgradeGroups.FirstOrDefault (g => g.Category == upgrade.Category);
@@ -94,14 +91,11 @@ namespace SquadBuilder
 
 							Upgrade.CustomUpgrades.Add (upgrade);
 							Upgrade.GetAllUpgrades ();
-							Navigation.RemoveAsync <EditUpgradeViewModel> (vm);
+							NavigationService.PopAsync (); // <EditUpgradeViewModel> (vm);
 							MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created");
 						});
 
-						Navigation.PushAsync<EditUpgradeViewModel>((vm, p) => {
-							vm.Upgrade = new Upgrade();
-							vm.Create = true;
-						});
+						NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = new Upgrade (), Create = true });
 						//MessagingCenter.Subscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", (vm, upgrade) => {
 						//	var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == upgrade.Category);
 
@@ -114,11 +108,11 @@ namespace SquadBuilder
 
 						//	Upgrade.CustomUpgrades.Add (upgrade);
 						//	Upgrade.GetAllUpgrades ();
-						//	Navigation.RemoveAsync <CreateUpgradeViewModel> (vm);
+						//	NavigationService.PopAsync (); // <CreateUpgradeViewModel> (vm);
 						//	MessagingCenter.Unsubscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created");
 						//});
 
-						//Navigation.PushAsync <CreateUpgradeViewModel> ();
+						//NavigationService.PushAsync (new  (new CreateUpgradeViewModel> ();
 					});
 
 				return createUpgrade;

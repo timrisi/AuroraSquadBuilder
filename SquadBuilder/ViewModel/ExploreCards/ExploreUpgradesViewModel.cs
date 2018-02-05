@@ -1,10 +1,10 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using Xamarin.Forms;
-using XLabs;
+
 using System.Collections.Generic;
 using System.IO;
 

@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using Xamarin.Forms;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -15,11 +15,11 @@ namespace SquadBuilder
 			set { SetProperty (ref importText, value); }
 		}
 
-		RelayCommand saveSquadron;
-		public RelayCommand SaveSquadron {
+		Command saveSquadron;
+		public Command SaveSquadron {
 			get { 
 				if (saveSquadron == null) {
-					saveSquadron = new RelayCommand (() => {
+					saveSquadron = new Command (() => {
 						if (string.IsNullOrEmpty (ImportText))
 							return;
 
@@ -34,7 +34,7 @@ namespace SquadBuilder
 								if (squadrons.Count > 0)
 									MessagingCenter.Send<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", squadrons);
 
-								Navigation.RemoveAsync<ImportViewModel> (this);
+								NavigationService.PopAsync (); //<ImportViewModel> (this);
 							} else {
 
 								var squadron = Squadron.FromXws (ImportText);
@@ -43,7 +43,7 @@ namespace SquadBuilder
 									return;
 								else {
 									MessagingCenter.Send<ImportViewModel, Squadron> (this, "Squadron Imported", squadron);
-									Navigation.RemoveAsync<ImportViewModel> (this);
+									NavigationService.PopAsync (); //<ImportViewModel> (this);
 								}
 							}
 						} catch (Exception e) {

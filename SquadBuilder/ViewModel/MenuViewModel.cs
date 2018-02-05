@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using Xamarin.Forms;
 
 namespace SquadBuilder
@@ -16,11 +16,11 @@ namespace SquadBuilder
 			get { return Settings.AllowCustom; }
 		}
 
-		RelayCommand showSquadrons;
-		public RelayCommand ShowSquadrons {
+		Command showSquadrons;
+		public Command ShowSquadrons {
 			get {
 				if (showSquadrons == null)
-					showSquadrons = new RelayCommand (() => {
+					showSquadrons = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Squadrons");
 					});
 
@@ -28,11 +28,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCollection;
-		public RelayCommand ShowCollection {
+		Command showCollection;
+		public Command ShowCollection {
 			get {
 				if (showCollection == null)
-					showCollection = new RelayCommand (() => {
+					showCollection = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Collection");
 					});
 
@@ -40,11 +40,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showReferenceCards;
-		public RelayCommand ShowReferenceCards {
+		Command showReferenceCards;
+		public Command ShowReferenceCards {
 			get {
 				if (showReferenceCards == null)
-					showReferenceCards = new RelayCommand (() => {
+					showReferenceCards = new Command (() => {
 						MessagingCenter.Send<MenuViewModel> (this, "Show Reference Cards");
 					});
 
@@ -52,11 +52,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showExploreCards;
-		public RelayCommand ShowExploreCards {
+		Command showExploreCards;
+		public Command ShowExploreCards {
 			get {
 				if (showExploreCards == null)
-					showExploreCards = new RelayCommand (() => {
+					showExploreCards = new Command (() => {
 						MessagingCenter.Send<MenuViewModel> (this, "Show Explore Cards");
 					});
 
@@ -64,11 +64,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCustomCards;
-		public RelayCommand ShowCustomCards {
+		Command showCustomCards;
+		public Command ShowCustomCards {
 			get {
 				if (showCustomCards == null) {
-					showCustomCards = new RelayCommand (() => {
+					showCustomCards = new Command (() => {
 						MessagingCenter.Send<MenuViewModel> (this, "Show Custom Cards");
 					});
 				}
@@ -77,11 +77,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCustomFactions;
-		public RelayCommand ShowCustomFactions {
+		Command showCustomFactions;
+		public Command ShowCustomFactions {
 			get {
 				if (showCustomFactions == null)
-					showCustomFactions = new RelayCommand (() => {
+					showCustomFactions = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Factions");
 					});
 
@@ -89,11 +89,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCustomShips;
-		public RelayCommand ShowCustomShips {
+		Command showCustomShips;
+		public Command ShowCustomShips {
 			get {
 				if (showCustomShips == null)
-					showCustomShips = new RelayCommand (() => {
+					showCustomShips = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Ships");
 					});
 
@@ -101,11 +101,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCustomPilots;
-		public RelayCommand ShowCustomPilots {
+		Command showCustomPilots;
+		public Command ShowCustomPilots {
 			get {
 				if (showCustomPilots == null)
-					showCustomPilots = new RelayCommand (() => {
+					showCustomPilots = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Pilots");
 					});
 
@@ -113,11 +113,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showCustomUpgrades;
-		public RelayCommand ShowCustomUpgrades {
+		Command showCustomUpgrades;
+		public Command ShowCustomUpgrades {
 			get {
 				if (showCustomUpgrades == null)
-					showCustomUpgrades = new RelayCommand (() => {
+					showCustomUpgrades = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Custom Upgrades");
 					});
 
@@ -125,11 +125,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand showSettings;
-		public RelayCommand ShowSettings {
+		Command showSettings;
+		public Command ShowSettings {
 			get {
 				if (showSettings == null)
-					showSettings = new RelayCommand (() => {
+					showSettings = new Command (() => {
 						MessagingCenter.Send <MenuViewModel> (this, "Show Settings");
 					});
 
@@ -137,11 +137,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand sendFeedback;
-		public RelayCommand SendFeedback {
+		Command sendFeedback;
+		public Command SendFeedback {
 			get {
 				if (sendFeedback == null)
-					sendFeedback = new RelayCommand (() => {
+					sendFeedback = new Command (() => {
 						DependencyService.Get <ISendMail> ().SendFeedback ();
 					});
 

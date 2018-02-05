@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -33,9 +33,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedCategory, value); 
 
 				if (value != null) {
-					Navigation.PushAsync <UpgradesCollectionViewModel> ((vm, p) => {
-						vm.Category = SelectedCategory.Name;
-					});
+					NavigationService.PushAsync (new UpgradesCollectionViewModel { Category = SelectedCategory.Name });
 				}
 			}
 		}

@@ -1,11 +1,11 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using XLabs;
+
 using System.IO;
 
 namespace SquadBuilder

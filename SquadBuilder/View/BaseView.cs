@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Text;
 using Xamarin.Forms;
-
 
 namespace SquadBuilder
 {
-	public partial class ImportView : BaseView
+	public class BaseView : ContentPage
 	{
-		public ImportView ()
-		{
-			InitializeComponent ();
-		}
-
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
 
-			MessagingCenter.Subscribe <Squadron> (this, "Error importing squad", ((squadron) => {
-				DisplayAlert ("Error importing squad", "", "Okay");
-			}));
+			var vm = BindingContext as ViewModel;
+			if (vm != null)
+				vm.OnViewAppearing ();
 		}
 
 		protected override void OnDisappearing ()
 		{
 			base.OnDisappearing ();
+
+			var vm = BindingContext as ViewModel;
+			if (vm != null)
+				vm.OnViewDisappearing ();
 		}
 	}
 }
-

@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml;
 using System.Collections;

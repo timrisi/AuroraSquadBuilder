@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml;
 using System.Collections;
@@ -66,11 +66,11 @@ namespace SquadBuilder
 
 		public string SaveButtonText { get { return "Save"; } }
 
-		RelayCommand saveSquadron;
-		public RelayCommand SaveSquadron {
+		Command saveSquadron;
+		public Command SaveSquadron {
 			get {
 				if (saveSquadron == null)
-					saveSquadron = new RelayCommand (() => {
+					saveSquadron = new Command (() => {
 
 						if (Points < 0) {
 							MessagingCenter.Send <CreateSquadronViewModel> (this, "Negative Squad Points");

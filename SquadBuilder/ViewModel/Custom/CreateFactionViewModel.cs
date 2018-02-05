@@ -1,12 +1,12 @@
 ﻿using System;
-using XLabs;
+
 using System.Xml.Linq;
 using Xamarin.Forms;
 using System.Linq;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using XLabs.Forms.Mvvm;
+
 
 namespace SquadBuilder
 {
@@ -57,11 +57,11 @@ namespace SquadBuilder
 			{ "White", Color.White }, { "Yellow", Color.Yellow }
 		};
 
-		RelayCommand saveFaction;
-		public RelayCommand SaveFaction {
+		Command saveFaction;
+		public Command SaveFaction {
 			get {
 				if (saveFaction == null)
-					saveFaction = new RelayCommand (() => {
+					saveFaction = new Command (() => {
 						if (string.IsNullOrWhiteSpace (name))
 							return;
 

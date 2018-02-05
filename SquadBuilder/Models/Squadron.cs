@@ -5,16 +5,16 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using XLabs;
+
 using System.Linq;
-using XLabs.Data;
+
 using System.Xml.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Schema;
 
 using Newtonsoft.Json;
-using XLabs.Platform.Device;
+
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
@@ -155,60 +155,60 @@ namespace SquadBuilder {
 		}
 
 		[XmlIgnore]
-		RelayCommand deleteSquadron;
+		Command deleteSquadron;
 		[XmlIgnore]
-		public RelayCommand DeleteSquadron {
+		public Command DeleteSquadron {
 			get {
 				if (deleteSquadron == null)
-					deleteSquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "DeleteSquadron"));
+					deleteSquadron = new Command (() => MessagingCenter.Send<Squadron> (this, "DeleteSquadron"));
 
 				return deleteSquadron;
 			}
 		}
 
 		[XmlIgnore]
-		RelayCommand editDetails;
+		Command editDetails;
 		[XmlIgnore]
-		public RelayCommand EditDetails {
+		public Command EditDetails {
 			get {
 				if (editDetails == null)
-					editDetails = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "EditDetails"));
+					editDetails = new Command (() => MessagingCenter.Send<Squadron> (this, "EditDetails"));
 
 				return editDetails;
 			}
 		}
 
 		[XmlIgnore]
-		RelayCommand copySquadron;
+		Command copySquadron;
 		[XmlIgnore]
-		public RelayCommand CopySquadron {
+		public Command CopySquadron {
 			get {
 				if (copySquadron == null)
-					copySquadron = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
+					copySquadron = new Command (() => MessagingCenter.Send<Squadron> (this, "CopySquadron"));
 
 				return copySquadron;
 			}
 		}
 
 		[XmlIgnore]
-		RelayCommand moveUp;
+		Command moveUp;
 		[XmlIgnore]
-		public RelayCommand MoveUp {
+		public Command MoveUp {
 			get {
 				if (moveUp == null)
-					moveUp = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronUp"));
+					moveUp = new Command (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronUp"));
 
 				return moveUp;
 			}
 		}
 
 		[XmlIgnore]
-		RelayCommand moveDown;
+		Command moveDown;
 		[XmlIgnore]
-		public RelayCommand MoveDown {
+		public Command MoveDown {
 			get {
 				if (moveDown == null)
-					moveDown = new RelayCommand (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronDown"));
+					moveDown = new Command (() => MessagingCenter.Send<Squadron> (this, "MoveSquadronDown"));
 
 				return moveDown;
 			}

@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml.Linq;
 using System.IO;
@@ -31,20 +31,20 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand createFaction;
-		public RelayCommand CreateFaction {
+		Command createFaction;
+		public Command CreateFaction {
 			get {
 				if (createFaction == null)
-					createFaction = new RelayCommand (() => {
+					createFaction = new Command (() => {
 						MessagingCenter.Subscribe <CreateFactionViewModel, Faction> (this, "Faction Created", (vm, faction) => {
 							Factions.Add (faction);
 							Faction.CustomFactions.Add (faction);
 							Faction.GetAllFactions ();
-							Navigation.RemoveAsync <CreateFactionViewModel> (vm);
+							NavigationService.PopAsync (); // <CreateFactionViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateFactionViewModel, Faction> (this, "Faction Created");
 						});
 							
-						Navigation.PushAsync <CreateFactionViewModel> ();
+						NavigationService.PushAsync (new CreateFactionViewModel ());
 					});
 
 				return createFaction;

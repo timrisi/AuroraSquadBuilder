@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
 				x:Class="SquadBuilder.ExploreCardsView"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                 ios:Page.UseSafeArea="true"
 				Title="Browse Cards">
-	<mvvm:BaseView.Content>
+	<local:BaseView.Content>
 		<StackLayout Orientation="Vertical">
 			<TableView VerticalOptions="FillAndExpand">
 				<TableRoot>
@@ -18,5 +18,5 @@
 				</TableRoot>
 			</TableView>
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

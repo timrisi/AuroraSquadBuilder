@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 x:Class="SquadBuilder.EditSquadronView"
 			 Title="{Binding Squadron.Name}">
-	<mvvm:BaseView.Content>
+	<local:BaseView.Content>
 		<StackLayout Padding="15,10,15,10">
 			<Entry Text="{Binding Squadron.Name, Mode=TwoWay}" StyleId="NameField" />
 			<Entry Text="{Binding Squadron.MaxPoints, Mode=TwoWay}" StyleId="PointsField" Keyboard="Numeric" />
@@ -19,5 +19,5 @@
 				<Editor Text="{Binding Squadron.Description}" BackgroundColor="Silver" VerticalOptions="FillAndExpand" />
 			</StackLayout>
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

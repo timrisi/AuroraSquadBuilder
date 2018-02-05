@@ -9,9 +9,15 @@
     <Import_RootNamespace>SquadBuilder</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Command.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ObservableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimpleIoC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SquadBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Pilot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\BaseView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -192,9 +198,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Collection\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Custom\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Squadron\" />

@@ -1,4 +1,4 @@
-﻿using XLabs.Forms.Mvvm;
+﻿
 
 namespace SquadBuilder {
 	public class SinglePilotViewModel : ViewModel {

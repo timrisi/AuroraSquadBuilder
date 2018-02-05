@@ -1,11 +1,11 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.IO;
 using Xamarin.Forms;
 using System.Linq;
-using XLabs;
+
 using System.Collections.Generic;
 
 namespace SquadBuilder
@@ -219,11 +219,11 @@ namespace SquadBuilder
 			set { SetProperty (ref turretWeaponSlots, value); }
 		}
 
-		RelayCommand savePilot;
-		public RelayCommand SavePilot {
+		Command savePilot;
+		public Command SavePilot {
 			get {
 				if (savePilot == null)
-					savePilot = new RelayCommand (() => {
+					savePilot = new Command (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 						

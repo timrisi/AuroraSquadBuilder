@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -34,11 +34,8 @@ namespace SquadBuilder
 			get { return selectedShip; }
 			set {
 				SetProperty (ref selectedShip, value);
-				if (selectedShip != null) {
-					Navigation.PushAsync<ExplorePilotsViewModel> ((vm, p) => {
-						vm.Ship = selectedShip.Copy ();
-					});
-				}
+				if (selectedShip != null)
+					NavigationService.PushAsync (new ExplorePilotsViewModel { Ship = selectedShip.Copy () });
 			}
 		}
 

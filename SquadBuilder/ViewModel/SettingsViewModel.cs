@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using Xamarin.Forms;
 using Dropbox.Api;
 using System.Linq;
@@ -141,11 +141,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand checkForUpdates;
-		public RelayCommand CheckForUpdates {
+		Command checkForUpdates;
+		public Command CheckForUpdates {
 			get {
 				if (checkForUpdates == null)
-					checkForUpdates = new RelayCommand (() => {
+					checkForUpdates = new Command (() => {
 						Settings.CheckForUpdates ();
 					});	
 

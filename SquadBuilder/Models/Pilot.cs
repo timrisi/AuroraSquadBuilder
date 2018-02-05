@@ -1,11 +1,9 @@
 ﻿﻿using System;
 using System.Collections.Generic;
-using XLabs;
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using XLabs.Data;
 using System.Xml.Serialization;
 using System.Xml.Linq;
 using System.IO;
@@ -494,12 +492,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand deletePilot;
+		Command deletePilot;
 		[XmlIgnore]
-		public RelayCommand DeletePilot {
+		public Command DeletePilot {
 			get {
 				if (deletePilot == null)
-					deletePilot = new RelayCommand (() => {
+					deletePilot = new Command (() => {
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
 						var pilotElement = customPilotsXml.Elements ().FirstOrDefault (e =>
@@ -522,12 +520,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand editPilot;
+		Command editPilot;
 		[XmlIgnore]
-		public RelayCommand EditPilot {
+		public Command EditPilot {
 			get {
 				if (editPilot == null)
-					editPilot = new RelayCommand (() => {
+					editPilot = new Command (() => {
 						MessagingCenter.Send<Pilot> (this, "Edit Pilot");
 					});
 
@@ -536,12 +534,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand removePilot;
+		Command removePilot;
 		[XmlIgnore]
-		public RelayCommand RemovePilot {
+		public Command RemovePilot {
 			get {
 				if (removePilot == null)
-					removePilot = new RelayCommand (() => {
+					removePilot = new Command (() => {
 						MessagingCenter.Send<Pilot> (this, "Remove Pilot");
 					});
 
@@ -550,12 +548,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand copyPilot;
+		Command copyPilot;
 		[XmlIgnore]
-		public RelayCommand CopyPilot {
+		public Command CopyPilot {
 			get {
 				if (copyPilot == null)
-					copyPilot = new RelayCommand (() => MessagingCenter.Send<Pilot> (this, "Copy Pilot"));
+					copyPilot = new Command (() => MessagingCenter.Send<Pilot> (this, "Copy Pilot"));
 
 				return copyPilot;
 			}
@@ -589,21 +587,21 @@ namespace SquadBuilder
 			};
 		}
 
-		RelayCommand increment;
-		public RelayCommand Increment {
+		Command increment;
+		public Command Increment {
 			get {
 				if (increment == null)
-					increment = new RelayCommand (() => Owned++);
+					increment = new Command (() => Owned++);
 
 				return increment;
 			}
 		}
 
-		RelayCommand decrement;
-		public RelayCommand Decrement {
+		Command decrement;
+		public Command Decrement {
 			get {
 				if (decrement == null)
-					decrement = new RelayCommand (() => Owned--);
+					decrement = new Command (() => Owned--);
 
 				return decrement;
 			}

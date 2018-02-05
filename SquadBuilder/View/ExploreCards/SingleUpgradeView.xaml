@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 x:Class="SquadBuilder.SingleUpgradeView" 
-			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
 			 Title = "{Binding Upgrade.Name}">
-	<mvvm:BaseView.Content>
+	<local:BaseView.Content>
 		<StackLayout VerticalOptions="FillAndExpand" Padding="15, 10, 15, 10" >
 			<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 				<Label Text="{Binding Upgrade.Name}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" XAlign="Start" />
@@ -34,5 +33,5 @@
 				<Label Text="{Binding Upgrade.Expansions}" />
 			</StackLayout>
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

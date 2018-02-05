@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using XLabs.Forms.Mvvm;
+
 using System.Linq;
 
 namespace SquadBuilder
@@ -61,11 +61,8 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedPilot, value);
 
-				if (selectedPilot != null) {
-					Navigation.PushAsync<SinglePilotViewModel> ((vm, page) => {
-						vm.Pilot = selectedPilot;
-					});
-				}
+				if (selectedPilot != null)
+					NavigationService.PushAsync (new SinglePilotViewModel { Pilot = selectedPilot });
 			}
 		}
 
@@ -75,11 +72,8 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedUpgrade, value);
 
-				if (selectedUpgrade != null) {
-					Navigation.PushAsync<SingleUpgradeViewModel> ((vm, page) => {
-						vm.Upgrade = selectedUpgrade;
-					});
-				}
+				if (selectedUpgrade != null)
+					NavigationService.PushAsync (new SingleUpgradeViewModel { Upgrade = selectedUpgrade });
 			}
 		}
 	}

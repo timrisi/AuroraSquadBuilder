@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using XLabs.Data;
+
 using System.Xml.Linq;
 using System.IO;
 using Xamarin.Forms;
-using XLabs;
+
 using System.Linq;
 using System.Xml.Serialization;
 using System.Collections.Generic;
@@ -284,12 +284,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		public RelayCommand deleteUpgrade;
+		public Command deleteUpgrade;
 		[XmlIgnore]
-		public RelayCommand DeleteUpgrade {
+		public Command DeleteUpgrade {
 			get {
 				if (deleteUpgrade == null)
-					deleteUpgrade = new RelayCommand (() => {
+					deleteUpgrade = new Command (() => {
 						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
 						var categoryElement = customUpgradesXml.Elements ().FirstOrDefault (e => e.Attribute ("type")?.Value == Category);
@@ -314,12 +314,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand editUpgrade;
+		Command editUpgrade;
 		[XmlIgnore]
-		public RelayCommand EditUpgrade {
+		public Command EditUpgrade {
 			get {
 				if (editUpgrade == null)
-					editUpgrade = new RelayCommand (() => {
+					editUpgrade = new Command (() => {
 						MessagingCenter.Send <Upgrade> (this, "Edit Upgrade");
 					});
 
@@ -376,21 +376,21 @@ namespace SquadBuilder
 			};
 		}
 
-		RelayCommand increment;
-		public RelayCommand Increment {
+		Command increment;
+		public Command Increment {
 			get {
 				if (increment == null)
-					increment = new RelayCommand (() => Owned++);
+					increment = new Command (() => Owned++);
 
 				return increment;
 			}
 		}
 
-		RelayCommand decrement;
-		public RelayCommand Decrement {
+		Command decrement;
+		public Command Decrement {
 			get {
 				if (decrement == null)
-					decrement = new RelayCommand (() => Owned--);
+					decrement = new Command (() => Owned--);
 
 				return decrement;
 			}

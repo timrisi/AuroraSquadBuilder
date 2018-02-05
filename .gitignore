@@ -44,3 +44,6 @@ Thumbs.db
 /.vs
 /iOS/app.config
 /SquadBuilder.Tests/app.config
+*.bak
+Droid/Resources/Resource.designer.cs
+Droid/Resources/Resource.designer.cs

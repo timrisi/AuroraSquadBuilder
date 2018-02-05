@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Linq;
 using System.Xml.Linq;
@@ -75,15 +75,13 @@ namespace SquadBuilder
 							}
 						}
 					}
-						
-					Navigation.RemoveAsync <EditPilotViewModel> (vm);
+
+					NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
 					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
 					MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Finished Editing");
 				});
 
-				Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
-					vm.Pilot = pilot.Copy ();
-				});
+				NavigationService.PushAsync (new EditPilotViewModel { Pilot = pilot.Copy () });
 			});
 		}
 
@@ -99,11 +97,11 @@ namespace SquadBuilder
 			get { return "Pilots"; }
 		}
 
-		RelayCommand createPilot;
-		public RelayCommand CreatePilot {
+		Command createPilot;
+		public Command CreatePilot {
 			get {
 				if (createPilot == null)
-					createPilot = new RelayCommand (() => {
+					createPilot = new Command (() => {
 						MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Pilot Created", (vm, pilot) => {
 							while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 								pilot.UpgradesEquipped.Add (null);
@@ -121,14 +119,11 @@ namespace SquadBuilder
 							PilotGroups = new ObservableCollection<PilotGroup> (pilotGroups);
 							Pilot.CustomPilots.Add (pilot);
 							Pilot.GetAllPilots ();
-							Navigation.RemoveAsync <EditPilotViewModel> (vm);
+							NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Pilot Created");
 						});
 
-						Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
-							vm.Pilot = new Pilot ();
-							vm.Create = true;
-						});
+						NavigationService.PushAsync (new EditPilotViewModel { Pilot = new Pilot (), Create = true });
 					});
 
 				return createPilot;

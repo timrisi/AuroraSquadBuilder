@@ -1,5 +1,4 @@
 ﻿using System;
-using XLabs;
 using System.Xml.Linq;
 using System.IO;
 using Xamarin.Forms;
@@ -25,12 +24,12 @@ namespace SquadBuilder
 		public string OldId { get; set; }
 
 		[XmlIgnore]
-		RelayCommand deleteFaction;
+		Command deleteFaction;
 		[XmlIgnore]
-		public RelayCommand DeleteFaction {
+		public Command DeleteFaction {
 			get {
 				if (deleteFaction == null)
-					deleteFaction = new RelayCommand (() => {
+					deleteFaction = new Command (() => {
 						XElement customFactionsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Factions_Custom.xml")));
 
 						var factionElement = customFactionsXml.Descendants ().FirstOrDefault (e => e?.Value == Name);

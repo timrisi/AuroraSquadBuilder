@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using XLabs;
+
 using System.Xml.Linq;
 using System.IO;
 using System.Linq;
 using Xamarin.Forms;
 using System.Xml.Serialization;
-using XLabs.Data;
+
 using System.Collections.ObjectModel;
 
 namespace SquadBuilder
@@ -266,12 +266,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand deleteShip;
+		Command deleteShip;
 		[XmlIgnore]
-		public RelayCommand DeleteShip {
+		public Command DeleteShip {
 			get {
 				if (deleteShip == null)
-					deleteShip = new RelayCommand (() => {
+					deleteShip = new Command (() => {
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
 						var shipElement = customShipsXml.Descendants ().FirstOrDefault (e => e.Element ("Name")?.Value == Name);
@@ -291,12 +291,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand editShip;
+		Command editShip;
 		[XmlIgnore]
-		public RelayCommand EditShip {
+		public Command EditShip {
 			get {
 				if (editShip == null)
-					editShip = new RelayCommand (() => {
+					editShip = new Command (() => {
 						MessagingCenter.Send <Ship> (this, "Edit Ship");
 					});
 
@@ -329,21 +329,21 @@ namespace SquadBuilder
 			};
 		}
 
-		RelayCommand increment;
-		public RelayCommand Increment {
+		Command increment;
+		public Command Increment {
 			get {
 				if (increment == null)
-					increment = new RelayCommand (() => Owned++);
+					increment = new Command (() => Owned++);
 
 				return increment;
 			}
 		}
 
-		RelayCommand decrement;
-		public RelayCommand Decrement {
+		Command decrement;
+		public Command Decrement {
 			get {
 				if (decrement == null)
-					decrement = new RelayCommand (() => Owned--);
+					decrement = new Command (() => Owned--);
 
 				return decrement;
 			}

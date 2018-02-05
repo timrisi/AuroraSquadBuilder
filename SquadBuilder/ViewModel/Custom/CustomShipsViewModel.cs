@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.IO;
 using System.Linq;
-using XLabs.Forms.Mvvm;
+
 
 namespace SquadBuilder
 {
@@ -24,14 +24,12 @@ namespace SquadBuilder
 					Ships [Ships.IndexOf (ship)] = updatedShip;
 					Ship.CustomShips [Ship.CustomShips.IndexOf (ship)] = updatedShip;
 
-					Navigation.RemoveAsync <EditShipViewModel> (vm);
+					NavigationService.PopAsync (); // <EditShipViewModel> (vm);
 					NotifyPropertyChanged ("Ships");
 					MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Finished Editing");
 				});
 
-				Navigation.PushAsync<EditShipViewModel> ((vm, p) => {
-					vm.Ship = ship?.Copy ();
-				});
+				NavigationService.PushAsync (new EditShipViewModel { Ship = ship?.Copy () });
 			});
 		}
 
@@ -48,23 +46,20 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand createShip;
-		public RelayCommand CreateShip {
+		Command createShip;
+		public Command CreateShip {
 			get {
 				if (createShip == null)
-					createShip = new RelayCommand (() => {
+					createShip = new Command (() => {
 						MessagingCenter.Subscribe <EditShipViewModel, Ship> (this, "Ship Created", (vm, ship) => {
 							Ships.Add (ship);
 							Ship.CustomShips.Add (ship);
 							Ship.GetAllShips ();
-							Navigation.RemoveAsync <EditShipViewModel> (vm);
+							NavigationService.PopAsync (); // <EditShipViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Ship Created");
 						});
 
-						Navigation.PushAsync<EditShipViewModel> ((vm, p) => {
-							vm.Ship = new Ship ();
-							vm.Create = true;
-						});
+						NavigationService.PushAsync (new EditShipViewModel { Ship = new Ship (), Create = true });
 					});
 
 				return createShip;

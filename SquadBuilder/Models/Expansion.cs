@@ -1,9 +1,7 @@
 ﻿using System;
-using XLabs.Data;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
-using XLabs;
 using Xamarin.Forms;
 using System.Xml.Linq;
 using System.IO;
@@ -63,21 +61,21 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand increment;
-		public RelayCommand Increment {
+		Command increment;
+		public Command Increment {
 			get {
 				if (increment == null)
-					increment = new RelayCommand (() => Owned++);
+					increment = new Command (() => Owned++);
 
 				return increment;
 			}
 		}
 
-		RelayCommand decrement;
-		public RelayCommand Decrement {
+		Command decrement;
+		public Command Decrement {
 			get {
 				if (decrement == null)
-					decrement = new RelayCommand (() => Owned--);
+					decrement = new Command (() => Owned--);
 
 				return decrement;
 			}

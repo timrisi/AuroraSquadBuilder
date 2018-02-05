@@ -1,10 +1,10 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using Xamarin.Forms;
-using XLabs;
+
 using System.Collections.Generic;
 using System.IO;
 
@@ -45,11 +45,11 @@ namespace SquadBuilder
 
 				if (value != null) {
 					if (Device.OS == TargetPlatform.iOS) {
-						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
 					} else {
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
-						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
 					}
 				}
 			}
@@ -172,13 +172,13 @@ namespace SquadBuilder
 			get { return Squadron.CurrentSquadron.PointsDescription; }
 		}
 
-		RelayCommand noUpgrade;
-		public RelayCommand NoUpgrade {
+		Command noUpgrade;
+		public Command NoUpgrade {
 			get {
 				if (noUpgrade == null)
-					noUpgrade = new RelayCommand (() => {
+					noUpgrade = new Command (() => {
 						MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null);
-						Navigation.RemoveAsync <UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); // <UpgradesListViewModel> (this);
 					});
 
 				return noUpgrade;

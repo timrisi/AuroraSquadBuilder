@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadBuilder.Tests", "Squad
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SquadBuilder\SquadBuilder.projitems*{6767e203-d362-4821-997b-a64f6d94777c}*SharedItemsImports = 4
 		SquadBuilder\SquadBuilder.projitems*{77ba9493-6fd1-4d49-83b2-6ce088d8b545}*SharedItemsImports = 4
 		SquadBuilder\SquadBuilder.projitems*{a6e42a64-e9d2-409e-9024-2414ebaee7ba}*SharedItemsImports = 13
 	EndGlobalSection
@@ -60,6 +61,7 @@ Global
 		{6767E203-D362-4821-997B-A64F6D94777C}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Android.ActiveCfg = Debug|Any CPU
 		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Android.Build.0 = Debug|Any CPU
+		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Android.Deploy.0 = Debug|Any CPU
 		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|iPhone.ActiveCfg = Debug|Any CPU

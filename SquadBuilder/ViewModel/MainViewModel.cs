@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml.Serialization;
 using System.Collections.Generic;
@@ -64,21 +64,18 @@ namespace SquadBuilder {
 				SetProperty (ref selectedSquadron, value);
 				if (value != null) {
 					Squadron.CurrentSquadron = selectedSquadron;
-					Navigation.PushAsync<SquadronViewModel> ((vm, p) => {
-						vm.Squadron = selectedSquadron;
-						selectedSquadron = null;
-					});
+					NavigationService.PushAsync (new SquadronViewModel { Squadron = selectedSquadron }).ContinueWith (task => selectedSquadron = null);
 				}
 			}
 		}
 
 		public string AddSquadronText { get { return "+"; } }
 
-		RelayCommand addSquadron;
-		public RelayCommand AddSquadron {
+		Command addSquadron;
+		public Command AddSquadron {
 			get {
 				if (addSquadron == null) {
-					addSquadron = new RelayCommand (() => {
+					addSquadron = new Command (() => {
 						CreateSquadron (Faction);
 					});
 				}
@@ -89,32 +86,31 @@ namespace SquadBuilder {
 
 		public void CreateSquadron (string faction)
 		{
-			MessagingCenter.Subscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (vm, Squadron) => {
+			MessagingCenter.Subscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (viewModel, Squadron) => {
 				MessagingCenter.Unsubscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 
 				Squadron.Squadrons.Add (Squadron);
-				await Navigation.PopAsync (false);
+				await NavigationService.PopAsync ();
 
-				Squadron.SaveSquadrons ();
+				await Squadron.SaveSquadrons ();
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
 
 				Squadron.CurrentSquadron = Squadron;
-				Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
-					vm2.Squadron = Squadron;
-				});
+				await NavigationService.PushAsync (new SquadronViewModel { Squadron = Squadron });
 			});
-			Navigation.PushAsync<CreateSquadronViewModel> ((vm, page) => {
-				if (!string.IsNullOrEmpty (faction))
-					vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == faction));
-			});
+			var vm = new CreateSquadronViewModel ();
+			if (!string.IsNullOrEmpty (faction))
+				vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == faction));
+
+			NavigationService.PushAsync (vm);
 		}
 
-		RelayCommand importSquadron;
-		public RelayCommand ImportSquadron {
+		Command importSquadron;
+		public Command ImportSquadron {
 			get {
 				if (importSquadron == null)
-					importSquadron = new RelayCommand (() => {
+					importSquadron = new Command (() => {
 						MessagingCenter.Subscribe<ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadron Imported");
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
@@ -126,9 +122,7 @@ namespace SquadBuilder {
 							Squadrons = allSquadrons;
 
 							Squadron.CurrentSquadron = squadron;
-							Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
-								vm2.Squadron = squadron;
-							});
+							NavigationService.PushAsync (new SquadronViewModel { Squadron = squadron });
 						});
 
 						MessagingCenter.Subscribe<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
@@ -143,18 +137,18 @@ namespace SquadBuilder {
 							Squadrons = allSquadrons;
 						});
 
-						Navigation.PushAsync<ImportViewModel> ();
+						NavigationService.PushAsync (new ImportViewModel ());
 					});
 
 				return importSquadron;
 			}
 		}
 
-		RelayCommand exportAll;
-		public RelayCommand ExportAll {
+		Command exportAll;
+		public Command ExportAll {
 			get {
 				if (exportAll == null) {
-					exportAll = new RelayCommand (() => {
+					exportAll = new Command (() => {
 						DependencyService.Get<IClipboardService> ().CopyToClipboard (Squadron.CreateXwc ());
 						MessagingCenter.Send<MainViewModel> (this, "Squadrons Copied");
 					});
@@ -164,11 +158,11 @@ namespace SquadBuilder {
 			}
 		}
 
-		RelayCommand sortSquadron;
-		public RelayCommand SortSquadron {
+		Command sortSquadron;
+		public Command SortSquadron {
 			get {
 				if (sortSquadron == null)
-					sortSquadron = new RelayCommand (() => {
+					sortSquadron = new Command (() => {
 						if (Settings.Editing) {
 							Settings.Editing = !Settings.Editing;
 							NotifyPropertyChanged ("Squadrons");
@@ -272,7 +266,7 @@ namespace SquadBuilder {
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "EditDetails", squadron => {
-				Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron);
+				NavigationService.PushAsync (new EditSquadronViewModel { Squadron = squadron });
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
 				Squadron.SaveSquadrons ();

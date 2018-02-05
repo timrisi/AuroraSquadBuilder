@@ -1,17 +1,16 @@
 ﻿using System;
-using XLabs;
-using XLabs.Forms.Mvvm;
+using Xamarin.Forms;
 
 namespace SquadBuilder
 {
 	public class ExploreCardsViewModel : ViewModel
 	{
-		RelayCommand viewExpansions;
-		public RelayCommand ViewExpansions {
+		Command viewExpansions;
+		public Command ViewExpansions {
 			get {
 				if (viewExpansions == null) {
-					viewExpansions = new RelayCommand (() => {
-						Navigation.PushAsync<ExploreExpansionsViewModel> ();
+					viewExpansions = new Command (() => {
+						NavigationService.PushAsync (new ExploreExpansionsViewModel ());
 					});
 				}
 
@@ -19,12 +18,12 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand viewShipsAndPilots;
-		public RelayCommand ViewShipsAndPilots {
+		Command viewShipsAndPilots;
+		public Command ViewShipsAndPilots {
 			get {
 				if (viewShipsAndPilots == null) {
-					viewShipsAndPilots = new RelayCommand (() => {
-						Navigation.PushAsync<ExploreShipsViewModel> ();
+					viewShipsAndPilots = new Command (() => {
+						NavigationService.PushAsync (new ExploreShipsViewModel ());
 					});
 				}
 
@@ -32,12 +31,12 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand viewUpgrades;
-		public RelayCommand ViewUpgrades {
+		Command viewUpgrades;
+		public Command ViewUpgrades {
 			get {
 				if (viewUpgrades == null) {
-					viewUpgrades = new RelayCommand (() => {
-						Navigation.PushAsync<ExploreUpgradesCategoryListViewModel> ();
+					viewUpgrades = new Command (() => {
+						NavigationService.PushAsync (new ExploreUpgradesCategoryListViewModel ());
 					});
 				}
 

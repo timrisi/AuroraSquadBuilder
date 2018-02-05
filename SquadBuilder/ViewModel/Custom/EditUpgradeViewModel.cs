@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using Xamarin.Forms;
@@ -281,11 +281,11 @@ namespace SquadBuilder {
 			}
 		}
 
-		RelayCommand saveUpgrade;
-		public RelayCommand SaveUpgrade {
+		Command saveUpgrade;
+		public Command SaveUpgrade {
 			get {
 				if (saveUpgrade == null)
-					saveUpgrade = new RelayCommand (() => {
+					saveUpgrade = new Command (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 

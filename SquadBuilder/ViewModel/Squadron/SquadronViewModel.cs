@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
@@ -37,10 +37,7 @@ namespace SquadBuilder
 			set { 
 				SetProperty (ref selectedPilot, value); 
 				if (value != null) {
-					Navigation.PushAsync <PilotViewModel> ((vm,p) => {
-						vm.Pilot = selectedPilot;
-						SelectedPilot = null;
-					});
+					NavigationService.PushAsync (new PilotViewModel { Pilot = selectedPilot }).ContinueWith ((task) => { SelectedPilot = null; });
 				}
 			}
 		}
@@ -62,11 +59,11 @@ namespace SquadBuilder
 
 		public string NavigateToPilotsListText { get { return "+"; } }
 
-		RelayCommand navigateToPilotsList;
-		public RelayCommand NavigateToPilotsList {
+		Command navigateToPilotsList;
+		public Command NavigateToPilotsList {
 			get {
 				if (navigateToPilotsList == null)
-					navigateToPilotsList = new RelayCommand (() => {
+					navigateToPilotsList = new Command (() => {
 						if (!Settings.FilterPilotsByShip) {
 							MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
 								if (pilot.Id.Contains ("cr90")) {
@@ -171,26 +168,21 @@ namespace SquadBuilder
 							});
 						}
 
-						if (Settings.FilterPilotsByShip) {
-							Navigation.PushAsync <ShipsListViewModel> ((vm, p) => {
-								vm.Faction = Squadron.Faction;
-							});
-						} else {
-							Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
-								vm.Faction = Squadron.Faction;
-							});
-						}
+						if (Settings.FilterPilotsByShip)
+							NavigationService.PushAsync (new ShipsListViewModel { Faction = Squadron.Faction });
+						else
+							NavigationService.PushAsync (new PilotsListViewModel { Faction = Squadron.Faction });
 					});
 
 				return navigateToPilotsList;
 			}
 		}
 
-		RelayCommand exportToClipboard;
-		public RelayCommand ExportToClipboard {
+		Command exportToClipboard;
+		public Command ExportToClipboard {
 			get {
 				if (exportToClipboard == null)
-					exportToClipboard = new RelayCommand (() => {
+					exportToClipboard = new Command (() => {
 						var builder = new StringBuilder ();
 						builder.AppendLine (Squadron.Name + " (" + Squadron.Points + ")");
 						builder.AppendLine ();
@@ -209,11 +201,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand exportXws;
-		public RelayCommand ExportXws {
+		Command exportXws;
+		public Command ExportXws {
 			get {
 				if (exportXws == null)
-					exportXws = new RelayCommand (() => {
+					exportXws = new Command (() => {
 						var json = Squadron.CreateXws ();
 
 						DependencyService.Get <IClipboardService> ().CopyToClipboard (json.ToString ());
@@ -224,11 +216,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand exportCompactXws;
-		public RelayCommand ExportCompactXws {
+		Command exportCompactXws;
+		public Command ExportCompactXws {
 			get {
 				if (exportCompactXws == null)
-					exportCompactXws = new RelayCommand (() => {
+					exportCompactXws = new Command (() => {
 						var json = Squadron.CreateXws ();
 						json = Regex.Replace (json, @"\s+", "");
 						DependencyService.Get<IClipboardService> ().CopyToClipboard (json.ToString ());
@@ -239,11 +231,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand decrementWins;
-		public RelayCommand DecrementWins {
+		Command decrementWins;
+		public Command DecrementWins {
 			get {
 				if (decrementWins == null) {
-					decrementWins = new RelayCommand (() => {
+					decrementWins = new Command (() => {
 						Squadron.Wins --;
 						NotifyPropertyChanged ("Wins");
 					});
@@ -253,11 +245,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand incrementWins;
-		public RelayCommand IncrementWins {
+		Command incrementWins;
+		public Command IncrementWins {
 			get {
 				if (incrementWins == null) {
-					incrementWins = new RelayCommand (() => {
+					incrementWins = new Command (() => {
 						Squadron.Wins ++;
 						NotifyPropertyChanged ("Wins");
 					});
@@ -267,11 +259,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand decrementLosses;
-		public RelayCommand DecrementLosses {
+		Command decrementLosses;
+		public Command DecrementLosses {
 			get {
 				if (decrementLosses == null) {
-					decrementLosses = new RelayCommand (() => {
+					decrementLosses = new Command (() => {
 						Squadron.Losses --;
 						NotifyPropertyChanged ("Losses");
 					});
@@ -281,11 +273,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand incrementLosses;
-		public RelayCommand IncrementLosses {
+		Command incrementLosses;
+		public Command IncrementLosses {
 			get {
 				if (incrementLosses == null) {
-					incrementLosses = new RelayCommand (() => {
+					incrementLosses = new Command (() => {
 						Squadron.Losses ++;
 						NotifyPropertyChanged ("Losses");
 					});
@@ -295,11 +287,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand decrementDraws;
-		public RelayCommand DecrementDraws {
+		Command decrementDraws;
+		public Command DecrementDraws {
 			get {
 				if (decrementDraws == null) {
-					decrementDraws = new RelayCommand (() => {
+					decrementDraws = new Command (() => {
 						Squadron.Draws --;
 						NotifyPropertyChanged ("Draws");
 					});
@@ -309,11 +301,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand incrementDraws;
-		public RelayCommand IncrementDraws {
+		Command incrementDraws;
+		public Command IncrementDraws {
 			get {
 				if (incrementDraws == null) {
-					incrementDraws = new RelayCommand (() => {
+					incrementDraws = new Command (() => {
 						Squadron.Draws ++;
 						NotifyPropertyChanged ("Draws");
 					});

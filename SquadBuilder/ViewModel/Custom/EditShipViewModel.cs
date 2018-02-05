@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Collections.Generic;
@@ -150,11 +150,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand saveShip;
-		public RelayCommand SaveShip {
+		Command saveShip;
+		public Command SaveShip {
 			get {
 				if (saveShip == null)
-					saveShip = new RelayCommand (() => {
+					saveShip = new Command (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 

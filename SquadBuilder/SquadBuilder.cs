@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
+
 using Dropbox.Api;
 using System.Runtime.Remoting.Lifetime;
 using PerpetualEngine.Storage;
@@ -26,7 +26,8 @@ namespace SquadBuilder
 			Settings.CustomCardLeague = Storage.Get<bool> ("CustomCardLeague", false);
 			Settings.IncludeHotac = Storage.Get<bool> ("IncludeHotac", false);
 			RegisterViews();
-			MainPage = new RootPage ();
+			//MainPage = new RootPage ();
+			NavigationService.SetRoot (new RootPageViewModel (), false);
 		}
 
 		protected override async void OnStart ()
@@ -87,36 +88,36 @@ namespace SquadBuilder
 
 		void RegisterViews ()
 		{
-			ViewFactory.Register <MainView, MainViewModel> ();
-			ViewFactory.Register <CreateSquadronView, CreateSquadronViewModel> ();
-			ViewFactory.Register <SquadronView, SquadronViewModel> ();
-			ViewFactory.Register <PilotView, PilotViewModel> ();
-			ViewFactory.Register <PilotsListView, PilotsListViewModel> ();
-			ViewFactory.Register <UpgradesListView, UpgradesListViewModel> ();
-			ViewFactory.Register <EditSquadronView, EditSquadronViewModel> ();
-			ViewFactory.Register <MenuView, MenuViewModel> ();
-			ViewFactory.Register <RootPage, RootPageViewModel> ();
-			ViewFactory.Register <CreateFactionView, CreateFactionViewModel> ();
-			ViewFactory.Register <EditPilotView, EditPilotViewModel> ();
-			ViewFactory.Register <EditShipView, EditShipViewModel> ();
-			ViewFactory.Register <EditUpgradeView, EditUpgradeViewModel> ();
-			ViewFactory.Register <ShipsListView, ShipsListViewModel> ();
-			ViewFactory.Register <ExpansionsView, ExpansionsViewModel> ();
-			ViewFactory.Register <ShipsCollectionView, ShipsCollectionViewModel> ();
-			ViewFactory.Register <PilotsCollectionView, PilotsCollectionViewModel> ();
-			ViewFactory.Register <UpgradesCollectionView, UpgradesCollectionViewModel> ();
-			ViewFactory.Register <PilotsCollectionShipsListView, PilotsCollectionShipsListViewModel> ();
-			ViewFactory.Register <UpgradesCollectionCategoryListView, UpgradesCollectionCategoryListViewModel> ();
-			ViewFactory.Register <ImportView, ImportViewModel> ();
-			ViewFactory.Register <ReferenceCardView, ReferenceCardViewModel> ();
-			ViewFactory.Register <ExploreShipsView, ExploreShipsViewModel> ();
-			ViewFactory.Register <ExplorePilotsView, ExplorePilotsViewModel> ();
-			ViewFactory.Register <ExploreUpgradesView, ExploreUpgradesViewModel> ();
-			ViewFactory.Register <ExploreUpgradesCategoryListView, ExploreUpgradesCategoryListViewModel> ();
-			ViewFactory.Register <ExploreExpansionsView, ExploreExpansionsViewModel> ();
-			ViewFactory.Register <ExploreExpansionContentsView, ExploreExpansionContentsViewModel> ();
-			ViewFactory.Register <SinglePilotView, SinglePilotViewModel> ();
-			ViewFactory.Register <SingleUpgradeView, SingleUpgradeViewModel> ();
+			SimpleIoC.RegisterPage<MainViewModel, MainView> ();
+			SimpleIoC.RegisterPage<CreateSquadronViewModel, CreateSquadronView> ();
+			SimpleIoC.RegisterPage<SquadronViewModel, SquadronView> ();
+			SimpleIoC.RegisterPage<PilotViewModel, PilotView> ();
+			SimpleIoC.RegisterPage<PilotsListViewModel, PilotsListView> ();
+			SimpleIoC.RegisterPage<UpgradesListViewModel, UpgradesListView> ();
+			SimpleIoC.RegisterPage<EditSquadronViewModel, EditSquadronView> ();
+			SimpleIoC.RegisterPage<MenuViewModel, MenuView> ();
+			SimpleIoC.RegisterPage<RootPageViewModel, RootPage> ();
+			SimpleIoC.RegisterPage<CreateFactionViewModel, CreateFactionView> ();
+			SimpleIoC.RegisterPage<EditPilotViewModel, EditPilotView> ();
+			SimpleIoC.RegisterPage<EditShipViewModel, EditShipView> ();
+			SimpleIoC.RegisterPage<EditUpgradeViewModel, EditUpgradeView> ();
+			SimpleIoC.RegisterPage<ShipsListViewModel, ShipsListView> ();
+			SimpleIoC.RegisterPage<ExpansionsViewModel, ExpansionsView> ();
+			SimpleIoC.RegisterPage<ShipsCollectionViewModel, ShipsCollectionView> ();
+			SimpleIoC.RegisterPage<PilotsCollectionViewModel, PilotsCollectionView> ();
+			SimpleIoC.RegisterPage<UpgradesCollectionViewModel, UpgradesCollectionView> ();
+			SimpleIoC.RegisterPage<PilotsCollectionShipsListViewModel, PilotsCollectionShipsListView> ();
+			SimpleIoC.RegisterPage<UpgradesCollectionCategoryListViewModel, UpgradesCollectionCategoryListView> ();
+			SimpleIoC.RegisterPage<ImportViewModel, ImportView> ();
+			SimpleIoC.RegisterPage<ReferenceCardViewModel, ReferenceCardView> ();
+			SimpleIoC.RegisterPage<ExploreShipsViewModel, ExploreShipsView> ();
+			SimpleIoC.RegisterPage<ExplorePilotsViewModel, ExplorePilotsView> ();
+			SimpleIoC.RegisterPage<ExploreUpgradesViewModel, ExploreUpgradesView> ();
+			SimpleIoC.RegisterPage<ExploreUpgradesCategoryListViewModel, ExploreUpgradesCategoryListView> ();
+			SimpleIoC.RegisterPage<ExploreExpansionsViewModel, ExploreExpansionsView> ();
+			SimpleIoC.RegisterPage<ExploreExpansionContentsViewModel, ExploreExpansionContentsView> ();
+			SimpleIoC.RegisterPage<SinglePilotViewModel, SinglePilotView> ();
+			SimpleIoC.RegisterPage<SingleUpgradeViewModel, SingleUpgradeView> ();
 		}
 	}
 }

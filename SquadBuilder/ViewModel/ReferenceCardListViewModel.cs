@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using XLabs.Forms.Mvvm;
+
 using Xamarin.Forms;
 using System.Xml.Linq;
 using System.Linq;
@@ -42,11 +42,8 @@ namespace SquadBuilder
 
 				if (selectedReferenceCard == null)
 					return;
-				
-				Navigation.PushAsync<ReferenceCardViewModel> ((vm, page) => {
-					vm.Card = selectedReferenceCard;
-					selectedReferenceCard = null;
-				});
+
+				NavigationService.PushAsync (new ReferenceCardViewModel { Card = selectedReferenceCard }).ContinueWith (task => selectedReferenceCard = null);
 			}
 		}
 

@@ -1,12 +1,12 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Xml.Linq;
 using System.IO;
 using Xamarin.Forms;
-using XLabs;
+
 
 namespace SquadBuilder
 {
@@ -52,10 +52,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedExpansion, value);
 
 				if (selectedExpansion != null) {
-					Navigation.PushAsync<ExploreExpansionContentsViewModel> ((vm, page) => {
-						vm.Expansion = selectedExpansion;
-						selectedExpansion = null;
-					});
+					NavigationService.PushAsync (new ExploreExpansionContentsViewModel { Expansion = selectedExpansion }).ContinueWith (task => selectedExpansion = null);
 				}
 			}
 		}

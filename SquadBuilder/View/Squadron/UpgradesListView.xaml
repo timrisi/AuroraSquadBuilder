@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
                 xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.UpgradesListView" 
 				Title="{Binding UpgradeType}"
                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                 ios:Page.UseSafeArea="true">
-	<mvvm:BaseView.ToolbarItems>
+	<local:BaseView.ToolbarItems>
 		<ToolbarItem Text="None" Command="{Binding NoUpgrade}" />
-	</mvvm:BaseView.ToolbarItems>
-	<mvvm:BaseView.Content>
+	</local:BaseView.ToolbarItems>
+	<local:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand">
 	    	<Label HorizontalOptions="FillAndExpand" 
@@ -30,5 +29,5 @@
 				</ListView.ItemTemplate>
 			</ListView>
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>
