@@ -84,11 +84,12 @@ namespace SquadBuilder
 		{
 			text = text.ToLower ();
 			Upgrades = new ObservableCollection<Upgrade> (GetUpgrades (UpgradeType).Where (u =>
-																						   u.Name.ToLower ().Contains (text) ||
-																						   u.Text.ToLower ().Contains (text) ||
-			                                                                               (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
-																						   (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
-																						  ));
+													   u.Name.ToLower ().Contains (text) ||
+													   u.Text.ToLower ().Contains (text) ||
+			                                                                                   u.Keywords.Contains (text) ||
+			                                                                               	   (u.FactionRestricted && u.Factions.Any (f => f.Name.ToLower ().Contains (text))) ||
+													   (!string.IsNullOrEmpty (u.ShipRequirement) && u.ShipRequirement.ToLower ().Contains (text))
+													  ));
 		}
 	}
 }

@@ -15,6 +15,7 @@ using Dropbox.Api;
 using System.Runtime.Remoting.Lifetime;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace SquadBuilder
 {
@@ -336,7 +337,7 @@ namespace SquadBuilder
 					IsPreview = ship.Element ("Preview") != null ? (bool)ship.Element ("Preview") : false,
 					ManeuverGridImage = ship.Element ("ManeuverGridImage")?.Value ?? "",
 					Symbol = ship.Element ("Symbol")?.Value ?? "",
-					AttackSymbol = ship.Element ("AttackSymbol")?.Value, 
+					AttackSymbol = ship.Element ("AttackSymbol")?.Value,
 					//StraightOne = ship.Element("StraightOne")?.Value ?? "",
 					//StraightTwo = ship.Element("StraightOne")?.Value ?? "",
 					//StraightThree = ship.Element("StraightOne")?.Value ?? "",
@@ -385,7 +386,7 @@ namespace SquadBuilder
 				Id = pilot.Attribute ("id").Value,
 				Name = pilot.Element ("Name").Value,
 				CanonicalName = pilot.Element ("CanonicalName")?.Value,
-			    OldId = pilot.Element ("OldId")?.Value,
+			    	OldId = pilot.Element ("OldId")?.Value,
 				Faction = Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
 				Ship = Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
 				Unique = (bool)pilot.Element ("Unique"),
@@ -397,6 +398,7 @@ namespace SquadBuilder
 				BaseShields = (int)pilot.Element ("Shields"),
 				BaseCost = (int)pilot.Element ("Cost"),
 				Ability = pilot.Element ("Ability")?.Value,
+				Keywords = pilot.Element ("Keywords")?.Value ?? "",
 				UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = pilot.Element ("Custom") != null ? (bool)pilot.Element ("Custom") : false,
@@ -424,6 +426,7 @@ namespace SquadBuilder
 				BaseShields = (int)pilot.Element ("Shields"),
 				BaseCost = (int)pilot.Element ("Cost"),
 				Ability = pilot.Element ("Ability")?.Value,
+				Keywords = pilot.Element ("Keywords")?.Value ?? "",
 				UpgradeTypes = new ObservableCollection <string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
 				UpgradesEquipped = new ObservableCollection <Upgrade> (new List <Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
 				IsCustom = (bool)pilot.Element ("Custom"),
@@ -501,6 +504,7 @@ namespace SquadBuilder
 											CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
 											ModifiedManeuverDial = upgrade.Element ("ModifiedManeuverDial")?.Value,
 											HotAC = bool.Parse (upgrade.Element ("HotAC")?.Value ?? "false"),
+											Keywords = upgrade.Element ("Keywords")?.Value ?? "",
 				});
 
 				if (category.Attribute ("id").Value == "ept") {
@@ -591,6 +595,7 @@ namespace SquadBuilder
 					ShieldRequirement = upgrade.Element ("ShieldRequirement") != null ? (int?)upgrade.Element ("ShieldRequirement") : null,
 					IsCustom = upgrade.Element ("Custom") != null ? (bool)upgrade.Element ("Custom") : false,
 					CCL = upgrade.Element ("CCL") != null ? (bool)upgrade.Element ("CCL") : false,
+				     	Keywords = upgrade.Element ("Keywords")?.Value ?? "",
 				});
 
 				allCustomUpgrades.AddRange (categoryCustomUpgrades);

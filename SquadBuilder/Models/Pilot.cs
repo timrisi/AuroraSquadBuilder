@@ -39,6 +39,8 @@ namespace SquadBuilder
 			set { SetProperty (ref oldId, value); }
 		}
 
+		public string Keywords { get; set; } = "";
+
 		public Faction Faction { get; set; }
 		public Ship Ship { get; set; }
 
@@ -64,9 +66,18 @@ namespace SquadBuilder
 		public int BaseShields { get; set; }
 		public int BaseCost { get; set; }
 		public string Ability { get; set; }
+
 		public bool IsCustom { get; set; }
 		public bool CCL { get; set; }
 		public bool Preview { get; set; }
+
+		public bool ShowAbility {
+			get { return !string.IsNullOrEmpty (Ability); }
+		}
+
+		public bool ShowUpgradesEquipped {
+			get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
+		}
 
 		public bool ShowExtras {
 			get {
@@ -570,6 +581,7 @@ namespace SquadBuilder
 				IsCustom = IsCustom,
 				CCL = CCL,
 				MultiSectionId = MultiSectionId,
+				Keywords = Keywords,
 				UpgradeTypes = new ObservableCollection<string> (UpgradeTypes.ToList ()),
 				UpgradesEquipped = new ObservableCollection<Upgrade> (UpgradesEquipped.ToList ())
 			};

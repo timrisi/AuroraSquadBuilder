@@ -11,6 +11,12 @@ namespace SquadBuilder
 		{
 		}
 
+		public PilotGroup (Ship ship, Faction faction, IEnumerable<Pilot> pilots) : base (pilots)
+		{
+			Ship = ship.Copy ();
+			Faction = faction;
+		}
+
 		public Ship Ship { get; set; }
 		public Faction Faction { get; set; }
 

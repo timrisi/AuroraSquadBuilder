@@ -123,8 +123,9 @@ namespace SquadBuilder
 			var filteredPilotGroups = allPilots.Where (p => (Faction == null || Faction?.Name != "Mixed" ? p?.Faction?.Name == Faction?.Name : p != null) &&
 			                                           (Ship == null || p?.Ship.Id == Ship.Id)).ToList ();
 
-			foreach (var pilotGroup in filteredPilotGroups)
-				PilotGroups.Add (pilotGroup);
+			foreach (var pilotGroup in filteredPilotGroups) {
+				PilotGroups.Add (new PilotGroup (pilotGroup.Ship, pilotGroup.Faction, pilotGroup.OrderByDescending (p => p.PilotSkill)));
+			}
 		}
 
 		public void SearchPilots (string text)
@@ -146,7 +147,8 @@ namespace SquadBuilder
 
 				var filteredPilots = grp.Where (p => p.Name.ToLower ().Contains (text) ||
 												(!string.IsNullOrEmpty (p.Ability) && p.Ability.ToLower ().Contains (text)) ||
-												p.UpgradeTypesString.ToLower ().Contains (text));
+				                        					p.UpgradeTypes.Any (u => u.ToLower ().Contains (text)) ||
+				                               					p.Keywords.Contains (text));
 				if (filteredPilots?.Count () > 0) {
 					var newGroup = new PilotGroup (grp.Ship) { Faction = grp.Faction };
 					foreach (var pilot in filteredPilots)

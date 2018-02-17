@@ -4,6 +4,8 @@
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
                 xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.PilotsCollectionView" 
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
 				Title="{Binding PageName}">
 	<mvvm:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 

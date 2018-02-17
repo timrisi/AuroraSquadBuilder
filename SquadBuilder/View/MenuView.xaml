@@ -3,8 +3,10 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
 				x:Class="SquadBuilder.MenuView"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                ios:Page.UseSafeArea="true"
 				Title="Menu" 
-				Icon="@drawable/icon" >
+				Icon="hamburger.png" >
 	<mvvm:BaseView.Content>
 		<StackLayout Orientation="Vertical"
 					 Padding="5,25" 

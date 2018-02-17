@@ -23,6 +23,15 @@ namespace SquadBuilder.iOS
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : XLabs.Forms.XFormsApplicationDelegate
 	{
+		public static class ShortcutIdentifier {
+			public const string CreateRebel = "com.risiapps.squadbuilder.000";
+			public const string CreateImperial = "com.risiapps.squadbuilder.001";
+			public const string CreateScum = "com.risiapps.squadbuilder.002";
+			public const string BrowseCards = "com.risiapps.squadbuilder.003";
+		}
+
+		public UIApplicationShortcutItem LaunchedShortcutItem { get; set; }
+
 		SaveAndLoad saveAndLoad;
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
@@ -132,6 +141,10 @@ namespace SquadBuilder.iOS
 
 			LoadApplication (new App ());
 
+			// Get possible shortcut item
+			if (options != null)
+				LaunchedShortcutItem = options [UIApplication.LaunchOptionsShortcutItemKey] as UIApplicationShortcutItem;
+
 			return base.FinishedLaunching (app, options);
 		}
 
@@ -141,12 +154,51 @@ namespace SquadBuilder.iOS
 			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
 
-		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		public bool HandleShortcutItem (UIApplicationShortcutItem shortcutItem)
 		{
-			if (url.Scheme == "aurorasquadbuilder") {
+			var handled = false;
+
+			// Anything to process?
+			if (shortcutItem == null) return false;
+
+			// Take action based on the shortcut type
+			switch (shortcutItem.Type) {
+			case ShortcutIdentifier.CreateRebel:
+				MessagingCenter.Send (App.Current, "Create Rebel");
+				handled = true;
+				break;
+			case ShortcutIdentifier.CreateImperial:
+				MessagingCenter.Send (App.Current, "Create Imperial");
+				handled = true;
+				break;
+			case ShortcutIdentifier.CreateScum:
+				MessagingCenter.Send (App.Current, "Create Scum");
+				handled = true;
+				break;
+			case ShortcutIdentifier.BrowseCards:
+				MessagingCenter.Send (App.Current, "BrowseCards");
+				handled = true;
+				break;
 			}
 
-			return true;
+			// Return results
+			return handled;
 		}
+
+		public override void OnActivated (UIApplication application)
+		{
+			// Handle any shortcut item being selected
+			HandleShortcutItem (LaunchedShortcutItem);
+
+			// Clear shortcut after it's been handled
+			LaunchedShortcutItem = null;
+		}
+
+		public override void PerformActionForShortcutItem (UIApplication application, UIApplicationShortcutItem shortcutItem, UIOperationHandler completionHandler)
+		{
+			// Perform action
+			completionHandler (HandleShortcutItem (shortcutItem));
+		}
+
 	}
 }

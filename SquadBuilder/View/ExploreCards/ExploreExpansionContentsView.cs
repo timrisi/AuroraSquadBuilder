@@ -4,10 +4,8 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SquadBuilder
-{
-	public class ExploreExpansionContentsView : BaseView
-	{
+namespace SquadBuilder {
+	public class ExploreExpansionContentsView : BaseView {
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
@@ -21,7 +19,7 @@ namespace SquadBuilder
 				Intent = TableIntent.Data
 			};
 
-#region Ships
+			#region Ships
 			var ships = new TableSection ("Ships");
 			foreach (var ship in context.Ships) {
 				var cell = new ViewCell ();
@@ -61,10 +59,16 @@ namespace SquadBuilder
 				};
 
 				stackLayout.Children.Add (internalLayout);
-				stackLayout.Children.Add (new HtmlLabel {
-					Text = ship.ActionsString,
-					FontSize = Device.GetNamedSize (NamedSize.Small, typeof (Label))
-				});
+				stackLayout.Children.Add (
+					new Label {
+#if __IOS__
+						FontFamily = "xwing-miniatures",
+#elif __ANDROID__
+						FontFamily = "xwing-miniatures.ttf#xwing-miniatures",
+#endif
+						Text = ship.ActionsString,
+						FontSize = Device.GetNamedSize (NamedSize.Small, typeof (Label))
+					});
 
 				cell.View = stackLayout;
 

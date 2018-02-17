@@ -34,6 +34,11 @@ namespace SquadBuilder
 				Detail = ExploreCardsView;
 			});
 
+			MessagingCenter.Subscribe<App> (this, "Show Browse Cards", vm => {
+				IsPresented = false;
+				Detail = ExploreCardsView;
+			});
+
 			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Cards", vm => {
 				IsPresented = false;
 				Detail = CustomView;

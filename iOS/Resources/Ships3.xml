@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.666">
+<Ships Version="3.667">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -146,7 +146,7 @@
             <Action>Barrel Roll</Action>
         </Actions>
         <Symbol></Symbol>
-        <ManeuverGridImage>Kimogila.png</ManeuverGridImage>
+        <ManeuverGridImage>KimogilaDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="jumpmaster5000">
 		<Name>JumpMaster 5000</Name>
@@ -285,7 +285,7 @@
             <Action>Coordinate</Action>
         </Actions>
         <Symbol></Symbol>
-        <ManeuverGridImage>Sheathipede.png</ManeuverGridImage>
+        <ManeuverGridImage>SheathipedeDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="yt1300">
 		<Name>YT-1300</Name>
@@ -341,7 +341,7 @@
         </Actions>
         <Symbol></Symbol>
         <LargeBase>true</LargeBase>
-        <ManeuverGridImage>BSF17Bomber.png</ManeuverGridImage>
+        <ManeuverGridImage>BSF17BomberDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="gr75mediumtransport">
 		<Name>GR-75 Medium Transport</Name>
@@ -513,7 +513,7 @@
             <Action>SLAM</Action>
         </Actions>
         <Symbol></Symbol>
-        <ManeuverGridImage>AlphaClassStarWing.png</ManeuverGridImage>
+        <ManeuverGridImage>AlphaClassStarWingDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="tiesilencer">
         <Name>TIE Silencer</Name>
@@ -524,7 +524,7 @@
             <Action>Boost</Action>
         </Actions>
         <Symbol></Symbol>
-        <ManeuverGridImage>TIESilencer.png</ManeuverGridImage>
+        <ManeuverGridImage>TIESilencerDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>

@@ -42,9 +42,34 @@ namespace SquadBuilder
 					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
 					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
 				} catch (Exception e) {
+					Console.WriteLine (e.Message);
 					//Insights.Report (e, Insights.Severity.Warning);
 				}
 			}
+
+			MessagingCenter.Subscribe <Application> (this, "BrowseCards", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Show Browse Cards");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Rebel", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Rebel");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Imperial", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Imperial");
+			});
+
+			MessagingCenter.Subscribe<Application> (this, "Create Scum", async (obj) => {
+				await ((MainPage as MasterDetailPage).Detail as NavigationPage).PopToRootAsync ();
+
+				MessagingCenter.Send (this, "Create Scum");
+			});
 		}
 
 		protected override void OnSleep ()
