@@ -40,7 +40,7 @@
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"
 					  ItemsSource="{Binding Pilots}" 
-					  HasUnevenRows="true" 
+                      HasUnevenRows="true"
 					  SelectedItem="{Binding SelectedPilot, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 

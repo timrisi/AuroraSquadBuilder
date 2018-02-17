@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SquadBuilder
 {
@@ -78,9 +79,17 @@ namespace SquadBuilder
 					tb.Title = "Squadrons";
 					tb.Children.Add (new MainView ());
 					var factions = Settings.AllowCustom ? Faction.AllFactions : Faction.Factions;
-					foreach (var faction in factions)
-						tb.Children.Add (new MainView (faction.Name));
+                    foreach (var faction in factions)
+                    {
+                        var factionView = new MainView(faction.Name);
 
+                        tb.Children.Add(factionView);
+                        //if (faction.Name == "Imperial")
+                            //tb.CurrentPage = factionView;
+                    }
+
+                    //if (tb.Children.FirstOrDefault (p => (p as MainView)?))
+                    ////tb.CurrentPage = tb.Children [factions.IndexOf(factions.First(f => f.Name == "Imperial")) + 1];
 					mainView = new NavigationPage (tb);
 				}
 

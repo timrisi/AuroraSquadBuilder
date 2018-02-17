@@ -1,32 +1,47 @@
 ﻿<Properties StartupConfiguration="{77BA9493-6FD1-4D49-83B2-6CE088D8B545}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.SquadBuilder.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/obj/iPhoneSimulator/Debug/SquadBuilder.iOS.View.RootPage.xaml.g.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SquadBuilder/View/Squadron/SquadronView.xaml">
     <Files>
-      <File FileName="SquadBuilder/Models/Pilot.cs" Line="625" Column="42" />
-      <File FileName="SquadBuilder/ViewModel/Squadron/PilotViewModel.cs" Line="65" Column="1" />
-      <File FileName="iOS/Main.cs" Line="16" Column="1" />
-      <File FileName="SquadBuilder/ViewModel/Squadron/UpgradesListViewModel.cs" Line="102" Column="176" />
-      <File FileName="SquadBuilder/View/Squadron/EditSquadronView.xaml" Line="24" Column="1" />
-      <File FileName="SquadBuilder/View/Squadron/PilotView.xaml" Line="31" Column="1" />
-      <File FileName="SquadBuilder/View/Squadron/SquadronView.xaml" Line="141" Column="17" />
-      <File FileName="SquadBuilder/ViewModel/MainViewModel.cs" Line="356" Column="312" />
-      <File FileName="iOS/obj/iPhoneSimulator/Debug/SquadBuilder.iOS.View.RootPage.xaml.g.cs" Line="19" Column="1" />
+      <File FileName="SquadBuilder/ViewModel/Squadron/PilotsListViewModel.cs" Line="87" Column="57" />
+      <File FileName="SquadBuilder/Models/PilotGroup.cs" Line="1" Column="1" />
+      <File FileName="SquadBuilder/View/SettingsView.xaml" Line="18" Column="20" />
+      <File FileName="SquadBuilder/View/Squadron/SquadronView.xaml" Line="43" Column="28" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SquadBuilder" expanded="True">
+            <Node name="SquadBuilder" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="View" expanded="True">
+                <Node name="Squadron" expanded="True">
+                  <Node name="SquadronView.xaml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="ViewModel" expanded="True">
+                <Node name="Squadron" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="SquadBuilder.iOS" expanded="True" />
+            <Node name="SquadBuilder.Tests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.Nexus 5 (KitKat)" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/Models/Squadron.cs" relfile="SquadBuilder/Models/Squadron.cs" line="265" column="1" />
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/Models/Cards.cs" relfile="SquadBuilder/Models/Cards.cs" line="782" column="15" />
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/View/Custom/EditUpgradeView.xaml" relfile="SquadBuilder/View/Custom/EditUpgradeView.xaml" line="36" column="1" />
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/iOS/HtmlLabelRenderer.cs" relfile="iOS/HtmlLabelRenderer.cs" line="45" column="1" />
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/ViewModel/MainViewModel.cs" relfile="SquadBuilder/ViewModel/MainViewModel.cs" line="206" column="1" />
-      <Breakpoint file="/Users/Tim/Projects/RisiApps/SquadBuilder/SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" relfile="SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" line="88" column="1" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/Models/Cards.cs" relfile="SquadBuilder/Models/Cards.cs" line="782" column="15" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/View/Custom/EditUpgradeView.xaml" relfile="SquadBuilder/View/Custom/EditUpgradeView.xaml" line="36" column="1" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/iOS/HtmlLabelRenderer.cs" relfile="iOS/HtmlLabelRenderer.cs" line="45" column="1" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/ViewModel/MainViewModel.cs" relfile="SquadBuilder/ViewModel/MainViewModel.cs" line="206" column="1" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" relfile="SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" line="88" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.BA7CC829-6A4F-41A1-BCD6-B11590298740" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.9B04450F-3F05-4EFA-A69D-46C2021CEFAC" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <DisabledProjects>
     <String>UITests/SquadBuilder.UITests.csproj</String>

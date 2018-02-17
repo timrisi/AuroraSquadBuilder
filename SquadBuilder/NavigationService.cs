@@ -14,9 +14,9 @@ namespace SquadBuilder
 			await Navigation.PushAsync (view, true);
 		}
 
-		public static async Task PopAsync ()
+		public static async Task PopAsync (bool animated = true)
 		{
-			await Navigation.PopAsync (true);
+			await Navigation.PopAsync (animated);
 		}
 
 		public static async Task PushModalAsync (ViewModel viewModel, bool wrapInNavigation = true)

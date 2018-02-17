@@ -185,8 +185,6 @@ namespace SquadBuilder
 			}
 		}
 
-		DateTime searchTime = DateTime.MinValue;
-
 		string searchText;
 		public string SearchText {
 			get { return searchText; }
@@ -196,14 +194,10 @@ namespace SquadBuilder
 
 				SetProperty (ref searchText, value);
 
-				if (DateTime.Now > searchTime.AddMilliseconds (500)) {
 				SearchUpgrades (value);
-					searchTime = DateTime.Now;
-				}
 			}
 		}
 
-		bool searching = false;
 		public void SearchUpgrades (string text)
 		{
 			try {

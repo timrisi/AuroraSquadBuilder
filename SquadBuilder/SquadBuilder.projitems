@@ -9,7 +9,6 @@
     <Import_RootNamespace>SquadBuilder</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ObservableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimpleIoC.cs" />
