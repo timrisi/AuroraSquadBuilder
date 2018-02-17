@@ -327,6 +327,9 @@ namespace SquadBuilder {
 			});
 
 			Squadrons = allSquadrons;
+
+            if (!string.IsNullOrEmpty (SearchText))
+                SearchSquadrons(SearchText);
 		}
 
 		public override void OnViewDisappearing ()

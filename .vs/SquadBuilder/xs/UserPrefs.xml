@@ -1,12 +1,6 @@
 ﻿<Properties StartupConfiguration="{77BA9493-6FD1-4D49-83B2-6CE088D8B545}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.SquadBuilder.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SquadBuilder/View/Squadron/SquadronView.xaml">
-    <Files>
-      <File FileName="SquadBuilder/ViewModel/Squadron/PilotsListViewModel.cs" Line="87" Column="57" />
-      <File FileName="SquadBuilder/Models/PilotGroup.cs" Line="1" Column="1" />
-      <File FileName="SquadBuilder/View/SettingsView.xaml" Line="18" Column="20" />
-      <File FileName="SquadBuilder/View/Squadron/SquadronView.xaml" Line="43" Column="28" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -14,12 +8,15 @@
             <Node name="SquadBuilder" expanded="True">
               <Node name="Models" expanded="True" />
               <Node name="View" expanded="True">
-                <Node name="Squadron" expanded="True">
-                  <Node name="SquadronView.xaml" selected="True" />
-                </Node>
+                <Node name="Collection" expanded="True" />
+                <Node name="Custom" expanded="True" />
+                <Node name="ExploreCards" expanded="True" />
+                <Node name="Squadron" expanded="True" />
               </Node>
               <Node name="ViewModel" expanded="True">
-                <Node name="Squadron" expanded="True" />
+                <Node name="Squadron" expanded="True">
+                  <Node name="PilotsListViewModel.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="SquadBuilder.iOS" expanded="True" />
@@ -30,7 +27,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.Nexus 5 (KitKat)" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/Models/Cards.cs" relfile="SquadBuilder/Models/Cards.cs" line="782" column="15" />
@@ -41,7 +38,7 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.9B04450F-3F05-4EFA-A69D-46C2021CEFAC" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.81e24bbac1d0ecf79454b0deb8856eefd6e07634" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <DisabledProjects>
     <String>UITests/SquadBuilder.UITests.csproj</String>

@@ -18,6 +18,7 @@
 					  BackgroundColor="Transparent"
 					  IsGroupingEnabled="true"
          			  HasUnevenRows="true"
+                      CachingStrategy="RetainElement"
 					  ItemsSource="{Binding PilotGroups}"  
 					  SelectedItem="{Binding SelectedPilot, Mode=TwoWay}">
 				<ListView.GroupHeaderTemplate>
