@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -33,17 +33,14 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedCategory, value);
 
-				if (value != null) {
-					Navigation.PushAsync<ExploreUpgradesViewModel> ((vm, p) => {
-						vm.UpgradeType = SelectedCategory.Name;
-					}, true);
-				}
+				if (value != null)
+					NavigationService.PushAsync (new ExploreUpgradesViewModel { UpgradeType = SelectedCategory.Name });
 			}
 		}
 
 		void GetAllCategories ()
 		{
-			var categoryNames = new List<string>(Cards.SharedInstance.Upgrades.Select(u => u.Category).Distinct());
+			var categoryNames = new List<string>(Upgrade.Upgrades.Select(u => u.Category).Distinct());
 			Categories = new ObservableCollection<UpgradeCategory> (categoryNames.Select (u => new UpgradeCategory { Name = u, Symbol = Upgrade.GetSymbol(u) }).Distinct ());
 		}
 

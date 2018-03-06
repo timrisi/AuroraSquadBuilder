@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
@@ -46,7 +46,7 @@ namespace SquadBuilder
 		{
 			var allUpgradeGroups = new List <UpgradeGroup>();
 
-			var upgradeList = Cards.SharedInstance.Upgrades.Where (u => !u.CCL && !u.HotAC).ToList ();
+			var upgradeList = Upgrade.Upgrades.Where (u => !u.CCL && !u.HotAC).ToList ();
 
 			foreach (var upgrade in upgradeList) {
 				var upgradeGroup = allUpgradeGroups.FirstOrDefault (g => g.Category == upgrade.Category);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using XLabs.Forms.Mvvm;
+
 using System.Linq;
 
 namespace SquadBuilder
@@ -18,19 +18,19 @@ namespace SquadBuilder
 					return;
 
 				foreach (var shipId in expansion.Ships) {
-					var ship = Cards.SharedInstance.Ships.ToList ().FirstOrDefault (s => s.Id == shipId);
+					var ship = Ship.Ships.ToList ().FirstOrDefault (s => s.Id == shipId);
 					if (ship != null)
 						Ships.Add (ship);
 				}
 
 				foreach (var pilotId in expansion.Pilots) {
-					var pilot = Cards.SharedInstance.Pilots.ToList ().FirstOrDefault (p => p.Id == pilotId);
+					var pilot = Pilot.Pilots.ToList ().FirstOrDefault (p => p.Id == pilotId);
 					if (pilot != null)
 						Pilots.Add (pilot);
 				}
 
 				foreach (var upgradeId in expansion.Upgrades) {
-					var upgrade = Cards.SharedInstance.Upgrades.ToList ().FirstOrDefault (u => u.Id == upgradeId);
+					var upgrade = Upgrade.Upgrades.ToList ().FirstOrDefault (u => u.Id == upgradeId);
 					if (upgrade != null)
 						Upgrades.Add (upgrade);
 				}
@@ -61,11 +61,8 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedPilot, value);
 
-				if (selectedPilot != null) {
-					Navigation.PushAsync<SinglePilotViewModel> ((vm, page) => {
-						vm.Pilot = selectedPilot;
-					});
-				}
+				if (selectedPilot != null)
+					NavigationService.PushAsync (new SinglePilotViewModel { Pilot = selectedPilot });
 			}
 		}
 
@@ -75,11 +72,8 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedUpgrade, value);
 
-				if (selectedUpgrade != null) {
-					Navigation.PushAsync<SingleUpgradeViewModel> ((vm, page) => {
-						vm.Upgrade = selectedUpgrade;
-					});
-				}
+				if (selectedUpgrade != null)
+					NavigationService.PushAsync (new SingleUpgradeViewModel { Upgrade = selectedUpgrade });
 			}
 		}
 	}

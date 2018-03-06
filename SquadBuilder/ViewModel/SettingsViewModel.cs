@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using Xamarin.Forms;
 using Dropbox.Api;
 using System.Linq;
@@ -141,11 +141,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand checkForUpdates;
-		public RelayCommand CheckForUpdates {
+		Command checkForUpdates;
+		public Command CheckForUpdates {
 			get {
 				if (checkForUpdates == null)
-					checkForUpdates = new RelayCommand (() => {
+					checkForUpdates = new Command (() => {
 						Settings.CheckForUpdates ();
 					});	
 
@@ -208,7 +208,7 @@ namespace SquadBuilder
 
 			var list = await client.Files.ListFolderAsync("");
 
-			var file = list.Entries.Where (i => i.IsFile).FirstOrDefault (f => f.Name == Cards.XwcFilename);
+			var file = list.Entries.Where (i => i.IsFile).FirstOrDefault (f => f.Name == Squadron.XwcFilename);
 
 			if (file == null) {
 				await SaveToDropbox ();
@@ -216,9 +216,9 @@ namespace SquadBuilder
 			}
 
 			try {
-				var metadata = (await client.Files.GetMetadataAsync ("/" + Cards.XwcFilename)).AsFile;
+				var metadata = (await client.Files.GetMetadataAsync ("/" + Squadron.XwcFilename)).AsFile;
 
-				if (Cards.SharedInstance.Squadrons.Count > 0) {
+				if (Squadron.Squadrons.Count > 0) {
 					//if (!Xamarin.Forms.Application.Current.Properties.ContainsKey (ParentRevisionKey))
 					if (!App.Storage.HasKey (ParentRevisionKey))
 						throw new Exception ("Dropbox conflict");
@@ -232,10 +232,10 @@ namespace SquadBuilder
 						throw new Exception ("Dropbox conflict");
 				}
 
-				using (var fileMetadata = await client.Files.DownloadAsync ("/" + Cards.XwcFilename)) {
+				using (var fileMetadata = await client.Files.DownloadAsync ("/" + Squadron.XwcFilename)) {
 					var squadronsXwc = await fileMetadata.GetContentAsStringAsync ();
-					DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.XwcFilename, squadronsXwc);
-					Cards.SharedInstance.GetAllSquadrons ();
+					DependencyService.Get <ISaveAndLoad> ().SaveText (Squadron.XwcFilename, squadronsXwc);
+					Squadron.GetAllSquadrons ();
 					//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
 					//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
 					//Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
@@ -254,20 +254,20 @@ namespace SquadBuilder
 
 		public static async Task SaveToDropbox ()
 		{
-			if (Cards.SharedInstance.Squadrons.Count == 0)
+			if (Squadron.Squadrons.Count == 0)
 				return;
 
 			var client = App.DropboxClient;
 
 			var list = await client.Files.ListFolderAsync("");
 
-			var file = list.Entries.Where (i => i.IsFile).FirstOrDefault (f => f.Name == Cards.XwcFilename);
+			var file = list.Entries.Where (i => i.IsFile).FirstOrDefault (f => f.Name == Squadron.XwcFilename);
 
 			if (file == null) {
 				var updated = await client.Files.UploadAsync (
-					"/" + Cards.XwcFilename,
+					"/" + Squadron.XwcFilename,
 					WriteMode.Add.Instance,
-					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.XwcFilename))));
+					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Squadron.XwcFilename))));
 
 				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = updated.Rev;
 				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
@@ -283,7 +283,7 @@ namespace SquadBuilder
 				return;
 			}
 
-			var metadata = (await client.Files.GetMetadataAsync ("/" + Cards.XwcFilename)).AsFile;
+			var metadata = (await client.Files.GetMetadataAsync ("/" + Squadron.XwcFilename)).AsFile;
 
 			//if (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString () == metadata.Rev) {
 			if (App.Storage.Get <string> (ParentRevisionKey) == metadata.Rev) {
@@ -292,10 +292,10 @@ namespace SquadBuilder
 					return;
 
 				var updated = await client.Files.UploadAsync (
-					"/" + Cards.XwcFilename,
+					"/" + Squadron.XwcFilename,
 					//new WriteMode.Update (Xamarin.Forms.Application.Current.Properties [ParentRevisionKey].ToString ()),
 					new WriteMode.Update (App.Storage.Get <string> (ParentRevisionKey)),
-					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.XwcFilename))));
+					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Squadron.XwcFilename))));
 
 				App.Storage.Put<string> (ParentRevisionKey, updated.Rev);
 				App.Storage.Put<DateTime> (ParentModifiedDateKey ,updated.ServerModified.ToLocalTime ());
@@ -320,9 +320,9 @@ namespace SquadBuilder
 			switch (response) {
 			case "Local":
 				var updated = await client.Files.UploadAsync (
-					"/" + Cards.XwcFilename,
+					"/" + Squadron.XwcFilename,
 					WriteMode.Overwrite.Instance,
-					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Cards.XwcFilename))));
+					body: new MemoryStream (Encoding.UTF8.GetBytes (DependencyService.Get <ISaveAndLoad> ().LoadText (Squadron.XwcFilename))));
 
 				App.Storage.Put<string> (ParentRevisionKey, updated.Rev);
 				App.Storage.Put<DateTime> (ParentModifiedDateKey ,updated.ServerModified.ToLocalTime ());
@@ -330,10 +330,10 @@ namespace SquadBuilder
 				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = updated.ServerModified.ToLocalTime ();
 				break;
 			case "Dropbox":
-				var fileMetadata = await client.Files.DownloadAsync ("/" + Cards.XwcFilename);
+				var fileMetadata = await client.Files.DownloadAsync ("/" + Squadron.XwcFilename);
 				var serializedXml = await fileMetadata.GetContentAsStringAsync ();
 
-				DependencyService.Get <ISaveAndLoad> ().SaveText (Cards.XwcFilename, serializedXml);
+				DependencyService.Get <ISaveAndLoad> ().SaveText (Squadron.XwcFilename, serializedXml);
 				//Xamarin.Forms.Application.Current.Properties [ModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
 				//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = fileMetadata.Response.Rev;
 				//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = fileMetadata.Response.ServerModified.ToLocalTime ();
@@ -344,7 +344,7 @@ namespace SquadBuilder
 
 				break;
 			case "Merge":
-				var squadronMetadata = await client.Files.DownloadAsync ("/" + Cards.XwcFilename);
+				var squadronMetadata = await client.Files.DownloadAsync ("/" + Squadron.XwcFilename);
 				var squadronXml = await squadronMetadata.GetContentAsStringAsync ();
 
 				var serializer = new XmlSerializer (typeof(ObservableCollection <Squadron>));
@@ -353,7 +353,7 @@ namespace SquadBuilder
 					var squads = (ObservableCollection <Squadron>)serializer.Deserialize (reader);
 
 					foreach (var squad in squads) {
-						squad.Faction = Cards.SharedInstance.AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
+						squad.Faction = Faction.AllFactions.FirstOrDefault (f => f.Id == squad.Faction?.Id);
 
 						foreach (var pilot in squad.Pilots) {
 							if (squad.Faction.Id == "scum") {
@@ -377,14 +377,14 @@ namespace SquadBuilder
 									upgrade.Id = "fourlom";
 
 								if (upgrade.CategoryId == null)
-									upgrade.CategoryId = Cards.SharedInstance.AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
+									upgrade.CategoryId = Upgrade.AllUpgrades.FirstOrDefault (u => u.Id == upgrade.Id && u.Category == upgrade.Category)?.CategoryId;
 							}
 						}
 					}
 
-					var mergedSquads = Cards.SharedInstance.Squadrons.Union (squads);
+					var mergedSquads = Squadron.Squadrons.Union (squads);
 
-					Cards.SharedInstance.Squadrons = new ObservableCollection <Squadron> (mergedSquads);
+					Squadron.Squadrons = new ObservableCollection <Squadron> (mergedSquads);
 
 					//Xamarin.Forms.Application.Current.Properties [ParentRevisionKey] = squadronMetadata.Response.Rev;
 					//Xamarin.Forms.Application.Current.Properties [ParentModifiedDateKey] = squadronMetadata.Response.ServerModified.ToLocalTime ();
@@ -392,7 +392,7 @@ namespace SquadBuilder
 					App.Storage.Put<DateTime> (ParentModifiedDateKey, squadronMetadata.Response.ServerModified.ToLocalTime ());
 					//await Xamarin.Forms.Application.Current.SavePropertiesAsync ();
 
-					await Cards.SharedInstance.SaveSquadrons ();
+					await Squadron.SaveSquadrons ();
 				}
 				break;
 			}

@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
+
 
 namespace SquadBuilder
 {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.938">
+<Upgrades Version="3.939">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -2857,7 +2857,7 @@ If the defender is inside your primary firing arc, you may reroll a number of at
         <Upgrade id="targetingsynchronizer">
             <Name>Targeting Synchronizer</Name>
             <Cost>3</Cost>
-            <Text>When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the &quot;Attack (Target Lock):&quot; header as &quot;Attack:.&quot;  If a game effect instructs a ship to spend a target lock, it may spend your target lock instead.</Text>
+            <Text>When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the &quot;Attack (Target Lock):&quot; header as &quot;Attack:.&quot;  If a game effect instructs that ship to spend a target lock, it may spend your target lock instead.</Text>
         </Upgrade>
         <Upgrade id="hyperwavecommscanner">
             <Name>Hyperwave Comm Scanner</Name>

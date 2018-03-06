@@ -1,8 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs.Forms;
-using XLabs;
+
 using Xamarin.Forms;
 
 namespace SquadBuilder
@@ -20,12 +19,12 @@ namespace SquadBuilder
 			set { SetProperty (ref collectionTypes, value); }
 		}
 	
-		RelayCommand editExpansions;
-		public RelayCommand EditExpansions {
+		Command editExpansions;
+		public Command EditExpansions {
 			get {
 				if (editExpansions == null) {
-					editExpansions = new RelayCommand (() => {
-						Navigation.PushAsync <ExpansionsViewModel> ();
+					editExpansions = new Command (() => {
+						NavigationService.PushAsync (new ExpansionsViewModel ());
 					});
 				}
 
@@ -33,12 +32,12 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand editShips;
-		public RelayCommand EditShips {
+		Command editShips;
+		public Command EditShips {
 			get {
 				if (editShips == null) {
-					editShips = new RelayCommand (() => {
-						Navigation.PushAsync <ShipsCollectionViewModel> ();
+					editShips = new Command (() => {
+						NavigationService.PushAsync (new ShipsCollectionViewModel ());
 					});
 				}
 
@@ -46,12 +45,12 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand editPilots;
-		public RelayCommand EditPilots {
+		Command editPilots;
+		public Command EditPilots {
 			get {
 				if (editPilots == null) {
-					editPilots = new RelayCommand (() => {
-						Navigation.PushAsync <PilotsCollectionShipsListViewModel> ();
+					editPilots = new Command (() => {
+						NavigationService.PushAsync (new PilotsCollectionShipsListViewModel ());
 					});
 				}
 
@@ -59,12 +58,12 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand editUpgrades;
-		public RelayCommand EditUpgrades {
+		Command editUpgrades;
+		public Command EditUpgrades {
 			get {
 				if (editUpgrades == null) {
-					editUpgrades = new RelayCommand (() => {
-						Navigation.PushAsync <UpgradesCollectionCategoryListViewModel> ();
+					editUpgrades = new Command (() => {
+						NavigationService.PushAsync (new UpgradesCollectionCategoryListViewModel ());
 					});
 				}
 
@@ -72,11 +71,11 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand clearCollection;
-		public RelayCommand ClearCollection {
+		Command clearCollection;
+		public Command ClearCollection {
 			get {
 				if (clearCollection == null) {
-					clearCollection = new RelayCommand (() => {
+					clearCollection = new Command (() => {
 						MessagingCenter.Send <CollectionViewModel> (this, "Clear Collection");
 					});
 				}

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+                xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.CollectionView"
                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                 ios:Page.UseSafeArea="true"
 				Title="Collection">
-	<mvvm:BaseView.Content>
+	<local:BaseView.Content>
 		<StackLayout Orientation="Vertical">
 			<TableView VerticalOptions="FillAndExpand">
 				<TableRoot>
@@ -20,5 +20,5 @@
 			</TableView>
 			<Button Text="Clear all" Command="{Binding ClearCollection}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

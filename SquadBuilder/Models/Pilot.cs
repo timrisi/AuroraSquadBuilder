@@ -1,11 +1,9 @@
 ﻿﻿using System;
 using System.Collections.Generic;
-using XLabs;
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using XLabs.Data;
 using System.Xml.Serialization;
 using System.Xml.Linq;
 using System.IO;
@@ -13,6 +11,8 @@ using System.IO;
 namespace SquadBuilder
 {
 	public class Pilot : ObservableObject {
+		public const string PilotsFilename = "Pilots.xml";
+
 		string id;
 		public string Id {
 			get { return id; }
@@ -75,9 +75,9 @@ namespace SquadBuilder
 			get { return !string.IsNullOrEmpty (Ability); }
 		}
 
-		public bool ShowUpgradesEquipped {
-			get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
-		}
+		//public bool ShowUpgradesEquipped {
+		//	get { return !string.IsNullOrEmpty (UpgradesEquippedString); }
+		//}
 
 		public bool ShowExtras {
 			get {
@@ -144,7 +144,7 @@ namespace SquadBuilder
 				var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
 				var pilotsElement = collectionXml.Element ("Pilots");
 
-				var pilotsOwned = Cards.SharedInstance.Pilots.FirstOrDefault (p => p.Id == Id).Owned;
+				var pilotsOwned = Pilot.Pilots.FirstOrDefault (p => p.Id == Id).Owned;
 
 				if (pilotsElement.Elements ().Any (e => e.Attribute ("id").Value == Id)) {
 					if (pilotsOwned == 0)
@@ -217,7 +217,7 @@ namespace SquadBuilder
 		public string Expansions {
 			get {
 				if (string.IsNullOrEmpty (expansions))
-					expansions = string.Join (", ", Cards.SharedInstance.Expansions.Where (e => e.Pilots.Any (p => p == Id)).Select (e => e.Name));
+					expansions = string.Join (", ", Expansion.Expansions.Where (e => e.Pilots.Any (p => p == Id)).Select (e => e.Name));
 
 				return expansions;
 			}
@@ -226,7 +226,7 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public string UpgradesEquippedString {
 			get {
-				return string.Join (", ", UpgradesEquipped.Where (u => u != null).Select (u => u.Name));
+				return UpgradesEquipped != null && UpgradesEquipped.Count () > 0 ? string.Join (", ", UpgradesEquipped.Where (u => u != null).Select (u => u.Name)) : "b";
 			}
 		}
 
@@ -355,13 +355,13 @@ namespace SquadBuilder
 
 		public bool IsAvailable {
 			get {
-				if (Unique && Cards.SharedInstance.CurrentSquadron != null && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Id == Id))
+				if (Unique && Squadron.CurrentSquadron != null && Squadron.CurrentSquadron.Pilots.Any (p => p.Id == Id))
 					return false;
 
-				if (Cards.SharedInstance.Pilots.Sum (p => p.Owned) == 0)
+				if (Pilot.Pilots.Sum (p => p.Owned) == 0)
 					return true;
 
-				return Owned > (Cards.SharedInstance.CurrentSquadron != null ? Cards.SharedInstance.CurrentSquadron.Pilots.Count (p => p.Id == Id) : 0);
+				return Owned > (Squadron.CurrentSquadron != null ? Squadron.CurrentSquadron.Pilots.Count (p => p.Id == Id) : 0);
 			}
 		}
 
@@ -429,7 +429,7 @@ namespace SquadBuilder
 					}
 
 					if (MultiSectionId >= 0) {
-						var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.name != Name && p.MultiSectionId == MultiSectionId);
+						var otherPilot = Squadron.CurrentSquadron.Pilots.First (p => p.name != Name && p.MultiSectionId == MultiSectionId);
 						for (int i = 0; i < otherPilot.upgradeTypes.Count; i++) {
 							var type = otherPilot.upgradeTypes [i];
 							if (type == "Missile" || type == "Torpedo") {
@@ -440,7 +440,7 @@ namespace SquadBuilder
 					}
 
 					//if (LinkedPilotCardGuid != Guid.Empty) {
-					//	var otherPilot = Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.Name != Name && p.LinkedPilotCardGuid == LinkedPilotCardGuid);
+					//	var otherPilot = Squadron.CurrentSquadron.Pilots.First (p => p.Name != Name && p.LinkedPilotCardGuid == LinkedPilotCardGuid);
 					//	for (int i = 0; i < otherPilot.UpgradeTypes.Count; i++) {
 					//		var type = otherPilot.UpgradeTypes [i];
 					//		if (type == "Missile" || type == "Torpedo") {
@@ -484,7 +484,7 @@ namespace SquadBuilder
 				}
 
 				if (upgrade.Id == "misthunter")
-					UpgradesEquipped [UpgradesEquipped.Count - 1] = Cards.SharedInstance.Upgrades.First (u => u.Name == "Tractor Beam");
+					UpgradesEquipped [UpgradesEquipped.Count - 1] = Upgrade.Upgrades.First (u => u.Name == "Tractor Beam");
 
 				if (!string.IsNullOrEmpty (upgrade.ModifiedManeuverDial))
 					Ship.ManeuverGridImage = Path.GetFileNameWithoutExtension (Ship.ManeuverGridImage) + upgrade.ModifiedManeuverDial + Path.GetExtension (Ship.ManeuverGridImage);
@@ -492,12 +492,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand deletePilot;
+		Command deletePilot;
 		[XmlIgnore]
-		public RelayCommand DeletePilot {
+		public Command DeletePilot {
 			get {
 				if (deletePilot == null)
-					deletePilot = new RelayCommand (() => {
+					deletePilot = new Command (() => {
 						XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
 
 						var pilotElement = customPilotsXml.Elements ().FirstOrDefault (e =>
@@ -520,12 +520,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand editPilot;
+		Command editPilot;
 		[XmlIgnore]
-		public RelayCommand EditPilot {
+		public Command EditPilot {
 			get {
 				if (editPilot == null)
-					editPilot = new RelayCommand (() => {
+					editPilot = new Command (() => {
 						MessagingCenter.Send<Pilot> (this, "Edit Pilot");
 					});
 
@@ -534,12 +534,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand removePilot;
+		Command removePilot;
 		[XmlIgnore]
-		public RelayCommand RemovePilot {
+		public Command RemovePilot {
 			get {
 				if (removePilot == null)
-					removePilot = new RelayCommand (() => {
+					removePilot = new Command (() => {
 						MessagingCenter.Send<Pilot> (this, "Remove Pilot");
 					});
 
@@ -548,12 +548,12 @@ namespace SquadBuilder
 		}
 
 		[XmlIgnore]
-		RelayCommand copyPilot;
+		Command copyPilot;
 		[XmlIgnore]
-		public RelayCommand CopyPilot {
+		public Command CopyPilot {
 			get {
 				if (copyPilot == null)
-					copyPilot = new RelayCommand (() => MessagingCenter.Send<Pilot> (this, "Copy Pilot"));
+					copyPilot = new Command (() => MessagingCenter.Send<Pilot> (this, "Copy Pilot"));
 
 				return copyPilot;
 			}
@@ -587,21 +587,21 @@ namespace SquadBuilder
 			};
 		}
 
-		RelayCommand increment;
-		public RelayCommand Increment {
+		Command increment;
+		public Command Increment {
 			get {
 				if (increment == null)
-					increment = new RelayCommand (() => Owned++);
+					increment = new Command (() => Owned++);
 
 				return increment;
 			}
 		}
 
-		RelayCommand decrement;
-		public RelayCommand Decrement {
+		Command decrement;
+		public Command Decrement {
 			get {
 				if (decrement == null)
-					decrement = new RelayCommand (() => Owned--);
+					decrement = new Command (() => Owned--);
 
 				return decrement;
 			}
@@ -617,7 +617,7 @@ namespace SquadBuilder
 			return (Id == pilot.Id &&
 				Faction?.Id == pilot.Faction?.Id &&
 				Ship?.Id == pilot.Ship?.Id &&
-				UpgradesEquippedString == pilot.UpgradesEquippedString);
+				UpgradesEquippedString == pilot?.UpgradesEquippedString);
 		}
 
 		public override int GetHashCode ()
@@ -629,5 +629,120 @@ namespace SquadBuilder
 		{
 			return Ship.Name + " - " + Name;
 		}
+
+#region Static Methods
+		static ObservableCollection<Pilot> pilots;
+		public static ObservableCollection<Pilot> Pilots {
+			get {
+				if (pilots == null)
+					GetAllPilots ();
+
+				return pilots;
+			}
+			set {
+				pilots = value;
+				pilots.CollectionChanged += (sender, e) => updateAllPilots ();
+				updateAllPilots ();
+			}
+		}
+
+		static ObservableCollection<Pilot> customPilots;
+		public static ObservableCollection<Pilot> CustomPilots {
+			get {
+				if (customPilots == null)
+					GetAllPilots ();
+
+				return customPilots;
+			}
+			set {
+				customPilots = value;
+				customPilots.CollectionChanged += (sender, e) => updateAllPilots ();
+				updateAllPilots ();
+			}
+		}
+
+		static ObservableCollection<Pilot> allPilots;
+		public static ObservableCollection<Pilot> AllPilots {
+			get {
+				if (allPilots == null)
+					updateAllPilots ();
+
+				return allPilots;
+			}
+		}
+
+		static void updateAllPilots ()
+		{
+			var temp = Pilots.ToList ();
+			temp.AddRange (customPilots);
+			allPilots = new ObservableCollection<Pilot> (temp);
+		}
+
+		public static void GetAllPilots ()
+		{
+			if (!DependencyService.Get<ISaveAndLoad> ().FileExists (Pilot.PilotsFilename))
+				return;
+
+			var collectionXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Collection.xml")));
+			var pilotsCollectionElement = collectionXml.Element ("Pilots");
+
+			XElement pilotsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText (Pilot.PilotsFilename)));
+			pilots = new ObservableCollection<Pilot> (from pilot in pilotsXml.Elements ()
+								  select new Pilot {
+									  Id = pilot.Attribute ("id").Value,
+									  Name = pilot.Element ("Name").Value,
+									  CanonicalName = pilot.Element ("CanonicalName")?.Value,
+									  OldId = pilot.Element ("OldId")?.Value,
+									  Faction = Faction.Factions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
+									  Ship = Ship.Ships.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
+									  Unique = (bool) pilot.Element ("Unique"),
+									  BasePilotSkill = (int) pilot.Element ("PilotSkill"),
+									  BaseEnergy = pilot.Element ("Energy") != null ? (int) pilot.Element ("Energy") : 0,
+									  BaseAttack = (int) pilot.Element ("Attack"),
+									  BaseAgility = (int) pilot.Element ("Agility"),
+									  BaseHull = (int) pilot.Element ("Hull"),
+									  BaseShields = (int) pilot.Element ("Shields"),
+									  BaseCost = (int) pilot.Element ("Cost"),
+									  Ability = pilot.Element ("Ability")?.Value,
+									  Keywords = pilot.Element ("Keywords")?.Value ?? "",
+									  UpgradeTypes = new ObservableCollection<string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
+									  UpgradesEquipped = new ObservableCollection<Upgrade> (new List<Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
+									  IsCustom = pilot.Element ("Custom") != null ? (bool) pilot.Element ("Custom") : false,
+									  CCL = pilot.Element ("CCL") != null ? (bool) pilot.Element ("CCL") : false,
+									  Preview = pilot.Element ("Preview") != null ? (bool) pilot.Element ("Preview") : false,
+									  owned = pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) != null ?
+						       (int) pilotsCollectionElement.Elements ().FirstOrDefault (e => e.Attribute ("id").Value == pilot.Attribute ("id").Value) : 0
+								  });
+
+			XElement customPilotsXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Pilots_Custom.xml")));
+			customPilots = new ObservableCollection<Pilot> (from pilot in customPilotsXml.Elements ()
+									select new Pilot {
+										Id = pilot.Attribute ("id").Value,
+										Name = pilot.Element ("Name").Value,
+										CanonicalName = pilot.Element ("CanonicalName")?.Value,
+										OldId = pilot.Element ("OldId")?.Value,
+										Faction = Faction.AllFactions.FirstOrDefault (f => f.Id == pilot.Attribute ("faction").Value),
+										Ship = Ship.AllShips.FirstOrDefault (f => f.Id == pilot.Attribute ("ship").Value)?.Copy (),
+										Unique = (bool) pilot.Element ("Unique"),
+										BasePilotSkill = (int) pilot.Element ("PilotSkill"),
+										BaseEnergy = pilot.Element ("Energy") != null ? (int) pilot.Element ("Energy") : 0,
+										BaseAttack = (int) pilot.Element ("Attack"),
+										BaseAgility = (int) pilot.Element ("Agility"),
+										BaseHull = (int) pilot.Element ("Hull"),
+										BaseShields = (int) pilot.Element ("Shields"),
+										BaseCost = (int) pilot.Element ("Cost"),
+										Ability = pilot.Element ("Ability")?.Value,
+										Keywords = pilot.Element ("Keywords")?.Value ?? "",
+										UpgradeTypes = new ObservableCollection<string> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).ToList ()),
+										UpgradesEquipped = new ObservableCollection<Upgrade> (new List<Upgrade> (pilot.Element ("Upgrades").Elements ("Upgrade").Select (e => e.Value).Count ())),
+										IsCustom = (bool) pilot.Element ("Custom"),
+										CCL = false,
+										Preview = pilot.Element ("Preview") != null ? (bool) pilot.Element ("Preview") : false,
+										owned = 0
+									});
+
+			updateAllPilots ();
+		}
+		#endregion
 	}
 }

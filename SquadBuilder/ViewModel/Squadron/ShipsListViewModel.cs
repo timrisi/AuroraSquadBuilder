@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -49,27 +49,24 @@ namespace SquadBuilder
 						MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 
 						MessagingCenter.Send <ShipsListViewModel, Pilot> (this, "Pilot selected", pilot);
-						Navigation.RemoveAsync <ShipsListViewModel> (this);
+						NavigationService.PopAsync (); // <ShipsListViewModel> (this);
 					});
 
-					Navigation.PushAsync <PilotsListViewModel> ((vm, p) => {
-						vm.Faction = Faction;
-						vm.Ship = selectedShip.Copy ();
-					});
+					NavigationService.PushAsync (new PilotsListViewModel { Faction = this.Faction, Ship = selectedShip.Copy () });
 				}
 			}
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron?.PointsDescription; }
+			get { return Squadron.CurrentSquadron?.PointsDescription; }
 		}
 
 		void GetAllShips ()
 		{
 			if (Settings.AllowCustom)
-				allShips = Cards.SharedInstance.AllShips;
+				allShips = Ship.AllShips;
 			else
-				allShips = new ObservableCollection<Ship> (Cards.SharedInstance.Ships.Where (s => !s.IsCustom));
+				allShips = new ObservableCollection<Ship> (Ship.Ships.Where (s => !s.IsCustom));
 
 			if (Settings.HideUnavailable)
 				allShips = new ObservableCollection<Ship> (allShips.Where (s => s.IsAvailable));
@@ -82,9 +79,9 @@ namespace SquadBuilder
 		{
 			ObservableCollection <Pilot> pilots;
 			if (Settings.AllowCustom)
-				pilots = Cards.SharedInstance.AllPilots;
+				pilots = Pilot.AllPilots;
 			else
-				pilots = Cards.SharedInstance.Pilots;
+				pilots = Pilot.Pilots;
 
 			if (!Settings.CustomCardLeague)
 				pilots = new ObservableCollection <Pilot> (pilots.Where (p => !p.CCL));

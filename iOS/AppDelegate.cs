@@ -4,7 +4,6 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
-using XLabs.Ioc;
 using System.IO;
 using System.Xml.Linq;
 using Xamarin;
@@ -21,7 +20,7 @@ using HockeyApp.iOS;
 namespace SquadBuilder.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : XLabs.Forms.XFormsApplicationDelegate
+	public partial class AppDelegate : Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
 		public static class ShortcutIdentifier {
 			public const string CreateRebel = "com.risiapps.squadbuilder.000";
@@ -55,29 +54,26 @@ namespace SquadBuilder.iOS
 					e.NativeView.AccessibilityIdentifier = e.View.StyleId;
 			};
 
-			if (!Resolver.IsSet)
-				SetIoc ();
-
 			var collectionXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Collection", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Collection.xml"))
 				saveAndLoad.SaveText ("Collection.xml", collectionXml);
 
 			var settingsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Settings", "xml")).ReadToEnd ();
 			var settingsVersion = (float) XElement.Load (new StringReader (settingsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.SettingsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
-				saveAndLoad.SaveText (Cards.SettingsFilename, settingsXml);
+			if (!saveAndLoad.FileExists (Settings.SettingsFilename) || (float) XElement.Load (new StringReader (saveAndLoad.LoadText (Settings.SettingsFilename)))?.Attribute ("Version") < settingsVersion)
+				saveAndLoad.SaveText (Settings.SettingsFilename, settingsXml);
 			Settings.SettingsVersion = settingsVersion;
 
 			var referenceCardXml = new StreamReader (NSBundle.MainBundle.PathForResource ("ReferenceCards", "xml")).ReadToEnd ();
 			var referenceCardsVersion = (float)XElement.Load (new StringReader (referenceCardXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
-				saveAndLoad.SaveText (Cards.ReferenceCardsFilename, referenceCardXml);
+			if (!saveAndLoad.FileExists (App.ReferenceCardsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (App.ReferenceCardsFilename)))?.Attribute ("Version") < referenceCardsVersion)
+				saveAndLoad.SaveText (App.ReferenceCardsFilename, referenceCardXml);
 			Settings.ReferenceCardsVersion = referenceCardsVersion;
 
 			var factionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions3", "xml")).ReadToEnd ();
 			Settings.FactionsVersion = (float)XElement.Load (new StringReader (factionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.FactionsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
-				saveAndLoad.SaveText (Cards.FactionsFilename, factionsXml);
+			if (!saveAndLoad.FileExists (Faction.FactionsFilename) || (float)XElement.Load (new StringReader (saveAndLoad.LoadText (Faction.FactionsFilename)))?.Attribute ("Version") < Settings.FactionsVersion)
+				saveAndLoad.SaveText (Faction.FactionsFilename, factionsXml);
 
 			var customFactionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Factions_Custom", "xml")).ReadToEnd ();
 			if (!saveAndLoad.FileExists ("Factions_Custom.xml"))
@@ -85,11 +81,11 @@ namespace SquadBuilder.iOS
 
 			var shipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships3", "xml")).ReadToEnd ();
 			Settings.ShipsVersion = (float)XElement.Load (new StringReader (shipsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.ShipsFilename))
-				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
-			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ShipsFilename)))?.Attribute ("Version") < Settings.ShipsVersion) {
-				saveAndLoad.SaveText (Cards.ShipsFilename, shipsXml);
-				Cards.SharedInstance.GetAllShips ();
+			if (!saveAndLoad.FileExists (Ship.ShipsFilename))
+				saveAndLoad.SaveText (Ship.ShipsFilename, shipsXml);
+			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Ship.ShipsFilename)))?.Attribute ("Version") < Settings.ShipsVersion) {
+				saveAndLoad.SaveText (Ship.ShipsFilename, shipsXml);
+				Ship.GetAllShips ();
 			}
 
 			var customShipsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Ships_Custom", "xml")).ReadToEnd ();
@@ -98,11 +94,11 @@ namespace SquadBuilder.iOS
 
 			var pilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots3", "xml")).ReadToEnd ();
 			Settings.PilotsVersion = (float)XElement.Load (new StringReader (pilotsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.PilotsFilename))
-				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
-			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
-				saveAndLoad.SaveText (Cards.PilotsFilename, pilotsXml);
-				Cards.SharedInstance.GetAllPilots ();
+			if (!saveAndLoad.FileExists (Pilot.PilotsFilename))
+				saveAndLoad.SaveText (Pilot.PilotsFilename, pilotsXml);
+			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Pilot.PilotsFilename)))?.Attribute ("Version") < Settings.PilotsVersion) {
+				saveAndLoad.SaveText (Pilot.PilotsFilename, pilotsXml);
+				Pilot.GetAllPilots ();
 			}
 
 			var customPilotsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Pilots_Custom", "xml")).ReadToEnd ();
@@ -111,11 +107,11 @@ namespace SquadBuilder.iOS
 
 			var upgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades3", "xml")).ReadToEnd ();
 			Settings.UpgradesVersion = (float)XElement.Load (new StringReader (upgradesXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.UpgradesFilename))
-				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
-			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
-				saveAndLoad.SaveText (Cards.UpgradesFilename, upgradesXml);
-				Cards.SharedInstance.GetAllUpgrades ();
+			if (!saveAndLoad.FileExists (Upgrade.UpgradesFilename))
+				saveAndLoad.SaveText (Upgrade.UpgradesFilename, upgradesXml);
+			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Upgrade.UpgradesFilename)))?.Attribute ("Version") < Settings.UpgradesVersion) {
+				saveAndLoad.SaveText (Upgrade.UpgradesFilename, upgradesXml);
+				Upgrade.GetAllUpgrades ();
 			}
 
 			var customUpgradesXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Upgrades_Custom", "xml")).ReadToEnd ();
@@ -124,20 +120,19 @@ namespace SquadBuilder.iOS
 
 			var expansionsXml = new StreamReader (NSBundle.MainBundle.PathForResource ("Expansions3", "xml")).ReadToEnd ();
 			Settings.ExpansionsVersion = (float)XElement.Load (new StringReader (expansionsXml)).Attribute ("Version");
-			if (!saveAndLoad.FileExists (Cards.ExpansionsFilename)) {
-				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
+			if (!saveAndLoad.FileExists (Expansion.ExpansionsFilename)) {
+				saveAndLoad.SaveText (Expansion.ExpansionsFilename, expansionsXml);
 			}
-			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Cards.ExpansionsFilename)))?.Attribute ("Version") < Settings.ExpansionsVersion) {
-				saveAndLoad.SaveText (Cards.ExpansionsFilename, expansionsXml);
-				Cards.SharedInstance.GetAllExpansions ();
+			else if ((float)XElement.Load (new StringReader (saveAndLoad.LoadText (Expansion.ExpansionsFilename)))?.Attribute ("Version") < Settings.ExpansionsVersion) {
+				saveAndLoad.SaveText (Expansion.ExpansionsFilename, expansionsXml);
+				Expansion.GetAllExpansions ();
 			}
 				
-			Cards.SharedInstance.GetAllFactions ();
-			Cards.SharedInstance.GetAllShips ();
-			Cards.SharedInstance.GetAllPilots ();
-			Cards.SharedInstance.GetAllUpgrades ();
-
-			Cards.SharedInstance.GetAllSquadrons ();
+			Faction.GetAllFactions ();
+			Ship.GetAllShips ();
+			Pilot.GetAllPilots ();
+			Upgrade.GetAllUpgrades ();
+			Squadron.GetAllSquadrons ();
 
 			LoadApplication (new App ());
 
@@ -146,12 +141,6 @@ namespace SquadBuilder.iOS
 				LaunchedShortcutItem = options [UIApplication.LaunchOptionsShortcutItemKey] as UIApplicationShortcutItem;
 
 			return base.FinishedLaunching (app, options);
-		}
-
-		void SetIoc()
-		{
-			var resolverContainer = new SimpleContainer();
-			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
 
 		public bool HandleShortcutItem (UIApplicationShortcutItem shortcutItem)

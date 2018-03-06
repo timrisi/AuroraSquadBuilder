@@ -1,11 +1,11 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using XLabs;
+
 using System.IO;
 
 namespace SquadBuilder
@@ -46,10 +46,10 @@ namespace SquadBuilder
 		{
 			var allPilotGroups = new ObservableCollection<PilotGroup> ();
 
-			var allPilots = Cards.SharedInstance.Pilots.ToList ();
+			var allPilots = Pilot.Pilots.ToList ();
 
 			if (Settings.AllowCustom)
-				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
+				allPilots.AddRange (Pilot.CustomPilots);
 			else
 				allPilots.RemoveAll (p => p.IsCustom);
 			

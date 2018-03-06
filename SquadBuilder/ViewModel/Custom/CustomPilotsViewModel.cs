@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Linq;
 using System.Xml.Linq;
@@ -25,7 +25,7 @@ namespace SquadBuilder
 
 			MessagingCenter.Subscribe <Pilot> (this, "Edit Pilot", pilot => {
 				MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Finished Editing", (vm, updatedPilot) => {
-					Cards.SharedInstance.CustomPilots [Cards.SharedInstance.CustomPilots.IndexOf (pilot)] = updatedPilot;
+					Pilot.CustomPilots [Pilot.CustomPilots.IndexOf (pilot)] = updatedPilot;
 
 					var originalGroup = PilotGroups.FirstOrDefault (g => g.ToList ().Exists (p => p.Name == pilot.Name && p.Ship.Name == pilot.Ship.Name && p.Faction.Name == pilot.Faction.Name));
 					var pilotGroup = PilotGroups.FirstOrDefault (g => g.Ship?.Name == updatedPilot.Ship?.Name && g.Faction.Id == updatedPilot.Faction.Id);
@@ -48,7 +48,7 @@ namespace SquadBuilder
 						pilotGroup.Add (updatedPilot);
 					}
 
-					foreach (var squad in Cards.SharedInstance.Squadrons) {
+					foreach (var squad in Squadron.Squadrons) {
 						if (squad.Pilots.Any (p => p.Id == updatedPilot.Id)) {
 							for (int i = 0; i < squad.Pilots.Count; i++) {
 								var squadPilot = squad.Pilots [i];
@@ -64,7 +64,7 @@ namespace SquadBuilder
 									squad.Pilots [i].UpgradesEquipped.Add (null);
 								}
 
-								for (int j = 0; j < upgradesEquipped.Count; j++) {
+								for (int j = 0; j < upgradesEquipped.Count (); j++) {
 									var equippedUpgrade = upgradesEquipped [j];
 									if (equippedUpgrade != null) {
 										var index = squad.Pilots [i].UpgradeTypes.IndexOf (upgradeTypes [j]);
@@ -75,15 +75,13 @@ namespace SquadBuilder
 							}
 						}
 					}
-						
-					Navigation.RemoveAsync <EditPilotViewModel> (vm);
+
+					NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
 					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
 					MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Finished Editing");
 				});
 
-				Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
-					vm.Pilot = pilot.Copy ();
-				});
+				NavigationService.PushAsync (new EditPilotViewModel { Pilot = pilot.Copy () });
 			});
 		}
 
@@ -99,11 +97,11 @@ namespace SquadBuilder
 			get { return "Pilots"; }
 		}
 
-		RelayCommand createPilot;
-		public RelayCommand CreatePilot {
+		Command createPilot;
+		public Command CreatePilot {
 			get {
 				if (createPilot == null)
-					createPilot = new RelayCommand (() => {
+					createPilot = new Command (() => {
 						MessagingCenter.Subscribe <EditPilotViewModel, Pilot> (this, "Pilot Created", (vm, pilot) => {
 							while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())
 								pilot.UpgradesEquipped.Add (null);
@@ -119,16 +117,13 @@ namespace SquadBuilder
 							pilotGroup.Add (pilot);
 
 							PilotGroups = new ObservableCollection<PilotGroup> (pilotGroups);
-							Cards.SharedInstance.CustomPilots.Add (pilot);
-							Cards.SharedInstance.GetAllPilots ();
-							Navigation.RemoveAsync <EditPilotViewModel> (vm);
+							Pilot.CustomPilots.Add (pilot);
+							Pilot.GetAllPilots ();
+							NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Pilot Created");
 						});
 
-						Navigation.PushAsync<EditPilotViewModel> ((vm, p) => {
-							vm.Pilot = new Pilot ();
-							vm.Create = true;
-						});
+						NavigationService.PushAsync (new EditPilotViewModel { Pilot = new Pilot (), Create = true });
 					});
 
 				return createPilot;
@@ -141,7 +136,7 @@ namespace SquadBuilder
 
 			var allPilotGroups = new ObservableCollection <PilotGroup>();
 
-			var allPilots = Cards.SharedInstance.CustomPilots;
+			var allPilots = Pilot.CustomPilots;
 
 			foreach (var pilot in allPilots) {
 				while (pilot.UpgradesEquipped.Count () < pilot.UpgradeTypes.Count ())

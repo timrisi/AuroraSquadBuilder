@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -35,16 +35,14 @@ namespace SquadBuilder
 				SetProperty (ref selectedShip, value); 
 
 				if (value != null) {
-					Navigation.PushAsync <PilotsCollectionViewModel> ((vm, p) => {
-						vm.Ship = SelectedShip?.Copy ();
-					});
+					NavigationService.PushAsync (new PilotsCollectionViewModel { Ship = SelectedShip.Copy () });
 				}
 			}
 		}
 
 		void GetAllShips ()
 		{
-			allShips = Cards.SharedInstance.Ships;
+			allShips = Ship.Ships;
 			Ships = new ObservableCollection <Ship> (allShips.Where (s => !s.CCL).OrderBy (s => s.Name).OrderBy (s => s.LargeBase).OrderBy (s => s.Huge));
 		}
 

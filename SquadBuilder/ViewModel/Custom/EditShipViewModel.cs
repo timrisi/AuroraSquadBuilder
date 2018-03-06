@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Collections.Generic;
@@ -150,17 +150,17 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand saveShip;
-		public RelayCommand SaveShip {
+		Command saveShip;
+		public Command SaveShip {
 			get {
 				if (saveShip == null)
-					saveShip = new RelayCommand (() => {
+					saveShip = new Command (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
 						XElement customShipsXml = XElement.Load (new StringReader (DependencyService.Get <ISaveAndLoad> ().LoadText ("Ships_Custom.xml")));
 
-						if (Cards.SharedInstance.Ships.FirstOrDefault (e => e.Name == Name) != null)
+						if (Ship.Ships.FirstOrDefault (e => e.Name == Name) != null)
 							return;
 
 						if (Create) {

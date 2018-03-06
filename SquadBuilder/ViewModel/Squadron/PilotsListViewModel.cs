@@ -1,11 +1,11 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using XLabs;
+
 using System.IO;
 
 namespace SquadBuilder
@@ -60,23 +60,23 @@ namespace SquadBuilder
 
 				if (value != null) {
 					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Pilot selected", SelectedPilot.Copy ());
-					Navigation.RemoveAsync <PilotsListViewModel> (this);
+					NavigationService.PopAsync (true); // <PilotsListViewModel> (this);
 				}
 			}
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+			get { return Squadron.CurrentSquadron.PointsDescription; }
 		}
 
 		ObservableCollection <PilotGroup> getAllPilots ()
 		{
 			var allPilotGroups = new ObservableCollection <PilotGroup>();
 
-			var allPilots = Cards.SharedInstance.Pilots.ToList ();
+			var allPilots = Pilot.Pilots.ToList ();
 
 			if (Settings.AllowCustom)
-				allPilots.AddRange (Cards.SharedInstance.CustomPilots);
+				allPilots.AddRange (Pilot.CustomPilots);
 			else
 				allPilots.RemoveAll (p => p.IsCustom);
 

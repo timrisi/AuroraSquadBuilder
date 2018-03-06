@@ -1,6 +1,6 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
-using XLabs;
+
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using Xamarin.Forms;
@@ -14,13 +14,13 @@ namespace SquadBuilder {
 
 		public EditUpgradeViewModel ()
 		{
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 			Factions.Insert (0, new Faction { Name = "Any" });
 
-			Ships = new ObservableCollection<Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection<Ship> (Ship.AllShips);
 			Ships.Insert (0, new Ship { Name = "Any" });
 
-			var upgrades = Cards.SharedInstance.AllUpgrades;
+			var upgrades = Upgrade.AllUpgrades;
 			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
 
 			UpgradeTypes = new ObservableCollection<string> (upgradeTypes);
@@ -281,20 +281,20 @@ namespace SquadBuilder {
 			}
 		}
 
-		RelayCommand saveUpgrade;
-		public RelayCommand SaveUpgrade {
+		Command saveUpgrade;
+		public Command SaveUpgrade {
 			get {
 				if (saveUpgrade == null)
-					saveUpgrade = new RelayCommand (() => {
+					saveUpgrade = new Command (() => {
 						if (string.IsNullOrWhiteSpace (Name))
 							return;
 
 						XElement customUpgradesXml = XElement.Load (new StringReader (DependencyService.Get<ISaveAndLoad> ().LoadText ("Upgrades_Custom.xml")));
 
-						if (Cards.SharedInstance.Upgrades.Count (u => u.Name == Name) > 0)
+						if (Upgrade.Upgrades.Count (u => u.Name == Name) > 0)
 							return;
 
-						if (Create && Cards.SharedInstance.CustomUpgrades.Count (u => u.Name == Name) > 0)
+						if (Create && Upgrade.CustomUpgrades.Count (u => u.Name == Name) > 0)
 							return;
 
 						XElement element;
@@ -378,13 +378,13 @@ namespace SquadBuilder {
 		{
 			base.OnViewAppearing ();
 
-			Factions = new ObservableCollection<Faction> (Cards.SharedInstance.AllFactions);
+			Factions = new ObservableCollection<Faction> (Faction.AllFactions);
 			Factions.Insert (0, new Faction { Name = "Any" });
 
-			Ships = new ObservableCollection<Ship> (Cards.SharedInstance.AllShips);
+			Ships = new ObservableCollection<Ship> (Ship.AllShips);
 			Ships.Insert (0, new Ship { Name = "Any" });
 
-			var upgrades = Cards.SharedInstance.AllUpgrades;
+			var upgrades = Upgrade.AllUpgrades;
 			var upgradeTypes = upgrades.Select (u => u.Category).Distinct ();
 
 			UpgradeTypes = new ObservableCollection<string> (upgradeTypes);

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-			 xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 			 x:Class="SquadBuilder.ImportView"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
 			 Title="Import Squadron"
 			 Icon="" >
-	<mvvm:BaseView.Content>
+	<local:BaseView.Content>
 		<StackLayout Padding="15,10,15,10" VerticalOptions="FillAndExpand">
 			<Editor Text="{Binding ImportText}" VerticalOptions="FillAndExpand" BackgroundColor="Silver" />
 			<Button Text="Import" StyleId="SaveButton" Command="{Binding SaveSquadron}" VerticalOptions="End" />
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

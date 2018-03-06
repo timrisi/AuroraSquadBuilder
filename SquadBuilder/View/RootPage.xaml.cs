@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SquadBuilder
 {
@@ -77,10 +78,18 @@ namespace SquadBuilder
 					var tb = new TabbedPage ();
 					tb.Title = "Squadrons";
 					tb.Children.Add (new MainView ());
-					var factions = Settings.AllowCustom ? Cards.SharedInstance.AllFactions : Cards.SharedInstance.Factions;
-					foreach (var faction in factions)
-						tb.Children.Add (new MainView (faction.Name));
+					var factions = Settings.AllowCustom ? Faction.AllFactions : Faction.Factions;
+                    foreach (var faction in factions)
+                    {
+                        var factionView = new MainView(faction.Name);
 
+                        tb.Children.Add(factionView);
+                        //if (faction.Name == "Imperial")
+                            //tb.CurrentPage = factionView;
+                    }
+
+                    //if (tb.Children.FirstOrDefault (p => (p as MainView)?))
+                    ////tb.CurrentPage = tb.Children [factions.IndexOf(factions.First(f => f.Name == "Imperial")) + 1];
 					mainView = new NavigationPage (tb);
 				}
 
@@ -101,16 +110,16 @@ namespace SquadBuilder
 						if (!accept)
 							return;
 
-						foreach (var expansion in Cards.SharedInstance.Expansions)
+						foreach (var expansion in Expansion.Expansions)
 							expansion.Owned = 0;
 
-						foreach (var ship in Cards.SharedInstance.Ships)
+						foreach (var ship in Ship.Ships)
 							ship.Owned = 0;
 
-						foreach (var pilot in Cards.SharedInstance.Pilots)
+						foreach (var pilot in Pilot.Pilots)
 							pilot.Owned = 0;
 
-						foreach (var upgrade in Cards.SharedInstance.Upgrades)
+						foreach (var upgrade in Upgrade.Upgrades)
 							upgrade.Owned = 0;
 					}, ToolbarItemOrder.Secondary));
 

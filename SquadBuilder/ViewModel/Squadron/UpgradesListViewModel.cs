@@ -1,10 +1,10 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.Linq;
 using Xamarin.Forms;
-using XLabs;
+
 using System.Collections.Generic;
 using System.IO;
 
@@ -45,11 +45,11 @@ namespace SquadBuilder
 
 				if (value != null) {
 					if (Device.OS == TargetPlatform.iOS) {
-						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
 					} else {
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
-						Navigation.RemoveAsync<UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
 					}
 				}
 			}
@@ -58,9 +58,9 @@ namespace SquadBuilder
 		ObservableCollection <Upgrade> GetUpgrades (string type)
 		{
 			try {
-				var upgrades = Cards.SharedInstance.Upgrades
+				var upgrades = Upgrade.Upgrades
 					.Where (u => u.Category == type)
-				                    .Where (u => Cards.SharedInstance.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id) || (u.Id == "maul" && Cards.SharedInstance.CurrentSquadron.Pilots.Any (p => p.Name.Contains ("Ezra Bridger") || p.UpgradesEquippedString.Contains ("Ezra Bridger"))))
+				                    .Where (u => Squadron.CurrentSquadron.Faction.Id == "mixed" || !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id) || (u.Id == "maul" && Squadron.CurrentSquadron.Pilots.Any (p => p.Name.Contains ("Ezra Bridger") || (bool)(p.UpgradesEquippedString?.Contains ("Ezra Bridger") ?? false))))
 					.Where (u => string.IsNullOrEmpty (u.RequiredAction) || Pilot.Ship.Actions.Contains (u.RequiredAction))
 					.Where (u => u.ShipRequirement == null || meetsRequirement (u.ShipRequirement))
 					.Where (u => u.MinPilotSkill <= Pilot.PilotSkill)
@@ -71,7 +71,7 @@ namespace SquadBuilder
 					.Where (u => !u.HotAC || Settings.IncludeHotac).ToList ();
 
 				if (Settings.AllowCustom) {
-					var customUpgrades = Cards.SharedInstance.CustomUpgrades
+					var customUpgrades = Upgrade.CustomUpgrades
 						.Where (u => u.Category == type)
 						  .Where (u => !u.FactionRestricted || u.Factions.Any (f => f.Id == Pilot.Faction.Id))
 						.Where (u => string.IsNullOrEmpty (u.ShipRequirement) || meetsRequirement (u.ShipRequirement))
@@ -86,20 +86,20 @@ namespace SquadBuilder
 				ObservableCollection<Upgrade> valid = new ObservableCollection<Upgrade> ();
 				foreach (var upgrade in upgrades) {
 #region Hard-coded Exceptions
-					if (upgradeType == "Salvaged Astromech" && Pilot.UpgradesEquippedString.Contains ("Havoc") && !upgrade.Unique)
+					if (upgradeType == "Salvaged Astromech" && (bool)(Pilot.UpgradesEquippedString?.Contains ("Havoc") ?? false) && !upgrade.Unique)
 						continue;
 
-					if (upgradeType == "Modification" && Pilot.UpgradesEquippedString.Contains ("Smuggling Compartment") && upgrade.Cost > 3)
+					if (upgradeType == "Modification" && (bool)(Pilot.UpgradesEquippedString?.Contains ("Smuggling Compartment") ?? false) && upgrade.Cost > 3)
 						continue;
 
-					if (upgradeType == "Crew" && Pilot.UpgradesEquippedString.Contains ("TIE Shuttle") && upgrade.Cost > 4)
+					if (upgradeType == "Crew" && (bool)(Pilot.UpgradesEquippedString?.Contains ("TIE Shuttle") ?? false) && upgrade.Cost > 4)
 						continue;
 #endregion
 
-					if (upgrade.Unique && (bool) Cards.SharedInstance.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
+					if (upgrade.Unique && (bool) Squadron.CurrentSquadron.Pilots?.Any (p => p != null && p.Name == upgrade.Name || (bool) p?.UpgradesEquipped?.Any (u => u?.Name == upgrade?.Name)))
 						continue;
 
-					if (upgrade.SquadLimit != null && Cards.SharedInstance.CurrentSquadron.Pilots?.Count (p => p != null && p.UpgradesEquippedString.Contains (upgrade.Name)) >= upgrade.SquadLimit)
+					if (upgrade.SquadLimit != null && Squadron.CurrentSquadron.Pilots?.Count (p => p != null && (bool)(p.UpgradesEquippedString?.Contains (upgrade.Name) ?? false)) >= upgrade.SquadLimit)
 						continue;
 
 					if (upgrade.Limited && (bool)Pilot?.UpgradesEquipped?.Any (u => u?.Name == upgrade.Name))
@@ -169,23 +169,21 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron.PointsDescription; }
+			get { return Squadron.CurrentSquadron.PointsDescription; }
 		}
 
-		RelayCommand noUpgrade;
-		public RelayCommand NoUpgrade {
+		Command noUpgrade;
+		public Command NoUpgrade {
 			get {
 				if (noUpgrade == null)
-					noUpgrade = new RelayCommand (() => {
+					noUpgrade = new Command (() => {
 						MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null);
-						Navigation.RemoveAsync <UpgradesListViewModel> (this);
+						NavigationService.PopAsync (); // <UpgradesListViewModel> (this);
 					});
 
 				return noUpgrade;
 			}
 		}
-
-		DateTime searchTime = DateTime.MinValue;
 
 		string searchText;
 		public string SearchText {
@@ -196,14 +194,10 @@ namespace SquadBuilder
 
 				SetProperty (ref searchText, value);
 
-				if (DateTime.Now > searchTime.AddMilliseconds (500)) {
 				SearchUpgrades (value);
-					searchTime = DateTime.Now;
-				}
 			}
 		}
 
-		bool searching = false;
 		public void SearchUpgrades (string text)
 		{
 			try {

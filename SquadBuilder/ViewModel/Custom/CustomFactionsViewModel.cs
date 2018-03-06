@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml.Linq;
 using System.IO;
@@ -15,7 +15,7 @@ namespace SquadBuilder
 		{
 			MessagingCenter.Subscribe <Faction> (this, "Remove Faction", faction => {
 				Factions.Remove (faction);
-				Cards.SharedInstance.CustomFactions.Remove (faction);
+				Faction.CustomFactions.Remove (faction);
 			});
 		}
 
@@ -31,20 +31,20 @@ namespace SquadBuilder
 			}
 		}
 
-		RelayCommand createFaction;
-		public RelayCommand CreateFaction {
+		Command createFaction;
+		public Command CreateFaction {
 			get {
 				if (createFaction == null)
-					createFaction = new RelayCommand (() => {
+					createFaction = new Command (() => {
 						MessagingCenter.Subscribe <CreateFactionViewModel, Faction> (this, "Faction Created", (vm, faction) => {
 							Factions.Add (faction);
-							Cards.SharedInstance.CustomFactions.Add (faction);
-							Cards.SharedInstance.GetAllFactions ();
-							Navigation.RemoveAsync <CreateFactionViewModel> (vm);
+							Faction.CustomFactions.Add (faction);
+							Faction.GetAllFactions ();
+							NavigationService.PopAsync (); // <CreateFactionViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateFactionViewModel, Faction> (this, "Faction Created");
 						});
 							
-						Navigation.PushAsync <CreateFactionViewModel> ();
+						NavigationService.PushAsync (new CreateFactionViewModel ());
 					});
 
 				return createFaction;
@@ -55,7 +55,7 @@ namespace SquadBuilder
 		{
 			base.OnViewAppearing ();
 
-			Factions = new ObservableCollection <Faction> (Cards.SharedInstance.CustomFactions);
+			Factions = new ObservableCollection <Faction> (Faction.CustomFactions);
 		}
 	}
 }

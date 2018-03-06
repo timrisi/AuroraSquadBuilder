@@ -1,7 +1,7 @@
 ﻿﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace SquadBuilder
 					}
 
 					if ((pilot.UpgradesEquipped.Any (u => u?.Id == "ordnancetubes") || 
-					     (pilot.MultiSectionId >= 0 && Cards.SharedInstance.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
+					     (pilot.MultiSectionId >= 0 && Squadron.CurrentSquadron.Pilots.First (p => p.MultiSectionId == pilot.MultiSectionId && p.Name != pilot.Name).UpgradesEquipped.Any (u => u?.Id == "ordnancetubes"))) &&
 					    (Pilot.UpgradeTypes [index] == "Hardpoint" ||
 					     Pilot.UpgradeTypes [index] == "Torpedo" ||
 						 Pilot.UpgradeTypes [index] == "Missile") &&
@@ -56,12 +56,12 @@ namespace SquadBuilder
 		}
 
 		public string PointsDescription {
-			get { return Cards.SharedInstance.CurrentSquadron?.PointsDescription; }
+			get { return Squadron.CurrentSquadron?.PointsDescription; }
 		}
 
 		void pushUpgradeList (int index)
 		{
-			MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
+			MessagingCenter.Subscribe<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
 				if (upgrade?.UpgradeOptions != null && upgrade.UpgradeOptions.Any ()) {
 					var upgr = upgrade;
 					MessagingCenter.Subscribe<UpgradesListView, string> (this, "Upgrade Option Selected", (uvm, upgradeType) => {
@@ -76,14 +76,10 @@ namespace SquadBuilder
 					updateUpgrade (index, upgrade);
 
 				NotifyPropertyChanged ("PointsDescription");
-				MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
+				MessagingCenter.Unsubscribe<UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 			});
 
-			Navigation.PushAsync <UpgradesListViewModel> ((vm,p) => {
-				vm.Pilot = Pilot;
-				vm.UpgradeType = Pilot.UpgradeTypes [index];
-				selectedUpgrade = null;
-			});
+			NavigationService.PushAsync (new UpgradesListViewModel { Pilot = this.Pilot, UpgradeType = this.Pilot.UpgradeTypes [index] }).ContinueWith (task => selectedUpgrade = null);
 		}
 
 		void updateUpgrade (int index, Upgrade upgrade) 
@@ -93,27 +89,27 @@ namespace SquadBuilder
 			NotifyPropertyChanged ("Pilot");
 		}
 
-		RelayCommand selectUpgrade;
-		public RelayCommand SelectUpgrade {
+		Command selectUpgrade;
+		public Command SelectUpgrade {
 			get {
 				if (selectUpgrade == null)
-					selectUpgrade = new RelayCommand (() => {
+					selectUpgrade = new Command (() => {
 						MessagingCenter.Subscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", (vm, upgrade) => {
-//							Navigation.RemoveAsync <UpgradesListViewModel> (vm);
+//							NavigationService.PopAsync (); // <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
-						Navigation.PushAsync <CreateSquadronViewModel> ();
+						NavigationService.PushAsync (new CreateSquadronViewModel ());
 					});
 
 				return selectUpgrade;
 			}
 		}
 
-		RelayCommand changePilot;
-		public RelayCommand ChangePilot {
+		Command changePilot;
+		public Command ChangePilot {
 			get {
 				if (changePilot == null) {
-					changePilot = new RelayCommand (() => {
+					changePilot = new Command (() => {
 						MessagingCenter.Subscribe<PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
 							MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 
@@ -143,15 +139,12 @@ namespace SquadBuilder
 							pilot.UpgradeTypes = upgradeTypes;
 							pilot.UpgradesEquipped = upgradesEquipped;
 
-							var pilotIndex = Cards.SharedInstance.CurrentSquadron.Pilots.IndexOf (this.Pilot);
-							Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
-							this.Pilot = Cards.SharedInstance.CurrentSquadron.Pilots [pilotIndex];
+							var pilotIndex = Squadron.CurrentSquadron.Pilots.IndexOf (this.Pilot);
+							Squadron.CurrentSquadron.Pilots [pilotIndex] = pilot.Copy ();
+							this.Pilot = Squadron.CurrentSquadron.Pilots [pilotIndex];
 						});
 
-						Navigation.PushAsync<PilotsListViewModel> ((vm, p) => {
-							vm.Faction = Pilot?.Faction;
-							vm.Ship = Pilot?.Ship;
-						});
+						NavigationService.PushAsync (new PilotsListViewModel { Faction = Pilot?.Faction, Ship = Pilot?.Ship });
 					});
 				}
 
@@ -166,6 +159,13 @@ namespace SquadBuilder
 
 			MessagingCenter.Unsubscribe <UpgradesListViewModel, Upgrade> (this, "Upgrade selected");
 			MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
+		}
+
+		public override void OnViewDisappearing ()
+		{
+			base.OnViewDisappearing ();
+
+			Squadron.SaveSquadrons ();
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
@@ -28,7 +28,7 @@ namespace SquadBuilder
 		{
 			var allExpansionGroups = new ObservableCollection <ExpansionGroup> ();
 
-			var allExpansions = Cards.SharedInstance.Expansions.ToList ();
+			var allExpansions = Expansion.Expansions.ToList ();
 
 			foreach (var expansion in allExpansions) {
 				var expansionGroup = allExpansionGroups.FirstOrDefault (g => g.Wave == expansion.Wave);

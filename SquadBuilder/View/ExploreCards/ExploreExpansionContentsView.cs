@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Linq;

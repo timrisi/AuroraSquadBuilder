@@ -285,6 +285,7 @@
             <Action>Coordinate</Action>
         </Actions>
         <Symbol></Symbol>
+				<AttackSymbol>&#60;</AttackSymbol>
         <ManeuverGridImage>SheathipedeDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="yt1300">

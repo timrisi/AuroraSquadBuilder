@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvvm:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView 	xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-				xmlns:mvvm="clr-namespace:XLabs.Forms.Mvvm;assembly=XLabs.Forms"
                 xmlns:local="clr-namespace:SquadBuilder;assembly=SquadBuilder"
 				x:Class="SquadBuilder.SquadronView"
                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                 ios:Page.UseSafeArea="true"
 				Title="{Binding Squadron.Name}">
-	<mvvm:BaseView.ToolbarItems>
+	<local:BaseView.ToolbarItems>
 		<ToolbarItem Text="{Binding NavigateToPilotsListText}" Command="{Binding NavigateToPilotsList}" StyleId="AddPilot" />
 		<!--<ToolbarItem Text="Export to Clipboard" Command="{Binding ExportToClipboard}" Order="Secondary" />
 		<ToolbarItem Text="Compact XWS" Command="{Binding ExportCompactXws}" Order="Secondary" />
 		<ToolbarItem Text="Formatted XWS" Command="{Binding ExportXws}" Order="Secondary" />-->
-	</mvvm:BaseView.ToolbarItems>
-	<mvvm:BaseView.Content>
+	</local:BaseView.ToolbarItems>
+	<local:BaseView.Content>
 	    <StackLayout VerticalOptions="FillAndExpand" 
 	    			 HorizontalOptions="FillAndExpand" Spacing="0">
             <Grid>
@@ -41,7 +40,7 @@
 					  HorizontalOptions="FillAndExpand" 
 					  BackgroundColor="Transparent"
 					  ItemsSource="{Binding Pilots}" 
-					  HasUnevenRows="true" 
+                      HasUnevenRows="true"
 					  SelectedItem="{Binding SelectedPilot, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
@@ -87,8 +86,8 @@
 										<Image Source="{Binding Ship.ManeuverGridImage}" HorizontalOptions="End" IsVisible="{Binding ShowManeuversInSquadronList}" Grid.Row="0" Grid.Column="1" />
 										<Label Text="{Binding Cost}" HorizontalOptions="EndAndExpand" XAlign="End" Grid.Row="0" Grid.Column="2" />
 									</Grid>
-									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}" IsVisible="{Binding ShowAbility}"/>
-									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" IsVisible="{Binding ShowUpgradesEquipped}" />
+									<local:HtmlLabel Text="{Binding Ability}" FontSize="Small" TextColor="{Binding AbilityColor}"/>
+									<Label Text="{Binding UpgradesEquippedString}" FontSize="Small" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
@@ -137,5 +136,5 @@
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>
-	</mvvm:BaseView.Content>
-</mvvm:BaseView>
+	</local:BaseView.Content>
+</local:BaseView>

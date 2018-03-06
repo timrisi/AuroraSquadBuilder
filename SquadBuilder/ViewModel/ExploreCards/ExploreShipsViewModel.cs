@@ -1,5 +1,5 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Linq;
@@ -34,20 +34,17 @@ namespace SquadBuilder
 			get { return selectedShip; }
 			set {
 				SetProperty (ref selectedShip, value);
-				if (selectedShip != null) {
-					Navigation.PushAsync<ExplorePilotsViewModel> ((vm, p) => {
-						vm.Ship = selectedShip.Copy ();
-					});
-				}
+				if (selectedShip != null)
+					NavigationService.PushAsync (new ExplorePilotsViewModel { Ship = selectedShip.Copy () });
 			}
 		}
 
 		void GetAllShips ()
 		{
 			if (Settings.AllowCustom)
-				allShips = Cards.SharedInstance.AllShips;
+				allShips = Ship.AllShips;
 			else
-				allShips = new ObservableCollection<Ship> (Cards.SharedInstance.Ships.Where (s => !s.IsCustom));
+				allShips = new ObservableCollection<Ship> (Ship.Ships.Where (s => !s.IsCustom));
 
 			if (!Settings.CustomCardLeague)
 				allShips = new ObservableCollection<Ship> (allShips.Where (s => !s.CCL));
@@ -57,9 +54,9 @@ namespace SquadBuilder
 		{
 			ObservableCollection<Pilot> pilots;
 			if (Settings.AllowCustom)
-				pilots = Cards.SharedInstance.AllPilots;
+				pilots = Pilot.AllPilots;
 			else
-				pilots = Cards.SharedInstance.Pilots;
+				pilots = Pilot.Pilots;
 
 			if (!Settings.CustomCardLeague)
 				pilots = new ObservableCollection<Pilot> (pilots.Where (p => !p.CCL));

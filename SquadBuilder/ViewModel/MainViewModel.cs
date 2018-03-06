@@ -1,7 +1,7 @@
 ﻿using System;
-using XLabs.Forms.Mvvm;
+
 using System.Collections.ObjectModel;
-using XLabs;
+
 using Xamarin.Forms;
 using System.Xml.Serialization;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace SquadBuilder {
 
 		IEnumerable<Squadron> allSquadrons {
 			get {
-				return Cards.SharedInstance.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s?.Faction?.Name == Faction);
+				return Squadron.Squadrons.Where (s => string.IsNullOrEmpty (Faction) || s?.Faction?.Name == Faction);
 			}
 		}
 
@@ -63,22 +63,19 @@ namespace SquadBuilder {
 
 				SetProperty (ref selectedSquadron, value);
 				if (value != null) {
-					Cards.SharedInstance.CurrentSquadron = selectedSquadron;
-					Navigation.PushAsync<SquadronViewModel> ((vm, p) => {
-						vm.Squadron = selectedSquadron;
-						selectedSquadron = null;
-					});
+					Squadron.CurrentSquadron = selectedSquadron;
+					NavigationService.PushAsync (new SquadronViewModel { Squadron = selectedSquadron }).ContinueWith (task => selectedSquadron = null);
 				}
 			}
 		}
 
 		public string AddSquadronText { get { return "+"; } }
 
-		RelayCommand addSquadron;
-		public RelayCommand AddSquadron {
+		Command addSquadron;
+		public Command AddSquadron {
 			get {
 				if (addSquadron == null) {
-					addSquadron = new RelayCommand (() => {
+					addSquadron = new Command (() => {
 						CreateSquadron (Faction);
 					});
 				}
@@ -89,46 +86,43 @@ namespace SquadBuilder {
 
 		public void CreateSquadron (string faction)
 		{
-			MessagingCenter.Subscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (vm, Squadron) => {
+			MessagingCenter.Subscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created", async (viewModel, Squadron) => {
 				MessagingCenter.Unsubscribe<CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 
-				Cards.SharedInstance.Squadrons.Add (Squadron);
-				await Navigation.PopAsync (false);
+				Squadron.Squadrons.Add (Squadron);
+				await NavigationService.PopAsync ();
 
-				Cards.SharedInstance.SaveSquadrons ();
+				await Squadron.SaveSquadrons ();
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
 
-				Cards.SharedInstance.CurrentSquadron = Squadron;
-				Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
-					vm2.Squadron = Squadron;
-				});
+				Squadron.CurrentSquadron = Squadron;
+				await NavigationService.PushAsync (new SquadronViewModel { Squadron = Squadron });
 			});
-			Navigation.PushAsync<CreateSquadronViewModel> ((vm, page) => {
-				if (!string.IsNullOrEmpty (faction))
-					vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == faction));
-			});
+			var vm = new CreateSquadronViewModel ();
+			if (!string.IsNullOrEmpty (faction))
+				vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == faction));
+
+			NavigationService.PushAsync (vm);
 		}
 
-		RelayCommand importSquadron;
-		public RelayCommand ImportSquadron {
+		Command importSquadron;
+		public Command ImportSquadron {
 			get {
 				if (importSquadron == null)
-					importSquadron = new RelayCommand (() => {
+					importSquadron = new Command (() => {
 						MessagingCenter.Subscribe<ImportViewModel, Squadron> (this, "Squadron Imported", (vm, squadron) => {
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadron Imported");
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
 
-							Cards.SharedInstance.Squadrons.Add (squadron);
+							Squadron.Squadrons.Add (squadron);
 
-							Cards.SharedInstance.SaveSquadrons ();
+							Squadron.SaveSquadrons ();
 							NotifyPropertyChanged ("Squadrons");
 							Squadrons = allSquadrons;
 
-							Cards.SharedInstance.CurrentSquadron = squadron;
-							Navigation.PushAsync<SquadronViewModel> ((vm2, p) => {
-								vm2.Squadron = squadron;
-							});
+							Squadron.CurrentSquadron = squadron;
+							NavigationService.PushAsync (new SquadronViewModel { Squadron = squadron });
 						});
 
 						MessagingCenter.Subscribe<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
@@ -136,26 +130,26 @@ namespace SquadBuilder {
 							MessagingCenter.Unsubscribe<ImportViewModel, Squadron> (this, "Squadrons Imported");
 
 							foreach (var squadron in squadrons)
-								Cards.SharedInstance.Squadrons.Add (squadron);
+								Squadron.Squadrons.Add (squadron);
 
-							Cards.SharedInstance.SaveSquadrons ();
+							Squadron.SaveSquadrons ();
 							NotifyPropertyChanged ("Squadrons");
 							Squadrons = allSquadrons;
 						});
 
-						Navigation.PushAsync<ImportViewModel> ();
+						NavigationService.PushAsync (new ImportViewModel ());
 					});
 
 				return importSquadron;
 			}
 		}
 
-		RelayCommand exportAll;
-		public RelayCommand ExportAll {
+		Command exportAll;
+		public Command ExportAll {
 			get {
 				if (exportAll == null) {
-					exportAll = new RelayCommand (() => {
-						DependencyService.Get<IClipboardService> ().CopyToClipboard (Cards.SharedInstance.CreateXwc ());
+					exportAll = new Command (() => {
+						DependencyService.Get<IClipboardService> ().CopyToClipboard (Squadron.CreateXwc ());
 						MessagingCenter.Send<MainViewModel> (this, "Squadrons Copied");
 					});
 				}
@@ -164,11 +158,11 @@ namespace SquadBuilder {
 			}
 		}
 
-		RelayCommand sortSquadron;
-		public RelayCommand SortSquadron {
+		Command sortSquadron;
+		public Command SortSquadron {
 			get {
 				if (sortSquadron == null)
-					sortSquadron = new RelayCommand (() => {
+					sortSquadron = new Command (() => {
 						if (Settings.Editing) {
 							Settings.Editing = !Settings.Editing;
 							NotifyPropertyChanged ("Squadrons");
@@ -180,28 +174,28 @@ namespace SquadBuilder {
 						MessagingCenter.Subscribe<MenuView, string> (this, "Sort type selected", (MenuView view, string result) => {
 							switch (result) {
 							case "Alphabetical":
-								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderBy (s => s.PilotsString, new EmptyStringsAreLast ()).OrderBy (s => s.Name, new EmptyStringsAreLast ()));
+								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderBy (s => s.PilotsString, new EmptyStringsAreLast ()).OrderBy (s => s.Name, new EmptyStringsAreLast ()));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Cards.SharedInstance.SaveSquadrons ();
+								Squadron.SaveSquadrons ();
 								break;
 							case "Wins":
-								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Wins));
+								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Wins));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Cards.SharedInstance.SaveSquadrons ();
+								Squadron.SaveSquadrons ();
 								break;
 							case "Loses":
-								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Losses));
+								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Losses));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Cards.SharedInstance.SaveSquadrons ();
+								Squadron.SaveSquadrons ();
 								break;
 							case "Total Games":
-								Cards.SharedInstance.Squadrons = new ObservableCollection<Squadron> (Cards.SharedInstance.Squadrons.OrderByDescending (s => s.Wins + s.Losses + s.Draws));
+								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Wins + s.Losses + s.Draws));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Cards.SharedInstance.SaveSquadrons ();
+								Squadron.SaveSquadrons ();
 								break;
 							case "Manual":
 								Settings.Editing = !Settings.Editing;
@@ -241,9 +235,9 @@ namespace SquadBuilder {
 		{
 			base.OnViewAppearing ();
 
-			Cards.SharedInstance.CurrentSquadron = null;
+			Squadron.CurrentSquadron = null;
 
-			Cards.SharedInstance.SaveSquadrons ().ContinueWith ((task) => NotifyPropertyChanged ("Squadrons"));
+			Squadron.SaveSquadrons ().ContinueWith ((task) => NotifyPropertyChanged ("Squadrons"));
 
 			NotifyPropertyChanged ("Squadrons");
 			NotifyPropertyChanged ("SelectedSquadron");
@@ -265,28 +259,28 @@ namespace SquadBuilder {
 			});
 			                                 
 			MessagingCenter.Subscribe<Squadron> (this, "DeleteSquadron", squadron => {
-				Cards.SharedInstance.Squadrons.Remove (squadron);
+				Squadron.Squadrons.Remove (squadron);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Cards.SharedInstance.SaveSquadrons ();
+				Squadron.SaveSquadrons ();
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "EditDetails", squadron => {
-				Navigation.PushAsync<EditSquadronViewModel> ((vm, p) => vm.Squadron = squadron);
+				NavigationService.PushAsync (new EditSquadronViewModel { Squadron = squadron });
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Cards.SharedInstance.SaveSquadrons ();
+				Squadron.SaveSquadrons ();
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "CopySquadron", squadron => {
-				Cards.SharedInstance.Squadrons.Add (squadron.Copy ());
+				Squadron.Squadrons.Add (squadron.Copy ());
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Cards.SharedInstance.SaveSquadrons ();
+				Squadron.SaveSquadrons ();
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronUp", squadron => {
-				var index = Cards.SharedInstance.Squadrons.IndexOf (squadron);
+				var index = Squadron.Squadrons.IndexOf (squadron);
 
 				if (index == 0)
 					return;
@@ -294,37 +288,37 @@ namespace SquadBuilder {
 				int newIndex;
 
 				if (Faction != null) {
-					newIndex = Cards.SharedInstance.Squadrons.ToList ().FindLastIndex (index - 1, s => s.Faction.Id == squadron.Faction.Id);
+					newIndex = Squadron.Squadrons.ToList ().FindLastIndex (index - 1, s => s.Faction.Id == squadron.Faction.Id);
 					if (newIndex < 0)
 						return;
 				} else
 					newIndex = index - 1;
 
-				Cards.SharedInstance.Squadrons.Move (index, --index);
+				Squadron.Squadrons.Move (index, --index);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Cards.SharedInstance.SaveSquadrons ();
+				Squadron.SaveSquadrons ();
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronDown", squadron => {
-				var index = Cards.SharedInstance.Squadrons.IndexOf (squadron);
+				var index = Squadron.Squadrons.IndexOf (squadron);
 
-				if (index == Cards.SharedInstance.Squadrons.Count - 1)
+				if (index == Squadron.Squadrons.Count - 1)
 					return;
 
 				int newIndex;
 
 				if (Faction != null) {
-					newIndex = Cards.SharedInstance.Squadrons.ToList ().FindIndex (index + 1, s => s.Faction.Id == squadron.Faction.Id);
+					newIndex = Squadron.Squadrons.ToList ().FindIndex (index + 1, s => s.Faction.Id == squadron.Faction.Id);
 					if (newIndex < 0)
 						return;
 				} else
 					newIndex = index + 1;
 
-				Cards.SharedInstance.Squadrons.Move (index, newIndex);
+				Squadron.Squadrons.Move (index, newIndex);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Cards.SharedInstance.SaveSquadrons ();
+				Squadron.SaveSquadrons ();
 			});
 
 			MessagingCenter.Subscribe<SquadronViewModel> (this, "Squadron updated", vm => {
@@ -333,6 +327,9 @@ namespace SquadBuilder {
 			});
 
 			Squadrons = allSquadrons;
+
+            if (!string.IsNullOrEmpty (SearchText))
+                SearchSquadrons(SearchText);
 		}
 
 		public override void OnViewDisappearing ()
@@ -353,7 +350,7 @@ namespace SquadBuilder {
 		{
 			text = text.ToLower ();
 
-			var filteredSquadrons = allSquadrons.Where (s => s.Name.ToLower ().Contains (text) || s.Pilots != null && s.Pilots.Any (p => p != null && (p.Name.ToLower ().Contains (text) || (p.Ship != null && p.Ship.Name.ToLower ().Contains (text)) || p.UpgradesEquippedString.ToLower ().Contains (text))));
+			var filteredSquadrons = allSquadrons.Where (s => s.Name.ToLower ().Contains (text) || s.Pilots != null && s.Pilots.Any (p => p != null && (p.Name.ToLower ().Contains (text) || (p.Ship != null && p.Ship.Name.ToLower ().Contains (text)) || (bool)(p.UpgradesEquippedString?.ToLower ().Contains (text) ?? false))));
 
 			Squadrons = filteredSquadrons;
 		}
