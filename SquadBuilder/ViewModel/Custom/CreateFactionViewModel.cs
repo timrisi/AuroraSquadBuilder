@@ -24,7 +24,7 @@ namespace SquadBuilder
 			}
 		}
 
-		int selectedIndex = Device.OnPlatform<int> (8, 14, 8);
+		int selectedIndex = Device.RuntimePlatform == Device.Android ? 14 : 8;
 		public int SelectedIndex {
 			get { return selectedIndex; }
 			set {
@@ -39,7 +39,7 @@ namespace SquadBuilder
 			}
 		}
 
-		Color selectedColor = Device.OnPlatform <Color> (Color.Navy, Color.Teal, Color.Navy);
+		Color selectedColor = Device.RuntimePlatform == Device.Android ? Color.Teal : Color.Navy;
 		public Color SelectedColor {
 			get { return selectedColor; }
 			set { SetProperty (ref selectedColor, value); }

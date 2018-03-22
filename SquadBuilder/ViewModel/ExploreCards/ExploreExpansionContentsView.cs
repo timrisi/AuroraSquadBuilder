@@ -62,7 +62,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedPilot, value);
 
 				if (selectedPilot != null)
-					NavigationService.PushAsync (new SinglePilotViewModel { Pilot = selectedPilot });
+					NavigationService.PushAsync (new SinglePilotViewModel { Pilot = selectedPilot }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedUpgrade, value);
 
 				if (selectedUpgrade != null)
-					NavigationService.PushAsync (new SingleUpgradeViewModel { Upgrade = selectedUpgrade });
+					NavigationService.PushAsync (new SingleUpgradeViewModel { Upgrade = selectedUpgrade }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			}
 		}
 	}

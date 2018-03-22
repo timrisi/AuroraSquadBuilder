@@ -33,7 +33,7 @@ namespace SquadBuilder
 				SetProperty (ref selectedCategory, value); 
 
 				if (value != null) {
-					NavigationService.PushAsync (new UpgradesCollectionViewModel { Category = SelectedCategory.Name });
+					NavigationService.PushAsync (new UpgradesCollectionViewModel { Category = SelectedCategory.Name }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 				}
 			}
 		}

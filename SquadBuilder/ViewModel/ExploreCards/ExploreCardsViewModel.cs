@@ -10,7 +10,7 @@ namespace SquadBuilder
 			get {
 				if (viewExpansions == null) {
 					viewExpansions = new Command (() => {
-						NavigationService.PushAsync (new ExploreExpansionsViewModel ());
+						NavigationService.PushAsync (new ExploreExpansionsViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 				}
 
@@ -23,7 +23,7 @@ namespace SquadBuilder
 			get {
 				if (viewShipsAndPilots == null) {
 					viewShipsAndPilots = new Command (() => {
-						NavigationService.PushAsync (new ExploreShipsViewModel ());
+						NavigationService.PushAsync (new ExploreShipsViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 				}
 
@@ -36,7 +36,7 @@ namespace SquadBuilder
 			get {
 				if (viewUpgrades == null) {
 					viewUpgrades = new Command (() => {
-						NavigationService.PushAsync (new ExploreUpgradesCategoryListViewModel ());
+						NavigationService.PushAsync (new ExploreUpgradesCategoryListViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 				}
 

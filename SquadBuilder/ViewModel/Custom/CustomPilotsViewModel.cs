@@ -76,12 +76,12 @@ namespace SquadBuilder
 						}
 					}
 
-					NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
+					NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditPilotViewModel> (vm);
 					PilotGroups = new ObservableCollection <PilotGroup> (PilotGroups);
 					MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Finished Editing");
 				});
 
-				NavigationService.PushAsync (new EditPilotViewModel { Pilot = pilot.Copy () });
+				NavigationService.PushAsync (new EditPilotViewModel { Pilot = pilot.Copy () }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 		}
 
@@ -119,11 +119,11 @@ namespace SquadBuilder
 							PilotGroups = new ObservableCollection<PilotGroup> (pilotGroups);
 							Pilot.CustomPilots.Add (pilot);
 							Pilot.GetAllPilots ();
-							NavigationService.PopAsync (); // <EditPilotViewModel> (vm);
+							NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditPilotViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditPilotViewModel, Pilot> (this, "Pilot Created");
 						});
 
-						NavigationService.PushAsync (new EditPilotViewModel { Pilot = new Pilot (), Create = true });
+						NavigationService.PushAsync (new EditPilotViewModel { Pilot = new Pilot (), Create = true }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 
 				return createPilot;

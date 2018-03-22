@@ -35,7 +35,7 @@ namespace SquadBuilder
 			set {
 				SetProperty (ref selectedShip, value);
 				if (selectedShip != null)
-					NavigationService.PushAsync (new ExplorePilotsViewModel { Ship = selectedShip.Copy () });
+					NavigationService.PushAsync (new ExplorePilotsViewModel { Ship = selectedShip.Copy () }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			}
 		}
 

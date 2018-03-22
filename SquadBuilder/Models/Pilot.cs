@@ -177,9 +177,7 @@ namespace SquadBuilder
 
 						UpgradeTypesString = upgradesString;
 					}
-				} catch (Exception e) {
-					Console.WriteLine ("Foo");
-				}
+				} catch {}
 			}
 		}
 
@@ -343,7 +341,12 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public Color AbilityColor {
 			get {
-				return Device.OnPlatform<Color> (Color.Navy, Color.Teal, Color.Navy);
+				switch (Device.RuntimePlatform) {
+				case Device.Android:
+					return Color.Teal;
+				default:
+					return Color.Navy;
+				}
 			}
 		}
 

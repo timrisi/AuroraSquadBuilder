@@ -63,9 +63,9 @@ namespace SquadBuilder
 		public Command NavigateToPilotsList {
 			get {
 				if (navigateToPilotsList == null)
-					navigateToPilotsList = new Command (() => {
+					navigateToPilotsList = new Command (async () => {
 						if (!Settings.FilterPilotsByShip) {
-							MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", (vm, pilot) => {
+							MessagingCenter.Subscribe <PilotsListViewModel, Pilot> (this, "Pilot selected", async (vm, pilot) => {
 								if (pilot.Id.Contains ("cr90")) {
 									if (pilot.Name.Contains ("Aft")) {
 										var otherPilot = Pilot.Pilots.First (p => p.Id.Contains ("cr90") && p.Name.Contains ("Fore")).Copy ();
@@ -106,7 +106,7 @@ namespace SquadBuilder
 									}
 								}
 
-								Squadron.SaveSquadrons ();
+								await Squadron.SaveSquadrons ();
 
 								MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 							});
@@ -169,9 +169,9 @@ namespace SquadBuilder
 						}
 
 						if (Settings.FilterPilotsByShip)
-							NavigationService.PushAsync (new ShipsListViewModel { Faction = Squadron.Faction });
+							await NavigationService.PushAsync (new ShipsListViewModel { Faction = Squadron.Faction });
 						else
-							NavigationService.PushAsync (new PilotsListViewModel { Faction = Squadron.Faction });
+							await NavigationService.PushAsync (new PilotsListViewModel { Faction = Squadron.Faction });
 					});
 
 				return navigateToPilotsList;

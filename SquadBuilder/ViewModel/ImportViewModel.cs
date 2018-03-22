@@ -34,7 +34,7 @@ namespace SquadBuilder
 								if (squadrons.Count > 0)
 									MessagingCenter.Send<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", squadrons);
 
-								NavigationService.PopAsync (); //<ImportViewModel> (this);
+								NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); //<ImportViewModel> (this);
 							} else {
 
 								var squadron = Squadron.FromXws (ImportText);
@@ -43,10 +43,10 @@ namespace SquadBuilder
 									return;
 								else {
 									MessagingCenter.Send<ImportViewModel, Squadron> (this, "Squadron Imported", squadron);
-									NavigationService.PopAsync (); //<ImportViewModel> (this);
+									NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); //<ImportViewModel> (this);
 								}
 							}
-						} catch (Exception e) {
+						} catch {
 							return;
 						}
  					});

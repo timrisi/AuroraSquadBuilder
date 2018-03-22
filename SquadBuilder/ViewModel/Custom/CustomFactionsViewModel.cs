@@ -40,11 +40,11 @@ namespace SquadBuilder
 							Factions.Add (faction);
 							Faction.CustomFactions.Add (faction);
 							Faction.GetAllFactions ();
-							NavigationService.PopAsync (); // <CreateFactionViewModel> (vm);
+							NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <CreateFactionViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateFactionViewModel, Faction> (this, "Faction Created");
 						});
 							
-						NavigationService.PushAsync (new CreateFactionViewModel ());
+						NavigationService.PushAsync (new CreateFactionViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 
 				return createFaction;

@@ -24,12 +24,12 @@ namespace SquadBuilder
 					Ships [Ships.IndexOf (ship)] = updatedShip;
 					Ship.CustomShips [Ship.CustomShips.IndexOf (ship)] = updatedShip;
 
-					NavigationService.PopAsync (); // <EditShipViewModel> (vm);
+					NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditShipViewModel> (vm);
 					NotifyPropertyChanged ("Ships");
 					MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Finished Editing");
 				});
 
-				NavigationService.PushAsync (new EditShipViewModel { Ship = ship?.Copy () });
+				NavigationService.PushAsync (new EditShipViewModel { Ship = ship?.Copy () }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 		}
 
@@ -55,11 +55,11 @@ namespace SquadBuilder
 							Ships.Add (ship);
 							Ship.CustomShips.Add (ship);
 							Ship.GetAllShips ();
-							NavigationService.PopAsync (); // <EditShipViewModel> (vm);
+							NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditShipViewModel> (vm);
 							MessagingCenter.Unsubscribe <EditShipViewModel, Ship> (this, "Ship Created");
 						});
 
-						NavigationService.PushAsync (new EditShipViewModel { Ship = new Ship (), Create = true });
+						NavigationService.PushAsync (new EditShipViewModel { Ship = new Ship (), Create = true }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 
 				return createShip;

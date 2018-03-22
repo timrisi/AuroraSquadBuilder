@@ -103,7 +103,7 @@ namespace SquadBuilder {
 			if (!string.IsNullOrEmpty (faction))
 				vm.SelectedIndex = vm.Factions.IndexOf (vm.Factions.FirstOrDefault (f => f.Name == faction));
 
-			NavigationService.PushAsync (vm);
+			NavigationService.PushAsync (vm).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 		}
 
 		Command importSquadron;
@@ -117,12 +117,12 @@ namespace SquadBuilder {
 
 							Squadron.Squadrons.Add (squadron);
 
-							Squadron.SaveSquadrons ();
+							Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 							NotifyPropertyChanged ("Squadrons");
 							Squadrons = allSquadrons;
 
 							Squadron.CurrentSquadron = squadron;
-							NavigationService.PushAsync (new SquadronViewModel { Squadron = squadron });
+							NavigationService.PushAsync (new SquadronViewModel { Squadron = squadron }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 						});
 
 						MessagingCenter.Subscribe<ImportViewModel, List<Squadron>> (this, "Squadrons Imported", (vm, squadrons) => {
@@ -132,12 +132,12 @@ namespace SquadBuilder {
 							foreach (var squadron in squadrons)
 								Squadron.Squadrons.Add (squadron);
 
-							Squadron.SaveSquadrons ();
+							Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 							NotifyPropertyChanged ("Squadrons");
 							Squadrons = allSquadrons;
 						});
 
-						NavigationService.PushAsync (new ImportViewModel ());
+						NavigationService.PushAsync (new ImportViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 
 				return importSquadron;
@@ -177,25 +177,25 @@ namespace SquadBuilder {
 								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderBy (s => s.PilotsString, new EmptyStringsAreLast ()).OrderBy (s => s.Name, new EmptyStringsAreLast ()));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Squadron.SaveSquadrons ();
+								Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 								break;
 							case "Wins":
 								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Wins));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Squadron.SaveSquadrons ();
+								Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 								break;
 							case "Loses":
 								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Losses));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Squadron.SaveSquadrons ();
+								Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 								break;
 							case "Total Games":
 								Squadron.Squadrons = new ObservableCollection<Squadron> (Squadron.Squadrons.OrderByDescending (s => s.Wins + s.Losses + s.Draws));
 								NotifyPropertyChanged ("Squadrons");
 								Squadrons = allSquadrons;
-								Squadron.SaveSquadrons ();
+								Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 								break;
 							case "Manual":
 								Settings.Editing = !Settings.Editing;
@@ -262,21 +262,21 @@ namespace SquadBuilder {
 				Squadron.Squadrons.Remove (squadron);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Squadron.SaveSquadrons ();
+				Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "EditDetails", squadron => {
-				NavigationService.PushAsync (new EditSquadronViewModel { Squadron = squadron });
+				NavigationService.PushAsync (new EditSquadronViewModel { Squadron = squadron }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Squadron.SaveSquadrons ();
+				Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "CopySquadron", squadron => {
 				Squadron.Squadrons.Add (squadron.Copy ());
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Squadron.SaveSquadrons ();
+				Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronUp", squadron => {
@@ -297,7 +297,7 @@ namespace SquadBuilder {
 				Squadron.Squadrons.Move (index, --index);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Squadron.SaveSquadrons ();
+				Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 
 			MessagingCenter.Subscribe<Squadron> (this, "MoveSquadronDown", squadron => {
@@ -318,7 +318,7 @@ namespace SquadBuilder {
 				Squadron.Squadrons.Move (index, newIndex);
 				NotifyPropertyChanged ("Squadrons");
 				Squadrons = allSquadrons;
-				Squadron.SaveSquadrons ();
+				Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 
 			MessagingCenter.Subscribe<SquadronViewModel> (this, "Squadron updated", vm => {

@@ -164,7 +164,7 @@ namespace SquadBuilder
 				"qms26ynz79cou3i",
 				"",
 				new Uri ("https://www.dropbox.com/1/oauth2/authorize"),
-				new Uri ("https://www.dropbox.com"));
+                new Uri ("aurorasquadbuilder://authorized/"));
 
 			auth.AllowCancel = true;
 			auth.Completed += async (object sender, AuthenticatorCompletedEventArgs e) => {
@@ -184,7 +184,7 @@ namespace SquadBuilder
 					UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);
 #endif
 
-					SyncDropbox ();
+					await SyncDropbox ();
 				} else {
 #if __IOS__
 					UIApplication.SharedApplication.KeyWindow.RootViewController.DismissViewController (false, null);

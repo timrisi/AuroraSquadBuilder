@@ -179,7 +179,7 @@ namespace SquadBuilder
 					if ((float)versionsXml.Element ("ReferenceCards") > ReferenceCardsVersion)
 						updateXml ("ReferenceCards");
 					
-				} catch (Exception e) {
+				} catch {
 				}
 
 				Device.BeginInvokeOnMainThread (() => Application.Current.MainPage.IsBusy = false);

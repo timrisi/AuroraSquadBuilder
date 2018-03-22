@@ -60,7 +60,7 @@ namespace SquadBuilder
 
 				if (value != null) {
 					MessagingCenter.Send <PilotsListViewModel, Pilot> (this, "Pilot selected", SelectedPilot.Copy ());
-					NavigationService.PopAsync (true); // <PilotsListViewModel> (this);
+					NavigationService.PopAsync (true).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <PilotsListViewModel> (this);
 				}
 			}
 		}

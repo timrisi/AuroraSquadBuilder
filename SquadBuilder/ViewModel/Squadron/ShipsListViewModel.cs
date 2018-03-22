@@ -49,10 +49,10 @@ namespace SquadBuilder
 						MessagingCenter.Unsubscribe <PilotsListViewModel, Pilot> (this, "Pilot selected");
 
 						MessagingCenter.Send <ShipsListViewModel, Pilot> (this, "Pilot selected", pilot);
-						NavigationService.PopAsync (); // <ShipsListViewModel> (this);
+						NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <ShipsListViewModel> (this);
 					});
 
-					NavigationService.PushAsync (new PilotsListViewModel { Faction = this.Faction, Ship = selectedShip.Copy () });
+					NavigationService.PushAsync (new PilotsListViewModel { Faction = this.Faction, Ship = selectedShip.Copy () }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 				}
 			}
 		}

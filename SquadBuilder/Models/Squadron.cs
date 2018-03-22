@@ -264,7 +264,7 @@ namespace SquadBuilder {
 						obj.Add (new JProperty ("multisection_id", p.MultiSectionId));
 
 					pilots.Add (obj);
-				} catch (Exception e) {
+				} catch {
 #if IOS
 					HockeyApp.MetricsManager.TrackEvent ("Xws error",
 			                    	new Dictionary<string, string> { { "error message", e.Message } },
@@ -430,7 +430,7 @@ namespace SquadBuilder {
 				}
 
 				return squadron;
-			} catch (Exception e) {
+			} catch {
 				MessagingCenter.Send<Squadron> (new Squadron (), "Error loading squad");
 			}
 
@@ -628,7 +628,7 @@ namespace SquadBuilder {
 				);
 
 				return json.ToString ();
-			} catch (Exception e) {
+			} catch {
 				return "";
 			}
 		}

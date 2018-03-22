@@ -41,7 +41,7 @@ namespace SquadBuilder
 			if (App.Storage.HasKey (SettingsViewModel.AccessTokenKey)) {
 				try {
 					DropboxClient = new DropboxClient (App.Storage.Get<string> (SettingsViewModel.AccessTokenKey));
-					SettingsViewModel.SyncDropbox ();
+					await SettingsViewModel.SyncDropbox ();
 					var userAccount = await App.DropboxClient.Users.GetCurrentAccountAsync ();
 					App.Storage.Put<string> (SettingsViewModel.AccountKey, userAccount.Name.DisplayName);
 				} catch (Exception e) {
@@ -83,7 +83,7 @@ namespace SquadBuilder
 		protected override void OnResume ()
 		{
 			if (DropboxClient != null)
-				SettingsViewModel.SyncDropbox ();
+				SettingsViewModel.SyncDropbox ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 		}
 
 		void RegisterViews ()

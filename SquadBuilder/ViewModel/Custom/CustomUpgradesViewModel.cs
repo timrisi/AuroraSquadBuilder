@@ -50,12 +50,12 @@ namespace SquadBuilder
 						upgradeGroup.Add (updatedUpgrade);
 					}
 
-					NavigationService.PopAsync (); // <EditUpgradeViewModel> (vm);
+					NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditUpgradeViewModel> (vm);
 					Upgrades = new ObservableCollection <UpgradeGroup> (Upgrades);
 					MessagingCenter.Unsubscribe <EditUpgradeViewModel, Upgrade> (this, "Finished Editing");
 				});
 
-				NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = upgrade.Copy (), Create = false });
+				NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = upgrade.Copy (), Create = false }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 			});
 		}
 
@@ -91,11 +91,11 @@ namespace SquadBuilder
 
 							Upgrade.CustomUpgrades.Add (upgrade);
 							Upgrade.GetAllUpgrades ();
-							NavigationService.PopAsync (); // <EditUpgradeViewModel> (vm);
+						NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <EditUpgradeViewModel> (vm);
 							MessagingCenter.Unsubscribe<EditUpgradeViewModel, Upgrade>(this, "Upgrade Created");
 						});
 
-						NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = new Upgrade (), Create = true });
+					NavigationService.PushAsync (new EditUpgradeViewModel { Upgrade = new Upgrade (), Create = true }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 						//MessagingCenter.Subscribe <CreateUpgradeViewModel, Upgrade> (this, "Upgrade Created", (vm, upgrade) => {
 						//	var upgradeGroup = Upgrades.FirstOrDefault (g => g.Category == upgrade.Category);
 

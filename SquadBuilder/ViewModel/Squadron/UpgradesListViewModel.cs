@@ -44,12 +44,12 @@ namespace SquadBuilder
 				SetProperty (ref selectedUpgrade, value);
 
 				if (value != null) {
-					if (Device.OS == TargetPlatform.iOS) {
-						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
+					if (Device.RuntimePlatform == Device.iOS) {
+						NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception)); //<UpgradesListViewModel> (this);
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
 					} else {
 						MessagingCenter.Send<UpgradesListViewModel, Upgrade> (this, "Upgrade selected", selectedUpgrade.Copy ());
-						NavigationService.PopAsync (); //<UpgradesListViewModel> (this);
+						NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception)); //<UpgradesListViewModel> (this);
 					}
 				}
 			}
@@ -152,7 +152,7 @@ namespace SquadBuilder
 				}
 
 				return new ObservableCollection<Upgrade> (valid.Where (u => !u.LargeOnly && !u.HugeOnly));
-			} catch (Exception e) {
+			} catch {
 				return new ObservableCollection<Upgrade> ();
 			}
 		}
@@ -178,7 +178,7 @@ namespace SquadBuilder
 				if (noUpgrade == null)
 					noUpgrade = new Command (() => {
 						MessagingCenter.Send <UpgradesListViewModel, Upgrade> (this, "Upgrade selected", null);
-						NavigationService.PopAsync (); // <UpgradesListViewModel> (this);
+						NavigationService.PopAsync ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted); // <UpgradesListViewModel> (this);
 					});
 
 				return noUpgrade;

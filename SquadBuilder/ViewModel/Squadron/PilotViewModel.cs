@@ -98,7 +98,7 @@ namespace SquadBuilder
 //							NavigationService.PopAsync (); // <UpgradesListViewModel> (vm);
 							MessagingCenter.Unsubscribe <CreateSquadronViewModel, Squadron> (this, "Squadron Created");
 						});
-						NavigationService.PushAsync (new CreateSquadronViewModel ());
+						NavigationService.PushAsync (new CreateSquadronViewModel ()).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 
 				return selectUpgrade;
@@ -144,7 +144,7 @@ namespace SquadBuilder
 							this.Pilot = Squadron.CurrentSquadron.Pilots [pilotIndex];
 						});
 
-						NavigationService.PushAsync (new PilotsListViewModel { Faction = Pilot?.Faction, Ship = Pilot?.Ship });
+						NavigationService.PushAsync (new PilotsListViewModel { Faction = Pilot?.Faction, Ship = Pilot?.Ship }).ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 					});
 				}
 
@@ -165,7 +165,7 @@ namespace SquadBuilder
 		{
 			base.OnViewDisappearing ();
 
-			Squadron.SaveSquadrons ();
+			Squadron.SaveSquadrons ().ContinueWith (t => Console.WriteLine (t.Exception), System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
 		}
 	}
 }
