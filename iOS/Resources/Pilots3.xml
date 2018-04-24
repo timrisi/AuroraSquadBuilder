@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.938">
+<Pilots Version="3.940">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -29,7 +29,6 @@
         <Shields>1</Shields>
         <Cost>30</Cost>
         <Upgrades>
-            <Upgrade>Elite Pilot Talent</Upgrade>
             <Upgrade>Torpedo</Upgrade>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
@@ -1895,6 +1894,25 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
         <Ability>When you receive a stress token, you may remove it and roll 1 attack die.  On a {hit} result, deal 1 facedown damage card to this ship.</Ability>
         <Keywords>hit</Keywords>
     </Pilot>
+    <Pilot id="killbeesperado" faction="rebel" ship="xwing">
+        <Name>Kullbee Sperado</Name>
+        <Unique>true</Unique>
+        <PilotSkill>7</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>3</Hull>
+        <Shields>2</Shields>
+        <Cost>26</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Astromech Droid</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>After you perform a boost or barrel roll action, you may flip your equipped &quot;Servomoter S-foils&quot; Upgrade card.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
     <Pilot id="garvendreis" faction="rebel" ship="xwing">
         <Name>Garven Dreis</Name>
         <Unique>true</Unique>
@@ -1945,6 +1963,25 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When you aquire or spend a target lock you may remove 1 stress token from your ship.</Ability>
+    </Pilot>
+    <Pilot id="leevantenza" faction="rebel" ship="xwing">
+        <Name>Leevan Tenza</Name>
+        <Unique>true</Unique>
+        <PilotSkill>5</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>3</Hull>
+        <Shields>2</Shields>
+        <Cost>25</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>Astromech Droid</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>After you perform a boost action, you may receive one stress token to receive 1 evade token.</Ability>
+        <Preview>true</Preview>
     </Pilot>
     <Pilot id="redsquadronpilot" faction="rebel" ship="xwing">
         <Name>Red Squadron Pilot</Name>
@@ -2712,6 +2749,27 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
         </Upgrades>
         <Ability>At the start of the Activation phase, you may remove 1 stress token from 1 other friendly ship at Range 1-2.</Ability>
     </Pilot>
+    <Pilot id="sawgerrera" faction="rebel" ship="uwing">
+        <Name>Saw Gerrera</Name>
+        <Unique>true</Unique>
+        <PilotSkill>6</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shields>4</Shields>
+        <Cost>26</Cost>
+        <Upgrades>
+            <Upgrade>Elite Pilot Talent</Upgrade>
+            <Upgrade>System Upgrade</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>When a friendly ship at Range 1-2 attacks, if it is stressed or has at least 1 Damage card, it may reroll 1 attack die.</Ability>
+        <Preview>true</Preview>
+    </Pilot>
     <Pilot id="bodhirook" faction="rebel" ship="uwing">
         <Name>Bodhi Rook</Name>
         <Unique>true</Unique>
@@ -2730,6 +2788,26 @@ Action: Roll 1 attack die.  On a {focus} or {hit} result, remove this card.</Abi
             <Upgrade>Modification</Upgrade>
         </Upgrades>
         <Ability>When a friendly ship acquires a target lock, that ship can lock onto an enemy ship at Range 1-3 of any friendly ship.</Ability>
+    </Pilot>
+    <Pilot id="benthictwotubes" faction="rebel" ship="uwing">
+        <Name>Benthic Two Tubes</Name>
+        <Unique>true</Unique>
+        <PilotSkill>4</PilotSkill>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shields>4</Shields>
+        <Cost>24</Cost>
+        <Upgrades>
+            <Upgrade>System Upgrade</Upgrade>
+            <Upgrade>Torpedo</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Crew</Upgrade>
+            <Upgrade>Title</Upgrade>
+            <Upgrade>Modification</Upgrade>
+        </Upgrades>
+        <Ability>After you perform a focus action, you may remove 1 of your focus tokens to assign it to a friendly ship at Range 1-2.</Ability>
+        <Preview>true</Preview>
     </Pilot>
     <Pilot id="hefftobber" faction="rebel" ship="uwing">
         <Name>Heff Tobber</Name>

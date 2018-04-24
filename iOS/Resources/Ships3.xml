@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.667">
+<Ships Version="3.670">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -229,7 +229,7 @@
 		<ManeuverGridImage>KwingDial.png</ManeuverGridImage>
 	</Ship>
 	<Ship id="xwing">
-		<Name>X-Wing</Name>
+		<Name>X-Wing (T-65)</Name>
 		<Actions>
 			<Action>Focus</Action>
 			<Action>Target Lock</Action>
