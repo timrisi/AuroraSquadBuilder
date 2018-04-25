@@ -286,7 +286,7 @@ namespace SquadBuilder
 		[XmlIgnore]
 		public int Energy {
 			get {
-				return BaseEnergy + UpgradesEquipped.Sum (u => u?.Energy ?? 0);
+				return BaseEnergy + UpgradesEquipped.Where (u => u?.CategoryId != "hardpoint").Sum (u => u?.Energy ?? 0);
 			}
 		}
 

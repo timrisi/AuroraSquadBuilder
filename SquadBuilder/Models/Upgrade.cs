@@ -75,6 +75,10 @@ namespace SquadBuilder
 			get {
 				if (Pilot?.UpgradesEquipped?.Any (u => u?.Name.Contains("Vaksai") ?? false) ?? false)
 					return Math.Max (0, cost - 1);
+
+				if (CategoryId == "ept" && (Pilot?.UpgradesEquipped?.Any (u => u?.Name.Contains ("Renegade Refit") ?? false) ?? false))
+					return Math.Max (0, cost - 1);
+
 				return cost;
 			}
 			set {
