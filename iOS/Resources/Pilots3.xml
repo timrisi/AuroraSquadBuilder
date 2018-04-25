@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.940">
+<Pilots Version="3.941">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -4793,7 +4793,7 @@ When there is no Damage card on this card, remove it.</Ability>
             <Upgrade>Title</Upgrade>
             <Upgrade>Modification</Upgrade>
         </Upgrades>
-        <Ability>When attacking, if the attack is obstructed, the defender rolls fewer defense dice (to a minimum of 0).</Ability>
+        <Ability>When attacking, if the attack is obstructed, the defender rolls fewer 2 defense dice (to a minimum of 0).</Ability>
     </Pilot>
     <Pilot id="firstordertestpilot" faction="imperial" ship="tiesilencer">
         <Name>First Order Test Pilot</Name>
