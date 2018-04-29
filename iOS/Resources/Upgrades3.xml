@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.939">
+<Upgrades Version="3.940">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -1057,6 +1057,34 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Text>At the start of the &quot;Place Forces&quot; step, you may choose to treat your pilot skill value as &quot;0&quot; or &quot;8&quot; until the end of the step.</Text>
             <Limited>true</Limited>
         </Upgrade>
+        <Upgrade id="deathtroopers">
+            <Name>Death Troopers</Name>
+            <Cost>1</Cost>
+            <Text>After another friendly ship at Range 1 becomes the defender, if you are inside the attacker's firing arc at Range 1-3, the attacker receives 1 stress token.</Text>
+            <Faction>imperial</Faction>
+            <Unique>true</Unique>
+            <ExtraSlots>
+                <Upgrade>Crew</Upgrade>
+            </ExtraSlots>
+            <Preview>true</Preview>
+        </Upgrade>
+        <Upgrade id="sawgerrera">
+            <Name>Saw Gerrera</Name>
+            <Cost>1</Cost>
+            <Text>When attacking, you may suffer 1 damage to change all of your {focus} results to {crit} results.</Text>
+            <Faction>rebel</Faction>
+            <Unique>true</Unique>
+            <Keywords>focus, eyeball, crit</Keywords>
+            <Preview>true</Preview>
+        </Upgrade>
+        <Upgrade id="magvayarro">
+            <Name>Magva Yarro</Name>
+            <Cost>2</Cost>
+            <Text>After defending, you may acquire a target lock on the attacker.</Text>
+            <Faction>rebel</Faction>
+            <Unique>true</Unique>
+            <Preview>true</Preview>
+        </Upgrade>
     </Category>
     <Category id="ept" type="Elite Pilot Talent">
         <Upgrade id="determination">
@@ -1888,6 +1916,16 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <ShipRequirement>B/SF-17 Bomber</ShipRequirement>
             <Keywords>hit</Keywords>
         </Upgrade>
+        <Upgrade id="servomotorsfoils">
+            <Name>Servomotor S-foils</Name>
+            <Cost>0</Cost>
+            <Text>(Closed) Reduce your primary attack value by 1.  Your action bar gains {boost}.  Treat your ({bank left} 2) and ({bank right} 2) maneuvers as green.  At the start of the Activation phase, you may flip this card.
+
+(Attack) Your action bar gains {barrel roll}.  If you are not stressed, when you reveal a ({turn left} 3) or (3 {turn right}) maneuver, you may treat it as a red ({troll left} 3) or ({troll right} 3) in the same direction.  At the start of the Activation phase, you may flip this card.</Text>
+            <ShipRequirement>T-65 X-wing</ShipRequirement>
+            <Keywords>boost, bank, left, right, talon roll, barrel roll</Keywords>
+            <Preview>true</Preview>
+        </Upgrade>
     </Category>
     <Category id="samd" type="Salvaged Astromech">
         <Upgrade id="r4agromech">
@@ -2020,6 +2058,15 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
             <Cost>1</Cost>
             <Text>You may launch bombs using the ({straight} 5) template instead of dropping them.  You cannot launch bombs with the &quot;Action:&quot; header in this way.</Text>
             <Keywords>straight</Keywords>
+        </Upgrade>
+        <Upgrade id="targetingscrambler">
+            <Name>Targeting Scrambler</Name>
+            <Cost>0</Cost>
+            <Text>At the start of the Planning phase, you may receive a weapons disabled token to choose a ship at Range 1-3 and assign it the &quot;Scrambled&quot; Condition.
+
+Scrambled: When attacking a ship at Range 1 that is equipped with the &quot;Targeting Scrambler&quot; upgrade, you cannot modify your attack dice.  At the end of the Combat phase, remove this card.</Text>
+            <Unique>true</Unique>
+            <Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="team" type="Team">
@@ -2759,6 +2806,17 @@ When defending, you may discard this card to reroll all of your defense dice.</T
             <Cost>2</Cost>
             <Text>Action: Discard this card to choose an obstacle at Range 1-2 and inside your primary firing arc.  Each ship at Range 1 of the obstacle rolls 1 attack die and suffers an damage {hit} or critical damage {crit} rolled.  Then remove the obstacle.</Text>
             <Keywords>hit, crit</Keywords>
+        </Upgrade>
+        <Upgrade id="renegaderefit">
+            <Name>Renegade Refit</Name>
+            <Cost>-2</Cost>
+            <Text>You may equip up to 2 different Modification upgrades.  The squad point cost of each of your equipped {elite pilot talent} upgrades is reduced by 1 (to a minimum of 0).</Text>
+            <ShipRequirement>T-65 X-wing, U-wing</ShipRequirement>
+            <AdditionalUpgrades>
+                <Upgrade>Modification</Upgrade>
+            </AdditionalUpgrades>
+            <Keywords>elite pilot talent</Keywords>
+            <Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="turret" type="Turret Weapon">
