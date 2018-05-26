@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SquadBuilder", "SquadBuilder\SquadBuilder.shproj", "{A6E42A64-E9D2-409E-9024-2414EBAEE7BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadBuilder.iOS", "iOS\SquadBuilder.iOS.csproj", "{77BA9493-6FD1-4D49-83B2-6CE088D8B545}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadBuilder.Droid", "Droid\SquadBuilder.Droid.csproj", "{6767E203-D362-4821-997B-A64F6D94777C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadBuilder.Tests", "SquadBuilder.Tests\SquadBuilder.Tests.csproj", "{5A70365E-60D7-4606-9D89-2C7BD3356E1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadBuilder.iOS", "iOS\SquadBuilder.iOS.csproj", "{77BA9493-6FD1-4D49-83B2-6CE088D8B545}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -33,6 +33,10 @@ Global
 		Turkey|Any CPU = Turkey|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6767E203-D362-4821-997B-A64F6D94777C}.AppStore|Android.ActiveCfg = Debug|Any CPU
+		{6767E203-D362-4821-997B-A64F6D94777C}.AppStore|Android.Build.0 = Debug|Any CPU
+		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{6767E203-D362-4821-997B-A64F6D94777C}.Debug|Android.Build.0 = Debug|Any CPU
 		{77BA9493-6FD1-4D49-83B2-6CE088D8B545}.AppStore|Android.ActiveCfg = Ad Hoc|iPhone
 		{77BA9493-6FD1-4D49-83B2-6CE088D8B545}.AppStore|Android.Build.0 = Ad Hoc|iPhone
 		{77BA9493-6FD1-4D49-83B2-6CE088D8B545}.AppStore|Any CPU.ActiveCfg = Ad Hoc|iPhone

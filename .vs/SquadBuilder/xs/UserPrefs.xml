@@ -1,32 +1,63 @@
-<Properties StartupConfiguration="{77BA9493-6FD1-4D49-83B2-6CE088D8B545}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+﻿<Properties StartupConfiguration="{77BA9493-6FD1-4D49-83B2-6CE088D8B545}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.SquadBuilder.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SquadBuilder/View/Squadron/UpgradesListView.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/Resources/Pilots3.xml" Line="2" Column="23" />
-      <File FileName="iOS/Resources/Versions.xml" Line="10" Column="12" />
-      <File FileName="iOS/Resources/Upgrades3.xml" Line="2253" Column="35" />
-      <File FileName="iOS/Resources/Ships3.xml" Line="2" Column="22" />
-      <File FileName="SquadBuilder/Models/Upgrade.cs" Line="150" Column="16" />
-      <File FileName="SquadBuilder/ViewModel/Squadron/UpgradesListViewModel.cs" Line="1" Column="1" />
-      <File FileName="SquadBuilder/Models/Squadron.cs" Line="393" Column="54" />
-      <File FileName="SquadBuilder/Models/Pilot.cs" Line="413" Column="45" />
-      <File FileName="SquadBuilder/ViewModel/Squadron/PilotViewModel.cs" Line="74" Column="56" />
-      <File FileName="SquadBuilder/View/Squadron/UpgradesListView.xaml.cs" Line="16" Column="1" />
+      <File FileName="Droid/MainActivity.cs" Line="36" Column="2" />
+      <File FileName="SquadBuilder/ViewModel/SettingsViewModel.cs" Line="1" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/CollectionView.xaml" Line="25" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/CreateFactionView.xaml" Line="17" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/CreateSquadronView.xaml" Line="23" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/CustomFactionsView.xaml" Line="35" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/CustomPilotsView.xaml" Line="43" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/CustomShipsView.xaml" Line="37" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/CustomUpgradesView.xaml" Line="39" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/EditPilotView.xaml" Line="114" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/EditShipView.xaml" Line="38" Column="1" />
+      <File FileName="SquadBuilder/View/Custom/EditUpgradeView.xaml" Line="72" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/ExpansionsView.xaml" Line="42" Column="18" />
+      <File FileName="SquadBuilder/View/ExploreCards/ExploreExpansionsView.xaml" Line="39" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/ExplorePilotsView.xaml" Line="34" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/ExploreShipsView.xaml" Line="27" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/ExploreUpgradesCategoryListView.xaml" Line="41" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/ExploreUpgradesView.xaml" Line="29" Column="1" />
+      <File FileName="SquadBuilder/View/ImportView.xaml" Line="17" Column="1" />
+      <File FileName="SquadBuilder/View/MainView.xaml" Line="121" Column="1" />
+      <File FileName="SquadBuilder/View/MenuView.xaml" Line="25" Column="1" />
+      <File FileName="SquadBuilder/View/Controls/PilotCell.xaml" Line="42" Column="12" />
+      <File FileName="SquadBuilder/View/Controls/PilotGrid.xaml" Line="122" Column="1" />
+      <File FileName="SquadBuilder/View/Controls/PilotListGroupHeaderCell.xaml" Line="38" Column="12" />
+      <File FileName="SquadBuilder/View/Squadron/PilotView.xaml" Line="30" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/PilotsCollectionShipsListView.xaml" Line="27" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/PilotsCollectionView.xaml" Line="63" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/PilotsListView.xaml" Line="38" Column="1" />
+      <File FileName="SquadBuilder/View/ReferenceCardListView.xaml" Line="21" Column="1" />
+      <File FileName="SquadBuilder/View/ReferenceCardView.xaml" Line="14" Column="1" />
+      <File FileName="SquadBuilder/View/RootPage.xaml" Line="10" Column="1" />
+      <File FileName="SquadBuilder/View/SettingsView.xaml" Line="39" Column="1" />
+      <File FileName="SquadBuilder/View/Controls/ShipCell.xaml" Line="49" Column="12" />
+      <File FileName="SquadBuilder/View/Collection/ShipsCollectionView.xaml" Line="37" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/ShipsListView.xaml" Line="30" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/SinglePilotView.xaml" Line="34" Column="1" />
+      <File FileName="SquadBuilder/View/ExploreCards/SingleUpgradeView.xaml" Line="38" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/SquadronView.xaml" Line="141" Column="1" />
+      <File FileName="SquadBuilder/View/Controls/UpgradeCell.xaml" Line="51" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/UpgradesCollectionCategoryListView.xaml" Line="41" Column="1" />
+      <File FileName="SquadBuilder/View/Collection/UpgradesCollectionView.xaml" Line="43" Column="1" />
+      <File FileName="SquadBuilder/View/Squadron/UpgradesListView.xaml" Line="34" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.Nexus 5 (KitKat)" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.Droid PreferredExecutionTarget="Android.new_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|Android" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/Models/Cards.cs" relfile="SquadBuilder/Models/Cards.cs" line="782" column="15" />
       <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/View/Custom/EditUpgradeView.xaml" relfile="SquadBuilder/View/Custom/EditUpgradeView.xaml" line="36" column="1" />
+      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/iOS/HtmlLabelRenderer.cs" relfile="iOS/HtmlLabelRenderer.cs" line="45" column="1" />
       <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" relfile="SquadBuilder/ViewModel/Custom/CustomUpgradesViewModel.cs" line="88" column="1" />
-      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/ViewModel/Squadron/PilotViewModel.cs" relfile="SquadBuilder/ViewModel/Squadron/PilotViewModel.cs" line="65" column="18" />
-      <Breakpoint file="/Users/tim/Projects/RisiApps/AuroraSquadBuilder/SquadBuilder/View/Squadron/UpgradesListView.xaml.cs" relfile="SquadBuilder/View/Squadron/UpgradesListView.xaml.cs" line="16" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.81DEF0E4-1588-4F76-8E31-649202E5661E" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.SquadBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.81DEF0E4-1588-4F76-8E31-649202E5661E" />
   <MultiItemStartupConfigurations />
   <DisabledProjects>
     <String>UITests/SquadBuilder.UITests.csproj</String>
