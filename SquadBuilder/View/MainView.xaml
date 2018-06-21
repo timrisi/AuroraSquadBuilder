@@ -36,7 +36,8 @@
 					  BackgroundColor="Transparent"
 					  ItemsSource="{Binding Squadrons}"  
 					  SelectedItem="{Binding SelectedSquadron, Mode=TwoWay}"
-					  HasUnevenRows="true">
+					  HasUnevenRows="true"
+                      CachingStrategy="RetainElement">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
 						<ViewCell>

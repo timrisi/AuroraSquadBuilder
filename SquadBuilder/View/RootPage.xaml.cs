@@ -5,22 +5,20 @@ using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace SquadBuilder
-{
-	public partial class RootPage : MasterDetailPage
-	{
+namespace SquadBuilder {
+	public partial class RootPage : MasterDetailPage {
 		public RootPage ()
 		{
 			InitializeComponent ();
 			Master = new MenuView ();
 			Detail = MainView;
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Squadrons", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Squadrons", vm => {
 				IsPresented = false;
 				Detail = MainView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Collection", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Collection", vm => {
 				IsPresented = false;
 				Detail = CollectionView;
 			});
@@ -45,27 +43,27 @@ namespace SquadBuilder
 				Detail = CustomView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Factions", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Factions", vm => {
 				IsPresented = false;
 				Detail = CustomFactionsView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Ships", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Ships", vm => {
 				IsPresented = false;
 				Detail = CustomShipsView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Pilots", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Pilots", vm => {
 				IsPresented = false;
 				Detail = CustomPilotsView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Custom Upgrades", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Custom Upgrades", vm => {
 				IsPresented = false;
 				Detail = CustomUpgradesView;
 			});
 
-			MessagingCenter.Subscribe <MenuViewModel> (this, "Show Settings", vm => {
+			MessagingCenter.Subscribe<MenuViewModel> (this, "Show Settings", vm => {
 				IsPresented = false;
 				Detail = SettingsView;
 			});
@@ -73,24 +71,24 @@ namespace SquadBuilder
 
 		NavigationPage mainView;
 		public NavigationPage MainView {
-			get { 
+			get {
 				if (mainView == null) {
-					var tb = new TabbedPage ();
-					tb.Title = "Squadrons";
-					tb.Children.Add (new MainView ());
-					var factions = Settings.AllowCustom ? Faction.AllFactions : Faction.Factions;
-                    foreach (var faction in factions)
-                    {
-                        var factionView = new MainView(faction.Name);
+					mainView = new NavigationPage (new MainView ());
+					//var tb = new TabbedPage ();
+					//tb.Title = "Squadrons";
+					//tb.Children.Add (new MainView ());
+					//var factions = Settings.AllowCustom ? Faction.AllFactions : Faction.Factions;
+					//foreach (var faction in factions) {
+					//	var factionView = new MainView (faction.Name);
 
-                        tb.Children.Add(factionView);
-                        //if (faction.Name == "Imperial")
-                            //tb.CurrentPage = factionView;
-                    }
+					//	tb.Children.Add (factionView);
+					//	//if (faction.Name == "Imperial")
+					//	//tb.CurrentPage = factionView;
+					//}
 
-                    //if (tb.Children.FirstOrDefault (p => (p as MainView)?))
-                    ////tb.CurrentPage = tb.Children [factions.IndexOf(factions.First(f => f.Name == "Imperial")) + 1];
-					mainView = new NavigationPage (tb);
+					////if (tb.Children.FirstOrDefault (p => (p as MainView)?))
+					//////tb.CurrentPage = tb.Children [factions.IndexOf(factions.First(f => f.Name == "Imperial")) + 1];
+					//mainView = new NavigationPage (tb);
 				}
 
 				return mainView;
@@ -149,7 +147,7 @@ namespace SquadBuilder
 
 					exploreCardsView = new NavigationPage (tb);
 				}
-					//exploreCardsView = new NavigationPage (new ExploreCardsView ());
+				//exploreCardsView = new NavigationPage (new ExploreCardsView ());
 
 				return exploreCardsView;
 			}
@@ -185,7 +183,7 @@ namespace SquadBuilder
 
 		NavigationPage customFactionsView;
 		public NavigationPage CustomFactionsView {
-			get { 
+			get {
 				if (customFactionsView == null)
 					customFactionsView = new NavigationPage (new CustomFactionsView ());
 

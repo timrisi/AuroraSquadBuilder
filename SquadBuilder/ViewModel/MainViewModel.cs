@@ -77,7 +77,7 @@ namespace SquadBuilder {
 				if (addSquadron == null) {
 					addSquadron = new Command (() => {
 						CreateSquadron (Faction);
-					});
+					}); 
 				}
 
 				return addSquadron;
@@ -328,8 +328,8 @@ namespace SquadBuilder {
 
 			Squadrons = allSquadrons;
 
-            if (!string.IsNullOrEmpty (SearchText))
-                SearchSquadrons(SearchText);
+			if (!string.IsNullOrEmpty (SearchText))
+				SearchSquadrons(SearchText);
 		}
 
 		public override void OnViewDisappearing ()

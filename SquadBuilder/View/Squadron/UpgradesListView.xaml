@@ -21,6 +21,7 @@
 					  BackgroundColor="Transparent"
          			  HasUnevenRows="true"
 					  ItemsSource="{Binding Upgrades}"  
+                      CachingStrategy="RetainElement"
 					  SelectedItem="{Binding SelectedUpgrade, Mode=TwoWay}">
 				<ListView.ItemTemplate>
 					<DataTemplate> 
