@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.942">
+<Upgrades Version="3.946">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -1082,6 +1082,33 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
         </Upgrade>
+        <Upgrade id="directorkrennic">
+            <Name>Director Krennic</Name>
+            <Cost>5</Cost>
+            <Text>During setup, before the &quot;Place Forces&quot; step, assign the &quot;Optimized Prototype&quot; Condition to a friendly Galactic Empire ship with 3 or fewer shields.
+
+Optimized Prototype: Increase your shield value by 1.
+
+Once per round, when performing a primary weapon attack, you may spend 1 die result to remove 1 shield from the defender.
+
+After you perform a primary weapon attack, a friendly ship at Range 1-2 equipped with the &quot;Director Krennic&quot; Upgrade card may acquire a target lock on the defender.</Text>
+            <Faction>imperial</Faction>
+            <Unique>true</Unique>
+        </Upgrade>
+        <Upgrade id="isbslicer">
+            <Name>ISB Slicer</Name>
+            <Cost>2</Cost>
+            <Text>After you perform a jam action against an enemy ship, you may choose a ship at Range 1 of that ship that is not jammed and assign it 1 jam token.</Text>
+            <Faction>imperial</Faction>
+            <Unique>true</Unique>
+        </Upgrade>
+        <Upgrade id="tacticalofficer">
+            <Name>Tactical Officer</Name>
+            <Cost>2</Cost>
+            <Text>Your action bar gains {coordinate}</Text>
+            <Faction>imperial</Faction>
+            <Unique>true</Unique>
+        </Upgrade>
     </Category>
     <Category id="ept" type="Elite Pilot Talent">
         <Upgrade id="determination">
@@ -1922,6 +1949,13 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
             <ShipRequirement>T-65 X-wing</ShipRequirement>
             <Keywords>boost, bank, left, right, talon roll, barrel roll</Keywords>
         </Upgrade>
+        <Upgrade id="multispectralcamouflage">
+            <Name>Multi-spectral Camouflage</Name>
+            <Cost>1</Cost>
+            <Text>After you receive a red target lock token, if you have only 1 red target lock token, roll 1 defense die.  On an {evade} result, remove 1 red target lock token.</Text>
+            <SmallOnly>true</SmallOnly>
+            <Keywords>evade</Keywords>
+        </Upgrade>
     </Category>
     <Category id="samd" type="Salvaged Astromech">
         <Upgrade id="r4agromech">
@@ -2594,6 +2628,15 @@ After executing a 3-, 4-, or 5-speed maneuver, if you did not overlap an obstacl
             <Text>Immediately before you reveal your maneuver dial, if you are not stressed, you must execute a white 1 {bank left}, 1 {straight}, or 1 {bank right} maneuver.</Text>
             <Keywords>bank, left, straight, right</Keywords>
             <ShipRequirement>TIE Striker</ShipRequirement>
+        </Upgrade>
+        <Upgrade id="advancedailerons">
+            <Name>Advanced Ailerons</Name>
+            <Cost>0</Cost>
+            <Text>Treat your ({bank left} 3) and ({bank right} 3) maneuvers as white.
+
+Immediately before you reveal your maneuver dial, if you are not stressed, you must execute a white 1 {bank left}, 1 {straight}, or 1 {bank right} maneuver.</Text>
+            <Keywords>bank, left, straight, right</Keywords>
+            <ShipRequirement>TIE Reaper</ShipRequirement>
         </Upgrade>
         <Upgrade id="merchantone">
             <Name>Merchant One</Name>

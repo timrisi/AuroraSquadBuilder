@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.58">
+<Expansions Version="3.59">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1312,7 +1312,7 @@
             <Upgrade>isbslicer</Upgrade>
             <Upgrade>tacticalofficer</Upgrade>
             <Upgrade>tacticalofficer</Upgrade>
-            <Upgrade>advancedailerons-swx75</Upgrade>
+            <Upgrade>advancedailerons</Upgrade>
             <Upgrade>multispectralcamouflage</Upgrade>
         </Upgrades>
     </Expansion>
