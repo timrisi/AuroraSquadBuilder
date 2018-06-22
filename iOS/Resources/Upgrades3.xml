@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Upgrades Version="3.940">
+<Upgrades Version="3.942">
     <Category id="amd" type="Astromech Droid">
         <Upgrade id="r2d2">
             <Name>R2-D2</Name>
@@ -1066,7 +1066,6 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <ExtraSlots>
                 <Upgrade>Crew</Upgrade>
             </ExtraSlots>
-            <Preview>true</Preview>
         </Upgrade>
         <Upgrade id="sawgerrera">
             <Name>Saw Gerrera</Name>
@@ -1075,7 +1074,6 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
             <Keywords>focus, eyeball, crit</Keywords>
-            <Preview>true</Preview>
         </Upgrade>
         <Upgrade id="magvayarro">
             <Name>Magva Yarro</Name>
@@ -1083,7 +1081,6 @@ When defending, the attacker must spend 1 focus token if able.</Text>
             <Text>After defending, you may acquire a target lock on the attacker.</Text>
             <Faction>rebel</Faction>
             <Unique>true</Unique>
-            <Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="ept" type="Elite Pilot Talent">
@@ -1924,7 +1921,6 @@ You cannot equip this card if your agility is &quot;3&quot; or higher.</Text>
 (Attack) Your action bar gains {barrel roll}.  If you are not stressed, when you reveal a ({turn left} 3) or (3 {turn right}) maneuver, you may treat it as a red ({troll left} 3) or ({troll right} 3) in the same direction.  At the start of the Activation phase, you may flip this card.</Text>
             <ShipRequirement>T-65 X-wing</ShipRequirement>
             <Keywords>boost, bank, left, right, talon roll, barrel roll</Keywords>
-            <Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="samd" type="Salvaged Astromech">
@@ -2066,7 +2062,14 @@ When rolling for obstacle damage, ignore all {crit} results.</Text>
 
 Scrambled: When attacking a ship at Range 1 that is equipped with the &quot;Targeting Scrambler&quot; upgrade, you cannot modify your attack dice.  At the end of the Combat phase, remove this card.</Text>
             <Unique>true</Unique>
-            <Preview>true</Preview>
+        </Upgrade>
+        <Upgrade id="thrustcorrector">
+            <Name>Thrust Corrector</Name>
+            <Cost>1</Cost>
+            <Text>When defending, if you have 3 or fewer stress tokens, you may receive 1 stress token to cancel all of your dice results.  If you do, add 1 {evade} result to your roll.  Your dice cannot be modified again during this attack.
+
+You can equip this Upgrade only if your hull value is &quot;4&quot; or lower.</Text>
+            <Keywords>straight</Keywords>
         </Upgrade>
     </Category>
     <Category id="team" type="Team">
@@ -2816,7 +2819,6 @@ When defending, you may discard this card to reroll all of your defense dice.</T
                 <Upgrade>Modification</Upgrade>
             </AdditionalUpgrades>
             <Keywords>elite pilot talent</Keywords>
-            <Preview>true</Preview>
         </Upgrade>
     </Category>
     <Category id="turret" type="Turret Weapon">

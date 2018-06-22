@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Expansions Version="3.57">
+<Expansions Version="3.58">
 <!-- Core Sets -->
 	<Expansion id="coreset">
 		<Name>Core Set</Name>
@@ -1287,6 +1287,70 @@
             <Upgrade>advancedoptics</Upgrade>
             <Upgrade>targetingsynchronizer</Upgrade>
             <Upgrade>deflectiveplating</Upgrade>
+        </Upgrades>
+    </Expansion>
+
+    <!-- Wave 14 -->
+    <Expansion id="tiereaper">
+        <Name>TIE Reaper</Name>
+        <Wave>Wave 14</Wave>
+        <Ships>
+            <Ship>tiereaper</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>majorvermeil</Pilot>
+            <Pilot>captainferoph</Pilot>
+            <Pilot>vizier</Pilot>
+            <Pilot>scarifbasepilot</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>decoy</Upgrade>
+            <Upgrade>systemsofficer</Upgrade>
+            <Upgrade>systemsofficer</Upgrade>
+            <Upgrade>deathtroopers</Upgrade>
+            <Upgrade>directorkrennic</Upgrade>
+            <Upgrade>isbslicer</Upgrade>
+            <Upgrade>tacticalofficer</Upgrade>
+            <Upgrade>tacticalofficer</Upgrade>
+            <Upgrade>advancedailerons-swx75</Upgrade>
+            <Upgrade>multispectralcamouflage</Upgrade>
+        </Upgrades>
+    </Expansion>
+    <!-- Wave 14 -->
+    <Expansion id="sawsrenegades">
+        <Name>Saw's Renegades</Name>
+        <Wave>Wave 14</Wave>
+        <Ships>
+            <Ship>xwing</Ship>
+            <Ship>uwing</Ship>
+        </Ships>
+        <Pilots>
+            <Pilot>kullbeesperado</Pilot>
+            <Pilot>leevantenza</Pilot>
+            <Pilot>edriotwotubes</Pilot>
+            <Pilot>cavernangelszealot</Pilot>
+            <Pilot>cavernangelszealot</Pilot>
+            <Pilot>cavernangelszealot</Pilot>
+            <Pilot>sawgerrera</Pilot>
+            <Pilot>magvayarro</Pilot>
+            <Pilot>benthictwotubes</Pilot>
+            <Pilot>partisanrenegade</Pilot>
+        </Pilots>
+        <Upgrades>
+            <Upgrade>crackshot</Upgrade>
+            <Upgrade>thrustcorrector</Upgrade>
+            <Upgrade>thrustcorrector</Upgrade>
+            <Upgrade>targetingscrambler</Upgrade>
+            <Upgrade>renegaderefit</Upgrade>
+            <Upgrade>renegaderefit</Upgrade>
+            <Upgrade>renegaderefit</Upgrade>
+            <Upgrade>magvayarro</Upgrade>
+            <Upgrade>sawgerrera</Upgrade>
+            <Upgrade>flightassistastromech</Upgrade>
+            <Upgrade>pivotwing</Upgrade>
+            <Upgrade>servomotorsfoils</Upgrade>
+            <Upgrade>servomotorsfoils</Upgrade>
+            <Upgrade>servomotorsfoils</Upgrade>
         </Upgrades>
     </Expansion>
     
