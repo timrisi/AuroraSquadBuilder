@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ships Version="3.670">
+<Ships Version="3.672">
 	<Ship id="starviper">
 		<Name>StarViper</Name>
 		<Actions>
@@ -145,7 +145,7 @@
             <Action>Target Lock</Action>
             <Action>Barrel Roll</Action>
         </Actions>
-        <Symbol></Symbol>
+        <Symbol>K</Symbol>
         <ManeuverGridImage>KimogilaDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="jumpmaster5000">
@@ -284,7 +284,7 @@
             <Action>Target Lock</Action>
             <Action>Coordinate</Action>
         </Actions>
-        <Symbol></Symbol>
+        <Symbol>&#37;</Symbol>
 				<AttackSymbol>&#60;</AttackSymbol>
         <ManeuverGridImage>SheathipedeDial.png</ManeuverGridImage>
     </Ship>
@@ -340,7 +340,7 @@
             <Action>Focus</Action>
             <Action>Target Lock</Action>
         </Actions>
-        <Symbol></Symbol>
+        <Symbol>Z</Symbol>
         <LargeBase>true</LargeBase>
         <ManeuverGridImage>BSF17BomberDial.png</ManeuverGridImage>
     </Ship>
@@ -513,7 +513,7 @@
             <Action>Target Lock</Action>
             <Action>SLAM</Action>
         </Actions>
-        <Symbol></Symbol>
+        <Symbol>&amp;</Symbol>
         <ManeuverGridImage>AlphaClassStarWingDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="tiesilencer">
@@ -524,8 +524,18 @@
             <Action>Barrel Roll</Action>
             <Action>Boost</Action>
         </Actions>
-        <Symbol></Symbol>
+        <Symbol>&#36;</Symbol>
         <ManeuverGridImage>TIESilencerDial.png</ManeuverGridImage>
+    </Ship>
+    <Ship id="tiereaper">
+       <Name>TIE Reaper</Name>
+        <Actions>
+            <Action>Focus</Action>
+            <Action>Evade</Action>
+            <Action>Jam</Action>
+        </Actions>
+        <Symbol></Symbol>
+        <ManeuverGridImage>TIEReaperDial.png</ManeuverGridImage>
     </Ship>
 	<Ship id="lambdaclassshuttle">
 		<Name>Lambda-Class Shuttle</Name>
