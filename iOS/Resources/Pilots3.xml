@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Pilots Version="3.943">
+<Pilots Version="3.944">
     <!--- Scum Pilots -->
     <Pilot id="princexizor" faction="scum" ship="starviper">
         <Name>Prince Xizor</Name>
@@ -2052,7 +2052,7 @@ Mimicked:  &quot;Thweek&quot; is treated as having your pilot ability.  &quot;Th
     <Pilot id="cavernangelszealot" faction="rebel" ship="xwing">
         <Name>Cavern Angels Zealot</Name>
         <Unique>false</Unique>
-        <PilotSkill>2</PilotSkill>
+        <PilotSkill>1</PilotSkill>
         <Attack>3</Attack>
         <Agility>2</Agility>
         <Hull>3</Hull>
